@@ -1,7 +1,8 @@
-제목: 배우기
-설명: Substrate 기반 블록체인과 Substrate 런타임 개발의 핵심 원칙과 독특한 기능을 설명합니다.
+---
+title: 배우기
+description: Substrate 기반 블록체인과 Substrate 런타임 개발의 핵심 원칙과 독특한 기능을 설명합니다.
 섹션: 문서
-키워드:
+keywords:
   - 블록체인
   - 합의
   - 서브스트레이트

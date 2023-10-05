@@ -268,7 +268,7 @@ Sudo 트랜잭션을 사용하면 파라체인 또는 파라스레드 슬롯을 
 
 5. **paraSudoWrapper**를 선택한 다음 **sudoScheduleParaInitialize(id, genesis)**를 선택하여 다음 릴레이 체인 세션 시작 시 예약한 paraID를 초기화합니다.
 
-   트랜잭션 매개변수에 대한 설명:
+   트랜잭션 매개변수에 대한 description:
 
    - `id`: 예약한 `ParaId`를 입력합니다.
      이 튜토리얼에서는 예약한 식별자가 2000인 경우입니다.

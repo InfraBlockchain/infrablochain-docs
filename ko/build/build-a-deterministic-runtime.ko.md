@@ -1,6 +1,8 @@
-타이틀: 결정론적 런타임 빌드
-설명: Substrate 기반 체인을 위한 WebAssembly 런타임을 빌드하기 위해 Substrate 런타임 도구 (srtool)와 Docker를 사용하는 방법을 설명합니다.
-키워드:
+---
+title: 결정론적 런타임 빌드
+description: Substrate 기반 체인을 위한 WebAssembly 런타임을 빌드하기 위해 Substrate 런타임 도구 (srtool)와 Docker를 사용하는 방법을 설명합니다.
+keywords:
+---
 
 기본적으로 Rust 컴파일러는 최적화된 WebAssembly 이진 파일을 생성합니다.
 이러한 이진 파일은 로컬 개발을 수행하는 독립적인 환경에서는 문제가 없습니다.
