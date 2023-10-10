@@ -82,15 +82,15 @@ keywords:
    
    예를 들어, `rococo-local-parachain-plain.json` 파일을 열고 두 개의 필드를 수정합니다:
    
-   ```text
-  // --snip--
-  "para_id": <your-reserved-identifier> ,
-  // --snip--
-      "parachainInfo": {
-        "parachainId": <your-reserved-identifier> 
-      },
-  // --snip--
-  ```
+    ```text
+    // --snip--
+    "para_id": <your-reserved-identifier> ,
+    // --snip--
+        "parachainInfo": {
+          "parachainId": <your-reserved-identifier> 
+        },
+    // --snip--
+    ```
 
 3. 다음과 유사한 명령을 실행하여 수정된 체인 스펙 파일에서 원시(raw) 체인 스펙을 생성합니다:
    

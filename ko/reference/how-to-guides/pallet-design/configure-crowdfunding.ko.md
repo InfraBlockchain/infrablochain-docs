@@ -118,7 +118,7 @@ use super::*;
    pub(super) type FundCount<T: Config> = StorageValue<_, FundIndex, ValueQuery>;
    ```
 
-## 자식 트라이 API 도우미 함수 작성하기
+## 자식 트라이(Trie) API 도우미 함수 작성하기
 
 팔렛의 디스패처에게 자금 풀의 계정 ID를 제공하는 함수를 작성합니다.
 

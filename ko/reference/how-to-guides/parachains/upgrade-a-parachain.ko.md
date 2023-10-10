@@ -56,8 +56,8 @@ keywords:
 파라체인을 업그레이드하려면, 업그레이드가 발생하기 전에 중계 체인에게 체인의 런타임 업그레이드에 대해 알려주어야 합니다.
 [커뮬러스](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus) 라이브러리는 다음을 통해 중계 체인에게 예정된 업그레이드에 대해 알리는 데 도움을 줍니다:
 
-1. **[`authorize_upgrade`](https://paritytech.github.io/cumulus/cumulus_pallet_parachain_system/pallet/struct.Pallet.html#method.authorize_upgrade)**를 사용하여 업그레이드의 해시를 제공하고 승인합니다.
-1. **[`enact_authorized_upgrade`](https://paritytech.github.io/cumulus/cumulus_pallet_parachain_system/pallet/struct.Pallet.html#method.enact_authorized_upgrade)**를 사용하여 업그레이드를 위한 실제 코드를 제공합니다.
+1. [`authorize_upgrade`](https://paritytech.github.io/cumulus/cumulus_pallet_parachain_system/pallet/struct.Pallet.html#method.authorize_upgrade)를 사용하여 업그레이드의 해시를 제공하고 승인합니다.
+1. [`enact_authorized_upgrade`](https://paritytech.github.io/cumulus/cumulus_pallet_parachain_system/pallet/struct.Pallet.html#method.enact_authorized_upgrade)를 사용하여 업그레이드를 위한 실제 코드를 제공합니다.
 
 이 두 함수를 호출하면, 중계 체인에게 새로운 업그레이드가 예정되었음을 알릴 수 있습니다.
 

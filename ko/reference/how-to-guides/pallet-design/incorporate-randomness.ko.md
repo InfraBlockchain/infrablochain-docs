@@ -38,7 +38,6 @@ FRAME은 런타임 엔지니어에게 [온체인 무작위성](/build/randomness
    팔렛에서 이 특성 요구 사항을 충족하기 위해 `frame_system`에서 [`BlockNumber`](https://paritytech.github.io/substrate/master/frame_system/pallet/trait.Config.html#associatedtype.BlockNumber)와 [`Hash`](https://paritytech.github.io/substrate/master/frame_system/pallet/trait.Config.html#associatedtype.Hash)를 사용하세요.
 
    [이 특성의 문서](https://paritytech.github.io/substrate/master/frame_support/traits/trait.Randomness.html)에 명시된 대로, 이 특성은 예측하기 어려웠던 무작위성을 제공할 수 있지만, 최근에는 예측하기 쉬워진 무작위성을 제공할 수 있습니다.
-   이를 고려하여 사용을 평가하세요.
 
 ## nonce 생성 및 무작위성 구현에 사용하기
 
