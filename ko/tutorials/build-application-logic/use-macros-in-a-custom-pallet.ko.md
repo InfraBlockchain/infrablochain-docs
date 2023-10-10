@@ -224,8 +224,8 @@ Substrate은 FRAME 기반 런타임에서 사용할 수 있는 사전 구축된 
 ## 저장된 항목에 대한 스토리지 맵 구현
 
 존재 증명 팔레트에서 블록체인에 새로운 클레임을 추가하려면 스토리지 메커니즘이 필요합니다.
-이 요구 사항을 해결하기 위해 각 클레임이 소유자와 클레임이 생성된 블록 번호를 가리키는 키-값 맵을 생성할 수 있습니다.
-이러한 키-값 맵을 생성하기 위해 FRAME [`StorageMap`](https://paritytech.github.io/substrate/master/frame_support/pallet_prelude/struct.StorageMap.html)을 사용할 수 있습니다.
+이 요구 사항을 해결하기 위해 각 클레임이 소유자와 클레임이 생성된 블록 번호를 가리키는 Key-Value 맵을 생성할 수 있습니다.
+이러한 Key-Value 맵을 생성하기 위해 FRAME [`StorageMap`](https://paritytech.github.io/substrate/master/frame_support/pallet_prelude/struct.StorageMap.html)을 사용할 수 있습니다.
 
 존재 증명 팔레트에 대한 스토리지를 구현하려면 다음 단계를 수행합니다:
 
@@ -344,7 +344,7 @@ Substrate은 FRAME 기반 런타임에서 사용할 수 있는 사전 구축된 
    ./target/release/node-template --dev
    ```
 
-   `--dev` 옵션은 미리 정의된 `development` 체인 사양을 사용하여 노드를 시작합니다.
+   `--dev` 옵션은 미리 정의된 `development` 체인 스펙을 사용하여 노드를 시작합니다.
    `--dev` 옵션을 사용하면 노드를 중지하고 다시 시작할 때마다 깨끗한 작업 상태를 얻을 수 있습니다.
 
 1. 노드가 블록을 생성하는지 확인합니다.

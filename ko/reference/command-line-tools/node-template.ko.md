@@ -31,14 +31,14 @@ node-template key --help
 | 플래그   | 설명
 | ------ | -----------
 | `--alice`  | 미리 정의된 `Alice` 계정의 세션 키를 로컬 키스토어에 추가합니다. 이 플래그는 명령 줄 옵션으로 `--name alice --validator`를 사용하여 노드를 실행하는 것과 동일합니다.
-| `--allow-private-ipv4` | 노드가 사설 IPv4 주소에 연결할 수 있도록 허용합니다. 이 플래그는 노드의 체인 사양이 `local`로 식별되거나 `--dev` 플래그로 개발 모드에서 노드를 시작하는 경우 기본적으로 활성화됩니다.
+| `--allow-private-ipv4` | 노드가 사설 IPv4 주소에 연결할 수 있도록 허용합니다. 이 플래그는 노드의 체인 스펙이 `local`로 식별되거나 `--dev` 플래그로 개발 모드에서 노드를 시작하는 경우 기본적으로 활성화됩니다.
 | `--bob` | 미리 정의된 `Bob` 계정의 세션 키를 로컬 키스토어에 추가합니다. 이 플래그는 명령 줄 옵션으로 `--name bob --validator`를 사용하여 노드를 실행하는 것과 동일합니다.
 | `--charlie` | 미리 정의된 `Charlie` 계정의 세션 키를 로컬 키스토어에 추가합니다. 이 플래그는 명령 줄 옵션으로 `--name charlie --validator`를 사용하여 노드를 실행하는 것과 동일합니다.
 | `--dave` | 미리 정의된 `Dave` 계정의 세션 키를 로컬 키스토어에 추가합니다. 이 플래그는 명령 줄 옵션으로 `--name dave --validator`를 사용하여 노드를 실행하는 것과 동일합니다.
 | `--dev` | 노드를 개발 모드에서 새로운 상태로 시작합니다. 이 플래그로 노드를 실행하면 상태가 유지되지 않습니다.
 | `--disable-log-color` | 로그 메시지에서 색상 사용을 비활성화합니다.
 | `--disable-log-reloading` | 로그 필터 업데이트 및 다시로드를 비활성화합니다. 기본적으로 동적 로그 필터링이 활성화되어 있습니다. 그러나 이 기능은 성능에 영향을 줄 수 있습니다. 이 플래그로 노드를 시작하면 `system_addLogFilter` 및 `system_resetLogFilter` 원격 프로시저 호출이 효과가 없습니다.
-| `--discover-local`| 로컬 네트워크에서 피어 검색을 활성화합니다. 기본적으로 이 플래그는 `--dev` 플래그로 노드를 시작하거나 체인 사양이 `Local` 또는 `Development`으로 식별되는 경우 `true`입니다. 그렇지 않으면 `false`입니다.
+| `--discover-local`| 로컬 네트워크에서 피어 검색을 활성화합니다. 기본적으로 이 플래그는 `--dev` 플래그로 노드를 시작하거나 체인 스펙이 `Local` 또는 `Development`으로 식별되는 경우 `true`입니다. 그렇지 않으면 `false`입니다.
 | `--eve` | 미리 정의된 `Eve` 계정의 세션 키를 로컬 키스토어에 추가합니다. 이 플래그는 명령 줄 옵션으로 `--name eve --validator`를 사용하여 노드를 실행하는 것과 동일합니다.
 | `--ferdie` | 미리 정의된 `Ferdie` 계정의 세션 키를 로컬 키스토어에 추가합니다. 이 플래그는 명령 줄 옵션으로 `--name ferdie --validator`를 사용하여 노드를 실행하는 것과 동일합니다.
 | `--force-authoring` | 노드가 오프라인 상태에서도 블록 작성을 활성화합니다.
@@ -73,7 +73,7 @@ node-template key --help
 | ------ | -----------
 | `-d`, `--base-path <path>` | 사용자 정의 기본 경로를 지정합니다.
 | `--bootnodes <node-identifier>...` | 피어 간 통신을 위한 부트 노드 식별자 목록을 지정합니다.
-| `--chain <chain-specification>` | 사용할 체인 사양을 지정합니다. 미리 정의된 체인 사양 이름(예: `dev`, `local`, `staging`) 또는 체인 사양을 포함하는 파일의 경로를 지정할 수 있습니다. 예를 들어, `build-spec` 하위 명령을 사용하여 생성된 체인 사양 파일의 경로를 지정할 수 있습니다.
+| `--chain <chain-specification>` | 사용할 체인 스펙을 지정합니다. 미리 정의된 체인 스펙 이름(예: `dev`, `local`, `staging`) 또는 체인 스펙을 포함하는 파일의 경로를 지정할 수 있습니다. 예를 들어, `build-spec` 하위 명령을 사용하여 생성된 체인 스펙 파일의 경로를 지정할 수 있습니다.
 | `--database <database>` | 사용할 데이터베이스 백엔드를 선택합니다. `rocksdb`, `paritydb-experimental`, 또는 `auto`를 유효한 값으로 지정할 수 있습니다.
 | `--db-cache <MiB>` | 데이터베이스 캐시가 사용할 수 있는 최대 메모리 용량을 제한합니다.
 | `--offchain-worker <execution>` | 오프체인 워커 프로세스가 실행되는 시기를 결정합니다. 기본적으로 오프체인 워커는 새로운 블록을 작성하는 노드에서만 활성화되며 블록 유효성 검사 중에 실행됩니다. `Always`, `Never`, 또는 `WhenValidating`을 유효한 값으로 지정할 수 있습니다.
@@ -130,10 +130,10 @@ node-template key --help
 | 명령 | 설명
 | ------- | -----------
 | `benchmark` | 런타임 팔레트를 벤치마크합니다.
-| `build-spec` | 체인 사양을 빌드합니다.
+| `build-spec` | 체인 스펙을 빌드합니다.
 | `check-block` | 블록을 유효성 검사합니다.
 | `export-blocks` | 블록을 내보냅니다.
-| `export-state` | 주어진 블록의 상태를 체인 사양으로 내보냅니다.
+| `export-state` | 주어진 블록의 상태를 체인 스펙으로 내보냅니다.
 | `help` | `node-template` 또는 지정된 하위 명령에 대한 사용 정보를 표시합니다.
 | `import-blocks` | 블록을 가져옵니다.
 | `key` | 로컬 키 관리 유틸리티를 제공합니다.
@@ -189,7 +189,7 @@ node-template benchmark pallet --help
 #### 옵션
 
 `node-template benchmark` 명령과 함께 모든 일반적인 node-template 명령 줄 옵션을 조합하여 사용할 수 있습니다.
-예를 들어, `--base-path <path>`를 사용하여 블록체인 데이터를 위한 사용자 정의 디렉토리를 지정하거나 `--chain <chain-specification>`를 사용하여 어떤 `benchmark` 하위 명령에도 사용할 체인 사양을 지정할 수 있습니다.
+예를 들어, `--base-path <path>`를 사용하여 블록체인 데이터를 위한 사용자 정의 디렉토리를 지정하거나 `--chain <chain-specification>`를 사용하여 어떤 `benchmark` 하위 명령에도 사용할 체인 스펙을 지정할 수 있습니다.
 
 그러나 벤치마킹 작업을 수행하는 특정 명령 줄 옵션도 많이 있습니다.
 예를 들어, `node-template benchmark block` 하위 명령은 분석할 블록을 지정하기 위해 `--from` 및 `--to` 명령 줄 옵션을 지원합니다.
@@ -205,7 +205,7 @@ FRAME 팔레트를 벤치마크하는 것이 가장 일반적인 벤치마킹 �
 | `--header <header>` | 벤치마크 출력에 헤더 파일을 추가합니다.
 | `--heap-pages <heap-pages>` | 벤치마크 실행 중 힙 페이지를 설정합니다. 설정하지 않으면 노드의 기본값이 사용됩니다.
 | `--high <highest-range-values>...` | 각 구성 요소 범위의 최고 값을 나타냅니다.
-| `json-input <json-input-file>` | 이전에 생성된 벤치마크 결과가 포함된 JSON 파일의 경로를 지정합니다. 이 옵션을 사용하면 실제 벤치마크 테스트를 다시 실행하지 않고도 `--json-file`로 생성된 벤치마크 원시 결과를 재사용하여 팔레트의 가중치를 다시 생성하고 분석할 수 있습니다.
+| `json-input <json-input-file>` | 이전에 생성된 벤치마크 결과가 포함된 JSON 파일의 경로를 지정합니다. 이 옵션을 사용하면 실제 벤치마크 테스트를 다시 실행하지 않고도 `--json-file`로 생성된 벤치마크 원시(raw) 결과를 재사용하여 팔레트의 가중치를 다시 생성하고 분석할 수 있습니다.
 | `--list` | 현재 정의된 모든 벤치마크를 나열하고 실행하지 않습니다.
 | `--low <lowest-range-values>...` | 각 구성 요소 범위의 최소 값을 나타냅니다.
 | `--no-median-slopes` | 중앙 기울기 선형 회귀 분석을 비활성화합니다.
@@ -272,7 +272,7 @@ node-template purge-chain --base-path /path/to/custom/base
 | 옵션 | 설명
 | ------ | -----------
 | `-d`, `--base-path <path>` | 사용자 정의 기본 경로를 지정합니다.
-| `--chain <chain-specification>` | 사용할 체인 사양을 지정합니다. 미리 정의된 체인 사양 이름(예: `dev`, `local`, `staging`)을 사용하거나 `build-spec` 하위 명령을 사용하여 생성된 체인 사양이 포함된 파일의 경로를 지정할 수 있습니다.
+| `--chain <chain-specification>` | 사용할 체인 스펙을 지정합니다. 미리 정의된 체인 스펙 이름(예: `dev`, `local`, `staging`)을 사용하거나 `build-spec` 하위 명령을 사용하여 생성된 체인 스펙이 포함된 파일의 경로를 지정할 수 있습니다.
 | `--database <database>` | 사용할 데이터베이스 백엔드를 선택합니다. 유효한 값은 `rocksdb`, `paritydb-experimental`, `auto`입니다.
 | `--db-cache <MiB>` | 데이터베이스 캐시가 사용할 수 있는 메모리 양을 제한합니다. 기본값은 128 MiB입니다.
 | `-l`, `--log <log-pattern>...` | 사용자 정의 로깅 필터를 설정합니다. 사용할 구문은 `<log-target>=<level>`입니다. 예를 들어 `-lsync=debug`입니다. 가장 적은부터 가장 상세한 로그 레벨은 `error`, `warn`, `info`, `debug`, `trace`입니다. 기본적으로 모든 대상은 `info` 레벨 메시지를 기록합니다. 전역 로그 레벨을 `-l<level>`로 설정할 수 있습니다.
@@ -309,7 +309,7 @@ node-template revert [flags] [options] [--] [num]
 | 옵션   | 설명
 | -------- | -----------
 | `-d`, `--base-path <path>` | 사용자 정의 기본 경로를 지정합니다.
-| `--chain <chain-specification>` | 사용할 체인 사양을 지정합니다. 미리 정의된 체인 사양 이름(예: `dev`, `local`, `staging`)을 사용하거나 `build-spec` 하위 명령을 사용하여 생성된 체인 사양이 포함된 파일의 경로를 지정할 수 있습니다.
+| `--chain <chain-specification>` | 사용할 체인 스펙을 지정합니다. 미리 정의된 체인 스펙 이름(예: `dev`, `local`, `staging`)을 사용하거나 `build-spec` 하위 명령을 사용하여 생성된 체인 스펙이 포함된 파일의 경로를 지정할 수 있습니다.
 | `--keep-blocks <count>` | 데이터베이스에서 유지할 최종 블록 수를 지정합니다. 기본값은 모든 블록을 유지하는 것입니다.
 | `-l`, `--log <log-pattern>...` | 사용자 정의 로깅 필터를 설정합니다. 사용할 구문은 `<log-target>=<level>`입니다. 예를 들어 `-lsync=debug`입니다. 가장 적은부터 가장 상세한 로그 레벨은 `error`, `warn`, `info`, `debug`, `trace`입니다. 기본적으로 모든 대상은 `info` 레벨 메시지를 기록합니다. 전역 로그 레벨을 `-l<level>`로 설정할 수 있습니다.
 | `--pruning <pruning-mode>` | 유지할 블록 상태의 최대 수 또는 모든 블록 상태를 유지할지를 지정합니다. 노드가 검증자로 실행 중인 경우 기본값은 모든 블록 상태를 유지하는 것입니다. 노드가 검증자로 실행되지 않는 경우 마지막 256개 블록의 상태만 유지됩니다.

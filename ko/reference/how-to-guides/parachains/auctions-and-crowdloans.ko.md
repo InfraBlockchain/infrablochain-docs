@@ -133,4 +133,4 @@ extrinsic이 성공하면 [Network -> Parachains -> Crowdloan 페이지](https:/
 
 ![crowdloan-contribute.png](/media/images/docs/tutorials/parachains/crowdloan-contribute.png)
 
-지원하려는 금액을 입력하고 거래를 제출하세요.
+지원하려는 금액을 입력하고 트랜잭션을 제출하세요.

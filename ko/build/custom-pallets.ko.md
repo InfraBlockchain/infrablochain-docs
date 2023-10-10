@@ -40,8 +40,8 @@ FRAME 팔레트에서 사용되는 매크로에 대한 개요는 [FRAME 매크�
 
 <!-- ## 유용한 FRAME 트레이트
 
-- 팔레트 원산지
-- 원산지: EnsureOrigin, EnsureOneOf
+- Pallet Origin
+- Origins: EnsureOrigin, EnsureOneOf
   ...
 
 ## 런타임 구현

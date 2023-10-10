@@ -24,7 +24,7 @@ HRMP는 XCMP가 완전히 구현될 때 폐지될 예정이지만, 이 튜토리
 ## XCM 형식에 대해
 
 Polkadot 통신 채널을 통해 전달되는 메시지는 메시지 수신자가 수행해야 할 작업을 표현하기 위해 [XCM 형식](https://github.com/paritytech/xcm-format)을 사용합니다.
-XCM 형식은 체인 간 통신을 지원하기 위해 설계되었지만, 스마트 계약 및 팔레트, 브리지 및 기타 전송 프로토콜을 통한 메시지도 지원합니다.
+XCM 형식은 체인 간 통신을 지원하기 위해 설계되었지만, 스마트 컨트랙트 및 팔레트, 브리지 및 기타 전송 프로토콜을 통한 메시지도 지원합니다.
 
 ## HRMP 채널 열기
 
@@ -41,7 +41,7 @@ HRMP 채널은 단방향입니다.
 이 튜토리얼에서는 고유 식별자 1000을 가진 패러체인과 고유 식별자 1001을 가진 패러체인 간에 메시지를 교환할 수 있는 HRMP 채널을 엽니다.
 시작하기 전에 다음을 확인하세요:
 
-- Zombienet을 사용하여 [패러체인 테스트 네트워크](/test/simulate-parachains)를 설정하거나 `rococo-local` 체인 사양을 사용하여 로컬 중계 체인을 설정했습니다.
+- Zombienet을 사용하여 [패러체인 테스트 네트워크](/test/simulate-parachains)를 설정하거나 `rococo-local` 체인 스펙을 사용하여 로컬 중계 체인을 설정했습니다.
 
 - 테스트 목적으로 두 개의 로컬 또는 가상 패러체인을 설정했습니다.
 
@@ -53,7 +53,7 @@ HRMP 채널은 단방향입니다.
   Sudo 팔레트는 `substrate-parachain-template`을 사용하여 노드를 빌드하는 경우 기본적으로 포함되지 않습니다.
   Sudo 팔레트를 추가하려면 `runtime/src/lib.rs` 및 `node/src/chain_spec.rs` 파일을 업데이트해야 합니다.
   런타임에서는 구성 트레이트를 구현하고 construct_runtime 매크로를 수정하여 다른 팔레트를 추가하는 방식과 유사하게 구현할 수 있습니다.
-  Sudo 팔레트가 포함된 체인 사양 예제는 [parachain-template-1001.rs](/assets/tutorials/relay-chain-specs/parachain-template-1001.rs)를 참조하세요.
+  Sudo 팔레트가 포함된 체인 스펙 예제는 [parachain-template-1001.rs](/assets/tutorials/relay-chain-specs/parachain-template-1001.rs)를 참조하세요.
 
   실제 환경에서는 특권 트랜잭션을 위해 Sudo 팔레트 대신 거버넌스 제안 및 투표를 사용해야 합니다.
 

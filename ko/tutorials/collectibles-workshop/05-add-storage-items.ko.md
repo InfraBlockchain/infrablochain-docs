@@ -9,8 +9,8 @@ tutorial: 1
 이 워크샵에서는 상태를 추적하기 위해 세 가지 사용자 정의 저장소 항목을 생성합니다:
 
 - 단일 값인 `CollectiblesCount`는 팔레트 내의 총 수집품 수를 추적합니다.
-- 키-값 쌍인 `CollectiblesMap`은 각 수집품에 연결된 속성을 해당 수집품의 고유 식별자에 매핑합니다.
-- 키-값 쌍인 `OwnerOfCollectibles`은 수집품을 소유한 사용자 계정에 매핑합니다.
+- Key-Value 쌍인 `CollectiblesMap`은 각 수집품에 연결된 속성을 해당 수집품의 고유 식별자에 매핑합니다.
+- Key-Value 쌍인 `OwnerOfCollectibles`은 수집품을 소유한 사용자 계정에 매핑합니다.
 
 Substrate가 사용하는 저장소 아키텍처와 추상화에 대해 자세히 알아보려면 [상태 전이와 저장소](/learn/state-transitions-and-storage/)를 참조하세요.
 

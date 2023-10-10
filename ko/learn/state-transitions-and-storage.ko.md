@@ -4,22 +4,22 @@ description:
 keywords:
 ---
 
-Substrate는 데이터베이스 기반의 단순한 키-값 데이터 저장소를 사용하여 수정된 Merkle 트리로 구현됩니다.
-Substrate의 모든 [상위 수준 저장소 추상화](/build/runtime-storage)는 이 단순한 키-값 저장소 위에 구축되었습니다.
+Substrate는 데이터베이스 기반의 단순한 Key-Value 데이터 저장소를 사용하여 수정된 Merkle 트리로 구현됩니다.
+Substrate의 모든 [상위 수준 저장소 추상화](/build/runtime-storage)는 이 단순한 Key-Value 저장소 위에 구축되었습니다.
 
-## 키-값 데이터베이스
+## Key-Value 데이터베이스
 
-Substrate는 빠른 저장 환경을 위한 영속적인 키-값 저장소인 [RocksDB](https://rocksdb.org/)를 사용하여 저장소 데이터베이스를 구현합니다. 또한 실험적인 [Parity DB](https://github.com/paritytech/parity-db)도 지원합니다.
+Substrate는 빠른 저장 환경을 위한 영속적인 Key-Value 저장소인 [RocksDB](https://rocksdb.org/)를 사용하여 저장소 데이터베이스를 구현합니다. 또한 실험적인 [Parity DB](https://github.com/paritytech/parity-db)도 지원합니다.
 
 DB는 Substrate의 모든 영속적인 저장소를 필요로하는 구성 요소에 사용됩니다. 예를 들어:
 
 - Substrate 클라이언트
-- Substrate 경량 클라이언트
+- Substrate 라이트 클라이언트
 - 오프 체인 워커
 
 ## Trie 추상화
 
-단순한 키-값 저장소를 사용하는 장점 중 하나는 이를 기반으로 저장소 구조를 쉽게 추상화할 수 있다는 것입니다.
+단순한 Key-Value 저장소를 사용하는 장점 중 하나는 이를 기반으로 저장소 구조를 쉽게 추상화할 수 있다는 것입니다.
 
 Substrate는 수정 가능하고 루트 해시를 효율적으로 다시 계산할 수 있는 Base-16 Modified Merkle Patricia 트리("trie")를 [`paritytech/trie`](https://github.com/paritytech/trie)에서 사용하여 제공합니다.
 
@@ -27,7 +27,7 @@ Substrate는 수정 가능하고 루트 해시를 효율적으로 다시 계산�
 따라서 두 개의 블록체인 노드는 단순히 트라이 루트를 비교함으로써 동일한 상태를 가지고 있는지 쉽게 확인할 수 있습니다.
 
 트라이 데이터에 접근하는 것은 비용이 많이 듭니다.
-각 읽기 작업은 O(log N) 시간이 걸리며, 여기서 N은 트라이에 저장된 요소의 수입니다. 이를 완화하기 위해 키-값 캐시를 사용합니다.
+각 읽기 작업은 O(log N) 시간이 걸리며, 여기서 N은 트라이에 저장된 요소의 수입니다. 이를 완화하기 위해 Key-Value 캐시를 사용합니다.
 
 모든 트라이 노드는 DB에 저장되며, 트라이 상태의 일부는 가지를 자를 수 있습니다. 즉, 비아카이브 노드에 대해 가지를 저장소에서 삭제할 수 있습니다.
 성능상의 이유로 [참조 카운팅](http://en.wikipedia.org/wiki/Reference_counting)을 사용하지 않습니다.
@@ -35,7 +35,7 @@ Substrate는 수정 가능하고 루트 해시를 효율적으로 다시 계산�
 ### 상태 트라이
 
 Substrate 기반 체인은 각 블록 헤더에 배치된 상태 트라이라는 단일한 주요 트라이를 가지고 있습니다.
-이는 블록체인의 상태를 쉽게 확인하고 경량 클라이언트가 증명을 검증하는 기반을 제공하기 위해 사용됩니다.
+이는 블록체인의 상태를 쉽게 확인하고 라이트 클라이언트가 증명을 검증하는 기반을 제공하기 위해 사용됩니다.
 
 이 트라이는 포크가 아닌 정규 체인의 내용만 저장합니다.
 비정규적인 모든 것을 메모리에서 참조 카운트된 상태로 유지하는 별도의 [`state_db` 레이어](https://paritytech.github.io/substrate/master/sc_state_db/index.html)가 있습니다.
@@ -52,7 +52,7 @@ Substrate는 런타임에서 사용할 수 있는 자체 루트 해시를 가진
 
 ## 저장소 조회
 
-Substrate로 구축된 블록체인은 런타임 저장소를 조회하기 위해 사용할 수 있는 원격 프로시저 호출(RPC) 서버를 노출합니다. Substrate RPC를 사용하여 저장소 항목에 액세스할 때, 해당 항목과 관련된 [키](#키-값-데이터베이스)만 제공하면 됩니다.
+Substrate로 구축된 블록체인은 런타임 저장소를 조회하기 위해 사용할 수 있는 원격 프로시저 호출(RPC) 서버를 노출합니다. Substrate RPC를 사용하여 저장소 항목에 액세스할 때, 해당 항목과 관련된 [키](#Key-Value-데이터베이스)만 제공하면 됩니다.
 Substrate의 [런타임 저장소 API](/build/runtime-storage)는 여러 가지 저장소 항목 유형을 노출합니다. 다른 유형의 저장소 항목에 대한 저장소 키를 계산하는 방법을 알아보려면 계속 읽어보세요.
 
 ### 저장소 값 키

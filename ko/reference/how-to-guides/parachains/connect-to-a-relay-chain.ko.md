@@ -9,7 +9,7 @@ keywords:
   - 커뮬러스
   - 스토리지
   - 마이그레이션
-  - 파라이드
+  - paraid
   - 등록
   - 론칭
 ---
@@ -30,7 +30,7 @@ keywords:
 
 - 연결하려는 특정 릴레이 체인에서 고유 식별자를 예약합니다.
 - WebAssembly 런타임 바이너리를 컴파일합니다.
-- 파라체인을 위한 체인 사양에서 제네시스 상태를 생성합니다.
+- 파라체인을 위한 체인 스펙에서 제네시스 상태를 생성합니다.
 
 특정 릴레이 체인에 대한 파라체인을 등록하는 이러한 단계를 완료한 후에는 네트워크에 파라체인을 추가하기 위해 해당 릴레이 체인에서 슬롯을 요청할 수 있습니다.
 테스트 목적으로는 Sudo 팔레트를 사용하여 릴레이 체인에서 슬롯을 얻을 수 있습니다.
@@ -59,18 +59,18 @@ keywords:
 
    식별자는 등록 중인 릴레이 체인에서만 사용할 수 있으며 추가 단계를 완료하기 위해 식별자를 지정해야 합니다.
 
-## 파라체인 사양 사용자 정의
+## 파라체인 스펙 사용자 정의
 
-파라체인의 체인 사양을 구성하여 예약한 식별자를 사용하도록 설정해야 합니다.
+파라체인의 체인 스펙을 구성하여 예약한 식별자를 사용하도록 설정해야 합니다.
 이 작업을 수행하려면 다음을 수행해야 합니다:
 
-- 체인 사양을 일반 텍스트 JSON 파일로 생성합니다.
-- 텍스트 편집기에서 체인 사양을 수정합니다.
-- 수정된 체인 사양을 원시 형식으로 생성합니다.
+- 체인 스펙을 일반 텍스트 JSON 파일로 생성합니다.
+- 텍스트 편집기에서 체인 스펙을 수정합니다.
+- 수정된 체인 스펙을 원시(raw) 형식으로 생성합니다.
 
-사용자 정의 체인 사양을 생성하려면 다음 단계를 수행하세요:
+사용자 정의 체인 스펙을 생성하려면 다음 단계를 수행하세요:
 
-1. 다음과 유사한 명령을 실행하여 일반 체인 사양을 생성합니다:
+1. 다음과 유사한 명령을 실행하여 일반 체인 스펙을 생성합니다:
    
    ```text
    ./target/release/parachain-template-node build-spec --disable-default-bootnode > rococo-local-parachain-plain.json
@@ -78,7 +78,7 @@ keywords:
 
    이 예제의 명령은 `rococo-local`이 `node/chan_spec.rs` 파일에서 등록한 릴레이 체인을 가정합니다.
 
-2. 텍스트 편집기에서 일반 텍스트 체인 사양 파일을 열고 `ParaID`를 이전에 예약한 `ParaID`로 설정합니다.
+2. 텍스트 편집기에서 일반 텍스트 체인 스펙 파일을 열고 `ParaID`를 이전에 예약한 `ParaID`로 설정합니다.
    
    예를 들어, `rococo-local-parachain-plain.json` 파일을 열고 두 개의 필드를 수정합니다:
    
@@ -92,7 +92,7 @@ keywords:
   // --snip--
   ```
 
-3. 다음과 유사한 명령을 실행하여 수정된 체인 사양 파일에서 원시 체인 사양을 생성합니다:
+3. 다음과 유사한 명령을 실행하여 수정된 체인 스펙 파일에서 원시(raw) 체인 스펙을 생성합니다:
    
    ```text
    ./target/release/parachain-template-node build-spec \
@@ -101,18 +101,18 @@ keywords:
      --disable-default-bootnode > rococo-local-parachain-raw.json
      ```
 
-## 원시 체인 사양 저장 및 배포
+## 원시(raw) 체인 스펙 저장 및 배포
 
 다른 사람들이 네트워크에 연결할 수 있도록 하려면 네트워크에 대한 결정론적 런타임 빌드를 빌드하고 배포해야 합니다.
 결정론적 런타임을 빌드하는 방법에 대한 자세한 내용은 [결정론적 런타임 빌드](/build/build-a-deterministic-runtime/)를 참조하십시오.
 
-일반적으로 체인 사양은 노드의 코드베이스에 게시되는 `/chain-specs` 폴더에 있습니다.
+일반적으로 체인 스펙은 노드의 코드베이스에 게시되는 `/chain-specs` 폴더에 있습니다.
 예를 들어:
 
-- Polkadot은 [node/service/chain-specs](https://github.com/paritytech/polkadot-sdk/tree/master/polkadot/node/service/chain-specs)에서 이러한 **릴레이 체인** 체인 사양을 포함합니다.
-- Cumulus는 [chain-specs](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus/polkadot-parachain/src/chain_spec)에서 이러한 **파라체인** 체인 사양을 포함합니다.
+- Polkadot은 [node/service/chain-specs](https://github.com/paritytech/polkadot-sdk/tree/master/polkadot/node/service/chain-specs)에서 이러한 **릴레이 체인** 체인 스펙을 포함합니다.
+- Cumulus는 [chain-specs](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus/polkadot-parachain/src/chain_spec)에서 이러한 **파라체인** 체인 스펙을 포함합니다.
 
-계속하기 전에 원시 체인 사양을 소스에 커밋하는 것이 좋은 관행입니다.
+계속하기 전에 원시(raw) 체인 스펙을 소스에 커밋하는 것이 좋은 관행입니다.
 
 ## WebAssembly 런타임 유효성 검사 함수 획득
 
@@ -156,7 +156,7 @@ parachain-collator \
 
 이 명령에서 `--` 인자 이전에 전달된 인수는 파라체인 콜레이터를 위한 것입니다.
 `--` 이후의 인수는 내장된 릴레이 체인 노드를 위한 것입니다.
-릴레이 체인 사양은 등록한 릴레이 체인의 체인 사양이어야 함에 유의하세요. 
+릴레이 체인 스펙은 등록한 릴레이 체인의 체인 스펙이어야 함에 유의하세요. 
 
 콜레이터가 실행되고 릴레이 체인 노드와 피어링을 시작해야 합니다.
 하지만 파라체인은 아직 파라체인 블록을 생성하지 않을 것입니다.

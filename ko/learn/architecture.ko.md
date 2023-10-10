@@ -27,7 +27,7 @@ Substrate 노드는 크게 두 가지 주요 부분으로 구성됩니다:
 
 코어 클라이언트 서비스가 처리하는 가장 중요한 활동 중 일부는 다음과 같은 구성 요소들과 관련이 있습니다:
 
-- [저장소](/learn/state-transitions-and-storage/): 외부 노드는 간단하고 매우 효율적인 키-값 저장소 계층을 사용하여 Substrate 블록체인의 진화하는 상태를 유지합니다.
+- [저장소](/learn/state-transitions-and-storage/): 외부 노드는 간단하고 매우 효율적인 Key-Value 저장소 계층을 사용하여 Substrate 블록체인의 진화하는 상태를 유지합니다.
 
 - [피어 간 네트워킹](/learn/networks-and-nodes/): 외부 노드는 다른 네트워크 참가자들과 통신하기 위해 Rust 구현인 [`libp2p` 네트워크 스택](https://libp2p.io/)을 사용합니다.
 

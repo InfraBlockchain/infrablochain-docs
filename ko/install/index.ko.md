@@ -5,7 +5,7 @@ keywords:
 ---
 
 Substrate 기반 블록체인을 개발하기 위해서는 필요한 컴파일러와 도구로 개발 환경을 준비해야 합니다.
-Substrate와 Substrate와 함께 작업하는 대부분의 개발 도구는 [Rust](https://www.rust-lang.org/) 프로그래밍 언어로 작성되어 있기 때문에, 컴퓨터를 준비하기 위한 첫 번째 단계는 Rust를 설치하는 것입니다.
+Substrate 혹은 Substrate와 함께 사용하는 대부분의 개발 도구는 [Rust](https://www.rust-lang.org/) 프로그래밍 언어로 작성되어 있기 때문에, 컴퓨터를 준비하기 위한 첫 번째 단계는 Rust를 설치하는 것입니다.
 Rust를 설치하는 방법은 Substrate 개발에 사용하는 컴퓨터의 운영 체제에 따라 다릅니다.
 운영 체제별 설치 지침은 해당 운영 체제에 대한 적절한 주제를 참조하십시오.
 

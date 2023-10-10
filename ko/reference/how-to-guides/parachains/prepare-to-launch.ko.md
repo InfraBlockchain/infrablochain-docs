@@ -27,12 +27,12 @@ _모든_ 체인은 테스트 네트워크, 릴레이 체인 또는 파라체인�
 
 고유한 프로토콜 ID를 설정하려면 어떤 nonce 또는 salt 값을 사용하는지 확인하십시오. 이는 `/client/network/src/command.rs`의 CLI 항목으로 설정되며 `/client/network/src/chain_spec.rs`로 전달됩니다.
 
-모든 [체인 사양](/build/chain-spec/) 파일에 이 항목이 필드로 포함되어 있습니다.
-예를 들어, 주요 [릴레이 체인 런타임](https://github.com/paritytech/polkadot-sdk/tree/master/polkadot/node/service/chain-specs) 체인 사양에는 고유한 프로토콜 ID가 있습니다.
+모든 [체인 스펙](/build/chain-spec/) 파일에 이 항목이 필드로 포함되어 있습니다.
+예를 들어, 주요 [릴레이 체인 런타임](https://github.com/paritytech/polkadot-sdk/tree/master/polkadot/node/service/chain-specs) 체인 스펙에는 고유한 프로토콜 ID가 있습니다.
 Polkadot의 경우:
 
 ```json
-// polkadot 저장소의 원시 체인 사양 파일 `/node/service/chain-specs/polkadot.json`
+// polkadot 저장소의 원시(raw) 체인 스펙 파일 `/node/service/chain-specs/polkadot.json`
 {
   //--snip--
   "protocolId": "dot"

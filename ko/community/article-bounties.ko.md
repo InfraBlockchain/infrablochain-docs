@@ -1,5 +1,5 @@
 ---
-title: 보상을 받기 위한 기사 제출
+title: 보상을 받기 위한 아티클 제출
 slug: /v3/contribute/bounties
 version: "3.0"
 section: docs
@@ -15,7 +15,7 @@ keywords:
 > 이 섹션은 아직 작업 중입니다. 공식 Substrate 개발자 허브 보상 프로그램은 아직 없지만 곧 도입할 예정입니다.
 
 커뮤니티의 지원과 개발자 생태계에 기여를 장려하기 위해 보상 프로그램을 운영하고 있습니다.
-보상 프로그램은 새로운 "어떻게 하는지" 유형의 주제를 다루는 기사를 제출하는 콘텐츠 개발자들에게 XXX 형태의 상금을 제공합니다.
+보상 프로그램은 새로운 "어떻게 하는지" 유형의 주제를 다루는 아티클를 제출하는 콘텐츠 개발자들에게 XXX 형태의 상금을 제공합니다.
 
 ## 참여 방법
 
@@ -35,13 +35,13 @@ keywords:
 
 1. [how-to-guide 템플릿](https://github.com/substrate-developer-hub/substrate-docs/blob/main/static/assets/contribute-templates/how-to-template.md)을 사용하여 주제에 대한 정보를 구성하세요.
 
-기사에 다음 **필수** 섹션을 포함해야 합니다.
+아티클에 다음 **필수** 섹션을 포함해야 합니다.
 
 - 개요
 - 단계
 - 예제
 
-**해당되는 경우**, 기사에는 다음 섹션도 포함되어야 합니다.
+**해당되는 경우**, 아티클에는 다음 섹션도 포함되어야 합니다.
 
 - 사용 사례
 - 시작하기 전에
@@ -59,15 +59,15 @@ keywords:
 
 1. [how-to-guides](https://github.com/substrate-developer-hub/substrate-docs/blob/main/content/md/en/docs/reference/how-to-guides/index.md) 저장소에서 브랜치를 생성하세요.
 
-1. 기여하려는 기사에 대해 Pull Request (PR)를 생성하세요.
+1. 기여하려는 아티클에 대해 Pull Request (PR)를 생성하세요.
 
-1. 기사의 PR에 **Bounty submission** 라벨을 추가하세요.
+1. 아티클의 PR에 **Bounty submission** 라벨을 추가하세요.
 
-1. 선택한 이슈 또는 생성한 이슈에 기사의 PR 링크를 추가하세요.
+1. 선택한 이슈 또는 생성한 이슈에 아티클의 PR 링크를 추가하세요.
 
-제출한 기사는 Pull Request 검토의 일환으로 평가되며 다음 기준에 따라 판단됩니다:
+제출한 아티클는 Pull Request 검토의 일환으로 평가되며 다음 기준에 따라 판단됩니다:
 
-- 유용성. 기사가 다른 기존 자료가 없으며 적어도 하나의 명확한 사용 사례를 제시합니다.
+- 유용성. 아티클가 다른 기존 자료가 없으며 적어도 하나의 명확한 사용 사례를 제시합니다.
 
 - 구조. [how-to guide 템플릿](https://github.com/substrate-developer-hub/substrate-docs/blob/main/static/assets/contribute-templates/how-to-template.md) 구조와 [contributor guidelines]에서 설명한 규칙을 따릅니다.
 

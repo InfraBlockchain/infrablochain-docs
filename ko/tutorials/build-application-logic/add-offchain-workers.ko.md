@@ -278,8 +278,8 @@ keywords:
    이 코드 조각은 길지만, 기본적으로 다음 주요 단계를 보여줍니다:
 
    - `extra`의 `SignedExtra` 유형을 생성하고 준비하고, 다양한 체커를 설정합니다.
-   - 전달된 `call`과 `extra`를 기반으로 원시 페이로드를 생성합니다.
-   - 계정 공개 키로 원시 페이로드에 서명합니다.
+   - 전달된 `call`과 `extra`를 기반으로 원시(raw) 페이로드를 생성합니다.
+   - 계정 공개 키로 원시(raw) 페이로드에 서명합니다.
    - 모든 데이터를 번들로 묶어 호출, 호출자, 서명 및 서명 확장 데이터를 포함하는 튜플을 반환합니다.
 
    이 코드 예제는 [Substrate 코드베이스](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/bin/node/runtime/src/lib.rs#L1239-L1279)에서 확인할 수 있습니다.
@@ -333,7 +333,7 @@ keywords:
 
 - 다른 계정을 사용하는 경우, `subkey`와 같은 도구를 사용하여 오프체인 워커가 사용할 계정을 생성한 다음, 해당 키를 노드 키스토어에 추가할 수 있습니다.
 
-   - 체인 사양 파일의 구성을 수정합니다.
+   - 체인 스펙 파일의 구성을 수정합니다.
    - `author_insertKey` RPC 메서드를 사용하여 매개변수를 전달합니다.
 
    예를 들어, [Polkadot/Substrate Portal](https://polkadot.js.org/apps/#/rpc), Polkadot-JS API 또는 `curl` 명령을 사용하여 `author_insertKey` 메서드를 선택하고, 키 유형, 비밀 문구 및 공개 키 매개변수를 지정할 수 있습니다.

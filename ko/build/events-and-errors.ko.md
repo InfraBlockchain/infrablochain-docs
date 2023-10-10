@@ -4,7 +4,7 @@ description: 런타임에서 이벤트와 오류를 발생시키는 방법을 �
 keywords:
 ---
 
-팔렛은 런타임에서 변경 사항이나 조건에 대한 알림을 사용자, 체인 탐색기 또는 dApp과 같은 외부 개체에게 보내고자 할 때 이벤트를 발생시킬 수 있습니다.
+팔렛은 런타임에서 변경 사항이나 조건에 대한 알림을 사용자, 체인 익스플로러 또는 dApp과 같은 외부 개체에게 보내고자 할 때 이벤트를 발생시킬 수 있습니다.
 
 사용자 정의 팔렛에서는 다음을 정의할 수 있습니다:
 
@@ -134,9 +134,9 @@ FRAME 개발 환경에서 런타임으로 디스패치될 수 있는 함수 호�
 ```rust
 #[pallet::error]
 pub enum Error<T> {
-		/// 에러 이름은 설명적이어야 합니다.
+		/// Error names should be descriptive.
 		InvalidParameter,
-		/// 에러에는 유용한 문서가 있어야 합니다.
+		/// Errors should have helpful documentation associated with them.
 		OutOfSpace,
 	}
 ```

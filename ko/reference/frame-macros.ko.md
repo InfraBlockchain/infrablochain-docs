@@ -56,14 +56,14 @@ Substrate 기본 요소와 FRAME은 각각 다양한 매크로 집합에 의존�
 
 ### FRAME 시스템 매크로
 
-`frame_system` 크레이트는 핵심 데이터 타입 및 공유 유틸리티에 대한 액세스를 제공하는 원시 타입을 정의하기 위해 매크로를 사용합니다.
-이러한 원시 타입과 관련된 매크로는 외부 노드 및 런타임에서 많은 노드 작업에 기반을 제공하며, 다른 팔렛들이 Substrate 프레임워크와 상호 작용하는 기본 레이어 역할을 합니다.
+`frame_system` 크레이트는 핵심 데이터 타입 및 공유 유틸리티에 대한 액세스를 제공하는 원시(raw) 타입을 정의하기 위해 매크로를 사용합니다.
+이러한 원시(raw) 타입과 관련된 매크로는 외부 노드 및 런타임에서 많은 노드 작업에 기반을 제공하며, 다른 팔렛들이 Substrate 프레임워크와 상호 작용하는 기본 레이어 역할을 합니다.
 
-`frame_system` 크레이트에서 알아야 할 중요한 원시 타입과 매크로 중 일부는 다음과 같습니다:
+`frame_system` 크레이트에서 알아야 할 중요한 원시(raw) 타입과 매크로 중 일부는 다음과 같습니다:
 
 - [`sp_core`](https://paritytech.github.io/substrate/master/sp_core/index.html)
 
-  - `map`: 배열에서 키-값 컬렉션을 초기화하는 데 사용됩니다.
+  - `map`: 배열에서 Key-Value 컬렉션을 초기화하는 데 사용됩니다.
   - `RuntimeDebug`: 런타임을 디버깅하는 데 사용됩니다.
 
   `sp_core` 함수와 유사한 매크로에 대한 자세한 정보는 [Macros](https://paritytech.github.io/substrate/master/sp_core/index.html#macros)를 위한 문서를 참조하십시오.
@@ -88,7 +88,7 @@ Substrate 기본 요소와 FRAME은 각각 다양한 매크로 집합에 의존�
 - [`sp_std`](https://paritytech.github.io/substrate/master/sp_std/index.html)
 
   - `if_std`: `std` 기능 집합이 활성화된 경우에만 실행되어야 하는 코드를 나타냅니다.
-  - `map`: 배열에서 키-값 컬렉션을 초기화하는 데 사용됩니다.
+  - `map`: 배열에서 Key-Value 컬렉션을 초기화하는 데 사용됩니다.
   - `vec`: 인수를 포함하는 벡터를 생성하는 데 사용됩니다.
 
   `sp_std` 함수와 유사한 매크로에 대한 자세한 정보는 [Macros](https://paritytech.github.io/substrate/master/sp_std/index.html#macros)를 위한 문서를 참조하십시오.

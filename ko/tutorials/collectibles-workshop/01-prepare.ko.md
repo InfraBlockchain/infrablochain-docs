@@ -22,10 +22,10 @@ Substrate Playground을 사용하는 경우 이 체크리스트를 건너뛰고 
 - [ ] macOS
 - [ ] Windows Subsystem for Linux
 
-## Rust 프로그래밍 언어와 도구 체인
+## Rust 프로그래밍 언어와 툴체인
 
 Substrate은 현대적인 타입 안정성 프로그래밍 언어인 Rust로 개발되었습니다.
-Rust 컴파일러는 코드에 오류가 들어가는 가능성을 최소화하고 대부분의 운영 체제와 WebAssembly 대상에서 실행되는 이진 파일을 생성합니다.
+Rust 컴파일러는 코드에 오류가 들어가는 가능성을 최소화하고 대부분의 운영 체제와 WebAssembly 대상에서 실행되는 바이너리 파일을 생성합니다.
 
 - [ ] Rust가 로컬에 설치되어 있거나 Substrate Playground을 통해 브라우저에서 사용 가능합니다.
 
@@ -81,4 +81,4 @@ Substrate 컬렉터블을 사용자에게 제공하기 위해 최소한 기본�
 이 워크샵을 완료하려면 Substrate 노드에 액세스할 수 있어야 합니다.
 로컬 개발 환경을 설정하는 경우, [Quick start](/quickstart/)에서 설명하는 대로 개발자 허브 [substrate-node-template](https://github.com/substrate-developer-hub/substrate-node-template/tags/)을 다운로드하고 컴파일할 수 있습니다.
 
-`substrate-node-template` 저장소는 주요 Substrate `node-template` 이진 파일의 스냅샷을 제공하며, 기능적인 노드와 핵심 기능 세트로 시작하는 데 필요한 모든 것을 포함합니다.
+`substrate-node-template` 저장소는 주요 Substrate `node-template` 바이너리 파일의 스냅샷을 제공하며, 기능적인 노드와 핵심 기능 세트로 시작하는 데 필요한 모든 것을 포함합니다.

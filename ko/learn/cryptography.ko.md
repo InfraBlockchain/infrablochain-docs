@@ -73,7 +73,7 @@ Substrate는 여러 가지 다른 암호학적 방식을 제공하며, [`Pair` t
 슈노어 서명은 [ECDSA](#ecdsa)/EdDSA 방식보다 명확한 기능을 제공합니다:
 
 - 계층적 결정론적 키 파생에 더 적합합니다.
-- [서명 집계](https://bitcoincore.org/en/2017/03/23/schnorr-signature-aggregation/)를 통해 원시 다중 서명을 지원합니다.
+- [서명 집계](https://bitcoincore.org/en/2017/03/23/schnorr-signature-aggregation/)를 통해 원시(raw) 다중 서명을 지원합니다.
 - 일반적으로 오용에 더 저항합니다.
 
 슈노어 서명을 사용할 때 ECDSA에 비해 얻는 이점 중 하나는 두 가지 모두 64바이트를 필요로 한다는 점입니다. 그러나 ECDSA 서명만이 공개 키를 전달합니다.

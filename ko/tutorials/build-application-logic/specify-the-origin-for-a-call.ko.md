@@ -59,7 +59,7 @@ Nicks 팔렛의 경우, 계정 소유자 또는 Root 계정만 예약된 닉네�
 type ForceOrigin = frame_system::EnsureRoot<AccountId>;
 ```
 
-노드 템플릿의 개발용 [체인 사양](https://github.com/substrate-developer-hub/substrate-node-template/blob/main/node/src/chain_spec.rs)에서 [Sudo 팔렛](https://paritytech.github.io/substrate/master/pallet_sudo/index.html)은 Alice 계정을 FRAME 시스템 `Root` 출처로 사용하도록 구성되어 있습니다.
+노드 템플릿의 개발용 [체인 스펙](https://github.com/substrate-developer-hub/substrate-node-template/blob/main/node/src/chain_spec.rs)에서 [Sudo 팔렛](https://paritytech.github.io/substrate/master/pallet_sudo/index.html)은 Alice 계정을 FRAME 시스템 `Root` 출처로 사용하도록 구성되어 있습니다.
 이 구성으로 인해 기본적으로 Alice 계정만 `ForceOrigin` 유형을 필요로 하는 함수를 호출할 수 있습니다.
 
 Alice 계정 이외의 계정으로 `kill_name` 또는 `force_name`을 호출하려고 하면 호출이 실행되지 않습니다.
@@ -195,6 +195,6 @@ Substrate 개발에 대해 더 알아보기 위해 다음 [튜토리얼](/tutori
 
 튜토리얼 외에도 다음 리소스를 탐색하여 더 많은 정보를 얻을 수 있습니다.
 
-- [특권 호출과 출처](/build/origins)는 기본적인 원시 출처 유형과 사용자 정의 출처를 생성하는 방법에 대해 자세히 설명합니다.
+- [특권 호출과 출처](/build/origins)는 기본적인 원시(raw) 출처 유형과 사용자 정의 출처를 생성하는 방법에 대해 자세히 설명합니다.
 - [이벤트와 오류](/build/events-and-errors)는 런타임에서 이벤트와 오류를 발생시키는 방법을 설명합니다.
 - [FRAME 팔렛](/reference/frame-pallets/)은 가장 일반적으로 사용되는 미리 정의된 FRAME 팔렛에 대한 개요를 제공합니다.

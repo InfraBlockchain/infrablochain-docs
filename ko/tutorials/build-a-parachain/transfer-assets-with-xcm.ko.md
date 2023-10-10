@@ -19,7 +19,7 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- Zombienet 또는 `rococo-local` 체인 사양을 사용하여 [패러체인 테스트 네트워크](/test/simulate-parachains)를 설정했는지 확인하세요.
+- Zombienet 또는 `rococo-local` 체인 스펙을 사용하여 [패러체인 테스트 네트워크](/test/simulate-parachains)를 설정했는지 확인하세요.
 
 - 테스트 목적으로 두 개의 로컬 또는 가상 패러체인을 설정했는지 확인하세요.
 

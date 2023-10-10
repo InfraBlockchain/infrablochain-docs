@@ -57,7 +57,7 @@ keywords:
 
 시작하기 전에 다음을 확인하십시오:
 
-- [Rust 및 Rust 도구 체인](/install/)을 설치하여 Substrate 개발 환경을 구성했습니다.
+- [Rust 및 Rust 툴체인](/install/)을 설치하여 Substrate 개발 환경을 구성했습니다.
 
 - [로컬 블록체인 빌드](/tutorials/build-a-blockchain/build-local-blockchain/)을 완료하고 Substrate 노드 템플릿을 로컬로 설치했습니다.
 
