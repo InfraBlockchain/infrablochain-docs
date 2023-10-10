@@ -4,16 +4,16 @@ description: Substrate 기반 체인을 위한 WebAssembly 런타임을 빌드�
 keywords:
 ---
 
-기본적으로 Rust 컴파일러는 최적화된 WebAssembly 이진 파일을 생성합니다.
-이러한 이진 파일은 로컬 개발을 수행하는 독립적인 환경에서는 문제가 없습니다.
-그러나 컴파일러가 기본적으로 빌드하는 WebAssembly 이진 파일은 결정론적으로 재현 가능하지 않습니다.
+기본적으로 Rust 컴파일러는 최적화된 WebAssembly 바이너리를 생성합니다.
+이러한 바이너리는 로컬 개발을 수행하는 독립적인 환경에서는 문제가 없습니다.
+그러나 컴파일러가 기본적으로 빌드하는 WebAssembly 바이너리는 결정론적(deterministic)하지 않습니다.
 컴파일러가 WebAssembly 런타임을 생성할 때마다 약간 다른 WebAssembly 바이트 코드를 생성할 수 있습니다.
-이는 모든 노드가 정확히 동일한 체인 사양 파일을 사용해야 하는 블록체인 네트워크에서 문제가 됩니다.
+이는 모든 노드가 정확히 **동일한 체인 스펙(Chain Spec)**을 사용해야 하는 블록체인 네트워크에서 문제가 됩니다.
 
-결정론적으로 재현 가능하지 않은 빌드를 사용하면 다른 문제가 발생할 수도 있습니다.
+결정론적이지 않은 빌드를 사용하면 다른 문제가 발생할 수도 있습니다.
 예를 들어, 블록체인의 빌드 프로세스를 자동화하려면 항상 동일한 코드가 동일한 결과를 생성하도록 보장해야 합니다.
 결정론적인 빌드 없이는 매번 푸시할 때마다 WebAssembly 런타임을 컴파일하면 일관되지 않고 예측할 수 없는 결과가 생성되어 자동화와 통합하기 어렵고 CI/CD 파이프라인을 계속해서 깨뜨리게 됩니다.
-결정론적인 빌드 - 항상 정확히 동일한 바이트 코드로 컴파일되는 코드 - 는 또한 WebAssembly 런타임을 검사, 감사 및 독립적으로 검증할 수 있도록 합니다.
+결정론적인 빌드(Deterministic builds) - 항상 정확히 동일한 바이트 코드로 컴파일되는 코드 - 는 또한 WebAssembly 런타임을 검사, 감사 및 독립적으로 검증할 수 있도록 합니다.
 
 ## WebAssembly 런타임을 위한 도구
 
@@ -30,16 +30,16 @@ Substrate 런타임 도구 (`srtool`)의 핵심 구성 요소는 Docker 컨테�
 `srtool`은 Docker 컨테이너이므로 사용하려면 빌드 환경에 Docker가 설치되어 있어야 합니다.
 그러나 `srtool`을 사용하여 Substrate 기반 체인을 빌드하는 데 Docker를 사용하는 방법에 대해 알 필요는 없습니다. `srtool-cli` 명령줄 인터페이스를 사용하여 Docker 이미지와 작업할 수 있습니다.
 
-`srtool-cli` 패키지는 Rust로 작성된 명령줄 유틸리티로, 컴퓨터에 `srtool`이라는 실행 가능한 프로그램을 설치합니다.
+`srtool-cli` 패키지는 Rust로 작성된 커맨드 라인(command-line) 유틸리티로, 컴퓨터에 `srtool`이라는 실행 가능한 프로그램을 설치합니다.
 이 프로그램은 `srtool` Docker 컨테이너와의 상호작용을 간소화합니다.
 시간이 지남에 따라 `srtool` 이미지 주변의 도구들은 다음과 같은 도구와 도움 프로그램을 포함하도록 확장되었습니다:
 
 - [srtool-cli](https://github.com/chevdor/srtool-cli)는 srtool Docker 이미지를 가져오고 이미지 및 상호작용에 사용되는 도구에 대한 정보를 얻으며 `srtool` Docker 컨테이너를 사용하여 런타임을 빌드하는 명령줄 인터페이스를 제공합니다.
 
-- [subwasm](https://github.com/chevdor/subwasm)은 srtool을 사용하여 빌드된 메타데이터 및 WebAssembly 런타임을 사용하는 명령줄 옵션을 제공합니다. `subwasm` 프로그램은 `srtool` 이미지에서 작업을 수행하는 데에도 내부적으로 사용됩니다.
+- [subwasm](https://github.com/chevdor/subwasm)은 srtool을 사용하여 빌드된 메타데이터 및 WebAssembly 런타임을 사용하는 커맨드 라인 옵션을 제공합니다. `subwasm` 프로그램은 `srtool` 이미지에서 작업을 수행하는 데에도 내부적으로 사용됩니다.
 
 - [srtool-actions](https://github.com/chevdor/srtool-actions)은 `srtool` 이미지를 사용하여 생성된 빌드를 GitHub CI/CD 파이프라인과 통합하기 위한 GitHub 액션을 제공합니다.
-- [srtool-app](https://gitlab.com/chevdor/srtool-app)은 `srtool` Docker 이미지를 사용하여 런타임을 빌드하기 위한 간단한 그래픽 사용자 인터페이스를 제공합니다.
+- [srtool-app](https://gitlab.com/chevdor/srtool-app)은 `srtool` Docker 이미지를 사용하여 런타임을 빌드하기 위한 간단한 GUI 를 제공합니다.
 
 ## 환경 준비하기
 
@@ -99,7 +99,7 @@ Substrate 런타임 도구 (`srtool`)의 핵심 구성 요소는 Docker 컨테�
    - `--package`에 지정하는 이름은 런타임의 `Cargo.toml` 파일에 정의된 이름이어야 합니다.
 
    - `--runtime-dir`에 지정하는 경로는 런타임의 `Cargo.toml` 파일의 경로여야 합니다.
-     런타임의 `Cargo.toml` 파일이 `runtime` 하위 디렉토리에 위치한 경우 (예: runtime/kusama), `--runtime-dir` 명령줄 옵션을 생략할 수 있습니다.
+     런타임의 `Cargo.toml` 파일이 `runtime` 하위 디렉토리에 위치한 경우 (예: runtime/kusama), `--runtime-dir` 명령줄 옵션은 생략할 수 있습니다.
 
 ## 워크플로 액션 추가하기
 

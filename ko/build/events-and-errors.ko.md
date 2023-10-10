@@ -4,9 +4,9 @@ description: 런타임에서 이벤트와 오류를 발생시키는 방법을 �
 keywords:
 ---
 
-팔렛은 런타임에서 변경 사항이나 조건에 대한 알림을 사용자, 체인 탐색기 또는 dApp과 같은 외부 개체에게 보내고자 할 때 이벤트를 발생시킬 수 있습니다.
+팔렛은 런타임에서 변경 사항이나 조건에 대한 알림을 사용자, 체인 익스플로러 또는 dApp과 같은 외부 개체에게 보내고자 할 때 이벤트를 발생시킬 수 있습니다.
 
-사용자 정의 팔렛에서는 다음을 정의할 수 있습니다:
+커스텀 팔렛에서는 다음을 정의할 수 있습니다:
 
 - 발생시키고자 하는 이벤트의 유형
 - 이벤트에 포함되는 정보
@@ -67,8 +67,8 @@ pub enum Event<T: Config> {
    );
    ```
 
-   이 예제에서 이벤트는 일반적인 타입이며 `<T>` 매개변수가 필요합니다.
-   이벤트가 일반적인 타입을 사용하지 않는 경우 `<T>` 매개변수는 필요하지 않습니다.
+   이 예제에서 이벤트는 제네릭 타입이며 `<T>` 매개변수가 필요합니다.
+   이벤트가 제네릭을 사용하지 않는 경우 `<T>` 매개변수는 필요하지 않습니다.
 
 ## 이벤트 발생시키기
 
@@ -101,10 +101,10 @@ Substrate는 매크로를 사용하여 이벤트를 발생시키는 기본 구�
 
 이 함수의 기본 동작은 FRAME 시스템에서 [`deposit_event`](https://paritytech.github.io/substrate/master/frame_system/pallet/struct.Pallet.html#method.deposit_event)를 호출하여 이벤트를 스토리지에 기록하는 것입니다.
 
-이 함수는 해당 블록의 시스템 팔렛의 런타임 스토리지에 이벤트를 배치합니다.
+이 함수는 해당 블록의 시스템 팔렛(System Pallet)의 스토리지에 이벤트를 저장합니다.
 새로운 블록이 시작될 때, 시스템 팔렛은 이전 블록에서 저장된 모든 이벤트를 자동으로 제거합니다.
 
-기본 구현을 사용하여 예치된 이벤트는 [Polkadot-JS API](https://github.com/polkadot-js/api)와 같은 하위 라이브러리에서 직접 지원됩니다.
+발생된 이벤트는 [Polkadot-JS API](https://github.com/polkadot-js/api)와 같은 하위 라이브러리에서 직접 지원됩니다.
 그러나 이벤트를 다르게 처리하고 싶다면 자체 `deposit_event` 함수를 구현할 수도 있습니다.
 
 ## 지원되는 타입
@@ -117,18 +117,18 @@ Substrate는 매크로를 사용하여 이벤트를 발생시키는 기본 구�
 ## 이벤트 수신하기
 
 Substrate RPC는 이벤트를 직접 쿼리할 수 있는 엔드포인트를 제공하지 않습니다.
-기본 구현을 사용한 경우, System 팔렛의 스토리지를 쿼리하여 현재 블록의 이벤트 목록을 볼 수 있습니다.
-그렇지 않은 경우, [Polkadot-JS API](https://github.com/polkadot-js/api)는 런타임 이벤트에 대한 WebSocket 구독을 지원합니다.
+기본적으로 System 팔렛의 스토리지를 쿼리하여 현재 블록의 이벤트 목록을 볼 수 있습니다.
+그렇지 않은 경우, [Polkadot-JS API](https://github.com/polkadot-js/api)는 런타임 이벤트에 대한 WebSocket을 지원합니다.
 
 ## 오류
 
 런타임 코드는 명시적으로 모든 오류 상황을 처리해야 합니다.
-런타임 코드의 함수는 컴파일러를 [패닉](https://doc.rust-lang.org/book/ch09-03-to-panic-or-not-to-panic.html)시키지 않는 오류가 없는 함수여야 합니다.
+런타임 코드의 함수는 컴파일러를 [패닉](https://doc.rust-lang.org/book/ch09-03-to-panic-or-not-to-panic.html)시키지 않는 함수여야 합니다.
 Rust에서 패닉이 발생하지 않는 코드를 작성하는 일반적인 관용구는 [`Result` 타입](https://paritytech.github.io/substrate/master/frame_support/dispatch/result/enum.Result.html)을 반환하는 함수를 작성하는 것입니다.
-`Result` 열거형 타입은 함수가 성공적으로 실행되지 못했음을 패닉하지 않고 알릴 수 있는 `Err` 변형을 가지고 있습니다.
-FRAME 개발 환경에서 런타임으로 디스패치될 수 있는 함수 호출은, 함수가 오류를 만났을 경우 [`DispatchError` 변형](https://paritytech.github.io/substrate/master/frame_support/dispatch/enum.DispatchError.html)일 수 있는 [`DispatchResult` 타입](https://paritytech.github.io/substrate/master/frame_support/dispatch/type.DispatchResult.html)을 반환해야 합니다.
+`Result` 열거형 타입은 함수가 성공적으로 실행되지 못했음을 패닉하지 않고 알릴 수 있는 `Err`을 가지고 있습니다.
+FRAME 개발은 런타임으로 디스패치될 수 있는 함수 호출에 대해 오류를 만났을 경우 [`DispatchError`](https://paritytech.github.io/substrate/master/frame_support/dispatch/enum.DispatchError.html)를 낼 수 있는 [`DispatchResult` 타입](https://paritytech.github.io/substrate/master/frame_support/dispatch/type.DispatchResult.html)을 반환해야 합니다.
 
-각 FRAME 팔렛은 `#[pallet::error]` 매크로를 사용하여 사용자 정의 `DispatchError`를 정의할 수 있습니다.
+각 FRAME 팔렛은 `#[pallet::error]` 매크로를 사용하여 커스텀 `DispatchError`를 정의할 수 있습니다.
 예를 들어:
 
 ```rust
