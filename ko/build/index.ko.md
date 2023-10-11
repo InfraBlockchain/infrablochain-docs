@@ -14,7 +14,7 @@ keywords:
 - [이벤트와 오류](/build/events-and-errors)는 런타임에서 이벤트와 오류를 발생시키는 방법을 설명합니다.
 - [랜덤성](/build/randomness)은 Substrate 기반 블록체인에서 랜덤성을 포함하는 방법을 제안합니다.
 - [특권(Privileged) 호출과 오리진(Origin)](/build/origins)은 사전 정의된 또는 커스텀 오리진을 사용하여 함수 호출자의 오리진을 식별하는 방법을 설명합니다.
-- [RPC 호출](/build/remote-procedure-calls/)은 원격 프로시저 호출과 RPC 메서드를 사용하여 Substrate 노드와 상호 작용하는 방법을 요약합니다.
+- [RPC](/build/remote-procedure-calls/)은 원격 프로시저 호출과 RPC 메서드를 사용하여 Substrate 노드와 상호 작용하는 방법을 요약합니다.
 - [어플리케이션 개발](/build/application-development/)은 블록체인에서 실행되는 어플리케이션을 구축하기 위한 도구로서 메타데이터와 프론트엔드 라이브러리의 역할을 소개합니다.
 - [체인 스펙](/build/chain-spec)은 체인 스펙의 사용에 대해 논의하며, 수정할 수 있는 내용과 수정할 수 없는 내용, 그리고 커스텀 체인 스펙을 배포하는 방법에 대해 설명합니다.
 - [Genesis 구성](/build/genesis-configuration)은 genesis 구성의 주요 요소에 대해 설명합니다.

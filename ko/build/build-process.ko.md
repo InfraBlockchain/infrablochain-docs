@@ -130,7 +130,7 @@ WebAssembly 런타임이 기본적으로 선택되지만, 모든 또는 특정 �
 새로운 WebAssembly 런타임을 빌드하지 않고 노드의 Rust 코드를 컴파일하려면 `SKIP_WASM_BUILD`를 빌드 옵션으로 사용할 수 있습니다.
 이 옵션은 WebAssembly를 업데이트할 필요가 없는 경우에 컴파일 시간을 빠르게 하기 위해 주로 사용됩니다.
 
-## 다음 단계
+## 다음 단계로 넘어가기
 
 - [Wasm-builder README](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/utils/wasm-builder/README.md)
 - [Rust 컴파일 옵션](https://doc.rust-lang.org/cargo/commands/cargo-build.html#compilation-options)
