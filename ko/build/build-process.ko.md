@@ -62,12 +62,12 @@ include!(concat!(env!("OUT_DIR"), "/wasm_binary.rs"));
 이 코드는 압축된 WebAssembly 바이너리(`WASM_BINARY`)와 컴파일러에 의해 생성된 압축되지 않은 WebAssembly 바이너리(`WASM_BINARY_BLOATY`)를 컴파일 결과에 포함시키고, 프로젝트의 최종 실행 파일이 생성됩니다.
 
 빌드 프로세스의 각 단계에서 WebAssembly 바이너리는 이전보다 작은 크기로 압축됩니다.
-예를 들어, Polkadot의 각 WebAssembly 바이너리 아티팩트의 크기를 비교할 수 있습니다:
+예를 들어, InfraBlockspace 의 각 WebAssembly 바이너리 아티팩트의 크기를 비교할 수 있습니다:
 
 ```bash
-.rw-r--r-- 1.2M pep  1 Dec 16:13 │  ├── polkadot_runtime.compact.compressed.wasm
-.rw-r--r-- 5.1M pep  1 Dec 16:13 │  ├── polkadot_runtime.compact.wasm
-.rwxr-xr-x 5.5M pep  1 Dec 16:13 │  └── polkadot_runtime.wasm
+.rw-r--r-- 1.2M pep  1 Dec 16:13 │  ├── infrablockspace_runtime.compact.compressed.wasm
+.rw-r--r-- 5.1M pep  1 Dec 16:13 │  ├── infrablockspace_runtime.compact.wasm
+.rwxr-xr-x 5.5M pep  1 Dec 16:13 │  └── infrablockspace_runtime.wasm
 ```
 
 체인 업그레이드 및 릴레이 체인 유효성 검사를 위해 항상 완전히 압축된 런타임(`*_runtime.compact.compressed.wasm`) WebAssembly 이진 파일을 사용해야 합니다.

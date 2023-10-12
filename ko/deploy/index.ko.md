@@ -3,7 +3,7 @@ title: 배포
 description: 파라체인 네트워크를 배포하기 위해 필요한 인프라를 준비하는 방법에 대한 안내를 제공합니다.
 keywords:
   - 파라체인
-  - Polkadot
+  - InfraBlockspace
   - 배포
   - DevOps
   - 네트워크 운영

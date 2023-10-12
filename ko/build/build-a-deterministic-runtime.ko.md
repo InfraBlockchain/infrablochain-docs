@@ -17,7 +17,7 @@ keywords:
 
 ## WebAssembly 런타임을 위한 도구
 
-결정론적인 방식으로 WebAssembly 런타임을 컴파일하는 데 도움이 되는 도구는 Polkadot, Kusama 및 기타 Substrate 기반 체인에 대한 런타임을 생성하는 데 사용되는 동일한 도구입니다.
+결정론적인 방식으로 WebAssembly 런타임을 컴파일하는 데 도움이 되는 도구는 InfraBlockspace 및 기타 Substrate 기반 체인에 대한 런타임을 생성하는 데 사용되는 동일한 도구입니다.
 이 도구는 Substrate 런타임 도구 또는 `srtool`로 통칭되며, 동일한 소스 코드가 항상 동일한 WebAssembly blob으로 컴파일되도록 보장합니다.
 
 Substrate 런타임 도구 (`srtool`)의 핵심 구성 요소는 Docker 컨테이너입니다.

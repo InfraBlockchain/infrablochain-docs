@@ -64,7 +64,7 @@ impl_opaque_keys! {
 }
 ```
 
-Polkadot은 다음과 같은 세션 키를 사용합니다:
+Infrablockspace 는 다음과 같은 세션 키를 사용합니다:
 
 | 이름                 | 유형    |
 | :------------------- | :------ |
@@ -80,7 +80,7 @@ Sr25519 키는 두 가지 기능을 모두 갖고 있으므로 BABE에 사용됩
 
 ## 커맨드 인터페이스
 
-`polkadot keys` 또는 `subkey` 명령을 사용하여 키를 생성하고 검사할 수 있습니다.
+`infrablockspace keys` 또는 `subkey` 명령을 사용하여 키를 생성하고 검사할 수 있습니다.
 
 두 가지 중요한 하위 명령은 다음과 같습니다:
 
@@ -92,17 +92,17 @@ Sr25519 키는 두 가지 기능을 모두 갖고 있으므로 BABE에 사용됩
 - `--network`는 키가 사용될 네트워크를 지정합니다 (기본값은 `substrate`입니다).
 - `--scheme`은 키의 서명 방식을 지정합니다 (기본값은 `sr25519`입니다).
 
-예를 들어, 다음 명령을 실행하여 Polkadot 임의 키를 **생성**할 수 있습니다:
+예를 들어, 다음 명령을 실행하여 infrablockspace 임의 키를 **생성**할 수 있습니다:
 
 ```bash
-polkadot key generate -n polkadot
+infrablockspace key generate -n infrablockspace
 ```
 
 다음과 유사한 출력이 표시됩니다:
 
 ```text
 Secret phrase:       settle whisper usual blast device source region pumpkin ugly beyond promote cluster
-  Network ID:        polkadot
+  Network ID:        infrablockspace
   Secret seed:       0x2e6371e04b45f16cd5c2d66fc47c8ad7f2881215287c374abfa0e07fd003cb01
   Public key (hex):  0x9e65e97bd8ba80095440a68d1be71adff107c73627c8b85d29669721e02e2b24
   Account ID:        0x9e65e97bd8ba80095440a68d1be71adff107c73627c8b85d29669721e02e2b24
@@ -113,14 +113,14 @@ Secret phrase:       settle whisper usual blast device source region pumpkin ugl
 비밀 문구로 키를 생성한 경우, 다음과 유사한 명령을 실행하여 키에 대한 계정 및 주소 정보를 **검사**할 수 있습니다:
 
 ```bash
-./polkadot key inspect -n polkadot "settle whisper usual blast device source region pumpkin ugly beyond promote cluster"
+./infrablockspace key inspect -n infrablockspace "settle whisper usual blast device source region pumpkin ugly beyond promote cluster"
 ```
 
 다음과 유사한 출력이 표시됩니다:
 
 ```text
 Secret phrase:       settle whisper usual blast device source region pumpkin ugly beyond promote cluster
-  Network ID:        polkadot
+  Network ID:        infrablockspace
   Secret seed:       0x2e6371e04b45f16cd5c2d66fc47c8ad7f2881215287c374abfa0e07fd003cb01
   Public key (hex):  0x9e65e97bd8ba80095440a68d1be71adff107c73627c8b85d29669721e02e2b24
   Account ID:        0x9e65e97bd8ba80095440a68d1be71adff107c73627c8b85d29669721e02e2b24
@@ -131,14 +131,14 @@ Secret phrase:       settle whisper usual blast device source region pumpkin ugl
 `//Stash//0`로 생성된 키를 검사하려면 다음과 유사한 명령을 실행해야 합니다:
 
 ```bash
-polkadot key inspect -n polkadot "settle whisper usual blast device source region pumpkin ugly beyond promote cluster//Stash//0"
+infrablockspace key inspect -n infrablockspace "settle whisper usual blast device source region pumpkin ugly beyond promote cluster//Stash//0"
 ```
 
 다음과 유사한 출력이 표시됩니다:
 
 ```text
 Secret Key URI `settle whisper usual blast device source region pumpkin ugly beyond promote cluster//Stash//0` is account:
-  Network ID:        polkadot
+  Network ID:        infrablockspace
  Secret seed:       0xe9437b365161e8228e8abd53d64e6b31058dcddcd0b96f895045ecc41579ee3e
   Public key (hex):  0xd8ed7b942f6e590b06e99951ac10e3312f65f01df5b3f250b70374fc2da1046d
   Account ID:        0xd8ed7b942f6e590b06e99951ac10e3312f65f01df5b3f250b70374fc2da1046d
