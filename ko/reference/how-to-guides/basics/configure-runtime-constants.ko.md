@@ -34,7 +34,7 @@ keywords:
 
 1. 저장소 항목과 이벤트를 선언하세요.
 
-   `#[pallet::storage]` 매크로를 사용하여 매 블록 주기마다 수정되는 값인 `SingleValue`를 선언하세요.
+   저장 속성 매크로를 사용하여 매 블록 주기마다 수정되는 값인 `SingleValue`를 선언하세요.
 
    ```rust
    #[pallet::storage]

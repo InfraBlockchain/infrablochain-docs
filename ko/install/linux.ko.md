@@ -17,7 +17,7 @@ Rust는 대부분의 리눅스 배포판을 지원합니다.
 sudo apt install build-essential
 ```
 
-Rust를 설치하기 전에 다음 패키지가 최소한으로 필요합니다:
+Rust를 설치하기 전에 다음 패키지가 필요합니다:
 
 ```text
 clang curl git make
@@ -131,10 +131,10 @@ clang curl git make
 
 ## Substrate 노드 컴파일하기
 
-이제 Rust가 설치되고 Substrate 개발을 위해 Rust 툴체인이 구성되었으므로, Substrate **노드 템플릿** 파일을 복제하고 Substrate 노드를 컴파일하여 개발 환경을 완성할 준비가 되었습니다.
+이제 Rust가 설치되고 Substrate 개발을 위해 Rust 툴체인이 구성되었으므로, Substrate **노드 템플릿** 을 Clone하고  Substrate 노드를 컴파일하여 개발 환경을 완성할 준비가 되었습니다.
 
 노드 템플릿은 불필요한 모듈이나 도구 없이 블록체인을 구축하는 데 필요한 가장 일반적인 기능을 모두 포함한 작업 환경을 제공합니다.
-실험에 안정적인 상대적으로 안정된 작업 환경을 제공하기 위해, 핵심 Substrate 저장소 대신 Substrate 개발자 허브 저장소에서 Substrate 노드 템플릿을 복제하는 것이 권장되는 모범 사례입니다.
+실험에 안정적인 상대적으로 안정된 작업 환경을 제공하기 위해, 코어 Substrate 레포지토리 대신 Substrate development hub 레포지토리에서 Substrate 노드 템플릿을 Clone하는 것이 권장되는 모범 사례입니다.
 
 Substrate 노드 템플릿을 컴파일하려면 다음 단계를 따르세요:
 

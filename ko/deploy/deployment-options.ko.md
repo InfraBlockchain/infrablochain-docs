@@ -297,7 +297,7 @@ Kubernetes에서 Substrate 기반 노드를 관리하기 위한 주요 도구는
 | node.chain              | 연결할 네트워크입니다.                                        |
 | node.command            | 사용할 바이너리입니다.                                                |
 | node.flags              | 컨테이너 내에서 바이너리와 함께 사용할 명령줄 옵션입니다. |
-| node.customChainspecUrl | 사용자 정의 체인 스펙 URL입니다.                               |
+| node.customChainspecUrl | 사용자 정의 체인 사양 URL입니다.                               |
 
 시작할 수 있는 `values.yml` 구성 파일 예제도 사용할 수 있습니다.
 

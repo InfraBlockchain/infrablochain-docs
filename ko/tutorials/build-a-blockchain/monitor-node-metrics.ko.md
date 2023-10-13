@@ -20,7 +20,7 @@ Substrate, Prometheus 및 Grafana 간의 상호 작용을 구성하여 노드 �
 
 시작하기 전에 다음을 확인하세요:
 
-- [Rust 및 Rust 툴체인](/install/)을 설치하여 Substrate 개발 환경을 구성했는지 확인하세요.
+- [Rust 및 Rust 도구 체인](/install/)을 설치하여 Substrate 개발 환경을 구성했는지 확인하세요.
 
 - [로컬 블록체인 구축](/tutorials/build-a-blockchain/build-local-blockchain/) 및 [네트워크 시뮬레이션](/tutorials/build-a-blockchain/simulate-network/)을 포함한 이전 튜토리얼 중 일부를 완료했는지 확인하세요.
 

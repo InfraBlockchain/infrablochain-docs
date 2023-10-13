@@ -111,15 +111,15 @@ await api.rpc.chain.subscribeNewHeads(lastHeader => {
 await api.disconnect();
 ```
 
-### 사용자 정의 네트워크에 연결하기 위해 RPC 공급자 사용하기
+### 커스텀 네트워크에 연결하기 위해 RPC 공급자 사용하기
 
-다음 예제는 `rpc-provider`를 사용하여 체인 스펙을 지정하여 사용자 정의 네트워크에 연결하는 방법을 보여줍니다.
+다음 예제는 `rpc-provider`를 사용하여 체인 스펙을 지정하여 커스텀 네트워크에 연결하는 방법을 보여줍니다.
 
 ```js
 import { ScProvider } from "@polkadot/rpc-provider/substrate-connect";
 import { ApiPromise } from "@polkadot/api";
 import jsonCustomSpec from "./jsonCustomSpec.json";
-// 사용자 정의 체인을 위한 공급자 생성
+// 커스텀 체인을 위한 공급자 생성
 const customSpec = JSON.stringify(jsonCustomSpec);
 const provider = new ScProvider(customSpec);
 // 연결 설정 (가능한 오류 처리)

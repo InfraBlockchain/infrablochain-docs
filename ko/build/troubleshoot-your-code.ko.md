@@ -200,11 +200,11 @@ Substrate은 기본적으로 다음과 같은 해시 알고리즘을 제공합�
 
 벤치마크와 가중치 계산에 대한 자세한 내용은 [벤치마크와 가중치](/test/benchmark/#benchmarking-and-weight)와 [Weights](/reference/how-to-guides/weights/)를 참조하세요.
 
-### 안전하지 않은 난수
+### 보안하지 않은 난수
 
 난수는 블록체인에서 여러 가지 응용 프로그램에서 사용됩니다. Substrate은 기본적으로 두 가지 난수 생성 방법을 제공합니다.
 
-- [안전하지 않은 난수 공동 뒤집기](https://paritytech.github.io/substrate/master/pallet_insecure_randomness_collective_flip/index.html) 팔레트는 이전 81개 블록의 블록 해시를 기반으로 난수 값을 생성합니다. 이 팔레트는 약한 공격자에 대한 방어나 테스트와 같은 낮은 보안 요구 사항에서 유용할 수 있습니다. 예를 들어, 난수를 사용하는 팔레트를 테스트할 때 이 팔레트를 사용할 수 있습니다. 제품 환경에서는 실제 난수 원천으로 사용해서는 안 됩니다.
+- [보안하지 않은 난수 공동 뒤집기](https://paritytech.github.io/substrate/master/pallet_insecure_randomness_collective_flip/index.html) 팔레트는 이전 81개 블록의 블록 해시를 기반으로 난수 값을 생성합니다. 이 팔레트는 약한 공격자에 대한 방어나 테스트와 같은 낮은 보안 요구 사항에서 유용할 수 있습니다. 예를 들어, 난수를 사용하는 팔레트를 테스트할 때 이 팔레트를 사용할 수 있습니다. 제품 환경에서는 실제 난수 원천으로 사용해서는 안 됩니다.
 
 - [BABE](https://paritytech.github.io/substrate/master/pallet_babe/index.html) 팔레트는 검증 가능한 난수 함수(VRF)를 사용하여 보다 안전한 난수를 생성합니다. 이 팔레트는 제품 수준의 난수를 제공합니다. 그러나 모든 목적에 적합하지는 않습니다. 예를 들어, BABE 팔레트가 제공하는 난수는 도박 애플리케이션에는 적합하지 않습니다.
 

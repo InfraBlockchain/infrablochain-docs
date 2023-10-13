@@ -8,7 +8,7 @@ keywords:
   - rustup
 ---
 
-만약 [Substrate 노드 템플릿](https://github.com/substrate-developer-hub/substrate-node-template)을 컴파일하는데 실패한다면, 문제는 개발 환경에서 Rust가 어떻게 구성되어 있는지에 의해 발생한 것입니다.
+만약 [Substrate 노드 템플릿](https://github.com/substrate-developer-hub/substrate-node-template)을 컴파일하는데 실패한다면, 문제는 개발 환경에서 Rust가 어떻게 구성되어 있는지에 확인 해 봐야 합니다.
 이 섹션에서는 구성 문제를 진단하고 해결하는 방법을 제안합니다.
 
 ## 현재 구성 확인하기
@@ -61,7 +61,7 @@ Rust 컴파일러를 [`nightly` 빌드](https://doc.rust-lang.org/book/appendix-
 
 ## 툴체인 업데이트하기
 
-일반적으로, Rust `stable` 및 `nightly` 빌드의 최신 버전을 항상 사용해야 합니다. Substrate의 변경 사항은 종종 Rust `nightly` 컴파일러 빌드의 상위 변경 사항에 의존하기 때문입니다.
+일반적으로, Rust `stable` 및 `nightly` 빌드의 최신 버전을 항상 사용해야 합니다. Substrate의 변경 사항은 종종 Rust `nightly` 컴파일러 빌드의 최신 버전에 의존하기 때문입니다.
 Rust 컴파일러가 항상 최신 상태인지 확인하기 위해 다음 명령을 실행해야 합니다:
 
 ```bash
@@ -72,7 +72,7 @@ rustup target add wasm32-unknown-unknown --toolchain nightly
 
 `rustup update` 명령은 `nightly` 및 `stable` 툴체인을 모두 가장 최신 릴리스로 업데이트합니다.
 `nightly` 툴체인을 업데이트한 후에도 WebAssembly 타겟을 컴파일할 수 없는 경우, 이전 버전의 툴체인으로 롤백하고 해당 버전을 명령줄 옵션으로 지정할 수 있습니다.
-`nightly` 툴체인의 이전 버전을 얻고 명령줄 옵션으로 사용할 버전을 지정하는 자세한 정보는 [툴체인 다운그레이드](#Rust-nightly-다운그레이드)를 참조하세요.
+`nightly` 툴체인의 이전 버전을 설치하여 명령줄 옵션으로 사용할 버전을 지정하는 자세한 정보는 [툴체인 다운그레이드](#Rust-nightly-다운그레이드)를 참조하세요.
 
 ## 특정 nightly 툴체인 사용하기
 

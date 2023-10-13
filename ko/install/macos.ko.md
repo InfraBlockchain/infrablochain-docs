@@ -141,10 +141,10 @@ macOS에서 `openssl`과 Rust 툴체인을 설치하려면 다음 단계를 따�
 
 ## Substrate 노드 컴파일
 
-Rust가 설치되고 Substrate 개발을 위해 Rust 툴체인이 구성되었으므로, Substrate **노드 템플릿** 파일을 복제하고 Substrate 노드를 컴파일하여 개발 환경을 설정할 준비가 되었습니다.
+Rust가 설치되고 Substrate 개발을 위해 Rust 툴체인이 구성되었으므로, Substrate **노드 템플릿** 파일을 Clone하고 Substrate 노드를 컴파일하여 개발 환경을 설정할 준비가 되었습니다.
 
 노드 템플릿은 불필요한 모듈이나 도구 없이 블록체인을 구축하는 데 필요한 가장 일반적인 기능을 모두 포함한 작업 환경을 제공합니다.
-실험을 위한 상대적으로 안정적인 작업 환경을 제공하기 위해, 권장하는 모범 사례는 핵심 Substrate 저장소가 아닌 Substrate 개발자 허브 저장소에서 Substrate 노드 템플릿을 복제하는 것입니다.
+실험을 위한 상대적으로 안정적인 작업 환경을 제공하기 위해, 권장하는 모범 사례는 핵심 Substrate 레포지토리가 아닌 Substrate development hub 레포지토리에서 Substrate 노드 템플릿을 Clone하는 것입니다.
 
 Substrate 노드 템플릿을 컴파일하려면 다음 단계를 따르세요:
 

@@ -50,19 +50,19 @@ Substrate는 작업 증명 블록 생성 엔진을 제공합니다.
 Substrate는 이 포크 선택 규칙을 [`SelectChain`](https://paritytech.github.io/substrate/master/sp_consensus/trait.SelectChain.html) 트레이트를 통해 노출시킵니다.
 이 트레이트를 사용하여 사용자 정의 포크 선택 규칙을 작성하거나 Polkadot 및 유사한 체인에서 사용되는 최종성 메커니즘인 [GRANDPA](https://github.com/w3f/consensus/blob/master/pdf/grandpa.pdf)를 사용할 수 있습니다.
 
-GRANDPA 프로토콜에서는 가장 긴 체인 규칙이 단순히 가장 좋은 체인을 가장 긴 체인으로 선택한다고 말합니다.
+GRANDPA 프로토콜에서는 Longest chain rule이 단순히 가장 좋은 체인을 가장 긴 체인으로 선택한다고 말합니다.
 Substrate는 이 체인 선택 규칙을 [`LongestChain`](https://paritytech.github.io/substrate/master/sc_consensus/struct.LongestChain.html) 구조체로 제공합니다.
-GRANDPA는 투표 메커니즘에서 가장 긴 체인 규칙을 사용합니다.
+GRANDPA는 투표 메커니즘에서 Longest chain rule을 사용합니다.
 
-![가장 긴 체인 규칙](/media/images/docs/consensus-longest.png)
+![Longest chain rule](/media/images/docs/consensus-longest.png)
 
-가장 긴 체인 규칙의 단점은 공격자가 네트워크를 앞지르는 블록 체인을 생성하여 사실상 메인 체인을 탈취할 수 있다는 것입니다.
+Longest chain rule의 단점은 공격자가 네트워크를 앞지르는 블록 체인을 생성하여 사실상 메인 체인을 탈취할 수 있다는 것입니다.
 Greedy Heaviest Observed SubTree (GHOST) 규칙은 제네시스 블록에서 시작하여, 각 포크를 해결할 때 가장 많은 블록이 쌓인 가장 무거운 브랜치를 선택합니다.
 
-![GHOST 규칙](/media/images/docs/consensus-ghost.png)
+![GHOST rule](/media/images/docs/consensus-ghost.png)
 
 이 다이어그램에서 가장 무거운 체인은 가장 많은 블록이 쌓인 포크입니다.
-체인 선택에 GHOST 규칙을 사용하는 경우, 이 포크가 가장 긴 체인 포크보다 더 적은 블록을 가지더라도 메인 체인으로 선택됩니다.
+체인 선택에 GHOST rule을 사용하는 경우, 이 포크가 가장 긴 체인 포크보다 더 적은 블록을 가지더라도 메인 체인으로 선택됩니다.
 
 ## 결정론적 확정
 

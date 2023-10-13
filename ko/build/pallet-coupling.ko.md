@@ -55,13 +55,13 @@ pub trait Currency<AccountId> {
         source: &AccountId,
         dest: &AccountId,
         value: Self::Balance,
-        // don't worry about the last parameter for now
+        // 일단 마지막 매개변수에 대해서는 걱정하지 마세요
         existence_requirement: ExistenceRequirement,
     ) -> DispatchResult;
 }
 ```
 
-두 번째 팔레트에서는 `MyCurrency` 연관 타입을 정의하고 `Currency<Self::AccountId>` 트레이트에 바인딩하여 `T::MyCurrency::transfer(...)`를 호출하여 balance transfer 로직을 사용할 수 있도록 합니다.
+두 번째 팔레트에서는 `MyCurrency` 연관 타입을 정의하고 `Currency<Self::AccountId>` 트레이트에 바인딩하여 `T::MyCurrency::transfer(...)`를 호출하여 잔액 이체 로직을 사용할 수 있도록 합니다.
 
 ```rust
 pub trait Config: frame_system::Config {

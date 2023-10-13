@@ -7,7 +7,7 @@ keywords:
 Substrate가 미션 크리티컬 소프트웨어를 만들기 위한 유연하고 확장 가능한 프레임워크로 인정받는 것은 [Rust](https://www.rust-lang.org/)에 기인합니다.
 Substrate의 선택 언어인 Rust는 고성능 프로그래밍 언어로, 다음과 같은 이유로 첫 번째 선택지입니다:
 
-- Rust는 빠릅니다: 컴파일 시 정적으로 타입이 지정되어 있어 컴파일러가 코드를 최적화하고 개발자가 특정 컴파일 대상에 최적화할 수 있습니다.
+- Rust는 빠릅니다: 컴파일 시 정적으로 타입이 지정되어 있어 컴파일러가 코드를 최적화하고 개발자가 특정 컴파일 타겟에 최적화할 수 있습니다.
 
 - Rust는 이식성이 뛰어납니다: 임베디드 장치에서 실행되도록 설계되었으며 모든 종류의 운영 체제를 지원합니다.
 
@@ -20,16 +20,16 @@ Substrate의 선택 언어인 Rust는 고성능 프로그래밍 언어로, 다�
 [아키텍처]() 섹션에서 알 수 있듯이 Substrate는 두 가지 구성 요소로 이루어져 있습니다: 외부 노드와 런타임.
 Rust의 더 복잡한 기능인 멀티스레딩과 비동기 Rust는 외부 노드 코드에서 사용되지만 런타임 엔지니어에게 직접 노출되지 않으므로 런타임 엔지니어는 노드의 비즈니스 로직에 집중하기 쉽습니다.
 
-일반적으로 개발자는 자신의 관심에 따라 다음을 알아야 합니다:
+일반적으로 개발자는 다음과 같은 내용을 알아두면 좋습니다:
 
 - 기본적인 [Rust 관용구](https://rust-unofficial.github.io/patterns/idioms/index.html), [`no_std`로 작업하기](https://docs.rust-embedded.org/book/intro/no-std.html) 및 어떤 매크로가 사용되고 왜 사용되는지(runtime 엔지니어링을 위해).
 - [비동기 Rust](https://rust-lang.github.io/async-book/01_getting_started/01_chapter.html) (외부 노드(클라이언트) 코드와 작업하는 고급 개발자를 위해).
 
 Substrate로 들어가기 전에 Rust에 대한 일반적인 이해가 필수적이며, Rust를 배우기 위한 많은 자료가 있습니다. 예를 들어, [Rust 언어 프로그래밍 책](https://doc.rust-lang.org/book/)과 [Rust by Example](https://doc.rust-lang.org/rust-by-example/) 등이 있습니다. 이 섹션의 나머지 부분에서는 Substrate가 런타임 엔지니어링을 시작하는 개발자들을 위해 Rust의 핵심 기능을 어떻게 활용하는지 강조합니다.
 
-## 컴파일 대상
+## 컴파일 타겟
 
-Substrate 노드를 빌드할 때는 `wasm32-unknown-unknown` 컴파일 대상을 사용합니다. 이는 Substrate 런타임 엔지니어가 Wasm으로 컴파일해야 하는 런타임을 작성해야 함을 의미합니다.
+Substrate 노드를 빌드할 때는 `wasm32-unknown-unknown` 컴파일 타겟을 사용합니다. 이는 Substrate 런타임 엔지니어가 Wasm으로 컴파일해야 하는 런타임을 작성해야 함을 의미합니다.
 이는 일반적인 표준 라이브러리 유형과 함수에 의존할 수 없으며 런타임 코드의 대부분에는 `no_std` 호환 크레이트만 사용해야 한다는 것을 의미합니다.
 Substrate에는 `no_std` 요구 사항을 해결할 수 있는 많은 기본 유형과 관련된 특성이 있습니다.
 

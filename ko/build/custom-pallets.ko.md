@@ -19,7 +19,7 @@ FRAME은 복잡한 코드 블록을 캡슐화하기 위해 Rust 매크로를 광
 예를 들어:
 
 - `#[pallet::pallet]`은 팔레트에 데이터를 저장할 수 있는 구조체(struct)를 정의할 수 있도록 하는 필수 팔레트 속성입니다.
-- `#[pallet::config]`는 팔레트의 `Config` 트레이트를 정의할 수 있도록 하는 필수 팔레트 속성입니다.
+- `#[pallet::config]`는 팔레트의 구성 트레이트를 정의할 수 있도록 하는 필수 팔레트 속성입니다.
 
 `pallet` 매크로는 또한 팔레트가 일반적으로 제공하는 핵심 속성 집합을 정의합니다.
 예를 들어:
@@ -40,8 +40,8 @@ FRAME 팔레트에서 사용되는 매크로에 대한 개요는 [FRAME 매크�
 
 <!-- ## 유용한 FRAME 트레이트
 
-- Pallet Origin
-- Origins: EnsureOrigin, EnsureOneOf
+- 팔레트 원산지
+- 원산지: EnsureOrigin, EnsureOneOf
   ...
 
 ## 런타임 구현

@@ -64,7 +64,7 @@ Substrate는 모듈화되어 있고 블록체인을 구축하기 위한 조립 �
 
 - [Polkadot/Substrate Portal](https://polkadot.js.org/apps/#/rpc)을 사용하여 블록체인이나 노드에 연결하고 **state** 엔드포인트와 **getMetadata** 메서드를 선택하여 메타데이터를 JSON 형식으로 반환합니다.
 - 명령줄에서 `polkadot-js-api`를 사용하여 `state_getMetadata` RPC 메서드를 호출하여 메타데이터를 16진수로 인코딩된 SCALE 바이트 벡터로 반환합니다.
-- `subxt metadata` 명령을 사용하여 메타데이터를 JSON, 16진수 또는 원시(raw) 바이트로 다운로드합니다.
+- `subxt metadata` 명령을 사용하여 메타데이터를 JSON, 16진수 또는 원시 바이트로 다운로드합니다.
 - `sidecar` API와 `/runtime/metadata` 엔드포인트를 사용하여 노드에 연결하고 메타데이터를 JSON 형식으로 검색합니다.
 
 메타데이터가 제공하는 유형 정보를 통해 애플리케이션은 런타임의 다른 버전과 다른 호출, 이벤트, 유형 및 스토리지 항목을 노출하는 체인 간에 통신할 수 있습니다.
@@ -78,7 +78,7 @@ Substrate는 모듈화되어 있고 블록체인을 구축하기 위한 조립 �
 
 ## 메타데이터 형식
 
-SCALE로 인코딩된 바이트는 `frame-metadata`와 [`parity-scale-codec`](https://github.com/paritytech/parity-scale-codec) 라이브러리를 사용하여 디코딩할 수 있지만, `subxt` 및 Polkadot-JS API와 같은 다른 도구를 사용하여 원시(raw) 데이터를 사람이 읽을 수 있는 JSON 형식으로 변환할 수도 있습니다.
+SCALE로 인코딩된 바이트는 `frame-metadata`와 [`parity-scale-codec`](https://github.com/paritytech/parity-scale-codec) 라이브러리를 사용하여 디코딩할 수 있지만, `subxt` 및 Polkadot-JS API와 같은 다른 도구를 사용하여 원시 데이터를 사람이 읽을 수 있는 JSON 형식으로 변환할 수도 있습니다.
 
 `state_getMetadata` RPC 호출로 반환되는 메타데이터에 포함된 유형 및 유형 정의는 런타임의 메타데이터 버전에 따라 다릅니다.
 일반적으로 메타데이터에는 다음과 같은 정보가 포함됩니다:
@@ -98,7 +98,7 @@ SCALE로 인코딩된 바이트는 `frame-metadata`와 [`parity-scale-codec`](ht
       "types": {
         "types": [
           {
-            // 타입 인덱스
+            // 유형 인덱스
           }
         ]
       },
@@ -108,15 +108,15 @@ SCALE로 인코딩된 바이트는 `frame-metadata`와 [`parity-scale-codec`](ht
         }
       ],
       "extrinsic": {
-        "ty": 126, // 익스트린식 형식을 정의하는 타입 인덱스 식별자
+        "ty": 126, // 익스트린식 형식을 정의하는 유형 인덱스 식별자
         "version": 4, // 익스트린식을 인코딩 및 디코딩하는 데 사용되는 트랜잭션 버전
         "signed_extensions": [
           {
-            // signed extensions 인덱스
+            // 서명된 확장 인덱스
           }
         ]
       },
-      "ty": 141 // 시스템 팔렛의 타입 ID
+      "ty": 141 // 시스템 팔렛의 유형 ID
     }
   }
 ]
@@ -127,7 +127,7 @@ SCALE로 인코딩된 바이트는 `frame-metadata`와 [`parity-scale-codec`](ht
 `types` 섹션에는 유형 인덱스에 대한 인덱스가 포함되어 있으며, 각 유형에 대한 유형 시그니처에 대한 정보가 제공됩니다.
 `pallets` 섹션에는 런타임에 포함된 각 팔렛에 대한 정보가 포함되어 있습니다.
 `extrinsic` 섹션에는 런타임이 사용하는 유형 식별자와 트랜잭션 형식 버전이 포함됩니다.
-특정 익스트린식 버전은 특히 [signed extensions](/learn/transaction-types)을 고려할 때 서로 다른 형식을 가질 수 있습니다.
+특정 익스트린식 버전은 특히 [서명된 트랜잭션](/learn/transaction-types)을 고려할 때 서로 다른 형식을 가질 수 있습니다.
 
 ### 팔렛
 
@@ -149,20 +149,20 @@ SCALE로 인코딩된 바이트는 `frame-metadata`와 [`parity-scale-codec`](ht
              0
           ],
           "docs": [
-             "The `AccountId` of the sudo key."
+             "sudo 키의 `AccountId`입니다."
           ]
         }
       ]
   },
-  "calls": {       // 팔렛 호출 타입
-      "ty": 117    // 타입 인덱스 식별자
+  "calls": {       // 팔렛 호출 유형
+      "ty": 117    // 유형 인덱스 식별자
   },
-  "event": {       // 팔렛 이벤트 타입
-      "ty": 42     // 타입 인덱스 식별자
+  "event": {       // 팔렛 이벤트 유형
+      "ty": 42     // 유형 인덱스 식별자
   },
   "constants": [], // 팔렛 상수
-  "error": {       // 팔렛 오류 타입
-      "ty": 124    // 타입 인덱스 식별자
+  "error": {       // 팔렛 오류 유형
+      "ty": 124    // 유형 인덱스 식별자
           },
   "index": 8       // 런타임에서 팔렛의 인덱스 식별자
 },
@@ -205,7 +205,7 @@ SCALE로 인코딩된 바이트는 `frame-metadata`와 [`parity-scale-codec`](ht
                   ],
                       "index": 0,
                       "docs": [
-                        "Authenticates the sudo key and dispatches a function call with `Root` origin.",
+                        "sudo 키를 인증하고 `Root` 출처로 함수 호출을 디스패치합니다.",
                       ]
                     },
                     {
@@ -224,7 +224,7 @@ SCALE로 인코딩된 바이트는 `frame-metadata`와 [`parity-scale-codec`](ht
                       ],
                       "index": 1,
                       "docs": [
-                        "Authenticates the sudo key and dispatches a function call with `Root` origin.",
+                        "sudo 키를 인증하고 `Root` 출처로 함수 호출을 디스패치합니다.",
                       ]
                     },
                     {
@@ -238,7 +238,7 @@ SCALE로 인코딩된 바이트는 `frame-metadata`와 [`parity-scale-codec`](ht
                       ],
                       "index": 2,
                       "docs": [
-                        "Authenticates the current sudo key and sets the given AccountId (`new`) as the new sudo",
+                        "현재 sudo 키를 인증하고 주어진 AccountId(`new`)를 새로운 sudo로 설정합니다.",
                       ]
                     },
                     {
@@ -257,8 +257,8 @@ SCALE로 인코딩된 바이트는 `frame-metadata`와 [`parity-scale-codec`](ht
                       ],
                       "index": 3,
                       "docs": [
-                        "Authenticates the sudo key and dispatches a function call with `Signed` origin from",
-                        "a given account.",
+                        "sudo 키를 인증하고 주어진 계정에서 `Signed` 출처로 함수 호출을 디스패치합니다.",
+                        "계정에서.",
                       ]
                     }
                   ]
@@ -280,7 +280,7 @@ SCALE로 인코딩된 바이트는 `frame-metadata`와 [`parity-scale-codec`](ht
 ### 익스트린식
 
 런타임에서 생성된 익스트린식 메타데이터는 트랜잭션이 어떻게 포맷되는지에 대한 유용한 정보를 제공합니다.
-디코딩되면, 메타데이터에는 트랜잭션 버전과 signed extensions의 목록이 포함됩니다.
+디코딩되면, 메타데이터에는 트랜잭션 버전과 서명된 확장의 목록이 포함됩니다.
 예를 들어:
 
 ```json
@@ -357,11 +357,11 @@ Substrate에는 다음과 같은 API가 제공됩니다:
 대부분의 애플리케이션은 WebSocket 포트를 사용하는 것이 일반적입니다. 하나의 연결로 노드와의 여러 메시지를 보내고 받을 수 있기 때문입니다.
 HTTP 연결의 경우 애플리케이션은 한 번에 하나의 메시지만 보내고 받을 수 있습니다.
 HTTP를 사용하여 노드에 연결하는 가장 일반적인 이유는 오프체인 워커를 사용하여 데이터를 가져오고자 하는 경우입니다.
-오프체인 워커 사용에 대한 자세한 내용은 [오프체인 워커](/learn/offchain-operations)을 참조하십시오.
+오프체인 워커 사용에 대한 자세한 내용은 [오프체인 작업](/learn/offchain-operations)을 참조하십시오.
 
-RPC를 사용하여 연결하는 대신, [Substrate Connect](https://substrate.io/developers/substrate-connect/)와 라이트 클라이언트 노드를 사용하여 Substrate 기반 블록체인에 연결할 수도 있습니다.
-Substrate Connect는 브라우저에서 실행되며, 애플리케이션이 자체 라이트 클라이언트 노드를 생성하고 노출된 JSON-RPC 엔드포인트에 직접 연결할 수 있도록 합니다.
-Substrate Connect를 통합하는 애플리케이션은 브라우저 내부 로컬 메모리를 활용하여 라이트 클라이언트 노드와의 연결을 설정합니다.
+RPC를 사용하여 연결하는 대신, [Substrate Connect](https://substrate.io/developers/substrate-connect/)와 가벼운 클라이언트 노드를 사용하여 Substrate 기반 블록체인에 연결할 수도 있습니다.
+Substrate Connect는 브라우저에서 실행되며, 애플리케이션이 자체 가벼운 클라이언트 노드를 생성하고 노출된 JSON-RPC 엔드포인트에 직접 연결할 수 있도록 합니다.
+Substrate Connect를 통합하는 애플리케이션은 브라우저 내부 로컬 메모리를 활용하여 가벼운 클라이언트 노드와의 연결을 설정합니다.
 
 ## 프론트엔드 애플리케이션 구축하기
 
@@ -372,7 +372,7 @@ Substrate Connect를 통합하는 애플리케이션은 브라우저 내부 로�
 | [Chain API](https://github.com/paritytech/capi)                  | Substrate 기반 체인과 상호 작용하기 위한 TypeScript 도구 모음을 제공합니다. 이 도구 모음에는 FRAME 유틸리티, 기능적 효과 시스템 및 성능 또는 안전성을 저해하지 않고 최종 사용자를 위한 다단계, 다중 체인 상호 작용을 용이하게 하는 유창한 API가 포함되어 있습니다.                                                                                                                                                                                                                         |
 | [Polkadot JS API](https://polkadot.js.org/docs/api)              | Substrate 기반 체인과 상호 작용할 때 노드의 변경에 동적으로 적응할 수 있는 애플리케이션을 구축하기 위한 JavaScript 라이브러리를 제공합니다. 이 라이브러리는 React와 같은 인기 있는 프론트엔드 프레임워크와 함께 사용할 수 있습니다.                                                                                                                                                                                                                                                                                       | Javascript |
 | [Polkadot JS extension](https://polkadot.js.org/docs/extension/) | Polkadot JS API로 작성된 브라우저 확장 프로그램 및 제공자와 상호 작용하기 위한 API를 제공합니다.                                                                                                                                                                                                                                                                                                                                                                                                                             | Javascript |
-| [Substrate Connect](/learn/light-clients-in-substrate-connect/)  | 브라우저 내 라이트 클라이언트 노드를 사용하여 Substrate 기반 체인에 직접 연결하는 애플리케이션을 구축하기 위한 라이브러리 및 브라우저 확장 프로그램을 제공합니다. Substrate Connect를 사용하면 사용자가 여러 체인과 상호 작용하기 위해 애플리케이션을 사용하는 경우 단일 경험을 제공할 수 있습니다.                                                                                                                                                                                            | Javascript |
+| [Substrate Connect](/learn/light-clients-in-substrate-connect/)  | 브라우저 내 경량 클라이언트 노드를 사용하여 Substrate 기반 체인에 직접 연결하는 애플리케이션을 구축하기 위한 라이브러리 및 브라우저 확장 프로그램을 제공합니다. Substrate Connect를 사용하면 사용자가 여러 체인과 상호 작용하기 위해 애플리케이션을 사용하는 경우 단일 경험을 제공할 수 있습니다.                                                                                                                                                                                            | Javascript |
 | [`subxt`](https://github.com/paritytech/subxt/)                  | 대상 체인의 메타데이터를 기반으로 노드의 RPC API와 상호 작용하기 위한 정적으로 타입 지정된 Rust 인터페이스를 생성하는 Rust 라이브러리를 제공합니다. `subxt` (extrinsics 제출) 라이브러리를 사용하면 노드와 생성된 인터페이스 간에 안전한 통신이 필요한 하위 수준 애플리케이션 (예: 브라우저가 아닌 그래픽 사용자 인터페이스, 체인별 CLI 또는 트랜잭션에 잘못된 입력을 생성하지 못하도록 하거나 존재하지 않는 호출을 제출하지 못하도록 하는 사용자 지향 애플리케이션)을 구축할 수 있습니다. | Rust       |
 | [`txwrapper`](https://github.com/paritytech/txwrapper)           | 오프라인에서 서명된 Substrate 트랜잭션을 생성하기 위한 JavaScript 라이브러리를 제공합니다. 이 라이브러리를 사용하면 오프라인에서 서명된 트랜잭션을 생성하는 스크립트를 작성할 수 있으며, 이후에 노드에 제출할 수 있습니다. 이 기능은 특히 테스트 및 트랜잭션 디코딩에 유용합니다.                                                                                                                                                                                                                                 | Javascript |
 

@@ -10,8 +10,8 @@ keywords:
 Substrate 노드 템플릿은 기본적으로 일부 팔렛의 제네시스 구성(초기 상태)을 제공합니다.
 런타임에 사용자 정의 로직을 추가할 때(예: 미리 정의된 또는 사용자 정의 팔렛 추가) 다른 스토리지 항목을 포함하거나 다른 초기값을 설정하려는 경우 제네시스 구성을 수정하고 싶을 수 있습니다.
 
-[체인 스펙](/build/chain-spec/)에서 배운 대로, 노드를 시작하는 데 사용하는 체인 스펙은 해당 노드의 제네시스 구성을 결정합니다.
-그러나 체인 스펙은 노드를 시작할 때 초기화되는 스토리지 항목을 생성하지 않습니다.
+[체인 사양](/build/chain-spec/)에서 배운 대로, 노드를 시작하는 데 사용하는 체인 사양은 해당 노드의 제네시스 구성을 결정합니다.
+그러나 체인 사양은 노드를 시작할 때 초기화되는 스토리지 항목을 생성하지 않습니다.
 대신, 스토리지 항목은 [런타임 스토리지](/build/runtime-storage/)에서 설명한대로 런타임에 포함된 팔렛에 정의됩니다.
 
 런타임을 위한 스토리지 항목을 생성한 후, 제네시스 구성에 초기 상태로 설정할지 여부를 선택할 수 있으며, 이를 위해 Substrate는 두 가지 특수화된 FRAME 속성 매크로를 제공합니다.
@@ -21,7 +21,7 @@ Substrate 노드 템플릿은 기본적으로 일부 팔렛의 제네시스 구�
 - `#[pallet::genesis_config]` 매크로는 `GenesisConfig` 데이터 타입을 정의하고 스토리지 항목을 초기화합니다.
 - `#[pallet::genesis_build]` 매크로는 제네시스 구성을 빌드합니다.
 
-이러한 매크로는 체인 스펙과 함께 사용되어 런타임의 초기 상태를 정의하는 데 사용됩니다.
+이러한 매크로는 체인 사양과 함께 사용되어 런타임의 초기 상태를 정의하는 데 사용됩니다.
 
 ## 간단한 스토리지 값 구성
 
@@ -67,9 +67,9 @@ Substrate 노드 템플릿은 기본적으로 일부 팔렛의 제네시스 구�
    cargo build --package pallet-template
    ```
 
-### 체인 스펙 구성
+### 체인 사양 구성
 
-제네시스 블록에서 스토리지 항목을 초기값으로 설정할 수 있도록 팔렛을 구성했으므로, 체인 스펙에서 해당 스토리지 항목에 대한 초기값을 설정할 수 있습니다.
+제네시스 블록에서 스토리지 항목을 초기값으로 설정할 수 있도록 팔렛을 구성했으므로, 체인 사양에서 해당 스토리지 항목에 대한 초기값을 설정할 수 있습니다.
 
 1. 텍스트 편집기에서 `node/src/chain_spec.rs` 파일을 엽니다.
 1. `node_template_runtime`에 `TemplateModuleConfig`를 추가합니다.
@@ -112,12 +112,12 @@ Substrate 노드 템플릿은 기본적으로 일부 팔렛의 제네시스 구�
 집계된 `RuntimeGenesisConfig`는 [`BuildStorage`](https://paritytech.github.io/substrate/master/sp_runtime/trait.BuildStorage.html) 트레이트를 구현하여 런타임의 모든 초기 스토리지 항목을 빌드합니다.
 예를 들어, 노드 템플릿 런타임은 기본적으로 다음 팔렛들을 위해 `RuntimeGenesisConfig`를 지정합니다:
 
-- [System 팔렛](#system-pallet)
-- [Aura 팔렛](#aura-pallet)
-- [Grandpa 팔렛](#grandpa-pallet)
-- [Balance 팔렛](#balances-pallet)
-- [TransactionPayment 팔렛](#transactionpayment-pallet)
-- [Sudo 팔렛](#sudo-pallet)
+- [시스템 팔렛](#system-pallet)
+- [오라 팔렛](#aura-pallet)
+- [그랜드파 팔렛](#grandpa-pallet)
+- [밸런스 팔렛](#balances-pallet)
+- [트랜잭션 결제 팔렛](#transactionpayment-pallet)
+- [수도 팔렛](#sudo-pallet)
 
 ### 시스템 팔렛
 
@@ -129,7 +129,7 @@ Substrate 노드 템플릿은 기본적으로 일부 팔렛의 제네시스 구�
 	}
 ```
 
-### Aura 팔렛
+### 오라 팔렛
 
 ```rust
 #[pallet::genesis_config]
@@ -138,7 +138,7 @@ Substrate 노드 템플릿은 기본적으로 일부 팔렛의 제네시스 구�
 	}
 ```
 
-### Grandpa 팔렛
+### 그랜드파 팔렛
 
 ```rust
 #[pallet::genesis_config]
@@ -147,7 +147,7 @@ Substrate 노드 템플릿은 기본적으로 일부 팔렛의 제네시스 구�
 	}
 ```
 
-### Balances 팔렛
+### 밸런스 팔렛
 
 ```rust
 #[pallet::genesis_config]
@@ -156,7 +156,7 @@ Substrate 노드 템플릿은 기본적으로 일부 팔렛의 제네시스 구�
 	}
 ```
 
-### TransactionPayment 팔렛
+### 트랜잭션 결제 팔렛
 
 ```rust
 #[pallet::genesis_config]
@@ -165,7 +165,7 @@ Substrate 노드 템플릿은 기본적으로 일부 팔렛의 제네시스 구�
 	}
 ```
 
-### Sudo 팔렛
+### 수도 팔렛
 
 ```rust
 #[pallet::genesis_config]
@@ -190,7 +190,7 @@ pub struct RuntimeGenesisConfig {
 
 최종적으로, `RuntimeGenesisConfig`는 [`ChainSpec`](https://paritytech.github.io/substrate/master/sc_chain_spec/trait.ChainSpec.html) 트레이트를 통해 노출됩니다.
 
-Substrate의 제네시스 스토리지 구성에 대한 더 완전한 예는 Substrate 코드 베이스와 함께 제공되는 [체인 스펙](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/bin/node/cli/src/chain_spec.rs)을 참조하십시오.
+Substrate의 제네시스 스토리지 구성에 대한 더 완전한 예는 Substrate 코드 베이스와 함께 제공되는 [체인 사양](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/bin/node/cli/src/chain_spec.rs)을 참조하십시오.
 
 ## 팔렛 내에서 스토리지 항목 초기화
 

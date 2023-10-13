@@ -1,6 +1,6 @@
 ---
 title: EVM 계정에 접근하기
-description: Substrate 블록체인 노드를 통해 이더리움 기반 계정과 스마트 컨트랙트에 접근하는 방법을 설명합니다.
+description: Substrate 블록체인 노드를 통해 이더리움 기반 계정과 스마트 계약에 접근하는 방법을 설명합니다.
 keywords:
   - 이더리움
   - 계약
@@ -13,7 +13,7 @@ keywords:
   - ganache
 ---
 
-이 튜토리얼은 [Frontier](https://github.com/paritytech/frontier) 프로젝트의 크레이트를 사용하여 이더리움 기반 계정에 접근하고 솔리디티 기반 스마트 컨트랙트를 실행할 수 있는 **이더리움 호환** 블록체인을 구축하는 방법을 설명합니다.
+이 튜토리얼은 [Frontier](https://github.com/paritytech/frontier) 프로젝트의 크레이트를 사용하여 이더리움 기반 계정에 접근하고 솔리디티 기반 스마트 계약을 실행할 수 있는 **이더리움 호환** 블록체인을 구축하는 방법을 설명합니다.
 Frontier 프로젝트의 두 가지 주요 목표는 다음과 같습니다:
 
 - 로컬 Substrate 노드를 사용하여 수정하지 않은 상태로 이더리움 탈중앙화 앱을 실행합니다.
@@ -43,14 +43,14 @@ Frontier 프로젝트의 두 가지 주요 목표는 다음과 같습니다:
 
 - 이더리움 핵심 개념과 용어
 - 이더리움 가상 머신 (EVM) 기본 개념
-- 탈중앙화 앱과 스마트 컨트랙트
+- 탈중앙화 앱과 스마트 계약
 - 팔렛 설계 원칙
 
 ## 제네시스 구성
 
-`frontier-node-template`의 개발용 [체인 스펙](https://github.com/substrate-developer-hub/frontier-node-template/blob/main/node/src/chain_spec.rs)은 `alice` 계정을 위한 EVM 계정이 미리 구성된 제네시스 블록을 정의합니다.
+`frontier-node-template`의 개발용 [체인 사양](https://github.com/substrate-developer-hub/frontier-node-template/blob/main/node/src/chain_spec.rs)은 `alice` 계정을 위한 EVM 계정이 미리 구성된 제네시스 블록을 정의합니다.
 개발 모드에서 이 노드를 시작하면 `alice`의 EVM 계정에 기본 이더 양이 제공됩니다.
-이 계정을 사용하여 EVM 계정 세부 정보를 보고 이더리움 스마트 컨트랙트를 호출할 수 있습니다.
+이 계정을 사용하여 EVM 계정 세부 정보를 보고 이더리움 스마트 계약을 호출할 수 있습니다.
 노드를 시작한 후 [Polkadot-JS 애플리케이션](https://polkadot.js.org/apps/#?rpc=ws://127.0.0.1:9944)을 사용하여 `alice`의 EVM 계정 세부 정보를 확인할 수 있습니다.
 
 ## Frontier 노드 컴파일하기
@@ -95,7 +95,7 @@ Frontier 노드 템플릿을 컴파일하려면 다음 단계를 따르세요:
    ./target/release/frontier-template-node --dev
    ```
 
-   `--dev` 명령줄 옵션은 노드가 미리 정의된 `development` 체인 스펙을 사용하여 실행되도록 지정합니다. 이 사양에는 `alice`와 테스트용 다른 계정이 포함되어 있습니다.
+   `--dev` 명령줄 옵션은 노드가 미리 정의된 `development` 체인 사양을 사용하여 실행되도록 지정합니다. 이 사양에는 `alice`와 테스트용 다른 계정이 포함되어 있습니다.
 
 1. 터미널에 표시된 출력을 확인하여 노드가 성공적으로 실행되었는지 확인합니다.
 
@@ -176,9 +176,9 @@ EVM 계정에 대한 설정을 구성한 후, Polkadot-JS 애플리케이션을 
    340,282,366,920,938,463,463,374,607,431,768,210,955
    ```
 
-## 스마트 컨트랙트 배포하기
+## 스마트 계약 배포하기
 
-이더리움 주소의 잔액을 조회하는 방법을 확인했으므로, 이더리움 스마트 컨트랙트를 배포하고 호출하여 관련 기능을 테스트해볼 수 있습니다.
+이더리움 주소의 잔액을 조회하는 방법을 확인했으므로, 이더리움 스마트 계약을 배포하고 호출하여 관련 기능을 테스트해볼 수 있습니다.
 이 튜토리얼에서는 [Truffle](https://www.trufflesuite.com/truffle) 샘플 계약을 사용하여 [ERC-20 토큰](https://github.com/substrate-developer-hub/frontier-node-template/blob/main/examples/contract-erc20/truffle/contracts/MyToken.sol)을 정의하는 계약을 배포합니다.
 Polkadot JS SDK와 [Typescript](https://github.com/substrate-developer-hub/frontier-node-template/tree/main/examples/contract-erc20)를 사용하여 ERC-20 토큰 계약을 생성할 수도 있습니다.
 
@@ -214,7 +214,7 @@ Polkadot JS SDK와 [Typescript](https://github.com/substrate-developer-hub/front
 
 1. 트랜잭션을 승인하기 위해 **Sign and Submit**을 클릭합니다.
 
-## 스마트 컨트랙트 보기
+## 스마트 계약 보기
 
 트랜잭션을 제출한 후, 계약이 네트워크에 배포되고 [Polkadot-JS 애플리케이션](https://polkadot.js.org/apps/#?rpc=ws://127.0.0.1:9944)을 사용하여 계약에 대한 정보를 확인할 수 있습니다.
 
@@ -243,7 +243,7 @@ Polkadot JS SDK와 [Typescript](https://github.com/substrate-developer-hub/front
 배포한 ERC-20 계약은 [OpenZeppelin ERC-20 구현](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol)을 기반으로 합니다.
 이 계약에는 최대 토큰 수를 생성하고 계약 생성자와 연결된 계정에 저장하는 생성자가 포함되어 있습니다.
 
-스마트 컨트랙트와 관련된 계정 스토리지를 조회하려면 다음 단계를 따르세요:
+스마트 계약과 관련된 계정 스토리지를 조회하려면 다음 단계를 따르세요:
 
 1. 상태로 **evm**을 선택하고 **accountStorages**를 선택합니다.
 
