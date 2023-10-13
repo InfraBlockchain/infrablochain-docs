@@ -8,7 +8,7 @@ keywords:
 
 - [라이트 클라이언트 노드 통합하기](/tutorials/integrate-with-tools/integrate-a-light-client-node/)는 Substrate Connect 라이트 클라이언트 노드를 사용하여 브라우저에서 Substrate 체인을 동기화하고 상호작용하는 방법을 설명합니다.
 - [사이드카 엔드포인트 탐색하기](/tutorials/integrate-with-tools/explore-sidecar-endpoints/)는 사이드카 RESTful API와 엔드포인트를 사용하여 Substrate 기반 체인과 상호작용하는 방법을 보여줍니다.
-- [EVM 계정에 액세스하기](/tutorials/integrate-with-tools/access-evm-accounts/)는 사용자 정의 Substrate 노드를 사용하여 이더리움 기반 계정과 스마트 계약에 액세스하는 방법을 설명합니다.
+- [EVM 계정에 액세스하기](/tutorials/integrate-with-tools/access-evm-accounts/)는 사용자 정의 Substrate 노드를 사용하여 이더리움 기반 계정과 스마트 컨트랙트에 액세스하는 방법을 설명합니다.
 
 <!--
 - [subxt로 빌드하기](/tutorials/integrate-with-tools/build-with-subxt/)

@@ -34,7 +34,7 @@ Nicks 팔레트는 블록체인 사용자가 자신이 제어하는 계정에 �
 
 - 소프트웨어 개발 및 명령 줄 인터페이스 사용에 대해 일반적으로 알고 있는지 확인하세요.
 
-- 블록체인 및 스마트 계약 플랫폼에 대해 일반적으로 알고 있는지 확인하세요.
+- 블록체인 및 스마트 컨트랙트 플랫폼에 대해 일반적으로 알고 있는지 확인하세요.
 
 ## 튜토리얼 목표
 
@@ -63,11 +63,11 @@ Nicks 팔레트의 종속성을 런타임에 추가하려면 다음 단계를 �
 
 1. 터미널 쉘을 열고 노드 템플릿의 루트 디렉토리로 이동하세요.
 
-1. 텍스트 편집기에서 `runtime/Cargo.toml` 구성 파일을 엽니다.
+2. 텍스트 편집기에서 `runtime/Cargo.toml` 구성 파일을 엽니다.
 
-1. [dependencies] 섹션을 찾고 다른 팔레트가 어떻게 가져오는지 확인하세요.
+3. [dependencies] 섹션을 찾고 다른 팔레트가 어떻게 가져오는지 확인하세요.
 
-1. 기존 팔레트 종속성 설명을 복사하고 팔레트 이름을 `pallet-nicks`로 바꿔 팔레트를 노드 템플릿 런타임에서 사용할 수 있도록 합니다.
+4. 기존 팔레트 종속성 설명을 복사하고 팔레트 이름을 `pallet-nicks`로 바꿔 팔레트를 노드 템플릿 런타임에서 사용할 수 있도록 합니다.
 
    예를 들어, 다음과 유사한 줄을 추가하세요.
 
@@ -84,7 +84,7 @@ Nicks 팔레트의 종속성을 런타임에 추가하려면 다음 단계를 �
    
    이러한 세부 정보는 노드 템플릿의 특정 버전에 포함된 팔레트의 모든 팔레트에 대해 동일해야 합니다.
 
-1. `features` 목록에 `pallet-nicks/std` 기능을 추가하세요.
+5. `features` 목록에 `pallet-nicks/std` 기능을 추가하세요.
 
    ```toml
    [features]
@@ -104,7 +104,7 @@ Nicks 팔레트의 종속성을 런타임에 추가하려면 다음 단계를 �
 
    `Cargo.toml` 파일의 `features` 섹션을 업데이트하는 것을 잊으면 런타임 바이너리를 컴파일할 때 `cannot find function` 오류가 발생할 수 있습니다.
 
-2. 다음 명령을 실행하여 새로운 종속성이 올바르게 해결되는지 확인하세요.
+6. 다음 명령을 실행하여 새로운 종속성이 올바르게 해결되는지 확인하세요.
 
    ```bash
    cargo check -p node-template-runtime --release
@@ -125,7 +125,7 @@ Balances 팔레트의 `Config` trait을 검토하려면:
 
 1. 텍스트 편집기에서 `runtime/src/lib.rs` 파일을 엽니다.
 
-1. Balances 팔레트를 찾고 다음과 같은 구현 (`impl`) 코드 블록이 있는지 확인하세요.
+2. Balances 팔레트를 찾고 다음과 같은 구현 (`impl`) 코드 블록이 있는지 확인하세요.
 
    ```text
    pub type Balance = u128;
@@ -165,9 +165,9 @@ Balances 팔레트에 대한 `Config` trait이 어떻게 구현되는지 예제�
 
 1. 텍스트 편집기에서 `runtime/src/lib.rs` 파일을 엽니다.
 
-1. Balances 코드 블록의 마지막 줄을 찾으세요.
+2. Balances 코드 블록의 마지막 줄을 찾으세요.
 
-1. 다음과 같은 Nicks 팔레트 코드 블록을 추가하세요.
+3. 다음과 같은 Nicks 팔레트 코드 블록을 추가하세요.
 
    ```rust
    impl pallet_nicks::Config for Runtime {
@@ -196,7 +196,7 @@ Balances 팔레트에 대한 `Config` trait이 어떻게 구현되는지 예제�
    }
    ```
 
-1. Nicks를 `construct_runtime!` 매크로에 추가하세요.
+4. Nicks를 `construct_runtime!` 매크로에 추가하세요.
 
    예를 들어:
 
@@ -216,9 +216,9 @@ Balances 팔레트에 대한 `Config` trait이 어떻게 구현되는지 예제�
    );
    ```
 
-1. 변경 사항을 저장하고 파일을 닫으세요.
+5. 변경 사항을 저장하고 파일을 닫으세요.
 
-2. 다음 명령을 실행하여 새로운 종속성이 올바르게 해결되는지 확인하세요.
+6. 다음 명령을 실행하여 새로운 종속성이 올바르게 해결되는지 확인하세요.
 
    ```bash
    cargo check -p node-template-runtime --release
@@ -226,7 +226,7 @@ Balances 팔레트에 대한 `Config` trait이 어떻게 구현되는지 예제�
 
    오류가 없으면 컴파일할 준비가 되었습니다.
 
-3. 다음 명령을 실행하여 릴리스 모드로 노드를 컴파일하세요.
+7. 다음 명령을 실행하여 릴리스 모드로 노드를 컴파일하세요.
 
    ```bash
    cargo build --release
@@ -240,9 +240,9 @@ Balances 팔레트에 대한 `Config` trait이 어떻게 구현되는지 예제�
 
 1. 필요한 경우 터미널 쉘을 엽니다.
 
-1. Substrate 노드 템플릿의 루트 디렉토리로 이동하세요.
+2. Substrate 노드 템플릿의 루트 디렉토리로 이동하세요.
 
-1. 다음 명령을 실행하여 개발 모드에서 노드를 시작하세요.
+3. 다음 명령을 실행하여 개발 모드에서 노드를 시작하세요.
 
    ```bash
    ./target/release/node-template --dev
@@ -252,11 +252,11 @@ Balances 팔레트에 대한 `Config` trait이 어떻게 구현되는지 예제�
    기본적으로 이 옵션은 노드를 중지할 때(예: Control-c를 누르면) 모든 활성 데이터(키, 블록체인 데이터베이스, 네트워킹 정보 등)를 삭제합니다.
    `--dev` 옵션을 사용하면 노드를 중지하고 다시 시작할 때마다 깨끗한 작업 상태를 유지할 수 있습니다.
 
-1. 터미널에 표시된 출력을 확인하여 노드가 성공적으로 실행되었는지 확인하세요.
+4. 터미널에 표시된 출력을 확인하여 노드가 성공적으로 실행되었는지 확인하세요.
 
    `finalized` 다음의 숫자가 증가하는 것을 확인하면 블록체인이 새로운 블록을 생성하고 그들이 설명하는 상태에 대해 합의에 도달하고 있다는 것을 의미합니다.
 
-1. 노드 출력이 표시되는 터미널을 열어둡니다.
+5. 노드 출력이 표시되는 터미널을 열어둡니다.
 
 ## 프론트엔드 템플릿 시작하기
 
@@ -266,15 +266,15 @@ Balances 팔레트에 대한 `Config` trait이 어떻게 구현되는지 예제�
 
 1. 컴퓨터에서 새로운 터미널 쉘을 엽니다.
 
-1. 새 터미널에서 프론트엔드 템플릿을 설치한 루트 디렉토리로 이동하세요.
+2. 새 터미널에서 프론트엔드 템플릿을 설치한 루트 디렉토리로 이동하세요.
 
-1. 다음 명령을 실행하여 프론트엔드 템플릿의 웹 서버를 시작하세요.
+3. 다음 명령을 실행하여 프론트엔드 템플릿의 웹 서버를 시작하세요.
 
    ```bash
    yarn start
    ```
 
-1. 브라우저에서 `http://localhost:8000/`을 열어 프론트엔드 템플릿을 확인하세요.
+4. 브라우저에서 `http://localhost:8000/`을 열어 프론트엔드 템플릿을 확인하세요.
 
 ## Nicks 팔레트를 사용하여 닉네임 설정하기
 
@@ -284,19 +284,19 @@ Balances 팔레트에 대한 `Config` trait이 어떻게 구현되는지 예제�
 
 1. 계정 선택 목록을 확인하여 현재 Alice 계정이 선택되어 있는지 확인하세요.
 
-1. Pallet Interactor 구성 요소에서 **Extrinsic**가 선택되어 있는지 확인하세요.
+2. Pallet Interactor 구성 요소에서 **Extrinsic**가 선택되어 있는지 확인하세요.
 
-2. 팔레트 목록에서 **nicks**를 선택하세요.
+3. 팔레트 목록에서 **nicks**를 선택하세요.
 
-3. nicks 팔레트에서 호출할 함수로 [**setName**](https://paritytech.github.io/substrate/master/pallet_nicks/pallet/enum.Call.html#variant.set_name)을 선택하세요.
+4. nicks 팔레트에서 호출할 함수로 [**setName**](https://paritytech.github.io/substrate/master/pallet_nicks/pallet/enum.Call.html#variant.set_name)을 선택하세요.
 
-4. `MinNickLength` (8자)보다 길고 `MaxNickLength` (32자)보다 길지 않은 **name**을 입력하세요.
+5. `MinNickLength` (8자)보다 길고 `MaxNickLength` (32자)보다 길지 않은 **name**을 입력하세요.
 
    ![팔레트와 호출할 함수 선택](/media/images/docs/tutorials/add-a-pallet/set-name-function.png)
 
-5. **Signed**를 클릭하여 함수를 실행하세요.
+6. **Signed**를 클릭하여 함수를 실행하세요.
 
-6. 호출의 상태가 준비에서 InBlock으로 변경되고 최종적으로 Finalized로 변경되는 것과 Nicks 팔레트에서 발생한 [이벤트](https://paritytech.github.io/substrate/master/pallet_nicks/pallet/enum.Event.html)를 확인하세요.
+7. 호출의 상태가 준비에서 InBlock으로 변경되고 최종적으로 Finalized로 변경되는 것과 Nicks 팔레트에서 발생한 [이벤트](https://paritytech.github.io/substrate/master/pallet_nicks/pallet/enum.Event.html)를 확인하세요.
 
    ![Alice의 닉네임 업데이트 성공](/media/images/docs/tutorials/add-a-pallet/set-name-result.png)
 
@@ -308,11 +308,11 @@ Alice에 대한 저장된 정보를 반환하려면 다음을 수행하세요.
 
 1. Pallet Interactor 구성 요소에서 **Query**를 상호작용 유형으로 선택하세요.
 
-1. 팔레트 목록에서 **nicks**를 선택하세요.
+2. 팔레트 목록에서 **nicks**를 선택하세요.
 
-1. 호출할 함수로 [**nameOf**](https://paritytech.github.io/substrate/master/pallet_nicks/pallet/enum.Call.html#variant.set_name)을 선택하세요.
+3. 호출할 함수로 [**nameOf**](https://paritytech.github.io/substrate/master/pallet_nicks/pallet/enum.Call.html#variant.set_name)을 선택하세요.
 
-1. AccountId 필드에 **alice** 계정의 주소를 복사하여 붙여넣은 다음 **Query**를 클릭하세요.
+4. AccountId 필드에 **alice** 계정의 주소를 복사하여 붙여넣은 다음 **Query**를 클릭하세요.
 
    ![이름 읽기](/media/images/docs/tutorials/add-a-pallet/Alice-query-result.png)
 
@@ -337,5 +337,5 @@ Nicks 및 Sudo 팔레트를 통해 노출된 추가 기능을 탐색하려면 [�
 Substrate 개발에 대해 더 알아보기 위해 여러 [튜토리얼](/tutorials/)을 참조할 수 있습니다.
 
 - [호출에 대한 오리진 지정](/tutorials/build-application-logic/specify-the-origin-for-a-call)은 다른 발신 계정을 사용하여 함수를 호출하는 방법을 탐색합니다.
-- [스마트 계약 개발](/tutorials/smart-contracts/)은 ink!를 사용하여 스마트 계약을 구축하는 방법을 안내합니다.
+- [스마트 컨트랙트 개발](/tutorials/smart-contracts/)은 ink!를 사용하여 스마트 컨트랙트를 구축하는 방법을 안내합니다.
 - [사용자 정의 팔레트에서 매크로 사용하기](/tutorials/build-application-logic/use-macros-in-a-custom-pallet)는 매크로를 사용하여 자체 팔레트를 만드는 방법을 보여줍니다.

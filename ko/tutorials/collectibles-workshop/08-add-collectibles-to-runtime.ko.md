@@ -58,18 +58,18 @@ tutorial:
    ...
    ```
 
-1. 변경 사항을 저장하세요.
+2. 변경 사항을 저장하세요.
    
-1. `runtime/src/lib.rs` 파일을 엽니다.
+3. `runtime/src/lib.rs` 파일을 엽니다.
 
-1. 컬렉터블 팔레트를 런타임에 가져옵니다.
+4. 컬렉터블 팔레트를 런타임에 가져옵니다.
 
    ```rust
    /// 컬렉터블 팔레트를 가져옵니다.
    pub use collectibles;
    ```
 
-1. 컬렉터블 팔레트를 위한 구성 트레잇을 구현합니다.
+5. 컬렉터블 팔레트를 위한 구성 트레잇을 구현합니다.
    
    ```rust
    impl collectibles::Config for Runtime {
@@ -80,7 +80,7 @@ tutorial:
    }
    ```
 
-1. `construct_runtime!` 매크로에 팔레트를 추가합니다.
+6. `construct_runtime!` 매크로에 팔레트를 추가합니다.
    
    ```rust
    construct_runtime!(
@@ -104,7 +104,7 @@ tutorial:
    );
    ```
 
-1. 다음 명령을 실행하여 업데이트된 런타임으로 블록체인 노드를 컴파일합니다.
+7. 다음 명령을 실행하여 업데이트된 런타임으로 블록체인 노드를 컴파일합니다.
    
    ```bash
    cargo build --release
@@ -126,15 +126,15 @@ tutorial:
    
    ![로컬 노드에 연결](/media/images/docs/tutorials/collectibles-workshop/connect-to-local-endpoint.png)
 
-1. **Developer**를 클릭하고 **Extrinsics**를 선택합니다.
+3. **Developer**를 클릭하고 **Extrinsics**를 선택합니다.
 
-2. **Collectibles** 팔레트를 선택하고 호출 가능한 함수 목록을 확인합니다.
+4. **Collectibles** 팔레트를 선택하고 호출 가능한 함수 목록을 확인합니다.
    
    ![컬렉터블 팔레트의 호출 가능한 함수들](/media/images/docs/tutorials/collectibles-workshop/collectibles-pallet.png)
 
-3. **createCollectible** 함수를 선택하고 **Submit Transaction**을 클릭한 다음 **Sign and Submit**을 클릭합니다.
+5. **createCollectible** 함수를 선택하고 **Submit Transaction**을 클릭한 다음 **Sign and Submit**을 클릭합니다.
 
-4. **Network**를 클릭하고 **Explorer**를 선택하여 새로운 컬렉터블을 생성하는 이벤트를 확인합니다.
+6. **Network**를 클릭하고 **Explorer**를 선택하여 새로운 컬렉터블을 생성하는 이벤트를 확인합니다.
    
    ![CollectibleCreated 이벤트](/media/images/docs/tutorials/collectibles-workshop/create-collectible-event.png)
 

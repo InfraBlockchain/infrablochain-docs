@@ -53,13 +53,13 @@ Postman으로 생성된 API 컬렉션을 사용하면 인라인 문서, 데이�
    npm install -g @substrate/api-sidecar
    ```
 
-1. 서비스가 연결할 Substrate 노드가 실행 중인지 확인합니다.
+3. 서비스가 연결할 Substrate 노드가 실행 중인지 확인합니다.
 
    기본적으로 서비스는 ws://127.0.0.1:9944를 사용하여 로컬 호스트에 연결을 시도합니다.
    SAS_SUBSTRATE_URL 환경 설정을 수정하여 서비스가 다른 URL을 사용하도록 구성할 수 있습니다.
    로컬에서 기본 포트를 사용하여 로컬에서 실행 중인 노드 템플릿에 연결하려는 경우 구성이 필요하지 않습니다.
 
-2. 다음 명령을 실행하여 서비스를 시작합니다:
+4. 다음 명령을 실행하여 서비스를 시작합니다:
 
    ```bash
    substrate-api-sidecar
@@ -103,7 +103,7 @@ Postman으로 생성된 API 컬렉션을 사용하면 인라인 문서, 데이�
 
    ![Postman에서 API 컬렉션 실행](/media/images/docs/tutorials/postman-sidecar/run-in-postman.png)
 
-1. Postman에서 워크스페이스를 선택한 다음 **가져오기**를 클릭하여 미리 정의된 컬렉션을 Postman 워크스페이스에 추가합니다.
+4. Postman에서 워크스페이스를 선택한 다음 **가져오기**를 클릭하여 미리 정의된 컬렉션을 Postman 워크스페이스에 추가합니다.
 
    Substrate API `sidecar` 컬렉션을 Postman에서 열면 환경 변수를 정의하기 시작할 준비가 되었습니다.
 
@@ -220,22 +220,22 @@ Alice 주소의 계정 정보를 가져오려면 다음을 수행하세요:
 
    `현재 값`은 로컬에만 저장되며 Postman에게 전송되거나 동일한 Postman API 컬렉션을 사용하는 다른 팀원과 공유되지 않습니다.
 
-1. `Alice`의 계정 주소를 `현재 값` 필드에 붙여넣습니다.
+4. `Alice`의 계정 주소를 `현재 값` 필드에 붙여넣습니다.
 
    ![Postman 환경에서 계정 변수](/media/images/docs/tutorials/postman-sidecar/dev-variables.png)
 
-1. **컬렉션**을 클릭하고 **Substrate API Sidecar** 컬렉션을 엽니다.
+5. **컬렉션**을 클릭하고 **Substrate API Sidecar** 컬렉션을 엽니다.
 
-1. **Accounts** 폴더를 선택한 다음 **GET Account Balance Info**를 선택합니다.
+6. **Accounts** 폴더를 선택한 다음 **GET Account Balance Info**를 선택합니다.
 
    ![Account Balance Info 요청 선택](/media/images/docs/tutorials/postman-sidecar/account-balance.png)
 
-2. 이전에 사용한 `url` 변수와 Step 4에서 설정한 `account` 변수를 사용하여 요청을 구성합니다:
+7. 이전에 사용한 `url` 변수와 Step 4에서 설정한 `account` 변수를 사용하여 요청을 구성합니다:
 
    ![요청에 대한 엔드포인트 지정](/media/images/docs/tutorials/postman-sidecar/account-request.png)
 
 
-3. **Send**를 클릭합니다.
+8. **Send**를 클릭합니다.
 
    JSON 형식으로 다음과 유사한 응답을 받아야 합니다:
 

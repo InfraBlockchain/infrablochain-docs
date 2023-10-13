@@ -84,4 +84,4 @@ Rust에서 제네릭 유형과 특성에 대한 자세한 내용은 Rust 책의 
 - [Rust 책](https://doc.rust-lang.org/book/)
 - [왜 Rust인가?](https://www.parity.io/blog/why-rust) (Parity의 블로그)
 - [Cargo와 crates.io](https://doc.rust-lang.org/book/ch14-00-more-about-cargo.html)
-- [스마트 계약을 위한 Rust는 왜?](https://paritytech.github.io/ink-docs/why-rust-for-smart-contracts) (ink! 문서)
+- [스마트 컨트랙트를 위한 Rust는 왜?](https://paritytech.github.io/ink-docs/why-rust-for-smart-contracts) (ink! 문서)
