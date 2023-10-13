@@ -19,13 +19,13 @@ FRAME은 런타임 엔지니어에게 [온체인 무작위성](/build/randomness
 
 ## `Randomness` 가져오기
 
-1. 사용하려는 팔렛에서 `frame_support`에서 [`Randomness`](https://paritytech.github.io/substrate/master/frame_support/traits/trait.Randomness.html) 특성을 가져옵니다:
+1. 사용하려는 팔렛에서 `frame_support`에서 [`Randomness`](https://paritytech.github.io/substrate/master/frame_support/traits/trait.Randomness.html) 트레이트를 가져옵니다:
 
    ```rust
    use frame_support::traits::Randomness;
    ```
 
-2. 팔렛의 구성 특성에 포함시킵니다:
+2. 팔렛의 configuration 트레이트에 포함시킵니다:
 
    ```rust
    #[pallet::config]
@@ -34,10 +34,10 @@ FRAME은 런타임 엔지니어에게 [온체인 무작위성](/build/randomness
    }
    ```
 
-   `Randomness` 특성은 `Output` 및 `BlockNumber` 타입의 일반적인 반환을 지정합니다.
-   팔렛에서 이 특성 요구 사항을 충족하기 위해 `frame_system`에서 [`BlockNumber`](https://paritytech.github.io/substrate/master/frame_system/pallet/trait.Config.html#associatedtype.BlockNumber)와 [`Hash`](https://paritytech.github.io/substrate/master/frame_system/pallet/trait.Config.html#associatedtype.Hash)를 사용하세요.
+   `Randomness` 트레이트는 `Output` 및 `BlockNumber` 타입의 일반적인 반환을 지정합니다.
+   팔렛에서 이 트레이트 요구 사항을 충족하기 위해 `frame_system`에서 [`BlockNumber`](https://paritytech.github.io/substrate/master/frame_system/pallet/trait.Config.html#associatedtype.BlockNumber)와 [`Hash`](https://paritytech.github.io/substrate/master/frame_system/pallet/trait.Config.html#associatedtype.Hash)를 사용하세요.
 
-   [이 특성의 문서](https://paritytech.github.io/substrate/master/frame_support/traits/trait.Randomness.html)에 명시된 대로, 이 특성은 예측하기 어려웠던 무작위성을 제공할 수 있지만, 최근에는 예측하기 쉬워진 무작위성을 제공할 수 있습니다.
+   [이 트레이트의 문서](https://paritytech.github.io/substrate/master/frame_support/traits/trait.Randomness.html)에 명시된 대로, 이 트레이트은 예측하기 어려웠던 무작위성을 제공할 수 있지만, 최근에는 예측하기 쉬워진 무작위성을 제공할 수 있습니다.
 
 ## nonce 생성 및 무작위성 구현에 사용하기
 
@@ -85,10 +85,10 @@ FRAME은 런타임 엔지니어에게 [온체인 무작위성](/build/randomness
 
 3. 팔렛의 런타임 구현 업데이트하기.
 
-   팔렛의 구성 특성에 타입을 추가했으므로, `Config`를 사용하여 `Randomness` 특성에 의해 파생된 무작위성을 더욱 향상시킬 수 있습니다.
+   팔렛의 configuration 트레이트에 타입을 추가했으므로, `Config`를 사용하여 `Randomness` 트레이트에 의해 파생된 무작위성을 더욱 향상시킬 수 있습니다.
    이는 [Randomness Collective Flip 팔렛](https://paritytech.github.io/substrate/master/pallet_insecure_randomness_collective_flip/index.html)을 사용하여 수행됩니다.
 
-   `Randomness` 특성과 함께 이 팔렛을 사용하면 `random()`에서 처리되는 엔트로피가 크게 향상됩니다.
+   `Randomness` 트레이트과 함께 이 팔렛을 사용하면 `random()`에서 처리되는 엔트로피가 크게 향상됩니다.
 
    `runtime/src/lib.rs`에서 `pallet_random_collective_flip`이 `construct_runtime`에서 `RandomCollectiveFlip`으로 인스턴스화된다고 가정하면, 다음과 같이 노출된 타입을 지정합니다:
 

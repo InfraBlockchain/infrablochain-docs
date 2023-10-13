@@ -1,5 +1,5 @@
 ---
-title: 수집품 워크샵
+title: collectibles 워크샵
 description:
 keywords:
   - 팔레트

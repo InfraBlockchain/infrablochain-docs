@@ -43,7 +43,7 @@ pub enum Event<T: Config> {
 이벤트를 런타임에 노출하려면 다음을 수행합니다:
 
 1. 텍스트 편집기에서 `/runtime/src/lib.rs` 파일을 엽니다.
-2. 팔렛의 구성 트레이트에서 `RuntimeEvent` 타입을 구현합니다:
+2. 팔렛의 configuration 트레이트에서 `RuntimeEvent` 타입을 구현합니다:
 
    ```rust
    impl template::Config for Runtime {
@@ -76,7 +76,7 @@ Substrate는 매크로를 사용하여 이벤트를 발생시키는 기본 구�
 이벤트를 발생시키는 구조는 다음과 같습니다:
 
 ```rust
-// 1. 이벤트 열거형을 선언할 때 `generate_deposit` 속성을 사용합니다.
+// 1. Event enum을 선언할 때 `generate_deposit` 속성을 사용합니다.
 #[pallet::event]
 	#[pallet::generate_deposit(pub(super) fn deposit_event)] // <------ 여기 ----
 	#[pallet::metadata(...)]
@@ -125,7 +125,7 @@ Substrate RPC는 이벤트를 직접 쿼리할 수 있는 엔드포인트를 제
 런타임 코드는 명시적으로 모든 오류 상황을 처리해야 합니다.
 런타임 코드의 함수는 컴파일러를 [패닉](https://doc.rust-lang.org/book/ch09-03-to-panic-or-not-to-panic.html)시키지 않는 오류가 없는 함수여야 합니다.
 Rust에서 패닉이 발생하지 않는 코드를 작성하는 일반적인 관용구는 [`Result` 타입](https://paritytech.github.io/substrate/master/frame_support/dispatch/result/enum.Result.html)을 반환하는 함수를 작성하는 것입니다.
-`Result` 열거형 타입은 함수가 성공적으로 실행되지 못했음을 패닉하지 않고 알릴 수 있는 `Err` 변형을 가지고 있습니다.
+`Result` enum 타입은 함수가 성공적으로 실행되지 못했음을 패닉하지 않고 알릴 수 있는 `Err` 변형을 가지고 있습니다.
 FRAME 개발 환경에서 런타임으로 디스패치될 수 있는 함수 호출은, 함수가 오류를 만났을 경우 [`DispatchError` 변형](https://paritytech.github.io/substrate/master/frame_support/dispatch/enum.DispatchError.html)일 수 있는 [`DispatchResult` 타입](https://paritytech.github.io/substrate/master/frame_support/dispatch/type.DispatchResult.html)을 반환해야 합니다.
 
 각 FRAME 팔렛은 `#[pallet::error]` 매크로를 사용하여 사용자 정의 `DispatchError`를 정의할 수 있습니다.

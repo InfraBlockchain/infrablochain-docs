@@ -128,7 +128,7 @@ Polkadot은 다음과 같은 프록시 유형을 사용하여 프록시 계정�
 - CancelProxy
 - Auction
 
-프록시 유형의 열거형 목록과 프록시 유형을 트랜잭션과 일치시키는 논리는 [Polkadot 런타임](https://github.com/polkadot-fellows/runtimes/blob/main/relay/polkadot/src/lib.rs)에서 정의됩니다.
+프록시 유형의 enum 목록과 프록시 유형을 트랜잭션과 일치시키는 논리는 [Polkadot 런타임](https://github.com/polkadot-fellows/runtimes/blob/main/relay/polkadot/src/lib.rs)에서 정의됩니다.
 
 #### 익명 프록시 계정
 

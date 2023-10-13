@@ -8,9 +8,9 @@ keywords:
   - 런타임
 ---
 
-이 가이드는 사용자가 스테이킹과 투표를 위해 자금을 잠글 수 있는 팔렛을 작성하는 방법을 보여줍니다.
+이 가이드는 사용자가 스테이킹과 투표를 위해 자금을 동결 할 수 있는 팔렛을 작성하는 방법을 보여줍니다.
 [`LockableCurrency`](https://paritytech.github.io/substrate/master/frame_support/traits/trait.LockableCurrency.html) 트레이트는 교환 가능한 자원을 담보로 하여 책임 추적을 강제하는 경제 시스템의 맥락에서 유용합니다.
-시간 기반 증분으로 잠긴 자금을 관리하기 위해 Substrate [스테이킹 팔렛](https://paritytech.github.io/substrate/master/pallet_staking/index.html)을 사용할 수 있습니다.
+잠긴 자금을 관리하기 위해 Substrate [스테이킹 팔렛](https://paritytech.github.io/substrate/master/pallet_staking/index.html)을 사용할 수 있습니다.
 
 이 가이드에서는 우리 자신의 커스텀 팔렛에서 `set_lock`, `extend_lock` 및 `remove_lock` 메서드를 구현할 것입니다.
 
@@ -79,8 +79,8 @@ keywords:
 필요한 메서드들은 다음과 같습니다:
 
 - `fn lock_capital`: 호출자로부터 지정된 양의 토큰을 잠급니다.
-- `fn extend_lock`: 잠금 기간을 연장합니다.
-- `fn unlock_all`: 모든 잠긴 토큰을 해제합니다.
+- `fn extend_lock`: 동결 기간을 연장합니다.
+- `fn unlock_all`: 모든 동결된 토큰을 동결해제합니다.
 
 1. `lock_capital`을 작성하고, `T::StakeCurrency::set_lock`을 사용하세요:
 

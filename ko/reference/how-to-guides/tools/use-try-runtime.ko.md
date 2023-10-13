@@ -174,7 +174,7 @@ TryRuntime,
    /* --snip-- */
    ```
 
-작업 공간에서 사용자 정의 팔레트를 사용하는 경우 작업 공간의 `pallets/pallet_name/Cargo.toml` 파일의 종속성에 `try-runtime`을 포함했는지 확인하십시오.
+workspace에서 사용자 정의 팔레트를 사용하는 경우 workspace의 `pallets/pallet_name/Cargo.toml` 파일의 종속성에 `try-runtime`을 포함했는지 확인하십시오.
 
 ## try-runtime 사용하기
 

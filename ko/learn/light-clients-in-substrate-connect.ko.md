@@ -42,7 +42,7 @@ Substrate Connect를 사용하면 애플리케이션을 구성하여 컴퓨터�
 
 Substrate Connect를 사용하여 Substrate 기반 블록체인에 연결할 수 있습니다.
 그러나 연결하려는 체인의 올바른 이름을 지정해야 합니다.
-[`WellKnownChain`](https://paritytech.github.io/substrate-connect/api/enums/connect_src.WellKnownChain.html) 열거형에 정의된 몇 가지 잘 알려진 체인 이름이 있습니다.
+[`WellKnownChain`](https://paritytech.github.io/substrate-connect/api/enums/connect_src.WellKnownChain.html) enum에 정의된 몇 가지 잘 알려진 체인 이름이 있습니다.
 
 다음 목록에 나열된 이름을 사용하여 다음 공개 블록체인 네트워크에 연결할 수 있습니다:
 

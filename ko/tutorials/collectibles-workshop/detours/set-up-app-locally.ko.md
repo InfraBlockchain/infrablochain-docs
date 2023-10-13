@@ -1,5 +1,5 @@
 ---
-title: "우회: Polkadot/Substrate 포털 설정하기"
+title: "Polkadot/Substrate 포털 설정하기"
 description:
 keywords:
 ---

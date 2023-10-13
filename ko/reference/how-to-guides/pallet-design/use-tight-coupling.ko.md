@@ -27,7 +27,7 @@ keywords:
 
 1. 팔레트에 트레이트 바운드 추가
 
-   이제 팔레트의 구성 트레이트 주위에 트레이트 바운드를 생성하기만 하면 됩니다:
+   이제 팔레트의 configuration 트레이트 주위에 트레이트 바운드를 생성하기만 하면 됩니다:
 
    ```rust
    pub trait Config: frame_system::Config + special_pallet::Config {
@@ -35,7 +35,7 @@ keywords:
    }
    ```
 
-1. 게터 함수 사용
+1. getter 함수 사용
 
    `special-pallet`에서 메소드를 사용하려면 다음과 같이 호출하면 됩니다:
 

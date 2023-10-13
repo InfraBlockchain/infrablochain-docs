@@ -54,7 +54,7 @@ keywords:
 
 - FRAME 매크로를 사용하는 방법과 팔렛의 로직을 편집하는 방법에 익숙합니다.
 
-- 런타임에서 팔렛의 구성 트레이트를 수정하는 방법에 익숙합니다.
+- 런타임에서 팔렛의 configuration 트레이트를 수정하는 방법에 익숙합니다.
 
 ## 튜토리얼 목표
 
@@ -105,7 +105,7 @@ keywords:
    예시:
 
    ```rust
-   /// 이 팔렛의 구성 트레이트
+   /// 이 팔렛의 configuration 트레이트
    #[pallet::config]
    pub trait Config: CreateSignedTransaction<Call<Self>> + frame_system::Config {
    	// ...
@@ -275,7 +275,7 @@ keywords:
    }
    ```
 
-   이 코드 조각은 길지만, 기본적으로 다음 주요 단계를 보여줍니다:
+   이 코드는 길지만, 기본적으로 다음 주요 단계를 보여줍니다:
 
    - `extra`의 `SignedExtra` 유형을 생성하고 준비하고, 다양한 체커를 설정합니다.
    - 전달된 `call`과 `extra`를 기반으로 원시(raw) 페이로드를 생성합니다.

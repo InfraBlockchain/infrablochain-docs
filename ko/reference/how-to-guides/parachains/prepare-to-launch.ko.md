@@ -81,7 +81,7 @@ Polkadot의 경우:
 
 ## 호출 필터 설정
 
-특히 파라체인을 론칭할 때는 _특정 클래스_의 사용자에게 활성화할 기능을 매우 제한해야 할 수도 있습니다. 이는 **호출 필터**를 사용하여 수행할 수 있습니다.
+특히 파라체인을 론칭할 때는 _특정 클래스_ 의 사용자에게 활성화할 기능을 매우 제한해야 할 수도 있습니다. 이는 **호출 필터**를 사용하여 수행할 수 있습니다.
 
 다음은 [Statemine 런타임 배포](https://github.com/paritytech/cumulus/pull/476)에서 구현된 필터를 사용하여 기능을 [제한](https://github.com/paritytech/cumulus/blob/59cdbb6a56b1c49009413d66ba2232494563b57c/polkadot-parachains/statemine/src/lib.rs#L148)하고 [활성화](https://github.com/paritytech/cumulus/pull/476/files#diff-09b95657e9aa1b646722afa7944a00ddc2541e8753254a86180b338d3376f93eL151)하는 방법의 예입니다.
 

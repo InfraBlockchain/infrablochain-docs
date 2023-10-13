@@ -320,7 +320,7 @@ impl<T: Config> Hooks<BlockNumberFor<T>> for Pallet<T> {
 
 런타임으로 들어오는 외부 요청은 호출을 사용하여 특정 로직을 트리거할 수 있습니다.
 호출은 런타임에서 이벤트를 발생시키는 팔렛에 사용될 수도 있습니다.
-`#[pallet::call]`은 런타임에서 팔렛의 모든 함수 호출 로직을 [`Call` 열거형](https://paritytech.github.io/substrate/master/frame_system/pallet/enum.Call.html)을 사용하여 집계합니다.
+`#[pallet::call]`은 런타임에서 팔렛의 모든 함수 호출 로직을 [`Call` enum](https://paritytech.github.io/substrate/master/frame_system/pallet/enum.Call.html)을 사용하여 집계합니다.
 이 [집계](/reference/glossary#aggregation)는 FRAME이 동일한 유형의 함수를 단일 런타임 호출로 묶을 수 있도록 합니다.
 런타임은 그런 다음 런타임에서 생성된 항목을 팔렛으로부터 생성된 이벤트, 오류 및 호출 함수로 매핑합니다.
 
@@ -331,7 +331,7 @@ impl<T: Config> Hooks<BlockNumberFor<T>> for Pallet<T> {
 [`#[pallet::error]`](https://paritytech.github.io/substrate/master/frame_support/attr.pallet.html#error-palleterror-optional) 매크로를 사용하면 런타임으로 디스패치되는 함수 호출에서 반환될 수 있는 오류 타입을 정의할 수 있습니다.
 오류 정보는 런타임 메타데이터에 포함됩니다.
 
-매크로는 `Error`라는 제네릭 타입 <T>에 대한 열거형으로 정의되어야 하며, 필드가 있는 또는 없는 변형을 포함할 수 있습니다.
+매크로는 `Error`라는 제네릭 타입 <T>에 대한 enum으로 정의되어야 하며, 필드가 있는 또는 없는 변형을 포함할 수 있습니다.
 
 예를 들어, 다음과 같이 `#[pallet::error]`를 사용하여 `type MyError`를 메타데이터에 추가할 수 있습니다:
 
@@ -346,8 +346,8 @@ pub enum Error<T> {
 }
 ```
 
-열거형 변형에 대해 지정한 필드 타입은 `scale_info::TypeInfo` 특성을 구현해야 하며, 인코딩된 크기는 가능한 작아야 합니다.
-열거형 변형의 필드 타입은 또한 [PalletError](https://paritytech.github.io/substrate/master/frame_support/traits/trait.PalletError.html) 특성을 구현해야 합니다.
+enum 변형에 대해 지정한 필드 타입은 `scale_info::TypeInfo` 특성을 구현해야 하며, 인코딩된 크기는 가능한 작아야 합니다.
+enum 변형의 필드 타입은 또한 [PalletError](https://paritytech.github.io/substrate/master/frame_support/traits/trait.PalletError.html) 특성을 구현해야 합니다.
 
 자세한 내용은 [pallet::error](https://paritytech.github.io/substrate/master/frame_support/attr.pallet.html#error-palleterror-optional)을 위한 Rust 문서를 참조하십시오.
 
@@ -356,7 +356,7 @@ pub enum Error<T> {
 [`#[pallet::event]`](https://paritytech.github.io/substrate/master/frame_support/attr.pallet.html#event-palletevent-optional) 매크로를 사용하면 팔렛에 대한 이벤트 타입을 정의할 수 있습니다.
 
 이 매크로는 `pallet::error` 매크로와 유사하지만 더 많은 정보를 포함할 수 있습니다.
-매크로는 이벤트라는 이름의 열거형으로 정의됩니다.
+매크로는 이벤트라는 이름의 enum으로 정의됩니다.
 
 예를 들어:
 
@@ -424,7 +424,7 @@ impl<T: Config> GenesisBuild<T> for GenesisConfig {
 
 [`#[pallet::genesis_config]`](https://paritytech.github.io/substrate/master/frame_support/attr.pallet.html#genesis-config-palletgenesis_config-optional) 매크로를 사용하면 팔렛의 제네시스 구성을 정의할 수 있습니다.
 
-이 매크로는 열거형 또는 구조체로 정의될 수 있지만 공개되어야 하며, `#[pallet::genesis_build]` 매크로와 함께 GenesisBuild 특성을 구현해야 합니다.
+이 매크로는 enum 또는 구조체로 정의될 수 있지만 공개되어야 하며, `#[pallet::genesis_build]` 매크로와 함께 GenesisBuild 특성을 구현해야 합니다.
 
 예를 들어:
 
@@ -458,7 +458,7 @@ impl<T: Config> ProvideInherent for Pallet<T> {
 
 [`#[pallet::origin]`](https://paritytech.github.io/substrate/master/frame_support/attr.pallet.html#origin-palletorigin-optional) 매크로를 사용하면 팔렛에 대한 origin을 정의할 수 있습니다.
 
-이 매크로는 타입 별칭, 열거형 또는 구조체로 정의해야 하며, 공개되어야 합니다.
+이 매크로는 타입 별칭, enum 또는 구조체로 정의해야 하며, 공개되어야 합니다.
 
 예를 들어:
 
