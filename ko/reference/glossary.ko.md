@@ -333,10 +333,10 @@ Substrate에서 런타임은 [웹어셈블리](#webassembly-wasm) 바이너리�
 [Aura](#aura-aka-authority-round) 및 [BABE](#blind-assignment-of-blockchain-extension-babe)와 같은 합의 엔진에서 사용되는 고정된 동일한 시간 간격입니다.
 각 슬롯에서는 일부 [권한](#authority)이 블록을 생성하는 데 허용되거나 의무가 있습니다.
 
-## 주권 계정
+## sovereign 계정
 
 릴레이 체인 생태계의 각 체인에 대한 고유한 계정 식별자입니다.
-각 체인의 주권 계정은 Sudo 팔렛을 통해 또는 거버넌스를 통해만 액세스할 수 있는 루트 수준의 계정입니다.
+각 체인의 sovereign 계정은 Sudo 팔렛을 통해 또는 거버넌스를 통해만 액세스할 수 있는 루트 수준의 계정입니다.
 계정 식별자는 특정 텍스트 문자열의 Blake2 해시와 등록된 파라체인 식별자를 연결하여 계산됩니다.
 
 릴레이 체인의 경우, 파라체인 계정 식별자는 (blake2(para+ParachainID)로 계산되며 해시가 올바른 길이로 잘립니다.
@@ -355,7 +355,7 @@ Substrate에서 런타임은 [웹어셈블리](#webassembly-wasm) 바이너리�
 0x7369626cf4030000000000000000000000000000000000000000000000000000
 계정 주소: 5Eg2fntREKHYGgoxvRPxtnEYiUadHjdsfNaPsHdmrsJMVugs
 
-주권 계정은 주로 릴레이 체인이나 생태계의 다른 체인에 대해 XCM 메시지에 서명하는 데 사용됩니다.
+sovereign 계정은 주로 릴레이 체인이나 생태계의 다른 체인에 대해 XCM 메시지에 서명하는 데 사용됩니다.
 
 ## SS58 주소 형식
 

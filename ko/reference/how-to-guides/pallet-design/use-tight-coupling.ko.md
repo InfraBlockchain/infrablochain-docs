@@ -27,7 +27,7 @@ keywords:
 
 1. 팔레트에 트레이트 바운드 추가
 
-   이제 팔레트의 configuration 트레이트 주위에 트레이트 바운드를 생성하기만 하면 됩니다:
+   이제 팔레트의 `Config` 트레이트 주위에 트레이트 바운드를 생성하기만 하면 됩니다:
 
    ```rust
    pub trait Config: frame_system::Config + special_pallet::Config {

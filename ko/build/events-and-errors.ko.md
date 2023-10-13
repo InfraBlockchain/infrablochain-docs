@@ -43,7 +43,7 @@ pub enum Event<T: Config> {
 이벤트를 런타임에 노출하려면 다음을 수행합니다:
 
 1. 텍스트 편집기에서 `/runtime/src/lib.rs` 파일을 엽니다.
-2. 팔렛의 configuration 트레이트에서 `RuntimeEvent` 타입을 구현합니다:
+2. 팔렛의 `Config` 트레이트에서 `RuntimeEvent` 타입을 구현합니다:
 
    ```rust
    impl template::Config for Runtime {

@@ -52,33 +52,33 @@ HRMP 채널은 단방향입니다.
   테스트 환경에서는 각 콜레이터 노드에 Sudo 팔레트를 추가할 수 있습니다.
   Sudo 팔레트는 `substrate-parachain-template`을 사용하여 노드를 빌드하는 경우 기본적으로 포함되지 않습니다.
   Sudo 팔레트를 추가하려면 `runtime/src/lib.rs` 및 `node/src/chain_spec.rs` 파일을 업데이트해야 합니다.
-  런타임에서는 configuration 트레이트를 구현하고 construct_runtime 매크로를 수정하여 다른 팔레트를 추가하는 방식과 유사하게 구현할 수 있습니다.
+  런타임에서는 `Config` 트레이트를 구현하고 construct_runtime 매크로를 수정하여 다른 팔레트를 추가하는 방식과 유사하게 구현할 수 있습니다.
   Sudo 팔레트가 포함된 체인 스펙 예제는 [parachain-template-1001.rs](/assets/tutorials/relay-chain-specs/parachain-template-1001.rs)를 참조하세요.
 
   실제 환경에서는 특권 트랜잭션을 위해 Sudo 팔레트 대신 거버넌스 제안 및 투표를 사용해야 합니다.
 
-## 주권 계정 추가
+## sovereign 계정 추가
 
 패러체인이 다른 패러체인과 메시지를 교환하려면, 실행할 XCM 명령에 대한 비용을 지불하기 위해 릴레이 체인에 있는 계정에 자산이 있어야 합니다.
 
-릴레이 체인에 주권 계정 주소를 추가하려면 다음을 수행하세요:
+릴레이 체인에 sovereign 계정 주소를 추가하려면 다음을 수행하세요:
 
 1. [Polkadot/Substrate Portal](https://polkadot.js.org/apps)을 열고 릴레이 체인 엔드포인트에 연결합니다.
 
-2. 패러체인 [주권 계정 주소](https://substrate.stackexchange.com/questions/1200/how-to-calculate-sovereignaccount-for-parachain)를 계산하여 릴레이 체인에서 사용할 수 있도록 합니다.
+2. 패러체인 [sovereign 계정 주소](https://substrate.stackexchange.com/questions/1200/how-to-calculate-sovereignaccount-for-parachain)를 계산하여 릴레이 체인에서 사용할 수 있도록 합니다.
 
    패러체인 A (1000) 주소: 5Ec4AhPZk8STuex8Wsi9TwDtJQxKqzPJRCH7348Xtcs9vZLJ
 
    패러체인 B (1001) 주소: 5Ec4AhPZwkVeRmswLWBsf7rxQ3cjzMKRWuVvffJ6Uuu89s1P
 
-   패러체인에 등록된 패러체인 식별자가 변경되면 주권 계정과 주소도 변경됩니다.
+   패러체인에 등록된 패러체인 식별자가 변경되면 sovereign 계정과 주소도 변경됩니다.
    또한 릴레이 체인에서 패러체인에 사용되는 계정 주소는 다른 패러체인에서 사용되는 주소와 다릅니다.
 
 3. **계정**을 클릭하고 **주소록**을 선택합니다.
 
 4. **연락처 추가**를 클릭합니다.
 
-5. 주권 계정 A (1000)의 주소와 이름을 추가하고 **저장**을 클릭합니다.
+5. sovereign 계정 A (1000)의 주소와 이름을 추가하고 **저장**을 클릭합니다.
 
 6. **계정**을 클릭하고 Alice에서 패러체인 A (1000) 계정으로 일부 자산을 이체합니다.
 
@@ -186,7 +186,7 @@ HRMP 채널은 단방향입니다.
 
      자산 위치를 지정하는 방법에 대한 자세한 내용은 [구체적 식별자](https://github.com/paritytech/xcm-format#concrete-identifiers)를 참조하세요.
 
-4. **parents: 0** 및 **interior: Here**를 설정하여 주권 계정에서 자산을 인출합니다.
+4. **parents: 0** 및 **interior: Here**를 설정하여 sovereign 계정에서 자산을 인출합니다.
 
 5. 자산을 가치 교환 가능한 자산으로 식별하기 위해 **Fungible**을 선택합니다.
 
@@ -247,7 +247,7 @@ HRMP 채널은 단방향입니다.
 
 1. 입금할 자산을 수혜자로 지정합니다.
 
-   일반적으로 DepositAsset 명령의 수혜자는 메시지 발신자의 주권 계정입니다.
+   일반적으로 DepositAsset 명령의 수혜자는 메시지 발신자의 sovereign 계정입니다.
    이 경우, 패러체인 A (1000)을 **parents: 0**, **interior: X1**, **Parachain: 1000**으로 지정하여 잉여 자산이 계정으로 반환되고 다른 XCM 명령을 전달하거나 추가 HRMP 채널을 열기 위해 사용될 수 있도록 할 수 있습니다.
 
    ![RefundSurplus 및 DepositAsset 명령 및 설정](/media/images/docs/tutorials/parachains/refund-and-deposit.png)
@@ -260,7 +260,7 @@ HRMP 채널은 단방향입니다.
 
 이 명령 세트는 다음 작업을 수행합니다:
 
-- 패러체인 A의 주권 계정에서 가상 보유 레지스터로 자산을 인출합니다.
+- 패러체인 A의 sovereign 계정에서 가상 보유 레지스터로 자산을 인출합니다.
 
 - 가상 보유 레지스터에 있는 자산을 사용하여 XCM 명령의 실행 시간을 지불합니다.
 

@@ -25,7 +25,7 @@ FRAME은 런타임 엔지니어에게 [온체인 무작위성](/build/randomness
    use frame_support::traits::Randomness;
    ```
 
-2. 팔렛의 configuration 트레이트에 포함시킵니다:
+2. 팔렛의 `Config` 트레이트에 포함시킵니다:
 
    ```rust
    #[pallet::config]
@@ -85,7 +85,7 @@ FRAME은 런타임 엔지니어에게 [온체인 무작위성](/build/randomness
 
 3. 팔렛의 런타임 구현 업데이트하기.
 
-   팔렛의 configuration 트레이트에 타입을 추가했으므로, `Config`를 사용하여 `Randomness` 트레이트에 의해 파생된 무작위성을 더욱 향상시킬 수 있습니다.
+   팔렛의 `Config` 트레이트에 타입을 추가했으므로, `Config`를 사용하여 `Randomness` 트레이트에 의해 파생된 무작위성을 더욱 향상시킬 수 있습니다.
    이는 [Randomness Collective Flip 팔렛](https://paritytech.github.io/substrate/master/pallet_insecure_randomness_collective_flip/index.html)을 사용하여 수행됩니다.
 
    `Randomness` 트레이트과 함께 이 팔렛을 사용하면 `random()`에서 처리되는 엔트로피가 크게 향상됩니다.

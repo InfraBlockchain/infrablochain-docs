@@ -54,7 +54,7 @@ keywords:
 
 - FRAME 매크로를 사용하는 방법과 팔렛의 로직을 편집하는 방법에 익숙합니다.
 
-- 런타임에서 팔렛의 configuration 트레이트를 수정하는 방법에 익숙합니다.
+- 런타임에서 팔렛의 `Config` 트레이트를 수정하는 방법에 익숙합니다.
 
 ## 튜토리얼 목표
 
@@ -105,7 +105,7 @@ keywords:
    예시:
 
    ```rust
-   /// 이 팔렛의 configuration 트레이트
+   /// 이 팔렛의 `Config` 트레이트
    #[pallet::config]
    pub trait Config: CreateSignedTransaction<Call<Self>> + frame_system::Config {
    	// ...
