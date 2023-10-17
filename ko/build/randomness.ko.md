@@ -25,12 +25,12 @@ keywords:
 Polkadot 생태계와 Substrate 기반 체인에서는 검증 가능한 무작위 함수가 BABE 팔레트에서 제공하는 합의 메커니즘의 일부입니다.
 검증 가능한 무작위 함수와 합의 사이의 관계에 대한 자세한 내용은 [합의](/learn/consensus/)를 참조하십시오.
 
-## 난수 생성 생성 및 사용
+## 난수 생성 및 사용
 
 Substrate는 난수 생성을 생성하는 로직과 난수 생성을 사용하는 로직 사이의 인터페이스를 정의하는 [`Randomness`](https://paritytech.github.io/substrate/master/frame_support/traits/trait.Randomness.html) 특성을 제공합니다.
 이 특성을 사용하면 난수 생성을 생성하는 로직과 난수 생성을 사용하는 로직을 서로 독립적으로 작성할 수 있습니다.
 
-### 난수 생성 생성
+### 난수 생성
 
 애플리케이션의 보안 보장 및 성능 트레이드오프에 따라 다양한 방법으로 `Randomness` 특성을 구현할 수 있습니다.
 Substrate에는 성능, 복잡성 및 보안 사이의 다른 트레이드오프를 제공하는 팔레트에서 `Randomness` 특성을 구현하는 두 가지 예제가 포함되어 있습니다.
@@ -46,7 +46,7 @@ Substrate에는 성능, 복잡성 및 보안 사이의 다른 트레이드오프
 이 팔레트는 제품 수준의 난수 생성을 제공하며, InfraBlockspace 에서 사용됩니다.
 블록을 생성하기 위해 슬롯 기반의 예측불가능한(blind) ([BABE](/reference/glossary/#blind-assignment-of-blockchain-extension-babe)) 합의를 사용해야 합니다.
 
-### 난수 생성 사용
+### 난수 사용
 
 `Randomness` 특성은 다음과 같은 난수 생성 사용을 위한 메서드를 제공합니다:
 
@@ -63,7 +63,7 @@ Substrate에는 성능, 복잡성 및 보안 사이의 다른 트레이드오프
 `Randomness` 특성은 런타임에서 난수 생성 소스를 정의하기 위한 편리한 추상화를 제공하지만, 특성 자체는 어떠한 보안 보장도 제공하지 않습니다.
 난수 생성 소스가 모든 팔레트의 난수 생성 요구 사항을 충족하는지 확인하는 것은 런타임 개발자로서 당신의 책임입니다.
 
-## 다음 단계
+## 다음 단계로 넘어가기
 
 - [How-to: Randomness](/reference/how-to-guides/pallet-design/incorporate-randomness/)
 - [`Randomness`](https://paritytech.github.io/substrate/master/frame_support/traits/trait.Randomness.html)

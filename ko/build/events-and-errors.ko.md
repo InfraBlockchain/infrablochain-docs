@@ -147,7 +147,7 @@ FRAME Support 모듈에는 전처리 조건을 확인하고 오류를 발생시�
 frame_support::ensure!(param < T::MaxVal::get(), Error::<T>::InvalidParameter);
 ```
 
-## 다음 단계
+다음 단계로 넘어가기
 
 - [Frame 매크로](/reference/frame-macros)
 - [Polkadot-JS API](https://github.com/polkadot-js/api).

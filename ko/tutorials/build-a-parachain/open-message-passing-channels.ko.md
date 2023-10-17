@@ -400,7 +400,7 @@ HRMP 채널은 단방향입니다.
 이 시점에서 패러체인 간에 XCM 명령을 보낼 수 있지만, 원격 체인에서 성공적으로 실행될 수 있는 메시지를 구성하려면 자산을 전송할 수 있는 공유된 이해관계를 정의하거나 자산을 이동할 수 있는 상호 신뢰 관계를 정의하기 위해 추가 구성이 필요합니다.
 다음 튜토리얼에서는 패러체인 간 통신의 몇 가지 일반적인 시나리오에 대한 예제를 살펴볼 수 있습니다.
 
-## 다음 단계
+다음 단계로 넘어가기
 
 - [XCM Part I: The Cross-Consensus Message Format](https://polkadot.network/blog/xcm-the-cross-consensus-message-format)
 - [XCM Part II: Versioning and Compatibility](https://polkadot.network/blog/xcm-part-two-versioning-and-compatibility)

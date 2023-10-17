@@ -173,7 +173,7 @@ executive module은 런타임 모듈의 함수를 호출하고 그 함수를 특
 - [`Verifier`](https://paritytech.github.io/substrate/master/sc_consensus/import_queue/trait.Verifier.html)
 - [`BlockImport`](https://paritytech.github.io/substrate/master/sc_consensus/block_import/trait.BlockImport.html)
 
-## 다음 단계
+다음 단계로 넘어가기
 
 <!-- TODO NAV.YAML -->
 <!-- add these back -->

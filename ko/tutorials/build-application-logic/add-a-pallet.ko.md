@@ -332,7 +332,7 @@ Nicks 및 Sudo 팔레트를 통해 노출된 추가 기능(예: Sudo 팔레트 �
 그러나 이러한 기능은 이 튜토리얼의 목적 범위를 벗어납니다.
 Nicks 및 Sudo 팔레트를 통해 노출된 추가 기능을 탐색하려면 [다음 단계](#다음-단계)로 이동하여 [호출에 대한 오리진 지정](/tutorials/build-application-logic/specify-the-origin-for-a-call)을 선택하세요.
 
-## 다음 단계
+다음 단계로 넘어가기
 
 Substrate 개발에 대해 더 알아보기 위해 여러 [튜토리얼](/tutorials/)을 참조할 수 있습니다.
 

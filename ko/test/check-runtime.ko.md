@@ -163,7 +163,7 @@ RUST_LOG=runtime=trace,try-runtime::cli=trace,executor=trace \
 
 이 명령은 `--no-spec-name-check` 명령행 옵션이 필요합니다.
 
-## 다음 단계
+다음 단계로 넘어가기
 
 - [스토리지 키](/build/runtime-storage#storage-value-keys)
 - [`OnRuntimeUpgrade`](https://paritytech.github.io/substrate/master/frame_support/traits/trait.OnRuntimeUpgrade.html)

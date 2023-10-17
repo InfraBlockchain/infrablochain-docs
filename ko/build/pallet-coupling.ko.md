@@ -106,7 +106,7 @@ FRAME에서는 [`pallet_treasury`](https://github.com/paritytech/polkadot-sdk/tr
 일반적인 규칙으로는, 팔레트가 복잡할수록 강하게 커플링되는 것이 덜 바람직합니다.
 이는 소프트웨어 시스템의 전반적인 품질을 검토하는 데 사용되는 컴퓨터 과학 개념인 [응집도](<https://en.wikipedia.org/wiki/Cohesion_(computer_science)>)를 떠올리게 합니다.
 
-## 다음 단계
+다음 단계로 넘어가기
 
 - [약한 커플링 사용하기](/reference/how-to-guides/pallet-design/use-loose-coupling/)
 - [강한 커플링 사용하기](/reference/how-to-guides/pallet-design/use-tight-coupling/)

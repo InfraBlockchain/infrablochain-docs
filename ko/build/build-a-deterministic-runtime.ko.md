@@ -6,7 +6,7 @@ keywords:
 
 기본적으로 Rust 컴파일러는 최적화된 WebAssembly 바이너리를 생성합니다.
 이러한 바이너리는 로컬 개발을 수행하는 독립적인 환경에서는 문제가 없습니다.
-그러나 컴파일러가 기본적으로 빌드하는 WebAssembly 바이너리는 결정론적(deterministic)하지 않습니다.
+그러나 컴파일러가 기본적으로 빌드하는 WebAssembly 바이너리는 결정론적(deterministic)이지 않습니다.
 컴파일러가 WebAssembly 런타임을 생성할 때마다 약간 다른 WebAssembly 바이트 코드를 생성할 수 있습니다.
 이는 모든 노드가 정확히 **동일한 체인 스펙(Chain Spec)**을 사용해야 하는 블록체인 네트워크에서 문제가 됩니다.
 

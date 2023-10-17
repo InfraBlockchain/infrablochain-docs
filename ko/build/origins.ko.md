@@ -51,7 +51,7 @@ proposal.dispatch(system::RawOrigin::None.into())
 
 Origin을 커스텀하는 것은 런타임 개발자가 런타임 로직에 따라 유효한 origin을 지정할 수 있도록 합니다. 예를 들어, 특정 함수의 접근을 특별한 커스텀 origin으로 제한하고, [collective](https://github.com/paritytech/polkadot-sdk/tree/master/substrate/frame/collective)의 멤버에서만 트랜잭션 호출을 가능하게 하는 것을 가능하게 합니다. 커스텀 origin을 사용하는 장점은 런타임 개발자에게 트랜잭션 호출에 대한 접근권한 방법을 제공한다는 것입니다.
 
-## 다음 단계
+다음 단계로 넘어가기
 
 ### 더 알아보기
 

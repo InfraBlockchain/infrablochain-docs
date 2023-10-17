@@ -328,7 +328,7 @@ Polkadot JS SDK와 [Typescript](https://github.com/substrate-developer-hub/front
    340,282,366,920,938,463,463,374,603,530,233,366,411
    ```
 
-## 다음 단계
+다음 단계로 넘어가기
 
 - [Moonbeam: 이더리움 호환성](https://docs.moonbeam.network/learn/features/eth-compatibility/)
 - [이더리움 통합](/tutorials/integrate-with-tools/evm-integration/)

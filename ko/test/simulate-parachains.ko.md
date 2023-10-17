@@ -299,7 +299,7 @@ Zombienet은 테스트 목적으로 구성 파일에 기본 채널 설정을 포
    필요한 모든 정보는 메시지 자체에 포함되어야 합니다.
    HRMP 채널을 열었으니 XCM을 사용하여 메시지를 작성하는 방법에 대한 정보는 [Cross-consensus communication](/learn/xcm-communication/) 및 [Transfer assets with XCM](/tutorials/build-a-parachain/transfer-assets-with-xcm/)을 참조하세요.
 
-## 다음 단계
+다음 단계로 넘어가기
 
 Zombienet을 사용하는 더 복잡한 사전 구성된 환경인 [Trappist playground](https://github.com/paritytech/trappist)을 다운로드하고 탐색해 보세요.
 구성 파일에서 설정할 수 있는 속성에 대한 자세한 정보는 [Network definition specification](https://paritytech.github.io/zombienet/network-definition-spec.html)을 참조하세요.

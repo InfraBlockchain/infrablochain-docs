@@ -65,7 +65,7 @@ Rust 커뮤니티는 [crates.io](https://crates.io/) 웹사이트를 유지하�
    팔레트를 crates.io에 게시한 경우, 개발자들은 대상 목적지를 지정할 필요가 없습니다.
    기본적으로 cargo는 crates.io 레지스트리에서 지정된 패키지를 검색합니다.
 
-## 다음 단계
+다음 단계로 넘어가기
 
 - [런타임 개발](/learn/runtime-development/)
 - [사용자 정의 팔레트](/build/custom-pallets/)

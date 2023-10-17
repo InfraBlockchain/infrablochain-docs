@@ -249,7 +249,7 @@ fn my_runtime_test() {
 }
 ```
 
-## 다음 단계
+다음 단계로 넘어가기
 
 <!-- TODO NAV.YAML -->
 <!-- add these back -->

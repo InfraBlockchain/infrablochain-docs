@@ -171,7 +171,7 @@ function get_runtime_storage_parameter_with_key(module_name, function_name, key)
 }
 ```
 
-## 다음 단계
+다음 단계로 넘어가기
 
 - [JSON-RPC의 Rust 구현](https://github.com/paritytech/jsonrpc)
 - [유형 인코딩 (SCALE)](/reference/scale-codec)
