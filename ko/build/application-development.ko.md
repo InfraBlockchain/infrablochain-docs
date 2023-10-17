@@ -379,7 +379,7 @@ Substrate Connect가 내장된 애플리케이션은 브라우저 내부 로컬 
 
 JSON-RPC API 및 최신 인터페이스 사양에 대한 자세한 정보는 [JSON-RPC 사양](https://paritytech.github.io/json-rpc-interface-spec/)을 참조하십시오.
 
-다음 단계로 넘어가기
+## 다음 단계로 넘어가기
 
 - [Substrate Connect](https://github.com/paritytech/substrate-connect)
 - [프론트엔드 템플릿 설치](/tutorials/build-a-blockchain/build-local-blockchain/#install-the-front-end-template)

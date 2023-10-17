@@ -126,7 +126,7 @@ substrate build-spec --chain=myCustomSpec.json --raw > customSpecRaw.json
 "0x50a63a871aced22e88ee6466fe5aa5d9": "0xd43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27d",
 ```
 
-다음 단계로 넘어가기
+## 다음 단계로 넘어가기
 
 - [신뢰할 수 있는 노드 추가](/tutorials/build-a-blockchain/add-trusted-nodes/)
 - [가이드: genesis 상태 구성](/reference/how-to-guides/basics/configure-genesis-state/)

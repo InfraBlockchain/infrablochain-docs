@@ -450,7 +450,7 @@ Reverted false
     Data Tuple(Tuple { ident: Some("Ok"), values: [Bool(true)] })
 ```
 
-다음 단계로 넘어가기
+## 다음 단계로 넘어가기
 
 축하합니다!
 

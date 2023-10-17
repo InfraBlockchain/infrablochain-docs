@@ -359,7 +359,7 @@ Sudo 트랜잭션을 사용하면 파라체인 또는 파라스레드 슬롯을 
    rm -rf /tmp/relay
    ```
 
-다음 단계로 넘어가기
+## 다음 단계로 넘어가기
 
 - [추가 파라체인 노드 추가하기](/reference/how-to-guides/parachains/add-paranodes/)
 - [솔로 체인 변환](/reference/how-to-guides/parachains/convert-a-solo-chain/)

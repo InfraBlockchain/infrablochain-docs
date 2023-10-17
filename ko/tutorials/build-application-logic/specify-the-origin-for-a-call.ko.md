@@ -188,7 +188,7 @@ Nick 팔렛에서는 `ForceOrigin` 구성에 따라 `Root` 출처를 사용하�
 
    ![성공적인 killName 트랜잭션 제출](/media/images/docs/tutorials/add-a-pallet/sudo-error.png)
 
-다음 단계로 넘어가기
+## 다음 단계로 넘어가기
 
 이 튜토리얼에서는 트랜잭션을 제출하는 데 사용되는 계정을 지정하기 위해 `Root` 및 `Signed` 출처를 사용하는 방법을 소개하고, 다른 출처 계정을 사용하여 함수를 호출하는 결과를 보여주었습니다.
 Substrate 개발에 대해 더 알아보기 위해 다음 [튜토리얼](/tutorials/)을 참고할 수 있습니다.

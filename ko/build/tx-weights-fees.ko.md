@@ -383,7 +383,7 @@ impl<T: Get<Perquintill>> WeightToFee<Fixed128, Fixed128> for TargetedFeeAdjustm
 }
 ```
 
-다음 단계로 넘어가기
+## 다음 단계로 넘어가기
 
 이제 weight 시스템이 무엇인지, 트랜잭션 수수료 계산에 어떤 영향을 미치는지, 디스패치 가능한 호출에 대한 weight를 지정하는 방법을 알게 되었습니다.
 다음 단계는 디스패치 가능한 함수가 수행하는 작업을 고려하여 올바른 weight를 결정하는 것입니다.

@@ -241,7 +241,7 @@ Grafana를 시작한 후, 브라우저에서 Grafana로 이동할 수 있습니�
    커스텀 대시보드를 만든 경우, [Grafana 대시보드](https://grafana.com/grafana/dashboards)에 업로드하는 것을 고려하세요.
    [Awesome Substrate](https://github.com/substrate-developer-hub/awesome-substrate) 리포지토리에 대시보드가 있는지 나열하여 Substrate 빌더 커뮤니티에 알릴 수 있습니다.
 
-## 다음 단계로 넘어가기
+## ## 다음 단계로 넘어가기
 
 - [신뢰할 수 있는 노드 추가](/tutorials/build-a-blockchain/add-trusted-nodes)
 - [노드 모니터링](https://wiki.polkadot.network/docs/en/maintain-guides-how-to-monitor-your-node)

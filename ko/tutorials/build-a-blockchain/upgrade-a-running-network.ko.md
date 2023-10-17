@@ -382,7 +382,7 @@ FRAME 시스템 모듈은 이러한 트랜잭션이 사용할 수 있는 블록 
 
    ![상수 값 변경 확인](/media/images/docs/tutorials/forkless-upgrade/constant-value-lookup.png)
    
-## 다음 단계로 넘어가기
+## ## 다음 단계로 넘어가기
 
 - [런타임 버전 101](/assets/tutorials/runtime-upgrade/lib-spec-version-101.rs)
 - [런타임 버전 102](/assets/tutorials/runtime-upgrade/lib-spec-version-102.rs)
