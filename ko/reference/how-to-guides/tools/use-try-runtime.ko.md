@@ -19,11 +19,11 @@ keywords:
 
 1. 터미널 쉘을 열고 노드 템플릿의 루트 디렉토리로 이동합니다.
 
-1. 텍스트 편집기에서 `runtime/Cargo.toml` 구성 파일을 엽니다.
+2. 텍스트 편집기에서 `runtime/Cargo.toml` 구성 파일을 엽니다.
 
-1. [dependencies] 섹션을 찾고 다른 팔레트가 가져오는 방법을 확인합니다.
+3. [dependencies] 섹션을 찾고 다른 팔레트가 가져오는 방법을 확인합니다.
 
-1. `frame-try-runtime` 종속성을 추가합니다:
+4. `frame-try-runtime` 종속성을 추가합니다:
 
    ```toml
    [dependencies]
@@ -34,13 +34,13 @@ keywords:
    다른 브랜치에서 팔레트를 사용하면 컴파일러 오류가 발생할 수 있습니다.
    이 예제는 다른 팔레트가 `branch = "polkadot-v1.0.0"`를 사용하는 경우 `Cargo.toml` 파일에 `frame-try-runtime` 팔레트를 추가하는 방법을 보여줍니다.
 
-1. `try-runtime-cli` 종속성을 추가합니다:
+5. `try-runtime-cli` 종속성을 추가합니다:
 
    ```toml
    try-runtime-cli = { git = "https://github.com/paritytech/polkadot-sdk.git", branch = "polkadot-v1.0.0", optional = true }
    ```
 
-1. 표준 기능 목록에 `frame-try-runtime`을 추가합니다:
+6. 표준 기능 목록에 `frame-try-runtime`을 추가합니다:
 
    ```toml
    [features]
@@ -53,7 +53,7 @@ keywords:
    ]
    ```
 
-1. `[features]` 섹션에 `try-runtime`을 추가하거나 업데이트하여 런타임의 모든 팔레트를 포함하도록 합니다.
+7. `[features]` 섹션에 `try-runtime`을 추가하거나 업데이트하여 런타임의 모든 팔레트를 포함하도록 합니다.
 
    ```toml
    try-runtime = [
@@ -104,21 +104,21 @@ keywords:
 
 1. 텍스트 편집기에서 `node/Cargo.toml` 구성 파일을 엽니다.
 
-1. [dependencies] 섹션을 찾고 다른 팔레트가 가져오는 방법을 확인합니다.
+2. [dependencies] 섹션을 찾고 다른 팔레트가 가져오는 방법을 확인합니다.
 
-1. `frame-try-runtime` 종속성을 추가합니다:
+3. `frame-try-runtime` 종속성을 추가합니다:
 
    ```toml
    frame-try-runtime = { git = "https://github.com/paritytech/polkadot-sdk.git", branch = "polkadot-v1.0.0", optional = true }
    ```
 
-1. `try-runtime-cli` 종속성을 추가합니다:
+4. `try-runtime-cli` 종속성을 추가합니다:
 
    ```toml
    try-runtime-cli = { git = "https://github.com/paritytech/polkadot-sdk.git", branch = "polkadot-v1.0.0", optional = true }
    ```
 
-1. `[features]` 섹션에 `cli`와 `try-runtime`을 추가하거나 업데이트합니다.
+5. `[features]` 섹션에 `cli`와 `try-runtime`을 추가하거나 업데이트합니다.
 
    ```toml
    [features]
@@ -184,7 +184,7 @@ try-runtime 도구를 사용하는 방법은 유닛 테스트를 작성하는 �
 
 1. Externalities 인스턴스를 생성합니다.
 
-1. 인스턴스에서 `execute_with`를 호출합니다.
+2. 인스턴스에서 `execute_with`를 호출합니다.
 
 <!--
 ## 예제

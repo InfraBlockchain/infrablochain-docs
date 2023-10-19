@@ -24,7 +24,7 @@ keywords:
 
 1. 먼저 `pallet-testing/src/mock.rs`를 수정하여 `pallet-testing` 팔렛을 포함하도록 합니다. 이를 위해 다음 코드 부분을 변경해야 합니다:
 
-1. 첫 줄을 팔렛의 이름으로 대체합니다. 여기서는 `pallet_testing`입니다:
+2. 첫 줄을 팔렛의 이름으로 대체합니다. 여기서는 `pallet_testing`입니다:
 
    ```rust
    use crate as pallet_testing;
@@ -41,7 +41,7 @@ keywords:
    /*--snip--*/
    ```
 
-1. 모의 런타임에서 팔렛을 구현합니다. `impl pallet_template::Config for Test {...}`를 팔렛의 구성 타입과 팔렛이 필요로 하는 상수 값을 사용하여 대체합니다:
+2. 모의 런타임에서 팔렛을 구현합니다. `impl pallet_template::Config for Test {...}`를 팔렛의 구성 타입과 팔렛이 필요로 하는 상수 값을 사용하여 대체합니다:
 
    ```rust
    parameter_types! {
@@ -78,7 +78,7 @@ use super::*;
    }
    ```
 
-1. 정상적으로 작동해야 하는 테스트를 생성합니다:
+2. 정상적으로 작동해야 하는 테스트를 생성합니다:
 
    ```rust
    #[test]
@@ -91,7 +91,7 @@ use super::*;
    }
    ```
 
-1. 실패해야 하는 다른 테스트를 생성합니다:
+3. 실패해야 하는 다른 테스트를 생성합니다:
 
    ```rust
    #[test]

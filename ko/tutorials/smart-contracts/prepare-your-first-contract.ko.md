@@ -280,7 +280,7 @@ Rust 프로젝트와 마찬가지로 `Cargo.toml` 파일은 패키지 종속성 
    2023-01-30 23:09:08.646  INFO tokio-runtime-worker substrate: 💤 Idle (0 peers), best: #0 (0x6a05…1669), finalized #0 (0x6a05…1669), ⬇ 0 ⬆ 0
    ```
 
-   `substrate-contracts-node`은 `Manual Seal`을 사용하는 것이기 때문에 extrinsic를 보내지 않는 한 블록이 생성되지 않습니다.
+   `substrate-contracts-node`은 `Manual Seal`을 사용하는 것이기 때문에 Extrinsic을 보내지 않는 한 블록이 생성되지 않습니다.
 
 ## 계약 배포하기
 
@@ -376,7 +376,7 @@ Substrate에서는 계약 배포 프로세스가 두 단계로 나뉩니다:
 
 계약을 초기화할 때 `flipper`의 초기 값을 `false`로 설정했습니다. 이를 확인하기 위해 `get()` 메시지를 호출할 수 있습니다.
 
-블록체인 상태에서 읽기만 하는 경우 (새로운 데이터를 작성하지 않는 경우) `--dry-run` 플래그를 사용하여 extrinsic를 제출하지 않도록 할 수 있습니다.
+블록체인 상태에서 읽기만 하는 경우 (새로운 데이터를 작성하지 않는 경우) `--dry-run` 플래그를 사용하여 Extrinsic을 제출하지 않도록 할 수 있습니다.
 
 ```bash
 cargo contract call --contract $INSTANTIATED_CONTRACT_ADDRESS --message get --suri //Alice --dry-run
@@ -391,7 +391,7 @@ cargo contract call --contract $INSTANTIATED_CONTRACT_ADDRESS --message get --su
 
   - 계약을 호출하는 계정을 지정해야 합니다. 이 경우 기본 개발 계정인 `//Alice`입니다.
 
-  - extrinsic를 체인에 제출하지 않기 위해 `--dry-run`을 지정합니다.
+  - Extrinsic을 체인에 제출하지 않기 위해 `--dry-run`을 지정합니다.
 
 명령을 실행한 후에는 다음과 유사한 출력이 표시됩니다:
 
@@ -407,7 +407,7 @@ Reverted false
 
 `flip()` 메시지는 저장소 값을 `false`에서 `true`로 또는 그 반대로 변경합니다.
 
-`flip()` 메시지를 호출하려면 블록체인의 상태를 변경하기 때문에 extrinsic를 제출해야 합니다.
+`flip()` 메시지를 호출하려면 블록체인의 상태를 변경하기 때문에 Extrinsic을 제출해야 합니다.
 
 다음 명령을 사용할 수 있습니다:
 

@@ -32,9 +32,9 @@ Substrate는 트랜잭션 실행 중에 소비되는 리소스를 측정하기 �
 
 1. 텍스트 편집기에서 팔렛의 `lib.rs` 파일을 엽니다.
 
-1. `DispatchClass`와 `Pays`를 선언하여 `use frame_support::dispatch::{DispatchClass, Pays}`로 가져옵니다.
+2. `DispatchClass`와 `Pays`를 선언하여 `use frame_support::dispatch::{DispatchClass, Pays}`로 가져옵니다.
 
-1. 팔렛에 `weights` 기본 요소를 가져옵니다.
+3. 팔렛에 `weights` 기본 요소를 가져옵니다.
    
    ```rust
    use frame_support:: {
@@ -42,7 +42,7 @@ Substrate는 트랜잭션 실행 중에 소비되는 리소스를 측정하기 �
    },
    weights::Weight,
 
-1. `Conditional`이라는 구조체를 선언하고 `Conditional`에 대한 `WeighData` 구현을 작성합니다. 첫 번째 매개변수는 부울 값을 평가하는 조건입니다. 
+4. `Conditional`이라는 구조체를 선언하고 `Conditional`에 대한 `WeighData` 구현을 작성합니다. 첫 번째 매개변수는 부울 값을 평가하는 조건입니다. 
    
    다음 예제에서는 조건이 true인 경우 가중치가 입력에 대해 선형적으로 증가합니다.
    그렇지 않으면 가중치는 상수입니다.
@@ -71,7 +71,7 @@ Substrate는 트랜잭션 실행 중에 소비되는 리소스를 측정하기 �
 
 1. 텍스트 편집기에서 팔렛의 `lib.rs` 파일을 엽니다.
 
-1. `DispatchClass`와 `Pays`를 선언하여 `use frame_support::dispatch::{DispatchClass, Pays}`로 가져옵니다.
+2. `DispatchClass`와 `Pays`를 선언하여 `use frame_support::dispatch::{DispatchClass, Pays}`로 가져옵니다.
    
    ```rust
    use frame_support::dispatch::{ClassifyDispatch, DispatchClass, Pays};
@@ -92,7 +92,7 @@ Substrate는 트랜잭션 실행 중에 소비되는 리소스를 측정하기 �
 
 1. 텍스트 편집기에서 팔렛의 `lib.rs` 파일을 엽니다.
 
-1. Conditional 구조체에 대해 `Pays`를 구현합니다.
+2. Conditional 구조체에 대해 `Pays`를 구현합니다.
    
    ```rust
    impl Pays for Conditional {
