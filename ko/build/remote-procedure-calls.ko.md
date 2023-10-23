@@ -1,6 +1,6 @@
 ---
-title: 원격 프로시저 호출
-description: 원격 프로시저 호출 및 RPC 방법을 사용하여 Substrate 노드와 상호 작용하는 방법을 설명합니다.
+title: RPC
+description: RPC 및 RPC 방법을 사용하여 Substrate 노드와 상호 작용하는 방법을 설명합니다.
 keywords:
   - rpc
   - frontend
@@ -52,9 +52,9 @@ RPC 인터페이스를 노출하면 많은 공격 가능성이 열리므로 신�
 이러한 종류의 호출은 신뢰할 수 없는 사용자로부터 요청이 오는 경우에는 반드시 필터링해야 합니다.
 이를 위해 호출을 검사하고 허용된 API 호출 세트만 전달할 수 있는 [JSON-RPC](/reference/glossary#json-rpc) 프록시를 사용해야 합니다.
 
-## 원격_externalities를 위한 RPC
+## Remote_externalities를 위한 RPC
 
-Substrate은 노드에 대해 [`remote_externalities`](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/utils/frame/remote-externalities/src/lib.rs#L347-#L746)를 호출하기 위한 몇 가지 특수화된 RPC 방법을 제공합니다.
+Substrate 노드에 대해 [`remote_externalities`](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/utils/frame/remote-externalities/src/lib.rs#L347-#L746)를 호출하기 위한 몇 가지 특수화된 RPC 방법을 제공합니다.
 원격 externalities를 위한 이러한 특수화된 방법을 사용하면 Substrate 노드에 일회성 RPC 호출을 수행하여 블록 및 헤더에 대한 정보를 얻을 수 있습니다.
 이러한 호출로 반환되는 정보는 [`try-runtime`](/reference/command-line-tools/try-runtime/)과 같은 도구를 사용하여 테스트 목적으로 유용할 수 있습니다.
 
@@ -104,7 +104,7 @@ WebSocket 연결은 프론트엔드 애플리케이션과 요청에 응답하는
    ```
 
 반환된 값을 사람이 읽을 수 있도록 하려면 SCALE 코덱을 사용하여 디코딩할 수 있습니다.
-인코딩 및 디코딩에 대한 자세한 내용은 [유형 인코딩 (SCALE)](/reference/scale-codec/)을 참조하십시오.
+인코딩 및 디코딩에 대한 자세한 내용은 [타입 인코딩 (SCALE)](/reference/scale-codec/)을 참조하십시오.
 
 각 저장소 항목에는 해당하는 상대적인 저장소 키가 있으며, 이를 사용하여 [저장소 쿼리](/main-docs/build/runtime-storage#querying-storage)를 수행합니다.
 이것이 RPC 엔드포인트가 어디에서 찾아야 하는지를 알 수 있는 방법입니다.
@@ -171,7 +171,7 @@ function get_runtime_storage_parameter_with_key(module_name, function_name, key)
 }
 ```
 
-## 다음 단계
+## 다음 단계로 넘어가기
 
 - [JSON-RPC의 Rust 구현](https://github.com/paritytech/jsonrpc)
 - [유형 인코딩 (SCALE)](/reference/scale-codec)

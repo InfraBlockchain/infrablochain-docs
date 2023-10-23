@@ -217,7 +217,7 @@ cargo build --profile=production --features runtime-benchmarks
 ./target/production/node-template benchmark pallet --help
 ```
 
-## 다음 단계
+## 다음 단계로 넘어가기
 
 - [frame-benchmarking README](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/benchmarking/README.md)
 - [Substrate 세미나: Substrate 팔렛의 벤치마킹](https://www.youtube.com/watch?v=Qa6sTyUqgek)

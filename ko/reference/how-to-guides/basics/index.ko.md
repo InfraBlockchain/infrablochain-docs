@@ -10,9 +10,9 @@ keywords:
 
 - [런타임 상수 설정](/reference/how-to-guides/basics/configure-runtime-constants/)
 
-- [제네시스 설정](/reference/how-to-guides/basics/configure-genesis-state)
+- [Genesis 설정](/reference/how-to-guides/basics/configure-genesis-state)
 
-- [체인 사양 사용자 정의](/reference/how-to-guides/basics/customize-a-chain-specification)
+- [체인 스펙 커스터마이즈](/reference/how-to-guides/basics/customize-a-chain-specification)
 
 - [도우미 함수 사용](/reference/how-to-guides/basics/use-helper-functions)
 
