@@ -42,7 +42,7 @@ Substrate Connect를 사용하면 애플리케이션을 구성하여 컴퓨터�
 
 Substrate Connect를 사용하여 Substrate 기반 블록체인에 연결할 수 있습니다.
 그러나 연결하려는 체인의 올바른 이름을 지정해야 합니다.
-[`WellKnownChain`](https://paritytech.github.io/substrate-connect/api/enums/connect_src.WellKnownChain.html) 열거형에 정의된 몇 가지 잘 알려진 체인 이름이 있습니다.
+[`WellKnownChain`](https://paritytech.github.io/substrate-connect/api/enums/connect_src.WellKnownChain.html) enum에 정의된 몇 가지 잘 알려진 체인 이름이 있습니다.
 
 다음 목록에 나열된 이름을 사용하여 다음 공개 블록체인 네트워크에 연결할 수 있습니다:
 
@@ -53,7 +53,7 @@ Substrate Connect를 사용하여 Substrate 기반 블록체인에 연결할 수
 | [Westend](https://wiki.polkadot.network/docs/en/maintain-networks#westend-test-network) | `westend2`                |
 | [Rococo](https://polkadot.network/rococo-v1-a-holiday-gift-to-the-polkadot-community/)  | `rococo_v2_2`             |
 
-참고로, 특정 네트워크의 체인 사양에서 사용되는 일반적으로 사용되는 네트워크 이름보다는 체인 식별자를 사용해야 합니다.
+참고로, 특정 네트워크의 체인 스펙에서 사용되는 일반적으로 사용되는 네트워크 이름보다는 체인 식별자를 사용해야 합니다.
 예를 들어, Kusama에 연결하려면 체인 식별자로 `ksmcc3`을 지정해야 합니다.
 특히 포크된 체인의 경우 올바른 이름을 사용하는 것이 매우 중요합니다.
 예를 들어, `rococo_v2`와 `rococo_v2_2`는 서로 다른 체인입니다.
@@ -111,15 +111,15 @@ await api.rpc.chain.subscribeNewHeads(lastHeader => {
 await api.disconnect();
 ```
 
-### 사용자 정의 네트워크에 연결하기 위해 RPC 공급자 사용하기
+### 커스텀 네트워크에 연결하기 위해 RPC 공급자 사용하기
 
-다음 예제는 `rpc-provider`를 사용하여 체인 사양을 지정하여 사용자 정의 네트워크에 연결하는 방법을 보여줍니다.
+다음 예제는 `rpc-provider`를 사용하여 체인 스펙을 지정하여 커스텀 네트워크에 연결하는 방법을 보여줍니다.
 
 ```js
 import { ScProvider } from "@polkadot/rpc-provider/substrate-connect";
 import { ApiPromise } from "@polkadot/api";
 import jsonCustomSpec from "./jsonCustomSpec.json";
-// 사용자 정의 체인을 위한 공급자 생성
+// 커스텀 체인을 위한 공급자 생성
 const customSpec = JSON.stringify(jsonCustomSpec);
 const provider = new ScProvider(customSpec);
 // 연결 설정 (가능한 오류 처리)
@@ -134,7 +134,7 @@ await api.disconnect();
 
 ### 파라체인에 연결하기 위해 RPC 공급자 사용하기
 
-다음 예제는 `rpc-provider`를 사용하여 체인 사양을 지정하여 파라체인에 연결하는 방법을 보여줍니다.
+다음 예제는 `rpc-provider`를 사용하여 체인 스펙을 지정하여 파라체인에 연결하는 방법을 보여줍니다.
 
 ```js
 import { ScProvider, WellKnownChain } from "@polkadot/rpc-provider/substrate-connect";
@@ -216,7 +216,7 @@ substrate-connect API에 대한 자세한 내용은 [Substrate Connect](https://
 
 ## 브라우저 확장 프로그램
 
-Substrate Connect 브라우저 확장 프로그램은 [Substrate Connect](https://github.com/paritytech/substrate-connect) 및 [Smoldot 라이트 클라이언트](https://github.com/smol-dot/smoldot) 노드 모듈을 사용하며, 브라우저가 시작될 때마다 잘 알려진 substrate 체인 사양(**Polkadot, Kusama, Rococo, Westend**)을 업데이트하고 동기화하여 확장 프로그램 내에서 최신 상태로 유지합니다.
+Substrate Connect 브라우저 확장 프로그램은 [Substrate Connect](https://github.com/paritytech/substrate-connect) 및 [Smoldot 라이트 클라이언트](https://github.com/smol-dot/smoldot) 노드 모듈을 사용하며, 브라우저가 시작될 때마다 잘 알려진 substrate 체인 스펙(**Polkadot, Kusama, Rococo, Westend**)을 업데이트하고 동기화하여 확장 프로그램 내에서 최신 상태로 유지합니다.
 
 [Substrate Connect](https://github.com/paritytech/substrate-connect)를 통합한 dApp(예: [polkadotJS/apps](https://polkadot.js.org/apps/?rpc=light%3A%2F%2Fsubstrate-connect%2Fpolkadot#/explorer))이 브라우저 탭에서 시작되면, 확장 프로그램에서 마지막으로 가져온 것이 아닌 확장 프로그램 내에서 최신 사양을 받게 됩니다. 동시에, dApp은 확장 프로그램 내에서 "connected"로 표시되며, 이는 확장 프로그램의 부트노드와 사양을 사용하고 있다는 의미입니다.
 

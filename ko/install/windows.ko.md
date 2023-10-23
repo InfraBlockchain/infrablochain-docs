@@ -62,7 +62,7 @@ Windows Subsystem for Linux을 사용하여 개발 환경을 준비하려면 다
 
 ## 필수 패키지와 Rust 설치하기
 
-WSL에서 Rust 도구 체인을 설치하려면 다음 단계를 따르세요:
+WSL에서 Rust 툴체인을 설치하려면 다음 단계를 따르세요:
 
 1. 시작 메뉴를 클릭한 다음 **Ubuntu**를 선택합니다.
 
@@ -102,14 +102,14 @@ WSL에서 Rust 도구 체인을 설치하려면 다음 단계를 따르세요:
    rustc --version
    ```
 
-1. 다음 명령을 실행하여 Rust 도구 체인을 최신 안정 버전을 사용하는 기본 도구 체인으로 설정합니다:
+1. 다음 명령을 실행하여 Rust 툴체인을 최신 안정 버전을 사용하는 기본 툴체인으로 설정합니다:
 
    ```bash
    rustup default stable
    rustup update
    ```
 
-1. 다음 명령을 실행하여 `nightly` 버전의 도구 체인과 `nightly` WebAssembly (`wasm`) 대상을 개발 환경에 추가합니다:
+1. 다음 명령을 실행하여 `nightly` 버전의 툴체인과 `nightly` WebAssembly (`wasm`) 대상을 개발 환경에 추가합니다:
 
    ```bash
    rustup update nightly
@@ -145,7 +145,7 @@ WSL에서 Rust 도구 체인을 설치하려면 다음 단계를 따르세요:
 
 ## Substrate 노드 컴파일하기
 
-Rust가 설치되고 Substrate 개발을 위해 Rust 도구 체인이 구성되었으므로 Substrate 개발 환경을 설정하기 위해 Substrate **노드 템플릿** 파일을 복제하고 Substrate 노드를 컴파일할 준비가 되었습니다.
+Rust가 설치되고 Substrate 개발을 위해 Rust 툴체인이 구성되었으므로 Substrate 개발 환경을 설정하기 위해 Substrate **노드 템플릿** 파일을 복제하고 Substrate 노드를 컴파일할 준비가 되었습니다.
 
 노드 템플릿은 불필요한 모듈이나 도구 없이 블록체인을 구축하는 데 필요한 모든 일반적인 기능을 포함한 작업 환경을 제공합니다.
 실험을 위한 상대적으로 안정적인 작업 환경을 제공하기 위해, 핵심 Substrate 저장소 대신 Substrate 개발자 허브 저장소에서 Substrate 노드 템플릿을 복제하는 것이 권장되는 모범 사례입니다.
@@ -184,7 +184,7 @@ Substrate 노드 템플릿을 컴파일하려면 다음 단계를 따르세요:
 
 빌드가 성공적으로 완료되면 로컬 컴퓨터는 Substrate 개발 활동을 위해 준비된 상태입니다.
 
-## 다음 단계
+## 다음 단계로 넘어가기
 
 Substrate 개발자 허브는 커뮤니티에 제공되는 다양한 리소스에 대한 중앙 포털 역할을 합니다.
 관심사와 학습 스타일에 따라 선호하는 방법이 다를 수 있습니다.

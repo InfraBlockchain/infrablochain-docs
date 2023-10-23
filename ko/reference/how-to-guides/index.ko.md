@@ -4,8 +4,8 @@ description:
 keywords:
 ---
 
-서브스트레이트 "빠른 참조 가이드"는 특정 목표를 달성하기 위한 지침을 제공합니다.
-각 가이드는 이미 서브스트레이트와 러스트 프로그래밍에 익숙한 상태에서 특정 작업을 수행하는 방법을 설명합니다.
+Substrate "빠른 참조 가이드"는 특정 목표를 달성하기 위한 지침을 제공합니다.
+각 가이드는 이미 Substrate와 러스트 프로그래밍에 익숙한 상태에서 특정 작업을 수행하는 방법을 설명합니다.
 
 ## 기본 사항
 
@@ -14,7 +14,7 @@ keywords:
 - [팔레트 가져오기](/reference/how-to-guides/basics/import-a-pallet/)
 - [런타임 상수 구성](/reference/how-to-guides/basics/configure-runtime-constants/)
 - [제네시스 상태 구성](/reference/how-to-guides/basics/configure-genesis-state)
-- [체인 사양 사용자 정의](/reference/how-to-guides/basics/customize-a-chain-specification)
+- [체인 스펙 사용자 정의](/reference/how-to-guides/basics/customize-a-chain-specification)
 - [도우미 함수 사용](/reference/how-to-guides/basics/use-helper-functions)
 
 ## 팔레트 디자인
@@ -60,7 +60,7 @@ FRAME을 사용하여 팔레트를 구축하는 최상의 방법에 대한 가�
 
 ## 파라체인
 
-서브스트레이트 파라체인 작업에 도움이 되는 가이드를 참조하세요.
+Substrate 파라체인 작업에 도움이 되는 가이드를 참조하세요.
 
 - [솔로 체인 변환](/reference/how-to-guides/parachains/convert-a-solo-chain/)
 - [릴레이 체인에 연결](/reference/how-to-guides/parachains/connect-to-a-relay-chain/)
@@ -72,7 +72,7 @@ FRAME을 사용하여 팔레트를 구축하는 최상의 방법에 대한 가�
 
 ## 도구
 
-서브스트레이트 체인을 운영하는 데 도움이 되는 추가 도구에 대한 가이드를 참조하세요.
+Substrate 체인을 운영하는 데 도움이 되는 추가 도구에 대한 가이드를 참조하세요.
 
 - [try-runtime 사용](/reference/how-to-guides/tools/use-try-runtime/)
 - [체인에 대한 txwrapper 생성](/reference/how-to-guides/tools/create-a-txwrapper/)

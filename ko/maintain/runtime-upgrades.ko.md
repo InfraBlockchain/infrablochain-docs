@@ -94,7 +94,7 @@ FRAME 스토리지 마이그레이션은 다음 순서로 실행됩니다.
 스토리지 마이그레이션을 테스트하는 것이 중요합니다. 스토리지 마이그레이션을 테스트하기 위해 사용할 수 있는 몇 가지 도구는 다음과 같습니다.
 
 - [Substrate 디버그 키트](https://github.com/paritytech/substrate-debug-kit)에는 라이브 체인 데이터에서 안전하게 스토리지 마이그레이션 단위 테스트를 수행할 수 있는 [원격 externalities](https://github.com/paritytech/substrate-debug-kit/tree/master/remote-externalities) 도구가 포함되어 있습니다.
-- [fork-off-substrate](https://github.com/maxsam4/fork-off-substrate) 스크립트를 사용하면 런타임 업그레이드와 스토리지 마이그레이션을 테스트하기 위해 로컬 테스트 체인을 부트스트랩하는 체인 사양을 쉽게 생성할 수 있습니다.
+- [fork-off-substrate](https://github.com/maxsam4/fork-off-substrate) 스크립트를 사용하면 런타임 업그레이드와 스토리지 마이그레이션을 테스트하기 위해 로컬 테스트 체인을 부트스트랩하는 체인 스펙을 쉽게 생성할 수 있습니다.
 
 다음으로 진행할 곳
 

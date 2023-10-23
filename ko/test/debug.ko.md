@@ -99,7 +99,7 @@ RUST_LOG=runtime=debug ./target/release/node-template --dev
 2020-01-01 tokio-blocking-driver DEBUG runtime  잘못된 값    <-- NoneValue의 사용자 정의 문자열
 2020-01-01 tokio-blocking-driver DEBUG runtime  DispatchError
 2020-01-01 tokio-blocking-driver DEBUG runtime  8
-2020-01-01 tokio-blocking-driver DEBUG runtime  0                <-- Error 열거형 정의에서의 인덱스 값
+2020-01-01 tokio-blocking-driver DEBUG runtime  0                <-- Error enum 정의에서의 인덱스 값
 2020-01-01 tokio-blocking-driver DEBUG runtime  NoneValue        <-- 에러의 식별자 이름을 담고 있는 str
 ```
 

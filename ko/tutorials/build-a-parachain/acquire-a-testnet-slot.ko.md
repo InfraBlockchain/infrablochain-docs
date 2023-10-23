@@ -13,10 +13,10 @@ keywords:
 
 ## 시작하기 전에
 
-Rococo는 공유 테스트 네트워크이므로, 이 튜토리얼에서는 로컬 테스트와는 다른 추가 단계가 필요합니다.
+Rococo는 공개 테스트 네트워크이므로, 이 튜토리얼에서는 로컬 테스트와는 다른 추가 단계가 필요합니다.
 시작하기 전에 다음을 확인하세요:
 
-- [신뢰할 수 있는 노드 추가](/tutorials/build-a-blockchain/add-trusted-nodes/)에서 설명하는 대로 체인 사양 파일을 생성하고 수정하는 방법을 알고 있어야 합니다.
+- [신뢰할 수 있는 노드 추가](/tutorials/build-a-blockchain/add-trusted-nodes/)에서 설명하는 대로 체인 스펙 파일을 생성하고 수정하는 방법을 알고 있어야 합니다.
 
 - [신뢰할 수 있는 노드 추가](/tutorials/build-a-blockchain/add-trusted-nodes/)에서 설명하는 대로 키를 생성하고 저장하는 방법을 알고 있어야 합니다.
 
@@ -79,21 +79,21 @@ Rococo에서 파라스레드로 등록하기 전에 파라체인 식별자를 �
    
    ![Rococo 네트워크에 대한 예약된 식별자](/media/images/docs/tutorials/parachains/rococo-reserved-id-event.png)
 
-## 체인 사양 파일 수정하기
+## 체인 스펙 파일 수정하기
 
 파라체인을 등록하기 위해 필요한 파일은 연결할 올바른 릴레이 체인과 할당된 파라체인 식별자를 지정해야 합니다.
-이러한 변경 사항을 반영하기 위해 파라체인을 위한 체인 사양 파일을 빌드하고 수정해야 합니다.
+이러한 변경 사항을 반영하기 위해 파라체인을 위한 체인 스펙 파일을 빌드하고 수정해야 합니다.
 이 튜토리얼에서는 릴레이 체인을 `rococo-local` 대신 `rococo`로, 파라체인 식별자를 `4105`로 설정합니다.
 
-체인 사양을 수정하려면 다음을 수행하세요:
+체인 스펙을 수정하려면 다음을 수행하세요:
 
-1. 다음 명령을 실행하여 파라체인 템플릿 노드를 위한 일반 텍스트 체인 사양을 생성합니다:
+1. 다음 명령을 실행하여 파라체인 템플릿 노드를 위한 일반 텍스트 체인 스펙을 생성합니다:
    
    ```bash
    ./target/release/parachain-template-node build-spec --disable-default-bootnode > plain-parachain-chainspec.json
    ```
 
-2. 텍스트 편집기에서 파라체인 템플릿 노드를 위한 일반 텍스트 체인 사양을 엽니다.
+2. 텍스트 편집기에서 파라체인 템플릿 노드를 위한 일반 텍스트 체인 스펙을 엽니다.
 
 3. `relay-chain`을 `rococo`로, `para_id`를 할당된 식별자로 설정합니다.
    
@@ -138,9 +138,9 @@ Rococo에서 파라스레드로 등록하기 전에 파라체인 식별자를 �
     ...
     ```
 
-6. 변경 사항을 저장하고 일반 텍스트 체인 사양 파일을 닫습니다.
+6. 변경 사항을 저장하고 일반 텍스트 체인 스펙 파일을 닫습니다.
    
-7. 다음 명령을 실행하여 수정된 체인 사양 파일로부터 원시 체인 사양 파일을 생성합니다:
+7. 다음 명령을 실행하여 수정된 체인 스펙 파일로부터 원시(raw) 체인 스펙 파일을 생성합니다:
    
    ```bash
    ./target/release/parachain-template-node build-spec --chain plain-parachain-chainspec.json --disable-default-bootnode --raw > raw-parachain-chainspec.json
@@ -286,6 +286,6 @@ Rococo에서 할당된 파라체인 슬롯의 현재 임대 기간 및 슬롯 �
 임시적인 슬롯 임대 기간이 종료되면 파라체인은 자동으로 파라스레드로 다운그레이드됩니다.
 등록 및 승인된 슬롯은 자동으로 라운드 로빈 방식으로 순환되므로, 때때로 파라체인으로 다시 온라인 상태가 될 것입니다.
 
-## 다음 단계
+## 다음 단계로 넘어가기
 
 Rococo와 같은 테스트넷에서 파라체인을 철저히 테스트하고 검증한 후, [Kusama](https://kusama.network/)와 같은 프로덕션 네트워크에 참여하고 [슬롯 경매](https://guide.kusama.network/docs/learn-auction/)를 통해 파라체인 슬롯을 확보할 수 있습니다.

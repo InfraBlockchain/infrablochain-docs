@@ -13,15 +13,15 @@ keywords:
 리눅스 운영 체제의 배포 또는 가상 머신에 배포하는 경우, 대부분의 서비스를 관리하기 위해 `systemd`를 사용합니다.
 `systemd`를 사용하여 프로세스가 활성화되고 실행되도록하고, 서비스 재시작 정책을 설정하고, 호스트에서 실행할 사용자 계정을 지정하고, 메모리 사용량 및 기타 속성을 제한하는 시스템 매개변수를 구성할 수 있습니다.
 
-다음 예제는 Alice와 연결된 계정 및 로컬 사용자 이름 `polkadot`을 사용하여 로컬 개발 체인을 실행하는 노드의 `systemd` 파일을 구성하는 방법을 보여줍니다:
+다음 예제는 Alice와 연결된 계정 및 로컬 사용자 이름 `infrablockspace`을 사용하여 로컬 개발 체인을 실행하는 노드의 `systemd` 파일을 구성하는 방법을 보여줍니다:
 
 ```text
 [Unit]
-Description=Polkadot Validator
+Description=InfraBlockspace Validator
 
 [Service]
-User=polkadot
-ExecStart=/home/polkadot/polkadot  --dev --alice
+User=infrablockspace
+ExecStart=/home/infrablockspace/infrablockspace  --dev --alice
 Restart=always
 RestartSec=90
 
@@ -29,24 +29,24 @@ RestartSec=90
 WantedBy=multi-user.target
 ```
 
-데모 목적으로 이 파일의 이름은 `polkadot.service`이며 `/etc/systemd/system` 디렉토리에 위치시킵니다.
+데모 목적으로 이 파일의 이름은 `infrablockspace.service`이며 `/etc/systemd/system` 디렉토리에 위치시킵니다.
 다음 명령을 실행하여 서비스를 활성화할 수 있습니다:
 
 ```bash
-systemctl enable polkadot
+systemctl enable infrablockspace
 ```
 
 활성화된 후 서비스를 시작하려면 다음 명령을 실행할 수 있습니다:
 
 ```bash
-systemctl start polkadot
+systemctl start infrablockspace
 ```
 
 ### 환경 변수 사용
 
-`systemd` 구성에서 일부 설정을 제거하려면 예를 들어 `--dev` 및 `--alice` 명령줄 옵션을 구성하는 대신 **환경 변수** 파일에 해당 설정을 구성할 수 있습니다.
+`systemd` 구성에서 일부 설정을 제거하려면 예를 들어 `--dev` 및 `--alice` 커맨드 옵션을 구성하는 대신 **환경 변수** 파일에 해당 설정을 구성할 수 있습니다.
 환경 변수 파일을 사용하면 각 서버에 대한 적절한 설정을 구성할 수 있지만, 여전히 `systemd` 명령을 사용하여 서비스를 관리할 수 있습니다.
-이 예제에서는 `/etc/default/polkadot`에 로컬 호스트를 위한 새로운 환경 변수 파일을 만들고 다음과 같이 구성합니다:
+이 예제에서는 `/etc/default/infrablockspace`에 로컬 호스트를 위한 새로운 환경 변수 파일을 만들고 다음과 같이 구성합니다:
 
 ```text
 START_OPTIONS="--dev --alice"
@@ -56,12 +56,12 @@ START_OPTIONS="--dev --alice"
 
 ```text
 [Unit]
-Description=Polkadot Validator
+Description=InfraBlockspace Validator
 
 [Service]
-User=polkadot
-EnvironmentFile=/etc/default/polkadot
-ExecStart=/home/polkadot/polkadot  $START_OPTIONS
+User=infrablockspace
+EnvironmentFile=/etc/default/infrablockspace
+ExecStart=/home/infrablockspace/infrablockspace  $START_OPTIONS
 Restart=always
 RestartSec=90
 
@@ -75,16 +75,16 @@ WantedBy=multi-user.target
 
 기본적으로 `systemd` 서비스는 로컬 `syslog` 파일(`/var/log/syslog` 또는 `/var/log/messages`)에 출력을 작성합니다.
 또한 `journalctl` 명령을 사용하여 이 출력을 볼 수도 있습니다.
-예를 들어, `polkadot` 프로세스의 가장 최근 출력을 보려면 다음 명령을 실행할 수 있습니다:
+예를 들어, `infrablockspace` 프로세스의 가장 최근 출력을 보려면 다음 명령을 실행할 수 있습니다:
 
 ```bash
-journalctl -u polkadot -f
+journalctl -u infrablockspace -f
 ```
 
 2일 전보다 오래된 로그를 제거하려면 다음과 유사한 명령을 실행할 수 있습니다:
 
 ```bash
-journalctl -u polkadot --vacuum-time=2d
+journalctl -u infrablockspace --vacuum-time=2d
 ```
 
 과거 1G의 데이터만 유지하려면 다음을 실행합니다:
@@ -159,7 +159,7 @@ journalctl --vacuum-size=1G
        seekto => "tail"
        thisboot => true
        filter    => {
-           "_SYSTEMD_UNIT" => "polkadot.service"
+           "_SYSTEMD_UNIT" => "infrablockspace.service"
        }
        type => "systemd"
      }
@@ -185,16 +185,16 @@ journalctl --vacuum-size=1G
         hosts => ["https://myelasticsearch.mycompany.com:9243"]
         user => "username"
         password => "password"
-        index => "logstash-polkadot-%{+YYYY.MM.dd}"
+        index => "logstash-infrablockspace-%{+YYYY.MM.dd}"
       }
    }
    ```
 
-### 로깅 명령줄 옵션
+### 로깅 커맨드 옵션
 
-노드를 시작할 때 로그 레벨과 로그 활동을 기록할 대상 구성을 지정하기 위해 명령줄 옵션을 사용할 수 있습니다.
+노드를 시작할 때 로그 레벨과 로그 활동을 기록할 대상 구성을 지정하기 위해 커맨드 옵션을 사용할 수 있습니다.
 모든 대상 구성은 기본적으로 `info` 로깅 레벨로 설정됩니다.
-`--log` 또는 `-l` 명령줄 옵션을 사용하여 개별 구성 요소의 로그 레벨을 조정할 수 있습니다.
+`--log` 또는 `-l` 커맨드 옵션을 사용하여 개별 구성 요소의 로그 레벨을 조정할 수 있습니다.
 예를 들어, afg 및 sync 구성 요소의 로깅 레벨을 변경하려면 다음과 같이 입력합니다:
 
 ```bash
@@ -236,7 +236,7 @@ trie
 txpool
 ```
 
-## 클라우드 프로비저닝
+## 클라우드 프로비저닝(Cloud Provisioning)
 
 클라우드 공급자에서 노드를 프로비저닝하는 여러 가지 옵션이 있습니다.
 클라우드 리소스를 사용하여 배포하는 도구 중 일부는 공급자별로 특정되어 있고, 일부 도구는 공급자에 독립적입니다.
@@ -286,8 +286,8 @@ Kubernetes에서 Substrate 기반 노드를 관리하기 위한 주요 도구는
 
 ### Helm 차트
 
-[Parity Helm 차트](https://github.com/paritytech/helm-charts)는 Substrate 및 Polkadot 구성 요소를 정의, 설치, 관리 및 업그레이드하는 helm 차트의 모음입니다.
-이 차트 컬렉션에서 [node](https://github.com/paritytech/helm-charts/tree/main/charts/node) 차트는 substrate 또는 polkadot 노드 바이너리를 배포하는 데 사용됩니다.
+[Parity Helm 차트](https://github.com/paritytech/helm-charts)는 Substrate 및 InfraBlockspace 구성 요소를 정의, 설치, 관리 및 업그레이드하는 helm 차트의 모음입니다.
+이 차트 컬렉션에서 [node](https://github.com/paritytech/helm-charts/tree/main/charts/node) 차트는 substrate 또는 infrablockspace 노드 바이너리를 배포하는 데 사용됩니다.
 차트의 모든 매개변수는 [node 차트 README.md](https://github.com/paritytech/helm-charts/tree/main/charts/node)에 문서화되어 있습니다.
 
 알아야 할 가장 중요한 매개변수는 다음과 같습니다:
@@ -296,7 +296,7 @@ Kubernetes에서 Substrate 기반 노드를 관리하기 위한 주요 도구는
 | :---------------------- | :------------------------------------------------------------ |
 | node.chain              | 연결할 네트워크입니다.                                        |
 | node.command            | 사용할 바이너리입니다.                                                |
-| node.flags              | 컨테이너 내에서 바이너리와 함께 사용할 명령줄 옵션입니다. |
+| node.flags              | 컨테이너 내에서 바이너리와 함께 사용할 커맨드 옵션입니다. |
 | node.customChainspecUrl | 사용자 정의 체인 사양 URL입니다.                               |
 
 시작할 수 있는 `values.yml` 구성 파일 예제도 사용할 수 있습니다.
@@ -315,7 +315,7 @@ helm 차트를 사용하여 `rococo-local` 체인을 배포하려면 다음 단�
 3. 다음 명령을 실행하여 node 차트를 설치합니다:
 
    ```bash
-   helm install polkadot-node parity/node
+   helm install infrablockspace-node parity/node
    ```
 
 4. 다음 명령을 실행하여 Alice 계정과 사용자 정의 노드 키를 사용하여 validator 노드를 배포합니다:
@@ -367,7 +367,7 @@ helm 차트를 사용하여 `rococo-local` 체인을 배포하려면 다음 단�
 ### 샘플 Dockerfile
 
 다음 샘플 Dockerfile은 공격 표면을 최소화하고 보안을 유지하는 안전한 방식으로 Docker 이미지를 빌드하는 최선의 방법을 보여줍니다.
-이 예제는 공식 Polkadot 이미지를 만드는 데 사용되는 Dockerfile과 유사한 버전입니다.
+이 예제는 공식 InfraBlockspace 이미지를 만드는 데 사용되는 Dockerfile과 유사한 버전입니다.
 추가 정보는 Docker 문서의 [Dockerfile 작성을 위한 최상의 방법](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)을 참조할 수도 있습니다.
 
 ```dockerfile

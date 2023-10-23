@@ -43,7 +43,7 @@ keywords:
 - 연산 결과를 게시하기 위해 체인에 [서명된 또는 서명되지 않은 트랜잭션](https://paritytech.github.io/substrate/master/sp_runtime/offchain/trait.TransactionPool.html)을 제출할 수 있는 기능.
 - 외부 서비스에서 데이터를 액세스하고 가져오기 위한 완전한 기능을 갖춘 HTTP 클라이언트.
 - 문장이나 트랜잭션에 서명하고 검증하기 위한 로컬 키스토어에 액세스.
-- 모든 오프체인 워커 간에 공유되는 추가적인 로컬 [키-값 데이터베이스](https://paritytech.github.io/substrate/master/sp_runtime/offchain/trait.OffchainStorage.html).
+- 모든 오프체인 워커 간에 공유되는 추가적인 로컬 [Key-Value 데이터베이스](https://paritytech.github.io/substrate/master/sp_runtime/offchain/trait.OffchainStorage.html).
 - 난수 생성을 위한 안전한 로컬 엔트로피 소스.
 - 노드의 정확한 [로컬 시간](https://paritytech.github.io/substrate/master/sp_runtime/offchain/struct.Timestamp.html)에 대한 액세스.
 - 작업을 일시 중지하고 재개할 수 있는 기능.
@@ -82,7 +82,7 @@ keywords:
 오프체인 워커와 달리 오프체인 인덱싱은 매번 블록 처리 시 오프체인 스토리지를 채웁니다.
 블록마다 데이터를 채움으로써 오프체인 인덱싱은 데이터가 항상 일관되며 인덱싱이 활성화된 모든 노드에서 정확히 동일하다는 것을 보장합니다.
 
-## 다음 단계
+## 다음 단계로 넘어가기
 
 오프체인 워커, 오프체인 스토리지 및 오프체인 인덱싱을 사용하여 온체인에 저장되지 않은 데이터를 처리할 수 있는 방법에 대해 알게 되었으므로 다음 예제와 런타임 개발에서 이를 사용하는 방법을 살펴볼 수 있습니다:
 

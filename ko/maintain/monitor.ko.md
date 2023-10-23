@@ -1,5 +1,5 @@
 ---
-title: 모니터
+title: 모니터링
 description: Substrate 노드와 Polkadot 생태계의 기본 텔레메트리 개요를 제공합니다.
 keywords:
 ---
@@ -112,7 +112,7 @@ keywords:
 네트워크에서 실행하는 각 노드를 모니터링하여 현재 블록 높이, 피어 간 연결 수, CPU 사용량 및 사용 가능한 무료 메모리와 같은 작동에 대한 기본 정보를 모니터링해야 합니다.
 기본적으로 Substrate는 `host:9615/metrics` 엔드포인트에서 많은 유용한 메트릭을 노출합니다.
 예를 들어, Substrate가 로컬에서 실행 중인 경우 http://localhost:9615/metrics 엔드포인트에서 메트릭을 볼 수 있습니다.<!-- markdown-link-check-disable-line -->
-이 엔드포인트는 간단한 키-값 형식으로 메트릭을 출력합니다.
+이 엔드포인트는 간단한 Key-Value 형식으로 메트릭을 출력합니다.
 예를 들어:
 
 ```text

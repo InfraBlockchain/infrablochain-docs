@@ -1,33 +1,33 @@
 ---
-title: 제네시스 구성
+title: Genesis 구성
 description:
 keywords:
 ---
 
-어떤 블록체인에서 생성된 첫 번째 블록을 제네시스 블록이라고 합니다.
-이 블록과 관련된 해시는 첫 번째 블록 이후에 생성된 모든 블록의 최상위 부모입니다.
+어떤 블록체인에서 생성된 첫 번째 블록을 genesis 블록이라고 합니다.
+이 블록과 관련된 해시는 첫 번째 블록 이후에 생성된 모든 블록의 최상위 블록입니다.
 
-Substrate 노드 템플릿은 기본적으로 일부 팔렛의 제네시스 구성(초기 상태)을 제공합니다.
-런타임에 사용자 정의 로직을 추가할 때(예: 미리 정의된 또는 사용자 정의 팔렛 추가) 다른 스토리지 항목을 포함하거나 다른 초기값을 설정하려는 경우 제네시스 구성을 수정하고 싶을 수 있습니다.
+Substrate 노드 템플릿은 기본적으로 일부 팔렛의 genesis 구성(초기 상태)를 제공합니다.
+런타임에 커스텀 로직을 추가할 때(예: 미리 정의된 또는 커스텀 팔렛 추가) 다른 스토리지 항목을 포함하거나 다른 초기값을 설정하려는 경우 genesis 구성을 수정하고 싶을 수 있습니다.
 
-[체인 사양](/build/chain-spec/)에서 배운 대로, 노드를 시작하는 데 사용하는 체인 사양은 해당 노드의 제네시스 구성을 결정합니다.
-그러나 체인 사양은 노드를 시작할 때 초기화되는 스토리지 항목을 생성하지 않습니다.
+[체인 스펙](/build/chain-spec/)에서 배운 대로, 노드를 시작하는 데 사용하는 체인 스펙은 해당 노드의 genesis 구성을 결정합니다.
+그러나 체인 스펙은 노드를 시작할 때 초기화되는 스토리지 항목을 생성하지 않습니다.
 대신, 스토리지 항목은 [런타임 스토리지](/build/runtime-storage/)에서 설명한대로 런타임에 포함된 팔렛에 정의됩니다.
 
-런타임을 위한 스토리지 항목을 생성한 후, 제네시스 구성에 초기 상태로 설정할지 여부를 선택할 수 있으며, 이를 위해 Substrate는 두 가지 특수화된 FRAME 속성 매크로를 제공합니다.
+런타임을 위한 스토리지 항목을 생성한 후, genesis 구성에 초기 상태로 설정할지 여부를 선택할 수 있으며, 이를 위해 Substrate는 두 가지 특수화된 FRAME 속성 매크로를 제공합니다.
 
-체인의 제네시스 구성에 스토리지 항목을 초기 상태로 설정하기 위해 사용할 수 있는 매크로는 다음과 같습니다:
+체인의 genesis 구성에 스토리지 항목을 초기 상태로 설정하기 위해 사용할 수 있는 매크로는 다음과 같습니다:
 
 - `#[pallet::genesis_config]` 매크로는 `GenesisConfig` 데이터 타입을 정의하고 스토리지 항목을 초기화합니다.
-- `#[pallet::genesis_build]` 매크로는 제네시스 구성을 빌드합니다.
+- `#[pallet::genesis_build]` 매크로는 genesis 구성을 빌드합니다.
 
-이러한 매크로는 체인 사양과 함께 사용되어 런타임의 초기 상태를 정의하는 데 사용됩니다.
+이러한 매크로는 체인 스펙과 함께 사용되어 런타임의 초기 상태를 정의하는 데 사용됩니다.
 
 ## 간단한 스토리지 값 구성
 
-다음 예제는 `pallet_template`의 제네시스 구성에 하나의 스토리지 값을 추가하는 방법을 보여줍니다.
-기본적으로 `pallet_template`에는 제네시스 블록에서 초기화되지 않은 하나의 스토리지 항목이 있습니다.
-이 예제에서는 체인의 제네시스 구성으로 스토리지 값을 초기값으로 설정하기 위해 `#[pallet::genesis_config]` 및 `#[pallet::genesis_build]` 매크로를 사용하는 방법을 보여줍니다.
+다음 예제는 `pallet_template`의 genesis 구성에 하나의 스토리지 값을 추가하는 방법을 보여줍니다.
+기본적으로 `pallet_template`에는 genesis 블록에서 초기화되지 않은 하나의 스토리지 항목이 있습니다.
+이 예제에서는 체인의 genesis 구성으로 스토리지 값을 초기값으로 설정하기 위해 `#[pallet::genesis_config]` 및 `#[pallet::genesis_build]` 매크로를 사용하는 방법을 보여줍니다.
 
 ### 팔렛에서 매크로 구성
 
@@ -67,9 +67,9 @@ Substrate 노드 템플릿은 기본적으로 일부 팔렛의 제네시스 구�
    cargo build --package pallet-template
    ```
 
-### 체인 사양 구성
+### 체인 스펙 구성
 
-제네시스 블록에서 스토리지 항목을 초기값으로 설정할 수 있도록 팔렛을 구성했으므로, 체인 사양에서 해당 스토리지 항목에 대한 초기값을 설정할 수 있습니다.
+genesis 블록에서 스토리지 항목을 초기값으로 설정할 수 있도록 팔렛을 구성했으므로, 체인 스펙에서 해당 스토리지 항목에 대한 초기값을 설정할 수 있습니다.
 
 1. 텍스트 편집기에서 `node/src/chain_spec.rs` 파일을 엽니다.
 1. `node_template_runtime`에 `TemplateModuleConfig`를 추가합니다.
@@ -103,23 +103,23 @@ Substrate 노드 템플릿은 기본적으로 일부 팔렛의 제네시스 구�
       }
    ```
 
-## 런타임에 제네시스 구성 추가
+## 런타임에 genesis 구성 추가
 
-`#[pallet::genesis_config]` 매크로를 사용하여 각 팔렛에 `GenesisConfig`을 추가한 후, 런타임에서 제네시스 블록의 스토리지 항목을 초기화할 수 있도록 각 팔렛의 `Config` 트레이트를 런타임에 포함해야 합니다.
+`#[pallet::genesis_config]` 매크로를 사용하여 각 팔렛에 `GenesisConfig`을 추가한 후, 런타임에서 genesis 블록의 스토리지 항목을 초기화할 수 있도록 각 팔렛의 `Config` 트레이트를 런타임에 포함해야 합니다.
 
 런타임 구성을 구성하는 팔렛들의 `GenesisConfig` 타입은 해당 런타임을 위한 단일 `RuntimeGenesisConfig` 타입으로 집계됩니다.
 
 집계된 `RuntimeGenesisConfig`는 [`BuildStorage`](https://paritytech.github.io/substrate/master/sp_runtime/trait.BuildStorage.html) 트레이트를 구현하여 런타임의 모든 초기 스토리지 항목을 빌드합니다.
 예를 들어, 노드 템플릿 런타임은 기본적으로 다음 팔렛들을 위해 `RuntimeGenesisConfig`를 지정합니다:
 
-- [시스템 팔렛](#system-pallet)
-- [오라 팔렛](#aura-pallet)
-- [그랜드파 팔렛](#grandpa-pallet)
-- [밸런스 팔렛](#balances-pallet)
-- [트랜잭션 결제 팔렛](#transactionpayment-pallet)
-- [수도 팔렛](#sudo-pallet)
+- [System Pallet](#system-pallet)
+- [Aura Pallet](#aura-pallet)
+- [Grandpa Pallet](#grandpa-pallet)
+- [Balances Pallet](#balances-pallet)
+- [Transaction Payment Pallet](#transactionpayment-pallet)
+- [Sudo Pallet](#sudo-pallet)
 
-### 시스템 팔렛
+### System Pallet
 
 ```rust
 #[pallet::genesis_config]
@@ -129,7 +129,7 @@ Substrate 노드 템플릿은 기본적으로 일부 팔렛의 제네시스 구�
 	}
 ```
 
-### 오라 팔렛
+### Aura Pallet
 
 ```rust
 #[pallet::genesis_config]
@@ -138,7 +138,7 @@ Substrate 노드 템플릿은 기본적으로 일부 팔렛의 제네시스 구�
 	}
 ```
 
-### 그랜드파 팔렛
+### Grandpa Pallet
 
 ```rust
 #[pallet::genesis_config]
@@ -147,7 +147,7 @@ Substrate 노드 템플릿은 기본적으로 일부 팔렛의 제네시스 구�
 	}
 ```
 
-### 밸런스 팔렛
+### Balances Pallet
 
 ```rust
 #[pallet::genesis_config]
@@ -156,7 +156,7 @@ Substrate 노드 템플릿은 기본적으로 일부 팔렛의 제네시스 구�
 	}
 ```
 
-### 트랜잭션 결제 팔렛
+### Transaction Payament Pallet
 
 ```rust
 #[pallet::genesis_config]
@@ -165,7 +165,7 @@ Substrate 노드 템플릿은 기본적으로 일부 팔렛의 제네시스 구�
 	}
 ```
 
-### 수도 팔렛
+### Sudo Pallet
 
 ```rust
 #[pallet::genesis_config]
@@ -190,17 +190,17 @@ pub struct RuntimeGenesisConfig {
 
 최종적으로, `RuntimeGenesisConfig`는 [`ChainSpec`](https://paritytech.github.io/substrate/master/sc_chain_spec/trait.ChainSpec.html) 트레이트를 통해 노출됩니다.
 
-Substrate의 제네시스 스토리지 구성에 대한 더 완전한 예는 Substrate 코드 베이스와 함께 제공되는 [체인 사양](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/bin/node/cli/src/chain_spec.rs)을 참조하십시오.
+Substrate의 genesis 스토리지 구성에 대한 더 완전한 예는 Substrate 코드 베이스와 함께 제공되는 [체인 스펙](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/bin/node/cli/src/chain_spec.rs)을 참조하십시오.
 
 ## 팔렛 내에서 스토리지 항목 초기화
 
 [`#[pallet::genesis_build]`](https://paritytech.github.io/substrate/master/frame_support/attr.pallet.html#genesis-build-palletgenesis_build-optional) 매크로를 사용하여 팔렛 자체에서 스토리지 항목의 초기 상태를 정의할 수 있습니다.
-팔렛 내에서 제네시스 구성을 정의하면 팔렛의 비공개 함수에 액세스할 수 있습니다.
+팔렛 내에서 genesis 구성을 정의하면 팔렛의 비공개 함수에 액세스할 수 있습니다.
 
 다음 예제는 스토리지 항목의 초기값을 설정하기 위해 `#[pallet::genesis_config]`와 `#[pallet::genesis_build]`를 사용하는 방법을 보여줍니다.
 이 예제에서는 두 개의 스토리지 항목이 있습니다:
 
-- 멤버 계정 식별자 목록.
+- 멤버 계정 식별자(identifiers) 목록.
 - 목록에서 멤버를 대표하는 특정 계정 식별자.
 
 이 예제의 매크로와 데이터 타입은 `my_pallet/src/lib.rs` 파일에 정의되어 있습니다:
@@ -221,7 +221,7 @@ impl<T: Config> GenesisBuild<T> for GenesisConfig {
 }
 ```
 
-제네시스 구성은 `node/src/chain_spec.rs` 파일에서 정의됩니다:
+genesis 구성은 `node/src/chain_spec.rs` 파일에서 정의됩니다:
 
 ```rust
 GenesisConfig {
@@ -233,8 +233,8 @@ GenesisConfig {
 ```
 
 또한 `genesis_build` 매크로를 사용하여 특정 스토리지 항목에 바인딩되지 않은 `GenesisConfig` 속성을 정의할 수도 있습니다.
-이는 팔렛 내에서 여러 스토리지 항목을 설정하는 비공개 도우미 함수를 호출하거나 팔렛 내에 포함된 다른 팔렛에서 정의된 함수를 호출하는 경우에 유용할 수 있습니다.
-예를 들어, `intitialize_members`라는 가상의 비공개 함수를 사용하는 경우, 코드는 다음과 같을 수 있습니다:
+이는 팔렛 내에서 여러 스토리지 항목을 설정하는 비공개 함수를 호출하거나 팔렛 내에 포함된 다른 팔렛에서 정의된 함수를 호출하는 경우에 유용할 수 있습니다.
+예를 들어, `intitialize_members`라는 비공개 함수를 사용하는 경우, 코드는 다음과 같을 수 있습니다:
 
 `my_pallet/src/lib.rs`:
 

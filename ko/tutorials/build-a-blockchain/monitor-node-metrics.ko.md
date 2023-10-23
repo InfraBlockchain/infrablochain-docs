@@ -7,7 +7,7 @@ keywords:
   - 노드 작업
 ---
 
-Substrate은 네트워크 작업에 대한 메트릭을 노출합니다.
+Substrate는 네트워크 작업에 대한 메트릭을 노출합니다.
 예를 들어, 노드가 연결된 피어 수, 노드가 사용하는 메모리 양, 생성되는 블록 수 등에 대한 정보를 수집할 수 있습니다.
 Substrate 노드가 노출하는 메트릭을 캡처하고 시각화하기 위해 [Prometheus](https://prometheus.io/)와 [Grafana](https://grafana.com/)와 같은 도구를 구성하고 사용할 수 있습니다.
 이 튜토리얼에서는 Prometheus를 사용하여 데이터 샘플을 수집하고, Grafana를 사용하여 데이터 샘플을 사용하여 노드 메트릭을 시각화하는 그래프와 대시보드를 생성하는 방법을 보여줍니다.
@@ -88,7 +88,7 @@ Substrate은 포트 `9615`에서 [Prometheus 노출 형식](https://prometheus.i
 ## Prometheus 엔드포인트 구성하기
 
 Prometheus 다운로드를 추출할 때 생성된 디렉토리에는 `prometheus.yml` 구성 파일이 포함되어 있습니다.
-이 파일을 수정하거나 사용자 정의 구성 파일을 생성하여 Prometheus를 구성하여 기본 Prometheus 포트 엔드포인트(포트 `9615`)에서 데이터를 가져올 수 있습니다.
+이 파일을 수정하거나 커스텀 구성 파일을 생성하여 Prometheus를 구성하여 기본 Prometheus 포트 엔드포인트(포트 `9615`)에서 데이터를 가져올 수 있습니다.
 `--prometheus-port <포트 번호>` 명령줄 옵션을 사용하여 지정한 포트로 변경할 수도 있습니다.
 
 Substrate 노출된 엔드포인트를 Prometheus 대상 목록에 추가하려면 다음 단계를 수행하세요:
@@ -203,7 +203,7 @@ Grafana를 시작한 후, 브라우저에서 Grafana로 이동할 수 있습니�
 
 1. **Prometheus**를 클릭하여 Prometheus 엔드포인트를 Substrate 노드 메트릭의 데이터 소스로 구성합니다.
 
-   Substrate 노드와 Prometheus 인스턴스가 모두 실행 중인 경우, Grafana를 기본 포트 `http://localhost:9090` 또는 사용자 정의한 포트 정보를 구성한 경우 해당 포트에 Prometheus를 찾도록 구성합니다.
+   Substrate 노드와 Prometheus 인스턴스가 모두 실행 중인 경우, Grafana를 기본 포트 `http://localhost:9090` 또는 커스텀한 포트 정보를 구성한 경우 해당 포트에 Prometheus를 찾도록 구성합니다.
 
    `prometheus.yml` 파일에서 설정한 Prometheus 포트를 지정하지 않아야 합니다.
    해당 포트는 노드가 데이터를 게시하는 포트입니다.
@@ -236,12 +236,12 @@ Grafana를 시작한 후, 브라우저에서 Grafana로 이동할 수 있습니�
 
    [Substrate 대시보드 템플릿](https://grafana.com/grafana/dashboards/13759/)은 Substrate 기반 체인에서 사용할 수 있으며, Grafana Labs 대시보드 갤러리에서도 다운로드할 수 있습니다.
 
-   사용자 정의 대시보드를 만들고 싶다면 [Prometheus 문서의 Grafana 섹션](https://prometheus.io/docs/visualization/grafana/)을 참조하세요.
+   커스텀 대시보드를 만들고 싶다면 [Prometheus 문서의 Grafana 섹션](https://prometheus.io/docs/visualization/grafana/)을 참조하세요.
 
-   사용자 정의 대시보드를 만든 경우, [Grafana 대시보드](https://grafana.com/grafana/dashboards)에 업로드하는 것을 고려하세요.
+   커스텀 대시보드를 만든 경우, [Grafana 대시보드](https://grafana.com/grafana/dashboards)에 업로드하는 것을 고려하세요.
    [Awesome Substrate](https://github.com/substrate-developer-hub/awesome-substrate) 리포지토리에 대시보드가 있는지 나열하여 Substrate 빌더 커뮤니티에 알릴 수 있습니다.
 
-## 다음 단계
+## 다음 단계로 넘어가기
 
 - [신뢰할 수 있는 노드 추가](/tutorials/build-a-blockchain/add-trusted-nodes)
 - [노드 모니터링](https://wiki.polkadot.network/docs/en/maintain-guides-how-to-monitor-your-node)

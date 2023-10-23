@@ -31,11 +31,11 @@ keywords:
 
 (자세한 내용은 [`remote externalities lib`](https://paritytech.github.io/substrate/master/src/frame_remote_externalities/lib.rs.html)를 참조하세요.)
 
-키-값 데이터베이스를 사용하여 상태를 검색한 후, try-runtime은 해당 데이터를 `TestExternalities`에 삽입합니다.
+Key-Value 데이터베이스를 사용하여 상태를 검색한 후, try-runtime은 해당 데이터를 `TestExternalities`에 삽입합니다.
 
 ## 작동 방식
 
-`try-runtime` 도구는 [`remote_externalities`](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/utils/frame/remote-externalities/src/lib.rs)라는 자체적인 externalities 구현을 가지고 있으며, 이는 `TestExternalities`를 래핑하고 데이터가 [타입 인코딩](/reference/scale-codec)된 [키-값 저장소](/learn/state-transitions-and-storage)를 사용합니다.
+`try-runtime` 도구는 [`remote_externalities`](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/utils/frame/remote-externalities/src/lib.rs)라는 자체적인 externalities 구현을 가지고 있으며, 이는 `TestExternalities`를 래핑하고 데이터가 [타입 인코딩](/reference/scale-codec)된 [Key-Value 저장소](/learn/state-transitions-and-storage)를 사용합니다.
 
 아래 다이어그램은 externalities가 컴파일된 런타임 외부에 위치하여 해당 런타임의 스토리지를 캡처하는 방식을 보여줍니다.
 
@@ -163,7 +163,7 @@ RUST_LOG=runtime=trace,try-runtime::cli=trace,executor=trace \
 
 이 명령은 `--no-spec-name-check` 명령행 옵션이 필요합니다.
 
-## 다음 단계
+## 다음 단계로 넘어가기
 
 - [스토리지 키](/build/runtime-storage#storage-value-keys)
 - [`OnRuntimeUpgrade`](https://paritytech.github.io/substrate/master/frame_support/traits/trait.OnRuntimeUpgrade.html)

@@ -4,23 +4,23 @@ description:
 tutorial:
 ---
 
-이제 기본 기능을 갖춘 디지털 컬렉터블 거래를 위한 사용자 정의 팔레트를 갖게 되었습니다.
+이제 기본 기능을 갖춘 디지털 컬렉터블 트랜잭션을 위한 사용자 정의 팔레트를 갖게 되었습니다.
 다음 단계는 이 팔레트를 블록체인에서 기능을 노출하기 위해 런타임에 추가하는 것입니다.
-하지만 그 전에, [작업 공간에 팔레트 추가](/tutorials/collectibles-workshop/03-create-pallet/#add-the-pallet-to-the-workspace)에서 지시한 대로 노드의 매니페스트에 컬렉터블 팔레트가 포함되었는지 확인해보세요.
+하지만 그 전에, [workspace에 팔레트 추가](/tutorials/collectibles-workshop/03-create-pallet/#add-the-pallet-to-the-workspace)에서 지시한 대로 노드의 매니페스트에 컬렉터블 팔레트가 포함되었는지 확인해보세요.
 
-작업 공간의 매니페스트를 확인하려면 다음을 수행하세요:
+workspace의 매니페스트를 확인하려면 다음을 수행하세요:
 
 1. 필요한 경우 새 터미널을 엽니다.
    
-2. 작업 공간의 `workshop-node-template` 디렉토리로 이동합니다.
+2. workspace의 `workshop-node-template` 디렉토리로 이동합니다.
 
-3. 노드 작업 공간의 Cargo.toml 파일의 내용을 확인합니다.
+3. 노드 workspace의 Cargo.toml 파일의 내용을 확인합니다.
    
    ```bash
    more Cargo.toml
    ```
 
-   컬렉터블 팔레트가 작업 공간의 구성원으로 나열되어 있는지 확인할 수 있어야 합니다.
+   컬렉터블 팔레트가 workspace의 구성원으로 나열되어 있는지 확인할 수 있어야 합니다.
    예를 들어:
 
    ```toml

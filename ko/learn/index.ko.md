@@ -5,7 +5,7 @@ description: Substrate 기반 블록체인과 Substrate 런타임 개발의 핵�
 keywords:
   - 블록체인
   - 합의
-  - 서브스트레이트
+  - Substrate
   - 아키텍처
 ---
 
@@ -30,7 +30,7 @@ Substrate는 Rust 기반 라이브러리와 도구를 사용하여 모듈식이�
 
 - [트랜잭션 라이프사이클](/learn/transaction-lifecycle/)은 트랜잭션이 어떻게 받아들여지고 대기열에 추가되며 실행되어 블록에 포함되는지 설명합니다.
 
-- [상태 전이와 저장소](/learn/state-transitions-and-storage/)는 런타임에서 처리되는 상태 변경이 트라이 데이터 구조와 키-값 데이터베이스를 사용하여 저장되고 관리되는 방식을 설명합니다.
+- [상태 전이와 저장소](/learn/state-transitions-and-storage/)는 런타임에서 처리되는 상태 변경이 트라이 데이터 구조와 Key-Value 데이터베이스를 사용하여 저장되고 관리되는 방식을 설명합니다.
 
 - [계정, 주소 및 키](/learn/accounts-addresses-keys/)는 계정, 주소 및 키 간의 관계와 사용 방법을 설명합니다.
 
@@ -38,7 +38,7 @@ Substrate는 Rust 기반 라이브러리와 도구를 사용하여 모듈식이�
 
 - [오프체인 작업](/learn/offchain-operations/)은 일부 작업을 오프체인으로 처리해야 하는 이유와 그 오프체인 작업을 수행하는 대체 방법에 대해 탐구합니다.
 
-- [Substrate Connect에서 경량 클라이언트](/learn/light-clients-in-substrate-connect/)는 Substrate Connect를 사용하여 경량 클라이언트를 애플리케이션에 통합하고 어떤 Substrate 기반 체인과도 상호작용할 수 있도록 하는 방법을 설명합니다.
+- [Substrate Connect에서 라이트 클라이언트](/learn/light-clients-in-substrate-connect/)는 Substrate Connect를 사용하여 라이트 클라이언트를 애플리케이션에 통합하고 어떤 Substrate 기반 체인과도 상호작용할 수 있도록 하는 방법을 설명합니다.
 
 - [암호화](/learn/cryptography)는 Substrate에서 암호화에 사용되는 해시 알고리즘과 서명 체계에 대한 개요를 제공합니다.
 

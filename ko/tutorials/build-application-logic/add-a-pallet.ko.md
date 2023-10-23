@@ -28,7 +28,7 @@ Nicks 팔레트는 블록체인 사용자가 자신이 제어하는 계정에 �
 
 시작하기 전에 다음을 확인하세요.
 
-- [Rust 및 Rust 도구 체인](/install/)을 설치하여 Substrate 개발 환경을 구성했는지 확인하세요.
+- [Rust 및 Rust 툴체인](/install/)을 설치하여 Substrate 개발 환경을 구성했는지 확인하세요.
 
 - [로컬 블록체인 만들기](/tutorials/build-a-blockchain/build-local-blockchain/) 튜토리얼을 완료하고 개발자 허브에서 Substrate 노드 템플릿을 로컬에 설치했는지 확인하세요.
 
@@ -248,7 +248,7 @@ Balances 팔레트에 대한 `Config` trait이 어떻게 구현되는지 예제�
    ./target/release/node-template --dev
    ```
 
-   이 경우 `--dev` 옵션은 노드가 미리 정의된 `development` 체인 사양을 사용하여 개발자 모드에서 실행되도록 지정합니다.
+   이 경우 `--dev` 옵션은 노드가 미리 정의된 `development` 체인 스펙을 사용하여 개발자 모드에서 실행되도록 지정합니다.
    기본적으로 이 옵션은 노드를 중지할 때(예: Control-c를 누르면) 모든 활성 데이터(키, 블록체인 데이터베이스, 네트워킹 정보 등)를 삭제합니다.
    `--dev` 옵션을 사용하면 노드를 중지하고 다시 시작할 때마다 깨끗한 작업 상태를 유지할 수 있습니다.
 
@@ -332,7 +332,7 @@ Nicks 및 Sudo 팔레트를 통해 노출된 추가 기능(예: Sudo 팔레트 �
 그러나 이러한 기능은 이 튜토리얼의 목적 범위를 벗어납니다.
 Nicks 및 Sudo 팔레트를 통해 노출된 추가 기능을 탐색하려면 [다음 단계](#다음-단계)로 이동하여 [호출에 대한 오리진 지정](/tutorials/build-application-logic/specify-the-origin-for-a-call)을 선택하세요.
 
-## 다음 단계
+## 다음 단계로 넘어가기
 
 Substrate 개발에 대해 더 알아보기 위해 여러 [튜토리얼](/tutorials/)을 참조할 수 있습니다.
 

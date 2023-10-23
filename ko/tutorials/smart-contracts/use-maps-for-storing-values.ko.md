@@ -303,7 +303,7 @@ Mapping API는 저장소에 직접 액세스할 수 있으므로 `Mapping::remov
    test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
    ```
 
-## 다음 단계
+## 다음 단계로 넘어가기
 
 이 튜토리얼에서는 `ink::storage::Mapping` 타입과 Mapping API를 스마트 컨트랙트에서 사용하는 방법을 배웠습니다. 예를 들어, 이 튜토리얼에서는 다음과 같은 내용을 설명했습니다:
 
