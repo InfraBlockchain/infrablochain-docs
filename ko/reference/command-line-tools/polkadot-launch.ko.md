@@ -5,9 +5,9 @@ keywords:
 ---
 
 `polkadot-launch` 프로그램을 사용하면 로컬 릴레이 체인과 파라체인 테스트 네트워크를 설정할 수 있습니다.
-`polkadot-launch`를 사용하기 전에 `bin` 폴더에 릴레이 체인과 콜레이터의 이진 파일이 있어야 합니다.
-릴레이 체인과 콜레이터의 이진 파일은 `polkadot-launch` 저장소와 같은 루트 디렉토리에 있는 `polkadot` 및 `cumulus` 프로젝트의 `rococo-v1` 브랜치를 복제하여 생성할 수 있습니다.
-필요한 이진 파일을 복제, 컴파일 및 복사하는 자세한 지침은 `polkadot-launch` 저장소의 [README](https://github.com/paritytech/polkadot-launch#binary-files)를 참조하십시오.
+`polkadot-launch`를 사용하기 전에 `bin` 폴더에 릴레이 체인과 콜레이터의 바이너리 파일이 있어야 합니다.
+릴레이 체인과 콜레이터의 바이너리 파일은 `polkadot-launch` 저장소와 같은 루트 디렉토리에 있는 `polkadot` 및 `cumulus` 프로젝트의 `rococo-v1` 브랜치를 복제하여 생성할 수 있습니다.
+필요한 바이너리 파일을 복제, 컴파일 및 복사하는 자세한 지침은 `polkadot-launch` 저장소의 [README](https://github.com/paritytech/polkadot-launch#binary-files)를 참조하십시오.
 
 `polkadot-launch` 프로그램은 또한 설정 파일을 제공해야 합니다. 이 설정 파일은 설정하려는 테스트 네트워크의 속성을 정의합니다.
 설정 파일은 JSON 또는 JavaScript 파일일 수 있습니다.
@@ -17,8 +17,8 @@ keywords:
 
 로컬 테스트 네트워크를 설정하려면 `polkadot-launch`를 사용하기 전에 필요한 파일로 환경을 준비해야 합니다:
 
-- `polkadot` 릴레이 체인을 다운로드하고 컴파일한 다음 `polkadot` 이진 파일을 `polkadot-launch/bin` 디렉토리에 복사합니다.
-- `polkadot-collator`를 다운로드하고 컴파일한 다음 `polkadot-collator` 이진 파일을 `polkadot-launch/bin` 디렉토리에 복사합니다.
+- `polkadot` 릴레이 체인을 다운로드하고 컴파일한 다음 `polkadot` 바이너리 파일을 `polkadot-launch/bin` 디렉토리에 복사합니다.
+- `polkadot-collator`를 다운로드하고 컴파일한 다음 `polkadot-collator` 바이너리 파일을 `polkadot-launch/bin` 디렉토리에 복사합니다.
 - 테스트 네트워크의 속성을 포함하는 설정 파일을 준비합니다.
 
 이러한 단계를 수행하는 방법에 대한 자세한 내용은 `polkadot-launch` 저장소의 문서를 참조하십시오.
@@ -65,7 +65,7 @@ keywords:
    npm i polkadot-launch -g
    ```
 
-6. 설정 파일의 속성이 릴레이 체인 및 콜레이터 이진 파일의 위치를 반영하는지 확인합니다.
+6. 설정 파일의 속성이 릴레이 체인 및 콜레이터 바이너리 파일의 위치를 반영하는지 확인합니다.
 
 ## 기본 명령 사용법
 

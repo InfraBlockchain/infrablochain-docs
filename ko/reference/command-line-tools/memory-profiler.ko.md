@@ -12,7 +12,7 @@ keywords:
 
 ## 설치
 
-프로파일러의 미리 컴파일된 이진 릴리스를 [릴리스](https://github.com/koute/memory-profiler/releases)에서 다운로드할 수 있습니다.
+프로파일러의 미리 컴파일된 바이너리 릴리스를 [릴리스](https://github.com/koute/memory-profiler/releases)에서 다운로드할 수 있습니다.
 마지막으로 테스트한 버전은 0.6.1이지만, 그 이상의 버전도 대부분 작동할 것입니다.
 
 다음은 명령 줄에서 다운로드하고 압축을 푸는 방법입니다:
@@ -31,7 +31,7 @@ $ tar -xf memory-profiler-x86_64-unknown-linux-gnu.tgz
 
 먼저 다음이 설치되어 있는지 확인해야 합니다:
 
-- GCC 도구 체인
+- GCC 툴체인
 - Rust nightly (버전 `nightly-2021-06-08`을 테스트했습니다)
 - [Yarn](https://yarnpkg.com) 패키지 관리자 (GUI 빌드에 사용)
 
@@ -44,7 +44,7 @@ $ cargo build --release -p memory-profiler
 $ cargo build --release -p memory-profiler-cli
 ```
 
-필요한 이진 파일은 `target/release/libmemory_profiler.so`와 `target/release/memory-profiler-cli`에 있습니다.
+필요한 바이너리 파일은 `target/release/libmemory_profiler.so`와 `target/release/memory-profiler-cli`에 있습니다.
 
 ## 명령 줄에서 프로파일링이 활성화된 노드 시작
 
@@ -74,7 +74,7 @@ $ LD_PRELOAD=/path/to/libmemory_profiler.so ./target/release/substrate
 Substrate 기반 노드를 원격으로 실행하는 경우 아마도 `systemd`를 사용하여 관리하고 있을 것입니다.
 이러한 경우 프로파일링을 설정하는 방법은 다음과 같습니다.
 
-프로파일러의 미리 컴파일된 이진 파일을 이미 다운로드하거나 소스에서 컴파일하여 현재 디렉토리에 있는 것으로 가정합니다.
+프로파일러의 미리 컴파일된 바이너리 파일을 이미 다운로드하거나 소스에서 컴파일하여 현재 디렉토리에 있는 것으로 가정합니다.
 
 먼저, 메모리 프로파일러를 전역적으로 액세스할 수 있는 위치로 복사하고 로그를 작성하고 프로파일링 데이터를 수집할 수 있는 위치를 설정합니다.
 

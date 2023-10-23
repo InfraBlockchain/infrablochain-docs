@@ -54,7 +54,7 @@ Cumulus [`collator-selection` 팔렛](https://github.com/paritytech/polkadot-sdk
 
 ## 예시
 
-- [콜레이터 선택과 거래 수수료를 이용한 인센티브 구현](https://github.com/paritytech/polkadot-sdk/blob/master/cumulus/pallets/collator-selection/src/lib.rs)인 Cumulus 구현.
+- [콜레이터 선택과 트랜잭션 수수료를 이용한 인센티브 구현](https://github.com/paritytech/polkadot-sdk/blob/master/cumulus/pallets/collator-selection/src/lib.rs)인 Cumulus 구현.
 - [인플레이션적 통화 정책 스테이킹 방식을 이용한 콜레이터 선택](https://github.com/PureStake/moonbeam/blob/master/pallets/parachain-staking/src/lib.rs)인 Moonbeam 구현.
 
 ## 자료

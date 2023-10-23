@@ -25,11 +25,11 @@ answer: |
 노드 템플릿은 또한 사용자 정의 팔렛에서 기능을 구현하는 방법을 보여주는 시작용 `pallet_template`도 제공합니다.
 이 워크샵에서 할 작업은 `pallet_template`에서 볼 수 있는 것과 유사하지만, 구축 중인 애플리케이션에 특화된 로직을 구현할 것입니다.
 
-## 작업 공간 이름 바꾸기
+## workspace 이름 바꾸기
 
 기본 Substrate 노드 템플릿과 노드를 사용자 정의하기 위해 작업 디렉토리의 이름을 변경하고 변경 사항에 대한 별도의 브랜치를 생성할 수 있습니다.
 
-사용자 정의 작업 공간을 준비하려면 다음을 수행하세요:
+사용자 정의 workspace을 준비하려면 다음을 수행하세요:
 
 1. 로컬 컴퓨터에서 터미널을 열고 `substrate-node-template` 루트 디렉토리가 포함된 디렉토리로 이동합니다.
 
@@ -47,13 +47,13 @@ answer: |
    cd workshop-node-template
    ```
 
-4. 다음과 유사한 명령을 실행하여 작업 공간에 대한 사용자 정의 브랜치를 생성합니다:
+4. 다음과 유사한 명령을 실행하여 workspace에 대한 사용자 정의 브랜치를 생성합니다:
    
    ```bash
    git switch -c build-substrate-workshop
    ```
 
-   작업 공간 폴더와 저장소 브랜치의 이름만 변경하므로 노드를 다시 컴파일할 필요는 없습니다.
+   workspace 폴더와 저장소 브랜치의 이름만 변경하므로 노드를 다시 컴파일할 필요는 없습니다.
    컴파일을 통해 빌드를 확인하려면 다음 명령을 실행하세요:
 
    ```bash
@@ -62,7 +62,7 @@ answer: |
 
 ## 개발 모드에서 노드 시작하기
 
-작업 공간의 이름을 변경한 후 개발 모드에서 노드를 시작하고 백그라운드에서 실행할 수 있습니다.
+workspace의 이름을 변경한 후 개발 모드에서 노드를 시작하고 백그라운드에서 실행할 수 있습니다.
 개발 모드에서는 개발 환경에 미리 정의된 몇 가지 기본 설정을 사용합니다.
 개발 환경의 기본 설정 중 일부는 다음과 같습니다:
 
@@ -115,4 +115,4 @@ answer: |
    따라서 블록체인이 하는 작업을 사용자 정의하기 위해서는 Rust에서 작업해야 합니다.
    
    Rust에 익숙하다면 [새 팔렛 만들기](/tutorials/collectibles-workshop/03-create-pallet/)로 바로 이동하여 작성을 시작할 수 있습니다.
-   Rust에 익숙하지 않다면 코드 작성을 시작하기 전에 [Detour: Learn Rust for Substrate](/tutorials/collectibles-workshop/detours/learn-rust/)에서 간단한 소개를 살펴보는 것이 좋습니다.
+   Rust에 익숙하지 않다면 코드 작성을 시작하기 전에 [Learn Rust for Substrate](/tutorials/collectibles-workshop/detours/learn-rust/)에서 간단한 소개를 살펴보는 것이 좋습니다.

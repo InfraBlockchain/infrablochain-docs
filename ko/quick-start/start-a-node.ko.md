@@ -102,8 +102,8 @@ Substrate 튜토리얼과 가이드를 따라하려면 개발 환경에서 Subst
    SS58 Address:      5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY
    ```
 
-   `Alice`와 `Bob`과 같은 미리 정의된 개발 계정은 **체인 사양** 파일에 구성되어 있습니다.
-   [코드 탐색](/quick-start/explore-the-code/)에서 노드 템플릿 파일에 대해 자세히 알아보고, 특히 체인 사양 파일에 대해서는 [체인 사양](/build/chain-spec/)에서 자세히 알아보세요.
+   `Alice`와 `Bob`과 같은 미리 정의된 개발 계정은 **체인 스펙** 파일에 구성되어 있습니다.
+   [코드 탐색](/quick-start/explore-the-code/)에서 노드 템플릿 파일에 대해 자세히 알아보고, 특히 체인 스펙 파일에 대해서는 [체인 스펙](/build/chain-spec/)에서 자세히 알아보세요.
    지금은 간단한 잔액 이체와 같은 테스트를 가능하게 하기 위해 개발 계정이 존재하는 것만 알고 계시면 됩니다.
 
 ## 블록체인 시작하기

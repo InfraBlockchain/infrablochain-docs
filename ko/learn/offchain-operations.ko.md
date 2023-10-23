@@ -43,7 +43,7 @@ keywords:
 - 연산 결과를 게시하기 위해 체인에 [서명된 또는 서명되지 않은 트랜잭션](https://paritytech.github.io/substrate/master/sp_runtime/offchain/trait.TransactionPool.html)을 제출할 수 있는 기능.
 - 외부 서비스에서 데이터를 액세스하고 가져오기 위한 완전한 기능을 갖춘 HTTP 클라이언트.
 - 문장이나 트랜잭션에 서명하고 검증하기 위한 로컬 키스토어에 액세스.
-- 모든 오프체인 워커 간에 공유되는 추가적인 로컬 [키-값 데이터베이스](https://paritytech.github.io/substrate/master/sp_runtime/offchain/trait.OffchainStorage.html).
+- 모든 오프체인 워커 간에 공유되는 추가적인 로컬 [Key-Value 데이터베이스](https://paritytech.github.io/substrate/master/sp_runtime/offchain/trait.OffchainStorage.html).
 - 난수 생성을 위한 안전한 로컬 엔트로피 소스.
 - 노드의 정확한 [로컬 시간](https://paritytech.github.io/substrate/master/sp_runtime/offchain/struct.Timestamp.html)에 대한 액세스.
 - 작업을 일시 중지하고 재개할 수 있는 기능.

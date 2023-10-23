@@ -119,7 +119,7 @@ BABE에 대한 자세한 내용은 [공식 Web3 Foundation 연구 문서](https:
 ## 호출
 
 일반적인 맥락에서 호출은 실행될 함수를 호출하는 행위를 설명합니다.
-런타임에 디스패치될 함수를 포함하는 팔렛의 경우, `Call`은 팔렛별로 하나의 변형을 가진 함수를 설명하는 열거형 데이터 유형입니다. `Call`이 나타내는 객체는 디스패치 가능한 호출 또는 디스패치 가능한(dispatchable) 데이터 구조입니다.
+런타임에 디스패치될 함수를 포함하는 팔렛의 경우, `Call`은 팔렛별로 하나의 변형을 가진 함수를 설명하는 enum 데이터 유형입니다. `Call`이 나타내는 객체는 디스패치 가능한 호출 또는 디스패치 가능한(dispatchable) 데이터 구조입니다.
 
 ## 콜레이터
 
@@ -183,7 +183,7 @@ Alice, Bob, Charlie, Dave, Eve, Ferdie와 같은 잘 알려진 개발용 계정�
 ## 다이제스트
 
 블록체인 네트워크의 여러 주체에 필요한 정보를 인코딩하는 [블록 헤더](#header)의 확장 필드입니다.
-다이제스트는 체인 동기화를 위한 [경량 클라이언트](#light-client)와 블록 검증을 위한 합의 엔진, 사전 런타임 다이제스트와 같은 여러 액터에 필요한 정보를 인코딩합니다.
+다이제스트는 체인 동기화를 위한 [라이트 클라이언트](#light-client)와 블록 검증을 위한 합의 엔진, 사전 런타임 다이제스트와 같은 여러 액터에 필요한 정보를 인코딩합니다.
 
 ## 디스패치
 
@@ -245,10 +245,10 @@ Kusama는 [Polkadot의 "야생 친척"](https://polkadot.network/kusama-polkadot
 웹소켓(웹 브라우저에서 사용 가능)을 포함한 여러 전송 메커니즘을 사용할 수 있는 P2P 네트워킹 스택입니다.
 Substrate는 `libp2p` 네트워킹 스택의 [Rust 구현](https://github.com/libp2p/rust-libp2p)을 사용합니다.
 
-## 경량 클라이언트
+## 라이트 클라이언트
 
 [블록체인](#blockchain) [노드](#node) 중 [체인 상태](#state)를 저장하지 않고 블록을 생성하지 않는 유형의 블록체인 노드입니다.
-경량 클라이언트는 [암호학 기본 요소](#cryptographic-primitives)를 검증할 수 있으며 블록체인 사용자가 블록체인 네트워크와 상호 작용할 수 있도록 [원격 프로시저 호출 (RPC)](https://en.wikipedia.org/wiki/Remote_procedure_call) 서버를 노출합니다.
+라이트 클라이언트는 [암호학 기본 요소](#cryptographic-primitives)를 검증할 수 있으며 블록체인 사용자가 블록체인 네트워크와 상호 작용할 수 있도록 [원격 프로시저 호출 (RPC)](https://en.wikipedia.org/wiki/Remote_procedure_call) 서버를 노출합니다.
 
 ## 매크로
 
@@ -266,7 +266,7 @@ Substrate [블록체인](#blockchain)의 메타데이터는 해당 시스템과 
 각 노드는 블록체인 참가자가 상호 작용할 수 있도록 하는 [피어 투 피어](https://en.wikipedia.org/wiki/Peer-to-peer) 네트워크의 일부입니다.
 Substrate 노드는 블록체인 네트워크에서 여러 역할을 수행할 수 있습니다.
 예를 들어, 블록을 생성하는 노드는 블록체인의 [검증자](#validator) 역할을 수행합니다.
-[경량 클라이언트](#light-client)를 실행하는 노드는 [사용자 인터페이스](https://github.com/paritytech/substrate-connect)나 임베디드 장치와 같은 자원 제한 환경에서 확장 가능한 상호 작용을 용이하게 합니다.
+[라이트 클라이언트](#light-client)를 실행하는 노드는 [사용자 인터페이스](https://github.com/paritytech/substrate-connect)나 임베디드 장치와 같은 자원 제한 환경에서 확장 가능한 상호 작용을 용이하게 합니다.
 
 ## 지분 증명 (NPoS)
 
@@ -279,7 +279,7 @@ Substrate 노드는 블록체인 네트워크에서 여러 역할을 수행할 �
 
 ## 원천
 
-[FRAME](#frame) 원시(primitive)로서 [디스패치](#dispatch)된 함수 호출의 소스를 식별하는 데 사용됩니다.
+[FRAME](#frame) 원시(raw)(primitive)로서 [디스패치](#dispatch)된 함수 호출의 소스를 식별하는 데 사용됩니다.
 FRAME `system` 모듈은 세 가지 내장 [원천](/build/origins#raw-origins)을 정의합니다.
 팔렛 개발자로서 [Collective 팔렛](https://paritytech.github.io/substrate/master/pallet_collective/enum.RawOrigin.html)에서 정의한 것과 같은 사용자 정의 원천을 정의할 수도 있습니다.
 
@@ -333,10 +333,10 @@ Substrate에서 런타임은 [웹어셈블리](#webassembly-wasm) 바이너리�
 [Aura](#aura-aka-authority-round) 및 [BABE](#blind-assignment-of-blockchain-extension-babe)와 같은 합의 엔진에서 사용되는 고정된 동일한 시간 간격입니다.
 각 슬롯에서는 일부 [권한](#authority)이 블록을 생성하는 데 허용되거나 의무가 있습니다.
 
-## 주권 계정
+## sovereign 계정
 
 릴레이 체인 생태계의 각 체인에 대한 고유한 계정 식별자입니다.
-각 체인의 주권 계정은 Sudo 팔렛을 통해 또는 거버넌스를 통해만 액세스할 수 있는 루트 수준의 계정입니다.
+각 체인의 sovereign 계정은 Sudo 팔렛을 통해 또는 거버넌스를 통해만 액세스할 수 있는 루트 수준의 계정입니다.
 계정 식별자는 특정 텍스트 문자열의 Blake2 해시와 등록된 파라체인 식별자를 연결하여 계산됩니다.
 
 릴레이 체인의 경우, 파라체인 계정 식별자는 (blake2(para+ParachainID)로 계산되며 해시가 올바른 길이로 잘립니다.
@@ -355,7 +355,7 @@ Substrate에서 런타임은 [웹어셈블리](#webassembly-wasm) 바이너리�
 0x7369626cf4030000000000000000000000000000000000000000000000000000
 계정 주소: 5Eg2fntREKHYGgoxvRPxtnEYiUadHjdsfNaPsHdmrsJMVugs
 
-주권 계정은 주로 릴레이 체인이나 생태계의 다른 체인에 대해 XCM 메시지에 서명하는 데 사용됩니다.
+sovereign 계정은 주로 릴레이 체인이나 생태계의 다른 체인에 대해 XCM 메시지에 서명하는 데 사용됩니다.
 
 ## SS58 주소 형식
 
@@ -366,9 +366,9 @@ _태그된 트랜잭션 풀_은 [런타임](#runtime)이 주어진 트랜잭션�
 
 ## 트라이 (Patricia Merkle Tree)
 
-키-값 쌍의 집합을 표현하는 데 사용되는 데이터 구조입니다.
+Key-Value 쌍의 집합을 표현하는 데 사용되는 데이터 구조입니다.
 
-Patricia Merkle 트라이 데이터 구조는 데이터 집합의 항목들을 암호화 해시를 사용하여 저장하고 검색할 수 있게 합니다. 데이터 집합에 대한 증분 변경이 새로운 해시를 생성하기 때문에, 데이터 집합이 매우 크더라도 데이터를 검색하는 데 효율적입니다. 이 데이터 구조를 사용하면 전체 데이터 집합에 대한 액세스 없이도 특정 키-값 쌍이 데이터 집합에 포함되어 있는지를 증명할 수도 있습니다.
+Patricia Merkle 트라이 데이터 구조는 데이터 집합의 항목들을 암호화 해시를 사용하여 저장하고 검색할 수 있게 합니다. 데이터 집합에 대한 증분 변경이 새로운 해시를 생성하기 때문에, 데이터 집합이 매우 크더라도 데이터를 검색하는 데 효율적입니다. 이 데이터 구조를 사용하면 전체 데이터 집합에 대한 액세스 없이도 특정 Key-Value 쌍이 데이터 집합에 포함되어 있는지를 증명할 수도 있습니다.
 
 ## 검증자
 

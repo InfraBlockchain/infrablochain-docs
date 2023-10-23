@@ -10,7 +10,7 @@ keywords:
 Rust 문서는 Substrate 코드 베이스의 단일 진실의 원천입니다.
 하지만, 특정 크레이트, 트레잇 또는 데이터 구조와 같은 것을 찾는 것이 확실하지 않은 경우에는 탐색하기 어렵거나 시작할 가장 적합한 장소를 알기 어려울 수 있습니다.
 
-[아키텍처와 Rust 라이브러리](/learn/architecture/)에서 설명한 대로, Substrate 라이브러리는 Substrate 코어 클라이언트(`sc_*`), FRAME 및 런타임(`frame_*` 및 `pallet_*`), 또는 Substrate 원시(`sp_*`)인지를 나타내기 위해 네이밍 규칙을 사용합니다.
+[아키텍처와 Rust 라이브러리](/learn/architecture/)에서 설명한 대로, Substrate 라이브러리는 Substrate 코어 클라이언트(`sc_*`), FRAME 및 런타임(`frame_*` 및 `pallet_*`), 또는 Substrate 원시(raw)(`sp_*`)인지를 나타내기 위해 네이밍 규칙을 사용합니다.
 
 ![외부 노드 및 런타임을 위한 코어 노드 라이브러리](/media/images/docs/libraries.png)
 
@@ -49,9 +49,9 @@ Rust 문서는 Substrate 코드 베이스의 단일 진실의 원천입니다.
 - [`pallet_membership`](https://paritytech.github.io/substrate/master/pallet_membership/index.html)
 - [`pallet_proxy`](https://paritytech.github.io/substrate/master/pallet_proxy/index.html)
 
-## Substrate 원시 라이브러리
+## Substrate 원시(raw) 라이브러리
 
-다음 링크를 사용하여 Substrate 원시 라이브러리(`sp_*`)를 탐색하세요.
+다음 링크를 사용하여 Substrate 원시(raw) 라이브러리(`sp_*`)를 탐색하세요.
 
 - [`sp_api`](https://paritytech.github.io/substrate/master/sp_api/index.html)
 - [`sp_blockchain`](https://paritytech.github.io/substrate/master/sp_blockchain/index.html)

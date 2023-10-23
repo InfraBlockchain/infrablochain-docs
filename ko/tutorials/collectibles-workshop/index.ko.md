@@ -1,5 +1,5 @@
 ---
-title: 수집품 워크샵
+title: collectibles 워크샵
 description:
 keywords:
   - 팔레트
@@ -29,15 +29,15 @@ Substrate 개발자 허브는 Substrate, Rust 및 관련 도구를 사용하여 
 - [로컬 블록체인 구축](/tutorials/build-a-blockchain/build-local-blockchain/)
 - [런타임과 팔레트](/tutorials/collectibles-workshop/runtime-and-pallets/)
 
-### 스마트 계약 개발
+### 스마트 컨트랙트 개발
 
 로드맵과 워크샵 내용은 아직 결정되지 않았습니다.
-그 동안, 다음 자료를 사용하여 ink! 및 Substrate 기반 체인에 대한 스마트 계약 작성에 대해 더 알아볼 수 있습니다.
+그 동안, 다음 자료를 사용하여 ink! 및 Substrate 기반 체인에 대한 스마트 컨트랙트 작성에 대해 더 알아볼 수 있습니다.
 
 - [ink!](https://paritytech.github.io/ink/)
 - [ink! 개요](https://use.ink/)
 - [Parity의 ink!란 무엇인가요?](https://www.parity.io/blog/what-is-paritys-ink)
-- [스마트 계약 개발](/tutorials/smart-contracts/)
+- [스마트 컨트랙트 개발](/tutorials/smart-contracts/)
 
 ### 파라체인 개발 및 배포 수명주기
 
@@ -53,5 +53,5 @@ Substrate 개발자 허브는 Substrate, Rust 및 관련 도구를 사용하여 
 현재는 _런타임과 팔레트_ 워크샵의 첫 번째 부분만 제공됩니다.
 애플리케이션의 프론트엔드 개발 기초를 다루는 두 번째 부분과, 솔로 체인 애플리케이션을 파라체인 테스트 환경으로 이전하는 이점과 전략을 다루는 세 번째 부분이 준비 중입니다.
 
-향후 워크샵은 스마트 계약 개발 및 파라체인 개발 및 배포 수명주기를 다룰 예정입니다.
+향후 워크샵은 스마트 컨트랙트 개발 및 파라체인 개발 및 배포 수명주기를 다룰 예정입니다.
 워크샵 주제를 제안하거나 워크샵 내용에 기여하고 싶다면, [이슈](https://github.com/substrate-developer-hub/substrate-docs/issues)를 제출하거나 [풀 리퀘스트](https://github.com/substrate-developer-hub/substrate-docs/pulls)를 생성해주세요.

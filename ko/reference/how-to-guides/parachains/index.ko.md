@@ -4,7 +4,7 @@ description: 솔로 체인을 파라체인으로 변환하는 방법을 설명�
 keywords:
 ---
 
-파라체인 카테고리의 _How-to_ 가이드는 솔로 서브스트레이트 체인을 파라체인으로 마이그레이션하기 위한 주요 단계를 설명합니다.
+파라체인 카테고리의 _How-to_ 가이드는 솔로 Substrate 체인을 파라체인으로 마이그레이션하기 위한 주요 단계를 설명합니다.
 
 - [로컬 파라체인 노드 추가하기](/reference/how-to-guides/parachains/add-paranodes/)
 - [솔로 체인 변환하기](/reference/how-to-guides/parachains/convert-a-solo-chain/)

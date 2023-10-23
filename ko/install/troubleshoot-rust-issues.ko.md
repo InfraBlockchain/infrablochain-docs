@@ -3,17 +3,17 @@ title: Rust 문제 해결 방법
 description: Rust 및 Substrate 개발 환경 문제를 진단하고 해결합니다.
 keywords:
   - Rust
-  - 도구 체인
+  - 툴체인
   - 컴파일러
   - rustup
 ---
 
-만약 [Substrate 노드 템플릿](https://github.com/substrate-developer-hub/substrate-node-template)을 컴파일하는데 실패한다면, 문제는 개발 환경에서 Rust가 어떻게 구성되어 있는지에 의해 발생한 것입니다.
+만약 [Substrate 노드 템플릿](https://github.com/substrate-developer-hub/substrate-node-template)을 컴파일하는데 실패한다면, 문제는 개발 환경에서 Rust가 어떻게 구성되어 있는지에 확인 해 봐야 합니다.
 이 섹션에서는 구성 문제를 진단하고 해결하는 방법을 제안합니다.
 
 ## 현재 구성 확인하기
 
-현재 사용 중인 Rust 도구 체인에 대한 정보를 확인하려면 다음 명령을 실행하세요:
+현재 사용 중인 Rust 툴체인에 대한 정보를 확인하려면 다음 명령을 실행하세요:
 
 ```bash
 rustup show
@@ -45,23 +45,23 @@ stable-x86_64-unknown-linux-gnu (default)
 rustc 1.50.0 (cb75ad5db 2021-02-10)
 ```
 
-이 예시에서는 기본 도구 체인이 x86_64 아키텍처에서 실행되는 Linux용 `stable` 릴리스 채널에서 가져온 것입니다.
-샘플 출력은 또한 `nightly-x86_64-unknown-linux-gnu` 도구 체인이 설치되어 있으며, 두 개의 타겟이 설치되어 있는 것을 나타냅니다:
+이 예시에서는 기본 툴체인이 x86_64 아키텍처에서 실행되는 Linux용 `stable` 릴리스 채널에서 가져온 것입니다.
+샘플 출력은 또한 `nightly-x86_64-unknown-linux-gnu` 툴체인이 설치되어 있으며, 두 개의 타겟이 설치되어 있는 것을 나타냅니다:
 
 - `x86_64-unknown-linux-gnu`: Linux용 네이티브 Rust 타겟.
 - `wasm32-unknown-unknown`: WebAssembly 타겟.
 
-이 환경에는 `nightly-2020-10-06-x86_64-unknown-linux-gnu` 도구 체인도 설치되어 있지만, 이 도구 체인은 명시적으로 명령줄 옵션으로 지정하지 않는 한 사용되지 않습니다.
-특정 도구 체인을 명령줄 옵션으로 지정하는 예시는 [특정 nightly 버전 지정](#특정-nightly-버전-지정)을 참조하세요.
+이 환경에는 `nightly-2020-10-06-x86_64-unknown-linux-gnu` 툴체인도 설치되어 있지만, 이 툴체인은 명시적으로 명령줄 옵션으로 지정하지 않는 한 사용되지 않습니다.
+특정 툴체인을 명령줄 옵션으로 지정하는 예시는 [특정 nightly 버전 지정](#특정-nightly-버전-지정)을 참조하세요.
 
 ## WebAssembly을 위해 nightly 릴리스 채널 사용하기
 
-Substrate은 이식 가능한 블록체인 런타임을 생성하기 위해 [WebAssembly](https://webassembly.org) (Wasm)을 사용합니다.
+Substrate은 블록체인 런타임을 생성하기 위해 [WebAssembly](https://webassembly.org) (Wasm)을 사용합니다.
 Rust 컴파일러를 [`nightly` 빌드](https://doc.rust-lang.org/book/appendix-07-nightly-rust.html)를 사용하도록 구성해야 Substrate 런타임 코드를 Wasm 타겟으로 컴파일할 수 있습니다.
 
-## 도구 체인 업데이트하기
+## 툴체인 업데이트하기
 
-일반적으로, Rust `stable` 및 `nightly` 빌드의 최신 버전을 항상 사용해야 합니다. Substrate의 변경 사항은 종종 Rust `nightly` 컴파일러 빌드의 상위 변경 사항에 의존하기 때문입니다.
+일반적으로, Rust `stable` 및 `nightly` 빌드의 최신 버전을 항상 사용해야 합니다. Substrate의 변경 사항은 종종 Rust `nightly` 컴파일러 빌드의 최신 버전에 의존하기 때문입니다.
 Rust 컴파일러가 항상 최신 상태인지 확인하기 위해 다음 명령을 실행해야 합니다:
 
 ```bash
@@ -70,17 +70,17 @@ rustup update nightly
 rustup target add wasm32-unknown-unknown --toolchain nightly
 ```
 
-`rustup update` 명령은 `nightly` 및 `stable` 도구 체인을 모두 가장 최신 릴리스로 업데이트합니다.
-`nightly` 도구 체인을 업데이트한 후에도 WebAssembly 타겟을 컴파일할 수 없는 경우, 이전 버전의 도구 체인으로 롤백하고 해당 버전을 명령줄 옵션으로 지정할 수 있습니다.
-`nightly` 도구 체인의 이전 버전을 얻고 명령줄 옵션으로 사용할 버전을 지정하는 자세한 정보는 [도구 체인 다운그레이드](#Rust-nightly-다운그레이드)를 참조하세요.
+`rustup update` 명령은 `nightly` 및 `stable` 툴체인을 모두 가장 최신 릴리스로 업데이트합니다.
+`nightly` 툴체인을 업데이트한 후에도 WebAssembly 타겟을 컴파일할 수 없는 경우, 이전 버전의 툴체인으로 롤백하고 해당 버전을 명령줄 옵션으로 지정할 수 있습니다.
+`nightly` 툴체인의 이전 버전을 설치하여 명령줄 옵션으로 사용할 버전을 지정하는 자세한 정보는 [툴체인 다운그레이드](#Rust-nightly-다운그레이드)를 참조하세요.
 
-## 특정 nightly 도구 체인 사용하기
+## 특정 nightly 툴체인 사용하기
 
-Rust와 다른 종속성을 업데이트하면서 빌드가 컴퓨터에서 작동하는지 보장하려면, 사용 중인 Substrate 버전과 호환되는 특정 Rust `nightly` 도구 체인을 사용해야 합니다.
-프로젝트에 대해 특정 `nightly` 도구 체인 버전을 식별하고 전달하는 방법은 다양할 수 있습니다.
+Rust와 다른 종속성을 업데이트하면서 빌드가 컴퓨터에서 작동하는지 보장하려면, 사용 중인 Substrate 버전과 호환되는 특정 Rust `nightly` 툴체인을 사용해야 합니다.
+프로젝트에 대해 특정 `nightly` 툴체인 버전을 식별하고 전달하는 방법은 다양할 수 있습니다.
 예를 들어, Polkadot은 [릴리스 노트](https://github.com/paritytech/polkadot/releases)에서 이 정보를 게시합니다.
 
-사용할 특정 `nightly` 도구 체인 버전을 식별한 후, 다음과 유사한 명령을 실행하여 개발 환경에 설치할 수 있습니다:
+사용할 특정 `nightly` 툴체인 버전을 식별한 후, 다음과 유사한 명령을 실행하여 개발 환경에 설치할 수 있습니다:
 
 ```bash
 rustup install nightly-<yyyy-MM-dd>
@@ -92,7 +92,7 @@ rustup install nightly-<yyyy-MM-dd>
 rustup install nightly-2022-02-16
 ```
 
-특정 버전의 nightly 도구 체인을 설치한 후, 다음과 유사한 명령을 실행하여 WebAssembly 타겟을 사용하도록 구성할 수 있습니다:
+특정 버전의 nightly 툴체인을 설치한 후, 다음과 유사한 명령을 실행하여 WebAssembly 타겟을 사용하도록 구성할 수 있습니다:
 
 ```bash
 rustup target add wasm32-unknown-unknown --toolchain nightly-<yyyy-MM-dd>
@@ -104,20 +104,20 @@ rustup target add wasm32-unknown-unknown --toolchain nightly-<yyyy-MM-dd>
 rustup target add wasm32-unknown-unknown --toolchain nightly-2022-02-16
 ```
 
-### 환경 변수로 도구 체인 지정하기
+### 환경 변수로 툴체인 지정하기
 
-`WASM_BUILD_TOOLCHAIN` 환경 변수를 설정하여 WebAssembly 컴파일을 위해 사용할 `nightly` 도구 체인의 버전을 지정할 수 있습니다. 예를 들어:
+`WASM_BUILD_TOOLCHAIN` 환경 변수를 설정하여 WebAssembly 컴파일을 위해 사용할 `nightly` 툴체인의 버전을 지정할 수 있습니다. 예를 들어:
 
 ```bash
 WASM_BUILD_TOOLCHAIN=nightly-<yyyy-MM-dd> cargo build --release
 ```
 
-이 명령은 지정된 nightly 도구 체인을 사용하여 _런타임_을 빌드합니다. 프로젝트의 나머지 부분은 _기본_ 도구 체인, 즉 설치된 최신 `stable` 도구 체인을 사용하여 컴파일됩니다.
+이 명령은 지정된 nightly 툴체인을 사용하여 _런타임_을 빌드합니다. 프로젝트의 나머지 부분은 _기본_ 툴체인, 즉 설치된 최신 `stable` 툴체인을 사용하여 컴파일됩니다.
 
-### nightly 도구 체인 다운그레이드하기
+### nightly 툴체인 다운그레이드하기
 
-컴퓨터가 최신 Rust `nightly` 도구 체인을 사용하도록 구성되어 있고 특정 nightly 버전으로 다운그레이드하려면, 먼저 최신 `nightly` 도구 체인을 제거해야 합니다.
-예를 들어, 최신 `nightly` 도구 체인을 제거한 후 특정 버전의 `nightly` 도구 체인을 사용하려면 다음과 유사한 명령을 실행하세요:
+컴퓨터가 최신 Rust `nightly` 툴체인을 사용하도록 구성되어 있고 특정 nightly 버전으로 다운그레이드하려면, 먼저 최신 `nightly` 툴체인을 제거해야 합니다.
+예를 들어, 최신 `nightly` 툴체인을 제거한 후 특정 버전의 `nightly` 툴체인을 사용하려면 다음과 유사한 명령을 실행하세요:
 
 ```sh
 rustup uninstall nightly
