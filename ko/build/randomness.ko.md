@@ -63,7 +63,7 @@ Substrate에는 성능, 복잡성 및 보안 사이의 다른 트레이드오프
 `Randomness` 특성은 런타임에서 난수 생성 소스를 정의하기 위한 편리한 추상화를 제공하지만, 특성 자체는 어떠한 보안 보장도 제공하지 않습니다.
 난수 생성 소스가 모든 팔레트의 난수 생성 요구 사항을 충족하는지 확인하는 것은 런타임 개발자로서 당신의 책임입니다.
 
-## ## 다음 단계로 넘어가기
+## 다음 단계로 넘어가기
 
 - [How-to: Randomness](/reference/how-to-guides/pallet-design/incorporate-randomness/)
 - [`Randomness`](https://paritytech.github.io/substrate/master/frame_support/traits/trait.Randomness.html)
