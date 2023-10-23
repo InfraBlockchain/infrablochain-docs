@@ -102,7 +102,7 @@ collectibles이 존재하고 현재 소유자에게 이전되지 않는 경우, 
 		}
 	```
 
-1. 호출 가능한 함수를 생성하세요.
+4. 호출 가능한 함수를 생성하세요.
    
 	 ```rust
 	 /// collectibles을 다른 계정으로 이전합니다.
@@ -123,9 +123,9 @@ collectibles이 존재하고 현재 소유자에게 이전되지 않는 경우, 
 	 }
    ```
 
-1. 변경 사항을 저장하세요.
+5. 변경 사항을 저장하세요.
 
-2. 다음 명령을 실행하여 프로그램이 오류 없이 컴파일되는지 확인하세요:
+6. 다음 명령을 실행하여 프로그램이 오류 없이 컴파일되는지 확인하세요:
    
    ```bash
    cargo build --package collectibles
@@ -185,7 +185,7 @@ collectibles 소유자가 소유한 collectibles의 가격을 설정할 수 있�
     }
     ```
 
-2. 다음 명령을 실행하여 프로그램이 오류 없이 컴파일되는지 확인하세요:
+3. 다음 명령을 실행하여 프로그램이 오류 없이 컴파일되는지 확인하세요:
    
    ```bash
    cargo build --package collectibles
@@ -249,7 +249,7 @@ collectibles 소유자가 소유한 collectibles의 가격을 설정할 수 있�
       }
 		```
 
-1. 사용자가 collectibles을 구매할 때 호출되는 내부 함수를 생성하세요.
+3. 사용자가 수집품을 구매할 때 호출되는 내부 함수를 생성하세요.
    
 	 ```rust
 	 // collectibles 구매를 위한 내부 함수
@@ -302,7 +302,7 @@ collectibles 소유자가 소유한 collectibles의 가격을 설정할 수 있�
 	 }
    ```
 
-1. 사용자가 collectibles을 구매할 수 있는 호출 가능한 함수를 추가하세요.
+4. 사용자가 수집품을 구매할 수 있는 호출 가능한 함수를 추가하세요.
    
 	 ```rust
 	 /// collectibles을 구매합니다. 입찰 가격은 collectibles 소유자가 설정한 가격보다 크거나 같아야 합니다.
@@ -320,7 +320,7 @@ collectibles 소유자가 소유한 collectibles의 가격을 설정할 수 있�
 	 }
 	 ```
 
-2. 다음 명령을 실행하여 프로그램이 오류 없이 컴파일되는지 확인하세요:
+5. 다음 명령을 실행하여 프로그램이 오류 없이 컴파일되는지 확인하세요:
    
    ```bash
    cargo build --package collectibles

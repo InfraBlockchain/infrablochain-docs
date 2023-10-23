@@ -79,13 +79,13 @@ Substrate은 FRAME 기반 런타임에서 사용할 수 있는 사전 구축된 
 
 1. 터미널 셸을 열고 노드 템플릿의 루트 디렉토리로 이동합니다.
 
-1. 다음 명령을 실행하여 `pallets/template/src` 디렉토리로 이동합니다.
+2. 다음 명령을 실행하여 `pallets/template/src` 디렉토리로 이동합니다.
 
    ```bash
    cd pallets/template/src
    ```
 
-1. 다음 파일을 제거합니다.
+3. 다음 파일을 제거합니다.
 
    ```bash
    benchmarking.rs
@@ -93,15 +93,15 @@ Substrate은 FRAME 기반 런타임에서 사용할 수 있는 사전 구축된 
    tests.rs
    ```
 
-1. 텍스트 편집기에서 `lib.rs` 파일을 엽니다.
+4. 텍스트 편집기에서 `lib.rs` 파일을 엽니다.
 
    이 파일에는 새 팔레트의 템플릿으로 사용할 수 있는 코드가 포함되어 있습니다.
    이 튜토리얼에서는 템플릿 코드를 사용하지 않습니다.
    그러나 삭제하기 전에 템플릿 코드를 검토하여 제공되는 내용을 확인할 수 있습니다.
 
-1. `lib.rs` 파일의 모든 줄을 삭제합니다.
+5. `lib.rs` 파일의 모든 줄을 삭제합니다.
 
-1. 다음 코드를 추가하여 네이티브 Rust 바이너리(`std`)와 WebAssembly(`no_std`) 바이너리를 빌드하는 데 필요한 매크로를 추가합니다.
+6. 다음 코드를 추가하여 네이티브 Rust 바이너리(`std`)와 WebAssembly(`no_std`) 바이너리를 빌드하는 데 필요한 매크로를 추가합니다.
 
    ```rust
    #![cfg_attr(not(feature = "std"), no_std)]
@@ -109,7 +109,7 @@ Substrate은 FRAME 기반 런타임에서 사용할 수 있는 사전 구축된 
 
    런타임에서 사용하는 모든 팔레트는 `no_std` 기능으로 컴파일되도록 설정해야 합니다.
 
-1. 다음 코드를 복사하여 사용자 정의 팔레트에 필요한 스켈레톤 팔레트 종속성 및 [매크로](/reference/frame-macros)를 추가합니다.
+7. 다음 코드를 복사하여 사용자 정의 팔레트에 필요한 스켈레톤 팔레트 종속성 및 [매크로](/reference/frame-macros)를 추가합니다.
 
    ```rust
    // 팔레트 항목을 다른 크레이트 네임스페이스에서 액세스할 수 있도록 다시 내보냅니다.
@@ -124,17 +124,17 @@ Substrate은 FRAME 기반 런타임에서 사용할 수 있는 사전 구축된 
      #[pallet::generate_store(pub(super) trait Store)]
      pub struct Pallet<T>(_);
 
-     #[pallet::config]  // <-- Step 2. 이 코드 블록은 이로 대체됩니다.
-     #[pallet::event]   // <-- Step 3. 이 코드 블록은 이로 대체됩니다.
-     #[pallet::error]   // <-- Step 4. 이 코드 블록은 이로 대체됩니다.
-     #[pallet::storage] // <-- Step 5. 이 코드 블록은 이로 대체됩니다.
-     #[pallet::call]    // <-- Step 6. 이 코드 블록은 이로 대체됩니다.
+     #[pallet::config]  // <-- Step 2. 이 코드 블록은 이후에 대체됩니다.
+     #[pallet::event]   // <-- Step 3. 이 코드 블록은 이후에 대체됩니다.
+     #[pallet::error]   // <-- Step 4. 이 코드 블록은 이후에 대체됩니다.
+     #[pallet::storage] // <-- Step 5. 이 코드 블록은 이후에 대체됩니다.
+     #[pallet::call]    // <-- Step 6. 이 코드 블록은 이후에 대체됩니다.
    }
    ```
 
    이제 이벤트, 오류, 스토리지 및 호출 가능한 함수에 대한 자리 표시자가 포함된 프레임워크가 있습니다.
 
-1. 변경 사항을 저장합니다.
+8. 변경 사항을 저장합니다.
 
 ## 팔레트가 이벤트를 발생하도록 구성
 
@@ -145,7 +145,7 @@ Substrate은 FRAME 기반 런타임에서 사용할 수 있는 사전 구축된 
 
 1. 텍스트 편집기에서 `pallets/template/src/lib.rs` 파일을 엽니다.
 
-1. `#[pallet::config]` 줄을 다음 코드 블록으로 대체합니다:
+2. `#[pallet::config]` 줄을 다음 코드 블록으로 대체합니다:
 
    ```rust
    /// 팔레트를 구성하는 데 필요한 매개변수와 종속되는 유형을 지정하여 팔레트를 구성합니다.
@@ -156,7 +156,7 @@ Substrate은 FRAME 기반 런타임에서 사용할 수 있는 사전 구축된 
    }
    ```
 
-1. 변경 사항을 저장합니다.
+3. 변경 사항을 저장합니다.
 
 ## 팔레트 이벤트 구현
 
@@ -172,7 +172,7 @@ Substrate은 FRAME 기반 런타임에서 사용할 수 있는 사전 구축된 
 
 1. 텍스트 편집기에서 `pallets/template/src/lib.rs` 파일을 엽니다.
 
-1. `#[pallet::event]` 줄을 다음 코드 블록으로 대체합니다:
+2. `#[pallet::event]` 줄을 다음 코드 블록으로 대체합니다:
 
    ```rust
    // 팔레트는 중요한 변경 사항이 발생할 때 사용자에게 알리기 위해 이벤트를 사용합니다.
@@ -187,7 +187,7 @@ Substrate은 FRAME 기반 런타임에서 사용할 수 있는 사전 구축된 
    }
    ```
 
-1. 변경 사항을 저장합니다.
+3. 변경 사항을 저장합니다.
 
 ## 팔레트 오류 포함
 
@@ -205,7 +205,7 @@ Substrate은 FRAME 기반 런타임에서 사용할 수 있는 사전 구축된 
 
 1. 텍스트 편집기에서 `pallets/template/src/lib.rs` 파일을 엽니다.
 
-1. `#[pallet::error]` 줄을 다음 코드 블록으로 대체합니다:
+2. `#[pallet::error]` 줄을 다음 코드 블록으로 대체합니다:
 
    ```rust
    #[pallet::error]
@@ -219,7 +219,7 @@ Substrate은 FRAME 기반 런타임에서 사용할 수 있는 사전 구축된 
    }
    ```
 
-1. 변경 사항을 저장합니다.
+3. 변경 사항을 저장합니다.
 
 ## 저장된 항목에 대한 스토리지 맵 구현
 
@@ -231,14 +231,14 @@ Substrate은 FRAME 기반 런타임에서 사용할 수 있는 사전 구축된 
 
 1. 텍스트 편집기에서 `pallets/template/src/lib.rs` 파일을 엽니다.
 
-1. `#[pallet::storage]` 줄을 다음 코드 블록으로 대체합니다:
+2. `#[pallet::storage]` 줄을 다음 코드 블록으로 대체합니다:
 
    ```rust
    #[pallet::storage]
    pub(super) type Claims<T: Config> = StorageMap<_, Blake2_128Concat, T::Hash, (T::AccountId, T::BlockNumber)>;
    ```
 
-1. 변경 사항을 저장합니다.
+3. 변경 사항을 저장합니다.
 
 ## 호출 가능한 함수 구현
 
@@ -257,7 +257,7 @@ Substrate은 FRAME 기반 런타임에서 사용할 수 있는 사전 구축된 
 
 1. 텍스트 편집기에서 `pallets/template/src/lib.rs` 파일을 엽니다.
 
-1. `#[pallet::call]` 줄을 다음 코드 블록으로 대체합니다. `revoke_claim` 함수를 직접 구현해 보세요. 함수 시그니처만 복사하고 내용은 복사하지 마세요. `Claims::<T>::get` 및 `Claims::<T>::remove`를 사용하여 클레임을 가져오거나 제거해야 합니다.
+2. `#[pallet::call]` 줄을 다음 코드 블록으로 대체합니다. `revoke_claim` 함수를 직접 구현해 보세요. 함수 시그니처만 복사하고 내용은 복사하지 마세요. `Claims::<T>::get` 및 `Claims::<T>::remove`를 사용하여 클레임을 가져오거나 제거해야 합니다.
 
    ```rust
    // 호출 가능한 함수는 사용자가 팔레트와 상호 작용하고 상태 변경을 수행할 수 있게 합니다.
@@ -310,9 +310,9 @@ Substrate은 FRAME 기반 런타임에서 사용할 수 있는 사전 구축된 
    }
    ```
 
-1. 변경 사항을 저장하고 파일을 닫습니다.
+3. 변경 사항을 저장하고 파일을 닫습니다.
 
-1. 다음 명령을 실행하여 코드가 컴파일되는지 확인합니다.
+4. 다음 명령을 실행하여 코드가 컴파일되는지 확인합니다.
 
    ```bash
    cargo check -p node-template-runtime --release
@@ -330,15 +330,15 @@ Substrate은 FRAME 기반 런타임에서 사용할 수 있는 사전 구축된 
 
 1. 터미널 셸을 엽니다.
 
-1. 노드 템플릿의 루트 디렉토리로 이동합니다.
+2. 노드 템플릿의 루트 디렉토리로 이동합니다.
 
-1. 다음 명령을 실행하여 노드 템플릿을 컴파일합니다.
+3. 다음 명령을 실행하여 노드 템플릿을 컴파일합니다.
 
    ```bash
    cargo build --release
    ```
 
-1. 다음 명령을 실행하여 업데이트된 Substrate 노드를 개발 모드로 시작합니다.
+4. 다음 명령을 실행하여 업데이트된 Substrate 노드를 개발 모드로 시작합니다.
 
    ```bash
    ./target/release/node-template --dev
@@ -347,7 +347,7 @@ Substrate은 FRAME 기반 런타임에서 사용할 수 있는 사전 구축된 
    `--dev` 옵션은 미리 정의된 `development` 체인 스펙을 사용하여 노드를 시작합니다.
    `--dev` 옵션을 사용하면 노드를 중지하고 다시 시작할 때마다 깨끗한 작업 상태를 얻을 수 있습니다.
 
-1. 노드가 블록을 생성하는지 확인합니다.
+5. 노드가 블록을 생성하는지 확인합니다.
 
 ## 블록체인과 상호 작용하기
 
@@ -371,19 +371,19 @@ Substrate 블록체인이 실행 중이고 Polkadot JS Apps가 연결되어 있�
 
    ![엑스트린식 탭](/media/images/docs/tutorials/custom-pallet/poe-extrinsics-tab.png)
 
-1. 엑스트린식 페이지를 조정하여 "ALICE"를 계정으로 선택하고 "templateModule > createClaim"을 엑스트린식으로 선택합니다.
+2. 엑스트린식 페이지를 조정하여 "ALICE"를 계정으로 선택하고 "templateModule > createClaim"을 엑스트린식으로 선택합니다.
 
    ![클레임 생성](/media/images/docs/tutorials/custom-pallet/poe-create-claim.png)
 
-1. 그런 다음 "파일 해싱"을 토글하여 해싱할 파일을 선택할 수 있습니다.
+3. 그런 다음 "파일 해싱"을 토글하여 해싱할 파일을 선택할 수 있습니다.
 
    ![파일 해싱](/media/images/docs/tutorials/custom-pallet/poe-hash-file.png)
 
-1. 오른쪽 하단의 "트랜잭션 제출"을 클릭한 다음 팝업에서 "서명 및 제출"을 클릭합니다.
+4. 오른쪽 하단의 "트랜잭션 제출"을 클릭한 다음 팝업에서 "서명 및 제출"을 클릭합니다.
 
    ![엑스트린식 제출](/media/images/docs/tutorials/custom-pallet/poe-submit.png)
 
-1. 모든 것이 성공적으로 완료되었다면 초록색 엑스트린식 성공 알림이 표시됩니다!
+5. 모든 것이 성공적으로 완료되었다면 초록색 엑스트린식 성공 알림이 표시됩니다!
 
    ![엑스트린식 성공](/media/images/docs/tutorials/custom-pallet/poe-success.png)
 

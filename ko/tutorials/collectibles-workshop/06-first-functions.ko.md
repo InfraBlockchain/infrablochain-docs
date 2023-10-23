@@ -44,7 +44,7 @@ tutorial:
 	 #[pallet::error]
 	 ```
 
-1. `create_collectibles` 함수가 반환할 수 있는 잠재적인 오류에 대한 enum 데이터 타입을 정의합니다.
+3. `create_collectibles` 함수가 반환할 수 있는 잠재적인 오류에 대한 열거형 데이터 타입을 정의합니다.
 
 	 ```rust
 	 pub enum Error<T> {
@@ -57,9 +57,9 @@ tutorial:
 	}
 	```
 
-1. 변경 사항을 저장합니다.
+4. 변경 사항을 저장합니다.
 
-1. 다음 명령을 실행하여 프로그램이 컴파일되는지 확인합니다.
+5. 다음 명령을 실행하여 프로그램이 컴파일되는지 확인합니다.
 
    ```bash
    cargo build --package collectibles
@@ -76,7 +76,7 @@ tutorial:
 
 1. 코드 편집기에서 `collectibles` 팔레트의 `src/lib.rs` 파일을 엽니다.
 
-1. `frame_system` 구성에서 `RuntimeEvent`를 팔레트 구성에 추가합니다.
+2. `frame_system` 구성에서 `RuntimeEvent`를 팔레트 구성에 추가합니다.
 
 	 ```rust
 	 #[pallet::config]
@@ -85,13 +85,13 @@ tutorial:
 	}
 	 ```
 
-2. 이전에 정의한 오류 매크로 다음에 `#[pallet::event]` 매크로를 추가합니다.
+3. 이전에 정의한 오류 매크로 다음에 `#[pallet::event]` 매크로를 추가합니다.
 
 	 ```rust
 	 #[pallet::event]
 	 ```
 
-1. 팔레트에 대한 이벤트를 코드에 추가합니다.
+4. 팔레트에 대한 이벤트를 코드에 추가합니다.
 
 	 ```rust
 	 #[pallet::generate_deposit(pub(super) fn deposit_event)]
@@ -101,9 +101,9 @@ tutorial:
 	 }
 	 ```
 
-1. 변경 사항을 저장합니다.
+5. 변경 사항을 저장합니다.
 
-1. 다음 명령을 실행하여 프로그램이 컴파일되는지 확인합니다.
+6. 다음 명령을 실행하여 프로그램이 컴파일되는지 확인합니다.
 
    ```bash
    cargo build --package collectibles
@@ -145,7 +145,7 @@ tutorial:
 	}
    ```
 
-1. 새로운 collectibles을 생성하는 내부 함수를 작성합니다.
+2. 새로운 수집품을 생성하는 내부 함수를 작성합니다.
 
 	 ```rust
 	     // collectibles 생성 함수
@@ -180,7 +180,7 @@ tutorial:
 		}
    ```
 
-2. 내부 함수를 사용하는 호출 가능한 함수를 작성합니다.
+3. 내부 함수를 사용하는 호출 가능한 함수를 작성합니다.
 
 	 ```rust
 	 // 팔레트 호출 가능한 함수
@@ -206,7 +206,7 @@ tutorial:
 	 }
    ```
 
-1. 변경 사항을 저장하고 다음 명령을 실행하여 프로그램이 컴파일되는지 확인합니다.
+4. 변경 사항을 저장하고 다음 명령을 실행하여 프로그램이 컴파일되는지 확인합니다.
 
    ```bash
    cargo build --package collectibles

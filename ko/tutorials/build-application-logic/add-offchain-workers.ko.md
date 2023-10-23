@@ -379,7 +379,7 @@ Substrate에서 특정 서명되지 않은 트랜잭션을 허용하려면 팔�
    }
    ```
 
-1. 다음과 같이 트레이트를 구현합니다.
+3. 다음과 같이 트레이트를 구현합니다.
 
    ```rust
    fn validate_unsigned(source: TransactionSource, call: &Self::Call) -> TransactionValidity {
@@ -393,7 +393,7 @@ Substrate에서 특정 서명되지 않은 트랜잭션을 허용하려면 팔�
    }
    ```
 
-2. 호출되는 익스트린식을 확인하여 호출이 허용되는지 확인하고, 호출이 허용되는 경우 `ValidTransaction`을 반환하거나 호출이 허용되지 않는 경우 `TransactionValidityError`를 반환합니다.
+4. 호출되는 익스트린식을 확인하여 호출이 허용되는지 확인하고, 호출이 허용되는 경우 `ValidTransaction`을 반환하거나 호출이 허용되지 않는 경우 `TransactionValidityError`를 반환합니다.
    
 	 예시:
 
@@ -412,7 +412,7 @@ Substrate에서 특정 서명되지 않은 트랜잭션을 허용하려면 팔�
 
 	 팔렛에서 `ValidateUnsigned`을 구현하는 예제는 [offchain-worker](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/examples/offchain-worker/src/lib.rs#L301-L329)의 코드를 참조하세요.
 
-3. `#[pallet::hooks]` 매크로와 `offchain_worker` 함수를 추가하여 서명되지 않은 트랜잭션을 전송합니다.
+5. `#[pallet::hooks]` 매크로와 `offchain_worker` 함수를 추가하여 서명되지 않은 트랜잭션을 전송합니다.
 
    ```rust
    #[pallet::hooks]
@@ -454,7 +454,7 @@ Substrate에서 특정 서명되지 않은 트랜잭션을 허용하려면 팔�
    );
    ```
 
-1. [서명된 트랜잭션 제출](#서명된-트랜잭션-제출)에서 설명한 대로 런타임에 `ValidateUnsigned` 타입을 추가합니다.
+2. [서명된 트랜잭션 제출](#서명된-트랜잭션-제출)에서 설명한 대로 런타임에 `ValidateUnsigned` 타입을 추가합니다.
 
    전체 예시는 [offchain-worker](https://github.com/paritytech/polkadot-sdk/tree/master/substrate/frame/examples/offchain-worker) 예제 팔렛을 참조하세요.
 
@@ -496,7 +496,7 @@ Substrate에서 특정 서명되지 않은 트랜잭션을 허용하려면 팔�
 
   서명된 페이로드의 예제는 [offchain-worker](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/examples/offchain-worker/src/lib.rs#L348-L361)의 코드를 참조하세요.
 
-1. `offchain_worker` 함수에서 서명자를 호출한 다음 트랜잭션을 전송하는 함수를 호출합니다.
+2. `offchain_worker` 함수에서 서명자를 호출한 다음 트랜잭션을 전송하는 함수를 호출합니다.
 
    ```rust
    #[pallet::hooks]
@@ -538,7 +538,7 @@ Substrate에서 특정 서명되지 않은 트랜잭션을 허용하려면 팔�
    - 트랜잭션이 성공적으로 전송된 경우 `Some((account, Ok(())))`입니다.
    - 트랜잭션 전송 중 오류가 발생한 경우 `Some((account, Err(())))`입니다.
 
-2. 제공된 서명이 페이로드를 서명한 공개 키와 일치하는지 확인합니다.
+3. 제공된 서명이 페이로드를 서명한 공개 키와 일치하는지 확인합니다.
 
    ```rust
    #[pallet::validate_unsigned]

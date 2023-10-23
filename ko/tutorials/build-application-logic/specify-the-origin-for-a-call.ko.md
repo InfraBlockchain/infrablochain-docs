@@ -75,7 +75,7 @@ Alice 계정 이외의 계정으로 `kill_name` 또는 `force_name`을 호출하
 
 1. 프론트엔드 템플릿에서 활성 계정을 Alice에서 Bob으로 변경하세요.
 
-1. 팔렛 인터랙터에서 **Extrinsic**를 선택한 상태에서 다음을 수행하세요:
+2. 팔렛 인터랙터에서 **Extrinsic**를 선택한 상태에서 다음을 수행하세요:
 
    - `nicks` 팔렛을 선택하세요.
    - `setName` 함수를 선택하세요.
@@ -85,7 +85,7 @@ Alice 계정 이외의 계정으로 `kill_name` 또는 `force_name`을 호출하
    Bob은 이 계정의 소유자이므로 트랜잭션이 성공합니다.
    계정 소유자인 Bob은 서명된 트랜잭션으로 `clearName` 함수를 실행하여 계정의 닉네임을 제거할 수도 있습니다.
 
-1. **Extrinsic**를 선택한 상태에서 다음을 수행하세요:
+3. **Extrinsic**를 선택한 상태에서 다음을 수행하세요:
 
    - `nicks` 팔렛을 선택하세요.
    - `clearName` 함수를 선택하세요.
@@ -94,7 +94,7 @@ Alice 계정 이외의 계정으로 `kill_name` 또는 `force_name`을 호출하
    Bob은 이 계정의 소유자이므로 트랜잭션이 성공합니다.
    Bob이 다른 계정의 닉네임을 설정하거나 제거하려면 `ForceOrigin`을 사용하여 `forceName` 또는 `killName` 함수를 호출해야 합니다.
 
-1. **Extrinsic**를 선택한 상태에서 다음을 수행하세요:
+4. **Extrinsic**를 선택한 상태에서 다음을 수행하세요:
 
    - `nicks` 팔렛을 선택하세요.
    - `forceName` 함수를 선택하세요.
@@ -127,7 +127,7 @@ Nick 팔렛에서는 `ForceOrigin` 구성에 따라 `Root` 출처를 사용하�
 
    [관리 계정 식별하기](#관리-계정-식별하기)에서 언급한 대로, 개발 모드에서 체인을 실행할 때 `Root` 출처와 연결된 계정은 Alice입니다.
 
-1. 팔렛 인터랙터에서 **Extrinsic**를 선택한 상태에서 다음을 수행하세요:
+2. 팔렛 인터랙터에서 **Extrinsic**를 선택한 상태에서 다음을 수행하세요:
 
    - `nicks` 팔렛을 선택하세요.
    - `forceName` 함수를 선택하세요.
@@ -137,7 +137,7 @@ Nick 팔렛에서는 `ForceOrigin` 구성에 따라 `Root` 출처를 사용하�
 
    ![SUDO를 사용하여 트랜잭션 제출](/media/images/docs/tutorials/add-a-pallet/sudo-tx.png)
 
-1. **Extrinsic**를 선택한 상태에서 다음을 수행하세요:
+3. **Extrinsic**를 선택한 상태에서 다음을 수행하세요:
 
    - `nicks` 팔렛을 선택하세요.
    - `killName` 함수를 선택하세요.
@@ -179,7 +179,7 @@ Nick 팔렛에서는 `ForceOrigin` 구성에 따라 `Root` 출처를 사용하�
 
    Alice가 현재 이름이 예약된 모든 계정에 대해 `killName` 함수를 호출할 수 있는지 확인할 수 있습니다.
 
-1. **Extrinsic**를 선택한 상태에서 다음을 수행하세요:
+4. **Extrinsic**를 선택한 상태에서 다음을 수행하세요:
 
    - `nicks` 팔렛을 선택하세요.
    - `killName` 함수를 선택하세요.

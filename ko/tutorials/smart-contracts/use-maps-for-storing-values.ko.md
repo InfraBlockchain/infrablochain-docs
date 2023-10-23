@@ -4,9 +4,9 @@ description: 맵을 사용하여 데이터를 키-값 쌍으로 저장하세요.
 keywords:
 ---
 
-[스마트 계약 개발](/tutorials/smart-contracts/develop-a-smart-contract/)에서는 하나의 숫자 값을 저장하고 검색하는 스마트 계약을 개발했습니다.
+[스마트 컨트랙트 개발](/tutorials/smart-contracts/develop-a-smart-contract/)에서는 하나의 숫자 값을 저장하고 검색하는 스마트 컨트랙트를 개발했습니다.
 
-이 튜토리얼에서는 스마트 계약의 기능을 확장하여 각 사용자마다 하나의 숫자를 관리하는 방법을 설명합니다. 이를 위해 [`Mapping`](https://docs.rs/ink/4.0.0-beta.1/ink/storage/struct.Mapping.html) 타입을 사용합니다.
+이 튜토리얼에서는 스마트 컨트랙트의 기능을 확장하여 각 사용자마다 하나의 숫자를 관리하는 방법을 설명합니다. 이를 위해 [`Mapping`](https://docs.rs/ink/4.0.0-beta.1/ink/storage/struct.Mapping.html) 타입을 사용합니다.
 
 ink! 언어는 맵 타입을 제공하여 데이터를 키-값 쌍으로 저장할 수 있게 합니다. 예를 들어, 다음 코드는 사용자를 숫자에 매핑하는 방법을 보여줍니다:
 
@@ -114,7 +114,7 @@ mod my_contract {
 
 `owner` 식별자를 사용하여 계약 호출자를 저장했으므로 나중에 현재 계약 호출자가 계약의 소유자인지 확인하는 함수를 작성할 수 있습니다.
 
-## 스마트 계약에 맵 추가
+## 스마트 컨트랙트에 맵 추가
 
 이제 `incrementer` 계약에 저장 맵을 추가할 준비가 되었습니다.
 
@@ -215,7 +215,7 @@ mod my_contract {
 
 `Incrementer` 계약의 마지막 단계는 사용자가 자신의 값을 업데이트할 수 있도록 하는 것입니다.
 
-스마트 계약에서 이 기능을 제공하기 위해 Mapping API를 호출할 수 있습니다.
+스마트 컨트랙트에서 이 기능을 제공하기 위해 Mapping API를 호출할 수 있습니다.
 
 `Mapping`은 저장 항목에 직접 액세스할 수 있습니다.
 
@@ -305,17 +305,17 @@ Mapping API는 저장소에 직접 액세스할 수 있으므로 `Mapping::remov
 
 ## 다음 단계로 넘어가기
 
-이 튜토리얼에서는 `ink::storage::Mapping` 타입과 Mapping API를 스마트 계약에서 사용하는 방법을 배웠습니다. 예를 들어, 이 튜토리얼에서는 다음과 같은 내용을 설명했습니다:
+이 튜토리얼에서는 `ink::storage::Mapping` 타입과 Mapping API를 스마트 컨트랙트에서 사용하는 방법을 배웠습니다. 예를 들어, 이 튜토리얼에서는 다음과 같은 내용을 설명했습니다:
 
 - 키-값 쌍을 저장하기 위해 매핑을 초기화하는 방법.
 
-- 스마트 계약에서 계약 호출자를 식별하고 사용하는 방법.
+- 스마트 컨트랙트에서 계약 호출자를 식별하고 사용하는 방법.
 
-- 스마트 계약을 사용하여 사용자가 맵에 저장된 값을 삽입하고 제거하는 함수를 추가하는 방법.
+- 스마트 컨트랙트를 사용하여 사용자가 맵에 저장된 값을 삽입하고 제거하는 함수를 추가하는 방법.
 
 이 튜토리얼의 최종 코드 예제는 [smart-contracts](https://github.com/substrate-developer-hub/substrate-docs/blob/main/static/assets/tutorials/smart-contracts/incrementer-mapping.rs)의 자산에서 찾을 수 있습니다.
 
-다음 주제에서 스마트 계약 개발에 대해 더 자세히 알아볼 수 있습니다:
+다음 주제에서 스마트 컨트랙트 개발에 대해 더 자세히 알아볼 수 있습니다:
 
 - [ERC20 토큰 계약 빌드](/tutorials/smart-contracts/build-a-token-contract/)
-- [스마트 계약 문제 해결](/tutorials/smart-contracts/troubleshoot-smart-contracts/)
+- [스마트 컨트랙트 문제 해결](/tutorials/smart-contracts/troubleshoot-smart-contracts/)
