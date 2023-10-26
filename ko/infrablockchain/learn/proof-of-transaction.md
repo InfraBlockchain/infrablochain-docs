@@ -27,8 +27,46 @@ pub struct PoTVote {
 
 ### 트랜잭션 메타데이터
 
+Transaction-as-a-Vote(TaaV) 는 트랜잭션의 메타 데이터에 투표가 선택적으로 포함됩니다. Substrate 에서는 `SignedExtension` 트레이트를 이용하여 트랜잭션 메타데이터를 추가할 수 있습니다.
+다음은 해당 트레이트를 이용한 예시입니다:
+
+```rust
+// 트랜잭션에 들어갈 메타데이터 타입 지정
+// 투표 대상이 선택적으로 포함될 수 있다.
+pub struct ChargeSystemToken<Account, Balance> {
+    #[codec(compact)]
+    tip: Balance,
+    system_token_id: Option<u32>,
+    vote_candidate: Option<Account>
+}
+
+// 트랜잭션을 처리할 때, 수행되어야하는 로직 작성
+impl SignedExtension for ChargeSystemToken {
+    ...
+    pub fn post_dispatch(..) {
+        // Handling votes
+    }
+}
+```
+
+## 블록 생성자(밸리데이터) 풀
+
+**_인프라 블록체인(InfraBlockchain)_** 은 기관 및 공공기관을 위한 엔터프라이즈 블록체인으로써 어떠한 상황에서도 정직하게 노드가 동작하여 BFT 합의를 이루어 나가야합니다. 또한, 공개형/허가형 하이브리드 블록체인으로써 어떤 주체든 블록 생성자로 선출될 수 있어야 합니다. **_인프라 블록체인(InfraBlockchain)_** 은 이러한 이상적인 속성을 설계하기 위해 다음과 같은 두 개의 블록 생성자(밸리데이터) 풀이 존재합니다:
+
+- Proof-of-Transaction Node Pool: PoT 에 의해 선출된 노드를 관리하는 풀입니다.
+- Seed Trust Node Pool: 금융 기관이나 정부 조직과 같이 어떠한 상황에서도 정직한 노드를 운영하는 노드를 관리하는 풀입니다. 
+
+**_인프라 블록체인(InfraBlockchain)_** 의 초기 밸리데이터 구성은 _Seed Trust_ 밸리데이터로 구성된 허가형 블록체인으로 시작하여 네트워크가 안정됨에 따라 _PoT_ 컨센서스 메커니즘을 이용하여 누구나 블록 생성자로 참여할 수 있는 퍼블릭 블록체인으로 전환될 수 있습니다.
+
 
 
 ## Aggregated Proof-of-Transaction(PoT)
 
-**_인프라 블록체인(InfraBlockchain)_** 은 **_인프라 릴레이체인(InfraRelaychain)_** 을 중심으로 여러 개의 인프라 블록체인 블록들이 병렬적으로 실행되는 멀티체인 아키텍처입니다. 각 블록마다 블록 생성자(밸리데이터) 후보에 대한 투표가 선택적으로 포함되어 있고 **_인프라 블록스페이스(InfraBlockspace)_** 안에서 블록이 실행될 때 해당 투표들이 수집되어 **_인프라 릴레이체인(InfraRelayChain)_** 의 한 상태로 저장됩니다. 특정 시점이 지나면 블록체인 프로토콜에 의해 수집된 투표를 바탕으로 블록 생성자 후보들에 대한 집계가 이루어지고 투표를 많이 받은 후보가 블록 생성자로 선출되게 됩니다. 
+**_인프라 블록체인(InfraBlockchain)_** 은 **_인프라 릴레이체인(InfraRelaychain)_** 을 중심으로 여러 개의 인프라 블록체인 블록들이 병렬적으로 실행되는 멀티체인 아키텍처입니다. 각 블록마다 **_인프라 릴레이체인(InfraRelaychain)_** 의 블록 생성자(밸리데이터) 후보에 대한 투표가 선택적으로 포함되어 있고 **_인프라 블록스페이스(InfraBlockspace)_** 안에서 여러 개의 인프라 블록체인 블록이 실행될 때 해당 투표들이 수집되어 **_인프라 릴레이체인(InfraRelayChain)_** 의 한 상태로 저장됩니다. 특정 시점이 지나면 블록체인 프로토콜에 의해 수집된 투표를 바탕으로 블록 생성자 후보들에 대한 집계가 이루어지고 투표를 많이 받은 후보가 블록 생성자로 선출되게 됩니다. 
+
+
+## 다음 단계로 넘어가기
+
+- [PoT 로 밸리데이터 선출하기]()
+- [시스템 토큰 알아보기]()
+- [ParasInclusion]()
