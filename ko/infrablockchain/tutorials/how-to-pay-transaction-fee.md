@@ -28,22 +28,21 @@ keywords:
 
 - [로컬 패러체인 준비하기](../../tutorials/build-a-parachain/connect-a-local-parachain.ko.md) 
 
-## 1. 파라체인에 토큰 생성 및 발행하기
+## 파라체인에 토큰 생성 및 발행하기
 
 (주의: 파라체인 토큰 생성 및 발행에 필요한 가스비를 위해 테스트 시스템 토큰 혹은 시스템 토큰을 보유하고 있어야 합니다.)
 
-아래와 같이 parachain explorer - Developer - Extrinsic에서,
-Aseets pallets을 선택하여 asset을 발행하고 민팅한다.
+아래와 같이 parachain explorer > Developer > Extrinsic에서 Aseets pallets을 선택하여 asset을 발행하고 민팅합니다.
 
 <img src="../../../media/images/docs/infrablockspace/create_token.png" alt="Alt text" height="300"/>
 <img src="../../../media/images/docs/infrablockspace/mint_token.png" alt="Alt text" height="300"/>
 
-## 2. 릴레이체인에 register_system_token 거버넌스 등록하기
+## 릴레이체인에 register_system_token 거버넌스 등록하기
 
 ### 거버넌스에 올릴 register_system_token을 위한 preimage 준비
 
-register_system_token을 거버넌스 올리기 위해 preimage에 먼저 등록을 해야합니다.
-Governance - Preimages - Add preimage를 누릅니다.
+register_system_token을 거버넌스 투표로 올리기 위해 preimage에 먼저 등록을 해야합니다.
+Governance > Preimages > Add preimage를 누릅니다.
 (preimage는 누구나 등록이 가능합니다.)
 
 <img src="../../../media/images/docs/infrablockspace/preimage_button.png" alt="Alt text" height="200"/>
@@ -76,13 +75,13 @@ council pallet의 propose를 통해 1에서 등록했던 preimage에 대한 안�
 
 <img src="../../../media/images/docs/infrablockspace/council_propose.png" alt="Alt text" height="300"/>
 
-## 3. 거버넌스 통과시키기
+## 거버넌스 통과시키기
 
 거버넌스에 정상적으로 등록됐다면 Governance - Council - Motion에 해당 안건이 아래와 같이 올라와있습니다. 
 
 <img src="../../../media/images/docs/infrablockspace/governance_voting.png" alt="Alt text" height="300"/>
 
-위 사진에서 Vote를 누르고, Council을 구성하는 검증자들(alice_stash, bob_stash)로 투표를 해줍니다.
+위 화면에서 Vote를 누르고, Council을 구성하는 검증자들(alice_stash, bob_stash)로 투표를 해줍니다.
 
 threshold 인원이상 투표를 했다면 투표를 바로 종료시킬 수 있고, 정족수가 동의(60% 이상)했다면 해당 안건은 바로 집행됩니다.
 
@@ -93,7 +92,7 @@ threshold 인원이상 투표를 했다면 투표를 바로 종료시킬 수 있
 <img src="../../../media/images/docs/infrablockspace/enact_motion.png" alt="Alt text" height="300"/>
 <img src="../../../media/images/docs/infrablockspace/parachain_sufficient_true.png" alt="Alt text" height="300"/>
 
-## 4. 시스템 토큰 가스비로 사용하기
+## 시스템 토큰 가스비로 사용하기
 
 이제 파라체인에서는 처음에 발행한 토큰이 시스템 토큰이 되었습니다!
 
@@ -108,6 +107,3 @@ extrinsic extra 정보에서 등록된 시스템 토큰 정보를 입력해줍�
 이 시스템 토큰을 활용해 가스비를 낼 수 있는 걸 확인할 수 있습니다.
 
 <img src="../../../media/images/docs/infrablockspace/system_token_paid.png" alt="Alt text" height="200"/>
-
-
-## 5. (선택) 다른 parachain에서 등록된 시스템 토큰을 가스비로 사용하기
