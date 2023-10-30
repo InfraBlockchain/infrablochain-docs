@@ -34,13 +34,13 @@ keywords:
 
 아래와 같이 parachain explorer - Developer - Extrinsic에서,
 Aseets pallets을 선택하여 asset을 발행하고 민팅한다.
-media/images/docs/infrablockspace
+
 <img src="../../../media/images/docs/infrablockspace/create_token.png" alt="Alt text" height="300"/>
 <img src="../../../media/images/docs/infrablockspace/mint_token.png" alt="Alt text" height="300"/>
 
 ## 2. 릴레이체인에 register_system_token 거버넌스 등록하기
 
-1. 거버넌스에 올릴 register_system_token을 위한 preimage 준비
+### 거버넌스에 올릴 register_system_token을 위한 preimage 준비
 
 register_system_token을 거버넌스 올리기 위해 preimage에 먼저 등록을 해야합니다.
 Governance - Preimages - Add preimage를 누릅니다.
@@ -56,7 +56,7 @@ Governance - Preimages - Add preimage를 누릅니다.
 
 - systemTokenType: Original, para id, asset pallet id, asset id를 알맞게 입력해줍니다.
 - systemTokenWeight: 1_000_000(default)로 설정해줍니다.
-- wrappedForRelayChain: 시스템 토큰에 대한 랩드 토큰을 릴레이체인에 바로 등록할 수 있는 옵션입니다.
+- wrappedForRelayChain: 시스템 토큰에 대한 wrapped 토큰을 릴레이체인에 바로 등록할 수 있는 옵션입니다.
 - systemTokenMetadata: systemtoken에 대한 metadata를 입력합니다.
 - assetMetadata: asset에 대한 metadata를 입력합니다.
 
@@ -64,7 +64,7 @@ Governance - Preimages - Add preimage를 누릅니다.
 
 <img src="../../../media/images/docs/infrablockspace/preimage_result.png" alt="Alt text" height="100"/>
 
-2. 등록된 preimage를 governance에 등록
+### 등록된 preimage를 governance에 등록
 
 릴레이체인 익스플로러 - Developer - Extrinsic에서,
 council pallet의 propose를 통해 1에서 등록했던 preimage에 대한 안건을 council 거버넌스에 올립니다. 
@@ -88,7 +88,7 @@ threshold 인원이상 투표를 했다면 투표를 바로 종료시킬 수 있
 
 <img src="../../../media/images/docs/infrablockspace/vote_close.png" alt="Alt text" height="100"/>
 
-안건이 정상적으로 통과됐고, 파라체인에서도 sufficient = true로 바뀐 것을 확인할 수 있습니다.
+안건이 정상적으로 통과됐고, 파라체인에서도 `sufficient`가 `true`로 바뀐 것을 확인할 수 있습니다.
 
 <img src="../../../media/images/docs/infrablockspace/enact_motion.png" alt="Alt text" height="300"/>
 <img src="../../../media/images/docs/infrablockspace/parachain_sufficient_true.png" alt="Alt text" height="300"/>
@@ -110,4 +110,4 @@ extrinsic extra 정보에서 등록된 시스템 토큰 정보를 입력해줍�
 <img src="../../../media/images/docs/infrablockspace/system_token_paid.png" alt="Alt text" height="200"/>
 
 
-## 5. (선택) 다른 parachain에서 랩드 시스템 토큰 가스비로 사용하기
+## 5. (선택) 다른 parachain에서 등록된 시스템 토큰을 가스비로 사용하기
