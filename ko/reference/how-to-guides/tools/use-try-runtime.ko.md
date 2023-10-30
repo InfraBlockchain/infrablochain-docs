@@ -1,6 +1,6 @@
 ---
-title: `try-runtime` 사용하기
-description: `try-runtime`을 사용하여 스토리지 마이그레이션을 테스트하는 방법
+title: try-runtime 사용하기
+description: try-runtime 을 사용하여 스토리지 마이그레이션을 테스트하는 방법
 keywords:
   - 스토리지 마이그레이션
   - 테스트
