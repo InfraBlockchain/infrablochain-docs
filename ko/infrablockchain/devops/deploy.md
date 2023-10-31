@@ -207,7 +207,7 @@ spec:
           command: [
               "curl",
               "-L",
-              "https://chain-spec.infrablockspace.net/relay-raw.json",
+              <relay chain spec url>,
               "-o",
               "/tmp/raw-local-chainspec.json",
             ]
