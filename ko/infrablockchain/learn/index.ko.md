@@ -1,9 +1,10 @@
 ---
-title: 인프라 블록체인 배우기
-description: 이 튜토리얼은 엔터프라이즈 블록체인을 구축하기 위해 필요한 개념을 배웁니다.
+title: 인프라 블록체인
+description: 이 튜토리얼은 엔터프라이즈 퍼블릭 블록체인을 구축하기 위해 필요한 개념을 배웁니다.
 keywords:
-  - Proof-of-Transaction
+  - 트랜잭션 증명
   - 시스템 토큰
+  - 블록 스페이스
 ---
 
 ## _**인프라 블록체인(InfraBlockchain)**_ 

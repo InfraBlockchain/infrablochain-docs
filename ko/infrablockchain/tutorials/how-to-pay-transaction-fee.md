@@ -1,5 +1,5 @@
 ---
-title: System token 등록하고 Gas fee로 사용해보기
+title: 시스템 토큰 등록 및 수수료로 사용해보기
 description: 이 튜토리얼은 토큰 생성부터 시스템 토큰 등록을 위한 거버넌스, 시스템 토큰 사용까지의 일련의 과정에 대해 배웁니다.
 keywords:
   - Assets

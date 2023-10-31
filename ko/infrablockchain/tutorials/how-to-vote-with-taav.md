@@ -1,5 +1,5 @@
 ---
-title: How to vote using Transaction-as-a-Vote
+title: 트랜잭션에 투표 포함 시키기
 description: 이 튜토리얼은 PoT 를 이용하여 인프라 릴레이체인의 밸리데이터를 선출하는 방법을 배웁니다.
 keywords:
   - Proof-of-Transaction

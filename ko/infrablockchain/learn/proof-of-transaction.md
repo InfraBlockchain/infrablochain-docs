@@ -1,5 +1,5 @@
 ---
-title: Proof-of-Transaction
+title: 트랜잭션 증명
 description: 이 튜토리얼은 인프라 블록체인의 독자적인 합의 알고리즘인 PoT 에 대해 배웁니다.
 keywords:
   - Proof-of-Transaction
