@@ -1,6 +1,6 @@
 ---
-title: Infra DID 파라체인
-description: 이 튜토리얼은 인프라 블록스페이스의 파라체인 중 하나인 Infra DID 파라체인에 대하여 설명합니다.
+title: 인프라 DID
+description: DID 에 특화된 블록체인에 대한 전반적인 내용을 다룹니다.
 keywords:
   - 파라체인
   - DID

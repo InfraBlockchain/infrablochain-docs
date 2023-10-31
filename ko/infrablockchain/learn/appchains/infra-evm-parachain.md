@@ -1,6 +1,6 @@
 ---
-title: Infra EVM 파라체인
-description: 이 튜토리얼은 인프라 블록스페이스의 파라체인 중 하나인 Infra EVM 파라체인에 대하여 설명합니다.
+title: 인프라 EVM 
+description: EVM 호환 블록체인에 대한 전반적인 내용을 다룹니다.
 keywords:
   - 파라체인
   - EVM
