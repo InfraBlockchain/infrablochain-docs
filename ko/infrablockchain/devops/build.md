@@ -1,16 +1,9 @@
 ---
-title: 인프라 릴레이 체인 구축하기
-description: 이 튜토리얼은 인프라 릴레이 체인을 구축하는 방법에 대해 알아봅니다.
+title: 체인 빌드
+description: 체인을 빌드하는 방법을 알아봅니다.
 keywords:
-  - 릴레이 체인
+  - 체인
 ---
-
-
-이 세션에서는 인프라 릴레이 체인 구축하는 방법 대해 작성한 세션입니다.
-
-먼저 인프라 릴레이 체인 build 하는 방법에 대해 알아보겠습니다.
-
-## Build
 
 Build는 다음과 같이 두 가지를 방식이 있습니다.
 
@@ -19,9 +12,9 @@ Build는 다음과 같이 두 가지를 방식이 있습니다.
 
 두 가지 방식을 어떻게 해야하는지에 대해 알아보겠습니다.
 
-### 바이너리 빌드
+## Binary Build
 
-바이너리 빌드하는 것은 아주 쉽습니다
+binary로 빌드하는 것은 니다
 
 먼저 git clone을 활용해서 infrablockspace 관련 chain repository를 clone을 받아 줍니다.
 
@@ -39,7 +32,7 @@ Makefile을 사용하지 않고 빌드를 원하실 경우 아래 명령어를 �
 cargo build --release
 ```
 
-### 컨테이너 이미지 빌드
+## Container Image Build
 
 container image를 build 하는 방법에 대해 알아보겠습니다.
 
@@ -51,20 +44,22 @@ container image를 build 하는 방법에 대해 알아보겠습니다.
 docker build -t <tag name>:<version> .
 ```
 
-### 체인 관련 파일 생성 방법
+## Chain 관련 파일 생성 방법
 
 Chain spec 생성은 다음과 같은 방법으로 진행합니다.
+
+<binary file name>은 relay chain에 경우, infrablockspace를 입력해줍니다. para chain 에 경우에는 infrablockspace-parachin을 입력해줍니다.
 
 <chain type>은 사용하는 chain의 type을 의미합니다. 여기에는 local, lococo 등이 들어갈 수 있습니다.
 
 ```bash
-target/release/infrablockspace build-spec --chain <chain type> --disable-default-bootnode --raw > <file name>.json
+target/release/<binary file name> build-spec --chain <chain type> --disable-default-bootnode --raw > <file name>.json
 ```
 
 wasm 생성은 다음과 같은 방법으로 생성해줍니다.
 
 ```bash
-target/release/infrablockspace build-spec export-genesis-wasm --chain <chain spec file> <wasm file name>.wasm
+target/release/<binary file name> build-spec export-genesis-wasm --chain <chain spec file> <wasm file name>.wasm
 ```
 
 <chain spec file>은 위에서 생성한 chain spec file을 말합니다. 이를 활용해서  wasm 파일을 생성할 수 있으며 <wasm file name>은 생성할 wasm file의 이름을 나타냅니다.
@@ -72,9 +67,7 @@ target/release/infrablockspace build-spec export-genesis-wasm --chain <chain spe
 genesis는 다음 명령어를 통해 생성해줍니다.
 
 ```bash
-target/release/infrablockspace build-spec export-genesis-state --chain <chain spec file> <genesis state file name>
+target/release/<binary file name> build-spec export-genesis-state --chain <chain spec file> <genesis state file name>
 ```
 
 wasm에서와 동일하게 <chain spec file>은 위에서 생성한 chain spec file을 말합니다. 이를 활용해서  genesis 파일을 생성할 수 있으며 <genesis state file name>은 생성할 genesis state file의 이름을 나타냅니다.
-
-
