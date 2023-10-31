@@ -1,8 +1,7 @@
 ---
 title: URAuth(Universal Resource Auth)
-description: 데이터들에 대한 소유권, 저작권정보, 데이터 접근 및 거래 규칙들을 등록할 수 있는 블록체인에 대해 배웁니다.
+description: 데이터들에 대한 소유권, 저작권정보, 데이터 접근 및 거래 규칙 등록에 특화된 블록체인에 대한 전반적인 내용을 다룹니다.
 keywords:
-  - 패러체인
   - 소유권 등록
   - DID
 ---
