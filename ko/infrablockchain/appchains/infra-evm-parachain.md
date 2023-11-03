@@ -166,7 +166,7 @@ EVM은 이더리움 생태계에서 중요한 역할을 하며, 분산 애플리
 
 3. 정상적으로 실행 되었다면 다음과 유사한 터미널 쉘을 확인할 수 있습니다.
   
-   ![zombienet](../../../media/images/docs/infrablockchain/parachains/infra-evm-parachain-zombienet.png)
+   ![zombienet](media/images/docs/infrablockchain/parachains/infra-evm-parachain-zombienet.png)
 
 4. (선택) Infra EVM 파라체인의 노드를 확인하면 아래와 유사한 로그를 확인할 수 있습니다.
 
@@ -303,4 +303,4 @@ EVM은 이더리움 생태계에서 중요한 역할을 하며, 분산 애플리
 
 ## 다음 단계로 넘어가기
 
-- [EVM으로 자산 이동하기](../tutorials/parachains/infra-evm-parachain/deposit-and-withdraw-token.md)
+- [EVM으로 자산 이동하기](./../tutorials/parachains/infra-evm-parachain/deposit-and-withdraw-token.md)
