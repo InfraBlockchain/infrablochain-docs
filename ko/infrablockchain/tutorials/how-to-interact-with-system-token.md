@@ -13,7 +13,9 @@ keywords:
 ### Bootstrap 과정
 
 - Test Token 활용: Bootstrap 중에는 가스비로 사용 가능한 "test token"이 존재합니다. 
-    <img src="../../../media/images/docs/infrablockspace/test-token.png" alt="Alt text" height="100"/>
+
+    ![test-token](../../../media/images/docs/infrablockspace/test-token.png)
+
 - 첫 시스템 토큰 승인: 첫 시스템 토큰이 승인 및 유통된 후 bootstrap이 완료됩니다.
 - Test Token 소각: Bootstrap 완료 후 테스트 토큰은 모두 소각되며, 더 이상 가스비로 사용할 수 없습니다
 
@@ -22,28 +24,36 @@ keywords:
 
 - 토큰 생성 및 발행: 특정 체인에서 토큰을 생성 및 발행합니다.
 
-    <img src="../../../media/images/docs/infrablockspace/create_token.png" alt="Alt text" width="400"/>
+    ![create_token](../../../media/images/docs/infrablockspace/create_token.png)
 
-    <img src="../../../media/images/docs/infrablockspace/mint_token.png" alt="Alt text" width="400"/>
+    ![mint_token](../../../media/images/docs/infrablockspace/mint_token.png)
+
 - 거버넌스 제출: 토큰의 오너는 해당 토큰을 시스템 토큰으로 등록하기 위해 relay chain 거버넌스를 제출합니다.
 
-    <img src="../../../media/images/docs/infrablockspace/register_system_token1.png" alt="Alt text" width="400"/>
+    ![register_system_token1](../../../media/images/docs/infrablockspace/register_system_token1.png)
+
 - 시스템 토큰 투표: Relay chain의 validator들은 거버넌스에 참여하며, 2/3 이상이 동의할 경우 해당 시스템 토큰이 등록됩니다.
-    <img src="../../../media/images/docs/infrablockspace/governance_voting.png" alt="Alt text" width="400"/>
+
+    ![governance_voting](../../../media/images/docs/infrablockspace/governance_voting.png)
+
 - 트랜잭션 수수료 사용: 해당 토큰이 시스템 토큰으로 등록되면, 토큰을 발행한 체인에서 시스템 토큰을 트랜잭션 수수료로 사용할 수 있게 됩니다.
-    <img src="../../../media/images/docs/infrablockspace/parachain_sufficient_true.png" alt="Alt text" height="300"/>
+
+    ![parachain_sufficient_true](../../../media/images/docs/infrablockspace/parachain_sufficient_true.png)
 
 ### 다른 parachain에서 시스템 토큰 사용
 
 - _Wrapped 시스템 토큰_ 사용 승인: 다른 체인에서 시스템 토큰을 가스비로 사용하고자 할 때 해당 토큰의 "wrapped 시스템 토큰" 사용에 대한 안건을 거버넌스에 제출해야 합니다.
-    <img src="../../../media/images/docs/infrablockspace/register-wrapped.png" alt="Alt text" height="300"/>
+    
+    ![register-wrapped](../../../media/images/docs/infrablockspace/register-wrapped.png)
+
 - 거버넌스 승인: 해당 안건이 거버넌스에 승인되면, 해당 체인에서는 _Wrapped 시스템 토큰_ 을 가스비로 사용할 수 있게 됩니다.
 
 ### 시스템 토큰 Suspend 및 Deregister
 
 - 문제 발생 시 조치: 패러체인이나 시스템 토큰 등에 문제가 발생하면, 생태계에 해를 끼치지 않도록 시스템 토큰 혹은 _Wrapped 시스템 토큰_ 을 일시 사용 금지시키거나 영구 삭제할 수 있습니다.
 
-    <img src="../../../media/images/docs/infrablockspace/suspend.png" alt="Alt text" height="300"/>
-    <img src="../../../media/images/docs/infrablockspace/deregister.png" alt="Alt text" height="300"/>
+    ![suspend](../../../media/images/docs/infrablockspace/suspend.png)
+
+    ![deregister](../../../media/images/docs/infrablockspace/deregister.png)
     
 - 거버넌스 승인 필요: 해당 시스템 토큰의 사용 중지는 거버넌스의 승인을 받아야 하며, 승인된 후에는 해당 시스템 토큰 및 _Wrapped 시스템 토큰_ 은 가스비로 사용될 수 없습니다.
