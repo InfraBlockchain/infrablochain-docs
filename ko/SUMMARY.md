@@ -159,6 +159,7 @@
     * [인프라 DID](infrablockchain/service-chains/infra-did-parachain.md)
     * [인프라 EVM](infrablockchain/service-chains/infra-evm-parachain.md)
     * [URAuth(Universal Resource Auth)](infrablockchain/service-chains/urauth.md)
+    <!-- * [하이브리드 익스체인지](infrablockchain/learn/hybrid-exchange.md) -->
   * [devops](infrablockchain/devops/README.md)
     * [체인 빌드](infrablockchain/devops/build.md)
     * [배포](infrablockchain/devops/deploy.md)
@@ -172,7 +173,6 @@
     * [트랜잭션 수수료 모델](infrablockchain/learn/transaction-fee.md)
     * [트랜잭션 증명](infrablockchain/learn/proof-of-transaction.md)
     * [인프라 블록체인 보상 체계](infrablockchain/learn/incentive.md)
-    * [하이브리드 익스체인지](infrablockchain/learn/hybrid-exchange.md)
   * [tutorials](infrablockchain/tutorials/README.md)
     * [벨리데이터 보상 받기](infrablockchain/tutorials/how-to-get-validator-reward.md)
     * [시스템 토큰 관리 프로세스](infrablockchain/tutorials/how-to-interact-with-system-token.md)
