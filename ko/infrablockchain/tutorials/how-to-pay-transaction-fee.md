@@ -34,8 +34,9 @@ keywords:
 
 아래와 같이 parachain explorer > Developer > Extrinsic에서 Aseets pallets을 선택하여 asset을 발행하고 민팅합니다.
 
-<img src="../../../media/images/docs/infrablockspace/create_token.png" alt="Alt text" height="300"/>
-<img src="../../../media/images/docs/infrablockspace/mint_token.png" alt="Alt text" height="300"/>
+![create_token](../../../media/images/docs/infrablockspace/create_token.png)
+
+![mint_token](../../../media/images/docs/infrablockspace/mint_token.png)
 
 ## 릴레이체인에 register_system_token 거버넌스 등록하기
 
@@ -45,13 +46,13 @@ register_system_token을 거버넌스 투표로 올리기 위해 preimage에 먼
 Governance > Preimages > Add preimage를 누릅니다.
 (preimage는 누구나 등록이 가능합니다.)
 
-<img src="../../../media/images/docs/infrablockspace/preimage_button.png" alt="Alt text" height="200"/>
+![preimage_button](../../../media/images/docs/infrablockspace/preimage_button.png)
 
 파라체인에서 생성했던 토큰 정보를 토대로 register_system_token에 대한 preimage를 생성합니다.
 
-<img src="../../../media/images/docs/infrablockspace/register_system_token1.png" alt="Alt text" height="300"/>
+![register_system_token1](../../../media/images/docs/infrablockspace/register_system_token1.png)
 
-<img src="../../../media/images/docs/infrablockspace/register_system_token2.png" alt="Alt text" height="300"/>
+![register_system_token2](../../../media/images/docs/infrablockspace/register_system_token2.png)
 
 - systemTokenType: Original, para id, asset pallet id, asset id를 알맞게 입력해줍니다.
 - systemTokenWeight: 1_000_000(default)로 설정해줍니다.
@@ -61,7 +62,7 @@ Governance > Preimages > Add preimage를 누릅니다.
 
 다음과 같이 hash값과 함께 정상적으로 등록이 됩니다.
 
-<img src="../../../media/images/docs/infrablockspace/preimage_result.png" alt="Alt text" height="100"/>
+![preimage_result](../../../media/images/docs/infrablockspace/preimage_result.png)
 
 ### 등록된 preimage를 governance에 등록
 
@@ -73,24 +74,25 @@ council pallet의 propose를 통해 1에서 등록했던 preimage에 대한 안�
 - Legacy-hash: 1에서 등록했던 preimage에 대한 hash
 - lengthBound: preimage의 length 제한. 
 
-<img src="../../../media/images/docs/infrablockspace/council_propose.png" alt="Alt text" height="300"/>
+![council_propose](../../../media/images/docs/infrablockspace/council_propose.png)
 
 ## 거버넌스 통과시키기
 
 거버넌스에 정상적으로 등록됐다면 Governance - Council - Motion에 해당 안건이 아래와 같이 올라와있습니다. 
 
-<img src="../../../media/images/docs/infrablockspace/governance_voting.png" alt="Alt text" height="300"/>
+![governance_voting](../../../media/images/docs/infrablockspace/governance_voting.png)
 
 위 화면에서 Vote를 누르고, Council을 구성하는 검증자들(alice_stash, bob_stash)로 투표를 해줍니다.
 
 threshold 인원이상 투표를 했다면 투표를 바로 종료시킬 수 있고, 정족수가 동의(60% 이상)했다면 해당 안건은 바로 집행됩니다.
 
-<img src="../../../media/images/docs/infrablockspace/vote_close.png" alt="Alt text" height="100"/>
+![vote_close](../../../media/images/docs/infrablockspace/vote_close.png)
 
 안건이 정상적으로 통과됐고, 파라체인에서도 `sufficient`가 `true`로 바뀐 것을 확인할 수 있습니다.
 
-<img src="../../../media/images/docs/infrablockspace/enact_motion.png" alt="Alt text" height="300"/>
-<img src="../../../media/images/docs/infrablockspace/parachain_sufficient_true.png" alt="Alt text" height="300"/>
+![enact_motion](../../../media/images/docs/infrablockspace/enact_motion.png)
+
+![parachain_sufficient_true](../../../media/images/docs/infrablockspace/parachain_sufficient_true.png)
 
 ## 시스템 토큰 가스비로 사용하기
 
@@ -98,12 +100,12 @@ threshold 인원이상 투표를 했다면 투표를 바로 종료시킬 수 있
 
 해당 토큰으로 트랜잭션 가스비를 지불할 수 있습니다. 아래처럼 asset transfer call을 해보겠습니다. 
 
-<img src="../../../media/images/docs/infrablockspace/parachain_asset_transfer.png" alt="Alt text" height="200"/>
+![parachain_asset_transfer](../../../media/images/docs/infrablockspace/parachain_asset_transfer.png)
 
 extrinsic extra 정보에서 등록된 시스템 토큰 정보를 입력해줍니다. 
 
-<img src="../../../media/images/docs/infrablockspace/system_token_id.png" alt="Alt text" height="100"/>
+![system_token_id](../../../media/images/docs/infrablockspace/system_token_id.png)
 
 이 시스템 토큰을 활용해 가스비를 낼 수 있는 걸 확인할 수 있습니다.
 
-<img src="../../../media/images/docs/infrablockspace/system_token_paid.png" alt="Alt text" height="200"/>
+![system_token_paid](../../../media/images/docs/infrablockspace/system_token_paid.png)
