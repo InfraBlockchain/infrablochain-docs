@@ -9,6 +9,8 @@ keywords:
 
 ## Transaction-as-a-Vote(TaaV)
 
+<img src="../../../media/images/docs/taav.png>
+
 인프라 블록체인의 독자적인 합의 메커니즘인 **_PoT(Proof-of-Transaction)_** 를 이루는 핵심 아이디어는 _Taav(Transaction-as-a-Vote)_ 입니다. 인프라 블록체인의 트랙잭션 메타데이터에는 블록체인 합의 과정에 참여할 수 있거나 이미 참여하고 있는 블록 생성자 후보에 대한 투표(vote)가 선택적으로 포함될 수 있습니다. 블록 생성자 투표가 담긴 트랜잭션 메세지는 트랜잭션을 발생시킨 블록체인 계정의 개인키로 서명이 이루어져 각 트랜잭션 투표마다 자체적인 암호학적 증명을 가집니다. **_인프라 블록체인(InfraBlockchain)_** 의 투표는 다음과 같은 특성을 가지고 있습니다:
 
 - 시스템 토큰 식별자: 투표의 가중치(weight)는 어떠한 [시스템 토큰](../learn/system-token.md) 으로 트랜잭션 수수료로 지불했는지에 따라 다르기 때문에 해당 토큰을 식별할 수 있는 `id` 가 포함됩니다.
@@ -55,7 +57,10 @@ impl SignedExtension for ChargeSystemToken {
 **_인프라 블록체인(InfraBlockchain)_** 은 기관 및 공공기관을 위한 엔터프라이즈 블록체인으로써 어떠한 상황에서도 정직하게 노드가 동작하여 BFT 합의를 이루어 나가야합니다. 또한, 공개형/허가형 하이브리드 블록체인으로써 어떤 주체든 블록 생성자로 선출될 수 있어야 합니다. **_인프라 블록체인(InfraBlockchain)_** 은 이러한 이상적인 속성을 설계하기 위해 다음과 같은 두 개의 블록 생성자(밸리데이터) 풀이 존재합니다:
 
 - Proof-of-Transaction Node Pool: PoT 에 의해 선출된 노드를 관리하는 풀입니다.
+
 - Seed Trust Node Pool: 금융 기관이나 정부 조직과 같이 어떠한 상황에서도 정직한 노드를 운영하는 노드를 관리하는 풀입니다. 
+
+<img src="../../../media/images/docs/validator-pool.png">
 
 **_인프라 블록체인(InfraBlockchain)_** 의 초기 밸리데이터 구성은 _Seed Trust_ 밸리데이터로 구성된 허가형 블록체인으로 시작하여 네트워크가 안정됨에 따라 _PoT_ 컨센서스 메커니즘을 이용하여 누구나 블록 생성자로 참여할 수 있는 퍼블릭 블록체인으로 전환될 수 있습니다.
 
