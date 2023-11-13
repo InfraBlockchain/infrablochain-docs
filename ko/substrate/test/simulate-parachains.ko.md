@@ -3,7 +3,7 @@ title: 테스트 네트워크에서 파라체인 시뮬레이션하기
 description: 검증자와 파라체인 콜레이터 노드를 포함한 릴레이 체인을 시뮬레이션하기 위해 로컬 테스트 네트워크를 설정하는 방법을 설명합니다.
 keywords:
   - 파라체인
-  - Polkadot
+  - infrablockspace-sdk
   - 테스트넷
   - 콜레이터 노드
   - 검증자 노드
@@ -42,27 +42,23 @@ keywords:
    mkdir binaries
    ```
 
-   Linux에서 테스트 네트워크를 설정하는 경우, [릴리스](https://github.com/paritytech/polkadot/releases)에서 Polkadot 바이너리 파일을 작업 폴더로 다운로드할 수 있습니다.
-   macOS에서 테스트 네트워크를 설정하거나 바이너리 파일을 직접 컴파일하려는 경우, 다음 단계로 진행하세요.
-
-3. 다음 명령을 실행하여 Polkadot 저장소를 복제합니다.
+3. 다음 명령을 실행하여 Infrablockspace 저장소를 복제합니다.
 
    ```bash
-   git clone https://github.com/paritytech/polkadot-sdk
+   git clone https://github.com/InfraBlockchain/infrablockspace-sdk
    ```
 
-4. 다음 명령을 실행하여 `polkadot` 디렉토리의 루트로 이동합니다.
+4. 다음 명령을 실행하여 `infrablockspace-sdk` 디렉토리의 루트로 이동합니다.
 
    ```bash
-   cd polkadot
+   cd infrablockspace-sdk
    ```
 
-5. 최신 Polkadot 릴리스를 확인합니다.
+5. 최신 infrablockspace-sdk 릴리스를 확인합니다.
 
    릴리스 브랜치는 `release-v<n.n.n>` 형식을 따릅니다.
    예를 들어, 이 튜토리얼에서 사용하는 릴리스 브랜치는 `release-v1.0.0`입니다.
    `release-v1.0.0` 대신 더 최신의 릴리스 브랜치를 사용할 수 있습니다.
-   최근 릴리스 및 각 릴리스에 포함된 내용에 대한 정보는 [릴리스](https://github.com/paritytech/polkadot/releases) 탭에서 확인할 수 있습니다.
 
    예를 들어:
 
@@ -76,13 +72,13 @@ keywords:
    cargo build --release
    ```
 
-7. 다음 명령을 실행하여 Polkadot 바이너리 파일을 작업 `binaries` 폴더로 복사합니다.
+7. 다음 명령을 실행하여 infrablockspace 바이너리 파일을 작업 `binaries` 폴더로 복사합니다.
 
    ```bash
-   cp ./target/release/polkadot ../binaries/polkadot-v1.0.0
+   cp ./target/release/infrablockspace ../binaries/infrablockspace
    ```
 
-   이 예시에서는 일반적으로 `binaries` 폴더의 파일을 정리하기 위해 바이너리 파일 이름에 `polkadot` 버전을 추가하는 것이 좋은 관행입니다.
+   이 예시에서는 일반적으로 `binaries` 폴더의 파일을 정리하기 위해 바이너리 파일 이름에 `infrablockspace` 버전을 추가하는 것이 좋은 관행입니다.
 
 8. 홈 디렉토리로 이동합니다.
 
@@ -112,7 +108,7 @@ keywords:
    예를 들어:
 
    ```bash
-   git checkout polkadot-v1.0.0
+   git checkout infrablockspace
    ```
 
 4. 다음 명령을 실행하여 파라체인 템플릿 콜레이터를 컴파일합니다.
@@ -166,7 +162,7 @@ Zombienet을 다운로드하고 구성하는 방법:
    구성 파일을 사용하여 다음 정보를 지정합니다.
 
    - 테스트 네트워크의 바이너리 파일 위치
-   - 사용할 릴레이 체인 스펙(`rococo-local`)
+   - 사용할 릴레이 체인 스펙(`infra-relay-local`)
    - 네 개의 릴레이 체인 검증자에 대한 정보
    - 테스트 네트워크에 포함된 파라체인 식별자
    - 각 파라체인의 콜레이터에 대한 정보
@@ -177,10 +173,10 @@ Zombienet을 다운로드하고 구성하는 방법:
    ```toml
    [relaychain]
 
-   default_command = "../binaries/polkadot-v1.0.0"
+   default_command = "../binaries/infrablockspace"
    default_args = [ "-lparachain=debug" ]
 
-   chain = "rococo-local"
+   chain = "infra-relay-local"
 
       [[relaychain.nodes]]
       name = "alice"
@@ -222,17 +218,17 @@ Zombienet을 다운로드하고 구성하는 방법:
 
    릴레이 체인 및 파라체인 노드 엔드포인트에 대한 직접 링크는 다음과 유사한 형식이어야 합니다.
 
-   - alice: https://polkadot.js.org/apps/?rpc=ws://127.0.0.1:52190#/explorer
-   - bob: https://polkadot.js.org/apps/?rpc=ws://127.0.0.1:52194#/explorer
-   - charlie: https://polkadot.js.org/apps/?rpc=ws://127.0.0.1:52198#/explorer
-   - dave: https://polkadot.js.org/apps/?rpc=ws://127.0.0.1:52202#/explorer
+   - alice: https://portal.infrablockspace.net/?rpc=ws://127.0.0.1:52190#/explorer
+   - bob: https://portal.infrablockspace.net/?rpc=ws://127.0.0.1:52194#/explorer
+   - charlie: https://portal.infrablockspace.net/?rpc=ws://127.0.0.1:52198#/explorer
+   - dave: https://portal.infrablockspace.net/?rpc=ws://127.0.0.1:52202#/explorer
 
    파라체인 콜레이터 엔드포인트에 대한 직접 링크는 다음과 유사한 형식이어야 합니다.
 
-   - parachain-1000-collator: https://polkadot.js.org/apps/?rpc=ws://127.0.0.1:52206#/explorer
-   - parachain-1001-collator: https://polkadot.js.org/apps/?rpc=ws://127.0.0.1:52210#/explorer
+   - parachain-1000-collator: https://portal.infrablockspace.net/?rpc=ws://127.0.0.1:52206#/explorer
+   - parachain-1001-collator: https://portal.infrablockspace.net/?rpc=ws://127.0.0.1:52210#/explorer
 
-   모든 노드가 실행된 후에는 [Polkadot/Substrate Portal](https://polkadot.js.org/apps)을 열고 노드 엔드포인트에 연결하여 노드와 상호 작용할 수 있습니다.
+   모든 노드가 실행된 후에는 [Infrablocksapce Portal](https://portal.infrablockspace.net)을 열고 노드 엔드포인트에 연결하여 노드와 상호 작용할 수 있습니다.
 
 ## 메시지 전달 채널 열기
 
@@ -268,7 +264,7 @@ Zombienet은 테스트 목적으로 구성 파일에 기본 채널 설정을 포
 
    **max_capacity** 및 **max_message_size**에 설정하는 값은 릴레이 체인의 `hrmpChannelMaxCapacity` 및 `hrmpChannelMaxMessageSize` 매개변수에 정의된 값보다 크지 않아야 합니다.
 
-   [Polkadot/Substrate Portal](https://polkadot.js.org/apps/)에서 현재 릴레이 체인의 구성 설정을 확인하려면 다음 단계를 수행하세요.
+   [Infrablocksapce Portal](https://portal.infrablockspace.net)에서 현재 릴레이 체인의 구성 설정을 확인하려면 다음 단계를 수행하세요.
 
    - **개발자**를 클릭하고 **Chain State**를 선택합니다.
    - **configuration**을 선택한 다음 **activeConfig()**를 선택합니다.
@@ -289,15 +285,15 @@ Zombienet은 테스트 목적으로 구성 파일에 기본 채널 설정을 포
 
    이제 파라체인 A(1000)와 파라체인 B(1001) 사이에 양방향 HRMP 채널이 열린 테스트 네트워크가 준비되었습니다.
 
-   [Polkadot/Substrate Portal](https://polkadot.js.org/apps)을 사용하여 파라체인에 연결하고 메시지를 보낼 수 있습니다.
+   [Infrablocksapce Portal](https://portal.infrablockspace.net)을 사용하여 파라체인에 연결하고 메시지를 보낼 수 있습니다.
 
 5. **개발자**를 클릭하고 **Extrinsics**를 선택합니다.
 
-6. **polkadotXcm** 또는 **xcmPallet**을 선택한 다음 **sent(dest, message)**를 선택하여 보낼 XCM 메시지를 작성합니다.
+6. **infrablockspaceXcm** 또는 **xcmPallet**을 선택한 다음 **sent(dest, message)**를 선택하여 보낼 XCM 메시지를 작성합니다.
 
    XCM 메시지는 다른 트랜잭션과 마찬가지로 메시지를 보내는 사람이 작업을 실행하기 위해 지불해야 합니다.
    필요한 모든 정보는 메시지 자체에 포함되어야 합니다.
-   HRMP 채널을 열었으니 XCM을 사용하여 메시지를 작성하는 방법에 대한 정보는 [Cross-consensus communication](/learn/xcm-communication/) 및 [Transfer assets with XCM](/tutorials/build-a-parachain/transfer-assets-with-xcm/)을 참조하세요.
+   HRMP 채널을 열었으니 XCM을 사용하여 메시지를 작성하는 방법에 대한 정보는 [Cross-consensus communication](../learn/xcm-communication.ko.md) 및 [Transfer assets with XCM](../substrate/tutorials/build-a-parachain/transfer-assets-with-xcm.ko.md)을 참조하세요.
 
 ## 다음 단계로 넘어가기
 

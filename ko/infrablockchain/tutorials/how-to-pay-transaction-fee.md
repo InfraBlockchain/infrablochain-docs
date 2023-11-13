@@ -22,11 +22,7 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [로컬 릴레이 체인 준비하기](../../tutorials/build-a-parachain/prepare-a-local-relay-chain.ko.md)
-
-- [로컬 Infra Asset Hub 준비하기]()
-
-- [로컬 패러체인 준비하기](../../tutorials/build-a-parachain/connect-a-local-parachain.ko.md) 
+- [좀비넷 테스트 네트워크에서 시스템 토큰 사용하기](../../test/simulate-parachains.ko.md)
 
 ## 파라체인에 토큰 생성 및 발행하기
 
