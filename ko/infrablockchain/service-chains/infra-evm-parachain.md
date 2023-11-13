@@ -14,9 +14,9 @@ keywords:
   해당 내용이 담긴 문서가 생성되면 그 문서로 링크를 연결 해 주세요
 -->
 
-- [로컬 파라체인 구축하기](./infra-did-parachain.md)
+- [인프라 패러체인 구축하기](ko/infrablockchain/tutorials/build-infrablockspace/build-a-parachain.md)
 
-- [로컬 릴레이 체인 구축하기](./infra-did-parachain.md)
+- [인프라 릴레이 체인 구축하기](ko/infrablockchain/tutorials/build-infrablockspace/build-infra-relay-chain.md)
 
 - [좀비넷 사용하기](./infra-did-parachain.md)
 
