@@ -16,6 +16,9 @@ keywords:
 
 인프라 블록체인에서는 벨리데이터에게 블록 생성 및 검증에 대한 댓가로 보상을 지급합니다. 벨리데이터에게 지급되는 보상은 유저들이 제출한 트랜잭션의 수수료로 구성됩니다. 
 
+![validator-reward-process](/media/images/docs/infrablockchain/tutorials/validator-reward-process.png)
+
+
 이 문서에서는 벨리데이터가 보상을 받는 방법에 대해서 설명합니다.
 
 ## 벨리데이터 보상 확인하기
