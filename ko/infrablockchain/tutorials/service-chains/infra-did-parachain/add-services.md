@@ -24,7 +24,7 @@ Infra DID에 서비스 엔드포인트를 추가하기 위해선 아래와 같�
 
     아래와 같이 구성하고 익스트린식을 발생시킵니다. 
 
-    ![add-services](../../../../../media/images/docs/infrablockchain/tutorials/parachains/infra-did-parachain/add-services.png)
+    ![add-services](../../../../../media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/add-services.png)
 
 ## Infra DID 서비스 엔드포인트 제거하기
 
@@ -36,4 +36,4 @@ Infra DID에 서비스 엔드포인트 제거하기 위해선 아래와 같은 �
 
     아래와 같이 구성하고 익스트린식을 발생시킵니다. 
 
-    ![remove-services](../../../../../media/images/docs/infrablockchain/tutorials/parachains/infra-did-parachain/remove-services.png)
+    ![remove-services](../../../../../media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/remove-services.png)

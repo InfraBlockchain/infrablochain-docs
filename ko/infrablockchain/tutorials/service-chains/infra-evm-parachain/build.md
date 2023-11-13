@@ -141,7 +141,7 @@ keywords:
 
 3. 정상적으로 실행 되었다면 다음과 유사한 터미널 쉘을 확인할 수 있습니다.
   
-   ![zombienet](media/images/docs/infrablockchain/parachains/infra-evm-parachain-zombienet.png)
+   ![zombienet](media/images/docs/infrablockchain/service-chains/infra-evm-parachain-zombienet.png)
 
 4. (선택) Infra EVM 체인의 노드를 확인하면 아래와 유사한 로그를 확인할 수 있습니다.
 
@@ -278,4 +278,4 @@ keywords:
    
 ## 다음 단계로 넘어가기
 
-- [EVM으로 자산 이동하기](./../tutorials/parachains/infra-evm-parachain/deposit-and-withdraw-token.md)
+- [EVM으로 자산 이동하기](./../tutorials/service-chains/infra-evm-parachain/deposit-and-withdraw-token.md)

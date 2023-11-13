@@ -24,7 +24,7 @@ keywords:
 
 **DID**는 Decentralized Identifier의 약자로, 디지털 신원의 주체가 생성, 소유하고 제어하는 새로운 유형의 식별자를 나타냅니다.
 
-![did-method](/media/images/docs/infrablockchain/parachains/did-method.png)
+![did-method](/media/images/docs/infrablockchain/service-chains/did-method.png)
 
 DID는 중앙화된 시스템, 권한 또는 중개자와는 독립적으로 완전히 DID 주체의 제어 하에 있습니다. 이 기능은 블록체인 및 분산 원장 기술을 통해 가능하게 됩니다.
 
@@ -42,11 +42,11 @@ DID의 주요 특징 및 이점은 다음과 같습니다:
 
 인프라 블록스페이스의 파라체인 중 하나인 *Infra DID 파라체인* 은 DID 시스템을 제공하고 있으며 *Infra DID 파라체인* 이 제공하는 DID 를 *Infra DID* 라고 합니다.
 
-![infra-did-method](/media/images/docs/infrablockchain/parachains/infra-did-method.png)
+![infra-did-method](/media/images/docs/infrablockchain/service-chains/infra-did-method.png)
 
 *Infra DID 파라체인* 은 기능에 따라 여러가지 팔렛을 포함하고 있습니다.
 
-![infra-did-pallet](/media/images/docs/infrablockchain/parachains/infra-did-pallet.png)
+![infra-did-pallet](/media/images/docs/infrablockchain/service-chains/infra-did-pallet.png)
 
 
 Infra DID 파라체인과 통신할 수 있는 npm 라이브러리인 [infra-did-js](https://github.com/InfraBlockchain/infra-did-js/tree/main)가 존재합니다. 이를 사용하여 node.js 기반의 시스템에서 Infra DID을 사용할 수 있습니다.

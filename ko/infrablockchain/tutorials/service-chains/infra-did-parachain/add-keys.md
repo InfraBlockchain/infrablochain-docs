@@ -24,7 +24,7 @@ Infra DID에 공개키를 추가하기 위해선 아래와 같은 과정을 거�
 
     아래와 같이 구성하고 익스트린식을 발생시킵니다. 
 
-    ![add-keys](../../../../../media/images/docs/infrablockchain/tutorials/parachains/infra-did-parachain/add-keys.png)
+    ![add-keys](../../../../../media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/add-keys.png)
 
     Encode call data: 
     ```shell
@@ -41,7 +41,7 @@ Infra DID에 공개키 제거하기 위해선 아래와 같은 과정을 거칩�
 
     아래와 같이 구성하고 익스트린식을 발생시킵니다. 
 
-    ![remove-keys](../../../../../media/images/docs/infrablockchain/tutorials/parachains/infra-did-parachain/remove-keys.png)
+    ![remove-keys](../../../../../media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/remove-keys.png)
 
 ## 다음 단계로 넘어가기
 

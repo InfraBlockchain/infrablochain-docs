@@ -10,7 +10,7 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [로컬 Infra EVM 파라체인 구축하기](../../../parachains/infra-evm-parachain.md)
+- [로컬 Infra EVM 파라체인 구축하기](../../../service-chains/infra-evm-parachain.md)
 
 - [EVM으로 자산 이동하기](./deposit-and-withdraw-token.md)
 
@@ -18,22 +18,22 @@ keywords:
 
 1. [Remix](https://remix.ethereum.org)에 접속합니다. 
 
-    ![remix-main](../../../../../media/images/docs/infrablockchain/tutorials/parachains/infra-evm-parachain/remix-main.png)
+    ![remix-main](../../../../../media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/remix-main.png)
 
     본 문서에서는 `0XPROJECT ERC20` 템플릿을 사용하여 진행합니다.
 
 2. 스마트 컨트랙트에 대해 컴파일을 진행합니다.
 
-    ![remix-compile](../../../../../media/images/docs/infrablockchain/tutorials/parachains/infra-evm-parachain/remix-compile.png)
+    ![remix-compile](../../../../../media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/remix-compile.png)
 
 3. 배포할 네트워크를 `Injected Provider - MetaMask` 를 선택해 준 뒤 메타마스크와 리믹스를 연결합니다.
 
-    ![remix-inject-provider](../../../../../media/images/docs/infrablockchain/tutorials/parachains/infra-evm-parachain/remix-inject-provider.png)
+    ![remix-inject-provider](../../../../../media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/remix-inject-provider.png)
 
 4. 배포 전 심볼, Decimals와 같은 변수값들을 설정하고 컨트랙트를 배포합니다.
 
-    ![deploy-contract](../../../../../media/images/docs/infrablockchain/tutorials/parachains/infra-evm-parachain/deploy-contract.png)
+    ![deploy-contract](../../../../../media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/deploy-contract.png)
 
 5. 메타마스크에서 컨트랙트 주소를 사용하여 실제 ERC20 토큰이 정상적으로 인식 되는지 확인합니다.
 
-    ![remix-inject-provider](../../../../../media/images/docs/infrablockchain/tutorials/parachains/infra-evm-parachain/erc20-token.png)
+    ![remix-inject-provider](../../../../../media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/erc20-token.png)

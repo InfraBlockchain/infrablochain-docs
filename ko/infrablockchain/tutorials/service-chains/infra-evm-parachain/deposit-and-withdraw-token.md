@@ -10,7 +10,7 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [로컬 Infra EVM 파라체인 구축하기](../../../parachains/infra-evm-parachain.md)
+- [로컬 Infra EVM 파라체인 구축하기](ko/infrablockchain/service-chains/infra-evm-parachain.md)
 
 ## 주소 변환하기
 
@@ -23,7 +23,7 @@ SS58 address는 Substrate 레이어에서 사용하고 있으며 H160 address는
 
 ### SS58 Address -> H160 Address
 
-![ss58-to-h160](../../../../../media/images/docs/infrablockchain/tutorials/parachains/infra-evm-parachain/ss58-to-h160.png)
+![ss58-to-h160](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/ss58-to-h160.png)
 
 SS58 address에서 H160 address로의 주소 변환은 위 사진과 같이 이루어 집니다.
 
@@ -70,7 +70,7 @@ SS58 address를 H160 address로 변환하는 방법은 아래와 같습니다.
 
 ### H160 Address -> SS58 Address
 
-![h160-to-ss58](../../../../../media/images/docs/infrablockchain/tutorials/parachains/infra-evm-parachain/h160-to-ss58.png)
+![h160-to-ss58](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/h160-to-ss58.png)
 
 H160 address에서 SS58 address로의 주소 변환은 위 사진과 같이 이루어 집니다.
 
@@ -125,14 +125,14 @@ H160 address를 SS58 address로 변환하는 방법은 아래와 같습니다.
 
 2. 1번의 결과로 획득한 SS58 address로 자산을 이동시킵니다.
 
-    ![transfer-asset](../../../../../media/images/docs/infrablockchain/tutorials/parachains/infra-evm-parachain/transfer-asset.png)
+    ![transfer-asset](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/transfer-asset.png)
 
   
     기본적으로 Infra EVM 파라체인에서는 99번 asset을 EVM의 네이티브 토큰으로 사용하도록 연동되어 있습니다.
 
 3. 메타마스크 등의 EVM 월렛에서 반영되었음을 확인합니다.
 
-    ![metamask-balance](../../../../../media/images/docs/infrablockchain/tutorials/parachains/infra-evm-parachain/metamask-balance.png)
+    ![metamask-balance](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/metamask-balance.png)
 
 
 ## EVM에서 Substrate로 자산 이동하기
@@ -146,7 +146,7 @@ H160 address를 SS58 address로 변환하는 방법은 아래와 같습니다.
 
 2. 1번의 결과로 획득한 EVM address로 자산을 이동시킵니다.
 
-    ![transfer-asset](../../../../../media/images/docs/infrablockchain/tutorials/parachains/infra-evm-parachain/metamask-transfer.png)
+    ![transfer-asset](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/metamask-transfer.png)
 
 
 3. [Portal](https://portal.infrablockspace.net) 에 접속하여 아래 과정을 따릅니다.
@@ -155,13 +155,13 @@ H160 address를 SS58 address로 변환하는 방법은 아래와 같습니다.
 
     아래와 같이 구성하고 익스트린식을 발생시킵니다. 
 
-    ![withdraw](../../../../../media/images/docs/infrablockchain/tutorials/parachains/infra-evm-parachain/withdraw.png)
+    ![withdraw](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/withdraw.png)
 
     1번 과정에서 주소 변환할 때 사용하였던 SS58 계정이 익스트린식을 실행시켜야 합니다. 
 
 4. 이벤트를 확인하여 정상적으로 자산이 입금되었는지 확인합니다.
 
-    ![withdraw-success](../../../../../media/images/docs/infrablockchain/tutorials/parachains/infra-evm-parachain/withdraw-success.png)
+    ![withdraw-success](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/withdraw-success.png)
 
 
 ## 다음 단계로 넘어가기
