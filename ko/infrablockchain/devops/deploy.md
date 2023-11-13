@@ -7,9 +7,9 @@ keywords:
 
 ## 배포
 
-서버에 chain을 배포 하는 방법에 대해 작성되어 있는 페이지입니다.
+서버에 체인을 배포 하는 방법에 대해 작성되어 있는 페이지입니다.
 
-설명에 앞서, 이 문서에서는 네트워크를 통해 chain spec file을 다운로드받아 사용하는 방법만을 설명합니다. 만약 이렇게 진행을 원치않을 경우, 사용자께서 원하는 방법을 사용하셔서 chain spec 파일을 등록하시기를 바랍니다.
+설명에 앞서, 이 문서에서는 네트워크를 통해 체인 스펙 파일을 다운로드받아 사용하는 방법만을 설명합니다. 만약 이렇게 진행을 원치않을 경우, 사용자께서 원하는 방법을 사용하셔서 chain spec 파일을 등록하시기를 바랍니다.
 
 서버 배포 방법은 3가지 방법이 있습니다.
 
@@ -26,7 +26,7 @@ Systemd는 Linux 호스트에서 서비스를 관리하는 일반적인 방법�
 또한 환경 변수 파일을 사용하여 변수를 서버별 자체 파일로 추상화할 수 있습니다.
 
 Systemd를 사용하기 위해서 먼저 service로 등록을 해주어야 합니다. 그러기 위해서 /etc/systemd/system 경로에 Infrablockspace.service를 만들어줍니다. 만든 다음 아래 코드를 복사 붙여넣기 해준 다음 `<binary file>` 과 `<options>`에 필요한 옵션 값들을 넣어줍니다.
-`<binary file>`은 relay chain일때 infrablockspace를 입력해주면 되며, para chain은 infrablockspace-parachain을 입력해줍니다.
+`<binary file>`은 릴레이 체인일때 infrablockspace를 입력해주면 되며, 파라체인은 infrablockspace-parachain을 입력해줍니다.
 
 ```bash
 #/etc/systemd/system/Infrablockspace.service
@@ -52,9 +52,9 @@ systemctl start Infrablockspace
 
 ### Docker
 
-docker를 활용할 때에는 docker-compose.yml 파일을 사용해서 실행하는 것을 추천합니다. 
+도커를 활용할 때에는 docker-compose.yml 파일을 사용해서 실행하는 것을 추천합니다. 
 
-docker compose  실행 전, 먼저 chain spec 파일을 다운로드 받아야 합니다. 아래 명령어를 통해 다운로드 받아줍니다.
+도커 컴포즈 실행 전, 먼저 체인 스펙 파일을 다운로드 받아야 합니다. 아래 명령어를 통해 다운로드 받아줍니다.
 
 릴레이 체인의 경우,
 
@@ -63,15 +63,15 @@ curl -L <chain spec url> -o chain-spec/raw-local-chainspec.json
 ```
 
 
-파라 체인의 경우,
+파라체인의 경우,
 
 ```bash
 curl -L <chain spec url> -o chain-spec//tmp/raw-parachain-chainspec.json
 ```
 
-다운로드 받은 파일은  chain-spec이라는 directory에 넣어줍니다. 없을 경우, 생성해줍니다.
+다운로드 받은 파일은  chain-spec이라는 폴더에 넣어줍니다. 없을 경우, 생성해줍니다.
 
-그런 다음 docker compose 관련 파일을 아래와 같이 작성해줍니다.
+그런 다음 도커 컴포즈 관련 파일을 아래와 같이 작성해줍니다.
 
 릴레이 체인의 경우,
 
@@ -103,7 +103,7 @@ services:
       - "30333"
 ```
 
-파라 체인의 경우,
+파라체인의 경우,
 
 ```bash
 version: "3.1"
@@ -149,7 +149,7 @@ services:
     ports:
       - "30333"
 ```
-파라체인은 relay 체인의 boot node id가 필수적으로 필요합니다. 따라서 <bootnode id>를 채워줘야 합니다.
+파라체인은 릴레이 체인의 부트노드의 id가 필수적으로 필요합니다. 따라서 <bootnode id>를 채워줘야 합니다.
 
 
 다음 명령어를 통해 실행해줍니다.
@@ -160,11 +160,11 @@ docker compose up -d
 
 ### Kubernetes
 
-kubernetes에서 chain을 배포하기 위해서는 다음과 같은 파일들을 작성해줘야 합니다.
+쿠버네티스에서 체인을 배포하기 위해서는 다음과 같은 파일들을 작성해줘야 합니다.
 
-이때 dynamic pvc가 가능하다는 전제입니다. 만약 dynamic pvc가 안될경우 pv 생성을 해주시기를 바랍니다.
+이때 동적 퍼시스턴트 볼륨 클레임이 가능하다는 전제입니다. 만약 동적 퍼시스턴트 볼륨 클레임이 안될경우 퍼시스턴트 볼륨을 생성 해주시기를 바랍니다.
 
-relay chain의 경우,
+릴레이 체인의 경우,
 
 statefuleset.yaml
 
@@ -342,7 +342,7 @@ spec:
       storage: 100Gi
 ```
 
-para chain에 경우 작성법에 대해 알아보겠습니다.
+파라체인에 경우 작성법에 대해 알아보겠습니다.
 아래 작성 코드는 infra did에 관련하여 작성했습니다.
 
 statefuleset.yaml
@@ -555,10 +555,10 @@ spec:
       storage: 200Gi
 ```
 
-kubernetes에 아래 명령어를 통해 생성해주면 정상적으로 코드가 생성되는 것을 확인할 수 있습니다.
+쿠버네티스에 아래 명령어를 통해 생성해주면 정상적으로 코드가 생성되는 것을 확인할 수 있습니다.
 
 ```bash
 kubectl apply -f pvc.yaml -f service.yaml -f statefuleset.yaml
 ```
 
-helm과 operator에 경우 개발중에 있어 추후에 업데이트 될 예정입니다.
+헬름 차트와 오퍼레이터에 경우 개발중에 있어 추후에 업데이트 될 예정입니다.
