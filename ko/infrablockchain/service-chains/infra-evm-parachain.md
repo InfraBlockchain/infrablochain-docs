@@ -14,9 +14,9 @@ keywords:
   해당 내용이 담긴 문서가 생성되면 그 문서로 링크를 연결 해 주세요
 -->
 
-- [인프라 패러체인 구축하기](ko/infrablockchain/tutorials/build-infrablockspace/build-a-parachain.md)
+- [인프라 패러체인 구축하기](/ko/infrablockchain/tutorials/build-infrablockspace/build-a-parachain.md)
 
-- [인프라 릴레이 체인 구축하기](ko/infrablockchain/tutorials/build-infrablockspace/build-infra-relay-chain.md)
+- [인프라 릴레이 체인 구축하기](/ko/infrablockchain/tutorials/build-infrablockspace/build-infra-relay-chain.md)
 
 - [좀비넷 사용하기](./infra-did-parachain.md)
 
@@ -40,4 +40,4 @@ EVM은 이더리움 생태계에서 중요한 역할을 하며, 분산 애플리
 
 ## 다음 단계로 넘어가기
 
-- [Infra EVM 체인 구축하기](ko/infrablockchain/tutorials/service-chains/infra-evm-parachain/build.md)
+- [Infra EVM 체인 구축하기](/ko/infrablockchain/tutorials/service-chains/infra-evm-parachain/build.md)

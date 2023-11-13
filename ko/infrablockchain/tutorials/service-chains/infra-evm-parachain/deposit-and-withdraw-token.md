@@ -10,7 +10,7 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [로컬 Infra EVM 파라체인 구축하기](ko/infrablockchain/service-chains/infra-evm-parachain.md)
+- [로컬 Infra EVM 파라체인 구축하기](/ko/infrablockchain/service-chains/infra-evm-parachain.md)
 
 ## 주소 변환하기
 

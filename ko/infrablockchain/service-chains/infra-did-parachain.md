@@ -14,9 +14,9 @@ keywords:
   해당 내용이 담긴 문서가 생성되면 그 문서로 링크를 연결 해 주세요
 -->
 
-- [인프라 패러체인 구축하기](ko/infrablockchain/tutorials/build-infrablockspace/build-a-parachain.md)
+- [인프라 패러체인 구축하기](/ko/infrablockchain/tutorials/build-infrablockspace/build-a-parachain.md)
 
-- [인프라 릴레이 체인 구축하기](ko/infrablockchain/tutorials/build-infrablockspace/build-infra-relay-chain.md)
+- [인프라 릴레이 체인 구축하기](/ko/infrablockchain/tutorials/build-infrablockspace/build-infra-relay-chain.md)
 
 - [좀비넷 사용하기](./infra-did-parachain.md)
 
@@ -53,6 +53,6 @@ Infra DID 파라체인과 통신할 수 있는 npm 라이브러리인 [infra-did
 
 ## 다음 단계로 넘어가기
 
-- [Infra DID 체인 구축하기](ko/infrablockchain/tutorials/service-chains/infra-did-parachain/build.md)
+- [Infra DID 체인 구축하기](/ko/infrablockchain/tutorials/service-chains/infra-did-parachain/build.md)
 
 - [infra-did-js 레포지토리](https://github.com/InfraBlockchain/infra-did-js/tree/main)

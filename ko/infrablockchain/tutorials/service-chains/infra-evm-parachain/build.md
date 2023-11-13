@@ -11,7 +11,7 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [Infra EVM](ko/infrablockchain/service-chains/infra-evm-parachain.md)
+- [Infra EVM](/ko/infrablockchain/service-chains/infra-evm-parachain.md)
 
 ## Infra EVM 체인
 

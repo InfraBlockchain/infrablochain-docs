@@ -11,7 +11,7 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [Infra DID](ko/infrablockchain/service-chains/infra-did-parachain.md)
+- [Infra DID](/ko/infrablockchain/service-chains/infra-did-parachain.md)
 
 ## Infra DID 체인
 
