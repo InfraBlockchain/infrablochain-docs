@@ -9,7 +9,7 @@ keywords:
 
 ## Transaction-as-a-Vote(TaaV)
 
-<img src="../../../media/images/docs/taav.png>
+![](../../../media/images/docs/taav.png)
 
 인프라 블록체인의 독자적인 합의 메커니즘인 **_PoT(Proof-of-Transaction)_** 를 이루는 핵심 아이디어는 _Taav(Transaction-as-a-Vote)_ 입니다. 인프라 블록체인의 트랙잭션 메타데이터에는 블록체인 합의 과정에 참여할 수 있거나 이미 참여하고 있는 블록 생성자 후보에 대한 투표(vote)가 선택적으로 포함될 수 있습니다. 블록 생성자 투표가 담긴 트랜잭션 메세지는 트랜잭션을 발생시킨 블록체인 계정의 개인키로 서명이 이루어져 각 트랜잭션 투표마다 자체적인 암호학적 증명을 가집니다. **_인프라 블록체인(InfraBlockchain)_** 의 투표는 다음과 같은 특성을 가지고 있습니다:
 
@@ -60,7 +60,7 @@ impl SignedExtension for ChargeSystemToken {
 
 - Seed Trust Node Pool: 금융 기관이나 정부 조직과 같이 어떠한 상황에서도 정직한 노드를 운영하는 노드를 관리하는 풀입니다. 
 
-<img src="../../../media/images/docs/validator-pool.png">
+![](../../../media/images/docs/validator-pool.png)
 
 **_인프라 블록체인(InfraBlockchain)_** 의 초기 밸리데이터 구성은 _Seed Trust_ 밸리데이터로 구성된 허가형 블록체인으로 시작하여 네트워크가 안정됨에 따라 _PoT_ 컨센서스 메커니즘을 이용하여 누구나 블록 생성자로 참여할 수 있는 퍼블릭 블록체인으로 전환될 수 있습니다.
 
@@ -68,7 +68,21 @@ impl SignedExtension for ChargeSystemToken {
 
 ## Aggregated Proof-of-Transaction(PoT)
 
-**_인프라 블록체인(InfraBlockchain)_** 은 **_인프라 릴레이체인(InfraRelaychain)_** 을 중심으로 여러 개의 인프라 블록체인 블록들이 병렬적으로 실행되는 멀티체인 아키텍처입니다. 각 블록마다 **_인프라 릴레이체인(InfraRelaychain)_** 의 블록 생성자(밸리데이터) 후보에 대한 투표가 선택적으로 포함되어 있고 **_인프라 블록스페이스(InfraBlockspace)_** 안에서 여러 개의 인프라 블록체인 블록이 실행될 때 해당 투표들이 수집되어 **_인프라 릴레이체인(InfraRelayChain)_** 의 한 상태로 저장됩니다. 특정 시점이 지나면 블록체인 프로토콜에 의해 수집된 투표를 바탕으로 블록 생성자 후보들에 대한 집계가 이루어지고 투표를 많이 받은 후보가 블록 생성자로 선출되게 됩니다. 
+**_인프라 블록체인(InfraBlockchain)_** 은 **_인프라 릴레이체인(InfraRelaychain)_** 을 중심으로 여러 개의 패러체인 블록들이 병렬적으로 실행되는 멀티체인 아키텍처입니다. **_인프라 릴레이체인(InfraRelayChain)_** 밸리데이터는 각 패러체인 블록을 검증하고 해당 블록에 포함된 투표를 수집하는 역할을 수행하며 이를 _Aggregated Proof-of-Transaction_ 이라 합니다. 
+
+각 블록마다 **_인프라 릴레이체인(InfraRelaychain)_** 의 블록 생성자(밸리데이터) 후보에 대한 투표가 선택적으로 포함되어 있고 검증 과정에서 해당 투표들이 수집되어 **_인프라 릴레이체인(InfraRelayChain)_** 의 한 상태로 저장됩니다. 특정 시점이 지나면 수집된 투표를 바탕으로 블록 생성자 후보들에 대한 집계가 이루어지고 투표를 많이 받은 후보가 블록 생성자로 선출되게 됩니다. 
+
+```rust
+#[pallet::storage]
+#[pallet::unbounded]
+pub type PotValidatorPool<T: Config> = StorageValue<_, VotingStatus<T>, ValueQuery>;
+
+#[derive(Encode, Decode, Clone, PartialEq, RuntimeDebug, TypeInfo)]
+#[scale_info(skip_type_params(T))]
+pub struct VotingStatus<T: Config> {
+	pub status: Vec<(T::InfraVoteAccountId, T::InfraVotePoints)>,
+}
+```
 
 ## 시간에 따라 증가하는 PoT 투표 가중치 (Block time weight)
 
@@ -81,6 +95,6 @@ impl SignedExtension for ChargeSystemToken {
 
 ## 다음 단계로 넘어가기
 
-- [PoT 로 밸리데이터 선출하기](../tutorials/how-to-vote-with-taav)
+- [PoT 로 밸리데이터 선출하기](../tutorials/how-to-vote-with-taav.md)
 - [시스템 토큰 알아보기](./system-token.md)
-- [ParasInclusion]()
+- [ParasInclusion](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/infrablockspace/runtime/parachains/src/inclusion/mod.rs)
