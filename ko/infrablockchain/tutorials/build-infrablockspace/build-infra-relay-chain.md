@@ -11,7 +11,7 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [Rust 및 Rust 툴체인](/install/)을 설치하여 Substrate 개발 환경을 구성했는지 확인하세요.
+- [Rust 및 Rust 툴체인](/ko/substrate/install/)을 설치하여 Substrate 개발 환경을 구성했는지 확인하세요.
 
 - Polkadot [아키텍처 및 용어](https://wiki.polkadot.network/docs/learn-architecture)에 대해 일반적으로 알고 있는지 확인하세요.
 

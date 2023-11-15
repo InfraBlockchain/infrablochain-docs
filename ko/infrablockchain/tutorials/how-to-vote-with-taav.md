@@ -20,7 +20,7 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [인프라 릴레이 체인 빌드하기](../tutorial/build-infrablockspace//build-infra-relay-chain.md) 와 [패러체인 빌드하기](../tutorial/build-infrablockspace/build-a-parachain.md) 를 통해 테스트에 사용할 바이너리를 생성하는 방법을 알아보기
+- [인프라 릴레이 체인 빌드하기](/ko/infrablockchain/tutorials/build-infrablockspace/build-infra-relay-chain.md) 와 [패러체인 빌드하기](../tutorials/build-infrablockspace/build-a-parachain.md) 를 통해 테스트에 사용할 바이너리를 생성하는 방법을 알아보기
 
 - [Proof-of-Transaction](../learn/proof-of-transaction.md) 에 대해 알아보기
 

@@ -9,7 +9,7 @@ keywords:
   - 교차 합의
 ---
 
-[Open message passing channels](/tutorials/build-a-parachain/open-message-passing-channels)에서는 메시지를 릴레이 체인으로 보내어 체인 간 양방향 통신 채널을 열어보았습니다.
+[Open message passing channels](/ko/substrate/tutorials/build-a-parachain/open-message-passing-channels)에서는 메시지를 릴레이 체인으로 보내어 체인 간 양방향 통신 채널을 열어보았습니다.
 이와 비슷한 전략을 사용하여 로컬 체인이 원격 체인의 계정을 관리할 수 있는 메시지를 보낼 수 있습니다.
 이 튜토리얼에서는 패러체인 B가 패러체인 A의 릴레이 체인에 있는 sovereign 계정으로 자산을 이전합니다.
 

@@ -22,7 +22,7 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [좀비넷 테스트 네트워크에서 시스템 토큰 사용하기](../../test/simulate-parachains.ko.md)
+- [좀비넷 테스트 네트워크에서 시스템 토큰 사용하기](../../substrate/test/simulate-parachains.ko.md)
 
 ## 파라체인에 토큰 생성 및 발행하기
 
