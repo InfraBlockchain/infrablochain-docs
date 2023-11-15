@@ -12,7 +12,7 @@ keywords:
 
 서버에 체인을 배포 하는 방법에 대해 작성되어 있는 페이지입니다.
 
-설명에 앞서, 이 문서에서는 네트워크를 통해 체인 스펙 파일을 다운로드받아 사용하는 방법만을 설명합니다. 만약 이렇게 진행을 원치않을 경우, 사용자께서 파일을 업로드하시거나 서버에서 직접 체인 스펙 파일을 만드시는 등 다양한 방법을 사용하셔서 체인 스펙 파일을 등록하시기를 바랍니다.
+설명에 앞서, 이 문서에서는 네트워크를 통해 체인 스펙 파일을 다운로드받아 사용하는 방법만을 설명합니다. 만약 이렇게 진행을 원치않을 경우, 파일을 업로드하시거나 서버에서 직접 체인 스펙 파일을 만드시는 등 다양한 방법을 사용하셔서 체인 스펙 파일을 등록하시기를 바랍니다.
 
 서버 배포 방법은 3가지 방법이 있습니다.
 
@@ -570,7 +570,5 @@ kubectl apply -f pvc.yaml -f service.yaml -f statefuleset.yaml
 
 - [가이드: 체인 스펙 커스텀](/reference/how-to-guides/basics/customize-a-chain-specification/)
 - [노드 템플릿 체인 스펙](https://github.com/substrate-developer-hub/substrate-node-template/blob/master/node/src/chain_spec.rs)
-- [ChainSpec 구조체](https://paritytech.github.io/substrate/master/sc_service/struct.GenericChainSpec.html)
 - [인프라 블록 스페이스](/infrablockchain/learn/architecture/infra-blockspace)
 - [파라체인](/reference/how-to-guides/parachains/)
-- 
