@@ -1,8 +1,9 @@
 ---
-title: 인프라 DID
-description: DID 에 특화된 블록체인에 대한 전반적인 내용을 다룹니다.
+title: Infra DID 체인 구축하기 
+description: 이 튜토리얼은 인프라 블록스페이스의 체인 중 하나인 Infra DID 체인을 빌드하고 실행하는 과정을 설명합니다.
 keywords:
   - 파라체인
+  - 서비스체인
   - DID
 ---
 
@@ -10,55 +11,15 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-<!-- 
-  해당 내용이 담긴 문서가 생성되면 그 문서로 링크를 연결 해 주세요
--->
+- [Infra DID](/ko/infrablockchain/service-chains/infra-did-parachain.md)
 
-- [로컬 파라체인 구축하기](./infra-did-parachain.md)
-
-- [로컬 릴레이 체인 구축하기](./infra-did-parachain.md)
-
-- [좀비넷 사용하기](./infra-did-parachain.md)
-
-## DID란
-
-**DID**는 Decentralized Identifier의 약자로, 디지털 신원의 주체가 생성, 소유하고 제어하는 새로운 유형의 식별자를 나타냅니다.
-
-![did-method](../../../media/images/docs/infrablockchain/parachains/did-method.png)
-
-DID는 중앙화된 시스템, 권한 또는 중개자와는 독립적으로 완전히 DID 주체의 제어 하에 있습니다. 이 기능은 블록체인 및 분산 원장 기술을 통해 가능하게 됩니다.
-
-DID의 주요 특징 및 이점은 다음과 같습니다:
-
-- 분산화: 중앙화된 시스템이 발행하고 관리하는 기존의 식별자와 달리, DID는 분산 네트워크에서 발행 및 관리됩니다.
-
-- 자기 주권: DID 주체는 자신의 식별자에 대한 전체 제어권을 가지고 있습니다. 어떤 권한의 허락 없이 자신의 DID를 생성, 업데이트 또는 삭제할 수 있습니다.
-
-- 보안: DID는 블록체인 또는 분산 원장 기술에 고착되므로 이러한 플랫폼의 암호학적 보안 속성을 상속받습니다. 또한 DID는 인증 및 통신을 안전하게 유지하기 위해 DPKI (Decentralized Public Key Infrastructure)와 함께 작동합니다.
-
-- 상호 운용성: DID는 다양한 시스템과 네트워크 간에 상호 운용될 수 있도록 설계되었습니다. 즉, 하나의 네트워크에서 생성된 DID는 다른 네트워크에서 사용되고 인식될 수 있습니다.
-
-## Infra DID
-
-인프라 블록스페이스의 파라체인 중 하나인 *Infra DID 파라체인* 은 DID 시스템을 제공하고 있으며 *Infra DID 파라체인* 이 제공하는 DID 를 *Infra DID* 라고 합니다.
-
-![infra-did-method](../../../media/images/docs/infrablockchain/parachains/infra-did-method.png)
-
-*Infra DID 파라체인* 은 기능에 따라 여러가지 팔렛을 포함하고 있습니다.
-
-![infra-did-pallet](../../../media/images/docs/infrablockchain/parachains/infra-did-pallet.png)
-
-
-Infra DID 파라체인과 통신할 수 있는 npm 라이브러리인 [infra-did-js](https://github.com/InfraBlockchain/infra-did-js/tree/main)가 존재합니다. 이를 사용하여 node.js 기반의 시스템에서 Infra DID을 사용할 수 있습니다.
-
-
-## Infra DID 파라체인
+## Infra DID 체인
 
 이전 튜토리얼을 완료한 경우 로컬에 *인프라 릴레이 체인* 레포지토리가 있어야 합니다.
 
 1. 컴퓨터의 터미널 셸을 엽니다.
 
-2. 다음 명령을 실행하여 Infra DID 파라체인 저장소를 복제합니다:
+2. 다음 명령을 실행하여 Infra DID 체인 저장소를 복제합니다:
 
    ```bash
    git clone https://github.com/InfraBlockchain/infra-did-substrate
@@ -101,9 +62,9 @@ Infra DID 파라체인과 통신할 수 있는 npm 라이브러리인 [infra-did
 
 ## 로컬 노드 시작하기
 
-노드가 컴파일되면 좀비넷을 사용하여 릴레이 체인과 Infra DID 파라체인을 로컬 환경에서 구축 할 준비가 되었습니다.
+노드가 컴파일되면 좀비넷을 사용하여 릴레이 체인과 Infra DID 체인을 로컬 환경에서 구축 할 준비가 되었습니다.
 
-로컬 Infra DID 파라체인을 시작하려면 다음 단계를 따르세요:
+로컬 Infra DID 체인을 시작하려면 다음 단계를 따르세요:
 
 1. 좀비넷 설정을 확인합니다
 
@@ -170,7 +131,7 @@ Infra DID 파라체인과 통신할 수 있는 npm 라이브러리인 [infra-did
 
    만약 일치하지 않는다면 로컬 환경에 맞게 변경 해 줍니다.
 
-2. 좀비넷을 실행하여 릴레이 체인과 파라체인을 실행합니다.
+2. 좀비넷을 실행하여 릴레이 체인과 체인을 실행합니다.
 
     ```shell
     zombienet spawn --provider native zombienet/local-dev.toml
@@ -178,9 +139,9 @@ Infra DID 파라체인과 통신할 수 있는 npm 라이브러리인 [infra-did
 
 3. 정상적으로 실행 되었다면 다음과 유사한 터미널 쉘을 확인할 수 있습니다.
   
-   ![zombienet](../../../media/images/docs/infrablockchain/parachains/infra-did-parachain-zombienet.png)
+   ![zombienet](/media/images/docs/infrablockchain/service-chains/infra-did-parachain-zombienet.png)
 
-4. (선택) Infra DID 파라체인의 노드를 확인하면 아래와 유사한 로그를 확인할 수 있습니다.
+4. (선택) Infra DID 체인의 노드를 확인하면 아래와 유사한 로그를 확인할 수 있습니다.
 
    ```shell
    2023-10-30 14:32:09.155  INFO main sc_cli::runner: Infra DID Node
@@ -260,6 +221,4 @@ Infra DID 파라체인과 통신할 수 있는 npm 라이브러리인 [infra-did
 
 ## 다음 단계로 넘어가기
 
-- [Infra DID 생성하기](../tutorials/parachains/create-infra-did.md)
-
-- [infra-did-js 레포지토리](https://github.com/InfraBlockchain/infra-did-js/tree/main)
+- [Infra DID에 서비스 엔드포인트 등록하기](./add-services.md)
