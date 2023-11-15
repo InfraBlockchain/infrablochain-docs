@@ -1,2 +1,16 @@
-# offchain-workers
+---
+title: 오프체인 워커
+description: 오프체인 워커 사용 방법을 보여주는 빠른 참조 가이드입니다.
+keywords:
+---
 
+_오프체인 워커_ 카테고리의 _How-to_ 가이드는 오프체인 작업에 대한 일반적인 사용 사례를 보여줍니다.
+
+- [오프체인 HTTP 요청 보내기](/reference/how-to-guides/offchain-workers/offchain-http-requests/)
+- [오프체인 로컬 스토리지](/reference/how-to-guides/offchain-workers/offchain-local-storage/)
+- [오프체인 인덱싱](/reference/how-to-guides/offchain-workers/offchain-indexing/)
+
+오프체인 스토리지는 온체인 스토리지와 별개임을 주의해야 합니다.
+오프체인 워커가 수집하거나 처리한 데이터를 직접 온체인 스토리지에 보낼 수 없습니다.
+오프체인 워커가 수집하거나 처리한 데이터를 저장하려면, 즉 체인의 상태를 수정하려면 오프체인 워커가 온체인 스토리지 시스템을 수정하는 트랜잭션을 보낼 수 있도록 해야 합니다.
+오프체인 워커가 트랜잭션을 보낼 수 있도록 준비하는 예제는 [오프체인 워커 추가하기](/tutorials/build-application-logic/add-offchain-workers/)를 참조하세요.
