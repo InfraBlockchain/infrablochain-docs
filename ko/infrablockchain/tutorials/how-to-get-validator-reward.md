@@ -10,11 +10,14 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [트랜잭션 수수료로 사용된 시스템 토큰 수집](../learn/system-token-aggregate.md)
+- [시스템 토큰 등록 및 수수료로 사용해보기](/ko/infrablockchain/tutorials/how-to-pay-transaction-fee.md)
 
 ## 개요
 
 인프라 블록체인에서는 벨리데이터에게 블록 생성 및 검증에 대한 댓가로 보상을 지급합니다. 벨리데이터에게 지급되는 보상은 유저들이 제출한 트랜잭션의 수수료로 구성됩니다. 
+
+![validator-reward-process](/media/images/docs/infrablockchain/tutorials/validator-reward-process.png)
+
 
 이 문서에서는 벨리데이터가 보상을 받는 방법에 대해서 설명합니다.
 
@@ -33,7 +36,7 @@ keywords:
 
 4. 조회하고자 하는 주소를 넣어 확인합니다.
 
-![storage](../../../media/images/docs/infrablockchain/tutorials/validator-reward-storage.png)
+![storage](/media/images/docs/infrablockchain/tutorials/validator-reward-storage.png)
 
 ## 벨리데이터 보상 받기
 
@@ -50,7 +53,7 @@ keywords:
 
 4. 적절한 값을 넣어 트랜잭션을 제출합니다.
 
-![claim](../../../media/images/docs/infrablockchain/tutorials/reward-claim.png)
+![claim](/media/images/docs/infrablockchain/tutorials/reward-claim.png)
 
 `validatorRewardManager` 팔레트의 `claim` 익스트린식은 벨리데이터의 계정과 시스템 토큰 ID를 입력으로 받습니다. 
 

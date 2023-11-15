@@ -84,9 +84,17 @@ pub struct VotingStatus<T: Config> {
 }
 ```
 
+## 시간에 따라 증가하는 PoT 투표 가중치 (Block time weight)
+
+최근 트랜잭션 투표에 더 많은 가중치를 두기 위해서 블록 시간 가중치(Block time weight)가 곱해집니다. 가중치는 1년에 2배의 비율로 증가합니다. 기준이 되는 시간은 인프라 릴레이 체인의 제네시스 블록(0번째 블록)이며, 릴레이 체인 블록 기준으로 가중치가 곱해집니다. 블록 시간이 반영된 트랜잭션 투표 가중치의 정확한 계산은 아래와 같이 이뤄집니다.
+
+```
+// 1년에 해당하는 릴레이 체인 블록 수(6초당 한 블럭) = 5_256_000
+블록 시간이 반영된 트랜잭션 투표 가중치 = 2^(현재 릴레이 체인 블록 / 1년에 해당하는 릴레이 체인 블록 수)
+```
 
 ## 다음 단계로 넘어가기
 
 - [PoT 로 밸리데이터 선출하기](../tutorials/how-to-vote-with-taav.md)
-- [시스템 토큰 알아보기](../learn/system-token.md)
+- [시스템 토큰 알아보기](./system-token.md)
 - [ParasInclusion](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/infrablockspace/runtime/parachains/src/inclusion/mod.rs)

@@ -76,11 +76,11 @@ keywords:
 3. 로컬 릴레이 체인 노드에 연결합니다.
 4. **네트워크**를 클릭하고 **파라체인**을 선택합니다.
 
-   ![파라체인으로 이동](../../../../media/images/docs/tutorials/parachains/network-parachains.png)
+   ![파라체인으로 이동](/media/images/docs/tutorials/parachains/network-parachains.png)
 
 5. **파라스레드**를 클릭한 다음 **ParaId**를 클릭합니다.
 
-   ![식별자 예약](../../../../media/images/docs/tutorials/parachains/paraid-reserve.png)
+   ![식별자 예약](/media/images/docs/tutorials/parachains/paraid-reserve.png)
 
 6. 식별자를 예약하는 트랜잭션의 설정을 검토한 다음 **제출**을 클릭합니다.
 

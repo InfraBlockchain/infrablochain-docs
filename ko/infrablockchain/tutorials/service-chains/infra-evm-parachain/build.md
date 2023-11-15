@@ -1,8 +1,9 @@
 ---
-title: 인프라 EVM 
-description: EVM 호환 블록체인에 대한 전반적인 내용을 다룹니다.
+title: Infra EVM 체인 구축하기 
+description: 이 튜토리얼은 인프라 블록스페이스의 체인 중 하나인 Infra EVM 체인을 빌드하고 실행 하는 과정을 설명합니다.
 keywords:
   - 파라체인
+  - 서비스체인
   - EVM
 ---
 
@@ -10,41 +11,15 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-<!-- 
-  해당 내용이 담긴 문서가 생성되면 그 문서로 링크를 연결 해 주세요
--->
+- [Infra EVM](/ko/infrablockchain/service-chains/infra-evm-parachain.md)
 
-- [로컬 파라체인 구축하기](./infra-did-parachain.md)
-
-- [로컬 릴레이 체인 구축하기](./infra-did-parachain.md)
-
-- [좀비넷 사용하기](./infra-did-parachain.md)
-
-## EVM이란
-
-EVM은 Ethereum Virtual Machine의 약자입니다. EVM은 이더리움 네트워크에서 스마트 컨트랙트를 실행하기 위한 런타임 환경입니다. 주요 특성 및 기능은 다음과 같습니다:
-
-- 스마트 계약 실행: EVM의 주요 역할은 스마트 컨트랙트를 실행하는 것입니다. 스마트 계약은 계약의 조건이 코드로 작성된 자체 실행 계약입니다. 이더리움에서는 주로 Solidity라는 프로그래밍 언어로 작성됩니다.
-
-- 튜링 완전성: EVM은 튜링 완전성을 가지고 있어 충분한 시간과 자원이 주어지면 어떤 알고리즘도 실행할 수 있습니다. 이로 인해 개발자는 스마트 계약에 복잡한 로직과 작업을 작성할 수 있습니다.
-
-- 가스: EVM에서의 작업 실행은 컴퓨터 파워가 필요하고, 사용자는 이 계산에 "가스"라는 단위로 지불합니다. 가스는 이더리움 네트워크의 작업에 비용이 발생함으로써 스팸 및 악의적 활동을 방지합니다. 필요한 가스의 양은 수행되는 작업의 복잡성에 따라 다릅니다.
-
-- 합의: EVM에서 스마트 계약이 실행되고 상태가 변경되면 이더리움 네트워크의 모든 노드는 결과에 동의해야 합니다. 이를 통해 이더리움 원장이 모든 노드에서 일관성 있게 유지됩니다.
-
-- 바이트 코드: 개발자는 EVM이 직접 이해하는 언어로 스마트 컨트랙트를 작성하지 않습니다. 대신 Solidity와 같은 언어는 EVM 바이트 코드로 컴파일되며, EVM이 실행하는 것입니다.
-
-- 분산화: 중앙 집중식 시스템과 달리 EVM은 전 세계 수천 대의 기기에서 실행되어 이더리움을 분산화합니다. 이러한 분산화는 이더리움이 검열 저항성을 가지며 높은 내결함성을 가진다는 것을 보장합니다.
-
-EVM은 이더리움 생태계에서 중요한 역할을 하며, 분산 애플리케이션(dApps)을 실행하고 Ether(ETH)와 같은 암호화 자산을 관리하는 데 필요한 인프라를 제공합니다.
-
-## Infra EVM 파라체인
+## Infra EVM 체인
 
 이전 튜토리얼을 완료한 경우 로컬에 *인프라 릴레이 체인* 레포지토리가 있어야 합니다.
 
 1. 컴퓨터의 터미널 셸을 엽니다.
 
-2. 다음 명령을 실행하여 Infra EVM 파라체인 저장소를 복제합니다:
+2. 다음 명령을 실행하여 Infra EVM 체인 저장소를 복제합니다:
 
    ```bash
    git clone https://github.com/InfraBlockchain/infra-evm-parachain
@@ -87,9 +62,9 @@ EVM은 이더리움 생태계에서 중요한 역할을 하며, 분산 애플리
 
 ## 로컬 노드 시작하기
 
-노드가 컴파일되면 좀비넷을 사용하여 릴레이 체인과 Infra DID 파라체인을 로컬 환경에서 구축 할 준비가 되었습니다.
+노드가 컴파일되면 좀비넷을 사용하여 릴레이 체인과 Infra DID 체인을 로컬 환경에서 구축 할 준비가 되었습니다.
 
-로컬 Infra DID 파라체인을 시작하려면 다음 단계를 따르세요:
+로컬 Infra DID 체인을 시작하려면 다음 단계를 따르세요:
 
 1. 좀비넷 설정을 확인합니다
 
@@ -158,7 +133,7 @@ EVM은 이더리움 생태계에서 중요한 역할을 하며, 분산 애플리
 
    만약 일치하지 않는다면 로컬 환경에 맞게 변경 해 줍니다.
 
-2. 좀비넷을 실행하여 릴레이 체인과 파라체인을 실행합니다.
+2. 좀비넷을 실행하여 릴레이 체인과 체인을 실행합니다.
 
     ```shell
     zombienet spawn --provider native zombienet-config.toml
@@ -166,9 +141,9 @@ EVM은 이더리움 생태계에서 중요한 역할을 하며, 분산 애플리
 
 3. 정상적으로 실행 되었다면 다음과 유사한 터미널 쉘을 확인할 수 있습니다.
   
-   ![zombienet](../../../media/images/docs/infrablockchain/parachains/infra-evm-parachain-zombienet.png)
+   ![zombienet](media/images/docs/infrablockchain/service-chains/infra-evm-parachain-zombienet.png)
 
-4. (선택) Infra EVM 파라체인의 노드를 확인하면 아래와 유사한 로그를 확인할 수 있습니다.
+4. (선택) Infra EVM 체인의 노드를 확인하면 아래와 유사한 로그를 확인할 수 있습니다.
 
    ```shell
     2023-10-30 14:49:31.601  INFO main sc_cli::runner: Infrablockspace EVM Parachain
@@ -300,7 +275,7 @@ EVM은 이더리움 생태계에서 중요한 역할을 하며, 분산 애플리
     2023-10-30 14:50:41.066  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #0 (0x3289…8cf0), finalized #0 (0x3289…8cf0), ⬇ 79 B/s ⬆ 81 B/s
     2023-10-30 14:50:42.040  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #7 (0x7f32…3263)
    ```
-
+   
 ## 다음 단계로 넘어가기
 
-- [EVM으로 자산 이동하기](../tutorials/parachains/infra-evm-parachain/deposit-and-withdraw-token.md)
+- [EVM으로 자산 이동하기](./../tutorials/service-chains/infra-evm-parachain/deposit-and-withdraw-token.md)
