@@ -68,7 +68,7 @@ impl SignedExtension for ChargeSystemToken {
 
 ## Aggregated Proof-of-Transaction(PoT)
 
-**_인프라 블록체인(InfraBlockchain)_** 은 **_인프라 릴레이체인(InfraRelaychain)_** 을 중심으로 여러 개의 패러체인 블록들이 병렬적으로 실행되는 멀티체인 아키텍처입니다. **_인프라 릴레이체인(InfraRelayChain)_** 밸리데이터는 각 패러체인 블록을 검증하고 해당 블록에 포함된 투표를 수집하는 역할을 수행하며 이를 _Aggregated Proof-of-Transaction_ 이라 합니다. 
+**_인프라 블록체인(InfraBlockchain)_** 은 **_인프라 릴레이체인(InfraRelaychain)_** 을 중심으로 여러 개의 파라체인 블록들이 병렬적으로 실행되는 멀티체인 아키텍처입니다. **_인프라 릴레이체인(InfraRelayChain)_** 밸리데이터는 각 파라체인 블록을 검증하고 해당 블록에 포함된 투표를 수집하는 역할을 수행하며 이를 _Aggregated Proof-of-Transaction_ 이라 합니다. 
 
 각 블록마다 **_인프라 릴레이체인(InfraRelaychain)_** 의 블록 생성자(밸리데이터) 후보에 대한 투표가 선택적으로 포함되어 있고 검증 과정에서 해당 투표들이 수집되어 **_인프라 릴레이체인(InfraRelayChain)_** 의 한 상태로 저장됩니다. 특정 시점이 지나면 수집된 투표를 바탕으로 블록 생성자 후보들에 대한 집계가 이루어지고 투표를 많이 받은 후보가 블록 생성자로 선출되게 됩니다. 
 

@@ -9,7 +9,7 @@ keywords:
 
 ![](../../../../media/images/docs/relay-chain.png)
 
-**_인프라 릴레이 체인(InfraRelayChain)_** 은 **_인프라 블록스페이스(InfraBlockspace)_** 의 중심으로써 서로 다른 블록체인간 상호 운용성(interoperablitiy)을 통해 확장성(scalability)과 공유된 보안(shared security)를 통한 안정성(security)에 집중한 블록체인 네트워크입니다. **_인프라 릴레이 체인(InfraRelayChain)_** 의 가장 큰 역할은 서로 다른 블록체인이 유기적으로 연결될 수 있도록 하는 것입니다. 따라서 스마트 컨트랙트를 실행하거나 토큰 전송 같은 기본적인 기능들은 패러체인에 위임하여 가장 최소한의 기능(e.g 패러체인 블록 검증)으로 동작할 수 있습니다.
+**_인프라 릴레이 체인(InfraRelayChain)_** 은 **_인프라 블록스페이스(InfraBlockspace)_** 의 중심으로써 서로 다른 블록체인간 상호 운용성(interoperablitiy)을 통해 확장성(scalability)과 공유된 보안(shared security)를 통한 안정성(security)에 집중한 블록체인 네트워크입니다. **_인프라 릴레이 체인(InfraRelayChain)_** 의 가장 큰 역할은 서로 다른 블록체인이 유기적으로 연결될 수 있도록 하는 것입니다. 따라서 스마트 컨트랙트를 실행하거나 토큰 전송 같은 기본적인 기능들은 파라체인에 위임하여 가장 최소한의 기능(e.g 파라체인 블록 검증)으로 동작할 수 있습니다.
 
 ## 파라체인(Parachain)
 

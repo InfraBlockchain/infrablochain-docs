@@ -8,7 +8,7 @@ keywords:
   - Transaction fee
 ---
 
-이 튜토리얼은 실제로 릴레이 체인(e.g **_InfraRelayChain_** )과 패러체인(e.g **_InfraBlockchain_**) 구조인 멀티체인 환경에서 발행한 토큰을 시스템 토큰으로 등록하고 가스비로 사용하는 방법에 대해 배워보겠습니다.
+이 튜토리얼은 실제로 릴레이 체인(e.g **_InfraRelayChain_** )과 파라체인(e.g **_InfraBlockchain_**) 구조인 멀티체인 환경에서 발행한 토큰을 시스템 토큰으로 등록하고 가스비로 사용하는 방법에 대해 배워보겠습니다.
 
 ## 튜토리얼 목표
 

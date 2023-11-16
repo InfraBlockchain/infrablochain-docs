@@ -374,7 +374,7 @@ Patricia Merkle 트라이 데이터 구조는 데이터 집합의 항목들을 �
 
 [블록체인](#blockchain) 네트워크를 유지하는 데 도움을 주는 반신뢰(또는 불신하지만 잘 인센티브화된) 주체입니다.
 Substrate에서 검증자는 넓은 의미에서 [합의](#consensus) 시스템을 실행하는 [권한](#authority)에 해당합니다.
-[Polkadot](#polkadot-network)에서 검증자는 데이터 가용성을 보장하고 [패러체인](#parachain) 후보 [블록](#block)을 검증하는 등 다른 역할도 담당합니다.
+[Polkadot](#polkadot-network)에서 검증자는 데이터 가용성을 보장하고 [파라체인](#parachain) 후보 [블록](#block)을 검증하는 등 다른 역할도 담당합니다.
 
 ## WebAssembly (Wasm)
 

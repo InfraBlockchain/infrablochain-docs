@@ -6,7 +6,7 @@ keywords:
   - 시스템 토큰
 ---
 
-이 튜토리얼은 실제로 릴레이 체인(e.g **_InfraRelayChain_** )과 패러체인(e.g **_InfraBlockchain_**) 구조인 멀티체인 환경에서 [Aggregated TaaV(Transaction-as-a-Vote)](../learn/proof-of-transaction.md)를 이용하여 [PoT(Proof-of-Transaction)](../learn/proof-of-transaction.md) 에 기반한 릴레이 체인의 밸리데이터를 선출하는 방법을 알아 보겠습니다. 
+이 튜토리얼은 실제로 릴레이 체인(e.g **_InfraRelayChain_** )과 파라체인(e.g **_InfraBlockchain_**) 구조인 멀티체인 환경에서 [Aggregated TaaV(Transaction-as-a-Vote)](../learn/proof-of-transaction.md)를 이용하여 [PoT(Proof-of-Transaction)](../learn/proof-of-transaction.md) 에 기반한 릴레이 체인의 밸리데이터를 선출하는 방법을 알아 보겠습니다. 
 
 ## 튜토리얼 목표
 
@@ -20,7 +20,7 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [인프라 릴레이 체인 빌드하기](/ko/infrablockchain/tutorials/build-infrablockspace/build-infra-relay-chain.md) 와 [패러체인 빌드하기](../tutorials/build-infrablockspace/build-a-parachain.md) 를 통해 테스트에 사용할 바이너리를 생성하는 방법을 알아보기
+- [인프라 릴레이 체인 빌드하기](/ko/infrablockchain/tutorials/build-infrablockspace/build-infra-relay-chain.md) 와 [파라체인 빌드하기](../tutorials/build-infrablockspace/build-a-parachain.md) 를 통해 테스트에 사용할 바이너리를 생성하는 방법을 알아보기
 
 - [Proof-of-Transaction](../learn/proof-of-transaction.md) 에 대해 알아보기
 
@@ -30,9 +30,9 @@ keywords:
 
 해당 튜토리얼은 다음과 같은 순서로 진행될 예정입니다.
 
-- 좀비넷으로 테스트할 환경을 구축합니다. 본 튜토리얼에서는 _Infra Asset Hub_ 와 _Parachain Templete Node_ 두 개의 패러체인을 이용하여 진행할 예정입니다.
+- 좀비넷으로 테스트할 환경을 구축합니다. 본 튜토리얼에서는 _Infra Asset Hub_ 와 _Parachain Templete Node_ 두 개의 파라체인을 이용하여 진행할 예정입니다.
 
-- 각 패러체인에서 _시스템 토큰(Sysetm Token)_  을 이용하여 투표할 대상을 포함하여 트랜잭션을 요청합니다.
+- 각 파라체인에서 _시스템 토큰(Sysetm Token)_  을 이용하여 투표할 대상을 포함하여 트랜잭션을 요청합니다.
 
 - **_인프라 릴레이 체인(InfraRelayChain)_** 에서 투표가 수집되는 것을 확인합니다.
 
@@ -176,7 +176,7 @@ chmod +x zombienet-macos
   - `asset id` 옵션은 트랜잭션 수수료로 사용할 시스템 토큰을 명시하는 옵션입니다. 
 
   ```
-  - parachain_id: 패러체인 식별자
+  - parachain_id: 파라체인 식별자
   - pallet_index: Assets 팔렛 식별자
   - asset_id: 시스템 토큰의 식별자  
   ```
