@@ -9,9 +9,9 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [Rust 및 Rust 툴체인](/ko/substrate/install/)을 통해 Substrate 개발 환경을 구성 방법에 대해 확인합니다. 
+- [Rust 및 Rust 툴체인](/ko/substrate/install/rust-toolchain.ko.md)을 통해 Substrate 개발 환경을 구성 방법에 대해 확인합니다. 
 
-- 인프라 블록체인의 기반이 되는 [멀티체인 아키텍처 및 용어](https://wiki.polkadot.network/docs/learn-architecture)에 대한 배경 지식을 확인합니다.
+- [멀티체인 아키텍처 및 용어](../../learn/architecture/infra-relay-chain.md)에 대한 배경 지식을 확인합니다.
 
 ## 튜토리얼 목표
 

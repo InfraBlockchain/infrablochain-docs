@@ -179,7 +179,7 @@ Holding 레지스터에 예치된 자산을 사용하여 실행 비용을 지불
 
 5. 사용할 총 자산을 지정합니다.
 
-6. 이 명령에 대한 가중치(리소스 사용량) 제한을 설정하지 않으려면 **Unlimited** 를 선택합니다.
+6. 이 명령에 대한 가중치(리소스 사용량, weight) 제한을 설정하지 않으려면 **Unlimited** 를 선택합니다.
 
    ![BuyExecution 및 설정](/media/images/docs/tutorials/parachains/buy-execution-open.png)
 
@@ -238,7 +238,7 @@ Holding 레지스터에 예치된 자산을 사용하여 실행 비용을 지불
 
 - 남은 자산을 환불하고 환불된 자산을 _soverign 게정_ 에 입금합니다.
 
-추가 구성 및 구체적인 기술적 질문에 대한 답변을 위해 [Substrate 및 Polkadot Stack Exchange](https://substrate.stackexchange.com/)에서 다음 태그를 사용해 보세요:
+추가 구성 및 구체적인 기술적 질문에 대한 답변을 위해 [Stack Exchange](https://substrate.stackexchange.com/)에서 다음 태그를 사용해 보세요:
 
 - xcm
 - hrmp
