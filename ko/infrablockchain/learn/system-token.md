@@ -52,7 +52,7 @@ pub struct SystemTokenId {
 
 ## 블록 생성자로부터 선택된 트랜잭션 수수료 토큰
 
-![Alt text](../../../media/images/docs/system-token.png)
+![시스템 토큰 관리](../../../media/images/docs/infrablockchain/learn/system-token.png)
 
 위에서 잠깐 언급했듯이 인프라 블록체인에서 _시스템 토큰_ 은 트랜잭션 수수료로 사용될 수 있습니다. 다른 체인에서 생성된 임의의 토큰이 _시스템 토큰_ 으로 사용되려면 **_인프라 릴레이체인(InfraRelayChain)_** 의 밸리데이터들의 거버넌스가 필요합니다. 정족수 이상의 거버넌스가 이루어지면 해당 토큰은 _시스템 토큰_ 으로써 트랜잭션 수수료로 사용될 수 있게 되며 다른 체인에서도 해당 토큰을 이용하여 블록체인 트랜잭션이 이루어질 수 있습니다. 
 
@@ -61,5 +61,3 @@ pub struct SystemTokenId {
 ## 다음으로 넘어가기
 
 - [트랜잭션 증명](../learn/proof-of-transaction.md)
-
-- [시스템 토큰 관리 팔레트]()

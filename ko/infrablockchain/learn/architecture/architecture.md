@@ -1,13 +1,27 @@
 ---
-title: 인프라 릴레이 체인
-description: 인프라 릴레이 체인에 대한 전반적인 내용을 다룹니다.
+title: 인프라 블록 스페이스 아키텍처
+description: 멀티체인 아키텍처에 대한 전반적인 내용을 다룹니다.
 keywords:
-  - 릴레이 체인
+  - 멀티체인
 ---
 
-## 인프라 릴레이 체인
+## 인프라 블록 스페이스(InfraBlockspace)
 
-![](../../../../media/images/docs/relay-chain.png)
+> 엔터프라이즈 멀티체인 아키텍처
+
+![](../../../../media/images/docs/infrablockchain/learn/relay-chain.png)
+
+### 개요
+
+**_블록 스페이스(Blockspace)_** 는 블록이 확정되고 실행될 수 있는 추상적인 공간입니다. 탈중화된 시스템을 이루기 위해서 반드시 필요한 개념이며 블록 체인의 존재이기도 합니다. 블록체인을 이용하는 애플리케이션 측면에서는 멈추지 않는 애플리케이션을 가능하게 합니다. 
+
+이더리움은 블록 스페이스을 제공한 최초의 블록체인입니다. 가상머신의과 블록 체인 리소스를 사용한만큼 책정되는 가스 미터링 개념을 도입하여 블록 스페이스 안에서 하나의 블록이 가용할 수 있는 자원을 한정 시키고 블록을 실행 시킵니다. 이를 기반으로 블록 스페이스을 활용한 여러 블록체인 프로토콜(e.g 폴카닷, 솔라나, 등) 이 생겨났고 각각의 고유의 기능을 가지고 있습니다.
+
+**_인프라 블록 스페이스(InfraBlockspace)_** 는 현대 컴퓨터의 CPU 처럼 서로 다른 블록체인(e.g 인프라 블록체인 혹은 스마트 컨트랙트)로 부터 생성되는 여러 블록들을 _멀티 쓰레드_ 방식 처럼 병렬적으로 실행시킵니다. 이것의 핵심은 **_실행 코어(Execution Core)_** 이며 한 코어당 한 개의 블록을 실행시킬 수 있습니다(현재 폴카닷에서는 한 개의 코어를 여러개로 분리시키는 _Agile Core Time_ 이 개발되고 있습니다). **_인프라 블록 스페이스(InfraBlockspace)_** 에서의 블록 생성자(밸리데이터)들은 _shared security_ 를 이루며 **_블록 스페이스(Blockspace)_** 을 제공할 뿐만 아니라 동일한 품질의 블록 스페이스을 제공하는 서비스 제공자 역할을 수행합니다. 
+
+기관 및 공공기관을 위한 엔터프라이즈 블록체인인 **_인프라 블록 스페이스(InfraBlockspace)_** 는 안전한 블록 스페이스을 제공하는 것이 핵심이며 이것을 위한 블록 스페이스 할당 메커니즘이 존재합니다.
+
+## 인프라 릴레이 체인
 
 **_인프라 릴레이 체인(InfraRelayChain)_** 은 **_인프라 블록스페이스(InfraBlockspace)_** 의 중심으로써 서로 다른 블록체인간 상호 운용성(interoperablitiy)을 통해 확장성(scalability)과 공유된 보안(shared security)를 통한 안정성(security)에 집중한 블록체인 네트워크입니다. **_인프라 릴레이 체인(InfraRelayChain)_** 의 가장 큰 역할은 서로 다른 블록체인이 유기적으로 연결될 수 있도록 하는 것입니다. 따라서 스마트 컨트랙트를 실행하거나 토큰 전송 같은 기본적인 기능들은 파라체인에 위임하여 가장 최소한의 기능(e.g 파라체인 블록 검증)으로 동작할 수 있습니다.
 
@@ -56,14 +70,14 @@ let pov = parachain_block_data.encode();
 
 ## 공유된 보안(Shared Security)
 
-![](../../../../media/images/docs/shared-security.png)
+![](../../../../media/images/docs/infrablockchain/learn/shared-security.png)
 
 파라체인이 되었을 때 가장 큰 이점은 _공유된 보안(Shared Security)_ 입니다. 각각의 파라체인은 독립적으로 밸리데이터를 구성할 필요없이 릴레이 체인 밸리데이터에 의해 블록 생성과 확정에 대한 안전을 보장받을 수 있습니다. 이로 인해 파라체인은 이러한 민감한 요소들을 신경쓰지 않고 각 서비스에 맞는 비지니스 로직에만 신경쓸 수 있습니다. 
 
 
 ## 파라체인 프로토콜
 
-![](../../../../media/images/docs/parachain-protocol.png)
+![](../../../../media/images/docs/infrablockchain/learn/parachain-protocol.png)
 
 파라체인(Parachain) 블록 생성부터 릴레이 체인에 포함(Inclusion) 및 확정(Approval)될 때까지 반복적으로 병렬로 수행할 수 있는 프로세스를 목표로 합니다. 이 프로토콜은 강력한 보안을 유지하는 동시에 효율적으로 파라체인이 운영될 수 있도록 합니다. 
 
@@ -76,3 +90,9 @@ let pov = parachain_block_data.encode();
 
 - **포함 파이프 라인(Inclusion Pipeline)** : 1) 콜래이터들이 보낸 블록들을 2) 밸리데이터들이 검증한 후 3) 정족수 이상의 유효성을 받으면 해당 블록을 4) **_지지(backed)_** 하고 릴레이 체인에 5) **_포함(included)_** 시키는 단계입니다. 하지만 아직 완전히 승인된 것은 아닌 단계입니다(**_pending approval_**)
 - **승인 과정(Approval Process)**: Inclusion 단계에 참여하지 않은 랜덤으로 선택된 릴레이 체인 밸리데이터에 의해 검증을 받은 후 해당 파라체인 블록을 최종적으로 승인(**_approved_**)하는 단계입니다.
+
+## 다음 단계로 넘어가기
+
+- [Blockspace over Blockchains](https://www.rob.tech/blog/polkadot-blockspace-over-blockchains/)
+
+- [Agile Core Time]()

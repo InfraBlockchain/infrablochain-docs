@@ -9,7 +9,7 @@ keywords:
 
 ## Transaction-as-a-Vote(TaaV)
 
-![](../../../media/images/docs/taav.png)
+![](../../../media/images/docs/infrablockchain/learn/taav.png)
 
 인프라 블록체인의 독자적인 합의 메커니즘인 **_PoT(Proof-of-Transaction)_** 를 이루는 핵심 아이디어는 _Taav(Transaction-as-a-Vote)_ 입니다. 인프라 블록체인의 트랙잭션 메타데이터에는 블록체인 합의 과정에 참여할 수 있거나 이미 참여하고 있는 블록 생성자 후보에 대한 투표(vote)가 선택적으로 포함될 수 있습니다. 블록 생성자 투표가 담긴 트랜잭션 메세지는 트랜잭션을 발생시킨 블록체인 계정의 개인키로 서명이 이루어져 각 트랜잭션 투표마다 자체적인 암호학적 증명을 가집니다. **_인프라 블록체인(InfraBlockchain)_** 의 투표는 다음과 같은 특성을 가지고 있습니다:
 
@@ -60,7 +60,7 @@ impl SignedExtension for ChargeSystemToken {
 
 - Seed Trust Node Pool: 금융 기관이나 정부 조직과 같이 어떠한 상황에서도 정직한 노드를 운영하는 노드를 관리하는 풀입니다. 
 
-![](../../../media/images/docs/validator-pool.png)
+![](../../../media/images/docs/infrablockchain/learn/validator-pool.png)
 
 **_인프라 블록체인(InfraBlockchain)_** 의 초기 밸리데이터 구성은 _Seed Trust_ 밸리데이터로 구성된 허가형 블록체인으로 시작하여 네트워크가 안정됨에 따라 _PoT_ 컨센서스 메커니즘을 이용하여 누구나 블록 생성자로 참여할 수 있는 퍼블릭 블록체인으로 전환될 수 있습니다.
 
@@ -89,8 +89,8 @@ pub struct VotingStatus<T: Config> {
 최근 트랜잭션 투표에 더 많은 가중치를 두기 위해서 블록 시간 가중치(Block time weight)가 곱해집니다. 가중치는 1년에 2배의 비율로 증가합니다. 기준이 되는 시간은 인프라 릴레이 체인의 제네시스 블록(0번째 블록)이며, 릴레이 체인 블록 기준으로 가중치가 곱해집니다. 블록 시간이 반영된 트랜잭션 투표 가중치의 정확한 계산은 아래와 같이 이뤄집니다.
 
 ```
-// 1년에 해당하는 릴레이 체인 블록 수(6초당 한 블럭) = 5_256_000
-블록 시간이 반영된 트랜잭션 투표 가중치 = 2^(현재 릴레이 체인 블록 / 1년에 해당하는 릴레이 체인 블록 수)
+- 1년에 해당하는 릴레이 체인 블록 수(6초당 한 블럭) = 5_256_000
+- 블록 시간이 반영된 트랜잭션 투표 가중치 = 2^(현재 릴레이 체인 블록 / 1년에 해당하는 릴레이 체인 블록 수)
 ```
 
 ## 다음 단계로 넘어가기

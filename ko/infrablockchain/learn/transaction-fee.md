@@ -171,4 +171,4 @@ _파라체인별 수수료 비율_ 은 멀티체인 아키텍처인 _**인프라
 
 ## 다음으로 넘어가기
 
-- [System-Token-Tx-Payment]()
+- [System-Token-Tx-Payment](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/frame/transaction-payment/system-token-tx-payment/src/lib.rs)
