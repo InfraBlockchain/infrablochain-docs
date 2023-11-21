@@ -31,7 +31,6 @@
       * [벤치마크](infrablockchain/tutorials/test/benchmark.ko.md)
       * [런타임 확인](infrablockchain/tutorials/test/check-runtime.ko.md)
       * [디버그](infrablockchain/tutorials/test/debug.ko.md)
-      * [파라체인 테스트 네트워크 설정하기](infrablockchain/tutorials/test/set-up-a-test-network.ko.md)
       * [테스트 네트워크에서 파라체인 시뮬레이션하기](infrablockchain/tutorials/test/simulate-parachains.ko.md)
       * [단위 테스트](infrablockchain/tutorials/test/unit-testing.ko.md)
     * [서비스체인](infrablockchain/tutorials/service-chains/README.md)
