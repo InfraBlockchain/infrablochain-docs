@@ -9,13 +9,13 @@ keywords:
 
 ## Transaction-as-a-Vote(TaaV)
 
-![](../../../media/images/docs/infrablockchain/learn/taav.png)
+![트랜잭션 투표](/media/images/docs/infrablockchain/learn/taav.png)
 
 인프라 블록체인의 독자적인 합의 메커니즘인 **_PoT(Proof-of-Transaction)_** 를 이루는 핵심 아이디어는 _Taav(Transaction-as-a-Vote)_ 입니다. 인프라 블록체인의 트랙잭션 메타데이터에는 블록체인 합의 과정에 참여할 수 있거나 이미 참여하고 있는 블록 생성자 후보에 대한 투표(vote)가 선택적으로 포함될 수 있습니다. 블록 생성자 투표가 담긴 트랜잭션 메세지는 트랜잭션을 발생시킨 블록체인 계정의 개인키로 서명이 이루어져 각 트랜잭션 투표마다 자체적인 암호학적 증명을 가집니다. **_인프라 블록체인(InfraBlockchain)_** 의 투표는 다음과 같은 특성을 가지고 있습니다:
 
 - 시스템 토큰 식별자: 투표의 가중치(weight)는 어떠한 [시스템 토큰](../learn/system-token.md) 으로 트랜잭션 수수료로 지불했는지에 따라 다르기 때문에 해당 토큰을 식별할 수 있는 `id` 가 포함됩니다.
 
-- 투표 대상: 투표할 대상은 블록체인 계정을 갖고 있어야 하며 그 타입은 **_인프라 릴레이체인(InfraRelaychain)_** 의 [블록체인 계정](../../learn/accounts-addresses-keys.ko.md) 이여야 합니다. 보통은 `AccountId32` 입니다.
+- 투표 대상: 투표할 대상은 블록체인 계정을 갖고 있어야 하며 그 타입은 **_인프라 릴레이체인(InfraRelaychain)_** 의 [블록체인 계정](/ko/substrate/learn/accounts-addresses-keys.ko.md) 이여야 합니다. 보통은 `AccountId32` 입니다.
 
 - 트랜잭션 가중치(Weight): 트랙잭션 투표의 가중치는 트랜잭션 수수료에 따라 다르게 책정됩니다. 
 
@@ -60,7 +60,7 @@ impl SignedExtension for ChargeSystemToken {
 
 - Seed Trust Node Pool: 금융 기관이나 정부 조직과 같이 어떠한 상황에서도 정직한 노드를 운영하는 노드를 관리하는 풀입니다. 
 
-![](../../../media/images/docs/infrablockchain/learn/validator-pool.png)
+![밸리데이터 풀](/media/images/docs/infrablockchain/learn/validator-pool.png)
 
 **_인프라 블록체인(InfraBlockchain)_** 의 초기 밸리데이터 구성은 _Seed Trust_ 밸리데이터로 구성된 허가형 블록체인으로 시작하여 네트워크가 안정됨에 따라 _PoT_ 컨센서스 메커니즘을 이용하여 누구나 블록 생성자로 참여할 수 있는 퍼블릭 블록체인으로 전환될 수 있습니다.
 

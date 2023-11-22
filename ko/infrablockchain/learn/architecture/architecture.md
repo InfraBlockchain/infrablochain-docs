@@ -3,13 +3,15 @@ title: 인프라 블록 스페이스 아키텍처
 description: 멀티체인 아키텍처에 대한 전반적인 내용을 다룹니다.
 keywords:
   - 멀티체인
+  - 릴레이체인
+  - 파라체인
 ---
 
 ## 인프라 블록 스페이스(InfraBlockspace)
 
 > 엔터프라이즈 멀티체인 아키텍처
 
-![](../../../../media/images/docs/infrablockchain/learn/relay-chain.png)
+![](/media/images/docs/infrablockchain/learn/relay-chain.png)
 
 ### 개요
 
@@ -70,14 +72,14 @@ let pov = parachain_block_data.encode();
 
 ## 공유된 보안(Shared Security)
 
-![](../../../../media/images/docs/infrablockchain/learn/shared-security.png)
+![](/media/images/docs/infrablockchain/learn/shared-security.png)
 
 파라체인이 되었을 때 가장 큰 이점은 _공유된 보안(Shared Security)_ 입니다. 각각의 파라체인은 독립적으로 밸리데이터를 구성할 필요없이 릴레이 체인 밸리데이터에 의해 블록 생성과 확정에 대한 안전을 보장받을 수 있습니다. 이로 인해 파라체인은 이러한 민감한 요소들을 신경쓰지 않고 각 서비스에 맞는 비지니스 로직에만 신경쓸 수 있습니다. 
 
 
 ## 파라체인 프로토콜
 
-![](../../../../media/images/docs/infrablockchain/learn/parachain-protocol.png)
+![](/media/images/docs/infrablockchain/learn/parachain-protocol.png)
 
 파라체인(Parachain) 블록 생성부터 릴레이 체인에 포함(Inclusion) 및 확정(Approval)될 때까지 반복적으로 병렬로 수행할 수 있는 프로세스를 목표로 합니다. 이 프로토콜은 강력한 보안을 유지하는 동시에 효율적으로 파라체인이 운영될 수 있도록 합니다. 
 
@@ -95,4 +97,4 @@ let pov = parachain_block_data.encode();
 
 - [Blockspace over Blockchains](https://www.rob.tech/blog/polkadot-blockspace-over-blockchains/)
 
-- [Agile Core Time]()
+<!-- - [Agile Core Time]() -->

@@ -21,7 +21,7 @@ keywords:
 
 - [로컬 릴레이 체인 준비](./build-infra-relay-chain.md) 튜토리얼을 통해 로컬 릴레이 체인을 구성 방법에 대해 확인합니다.
 
-- [커스텀 체인 스펙](../../../substrate/reference/how-to-guides/basics/customize-a-chain-specification.ko.md)을 구성하는 방법에 대해 확인합니다. 
+- [커스텀 체인 스펙](/ko/substrate/reference/how-to-guides/basics/customize-a-chain-specification.ko.md)을 구성하는 방법에 대해 확인합니다. 
 
 ## 파라체인 템플릿 빌드하기
 
@@ -53,15 +53,15 @@ keywords:
 2. 브라우저에서 [인프라 블록 스페이스 익스플로러](https://portal.infrablockspace.net/#/explorer)를 엽니다. 
 3. 익스플로러 탭에서 왼쪽 상단 탭을 클릭하여 `DEVELOPMENT` 섹션을 눌러 노드를 시작할 때 설정한 RPC 포트를 이용해 로컬 릴레이 체인에 연결합니다.
 
-   ![로컬 네트워크 연결](../../../../media/images/docs/connect-network.png)
+   ![로컬 네트워크 연결](/media/images/docs/infrablockchain/tutorials/build/connect-network.png)
 
 4. **네트워크**를 클릭하고 **파라체인**을 선택합니다.
 
-   ![파라체인으로 이동](/media/images/docs/tutorials/parachains/network-parachains.png)
+   ![파라체인으로 이동](/media/images/docs/infrablockchain/tutorials/build/network-parachains.png)
 
 5. **파라스레드**를 클릭한 다음 **ParaId**를 클릭합니다.
 
-   ![파라체인 식별자 예약](/media/images/docs/tutorials/parachains/paraid-reserve.png)
+   ![파라체인 식별자 예약](/media/images/docs/infrablockchain/tutorials/build/paraid-reserve.png)
 
 6. 파라체인 식별자를 예약하는 트랜잭션 구성을 확인한 후 **제출**을 클릭합니다.
 
