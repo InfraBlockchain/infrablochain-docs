@@ -5,7 +5,7 @@
     * [아키텍처](infrablockchain/learn/architecture/README.md)
       * [아키텍처](infrablockchain/learn/architecture/architecture.md)
       * [네트워크 참여자](infrablockchain/learn/architecture/network-participants.md)
-      * [파라체인](infrablockchain/learn/architecture/README.md)
+      * [파라체인](infrablockchain/learn/architecture/parachain/README.md)
         * [시스템 파라체인](infrablockchain/learn/architecture/parachain/system-parachains.md)
         <!-- * [파라체인 프로토콜](infrablockchain/learn/architecture/parachain/parachain-protocol.md) -->
     * [시스템 토큰](infrablockchain/learn/system-token.md)
