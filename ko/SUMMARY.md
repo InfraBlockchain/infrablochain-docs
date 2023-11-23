@@ -3,11 +3,11 @@
 * [인프라 블록체인](infrablockchain/README.md)
   * [배우기](infrablockchain/learn/README.md)
     * [아키텍처](infrablockchain/learn/architecture/README.md)
-      * [블록 스페이스](infrablockchain/learn/architecture/architecture.md)
+      * [아키텍처](infrablockchain/learn/architecture/architecture.md)
       * [네트워크 참여자](infrablockchain/learn/architecture/network-participants.md)
       * [파라체인](infrablockchain/learn/architecture/README.md)
-        <!-- * [파라체인 프로토콜](infrablockchain/learn/architecture/parachain/parachain-protocol.md) -->
         * [시스템 파라체인](infrablockchain/learn/architecture/parachain/system-parachains.md)
+        <!-- * [파라체인 프로토콜](infrablockchain/learn/architecture/parachain/parachain-protocol.md) -->
     * [시스템 토큰](infrablockchain/learn/system-token.md)
     * [트랜잭션 수수료 모델](infrablockchain/learn/transaction-fee.md)
     * [트랜잭션 증명](infrablockchain/learn/proof-of-transaction.md)
