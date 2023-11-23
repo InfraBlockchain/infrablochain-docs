@@ -6,7 +6,7 @@ keywords:
   - 시스템 토큰
 ---
 
-이 튜토리얼은 실제로 릴레이 체인(e.g **_InfraRelayChain_** )과 패러체인(e.g **_InfraBlockchain_**) 구조인 멀티체인 환경에서 [Aggregated TaaV(Transaction-as-a-Vote)](../learn/proof-of-transaction.md)를 이용하여 [PoT(Proof-of-Transaction)](../learn/proof-of-transaction.md) 에 기반한 릴레이 체인의 밸리데이터를 선출하는 방법을 알아 보겠습니다. 
+이 튜토리얼은 실제로 릴레이 체인(e.g **_InfraRelayChain_** )과 파라체인(e.g **_InfraBlockchain_**) 구조인 멀티체인 환경에서 [Aggregated TaaV(Transaction-as-a-Vote)](/ko/infrablockchain/learn/proof-of-transaction.md)를 이용하여 [PoT(Proof-of-Transaction)](/ko/infrablockchain/learn/proof-of-transaction.md) 에 기반한 릴레이 체인의 밸리데이터를 선출하는 방법을 알아 보겠습니다. 
 
 ## 튜토리얼 목표
 
@@ -20,19 +20,19 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [인프라 릴레이 체인 빌드하기](/ko/infrablockchain/tutorials/build-infrablockspace/build-infra-relay-chain.md) 와 [패러체인 빌드하기](../tutorials/build-infrablockspace/build-a-parachain.md) 를 통해 테스트에 사용할 바이너리를 생성하는 방법을 알아보기
+- [인프라 릴레이 체인 빌드하기](/ko/infrablockchain/tutorials/build-infrablockspace/build-infra-relay-chain.md) 와 [파라체인 빌드하기](../tutorials/build-infrablockspace/build-a-parachain.md) 를 통해 테스트에 사용할 바이너리를 생성하는 방법을 알아보기
 
-- [Proof-of-Transaction](../learn/proof-of-transaction.md) 에 대해 알아보기
+- [Proof-of-Transaction](/ko/infrablockchain/learn/proof-of-transaction.md) 에 대해 알아보기
 
-- [시스템 토큰](../learn/system-token.md) 으로 트랜잭션 수수료를 내는 방법에 대해 알아보기
+- [시스템 토큰](/ko/infrablockchain/learn/system-token.md) 으로 트랜잭션 수수료를 내는 방법에 대해 알아보기
 
 ## 튜토리얼 단계
 
 해당 튜토리얼은 다음과 같은 순서로 진행될 예정입니다.
 
-- 좀비넷으로 테스트할 환경을 구축합니다. 본 튜토리얼에서는 _Infra Asset Hub_ 와 _Parachain Templete Node_ 두 개의 패러체인을 이용하여 진행할 예정입니다.
+- 좀비넷으로 테스트할 환경을 구축합니다. 본 튜토리얼에서는 _Infra Asset Hub_ 와 _Parachain Templete Node_ 두 개의 파라체인을 이용하여 진행할 예정입니다.
 
-- 각 패러체인에서 _시스템 토큰(Sysetm Token)_  을 이용하여 투표할 대상을 포함하여 트랜잭션을 요청합니다.
+- 각 파라체인에서 _시스템 토큰(Sysetm Token)_  을 이용하여 투표할 대상을 포함하여 트랜잭션을 요청합니다.
 
 - **_인프라 릴레이 체인(InfraRelayChain)_** 에서 투표가 수집되는 것을 확인합니다.
 
@@ -163,7 +163,7 @@ chmod +x zombienet-macos
 
 ## 트랜잭션에 투표 포함 시키기
 
-- 시스템 토큰을 이용해 트랜잭션 수수료를 지불하고 투표를 하기 위해서 먼저 [시스템 토큰 생성하기]() 를 참고하시기 바랍니다. 해당 튜토리얼에서는 `parachain-template-node` 에서 시스템 토큰을 생성했다고 가정하겠습니다.
+- 시스템 토큰을 이용해 트랜잭션 수수료를 지불하고 투표를 하기 위해서 먼저 [시스템 토큰 생성하기](/ko/infrablockchain/tutorials/how-to-interact-with-system-token.md) 를 참고하시기 바랍니다. 해당 튜토리얼에서는 `parachain-template-node` 에서 시스템 토큰을 생성했다고 가정하겠습니다.
 
 - [인프라 블록스페이스 익스플로러](https://portal.infrablockspace.net) 로 이동합니다.
 
@@ -176,28 +176,28 @@ chmod +x zombienet-macos
   - `asset id` 옵션은 트랜잭션 수수료로 사용할 시스템 토큰을 명시하는 옵션입니다. 
 
   ```
-  - parachain_id: 패러체인 식별자
+  - parachain_id: 파라체인 식별자
   - pallet_index: Assets 팔렛 식별자
   - asset_id: 시스템 토큰의 식별자  
   ```
   
   - `vote` 옵션은 PoT(Proof-of-Transaction)으로 선출할 후보자를 지정하는 옵션입니다.
 
-  ![Alt text](../../../media/images/docs/tutorials/how-to-vote-with-taav/tx-detail.png)
+  ![트랜잭션 세부사항](/media/images/docs/infrablockchain/tutorials/tx-detail.png)
 
 - 블록이 처리될 때까지 기다린 후 **_인프라 릴레이 체인(InfraRelayChain)_** 에서 다음과 같은 이벤트를 확인합니다.
 
-  ![Alt text](../../../media/images/docs/tutorials/how-to-vote-with-taav/infra-relay-event.png)
+  ![Alt text](/media/images/docs/infrablockchain/tutorials/infra-relay-event.png)
 
 - 해당 weight 만큼 투표가 집계가 되었고 **_인프라 릴레이 체인(InfraRelayChain)_** 스토리지에서도 확인할 수 있습니다.
 
-  ![Alt text](../../../media/images/docs/tutorials/how-to-vote-with-taav/infra-relay-storage.png)
+  ![Alt text](/media/images/docs/infrablockchain/tutorials/infra-relay-storage.png)
 
 ## 다음 단계로 넘어가기
 
-- [밸리데이터로써 리워드를 받는 방법]()
+- [밸리데이터로써 리워드를 받는 방법](/ko/infrablockchain/tutorials/how-to-get-validator-reward.md)
 
-- [시스템 토큰의 weight]()
+- [시스템 토큰의 weight](/ko/infrablockchain/learn/transaction-fee.md#시스템-토큰-가중치)
 
 
 

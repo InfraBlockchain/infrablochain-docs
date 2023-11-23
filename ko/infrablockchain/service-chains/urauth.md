@@ -6,12 +6,11 @@ keywords:
   - DID
 ---
 
-## UR-Auth
 **_UR-Auth_** 는 _Universal Resource Auth_ 의 약자로 URI(Uniform Resource Identifier)로 표현되는 웹 데이터 및 저작권이 있는 유무형 자산들에 대해 그 소유권을 블록체인 기술과 DID(Decentralized Identifiers) 기술을 이용하여 인터넷 상에 공개적으로 등록할 수 있도록 하는 프로토콜입니다. URI 는 온/오프라인 상의 논리적 물리적 리소스를 고유하게 식별할 수 있는 웹 기술에서 통용되는 식별자(Identifier)로써 블록체인에 해당 URI 의 소유자 DID 를 이용하여 그 소유권을 등록하게 되고 거대 AI 가 이를 학습할 때 정당하게 그 소유권을 주장할 수 있는 기술적인 방법을 마련할 수 있게 됩니다. 
 
 ## Data Ownership Register
 
-![Alt text](../../../../media/images/docs/register-ownership.png)
+![Register Ownership](/media/images/docs/infrablockchain/service-chains/register-ownership.png)
 
 데이터에 대한 소유권을 _UR-Auth_ 블록체인에 등록하는 타입은 크게 세가지로 나눕니다.
 
@@ -58,11 +57,11 @@ OAuth 인증이 불가능한 경우:
 
 ## UR-Auth Tree
 
-![Alt text](../../../../media/images/docs/urauth-tree.png)
+![Ownership Claim on URAuth Tree](/media/images/docs/infrablockchain/service-chains/urauth-tree.png)
 
 웹사이트 URL 및 웹사이트 내 하위 페이지 URL들은 블록체인 상에서 Tree 데이터 구조의 각 노드들로 표현될 수 있습니다. 하나의 **_UR-Auth Tree_** 는 하나의 웹사이트 도메인과 해당 도메인 내 URI로 식별되는 데이터들에 대응하며, **_UR-Auth Tree_** 의 각 노드는 해당 URI의 소유권자(DID) 정보, 저작권정보, 데이터 접근 규칙 등이 규정된 **_UR-Auth Document_** 를 저장하고 있습니다. 
 
-### UR-Auth Tree 등록 규칙
+## UR-Auth Tree 등록 규칙
 
 1. **_UR-Auth Tree_** 의 모든 하위 노드의 등록은 오라클에 의한 검증이 아니라면 그 상위 노드의 소유자 중 한 소유자에 의해 등록되어야 합니다.
 
@@ -125,7 +124,7 @@ pub struct URAuthDoc<Account> {
 
 ## Data Market
 
-![Alt text](../../../../media/images/docs/data-market.png)
+![Data Market Tracking Ownership](/media/images/docs/infrablockchain/service-chains/data-market.png)
 
 **_UR-Auth_** 블록체인 상에 미리 패키징된 웹 Dataset들도 함께 Data Market 에 등록되고 거래 유통되도록 하여, 웹 데이터 수요자들이 웹 데이터 소유자들에게 정당한 데이터 접근 비용을 지불하고 미리 정리된 데이터셋들을 다운로드 받아서 상업용 AI 기계학습 등에 사용하도록 하여 데이터 저작권 문제를 해결할 수 있습니다. 
 

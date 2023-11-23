@@ -10,13 +10,13 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [로컬 Infra DID 파라체인 구축하기](../../../service-chains/infra-did-parachain.md)
+- [로컬 Infra DID 파라체인 구축하기](/ko/infrablockchain/service-chains/infra-did-parachain.md)
 
 ## Infra DID 생성하기
 
 Infra DID를 생성하는 것 자체는 블록체인과 통신이 필요하지 않습니다.
 
-![infra-did-method](../../../../../media/images/docs/infrablockchain/service-chains/infra-did-method.png)
+![infra-did-method](/media/images/docs/infrablockchain/service-chains/infra-did-method.png)
 
 Infra DID의 형식은 위 그림에서 `DID method-specific identifier` 부분을 SS58 address로 구성하여 사용하고 있습니다.
 
@@ -34,15 +34,15 @@ Infra DID를 체인에 등록하기 위해선 아래와 같은 과정을 거칩�
 
     아래와 같이 구성하고 익스트린식을 발생시킵니다. 
 
-    ![new-onchain](../../../../../media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/new-onchain.png)
+    ![new-onchain](/media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/new-onchain.png)
 
 2. 이벤트를 확인하여 정상적으로 DID가 생성되었는지 확인합니다.
 
-    ![new-onchain-success](../../../../../media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/new-onchain-success.png)
+    ![new-onchain-success](/media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/new-onchain-success.png)
 
 3. 스토리지를 조회하여 체인에 정상적으로 DID가 등록되었는지 확인할 수 있습니다.
 
-    ![new-onchain-storage](../../../../../media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/new-onchain-storage.png)
+    ![new-onchain-storage](/media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/new-onchain-storage.png)
 
 ## infra-did-js 라이브러리 사용하여 Infra DID 생성 및 등록하기
 
