@@ -18,7 +18,7 @@ Substrate 노드를 컴파일하려면 Substrate 노드 프로젝트의 루트 �
 최적화 과정 중에는 WebAssembly 런타임 바이너리가 체인의 제네시스 상태(genesis state) 에 포함되기 전에 일련의 단계를 거쳐 컴파일되고 압축됩니다.
 이 프로세스를 더 잘 이해하기 위해 다음 다이어그램은 이 단계를 요약합니다.
 
-![WebAssembly 컴파일 및 압축 후 체인에 포함](/media/images/docs/node-executable.png)
+![WebAssembly 컴파일 및 압축 후 체인에 포함](/media/images/docs/infrablockchain/learn/substrate/build/node-executable.png)
 
 다음 섹션에서는 빌드 프로세스에 대해 자세히 설명합니다.
 
@@ -76,7 +76,7 @@ include!(concat!(env!("OUT_DIR"), "/wasm_binary.rs"));
 ## 실행 환경
 
 네이티브 및 WebAssembly 런타임으로 노드를 컴파일한 후, 명령줄 옵션을 사용하여 노드의 동작 방식을 지정합니다.
-노드를 시작하는 데 사용할 수 있는 command-line 옵션에 대한 자세한 내용은 [node-template](/reference/command-line-tools/node-template)을 참조하십시오.
+노드를 시작하는 데 사용할 수 있는 command-line 옵션에 대한 자세한 내용은 [node-template](../learn/command-line-tools/node-template.md)을 참조하십시오.
 
 노드를 시작하면 노드 실행 파일은 지정한 명령줄 옵션을 사용하여 체인을 초기화하고 제네시스 블록을 생성합니다.
 이 프로세스의 일부로서, 노드는 WebAssembly 런타임을 스토리지 항목 값 및 해당 `:code` 키로 추가합니다.
@@ -107,19 +107,19 @@ WebAssembly 런타임에서 실행할 수 있는 로직은 항상 Rust 런타임
 
 WebAssembly 런타임이 기본적으로 선택되지만, 모든 또는 특정 작업에 대해 실행되는 런타임을 재정의할 수 있습니다. 이를 위해 **실행 환경**을 command-line 옵션으로 지정할 수 있습니다.
 
-네이티브 런타임과 WebAssembly 런타임이 동일한 [버전](/maintain/runtime-upgrades/#runtime-versioning)을 공유하는 경우, WebAssembly 런타임 대신 네이티브 런타임을 선택적으로 사용하거나 WebAssembly 런타임과 함께 사용하거나, WebAssembly 런타임 사용이 실패한 경우 대체로 사용할 수 있습니다.
+네이티브 런타임과 WebAssembly 런타임이 동일한 버전을 공유하는 경우, WebAssembly 런타임 대신 네이티브 런타임을 선택적으로 사용하거나 WebAssembly 런타임과 함께 사용하거나, WebAssembly 런타임 사용이 실패한 경우 대체로 사용할 수 있습니다.
 일반적으로, 성능상의 이유나 WebAssembly 런타임보다 제한적이지 않은 환경 때문에 네이티브 런타임을 사용하려고 할 때만 네이티브 런타임을 선택하게 됩니다.
 예를 들어, 초기 동기화를 위해 네이티브 런타임을 사용하려면 `--execution-syncing native` 또는 `--execution-syncing native-else-wasm` 명령줄 옵션을 사용하여 노드를 시작할 수 있습니다.
 
-모든 또는 특정 작업에 대해 실행 전략을 지정하기 위해 명령줄 옵션을 사용하는 방법에 대한 정보는 [node-template](/reference/command-line-tools/node-template)을 참조하십시오.
+모든 또는 특정 작업에 대해 실행 전략을 지정하기 위해 명령줄 옵션을 사용하는 방법에 대한 정보는 [node-template](../learn/command-line-tools/node-template.md)을 참조하십시오.
 실행 환경에 대한 정보는 [ExecutionStrategy](https://paritytech.github.io/substrate/master/sc_cli/arg_enums/enum.ExecutionStrategy.html)을 참조하십시오.
 
 ## 네이티브 런타임 없이 WebAssembly 빌드하기
 
 새로운 체인을 시작하려면 WebAssembly 런타임이 필요합니다.
-초기 WebAssembly 런타임이 제공된 후, WebAssembly 런타임을 나타내는 blob은 [체인 스펙](/build/chain-spec)의 일부로 다른 노드에 전달될 수 있습니다.
+초기 WebAssembly 런타임이 제공된 후, WebAssembly 런타임을 나타내는 blob은 [체인 스펙](./chain-spec.md)의 일부로 다른 노드에 전달될 수 있습니다.
 일부 특수한 경우에는 네이티브 런타임 없이 WebAssembly 대상을 컴파일하려고 할 수 있습니다.
-예를 들어, 포크리스(fork-less) 업그레이드를 준비하기 위해 WebAssembly 런타임을 테스트하는 경우 새로운 WebAssembly 바이너리만 컴파일하려고 할 수 있습니다.
+예를 들어, forkless 업그레이드를 준비하기 위해 WebAssembly 런타임을 테스트하는 경우 새로운 WebAssembly 바이너리만 컴파일하려고 할 수 있습니다.
 
 이는 드물게 사용되는 사용 사례이지만, [build-only-wasm.sh](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/.maintain/build-only-wasm.sh) 스크립트를 사용하여 `no_std` WebAssembly 바이너리를 네이티브 런타임을 컴파일하지 않고 빌드할 수 있습니다.
 

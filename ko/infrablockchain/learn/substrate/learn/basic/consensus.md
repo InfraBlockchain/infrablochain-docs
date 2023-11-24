@@ -25,8 +25,8 @@ Substrate가 기본적으로 지원하는 합의 모델은 최소한의 구성�
 
 Substrate 기반 블록체인에서는 다음 중 하나의 블록 생성 알고리즘을 선택하거나 직접 구현할 수 있습니다:
 
-- 권한 기반 라운드 로빈 스케줄링 ([Aura](/reference/glossary/#authority-round-aura)).
-- 블록체인 확장의 블라인드 할당 ([BABE](/reference/glossary/#blind-assignment-of-blockchain-extension-babe)) 슬롯 기반 스케줄링.
+- 권한 기반 라운드 로빈 스케줄링 ([Aura](../basic/glossary.md#권한-라운드-aura)).
+- 블록체인 확장의 블라인드 할당 ([BABE](../basic/glossary.md#블록체인-확장의-블라인드-할당-babe)) 슬롯 기반 스케줄링.
 - 작업 증명 계산 기반 스케줄링.
 
 Aura와 BABE 합의 모델은 블록을 생성할 수 있는 **검증자 노드**의 알려진 집합을 가져야 합니다.
@@ -41,7 +41,7 @@ Substrate는 작업 증명 블록 생성 엔진을 제공합니다.
 
 ## 확정과 포크
 
-블록은 헤더와 [트랜잭션](/learn/transaction-types)을 포함하는 기본 단위입니다.
+블록은 헤더와 [트랜잭션](../basic/transaction-types.md)을 포함하는 기본 단위입니다.
 각 블록 헤더에는 부모 블록에 대한 참조가 포함되어 있으므로, 체인을 제네시스 블록까지 역추적할 수 있습니다.
 포크는 두 개의 블록이 동일한 부모를 참조할 때 발생합니다.
 블록 확정은 이러한 포크를 해결하여 정규 체인만 존재하도록 하는 메커니즘입니다.
@@ -54,12 +54,12 @@ GRANDPA 프로토콜에서는 Longest chain rule이 단순히 가장 좋은 체�
 Substrate는 이 체인 선택 규칙을 [`LongestChain`](https://paritytech.github.io/substrate/master/sc_consensus/struct.LongestChain.html) 구조체로 제공합니다.
 GRANDPA는 투표 메커니즘에서 Longest chain rule을 사용합니다.
 
-![Longest chain rule](/media/images/docs/consensus-longest.png)
+![Longest chain rule](/media/images/docs/infrablockchain/learn/substrate/learn/consensus-longest.png)
 
 Longest chain rule의 단점은 공격자가 네트워크를 앞지르는 블록 체인을 생성하여 사실상 메인 체인을 탈취할 수 있다는 것입니다.
 Greedy Heaviest Observed SubTree (GHOST) 규칙은 제네시스 블록에서 시작하여, 각 포크를 해결할 때 가장 많은 블록이 쌓인 가장 무거운 브랜치를 선택합니다.
 
-![GHOST rule](/media/images/docs/consensus-ghost.png)
+![GHOST rule](/media/images/docs/infrablockchain/learn/substrate/learn/consensus-ghost.png)
 
 이 다이어그램에서 가장 무거운 체인은 가장 많은 블록이 쌓인 포크입니다.
 체인 선택에 GHOST rule을 사용하는 경우, 이 포크가 가장 긴 체인 포크보다 더 적은 블록을 가지더라도 메인 체인으로 선택됩니다.

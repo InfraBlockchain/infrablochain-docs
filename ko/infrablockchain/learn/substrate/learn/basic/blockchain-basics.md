@@ -86,23 +86,6 @@ Substrate이 다른 블록체인 프로젝트와 관련된 많은 제한 사항�
 
 ## 다음 단계로 넘어가기
 
-모든 블록체인은 일부 공통적인 특성을 가지고 있습니다.
-Substrate은 블록체인을 구축하기 위한 모듈식 프레임워크로, 저장소, 합의 및 암호화와 같은 일반적인 블록체인 구성 요소를 가져와서 제공하는 커스텀 블록체인을 만들 수 있습니다.
-Substrate을 사용하면 이러한 기능들을 그대로 사용하거나 프로젝트의 목적에 맞게 수정하여 사용할 수 있습니다.
+모든 블록체인은 일부 공통적인 특성을 가지고 있습니다. Substrate은 블록체인을 구축하기 위한 모듈식 프레임워크로, 저장소, 합의 및 암호화와 같은 일반적인 블록체인 구성 요소를 가져와서 제공하는 커스텀 블록체인을 만들 수 있습니다. Substrate을 사용하면 이러한 기능들을 그대로 사용하거나 프로젝트의 목적에 맞게 수정하여 사용할 수 있습니다.
 
-더 자세한 내용을 알아보기 위해 다음 리소스를 살펴볼 수 있습니다.
-
-#### 알려주세요
-
-- [배우기](/learn/)
-- [Substrate에 오신 것을 환영합니다](/learn/welcome-to-substrate/)
-- [아키텍처 및 Rust 라이브러리](/learn/architecture/)
-- [네트워크 및 블록체인](/learn/node-and-network-types/)
-
-#### 안내해주세요
-
-- [로컬 블록체인 구축하기](/tutorials/build-a-blockchain/build-local-blockchain/)
-- [네트워크 시뮬레이션](/tutorials/build-a-blockchain/simulate-network/)
-- [신뢰할 수 있는 노드 추가하기](/tutorials/build-a-blockchain/add-trusted-nodes/)
-
-코드를 직접 탐색하려면 [Substrate Playground](/playground/)에서 개발을 시작하거나 사용하는 Rust 크레이트에 대한 자세한 내용은 API 참조를 참고하십시오.
+- [인프라 블록체인 구축](../../../../tutorials/build/README.md)

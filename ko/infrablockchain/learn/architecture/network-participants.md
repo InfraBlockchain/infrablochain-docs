@@ -1,23 +1,23 @@
 ---
-title: 인프라 블록 스페이스 네트워크 참여자
+title: 인프라 블록체인 네트워크 참여자
 description: 콜래이터와 밸리데이터의 역할에 대해 설명합니다. 
 keywords:
   - 콜래이터
   - 밸리데이터
 ---
 
-인프라 블록 스페이스 생태계에서 중요한 역할을 수행하는 참여자들을 소개합니다:
+멀티체인 기반 인프라 블록체인 생태계에서 중요한 역할을 수행하는 참여자들을 소개합니다:
 - 밸리데이터: 블록을 생성하며 공유된 보안(shared security)을 형성하여 릴레이 체인 및 파라체인을 보호하는 역할을 수행합니다.
 - 콜래이터: 파라체인 블록을 생성하여 밸리데이터에게 전달하는 역할을 수행합니다.
 
-![네트워크 참여자](/media/images/docs/infrablockchain/learn/network-participants.png)
+![네트워크 참여자](/media/images/docs/infrablockchain/learn/architecture/network-participants.png)
 
 ## 밸리데이터
 
 밸리데이터는 콜래이터로부터의 증명을 검증하며([파라-밸리데이터](/ko/infrablockchain/learn/architecture/network-participants.md#파라-밸리데이터)), 다른 밸리데이터와의 합의에 참여함으로써 릴레이 체인 및 파라체인을 보호합니다. 밸리데이터는 새로운 블록을 릴레이 체인에 추가하는 중요한 역할을 담당하며([블록 생성자](/ko/infrablockchain/learn/architecture/network-participants.md#블록-생성자)), 
 이를 통해 [모든 파라체인에도 블록이 추가](/ko/infrablockchain/learn/architecture/architecture.md#파라체인-프로토콜)됩니다.
 
- ***인프라 블록 스페이스(InfraBlockspace)*** 의 밸리데이터들은 *[공유된 보안(shared security)](/ko/infrablockchain/learn/architecture/architecture.md#공유된-보안shared-security)* 를 통해 전체 네트워크의 안전을 보장하기 떄문에 [XCM 을 활용하여 체인간 메세지](/ko/infrablockchain/learn/xcm.md)(e.g 토큰 전송, 특정 팔렛의 트랜잭션 호출 등)를 주고 받을 수 있습니다. 밸리데이터는 각 파라체인이 고유한 규칙을 따르고, 신뢰할 수 있는 환경에서 파라체인 간에 메시지를 전달할 수 있도록 보장합니다.
+ ***인프라 블록체인(InfraBlockchain)*** 밸리데이터들은 *[공유된 보안(shared security)](/ko/infrablockchain/learn/architecture/architecture.md#공유된-보안shared-security)* 를 통해 전체 네트워크의 안전을 보장하기 떄문에 [XCM 을 활용하여 체인간 메세지](/ko/infrablockchain/learn/xcm.md)(e.g 토큰 전송, 특정 팔렛의 트랜잭션 호출 등)를 주고 받을 수 있습니다. 밸리데이터는 각 파라체인이 고유한 규칙을 따르고, 신뢰할 수 있는 환경에서 파라체인 간에 메시지를 전달할 수 있도록 보장합니다.
 
 ## 파라-밸리데이터
 
@@ -46,7 +46,7 @@ pub struct CandidateDescriptor<H = Hash> {
 ```
 ### 파라-밸리데이터 선정
 
-파라-밸리데이터는 그룹으로 작동하며, 런타임에 의해 매 에포크마다 릴레이 체인에 연결된 모든 파라체인에 대한 파라체인 블록을 검증하기 위해 선택됩니다. 선택된 파라-밸리데이터는 (에포크당) 무작위로 선택된  [***인프라 블록 스페이스(InfraBlockspace)*** 밸리데이터](/ko/infrablockchain/learn/proof-of-transaction.md#블록-생성자밸리데이터-풀) 중 하나로 검증에 참여하여 파라-밸리데이터 풀을 구성합니다.
+파라-밸리데이터는 그룹으로 작동하며, 런타임에 의해 매 에포크마다 릴레이 체인에 연결된 모든 파라체인에 대한 파라체인 블록을 검증하기 위해 선택됩니다. 선택된 파라-밸리데이터는 (에포크당) 무작위로 선택된  [***인프라 블록체인(InfraBlockchain)*** 밸리데이터](/ko/infrablockchain/learn/proof-of-transaction.md#블록-생성자밸리데이터-풀) 중 하나로 검증에 참여하여 파라-밸리데이터 풀을 구성합니다.
 
 ### 파라-밸리데이터 역할
 
@@ -73,7 +73,7 @@ pub struct CandidateDescriptor<H = Hash> {
 ### 보상
 
 따라서 시스템의 처리량을 저하시킬 가능성이 있는 더 많은 파라-밸리데이터를 할당하는 것을 피하기 위해 파라블록의 보조 검증을 실행하는 것이 필요합니다.
-검증이 실패한다면, 파라-밸리데이터는 벌점을 받으며 밸리데이터 풀에서 제외됨으로써 부정행위를 억제합니다. 그러나 성과가 좋은 경우, 해당 밸리데이터는 활동에 대한 보상으로 법정 화폐 기반의 [시스템 토큰](/ko/infrablockchain/learn/system-token.md)을 블록 보상(트랜잭션 수수료 포함)을 받게 됩니다.
+검증이 실패한다면, 파라-밸리데이터는 벌점을 받으며 밸리데이터 풀에서 제외됨으로써 부정행위를 억제합니다. 그러나 성과가 좋은 경우, 해당 밸리데이터는 활동에 대한 보상으로 법정 화폐 기반의 [시스템 토큰](/ko/infrablockchain/learn/protocol/system-token.md)을 블록 보상(트랜잭션 수수료 포함)을 받게 됩니다.
 
 ### 포크 선택(Fork Choice)
 
@@ -85,7 +85,7 @@ pub struct CandidateDescriptor<H = Hash> {
 
 콜래이터는 사용자로부터 파라체인에서 일어나는 모든 트랜잭션을 최대한  수집하고, 릴레이 체인 밸리데이터를 위해 상태 전이(state transition) 증명(PoV)를 생성합니다. 정상적인 상황에서, 콜래이터는 트랜잭션을 수집하고 실행하여 블록 후보(candidate)를 생성하고, 이를 PoV와 함께 파라체인 블록을 제안하는 하나 이상의 밸리데이터에게 제공합니다.
 
-콜래이터는 다른 블록체인의 밸리데이터와 유사하지만, ***인프라 블록 스페이스(InfraBlockspace)*** 의 밸리데이터들이 보안을 보장하고 있기 때문에 따로 보안에 대해 신경쓸 필요없이 [서비스에 특화된 블록체인](/ko/infrablockchain/service-chains/README.md)을 구축할 수 있습니다. **파라체인 블록이 유효하지 않으면 밸리데이터에 의해 거부됩니다.** 각 파라체인에 할당된 파라-밸리데이터는 제출된 후보들의 유효성을 확인한 다음, 다른 파라-밸리데이터에 대한 유효성을 수집하고 집계합니다. 이 과정을 백킹(*candidate backing*)이라고 합니다. 파라-밸리데이터는 신뢰할 수 없는 콜래이터로부터 연관된 PoV를 가진 임의의 수의 파라체인 블록 후보를 받습니다. 후보는 적어도 할당된 밸리데이터의 2/3가 해당 후보에 대한 유효성을 검증 받았을 때 백킹 가능(_backable_)한 것으로 간주됩니다.
+콜래이터는 다른 블록체인의 밸리데이터와 유사하지만, ***인프라 블록체인(InfraBlockchain)*** 밸리데이터들이 보안을 보장하고 있기 때문에 따로 보안에 대해 신경쓸 필요없이 [서비스에 특화된 블록체인](/ko/infrablockchain/service-chains/README.md)을 구축할 수 있습니다. **파라체인 블록이 유효하지 않으면 밸리데이터에 의해 거부됩니다.** 각 파라체인에 할당된 파라-밸리데이터는 제출된 후보들의 유효성을 확인한 다음, 다른 파라-밸리데이터에 대한 유효성을 수집하고 집계합니다. 이 과정을 백킹(*candidate backing*)이라고 합니다. 파라-밸리데이터는 신뢰할 수 없는 콜래이터로부터 연관된 PoV를 가진 임의의 수의 파라체인 블록 후보를 받습니다. 후보는 적어도 할당된 밸리데이터의 2/3가 해당 후보에 대한 유효성을 검증 받았을 때 백킹 가능(_backable_)한 것으로 간주됩니다.
 
 밸리데이터는 다음 순서대로 다음 조건을 성공적으로 확인해야 합니다:
 

@@ -42,7 +42,7 @@ Substrate 벤치마킹 시스템은 팔레트 내 함수에 할당할 적절한 
 
 일반적으로 런타임에서 실행될 수 있는 모든 함수에는 weight가 정의되어 있어야 하며, 호출 계정에서 해당 수수료를 차감해야 합니다. 트랜잭션 수수료는 보통 서비스 거부(DoS) 공격을 방지하고 체인에 지속 가능한 경제 모델을 만들기 위한 중요한 경제적 인센티브입니다.
 
-벤치마킹 시스템에 대한 자세한 내용은 [벤치마크](/test/benchmark/)를 참조하세요. 벤치마크를 작성하고 실행하는 간단한 예제는 [벤치마크 추가](/reference/how-to-guides/weights/add-benchmarks/)를 참조하세요.
+벤치마킹 시스템에 대한 자세한 내용은 [벤치마크](../../../tutorials/test/benchmark.md)를 참조하세요. 
 
 ### 팔레트 결합
 
@@ -53,7 +53,7 @@ Substrate에서는 한 팔레트가 다른 팔레트의 함수를 호출하는 �
 
 타이트 팔레트 결합은 두 팔레트가 런타임에 설치되어야 하며, 팔레트를 독립적으로 사용할 수 없습니다. 또한, 타이트하게 결합된 팔레트는 한 팔레트에서 변경이 발생하면 다른 팔레트에서도 변경이 필요하기 때문에 유지보수하기 어려울 수 있습니다. 대부분의 경우, 느슨한 결합은 팔레트를 런타임에 포함시키지 않고도 다른 팔레트에서 타입과 인터페이스를 재사용할 수 있기 때문에 더 유연한 솔루션입니다.
 
-타이트 팔레트 결합과 느슨한 팔레트 결합에 대한 자세한 내용은 [팔레트 결합](/build/pallet-coupling/)과 이 [코드 예제](https://substrate.stackexchange.com/questions/922/pallet-loose-couplingtight-coupling-and-missing-traits?rq=1)를 참조하세요. 팔레트 결합의 간단한 예제는 [타이트 팔레트 결합 사용](/reference/how-to-guides/pallet-design/use-tight-coupling/)과 [느슨한 팔레트 결합 사용](/reference/how-to-guides/pallet-design/use-loose-coupling/)을 참조하세요.
+타이트 팔레트 결합과 느슨한 팔레트 결합에 대한 자세한 내용은 [팔레트 결합](/build/pallet-coupling/)과 이 [코드 예제](https://substrate.stackexchange.com/questions/922/pallet-loose-couplingtight-coupling-and-missing-traits?rq=1)를 참조하세요. 팔레트 결합의 간단한 예제는 [타이트 팔레트 결합 사용](../learn/frame/pallet-coupling.md#강하게-커플링된-팔레트)과 [느슨한 팔레트 결합 사용](../learn/frame/pallet-coupling.md#약하게-커플링된-팔레트)을 참조하세요.
 
 ### 오프체인 워커
 
@@ -66,11 +66,11 @@ Substrate에서는 한 팔레트가 다른 팔레트의 함수를 호출하는 �
 - 기본적으로 오프체인 워커는 블록이 최종화되지 않았더라도 모든 블록 가져오기에 대해 트리거됩니다.
 - 오프체인 워커는 상태에 대한 완전한 액세스 권한을 갖기 때문에 특정 경우에만 실행되도록 트리거하는 조건을 만들 수 있습니다.
 
-오프체인 작업에 대한 자세한 내용은 [오프체인 작업](/learn/offchain-operations/)을 참조하세요. 오프체인 구성 요소 사용 예제는 [오프체인 워커](/reference/how-to-guides/offchain-workers/)를 참조하세요.
+오프체인 작업에 대한 자세한 내용은 [오프체인 작업](../learn/basic/offchain-operations.md)을 참조하세요. 오프체인 구성 요소 사용 예제는 [오프체인 워커](../learn/runtime-development/offchain-workers/README.md)를 참조하세요.
 
 ### 스토리지
 
-[런타임 스토리지](/build/runtime-storage/)에서 설명한 대로, 블록체인 스토리지에 대한 기본 원칙은 저장하는 데이터 항목의 수와 크기를 최소화하는 것입니다. 불필요한 데이터를 저장하면 네트워크 성능이 느려지고 리소스가 고갈될 수 있습니다.
+[런타임 스토리지](../learn/frame/runtime-storage.md)에서 설명한 대로, 블록체인 스토리지에 대한 기본 원칙은 저장하는 데이터 항목의 수와 크기를 최소화하는 것입니다. 불필요한 데이터를 저장하면 네트워크 성능이 느려지고 리소스가 고갈될 수 있습니다.
 
 코드를 계획하고 검토할 때 다음 가이드라인을 염두에 두세요:
 
@@ -88,7 +88,7 @@ Substrate에서는 한 팔레트가 다른 팔레트의 함수를 호출하는 �
 
 일반적으로, 스토리지 맵에 무제한 데이터를 가지지 않도록하고, 큰 데이터 집합을 반복하는 것을 피해야 합니다. 벤치마크를 사용하여 런타임의 모든 함수의 성능을 다양한 조건에서 테스트하고, 많은 항목을 포함하는 리스트나 스토리지 맵의 반복 작업을 포함한 특정 조건에 대한 성능을 테스트함으로써 언제 최적화를 위해 요소 수나 루프 반복 횟수를 제한하는 것이 가장 좋은지 확인할 수 있습니다.
 
-스토리지와 스토리지 구조에 대한 자세한 가이드라인은 [상태 전이와 스토리지](/learn/state-transitions-and-storage)와 [런타임 스토리지](/build/runtime-storage/)를 참조하세요. 스토리지 반복에 대한 자세한 내용은 [스토리지 맵 반복](/build/runtime-storage/#iterating-over-storage-maps)을 참조하세요.
+스토리지와 스토리지 구조에 대한 자세한 가이드라인은 [상태 전이와 스토리지](../learn/frame/state-transitions-and-storage.md)와 [런타임 스토리지](../learn/frame/runtime-storage.md)를 참조하세요. 
 
 ### 이벤트
 
@@ -102,7 +102,7 @@ Substrate에서는 한 팔레트가 다른 팔레트의 함수를 호출하는 �
 
 일반적으로 이벤트는 변경 사항을 알리기 위해 사용자나 애플리케이션에게 정보를 전달합니다. 이벤트는 상태의 차이를 설명하거나 자세한 정보를 포함하지 않도록 해야 합니다. 추가 정보를 이벤트에 포함시키는 것은 저장 및 이벤트 생성에 필요한 저장 및 계산 오버헤드를 증가시키므로 필요한 정보 이상으로 이벤트에 추가 정보를 포함시키는 것에 주의해야 합니다. 변경 사항에 대한 추가 정보가 필요한 경우 사용자는 체인 상태를 쿼리할 수 있습니다.
 
-커스텀 팔레트에 이벤트를 추가하는 방법에 대한 정보는 [이벤트 선언](/build/events-and-errors/#declaring-an-event)을 참조하세요.
+커스텀 팔레트에 이벤트를 추가하는 방법에 대한 정보는 [이벤트 선언](../learn/frame/events-and-errors.md#이벤트-선언하기)을 참조하세요.
 
 ## 안전하지 않거나 보안에 취약한 패턴
 
@@ -155,7 +155,7 @@ let b = id.fee
 
 ### 무제한 Vec 데이터 유형
 
-[런타임 스토리지](/build/runtime-storage/)와 [스토리지](#스토리지)에서 언급한 대로, 체인의 성능과 보안을 보장하기 위해 저장하는 데이터 항목의 수와 크기를 최소화하는 것이 중요합니다. 크기에 제한을 설정하지 않고 Vec 데이터 유형을 사용하면, 제한된 리소스의 의도적인 또는 의도하지 않은 남용에 취약해질 수 있습니다. 예를 들어, 악의적인 사용자나 제한 없이 작동하는 종단 사용자가 제한된 스토리지 용량을 초과하는 무제한 데이터를 추가하여 런타임에서 정의되지 않은 동작이 발생할 수 있습니다. 일반적으로 사용자 동작에 따라 크기가 결정되는 스토리지 항목은 제한을 설정해야 합니다.
+[런타임 스토리지](../learn/frame/runtime-storage.md)와 [스토리지](#스토리지)에서 언급한 대로, 체인의 성능과 보안을 보장하기 위해 저장하는 데이터 항목의 수와 크기를 최소화하는 것이 중요합니다. 크기에 제한을 설정하지 않고 Vec 데이터 유형을 사용하면, 제한된 리소스의 의도적인 또는 의도하지 않은 남용에 취약해질 수 있습니다. 예를 들어, 악의적인 사용자나 제한 없이 작동하는 종단 사용자가 제한된 스토리지 용량을 초과하는 무제한 데이터를 추가하여 런타임에서 정의되지 않은 동작이 발생할 수 있습니다. 일반적으로 사용자 동작에 따라 크기가 결정되는 스토리지 항목은 제한을 설정해야 합니다.
 
 다음 코드는 무제한 `Vec` 데이터 유형을 보여줍니다:
 
@@ -179,7 +179,7 @@ pub struct Pallet<T>(_);
 
 이 매크로는 팔레트의 모든 스토리지 항목에 적용되므로, 테스트나 개발 환경에서만 사용해야 합니다. 제품 환경에서는 절대로 `#[pallet::without_storage_info]` 매크로를 사용하지 마세요. 테스트가 끝난 후에 이 매크로를 제거하여 팔레트가 기본 동작을 따르도록 보장할 수 있습니다. 필요한 경우 `#[pallet::unbounded]` 매크로를 사용하여 특정 스토리지 항목을 무제한으로 선언할 수 있습니다.
 
-`BoundedVec` 데이터 유형을 사용하여 스토리지를 제한하는 방법에 대한 자세한 내용은 [Bounds 생성](/build/runtime-storage/#create-bounds)과 [BoundedVec](https://crates.parity.io/frame_support/storage/bounded_vec/struct.BoundedVec.html)를 참조하세요. 팔레트 매크로에 대한 자세한 내용은 [FRAME 매크로](/reference/frame-macros/)를 참조하세요.
+`BoundedVec` 데이터 유형을 사용하여 스토리지를 제한하는 방법에 대한 자세한 내용은 [Bounds 생성](../learn/frame/runtime-storage.md#한계-설정하기)과 [BoundedVec](https://crates.parity.io/frame_support/storage/bounded_vec/struct.BoundedVec.html)를 참조하세요. 팔레트 매크로에 대한 자세한 내용은 [FRAME 매크로](../learn/frame/frame-macros.md)를 참조하세요.
 
 ### 안전한 해시 알고리즘
 
@@ -188,7 +188,7 @@ Substrate은 기본적으로 다음과 같은 해시 알고리즘을 제공합�
 - `xxHash`는 빠른 해싱 함수이지만 암호화적으로 안전하지 않습니다. 이 해시 알고리즘을 사용하는 함수는 외부 엔티티가 입력을 조작하고 시스템을 공격할 수 있는 해시 충돌(다른 입력이 동일한 출력으로 해시되는 경우)이 발생할 수 있습니다. 이러한 해시 알고리즘은 외부 엔티티가 액세스할 수 없는 함수에서만 사용해야 합니다.
 - `Blake2`는 비교적 빠른 암호화 해싱 함수입니다. 대부분의 경우, 보안이 중요한 상황에서 Blake2 해시 알고리즘을 사용할 수 있습니다. 그러나 Substrate은 `Hasher` 트레이트를 구현하는 모든 해시 알고리즘을 지원할 수 있습니다.
 
-해싱 알고리즘에 대한 자세한 내용은 [해싱 알고리즘](/learn/cryptography//#hashing-algorithms)을 참조하세요.
+해싱 알고리즘에 대한 자세한 내용은 [해싱 알고리즘](../learn/basic/cryptography.md#해시-함수)을 참조하세요.
 
 ### 부정확한 Weight
 
@@ -198,7 +198,7 @@ Weight가 동일한 여러 트랜잭션이 있는 경우, weight 할당이 실�
 
 트랜잭션에 너무 낮은 weight를 설정하면 공격자나 알지 못하는 사용자가 과중된 블록을 생성하여 블록 생성 시간 초과를 발생시킬 수 있습니다. 모든 트랜잭션이 리소스 소비에 영향을 미치는 요소를 고려한 적절한 weight를 가지도록 모든 함수에 대해 적절한 벤치마크 테스트를 실행해야 합니다.
 
-벤치마크와 weight 계산에 대한 자세한 내용은 [벤치마크와 Weight](/test/benchmark/#benchmarking-and-weight)와 [Weights](/reference/how-to-guides/weights/)를 참조하세요.
+벤치마크와 weight 계산에 대한 자세한 내용은 [벤치마크와 Weight](../../../tutorials/test/benchmark.md#벤치마킹과-가중치)와 [Weights](../learn/frame/tx-weights-fees.md)를 참조하세요.
 
 ### 난수 생성
 
@@ -210,7 +210,7 @@ Weight가 동일한 여러 트랜잭션이 있는 경우, weight 할당이 실�
 
 이러한 팔레트 대신에 보안 난수로서 오라클을 사용할 수 있습니다.
 
-난수 사용에 대한 자세한 내용은 [난수](/build/randomness/)와 [난수 통합](/reference/how-to-guides/pallet-design/incorporate-randomness/)을 참조하세요.
+난수 사용에 대한 자세한 내용은 [난수](../learn/basic/randomness.md)를 참조하세요.
 
 ## Anti-patterns
 
@@ -257,6 +257,6 @@ match product {
 }
 ```
 
-스토리지 선언과 `getter` 매크로에 대한 자세한 내용은 [스토리지 항목 선언](/build/runtime-storage/#declaring-storage-items)을 참조하세요.
+스토리지 선언과 `getter` 매크로에 대한 자세한 내용은 [스토리지 항목 선언](../learn/frame/runtime-storage.md)을 참조하세요.
 
 스토리지 `getter` 매크로가 요구 사항에 충분하지 않은 경우, 커스텀 RPC 메서드를 만들 수 있습니다. 커스텀 RPC 메서드를 만드는 방법에 대한 정보는 [노드에 커스텀 RPC 추가](https://hackmd.io/@d9WGfolYQmSRBmnxyOQmAg/BkEANECJs)를 참조하세요.

@@ -23,7 +23,7 @@ keywords:
 이 증명은 임의의 도전자가 검증할 수 있으며, 이를 통해 무작위 숫자 생성이 유효한지 확인할 수 있습니다.
 
 Polkadot 생태계와 Substrate 기반 체인에서는 검증 가능한 무작위 함수가 BABE 팔레트에서 제공하는 합의 메커니즘의 일부입니다.
-검증 가능한 무작위 함수와 합의 사이의 관계에 대한 자세한 내용은 [합의](/learn/consensus/)를 참조하십시오.
+검증 가능한 무작위 함수와 합의 사이의 관계에 대한 자세한 내용은 [합의](../basic/consensus.md)를 참조하십시오.
 
 ## 난수 생성 및 사용
 
@@ -44,7 +44,7 @@ Substrate에는 성능, 복잡성 및 보안 사이의 다른 트레이드오프
 - [BABE 팔레트](https://paritytech.github.io/substrate/master/pallet_babe/index.html)는 검증 가능한 무작위 함수를 사용하여 난수 생성을 제공합니다.
 
 이 팔레트는 제품 수준의 난수 생성을 제공하며, InfraBlockspace 에서 사용됩니다.
-블록을 생성하기 위해 슬롯 기반의 예측불가능한(blind) ([BABE](/reference/glossary/#blind-assignment-of-blockchain-extension-babe)) 합의를 사용해야 합니다.
+블록을 생성하기 위해 슬롯 기반의 예측불가능한(blind) ([BABE](../basic/glossary.md#블록체인-확장의-블라인드-할당-babe)) 합의를 사용해야 합니다.
 
 ### 난수 사용
 
@@ -65,5 +65,4 @@ Substrate에는 성능, 복잡성 및 보안 사이의 다른 트레이드오프
 
 ## 다음 단계로 넘어가기
 
-- [How-to: Randomness](/reference/how-to-guides/pallet-design/incorporate-randomness/)
 - [`Randomness`](https://paritytech.github.io/substrate/master/frame_support/traits/trait.Randomness.html)

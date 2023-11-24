@@ -1,6 +1,6 @@
 ---
-title: 노드 템플릿
-description: 노드 템플릿에 대한 명령 줄 참조 정보입니다.
+title: 노드 템플릿 CLI
+description: 노드 템플릿에 대한 CLI 참조 정보입니다.
 keywords:
 ---
 

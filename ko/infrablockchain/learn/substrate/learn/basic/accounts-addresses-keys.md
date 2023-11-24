@@ -25,7 +25,7 @@ Substrate는 공개 키를 직접 사용하는 대신 하나의 계정에 대해
 ## 주소 인코딩 및 체인별 주소
 
 단일 공개 키에서 여러 주소를 유도함으로써 여러 체인과 상호 작용할 수 있습니다. 이렇게 하면 각 네트워크에 대해 별도의 공개 및 비공개 키 쌍을 생성하지 않아도 됩니다.
-기본적으로 계정의 공개 키와 연관된 주소는 Substrate의 [**SS58 주소 형식**](/reference/glossary/#ss58-address-format)을 사용합니다.
+기본적으로 계정의 공개 키와 연관된 주소는 Substrate의 [**SS58 주소 형식**](../basic/glossary.md#ss58-주소-형식)을 사용합니다.
 SS58 주소 형식은 [base-58 인코딩](https://datatracker.ietf.org/doc/html/draft-msporny-base58-01)의 향상된 버전입니다.
 SS58 주소 형식의 중요한 특징은 다음과 같습니다:
 
@@ -57,7 +57,7 @@ SS58 주소 형식의 중요한 특징은 다음과 같습니다:
 
 `subkey inspect` 명령과 `--network` 명령줄 옵션을 사용하거나 [Subscan](https://polkadot.subscan.io/tools/format_transform)을 사용하여 공개 키에 대한 네트워크별 주소를 조회할 수 있습니다.
 
-공개 및 비공개 키 쌍을 생성하고 주소를 검사하는 방법에 대한 정보는 [subkey](/reference/command-line-tools/subkey)를 참조하십시오.
+공개 및 비공개 키 쌍을 생성하고 주소를 검사하는 방법에 대한 정보는 [subkey](../command-line-tools/subkey.md)를 참조하십시오.
 체인별 주소를 등록하는 방법에 대한 정보는 [SS58 저장소](https://github.com/paritytech/ss58-registry)의 지침을 참조하십시오.
 
 ## FRAME에서의 계정 정보
@@ -69,8 +69,8 @@ SS58 주소 형식의 중요한 특징은 다음과 같습니다:
 일반 유형은 런타임 구현에서 특정 유형으로 해결되고 최종적으로 특정 값이 할당됩니다.
 예를 들어, FRAME의 `Account` 유형은 연관된 `AccountId` 유형에 의존합니다. `AccountId` 유형은 이 정보가 필요한 팔렛을 위한 런타임 구현에서 유형이 할당될 때까지 일반 유형으로 유지됩니다.
 
-`frame_system` 팔렛에서 계정이 어떻게 정의되고 `Account` 저장 맵에서 계정 속성이 어떻게 정의되는지에 대한 자세한 내용은 [계정 데이터 구조](/reference/account-data-structures/)를 참조하십시오.
-일반 유형과 작업하는 방법에 대한 자세한 내용은 [Substrate용 Rust](/learn/rust-basics/#generic-types)를 참조하십시오.
+`frame_system` 팔렛에서 계정이 어떻게 정의되고 `Account` 저장 맵에서 계정 속성이 어떻게 정의되는지에 대한 자세한 내용은 [계정 데이터 구조](./account-data-structures.md)를 참조하십시오.
+일반 유형과 작업하는 방법에 대한 자세한 내용은 [Substrate용 Rust](./rust-basics.md#substrate에서의-rust)를 참조하십시오.
 
 ## 특수화된 계정
 
@@ -148,6 +148,6 @@ Substrate에서는 계정이 자금을 수신하고 트랜잭션에 서명하며
 
 - [SS58 트레이트 구현](https://paritytech.github.io/substrate/master/sp_core/crypto/trait.Ss58Codec.html)
 - [SS58 레지스트리](https://github.com/paritytech/ss58-registry/)
-- [명령 참조: subkey](/reference/command-line-tools/subkey/)
-- [계정 데이터 구조](/reference/account-data-structures/)
-- [암호학](/learn/cryptography//)
+- [명령 참조: subkey](../command-line-tools/subkey.md)
+- [계정 데이터 구조](./account-data-structures.md)
+- [암호학](../basic/cryptography.md)

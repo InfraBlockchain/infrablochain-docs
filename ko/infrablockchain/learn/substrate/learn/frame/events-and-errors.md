@@ -109,7 +109,7 @@ Substrate는 매크로를 사용하여 이벤트를 발생시키는 기본 구�
 
 ## 지원되는 타입
 
-이벤트는 [SCALE 코덱](/reference/scale-codec)를 사용하여 타입 인코딩을 지원하는 모든 타입을 발생시킬 수 있습니다.
+이벤트는 [SCALE 코덱](./scale-codec.md)를 사용하여 타입 인코딩을 지원하는 모든 타입을 발생시킬 수 있습니다.
 
 `AccountId`나 `Balances`와 같은 런타임 제네릭 타입을 사용하려는 경우, 해당 타입을 정의하기 위해 [`where 절`](https://doc.rust-lang.org/rust-by-example/generics/where.html)을 포함해야 합니다.
 위의 예제에서 보여진 대로 정의합니다.
@@ -149,8 +149,7 @@ frame_support::ensure!(param < T::MaxVal::get(), Error::<T>::InvalidParameter);
 
 ## 다음 단계로 넘어가기
 
-- [Frame 매크로](/reference/frame-macros)
-- [Polkadot-JS API](https://github.com/polkadot-js/api).
+- [Frame 매크로](./frame-macros.md)
 - [`construct_runtime!` 매크로](https://paritytech.github.io/substrate/master/frame_support/macro.construct_runtime.html)
 - [`#[frame_support::pallet]` 매크로](https://paritytech.github.io/substrate/master/frame_support/attr.pallet.html)
 - [`[pallet::error]` 매크로](https://paritytech.github.io/substrate/master/frame_support/attr.pallet.html#error-palleterror-optional)

@@ -141,6 +141,6 @@ keywords:
 
 ## 자원
 
-- [실행 중인 네트워크 업그레이드](/tutorials/build-a-blockchain/upgrade-a-running-network/)
+- [실행 중인 네트워크 업그레이드](../../../tutorials/build-a-blockchain/upgrade-a-running-network.md)
 - [Get trait](https://paritytech.github.io/substrate/master/frame_support/traits/trait.Get.html)
 - [Extra_constants](https://paritytech.github.io/substrate/master/frame_support/attr.pallet.html#extra-constants-palletextra_constants-optional)

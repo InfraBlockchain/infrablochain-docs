@@ -4,7 +4,7 @@ description: Substrate 노드의 핵심 구성 요소를 소개합니다.
 keywords:
 ---
 
-[블록체인 기본](/learn/blockchain-basics)에서 언급한 바와 같이, 블록체인은 서로 통신하는 컴퓨터들의 탈중앙화된 네트워크인 노드들에 의존합니다.
+[블록체인 기본](../basic/blockchain-basics.md)에서 언급한 바와 같이, 블록체인은 서로 통신하는 컴퓨터들의 탈중앙화된 네트워크인 노드들에 의존합니다.
 
 노드는 어떤 블록체인이든 핵심 구성 요소이기 때문에, Substrate 노드가 독특하게 만드는 요소들, 기본적으로 제공되는 핵심 서비스와 라이브러리들, 그리고 노드를 다양한 프로젝트 목표에 맞게 사용자 정의하고 확장하는 방법을 이해하는 것이 중요합니다.
 
@@ -18,7 +18,7 @@ Substrate 노드는 크게 두 가지 주요 부분으로 구성됩니다:
 
 다음 다이어그램은 아키텍처와 Substrate가 블록체인을 구축하기 위한 모듈화된 프레임워크를 제공하는 방식을 시각화하기 위해 단순화된 형태로 분리된 책임을 보여줍니다.
 
-![Substrate 아키텍처](/media/images/docs/simplified-architecture.png)
+![Substrate 아키텍처](/media/images/docs/infrablockchain/learn/substrate/learn/simplified-architecture.png)
 
 ## 클라이언트 외부 노드 서비스
 
@@ -27,24 +27,24 @@ Substrate 노드는 크게 두 가지 주요 부분으로 구성됩니다:
 
 코어 클라이언트 서비스가 처리하는 가장 중요한 활동 중 일부는 다음과 같은 구성 요소들과 관련이 있습니다:
 
-- [저장소](/learn/state-transitions-and-storage/): 외부 노드는 간단하고 매우 효율적인 Key-Value 저장소 계층을 사용하여 Substrate 블록체인의 진화하는 상태를 유지합니다.
+- [저장소](../frame/state-transitions-and-storage.md): 외부 노드는 간단하고 매우 효율적인 Key-Value 저장소 계층을 사용하여 Substrate 블록체인의 진화하는 상태를 유지합니다.
 
-- [피어 간 네트워킹](/learn/networks-and-nodes/): 외부 노드는 다른 네트워크 참가자들과 통신하기 위해 Rust 구현인 [`libp2p` 네트워크 스택](https://libp2p.io/)을 사용합니다.
+- [피어 간 네트워킹](../basic/networks-and-nodes.md): 외부 노드는 다른 네트워크 참가자들과 통신하기 위해 Rust 구현인 [`libp2p` 네트워크 스택](https://libp2p.io/)을 사용합니다.
 
-- [합의](/learn/consensus/): 외부 노드는 다른 네트워크 참가자들과 통신하여 블록체인의 상태에 대해 합의를 이끌어냅니다.
+- [합의](../basic/consensus.md): 외부 노드는 다른 네트워크 참가자들과 통신하여 블록체인의 상태에 대해 합의를 이끌어냅니다.
 
-- [원격 프로시저 호출 (RPC) API](/build/remote-procedure-calls/): 외부 노드는 블록체인 사용자가 네트워크와 상호작용할 수 있도록 들어오는 HTTP 및 WebSocket 요청을 수락합니다.
+- [원격 프로시저 호출 (RPC) API](../../build/remote-procedure-calls.md): 외부 노드는 블록체인 사용자가 네트워크와 상호작용할 수 있도록 들어오는 HTTP 및 WebSocket 요청을 수락합니다.
 
-- [텔레메트리](/maintain/monitor/): 외부 노드는 내장된 [Prometheus](https://prometheus.io/) 서버를 통해 노드 메트릭에 대한 수집 및 액세스를 제공합니다.
+- [텔레메트리](../../../../devops/monitor-node-metrics.md): 외부 노드는 내장된 [Prometheus](https://prometheus.io/) 서버를 통해 노드 메트릭에 대한 수집 및 액세스를 제공합니다.
 
-- [실행 환경](/build/build-process/): 외부 노드는 런타임이 사용할 실행 환경인 WebAssembly 또는 네이티브 Rust를 선택하고 선택한 런타임에 호출을 보냅니다.
+- [실행 환경](../../build/build-process.md): 외부 노드는 런타임이 사용할 실행 환경인 WebAssembly 또는 네이티브 Rust를 선택하고 선택한 런타임에 호출을 보냅니다.
 
 Substrate는 이러한 활동을 처리하기 위한 기본 구현을 제공합니다.
 원칙적으로, 어떤 구성 요소의 기본 구현을 수정하거나 대체할 수 있습니다.
 실제로는, 대부분의 애플리케이션은 기본 블록체인 기능에 대한 변경이 필요하지 않지만, Substrate를 사용하면 필요한 경우 변경할 수 있으므로 필요한 곳에서 혁신할 수 있습니다.
 
 이러한 작업을 수행하기 위해서는 클라이언트 노드 서비스가 런타임과 통신해야 합니다.
-이 통신은 전용 [런타임 API](/reference/runtime-apis/)를 호출하여 처리됩니다.
+이 통신은 전용 [런타임 API](../frame/runtime-apis.md)를 호출하여 처리됩니다.
 
 ## 런타임
 
@@ -55,7 +55,7 @@ Substrate는 이러한 활동을 처리하기 위한 기본 구현을 제공합�
 즉, 런타임은 체인 상에서 발생하는 모든 일을 처리하는 역할을 담당합니다.
 또한 Substrate 블록체인을 구축하기 위한 노드의 핵심 구성 요소입니다.
 
-Substrate 런타임은 [WebAssembly (Wasm)](/reference/glossary#webassembly-wasm) 바이트 코드로 컴파일될 수 있도록 설계되었습니다.
+Substrate 런타임은 [WebAssembly (Wasm)](../basic/glossary.md#webassembly-wasm) 바이트 코드로 컴파일될 수 있도록 설계되었습니다.
 이 설계 결정은 다음을 가능하게 합니다:
 
 - 포크 없는 업그레이드 지원.
@@ -79,7 +79,7 @@ Substrate 런타임은 [WebAssembly (Wasm)](/reference/glossary#webassembly-wasm
 
 다음 다이어그램은 라이브러리가 코어 클라이언트 외부 노드와 런타임 책임을 반영하고, **Primitive** 라이브러리가 두 가지 간의 통신 계층을 제공하는 방식을 보여줍니다.
 
-![코어 노드 라이브러리: 외부 노드와 런타임](/media/images/docs/libraries.png)
+![코어 노드 라이브러리: 외부 노드와 런타임](/media/images/docs/infrablockchain/learn/substrate/learn/libraries.png)
 
 ### 코어 클라이언트 라이브러리
 

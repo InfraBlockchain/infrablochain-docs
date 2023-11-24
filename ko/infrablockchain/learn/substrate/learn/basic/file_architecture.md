@@ -7,9 +7,9 @@ keywords:
   - 프로그래밍
 ---
 
-[아키텍처와 Rust 라이브러리](/learn/architecture/)에서 설명한 대로, Substrate 라이브러리는 Substrate 코어 클라이언트(`sc_*`), FRAME 및 런타임(`frame_*` 및 `pallet_*`), 또는 Substrate 원시(raw)(`sp_*`)인지를 나타내기 위해 네이밍 규칙을 사용합니다.
+[아키텍처와 Rust 라이브러리](../basic/architecture.md)에서 설명한 대로, Substrate 라이브러리는 Substrate 코어 클라이언트(`sc_*`), FRAME 및 런타임(`frame_*` 및 `pallet_*`), 또는 Substrate 원시(raw)(`sp_*`)인지를 나타내기 위해 네이밍 규칙을 사용합니다.
 
-![외부 노드 및 런타임을 위한 코어 노드 라이브러리](/media/images/docs/libraries.png)
+![외부 노드 및 런타임을 위한 코어 노드 라이브러리](/media/images/docs/infrablockchain/learn/substrate/learn/libraries.png)
 
 특정 크레이트를 명확히 하지 않은 경우, 다음 링크를 사용하여 핵심 Rust 라이브러리를 탐색하는 진입점으로 사용하세요.
 

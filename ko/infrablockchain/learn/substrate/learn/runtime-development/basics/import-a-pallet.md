@@ -8,7 +8,7 @@ keywords:
 ---
 
 이 가이드는 런타임에 로컬 및 외부 팔레트를 빠르게 통합하는 방법을 보여줍니다.
-더 자세한 단계별 지침은 [런타임에 팔레트 추가하기](/tutorials/build-application-logic/add-a-pallet)를 참조하세요.
+더 자세한 단계별 지침은 [런타임에 팔레트 추가하기](../../../tutorials/build-application-logic/add-a-pallet.md)를 참조하세요.
 
 이 가이드에서는 다음을 설명합니다:
 
@@ -37,7 +37,7 @@ keywords:
    }
    ```
 
-1. [`construct_runtime` 매크로](/reference/frame-macros/#construct_runtime)에 팔레트를 선언하세요:
+1. [`construct_runtime` 매크로](../../frame/frame-macros.md)에 팔레트를 선언하세요:
 
    ```rust
    construct_runtime!(
@@ -107,4 +107,4 @@ std = [
 
 - [타임스탬프 팔레트 관련 타입](https://paritytech.github.io/substrate/master/pallet_timestamp/index.html)
 - [FRAME `pallet-timestamp`](https://crates.io/crates/pallet-timestamp)<!-- markdown-link-check-disable-line -->
-- [단위 테스트](/test/unit-testing)
+- [단위 테스트](../../../../../tutorials/test/unit-testing.md)

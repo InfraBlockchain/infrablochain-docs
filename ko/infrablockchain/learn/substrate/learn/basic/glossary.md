@@ -10,7 +10,7 @@ keywords:
 
 투표자 투표율에 따라 공론에 대한 통과 임계값을 조정하는 메커니즘을 제공합니다.
 적응형 쿼럼 편향은 투표 목적을 위해 임의의 쿼럼을 요구하는 것을 제거하여 더 유연한 거버넌스를 가능하게 합니다.
-적응형 쿼럼 편향은 [Democracy 팔렛](/reference/frame-pallets#democracy)에서 구현되어 있습니다.
+적응형 쿼럼 편향은 [Democracy 팔렛](../frame/frame-pallets.md#기능-팔레트)에서 구현되어 있습니다.
 Democracy 팔렛은 [collective](#council) 또는 개별 토큰 홀더와 같은 온체인 단체가 긍정적, 부정적 또는 중립적 편향으로 공론을 호출할 수 있는 인터페이스를 제공합니다.
 
 **긍정적 투표율 편향**에서는 투표수가 증가함에 따라 통과 임계값이 _감소_ 하여 투표율이 높아질수록 공론이 통과될 확률이 높아집니다.
@@ -41,7 +41,7 @@ Democracy 팔렛은 [collective](#council) 또는 개별 토큰 홀더와 같은
 - 모든 후보에 대해 투표하는 것은 아무도에게 투표하지 않는 것과 같습니다.
 - 하나의 후보에 반대표를 표시하려면 다른 모든 후보에 투표하면 됩니다.
 
-승인 투표는 [FRAME 선거 Phragmen 팔렛](/reference/frame-pallets#elections-phragmen)에서 Substrate 기반 체인의 [의회](#council)로 사용됩니다.
+승인 투표는 [FRAME 선거 Phragmen 팔렛](../frame/frame-pallets.md#기능-팔레트)에서 Substrate 기반 체인의 [의회](#council)로 사용됩니다.
 
 ## 저자
 
@@ -52,7 +52,7 @@ Democracy 팔렛은 [collective](#council) 또는 개별 토큰 홀더와 같은
 ## 권한
 
 [노드](#node)가 [블록체인](#blockchain) 네트워크에서 [합의](#consensus)를 관리하는 집단으로 작용합니다.
-[FRAME](#frame)의 [스테이킹 팔렛](/reference/frame-pallets#staking)을 사용하는 블록체인인 [지분 증명](#nominated-proof-of-stake-npos) 블록체인에서는 권한이 토큰 가중치에 따라 지정되고 투표 시스템을 통해 결정됩니다.
+[FRAME](#frame)의 [스테이킹 팔렛](../frame/frame-pallets.md#기능-팔레트)을 사용하는 블록체인인 [지분 증명](#nominated-proof-of-stake-npos) 블록체인에서는 권한이 토큰 가중치에 따라 지정되고 투표 시스템을 통해 결정됩니다.
 
 "권한"과 "검증자"라는 용어는 종종 같은 것을 가리키는 것처럼 보입니다.
 그러나 "검증자"는 파라체인 검증과 같은 체인 유지 관리의 다른 측면을 포함할 수 있는 보다 포괄적인 용어입니다.
@@ -83,7 +83,7 @@ BABE에 대한 자세한 내용은 [공식 Web3 Foundation 연구 문서](https:
 각 블록은 [암호학적 다이제스트](#cryptographic-primitives)인 해시로 식별되며, 부모 블록의 해시를 가리키는 포인터를 포함합니다.
 모든 블록은 [헤더](#header)와 블록 내에서 특정한 매개변수 내에서 블록에 포함된 실행된 명령을 포함하는 본문을 가지고 있습니다.
 블록은 주로 각 블록이 부모 블록을 참조하도록 하여 수직으로 쌓인 스택으로 시각화됩니다.
-충돌을 해결하기 위해 [포크 선택 규칙](/learn/consensus#fork-choice-rules)과 선택적인 [결정성](#finality) 메커니즘을 사용하여 블록체인은 진행됩니다.
+충돌을 해결하기 위해 [포크 선택 규칙](../basic/consensus.md#확정과-포크)과 선택적인 [결정성](#finality) 메커니즘을 사용하여 블록체인은 진행됩니다.
 
 ## 블록 높이
 
@@ -130,7 +130,7 @@ BABE에 대한 자세한 내용은 [공식 Web3 Foundation 연구 문서](https:
 ## 합의
 
 [블록체인](#blockchain)의 [노드](#node)가 규범적인 [포크](#fork)에 대해 합의하는 데 사용하는 프로세스입니다.
-합의는 [저자](#author), [결정성](#finality) 및 [포크 선택 규칙](/learn/consensus#fork-choice-rules)으로 구성됩니다.
+합의는 [저자](#author), [결정성](#finality) 및 [포크 선택 규칙](../basic/consensus.md#확정과-포크)으로 구성됩니다.
 
 Substrate 생태계에서 이 세 가지 구성 요소는 서로 분리되어 있으며, 합의라는 용어는 주로 저자에 대해 특정하게 사용됩니다.
 Substrate [노드](#node)의 맥락에서 용어 **합의 엔진**은 합의 작업을 담당하는 노드 하위 시스템을 설명합니다.
@@ -159,17 +159,17 @@ Substrate [노드](#node)의 맥락에서 용어 **합의 엔진**은 합의 작
 - 해시 알고리즘은 해시된 데이터 블록을 생성하며, 각 블록은 해시 알고리즘에 의해 생성된 해시를 사용하여 부모 블록을 참조합니다.
 - 해시는 상태를 [트라이](#trie-patricia-merkle-tree) 데이터 구조로 인코딩하여 효율적인 검증을 용이하게 합니다.
 - 디지털 서명 체계는 [권한](#authority)과 같은 다양한 [합의](#consensus) 모델을 보호하는 데 사용됩니다.
-- 암호학적 체계는 Substrate 런타임에서 [트랜잭션](#transaction)을 수행하는 데 사용되는 [계정](/learn/accounts-addresses-keys/)을 식별하고 인증합니다.
+- 암호학적 체계는 Substrate 런타임에서 [트랜잭션](#transaction)을 수행하는 데 사용되는 [계정](../basic/accounts-addresses-keys.md)을 식별하고 인증합니다.
 
 ## 의회
 
-[FRAME](#frame) 기반 블록체인인 [Kusama](#kusama) 또는 [Polkadot](#polkadot)과 같은 Substrate 기반 네트워크에서 대부분 [Collective 팔렛](/reference/frame-pallets#collective)의 인스턴스를 가리키는 데 가장 자주 사용됩니다.
+[FRAME](#frame) 기반 블록체인인 [Kusama](#kusama) 또는 [Polkadot](#polkadot)과 같은 Substrate 기반 네트워크에서 대부분 [Collective 팔렛](../frame/frame-pallets.md#기능-팔레트)의 인스턴스를 가리키는 데 가장 자주 사용됩니다.
 의회는 주로 더 포괄적인 공론 시스템을 최적화하고 균형을 맞추는 데 사용됩니다.
 
 ## 데이터베이스 백엔드
 
 [블록체인](#blockchain) 네트워크의 [상태](#state)가 블록체인 노드 응용 프로그램의 호출 사이에 지속되도록 하는 방법입니다.
-Substrate 기반 체인에서 데이터베이스 백엔드가 어떻게 구현되고 사용되는지에 대한 정보는 [런타임 저장소](/build/runtime-storage)를 참조하세요.
+Substrate 기반 체인에서 데이터베이스 백엔드가 어떻게 구현되고 사용되는지에 대한 정보는 [런타임 저장소](../frame/runtime-storage.md)를 참조하세요.
 
 ## 개발용 구문
 
@@ -178,7 +178,7 @@ Alice, Bob, Charlie, Dave, Eve, Ferdie와 같은 잘 알려진 개발용 계정�
 비밀 구문은 다음과 같습니다:
 `bottom drive obey lake curtain smoke basket hold race lonely fit walk`
 
-[`subkey`](/reference/command-line-tools/subkey)와 같은 Substrate 생태계의 많은 도구는 `//Alice`와 같은 파생 경로를 사용하여 암묵적으로 계정을 지정할 수 있도록 해줍니다.
+[`subkey`](../command-line-tools/subkey.md)와 같은 Substrate 생태계의 많은 도구는 `//Alice`와 같은 파생 경로를 사용하여 암묵적으로 계정을 지정할 수 있도록 해줍니다.
 
 ## 다이제스트
 
@@ -238,7 +238,7 @@ Substrate에서는 이 프로토콜이 [Parity JSON-RPC](https://github.com/pari
 Kusama는 [Polkadot의 "야생 친척"](https://polkadot.network/kusama-polkadot-comparing-the-cousins/)으로 알려진 [카나리](https://en.wiktionary.org/wiki/canary_in_a_coal_mine) 네트워크입니다.
 카나리 네트워크로서 Kusama는 [테스트 네트워크](#westend)와 같은 테스트 네트워크보다 안정적이지만 [Polkadot](#polkadot)과 같은 프로덕션 네트워크보다는 안정적이지 않을 것으로 예상됩니다.
 
-카나리 네트워크인 Kusama는 네트워크 참가자에 의해 [조정](/reference/frame-pallets#democracy)되며 의미 있는 실험을 장려하기 위해 안정적이어야 합니다.
+카나리 네트워크인 Kusama는 네트워크 참가자에 의해 [조정](../frame/frame-pallets.md#기능-팔레트)되며 의미 있는 실험을 장려하기 위해 안정적이어야 합니다.
 
 ## libp2p
 
@@ -280,7 +280,7 @@ Substrate 노드는 블록체인 네트워크에서 여러 역할을 수행할 �
 ## 원천
 
 [FRAME](#frame) 원시(raw)(primitive)로서 [디스패치](#dispatch)된 함수 호출의 소스를 식별하는 데 사용됩니다.
-FRAME `system` 모듈은 세 가지 내장 [원천](/build/origins#raw-origins)을 정의합니다.
+FRAME `system` 모듈은 세 가지 내장 [원천](../frame/origins.md)을 정의합니다.
 팔렛 개발자로서 [Collective 팔렛](https://paritytech.github.io/substrate/master/pallet_collective/enum.RawOrigin.html)에서 정의한 것과 같은 사용자 정의 원천을 정의할 수도 있습니다.
 
 ## 팔렛

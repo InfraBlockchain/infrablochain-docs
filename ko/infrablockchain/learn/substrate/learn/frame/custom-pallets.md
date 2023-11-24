@@ -4,10 +4,10 @@ description:
 keywords:
 ---
 
-커스텀 런타임을 구축하는 가장 일반적인 방법은 [기존 팔레트](/reference/frame-pallets/)를 기반으로 시작하는 것입니다.
+커스텀 런타임을 구축하는 가장 일반적인 방법은 [기존 팔레트](./frame-pallets.md)를 기반으로 시작하는 것입니다.
 예를 들어, 기존의 Collective와 Balances 팔레트를 사용하지만, 응용 프로그램 및 스테이킹 규칙에 필요한 커스텀 런타임 로직을 포함하는 응용 프로그램별 스테이킹 팔레트를 구축할 수 있습니다.
 
-[FRAME 팔레트](/reference/frame-pallets)는 가장 일반적인 팔레트에 대한 개요를 제공하지만, 현재 존재하는 팔레트에 대한 최신 정보를 찾는 가장 좋은 장소는 `pallet_*` 네이밍 규칙을 사용하는 크레이트의 [Rust API](/reference/rust-api/) 문서입니다.
+[FRAME 팔레트](./frame-pallets.md)는 가장 일반적인 팔레트에 대한 개요를 제공하지만, 현재 존재하는 팔레트에 대한 최신 정보를 찾는 가장 좋은 장소는 `pallet_*` 네이밍 규칙을 사용하는 크레이트의 [Rust API](./runtime-apis.md) 문서입니다.
 
 필요한 팔레트를 찾지 못한 경우, FRAME 매크로를 사용하여 사용자 정의 팔레트의 뼈대를 구축할 수 있습니다.
 
@@ -36,7 +36,7 @@ FRAME은 복잡한 코드 블록을 캡슐화하기 위해 Rust 매크로를 광
 매크로는 사용자 정의 런타임 로직을 구현하기 위해 작성해야 하는 코드를 단순화합니다.
 그러나 일부 매크로는 함수 선언에 특정 요구 사항을 강제합니다.
 예를 들어, `Config` 트레이트는 `frame_system::Config`에 바인딩되어야 하며, `#[pallet::pallet]` 구조체는 `pub struct Pallet<T>(_);`로 선언되어야 합니다.
-FRAME 팔레트에서 사용되는 매크로에 대한 개요는 [FRAME 매크로](/reference/frame-macros/)를 참조하십시오.
+FRAME 팔레트에서 사용되는 매크로에 대한 개요는 [FRAME 매크로](./frame-macros.md)를 참조하십시오.
 
 <!-- ## 유용한 FRAME 트레이트
 

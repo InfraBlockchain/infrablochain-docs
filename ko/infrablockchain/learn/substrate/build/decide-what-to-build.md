@@ -81,8 +81,8 @@ Substrate는 두 가지 유형의 스마트 컨트랙트를 지원하기 위한 
 
 프로젝트가 스마트 계약으로 적합한 경우, 시작할 수 있는 몇 가지 간단한 예제를 다음 자습서에서 확인할 수 있습니다:
 
-- [스마트 컨트랙트 개발](/tutorials/smart-contracts/)
-- [EVM 계정에 액세스](/tutorials/integrate-with-tools/access-evm-accounts/)
+- [스마트 컨트랙트 개발](../tutorials/smart-contracts/README.md)
+- [EVM 계정에 액세스](../tutorials/integrate-with-tools/README.md)
 
 ## 개별 팔렛
 
@@ -116,9 +116,9 @@ Substrate는 두 가지 유형의 스마트 컨트랙트를 지원하기 위한 
 
 프로젝트가 개별 팔렛으로 적합한 경우, 다음 섹션에서 시작할 수 있는 몇 가지 간단한 예제를 확인할 수 있습니다:
 
-- [커스텀 팔렛](/build/custom-pallets/)
-- [팔렛 사용하기](/tutorials/build-application-logic/)
-- [컬렉터블 워크샵](/tutorials/collectibles-workshop/)
+- [커스텀 팔렛](../learn/frame/custom-pallets.md)
+- [팔렛 사용하기](../tutorials/build-application-logic/README.md)
+- [컬렉터블 워크샵](../tutorials/collectibles-workshop/README.md)
 
 ## 커스텀 런타임
 
@@ -139,15 +139,14 @@ Substrate과 FRAME을 사용하여 완전한 커스텀 런타임을 개발할 �
 
 ### 커스텀 런타임 구축에 대해 알아보기
 
-개별 팔렛보다는 커스텀 런타임을 구축하려면, [팔렛 사용하기](/tutorials/build-application-logic/) 및 [컬렉터블 워크샵](/tutorials/collectibles-workshop/)과 같은 몇 가지 간단한 예제로 시작할 수 있습니다.
+개별 팔렛보다는 커스텀 런타임을 구축하려면, [팔렛 사용하기](../tutorials/build-application-logic/README.md) 및 [컬렉터블 워크샵](../tutorials/collectibles-workshop/README.md)과 같은 몇 가지 간단한 예제로 시작할 수 있습니다.
 그러나 솔로 체인이나 파라체인에 대한 개념 증명으로 커스텀 런타임을 구축하려면 런타임 구성 요소와 FRAME 팔렛에 대한 보다 포괄적이고 심층적인 이해가 필요합니다.
-가장 관련 있는 주제는 [빌드](/build/) 및 [테스트](/test/)에서 찾을 수 있으며, 다음 섹션에서 확인할 수 있습니다:
+가장 관련 있는 주제는 [빌드](../build/README.md) 및 [테스트](../../../tutorials/test/README.md)에서 찾을 수 있으며, 다음 섹션에서 확인할 수 있습니다:
 
-- [런타임 스토리지 구조](/build/runtime-storage/)
-- [트랜잭션, Weight 및 수수료](/build/tx-weights-fees/)
-- [애플리케이션 개발](/build/application-development/)
-- [FRAME 팔렛](/reference/frame-pallets/)
-- [FRAME 매크로](/reference/frame-macros/)
+- [런타임 스토리지 구조](../learn/frame/runtime-storage.md)
+- [트랜잭션, Weight 및 수수료](../learn/frame/tx-weights-fees.md)
+- [FRAME 팔렛](../learn/frame/frame-pallets.md)
+- [FRAME 매크로](../learn/frame/frame-macros.md)
 
 ## 파라체인
 
@@ -202,12 +201,11 @@ InfraBlockspace 릴레이 체인 생태계의 보안, 거버넌스 및 상호운
 
 시작할 수 있는 몇 가지 예제를 확인하려면 다음 섹션을 참조하세요:
 
-- [네트워크에 파라체인 연결](/tutorials/build-a-parachain/)
-- [테스트 네트워크에서 파라체인 시뮬레이션](/test/simulate-parachains/)
-- [파라체인](/reference/how-to-guides/parachains/)
+- [네트워크에 파라체인 연결](../../../tutorials/build/build-a-parachain.md)
+- [테스트 네트워크에서 파라체인 시뮬레이션](../../../tutorials/test/simulate-parachains.ko.md)
+- [파라체인](../../../learn/architecture/parachain/README.md)
 
 무엇을 구축할 수 있는지 자세히 알아보려면 다음 리소스를 참조하세요:
 
-- [InfraBlockspace 으로 빌드하기](https://wiki.polkadot.network/docs/build-build-with-polkadot)
-- [파라체인 개발](https://wiki.polkadot.network/docs/build-pdk)
-- [스마트 컨트랙트](https://wiki.polkadot.network/docs/build-smart-contracts)
+- [인프라 블록체인 빌드하기](../../../tutorials/build/README.md)
+- [스마트 컨트랙트](../tutorials/smart-contracts/README.md)
