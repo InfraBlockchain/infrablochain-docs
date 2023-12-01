@@ -4,7 +4,7 @@ description: 개발 환경에서 단일 로컬 블록체인 노드를 컴파일,
 keywords:
 ---
 
-[블록체인 기초](/learn/blockchain-basics/)에서 배운 대로, 블록체인은 네트워크를 형성하기 위해 분산 컴퓨터인 노드로 구성됩니다.
+[블록체인 기초](../../learn/basic/blockchain-basics.md)에서 배운 대로, 블록체인은 네트워크를 형성하기 위해 분산 컴퓨터인 노드로 구성됩니다.
 
 Substrate는 애플리케이션이나 비즈니스 모델 요구에 맞게 완전히 커스텀할 수 있는 블록체인 노드를 설계하고 구축할 수 있는 유연하고 개방적이며 확장 가능한 개발 환경을 제공합니다.
 
@@ -40,7 +40,7 @@ Substrate와 블록체인 개발에 대한 사전 지식이나 경험이 없다�
 
 - 블록체인과 스마트 컨트랙트 플랫폼에 대해 일반적으로 알고 있어야 합니다.
 
-- [설치](/install/)에서 설명한 대로 Rust를 설치하고 개발 환경을 설정했는지 확인하세요.
+- [설치](../install/README.md)에서 설명한 대로 Rust를 설치하고 개발 환경을 설정했는지 확인하세요.
 
 ## 튜토리얼 목표
 
@@ -283,8 +283,8 @@ Substrate 프론트엔드 템플릿은 Substrate 노드와 상호작용하고 �
 프론트엔드 템플릿에는 로컬 개발 노드에 연결된 동안 실험해 볼 수 있는 여러 가지 추가 컴포넌트가 포함되어 있습니다.
 이러한 컴포넌트를 자체적으로 탐색하거나 다음 주제에서 자세히 알아볼 수 있습니다:
 
-- [아키텍처](/learn/architecture/)
-- [네트워크와 블록체인](/learn/node-and-network-types/)
-- [네트워크 시뮬레이션](/tutorials/build-a-blockchain/simulate-network/)
+- [아키텍처](../../learn/basic/architecture.md)
+- [네트워크와 블록체인](../../learn/basic/networks-and-nodes.md)
+- [네트워크 시뮬레이션](./simulate-network.md)
 - [이슈 제출](https://github.com/substrate-developer-hub/substrate-docs/issues/new/choose)
 - [Substrate Stack Exchange](https://substrate.stackexchange.com/)

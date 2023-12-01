@@ -15,9 +15,9 @@ Substrate 노드 템플릿은 Aura를 이용하여 라운드 로빈 방식으로
 
 시작하기 전에 다음을 확인하세요:
 
-- [Rust와 Rust 툴 체인](/install/)을 설치하여 Substrate 개발을 위한 환경을 구성했는지 확인하세요.
+- [Rust와 Rust 툴 체인](../install/README.md)을 설치하여 Substrate 개발을 위한 환경을 구성했는지 확인하세요.
 
-- [로컬 블록체인 구축](/tutorials/build-a-blockchain/build-local-blockchain/)을 완료하고 Substrate 노드 템플릿을 로컬에 설치했는지 확인하세요.
+- [로컬 블록체인 구축](./build-local-blockchain.md)을 완료하고 Substrate 노드 템플릿을 로컬에 설치했는지 확인하세요.
 
 - 소프트웨어 개발과 명령 줄 인터페이스 사용에 대해 일반적으로 알고 있는지 확인하세요.
 
@@ -257,7 +257,7 @@ Substrate 노드 템플릿은 Aura를 이용하여 라운드 로빈 방식으로
 
 다음 튜토리얼에서는 이 튜토리얼에서 배운 내용을 기반으로 다른 참여자와 별도의 컴퓨터에서 실행되는 노드를 사용하여 개인 네트워크를 시작하는 방법을 설명합니다.
 
-[신뢰할 수 있는 노드 추가](/tutorials/build-a-blockchain/add-trusted-nodes/)에서 다음을 배울 수 있습니다:
+[신뢰할 수 있는 노드 추가](./add-trusted-nodes.md/)에서 다음을 배울 수 있습니다:
 
 - 자체 비밀 키 쌍을 생성하는 방법.
 

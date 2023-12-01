@@ -33,16 +33,16 @@ Substrate 기반 블록체인 개발을 시작할 때 유용한 몇 가지 도�
 
 - [sidecar](https://github.com/paritytech/substrate-api-sidecar)
 
-  @substrate/api-sidecar 패키지는 [FRAME](/reference/glossary/#frame/) 개발 프레임워크를 사용하여 구축된 Substrate 노드에 연결하고 상호작용할 수 있는 RESTful 서비스입니다.
+  @substrate/api-sidecar 패키지는 [FRAME](../../learn/basic/glossary.md#팔렛) 개발 프레임워크를 사용하여 구축된 Substrate 노드에 연결하고 상호작용할 수 있는 RESTful 서비스입니다.
   서비스가 지원하는 엔드포인트에 대한 정보는 [Substrate API Sidecar](https://paritytech.github.io/substrate-api-sidecar/dist/)를 참조하세요.
 
 또한 [Awesome Substrate](https://github.com/substrate-developer-hub/awesome-substrate)에 나열된 리소스와 커뮤니티 프로젝트를 탐색해 볼 수도 있습니다.
 
-가장 일반적으로 사용되는 도구에 대한 개요는 [command-line tools](/reference/command-line-tools/)를 참조하세요.
+가장 일반적으로 사용되는 도구에 대한 개요는 [command-line tools](../../learn/command-line-tools/README.md)를 참조하세요.
 
 ## 다음으로 어디로 가야 할까요
 
-- [Command-line tools](/reference/command-line-tools/)
-- [node-template](/reference/command-line-tools/node-template/)
-- [subkey](/reference/command-line-tools/subkey/)
-- [try-runtime](/reference/command-line-tools/try-runtime/)
+- [Command-line tools](../../learn/command-line-tools/README.md)
+- [node-template](../../learn/command-line-tools/node-template.md)
+- [subkey](../../learn/command-line-tools/subkey.md)
+- [try-runtime](../../learn/command-line-tools/try-runtime.md)

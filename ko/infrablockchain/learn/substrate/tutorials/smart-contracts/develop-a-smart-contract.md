@@ -4,7 +4,7 @@ description: 값을 증가시키는 스마트 컨트랙트를 개발하세요.
 keywords:
 ---
 
-[첫 번째 계약 준비](/tutorials/smart-contracts/prepare-your-first-contract/)에서는 Substrate 기반 블록체인에 기본 프로젝트를 사용하여 스마트 컨트랙트를 구축하고 배포하는 기본 단계를 배웠습니다.
+[첫 번째 계약 준비](./prepare-your-first-contract.md)에서는 Substrate 기반 블록체인에 기본 프로젝트를 사용하여 스마트 컨트랙트를 구축하고 배포하는 기본 단계를 배웠습니다.
 
 이 튜토리얼에서는 함수 호출할 때마다 카운터 값을 증가시키는 새로운 스마트 컨트랙트를 개발합니다.
 
@@ -18,9 +18,9 @@ keywords:
 
 - 블록체인과 스마트 컨트랙트 플랫폼에 대해 일반적으로 알고 있어야 합니다.
 
-- [설치](/install/)에 설명된 대로 Rust를 설치하고 개발 환경을 설정했어야 합니다.
+- [설치](../install/README.md)에 설명된 대로 Rust를 설치하고 개발 환경을 설정했어야 합니다.
 
-- [첫 번째 계약 준비](/tutorials/smart-contracts/prepare-your-first-contract/)를 완료하고 Substrate 계약 노드를 로컬에 설치했어야 합니다.
+- [첫 번째 계약 준비](./prepare-your-first-contract.md)를 완료하고 Substrate 계약 노드를 로컬에 설치했어야 합니다.
 
 ## 튜토리얼 목표
 

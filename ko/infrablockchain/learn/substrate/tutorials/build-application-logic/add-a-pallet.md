@@ -10,7 +10,7 @@ keywords:
   - 설정
 ---
 
-[로컬 블록체인 만들기](/tutorials/build-a-blockchain/build-local-blockchain/)에서 보았듯이, [Substrate 노드 템플릿](https://github.com/substrate-developer-hub/substrate-node-template)은 사용자 정의 블록체인을 구축하기 위한 시작점으로 몇 가지 기본 FRAME 개발 모듈인 **팔레트**를 포함한 작동하는 **런타임**을 제공합니다.
+[로컬 블록체인 만들기](../build-a-blockchain/build-local-blockchain.md)에서 보았듯이, [Substrate 노드 템플릿](https://github.com/substrate-developer-hub/substrate-node-template)은 사용자 정의 블록체인을 구축하기 위한 시작점으로 몇 가지 기본 FRAME 개발 모듈인 **팔레트**를 포함한 작동하는 **런타임**을 제공합니다.
 
 이 튜토리얼에서는 노드 템플릿의 런타임에 새로운 팔레트를 추가하는 기본 단계를 소개합니다.
 새로운 FRAME 팔레트를 런타임에 추가하려는 경우 언제든지 비슷한 단계를 수행해야 합니다.
@@ -28,9 +28,9 @@ Nicks 팔레트는 블록체인 사용자가 자신이 제어하는 계정에 �
 
 시작하기 전에 다음을 확인하세요.
 
-- [Rust 및 Rust 툴체인](/install/)을 설치하여 Substrate 개발 환경을 구성했는지 확인하세요.
+- [Rust 및 Rust 툴체인](../install/README.md)을 설치하여 Substrate 개발 환경을 구성했는지 확인하세요.
 
-- [로컬 블록체인 만들기](/tutorials/build-a-blockchain/build-local-blockchain/) 튜토리얼을 완료하고 개발자 허브에서 Substrate 노드 템플릿을 로컬에 설치했는지 확인하세요.
+- [로컬 블록체인 만들기](../build-a-blockchain/build-local-blockchain.md) 튜토리얼을 완료하고 개발자 허브에서 Substrate 노드 템플릿을 로컬에 설치했는지 확인하세요.
 
 - 소프트웨어 개발 및 명령 줄 인터페이스 사용에 대해 일반적으로 알고 있는지 확인하세요.
 
@@ -100,7 +100,7 @@ Nicks 팔레트의 종속성을 런타임에 추가하려면 다음 단계를 �
 
    이 섹션은 이 런타임을 컴파일하는 데 사용되는 기본 기능 세트가 `std` 기능 세트임을 지정합니다.
    `std` 기능 세트를 사용하여 런타임을 컴파일할 때 종속성으로 나열된 모든 팔레트의 `std` 기능이 활성화됩니다.
-   표준 Rust 라이브러리를 사용하여 플랫폼 네이티브 바이너리로 컴파일되는 런타임이 어떻게 구성되는지에 대한 자세한 내용은 [Build process](/build/build-process/)를 참조하세요.
+   표준 Rust 라이브러리를 사용하여 플랫폼 네이티브 바이너리로 컴파일되는 런타임이 어떻게 구성되는지에 대한 자세한 내용은 [Build process](../../build/build-process.md)를 참조하세요.
 
    `Cargo.toml` 파일의 `features` 섹션을 업데이트하는 것을 잊으면 런타임 바이너리를 컴파일할 때 `cannot find function` 오류가 발생할 수 있습니다.
 
@@ -260,7 +260,7 @@ Balances 팔레트에 대한 `Config` trait이 어떻게 구현되는지 예제�
 
 ## 프론트엔드 템플릿 시작하기
 
-이제 런타임에 새로운 팔레트를 추가했으므로 [Substrate 프론트엔드 템플릿](/tutorials/build-a-blockchain/build-local-blockchain/#install-the-front-end-template)을 사용하여 노드 템플릿과 상호작용하고 Nicks 팔레트에 액세스할 수 있습니다.
+이제 런타임에 새로운 팔레트를 추가했으므로 [Substrate 프론트엔드 템플릿](../build-a-blockchain/build-local-blockchain.md#프론트엔드-템플릿-설치하기)을 사용하여 노드 템플릿과 상호작용하고 Nicks 팔레트에 액세스할 수 있습니다.
 
 프론트엔드 템플릿을 시작하려면 다음을 수행하세요.
 
@@ -330,12 +330,12 @@ Alice에 대한 저장된 정보를 반환하려면 다음을 수행하세요.
 `nicks` 팔레트는 `clear_name` 함수와 `kill_name` 함수라는 두 가지 추가 기능을 제공하여 계정 소유자가 예약된 이름을 제거하거나 루트 수준 사용자가 계정 이름을 강제로 제거할 수 있도록 합니다.
 Nicks 및 Sudo 팔레트를 통해 노출된 추가 기능(예: Sudo 팔레트 및 오리진 계정 사용)을 탐색하여 추가 기능에 대해 자세히 알아볼 수 있습니다.
 그러나 이러한 기능은 이 튜토리얼의 목적 범위를 벗어납니다.
-Nicks 및 Sudo 팔레트를 통해 노출된 추가 기능을 탐색하려면 [다음 단계](#다음-단계)로 이동하여 [호출에 대한 오리진 지정](/tutorials/build-application-logic/specify-the-origin-for-a-call)을 선택하세요.
+Nicks 및 Sudo 팔레트를 통해 노출된 추가 기능을 탐색하려면 [다음 단계](#다음-단계)로 이동하여 호출에 대한 오리진 지정을 선택하세요.
 
 ## 다음 단계로 넘어가기
 
-Substrate 개발에 대해 더 알아보기 위해 여러 [튜토리얼](/tutorials/)을 참조할 수 있습니다.
+Substrate 개발에 대해 더 알아보기 위해 여러 [튜토리얼](../../tutorials/README.md)을 참조할 수 있습니다.
 
-- [호출에 대한 오리진 지정](/tutorials/build-application-logic/specify-the-origin-for-a-call)은 다른 발신 계정을 사용하여 함수를 호출하는 방법을 탐색합니다.
-- [스마트 컨트랙트 개발](/tutorials/smart-contracts/)은 ink!를 사용하여 스마트 컨트랙트를 구축하는 방법을 안내합니다.
-- [사용자 정의 팔레트에서 매크로 사용하기](/tutorials/build-application-logic/use-macros-in-a-custom-pallet)는 매크로를 사용하여 자체 팔레트를 만드는 방법을 보여줍니다.
+- [호출에 대한 오리진 지정](../build-application-logic/specify-the-origin-for-a-call.md)은 다른 발신 계정을 사용하여 함수를 호출하는 방법을 탐색합니다.
+- [스마트 컨트랙트 개발](../smart-contracts/README.md)은 ink!를 사용하여 스마트 컨트랙트를 구축하는 방법을 안내합니다.
+- [사용자 정의 팔레트에서 매크로 사용하기](../build-application-logic/use-macros-in-a-custom-pallet.md)는 매크로를 사용하여 자체 팔레트를 만드는 방법을 보여줍니다.

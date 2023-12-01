@@ -9,7 +9,7 @@ keywords:
 
 이 튜토리얼은 권한이 있는 프라이빗 **밸리데이터**로 이루어진 작은 독립형 블록체인 네트워크를 시작하는 방법을 보여줍니다.
 
-[블록체인 기본](/learn/blockchain-basics/)에서 배운 대로, 모든 블록체인은 네트워크의 노드들이 특정 시점에서 데이터의 상태에 대해 동의하는 것을 요구하며, 이 상태에 대한 동의는 **합의**라고 합니다.
+[블록체인 기본](../../learn/basic/blockchain-basics.md)에서 배운 대로, 모든 블록체인은 네트워크의 노드들이 특정 시점에서 데이터의 상태에 대해 동의하는 것을 요구하며, 이 상태에 대한 동의는 **합의**라고 합니다.
 
 Substrate 노드 템플릿은 **권한(authority) 라운드** 또는 **Aura** 합의로도 알려진 권한 증명 합의 모델을 사용합니다.
 Aura 합의 프로토콜은 블록 생성을 권한이 있는 계정의 회전 목록으로 제한합니다.
@@ -22,11 +22,11 @@ Aura 합의 프로토콜은 블록 생성을 권한이 있는 계정의 회전 �
 
 시작하기 전에 다음을 확인하세요:
 
-- [Rust 및 Rust 도구 체인](/install/)을 설치하여 Substrate 개발 환경을 구성했는지 확인하세요.
+- [Rust 및 Rust 도구 체인](../install/README.md)을 설치하여 Substrate 개발 환경을 구성했는지 확인하세요.
 
-- [로컬 블록체인 빌드](/tutorials/build-a-blockchain/build-local-blockchain/)을 완료하고 Substrate 노드 템플릿을 로컬에 설치했는지 확인하세요.
+- [로컬 블록체인 빌드](./build-local-blockchain.md)을 완료하고 Substrate 노드 템플릿을 로컬에 설치했는지 확인하세요.
 
-- [네트워크 시뮬레이션](/tutorials/build-a-blockchain/simulate-network/)에서 설명한 대로 미리 정의된 계정을 사용하여 단일 컴퓨터에서 노드를 시작했는지 확인하세요.
+- [네트워크 시뮬레이션](./simulate-network.md)에서 설명한 대로 미리 정의된 계정을 사용하여 단일 컴퓨터에서 노드를 시작했는지 확인하세요.
 
 - 소프트웨어 개발 및 커맨드 라인 인터페이스 사용에 대해 일반적으로 알고 있는지 확인하세요.
 
@@ -44,14 +44,14 @@ Aura 합의 프로토콜은 블록 생성을 권한이 있는 계정의 회전 �
 
 ## 계정 및 키 생성하기
 
-[네트워크 시뮬레이션](/tutorials/build-a-blockchain/simulate-network/)에서는 미리 정의된 계정과 키를 사용하여 피어 노드를 시작했습니다.
+[네트워크 시뮬레이션](./simulate-network.md)에서는 미리 정의된 계정과 키를 사용하여 피어 노드를 시작했습니다.
 이 튜토리얼에서는 네트워크의 밸리데이터 노드에 대한 키를 생성하기 위해 직접 비밀 키를 생성합니다.
 블록체인 네트워크의 각 참여자는 고유한 키를 생성하는 것이 중요하다는 점을 기억해야 합니다.
 
 ### 키 생성 옵션
 
 키를 생성하는 여러 가지 방법이 있습니다.
-예를 들어, `node-template` 하위 커맨드, 독립형 [subkey](/reference/command-line-tools/subkey/) 커맨드 라인 프로그램, Polkadot-JS 애플리케이션 또는 타사 키 생성 도구를 사용하여 키 쌍을 생성할 수 있습니다.
+예를 들어, `node-template` 하위 커맨드, 독립형 [subkey](../../learn/command-line-tools/subkey.md) 커맨드 라인 프로그램, Polkadot-JS 애플리케이션 또는 타사 키 생성 도구를 사용하여 키 쌍을 생성할 수 있습니다.
 
 이 튜토리얼에서는 미리 정의된 키 쌍을 사용하여 튜토리얼을 완료할 수 있지만, 이러한 키는 실제 환경에서 사용해서는 안 됩니다.
 미리 정의된 키 쌍이나 보안이 더 강화된 `subkey` 프로그램 대신에 Substrate 노드 템플릿과 `key` 하위 커맨드를 사용하여 키를 생성하는 생성하는 방법을 설명합니다.
@@ -250,7 +250,7 @@ Aura 합의 프로토콜은 블록 생성을 권한이 있는 계정의 회전 �
 각 밸리데이터에 대해 고유한 키를 사용해야 합니다.
 두 개의 밸리데이터가 동일한 키를 가지고 있는 경우 충돌하는 블록이 생성됩니다.
 
-키 쌍 및 서명 작업에 대한 자세한 내용은 [공개 키 암호화](/learn/cryptography/#public-key-cryptography)를 참조하세요.
+키 쌍 및 서명 작업에 대한 자세한 내용은 [공개 키 암호화](../../learn/basic/cryptography.md#비대칭-암호)를 참조하세요.
 
 ## 체인 스펙을 원시 형식(raw format)으로 변환하기
 
@@ -274,7 +274,7 @@ Aura 합의 프로토콜은 블록 생성을 권한이 있는 계정의 회전 �
 ## 개인 네트워크 시작하기
 
 커스텀 체인 스펙을 모든 네트워크 참여자에게 배포한 후, 자체 개인 블록체인을 시작할 준비가 되었습니다.
-이 단계는 [첫 번째 블록체인 노드 시작](/tutorials/build-a-blockchain/simulate-network/#Start-the-first-blockchain-node)에서 수행한 단계와 유사합니다.
+이 단계는 [첫 번째 블록체인 노드 시작](./simulate-network.md#첫-번째-블록체인-노드-시작하기)에서 수행한 단계와 유사합니다.
 하지만 이 튜토리얼의 단계를 따르면 여러 컴퓨터를 네트워크에 추가할 수 있습니다.
 
 계속하기 전에 다음을 확인하세요:
@@ -562,10 +562,10 @@ Aura 합의 프로토콜은 블록 생성을 권한이 있는 계정의 회전 �
 
 이 튜토리얼에서 소개된 주제에 대해 더 자세히 알아보려면 다음 섹션을 참조하세요:
 
-- [계정, 주소, 그리고 키](learn/accounts-addresses-keys)
+- [계정, 주소, 그리고 키](../../learn/basic/accounts-addresses-keys.md)
 
-- [체인 스펙](/build/chain-spec/)
+- [체인 스펙](../../build/chain-spec.md)
 
-- [subkey](/reference/command-line-tools/subkey/)
+- [subkey](../../learn/command-line-tools/subkey.md)
 
-- [암호학](/learn/cryptography//)
+- [암호학](../../learn/basic/cryptography.md)

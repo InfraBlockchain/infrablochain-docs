@@ -48,9 +48,9 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [Rust 및 Rust 툴체인](/install/)을 설치하여 Substrate 개발 환경을 구성했습니다.
+- [Rust 및 Rust 툴체인](../install/README.md)을 설치하여 Substrate 개발 환경을 구성했습니다.
 
-- [로컬 블록체인 만들기](/tutorials/build-a-blockchain/build-local-blockchain/) 튜토리얼을 완료하고 개발자 허브에서 Substrate 노드 템플릿을 로컬에 설치했습니다.
+- [로컬 블록체인 만들기](../build-a-blockchain/build-local-blockchain.md) 튜토리얼을 완료하고 개발자 허브에서 Substrate 노드 템플릿을 로컬에 설치했습니다.
 
 - FRAME 매크로를 사용하는 방법과 팔렛의 로직을 편집하는 방법에 익숙합니다.
 
@@ -582,6 +582,6 @@ fn validate_unsigned(_source: TransactionSource, call: &Self::Call) -> Transacti
 이 자습서에서는 오프체인 워커를 사용하여 온체인 저장소에 트랜잭션을 전송하는 간단한 예제를 제공합니다.
 더 자세한 내용은 다음 리소스를 참조하십시오:
 
-- [오프체인 작업](/learn/offchain-operations/)
+- [오프체인 작업](../../learn/basic/offchain-operations.md)
 - [오프체인 워커 예제](https://github.com/paritytech/polkadot-sdk/tree/master/substrate/frame/examples/offchain-worker)
 - [오프체인 워커 데모](https://github.com/jimmychu0807/substrate-offchain-worker-demo/tree/v2.0.0/pallets/ocw)

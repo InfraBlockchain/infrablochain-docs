@@ -4,7 +4,7 @@ description: 노드 템플릿의 내용을 자세히 살펴보세요.
 keywords:
 ---
 
-[노드 시작하기](/quick-start/start-a-node/)에서 개발 모드에서 로컬 Substrate 노드를 컴파일하고 시작했습니다.
+[노드 시작하기](../quick-start/start-a-node.md)에서 개발 모드에서 로컬 Substrate 노드를 컴파일하고 시작했습니다.
 이 특정 노드인 `substrate-node-template`은 시작하기 위해 몇 가지 공통 모듈만 간단히 제공하는 간소화된 환경을 제공합니다.
 세부 사항에 너무 깊게 들어가지 않고도, 노드 템플릿 코드의 기본 구성 요소를 탐색함으로써 많은 것을 배울 수 있습니다.
 
@@ -49,7 +49,7 @@ panic = "unwind"
 
 각 멤버 패키지는 자체의 매니페스트인 `Cargo.toml` 파일을 가지고 있으며, 해당 멤버 패키지를 컴파일하는 데 필요한 종속성 및 구성 설정과 같은 패키지별 정보를 포함하고 있습니다.
 예를 들어, 워크스페이스의 `node` 멤버를 위한 `Cargo.toml` 파일은 패키지의 이름이 `node-template`이며, 노드 템플릿이 필수적인 블록체인 서비스를 제공할 수 있도록 하는 핵심 라이브러리와 기본 요소를 나열하고 있습니다.
-라이브러리와 기본 요소에 대해서는 [아키텍처 및 Rust 라이브러리](/learn/architecture)에서 자세히 알아보게 될 것입니다.
+라이브러리와 기본 요소에 대해서는 [아키텍처 및 Rust 라이브러리](../../learn/basic/architecture.md)에서 자세히 알아보게 될 것입니다.
 지금은 각 패키지에 대한 종속성 및 기타 중요한 정보를 설명하는 매니페스트의 중요성을 이해하는 것으로 충분합니다.
 
 `runtime/Cargo.toml` 파일과 `pallets/template/Cargo.toml` 파일을 열면 다른 라이브러리와 기본 요소가 종속성으로 나열되어 있지만, 이러한 패키지를 컴파일하는 데 필요한 내용을 대략적으로 파악할 수 있습니다.
@@ -95,7 +95,7 @@ pallet-transaction-payment = { version = "4.0.0-dev", default-features = false, 
 ```
 
 또한 `frame-system`, `frame-support`, `frame-executive`와 같은 핵심 패키지에 대한 종속성도 있습니다.
-이러한 핵심 서비스에 대해서는 [핵심 FRAME 서비스](/learn/runtime-development/#core-frame-services)에서 자세히 알아보게 될 것입니다.
+이러한 핵심 서비스에 대해서는 [핵심 FRAME 서비스](../../learn/runtime-development/README.md)에서 자세히 알아보게 될 것입니다.
 지금은 이러한 모듈과 기타 모듈이 노드 템플릿의 런타임을 컴파일하는 데 필요하다는 점에 주목해주세요.
 
 ### 기본 소스 코드
@@ -114,5 +114,5 @@ pallet-transaction-payment = { version = "4.0.0-dev", default-features = false, 
 - 팔레트 성능을 평가하기 위한 벤치마킹 프레임워크를 준비합니다.
 - 코어 클라이언트가 런타임에 호출할 수 있도록 인터페이스를 구현합니다.
 
-런타임을 구성하는 방법, 벤치마킹 정의, 런타임 인터페이스 사용에 대해서는 [빌드](/build/) 및 [테스트](/test/) 섹션의 주제에서 자세히 알아보게 될 것입니다.
+런타임을 구성하는 방법, 벤치마킹 정의, 런타임 인터페이스 사용에 대해서는 [빌드](../../build/README.md) 및 [테스트](../../../../tutorials/test/README.md) 섹션의 주제에서 자세히 알아보게 될 것입니다.
 지금은 런타임이 어떻게 구성되고 기본 팔레트가 `Config` 트레이트를 사용하여 구현되는지에 대한 일반적인 감각만 가지고 있으면 됩니다.

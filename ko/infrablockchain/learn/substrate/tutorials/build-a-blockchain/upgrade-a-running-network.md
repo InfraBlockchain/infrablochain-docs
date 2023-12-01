@@ -7,7 +7,7 @@ keywords:
 ---
 
 Substrate 개발 프레임워크는 블록체인의 핵심인 런타임에 대한 **포크 없는 업그레이드**를 지원합니다.
-대부분의 블록체인 프로젝트는 새로운 기능 추가 또는 기존 기능 개선을 위해 코드 베이스의 [하드 포크](/reference/glossary/#fork)를 필요로 합니다.
+대부분의 블록체인 프로젝트는 새로운 기능 추가 또는 기존 기능 개선을 위해 코드 베이스의 하드 포크를 필요로 합니다.
 Substrate를 사용하면 하드 포크 없이도 새로운 런타임 기능(중단 변경 포함)을 배포할 수 있습니다.
 런타임의 정의 자체가 Substrate 기반 체인의 상태 중 하나이기 때문에 네트워크 참가자는 트랜잭션에서 [`set_code`](https://paritytech.github.io/substrate/master/frame_system/pallet/enum.Call.html#variant.set_code) 함수를 호출하여 이 값을 업데이트할 수 있습니다.
 런타임 상태의 업데이트는 블록체인의 합의 메커니즘과 암호학적 보장을 사용하여 검증되므로 네트워크 참가자는 체인을 포크하거나 새로운 블록체인 클라이언트를 릴리스할 필요 없이 업데이트된 또는 확장된 런타임 로직을 배포할 수 있습니다.
@@ -31,11 +31,11 @@ Substrate를 사용하면 하드 포크 없이도 새로운 런타임 기능(중
 
 시작하기 전에 다음을 확인하세요:
 
-- [Rust 및 Rust 툴 체인](/install/)을 설치하여 Substrate 개발 환경을 구성했습니다.
+- [Rust 및 Rust 툴 체인](../install/README.md)을 설치하여 Substrate 개발 환경을 구성했습니다.
 
-- [로컬 블록체인 구축](/tutorials/build-a-blockchain/build-local-blockchain/)을 완료하고 Substrate 노드 템플릿을 로컬에 설치했습니다.
+- [로컬 블록체인 구축](./build-local-blockchain.md)을 완료하고 Substrate 노드 템플릿을 로컬에 설치했습니다.
 
-- 새로운 팔렛을 런타임에 추가하는 방법에 대한 소개를 위해 [팔렛 추가](/tutorials/build-application-logic/add-a-pallet)를 검토했습니다.
+- 새로운 팔렛을 런타임에 추가하는 방법에 대한 소개를 위해 [팔렛 추가](../build-application-logic/add-a-pallet.md)를 검토했습니다.
 
 ## 튜토리얼 목표
 
@@ -65,7 +65,7 @@ Sudo 팔렛을 사용하면 루트 수준의 관리자가 루트 수준의 관�
 
 ### 런타임 업그레이드를 위한 리소스 계산
 
-Substrate 런타임으로의 함수 호출은 항상 리소스 사용량을 나타내는 [Weight](/reference/glossary/#weight)와 관련됩니다.
+Substrate 런타임으로의 함수 호출은 항상 리소스 사용량을 나타내는 [Weight](../../learn/basic/glossary.md#가중치)와 관련됩니다.
 FRAME 시스템 모듈은 이러한 트랜잭션이 사용할 수 있는 블록 길이와 블록 weight에 대한 제한을 설정합니다.
 그러나 `set_code` 함수는 의도적으로 블록에 맞을 수 있는 최대 weight를 소비하도록 설계되었습니다.
 런타임 업그레이드를 전체 블록에 소비하도록 강제함으로써 동일한 블록에서 실행되는 트랜잭션이 다른 버전의 런타임에서 실행되는 것을 방지합니다.
@@ -112,15 +112,15 @@ FRAME 시스템 모듈은 이러한 트랜잭션이 사용할 수 있는 블록 
 
 1. 가장 왼쪽의 드롭다운 메뉴를 클릭하여 네트워크를 선택합니다.
 
-   ![네트워크 선택](/media/images/docs/tutorials/forkless-upgrade/polkadot-js-select-network.png)
+   ![네트워크 선택](/media/images/docs/infrablockchain/learn/substrate/tutorials/polkadot-js-select-network.png)
 
 1. **Development** 아래에서 **Local Node**를 선택한 다음 **Switch**를 클릭합니다.
 
-   ![네트워크 선택](/media/images/docs/tutorials/forkless-upgrade/select-local-node.png)
+   ![네트워크 선택](/media/images/docs/infrablockchain/learn/substrate/tutorials/select-local-node.png)
    
    왼쪽 상단에서 노드 템플릿 버전이 기본 버전 100임을 알 수 있습니다.
 
-   ![노드 템플릿 버전](/media/images/docs/tutorials/forkless-upgrade/default-version.png)
+   ![노드 템플릿 버전](/media/images/docs/infrablockchain/learn/substrate/tutorials/default-version.png)
 
 ### 런타임에 유틸리티 팔렛 추가
 
@@ -255,24 +255,24 @@ FRAME 시스템 모듈은 이러한 트랜잭션이 사용할 수 있는 블록 
 
 1. **weight** 매개변수를 기본값인 `0`으로 설정한 채로 두세요.
 
-   ![런타임 업그레이드 설정](/media/images/docs/tutorials/forkless-upgrade/set-code-transaction.png)
+   ![런타임 업그레이드 설정](/media/images/docs/infrablockchain/learn/substrate/tutorials/set-code-transaction.png)
 
-1. **트랜잭션 제출**을 클릭합니다.
+2. **트랜잭션 제출**을 클릭합니다.
 
-1. 권한을 검토한 다음 **서명 및 제출**을 클릭합니다.
+3. 권한을 검토한 다음 **서명 및 제출**을 클릭합니다.
 
-1. **Network**를 클릭하고 **Explorer**를 선택하여 성공적인 `sudo.Sudid` 이벤트가 발생했는지 확인합니다.
+4. **Network**를 클릭하고 **Explorer**를 선택하여 성공적인 `sudo.Sudid` 이벤트가 발생했는지 확인합니다.
    
-   ![성공적인 sudo 이벤트](/media/images/docs/tutorials/forkless-upgrade/set-code-sudo-event.png)   
+   ![성공적인 sudo 이벤트](/media/images/docs/infrablockchain/learn/substrate/tutorials/set-code-sudo-event.png)   
 
    트랜잭션이 블록에 포함된 후, 노드 템플릿 버전 번호는 이제 런타임 버전이 `101`임을 나타냅니다.
    예를 들어:
 
-   ![업데이트된 런타임 버전은 101입니다](/media/images/docs/tutorials/forkless-upgrade/runtime-version-101.png)
+   ![업데이트된 런타임 버전은 101입니다](/media/images/docs/infrablockchain/learn/substrate/tutorials/runtime-version-101.png)
 
    로컬 노드가 브라우저에 표시된 내용과 일치하는 블록을 생성하는 경우, 런타임 업그레이드를 성공적으로 완료한 것입니다.
 
-1. **Developer**를 클릭하고 **Extrinsics**를 선택합니다. *다음 익스트린식을 제출*을 클릭하고 목록의 맨 아래로 스크롤합니다. **유틸리티**가 옵션으로 표시되는 것을 볼 수 있습니다.
+5. **Developer**를 클릭하고 **Extrinsics**를 선택합니다. *다음 익스트린식을 제출*을 클릭하고 목록의 맨 아래로 스크롤합니다. **유틸리티**가 옵션으로 표시되는 것을 볼 수 있습니다.
    
 <!--
 
@@ -380,7 +380,7 @@ FRAME 시스템 모듈은 이러한 트랜잭션이 사용할 수 있는 블록 
    - **balances** 팔렛을 선택합니다.
    - 상수 값을 쿼리할 값으로 **existentialDeposit**를 선택합니다.
 
-   ![상수 값 변경 확인](/media/images/docs/tutorials/forkless-upgrade/constant-value-lookup.png)
+   ![상수 값 변경 확인](/media/images/docs/infrablockchain/learn/substrate/tutorials/constant-value-lookup.png)
    
 ## 다음 단계로 넘어가기
 

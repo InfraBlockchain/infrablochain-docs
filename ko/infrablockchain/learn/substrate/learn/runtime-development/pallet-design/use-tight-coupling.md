@@ -7,7 +7,7 @@ keywords:
 타이트한 팔레트 결합은 기존 팔레트에서 타입과 메소드를 재사용하는 팔레트를 작성하는 기술입니다.
 
 공통 타입과 메소드에 접근해야하는 별개의 팔레트로 일부 런타임 로직을 분리하는 데 유용합니다.
-팔레트 간의 타이트한 결합과 루즈한 결합에 대해 자세히 알아보려면 [팔레트 결합](/build/pallet-coupling)을 참조하십시오.
+팔레트 간의 타이트한 결합과 루즈한 결합에 대해 자세히 알아보려면 [팔레트 결합](../../frame/pallet-coupling.md)을 참조하십시오.
 
 이 안내서에서는 기존 팔레트의 메소드를 자신의 팔레트 내에서 사용하는 방법을 보여줍니다.
 
@@ -52,5 +52,5 @@ keywords:
 
 ## 자원
 
-- [팔레트 결합](/build/pallet-coupling)
-- [팔레트 간 루즈한 결합 사용하기](/reference/how-to-guides/pallet-design/use-loose-coupling/)
+- [팔레트 결합](../../frame/pallet-coupling.md)
+- [팔레트 간 루즈한 결합 사용하기](./use-loose-coupling.md)

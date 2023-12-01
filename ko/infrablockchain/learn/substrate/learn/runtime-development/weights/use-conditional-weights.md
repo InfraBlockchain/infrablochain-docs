@@ -7,7 +7,7 @@ keywords:
   - 런타임
 ---
 
-Substrate는 트랜잭션 실행 중에 소비되는 리소스를 측정하기 위해 [트랜잭션 가중치](/build/tx-weights-fees)라고 하는 메커니즘을 제공합니다.
+Substrate는 트랜잭션 실행 중에 소비되는 리소스를 측정하기 위해 [트랜잭션 가중치](/ko/infrablockchain/learn/substrate/learn/frame/tx-weights-fees.md)라고 하는 메커니즘을 제공합니다.
 일반적으로 우리는 벤치마킹에서 반환된 가중치 함수를 사용합니다.
 하지만 Substrate는 특정 조건에 따라 완전히 다른 가중치 함수를 적용할 수도 있습니다.
 이 가이드에서는 예제를 통해 이를 살펴보겠습니다.
@@ -119,6 +119,6 @@ Substrate는 트랜잭션 실행 중에 소비되는 리소스를 측정하기 �
 
 ## 관련 자료
 
-- [벤치마킹](/test/benchmark)
-- [수수료 계산](/reference/how-to-guides/weights/calculate-fees)
-- [사용자 정의 가중치 사용](/reference/how-to-guides/weights/use-custom-weights)
+- [벤치마킹](/ko/infrablockchain/tutorials/test/benchmark.md)
+- [수수료 계산](./calculate-fees.md)
+- [사용자 정의 가중치 사용](./use-custom-weights.md)

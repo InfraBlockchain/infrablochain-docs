@@ -29,9 +29,9 @@ Frontier 프로젝트의 두 가지 주요 목표는 다음과 같습니다:
 
 이 튜토리얼을 시도하기 전에 다음 Substrate 튜토리얼을 완료해야 합니다:
 
-- [로컬 블록체인 구축](/tutorials/build-a-blockchain/build-local-blockchain/)
-- [런타임에 팔렛 추가](/tutorials/build-application-logic/add-a-pallet/)
-- [사용자 정의 팔렛에서 매크로 사용](/tutorials/build-application-logic/use-macros-in-a-custom-pallet/)
+- [로컬 블록체인 구축](../build-a-blockchain/build-local-blockchain.md)
+- [런타임에 팔렛 추가](../build-application-logic/add-a-pallet.md)
+- [사용자 정의 팔렛에서 매크로 사용](../build-application-logic/use-macros-in-a-custom-pallet.md)
 
 튜토리얼을 통해 다음 작업을 수행하는 방법에 익숙해져야 합니다:
 

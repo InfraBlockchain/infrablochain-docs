@@ -24,8 +24,8 @@ keywords:
 
 파라체인의 런타임을 업그레이드하기 전에 다음을 확인하세요:
 
-- 릴레이 체인에 연결되지 않은 Substrate 노드에서 [런타임 업그레이드](/maintain/runtime-upgrades)를 수행하는 방법에 익숙합니다.
-- [로컬 릴레이 체인 준비](/tutorials/build-a-parachain/prepare-a-local-relay-chain) 단계를 따라하고, 파라체인 콜레이터 노드와 릴레이 체인 간의 상호작용에 익숙합니다.
+- 릴레이 체인에 연결되지 않은 Substrate 노드에서 런타임 업그레이드를 수행하는 방법에 익숙합니다.
+- [로컬 릴레이 체인 준비](/ko/infrablockchain/tutorials/build/build-infra-relay-chain.md) 단계를 따라하고, 파라체인 콜레이터 노드와 릴레이 체인 간의 상호작용에 익숙합니다.
 - 테스트를 위해 `polkadot-launch`에 액세스할 수 있습니다.
 
 ## 업그레이드 방법 선택하기
@@ -68,7 +68,6 @@ keywords:
 
 ## 자료
 
-- [런타임 업그레이드](/maintain/runtime-upgrades)
+- [런타임 업그레이드](/ko/infrablockchain//learn/substrate/learn/frame/runtime-upgrades.md)
 - [Substrate에서 포크하기](https://github.com/maxsam4/fork-off-substrate)
-- [`try-runtime`](/reference/command-line-tools/try-runtime)
-- [`try-runtime` 비디오 워크샵](https://www.crowdcast.io/e/substrate-seminar/41)
+- [`try-runtime`](/ko/infrablockchain/learn/substrate/learn/command-line-tools/try-runtime.md)

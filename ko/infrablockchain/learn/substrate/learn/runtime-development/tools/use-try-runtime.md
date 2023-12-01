@@ -194,5 +194,5 @@ try-runtime 도구를 사용하는 방법은 유닛 테스트를 작성하는 �
 
 ## 다음으로 이동할 위치
 
-- [Command-line reference: try-runtime](/reference/command-line-tools/try-runtime/)
+- [Command-line reference: try-runtime](/ko/infrablockchain/learn/substrate/learn/command-line-tools/try-runtime.md)
 - [TryRuntime API](https://crates.parity.io/frame_try_runtime/trait.TryRuntime.html)

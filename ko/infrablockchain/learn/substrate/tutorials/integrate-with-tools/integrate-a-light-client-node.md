@@ -4,7 +4,7 @@ description: 브라우저에서 Substrate Connect를 사용하여 Substrate 기�
 keywords:
 ---
 
-[Substrate Connect에서 경량 클라이언트 노드](/learn/light-clients-in-substrate-connect/)를 배웠듯이, 경량 클라이언트 노드는 하드웨어 및 소프트웨어 요구 사항이 최소한인 상태에서 블록체인 데이터에 안전하고 탈중앙화된 액세스를 제공합니다.
+Substrate Connect에서 경량 클라이언트 노드를 배웠듯이, 경량 클라이언트 노드는 하드웨어 및 소프트웨어 요구 사항이 최소한인 상태에서 블록체인 데이터에 안전하고 탈중앙화된 액세스를 제공합니다.
 
 이 튜토리얼에서는 경량 클라이언트를 사용하여 어떤 Substrate 기반 블록체인에 연결할 수 있는 방법을 보여줍니다.
 이를 설명하기 위해 [Statemint 파라체인](https://wiki.polkadot.network/docs/learn-statemint)에 애플리케이션을 연결하는 방법을 배우게 될 것입니다.
@@ -28,7 +28,7 @@ Statemint는 Polkadot에 연결되어 있으며 공개적으로 액세스 가능
 ## 잘 알려진 체인에 연결하기
 
 경량 클라이언트가 네트워크에 연결하려면 경량 클라이언트가 연결할 네트워크, 통신할 노드 및 제네시스에서 필요한 합의 중요 상태를 지정하는 웹 애플리케이션이 있어야 합니다.
-이 정보는 네트워크의 [체인 사양](/build/chain-spec/) 파일에서 사용할 수 있습니다.
+이 정보는 네트워크의 [체인 사양](../../build/chain-spec.md) 파일에서 사용할 수 있습니다.
 
 Substrate Connect는 [WellKnownChain](https://paritytech.github.io/substrate-connect/api/enums/connect_src.WellKnownChain.html) 열거 목록에 정의된 여러 체인을 인식하도록 사전 구성되어 있습니다.
 이러한 잘 알려진 체인은 다음과 같습니다:

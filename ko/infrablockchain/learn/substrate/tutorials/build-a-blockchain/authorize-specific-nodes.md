@@ -8,7 +8,7 @@ keywords:
   - 제한된 액세스
 ---
 
-[신뢰할 수 있는 노드 추가](/tutorials/build-a-blockchain/add-trusted-nodes/)에서 알려드린대로 신뢰할 수 있는 밸리데이터 노드의 집합을 갖는 간단한 네트워크를 구축하는 방법을 보았습니다.
+[신뢰할 수 있는 노드 추가](./add-trusted-nodes.md)에서 알려드린대로 신뢰할 수 있는 밸리데이터 노드의 집합을 갖는 간단한 네트워크를 구축하는 방법을 보았습니다.
 이 튜토리얼은 **permissioned 네트워크**의 단순화된 버전을 설명한 것입니다.
 허가된 네트워크에서는 **승인된 노드**만 특정 네트워크 활동을 수행할 수 있습니다.
 예를 들어, 일부 노드에게 블록 유효성 검사 권한을 부여하고 다른 노드에게 트랜잭션 전파 권한을 부여할 수 있습니다.
@@ -39,7 +39,7 @@ keywords:
 
 다음 다이어그램이 제안한 대로, 이 튜토리얼은 체인 스펙에서 Alice와 Bob의 피어 식별자를 정의하고 _node-authorization 팔렛_ 을 사용하여 추가 노드를 추가하는 두 가지 승인 방법을 설명합니다.
 
-![피어 식별자를 사용한 노드 승인](/media/images/docs/tutorials/permissioned-network/four-nodes.png)
+![피어 식별자를 사용한 노드 승인](/media/images/docs/infrablockchain/learn/substrate/tutorials/four-nodes.png)
 
 어떤 계정이든지 `PeerId`의 소유자가 될 수 있습니다.
 잘못된 주장을 방지하기 위해 노드 식별자를 시작하기 전에 알려야 합니다.
@@ -50,18 +50,18 @@ keywords:
 사전 정의된 노드의 연결을 변경할 수는 없습니다.
 그들은 항상 서로 연결할 수 있습니다.
 
-`node-authorization` 팔렛은 [오프체인 워커](/learn/offchain-operations)를 사용하여 노드 연결을 구성합니다.
+`node-authorization` 팔렛은 [오프체인 워커](../../learn/runtime-development/offchain-workers/README.md)를 사용하여 노드 연결을 구성합니다.
 비권한 노드의 경우 기본적으로 비활성화되어 있으므로 노드를 시작할 때 오프체인 워커(off-chain worker) 를 활성화해야 합니다.
 
 ## 시작하기 전에
 
 시작하기 전에 다음을 확인하십시오:
 
-- [Rust 및 Rust 도구 체인](/install/)을 설치하여 Substrate 개발 환경을 구성했습니다.
+- [Rust 및 Rust 도구 체인](../install/README.md)을 설치하여 Substrate 개발 환경을 구성했습니다.
 
-- [로컬 블록체인 빌드](/tutorials/build-a-blockchain/build-local-blockchain/)을 완료하고 Substrate 노드 템플릿을 로컬로 설치했습니다.
+- [로컬 블록체인 빌드](./build-local-blockchain.md)을 완료하고 Substrate 노드 템플릿을 로컬로 설치했습니다.
 
-- [신뢰할 수 있는 노드 추가](/tutorials/build-a-blockchain/add-trusted-nodes/) 추가 튜토리얼을 완료했습니다.
+- [신뢰할 수 있는 노드 추가](./add-trusted-nodes.md) 추가 튜토리얼을 완료했습니다.
 
 - Substrate에서 [P2P 네트워킹](https://wiki.polkadot.network/docs/faq#networking)에 대해 일반적으로 알고 있습니다.
 
@@ -100,7 +100,7 @@ keywords:
    ```
 
 노드 템플릿은 오류 없이 컴파일되어야 합니다.
-컴파일 시 문제가 발생하는 경우 [Rust 문제 해결 팁](/install/troubleshoot-rust-issues/)을 시도해 볼 수 있습니다.
+컴파일 시 문제가 발생하는 경우 [Rust 문제 해결 팁](../install/troubleshoot-rust-issues.md)을 시도해 볼 수 있습니다.
 
 ## _node-authorization 팔렛_  추가
 
@@ -298,7 +298,7 @@ Substrate 런타임은 표준 라이브러리 함수를 포함하는 네이티�
    튜플의 첫 번째 요소는 `OpaquePeerId`입니다.
    `bs58::decode` 작업을 사용하여 사람이 읽을 수 있는 `PeerId` (예: `12D3KooWBmAwcd4PJNJvfV89HwE48nwkRmAgo8Vy3uQEyNNHBox2`)를 바이트로 변환합니다.
    튜플의 두 번째 요소는 이 노드의 소유자를 나타내는 `AccountId`입니다.
-   이 예제에서는 사전 정의된 [Alice 및 Bob](/reference/command-line-tools/subkey/#well-known-keys)을 사용하고 있으며, 여기서는 dowed 계정 [0] 및 [1]으로 식별됩니다.
+   이 예제에서는 사전 정의된 [Alice 및 Bob](../../learn/command-line-tools/subkey.md#사전-정의된-계정과-키)을 사용하고 있으며, 여기서는 dowed 계정 [0] 및 [1]으로 식별됩니다.
 
 8. 변경 사항을 저장하고 파일을 닫습니다.
 
@@ -322,7 +322,7 @@ Substrate 런타임은 표준 라이브러리 함수를 포함하는 네이티�
 ## 사용할 계정 키 식별
 
 이미 Genesis 스토리지에 Alice 및 Bob 계정과 관련된 노드를 구성했습니다.
-[`subkey`](/reference/command-line-tools/subkey/) 프로그램을 사용하여 미리 정의된 계정과 관련된 키를 검사하고 자체 키를 생성하고 검사할 수 있습니다.
+[`subkey`](../../learn/command-line-tools/subkey.md) 프로그램을 사용하여 미리 정의된 계정과 관련된 키를 검사하고 자체 키를 생성하고 검사할 수 있습니다.
 그러나 `subkey generate-node-key` 명령을 실행하면 노드 키와 피어 식별자가 무작위로 생성되어 튜토리얼에서 사용되는 키와 일치하지 않을 것입니다.
 이 튜토리얼에서는 미리 정의된 계정과 잘 알려진 노드 키를 사용하므로 각 계정에 대한 다음 키를 사용할 수 있습니다.
 
@@ -449,7 +449,7 @@ Alice와 Bob의 잘 알려진 노드 키를 사용하도록 Genesis 스토리지
 ### 잘 알려진 노드 목록에 세 번째 노드 추가
 
 세 번째 노드를 시작할 때 `--name charlie` 명령을 사용할 수 있습니다.
-`node-authorization` 팔레트는 [오프체인 워커](/learn/offchain-operations)를 사용하여 노드 연결을 구성합니다.
+`node-authorization` 팔레트는 [오프체인 워커](../../learn/runtime-development/offchain-workers/README.md)를 사용하여 노드 연결을 구성합니다.
 세 번째 노드는 잘 알려진 노드가 아니며 네트워크에서 네 번째 노드를 읽기 전용 하위 노드로 구성해야 하므로 오프체인 워커를 활성화하는 커맨드 라인 옵션을 포함해야 합니다.
 
 세 번째 노드를 시작하려면 다음 단계를 수행하세요.
@@ -498,11 +498,11 @@ Alice와 Bob의 잘 알려진 노드 키를 사용하도록 Genesis 스토리지
 
 7. 권한 부여 트랜잭션에서 Alice 개발용 계정이 기본 루트 관리 계정으로 사용되며, **서명 및 제출**을 클릭합니다.
    
-   ![트랜잭션 검증 및 권한 부여](/media/images/docs/tutorials/permissioned-network/sudo-to-add-node.png)
+   ![트랜잭션 검증 및 권한 부여](/media/images/docs/infrablockchain/learn/substrate/tutorials/sudo-add-well-known-node.png)
    
 8. **네트워크**를 클릭하고 **익스플로러**를 선택하여 최근 트랜잭션을 확인합니다.
    
-   ![Sudo 이벤트 확인](/media/images/docs/tutorials/permissioned-network/sudo-events-add-node.png)
+   ![Sudo 이벤트 확인](/media/images/docs/infrablockchain/learn/substrate/tutorials/sudo-events-add-node.png)
 
    트랜잭션이 블록에 포함된 후에는 `charlie` 노드가 `alice`와 `bob` 노드에 연결되고 블록 동기화를 시작해야 합니다.
    이 세 노드는 로컬 네트워크에서 기본적으로 활성화된 [mDNS](https://paritytech.github.io/substrate/master/sc_network/index.html) 검색 메커니즘을 사용하여 서로를 찾을 수 있어야 합니다. 로컬 방화벽도 mDNS를 허용하도록 구성되어 있어야 합니다.
@@ -533,7 +533,7 @@ Polkadot/Substrate Portal 응용 프로그램을 사용하여 이 권한을 부�
    
 6. 트랜잭션 세부 정보를 검토한 후 **서명 및 제출**을 클릭합니다.
    
-   ![charlie_add_connections](/media/images/docs/tutorials/permissioned-network/charlie_add_connections.png)
+   ![charlie_add_connections](/media/images/docs/infrablockchain/learn/substrate/tutorials/charlie_add_connections.png)
 
 ### 하위 노드 요청
 
@@ -550,7 +550,7 @@ Dave 계정이 소유한 노드를 요청하기 위해 Polkadot/Substrate Portal
    
 5. 트랜잭션 세부 정보를 검토한 후 **서명 및 제출**을 클릭합니다.
 
-   ![dave_claim_node](/media/images/docs/tutorials/permissioned-network/dave_claim_node.png)
+   ![dave_claim_node](/media/images/docs/infrablockchain/learn/substrate/tutorials/dave_claim_node.png)
 
 ### 하위 노드 시작
 
@@ -593,7 +593,7 @@ Dave가 소유한 노드에서 연결을 허용하도록 구성한 방법과 유
    
 6. 트랜잭션 세부 정보를 검토한 후 **서명 및 제출**을 클릭합니다.
    
-   ![dave_add_connections](/media/images/docs/tutorials/permissioned-network/dave_add_connections.png)
+   ![dave_add_connections](/media/images/docs/infrablockchain/learn/substrate/tutorials/dave_add_connections.png)
    
    이제 하위 노드가 Charlie의 소유한 노드에만 연결되어 있고 체인에서 블록을 동기화하고 있는 것을 볼 수 있어야 합니다.
    하위 노드가 바로 피어 노드에 연결되지 않으면 하위 노드를 중지하고 다시 시작해 보세요.
@@ -615,7 +615,7 @@ Dave가 소유한 노드에서 연결을 허용하도록 구성한 방법과 유
 이 튜토리얼에서는 일부 노드가 제한된 권한과 네트워크 리소스에 제한된 액세스를 갖는 네트워크를 구축하는 기본 사항을 배웠습니다.
 이 튜토리얼에서 소개된 주제에 대해 더 자세히 알아보려면 다음 리소스를 참조하십시오:
 
-- [계정, 주소 및 키](/learn/accounts-addresses-keys)
+- [계정, 주소 및 키](../../learn/basic/accounts-addresses-keys.md)
 - [노드 권한 부여 팔레트](https://paritytech.github.io/substrate/master/pallet_node_authorization/index.html#)
 - [노드 권한 부여 소스 코드](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/node-authorization/src/lib.rs)
-- [노드 메트릭스 모니터링](/tutorials/build-a-blockchain/monitor-node-metrics/)
+- [노드 메트릭스 모니터링](../../../../devops/monitor-node-metrics.md)

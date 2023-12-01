@@ -6,7 +6,7 @@ keywords:
 
 _도구_ 카테고리의 _사용 방법_ 가이드는 Substrate 환경에서 작업을 관리하고 테스트하는 데 도움이 되는 도구의 사용 사례를 보여줍니다.
 
-- [try-runtime 사용하기](/reference/how-to-guides/tools/use-try-runtime/)
-- [체인을 위한 txwrapper 만들기](/reference/how-to-guides/tools/create-a-txwrapper/)
-- [REST 엔드포인트를 사용하여 체인 데이터 가져오기](/reference/how-to-guides/tools/use-sidecar/)
-- [Wasm 바이너리 검증하기](/reference/how-to-guides/tools/verify-wasm/)
+- [try-runtime 사용하기](./use-try-runtime.md)
+- [체인을 위한 txwrapper 만들기](./create-a-txwrapper.md)
+- [REST 엔드포인트를 사용하여 체인 데이터 가져오기](./use-sidecar.md)
+- [Wasm 바이너리 검증하기](./verify-wasm.md)

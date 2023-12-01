@@ -194,12 +194,12 @@ Substrate 개발자 허브는 커뮤니티에게 제공되는 다양한 리소�
 
 #### 알려주세요
 
-- [아키텍처](/learn/architecture/)
-- [네트워크와 블록체인](/learn/node-and-network-types/)
-- [빌드 프로세스](/build/build-process)
+- [아키텍처](../../learn/basic/architecture.md)
+- [네트워크와 블록체인](../../learn/basic/networks-and-nodes.md)
+- [빌드 프로세스](../../build/build-process.md)
 
 #### 안내해주세요
 
-- [로컬 블록체인 구축](/tutorials/build-a-blockchain/build-local-blockchain/)
-- [네트워크 시뮬레이션](/tutorials/build-a-blockchain/simulate-network/)
-- [신뢰할 수 있는 노드 추가](/tutorials/build-a-blockchain/add-trusted-nodes/)
+- [로컬 블록체인 구축](../build-a-blockchain/build-local-blockchain.md)
+- [네트워크 시뮬레이션](../build-a-blockchain/simulate-network.md)
+- [신뢰할 수 있는 노드 추가](../build-a-blockchain/add-trusted-nodes.md)

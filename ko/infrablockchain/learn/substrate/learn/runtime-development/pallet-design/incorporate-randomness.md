@@ -12,7 +12,7 @@ keywords:
 
 결정론적인 컴퓨터에서 진정한 무작위성을 얻는 것은 어렵습니다.
 특히 블록체인의 경우 네트워크의 모든 노드가 체인의 상태에 대해 동의해야 합니다.
-FRAME은 런타임 엔지니어에게 [온체인 무작위성](/build/randomness/)을 제공하며, [무작위성 특성](https://paritytech.github.io/substrate/master/frame_support/traits/trait.Randomness.html)을 사용합니다.
+FRAME은 런타임 엔지니어에게 [온체인 무작위성](../../../learn/basic/randomness.md)을 제공하며, [무작위성 특성](https://paritytech.github.io/substrate/master/frame_support/traits/trait.Randomness.html)을 사용합니다.
 
 이 가이드에서는 FRAME의 무작위성 특성을 `random` 메서드와 nonce를 주제로 사용하는 방법에 대해 설명합니다.
 또한, "random" 타입을 노출하는 팔렛의 구성 특성에 `RandomCollectiveFlip` 팔렛을 할당하여 무작위성 값에 엔트로피를 추가하는 방법도 설명합니다.

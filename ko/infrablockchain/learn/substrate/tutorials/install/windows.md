@@ -5,7 +5,7 @@ keywords:
 ---
 
 일반적으로 macOS나 Linux와 같은 UNIX 기반 운영 체제는 Substrate 기반 블록체인을 구축하기 위한 개발 환경을 제공하는 데 더 적합합니다.
-Substrate [튜토리얼](/tutorials/) 및 [How-to 가이드](/reference/how-to-guides/)의 모든 코드 예제와 명령 줄 지침은 터미널에서 UNIX 호환 명령을 사용하여 Substrate와 상호 작용하는 방법을 보여줍니다.
+Substrate [튜토리얼](../../tutorials/README.md)의 모든 코드 예제와 명령 줄 지침은 터미널에서 UNIX 호환 명령을 사용하여 Substrate와 상호 작용하는 방법을 보여줍니다.
 
 그러나 로컬 컴퓨터가 UNIX 기반 운영 체제 대신 Microsoft Windows를 사용하는 경우, Substrate 기반 블록체인을 구축하기 위한 적합한 개발 환경으로 구성하기 위해 추가 소프트웨어를 설치할 수 있습니다.
 Microsoft Windows에서 개발 환경을 준비하려면 Windows Subsystem for Linux (WSL)을 사용하여 UNIX 운영 환경을 에뮬레이션할 수 있습니다.
@@ -198,12 +198,12 @@ Substrate 개발자 허브는 커뮤니티에 제공되는 다양한 리소스�
 
 #### 알려주세요
 
-- [아키텍처](/learn/architecture/)
-- [네트워크와 블록체인](/learn/node-and-network-types/)
-- [빌드 프로세스](/build/build-process)
+- [아키텍처](../../learn/basic/architecture.md)
+- [네트워크와 블록체인](../../learn/basic/networks-and-nodes.md)
+- [빌드 프로세스](../../build/build-process.md)
 
 #### 안내해주세요
 
-- [로컬 블록체인 구축](/tutorials/build-a-blockchain/build-local-blockchain/)
-- [네트워크 시뮬레이션](/tutorials/build-a-blockchain/simulate-network/)
-- [신뢰할 수 있는 노드 추가](/tutorials/build-a-blockchain/add-trusted-nodes/)
+- [로컬 블록체인 구축](../build-a-blockchain/build-local-blockchain.md)
+- [네트워크 시뮬레이션](../build-a-blockchain/simulate-network.md)
+- [신뢰할 수 있는 노드 추가](../build-a-blockchain/add-trusted-nodes.md)

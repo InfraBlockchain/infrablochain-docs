@@ -27,7 +27,7 @@ _모든_ 체인은 테스트 네트워크, 릴레이 체인 또는 파라체인�
 
 고유한 프로토콜 ID를 설정하려면 어떤 nonce 또는 salt 값을 사용하는지 확인하십시오. 이는 `/client/network/src/command.rs`의 CLI 항목으로 설정되며 `/client/network/src/chain_spec.rs`로 전달됩니다.
 
-모든 [체인 스펙](/build/chain-spec/) 파일에 이 항목이 필드로 포함되어 있습니다.
+모든 [체인 스펙](/ko/infrablockchain/learn/substrate/build/chain-spec.md) 파일에 이 항목이 필드로 포함되어 있습니다.
 예를 들어, 주요 [릴레이 체인 런타임](https://github.com/paritytech/polkadot-sdk/tree/master/polkadot/node/service/chain-specs) 체인 스펙에는 고유한 프로토콜 ID가 있습니다.
 Polkadot의 경우:
 
@@ -44,7 +44,7 @@ Polkadot의 경우:
 
 ## 메모리 프로파일링
 
-콜레이터 [메모리 프로파일링](/reference/command-line-tools/memory-profiler)을 수행하여 메모리 누수를 분석하고 메모리 소비가 발생하는 위치를 식별하며 임시 할당을 정의하고 응용 프로그램 내에서 과도한 메모리 단편화를 조사해야 합니다.
+콜레이터 메모리 프로파일링을 수행하여 메모리 누수를 분석하고 메모리 소비가 발생하는 위치를 식별하며 임시 할당을 정의하고 응용 프로그램 내에서 과도한 메모리 단편화를 조사해야 합니다.
 
 ## 런타임 크기 최소화
 
@@ -69,7 +69,7 @@ Polkadot의 경우:
 
 ## 적절한 가중치 사용
 
-[런타임 벤치마킹](/test/benchmark)을 사용하여 런타임 가중치가 실제로 런타임에서 사용되는 리소스를 나타내는지 확인하십시오.
+[런타임 벤치마킹](/ko/infrablockchain/tutorials/test/benchmark.md)을 사용하여 런타임 가중치가 실제로 런타임에서 사용되는 리소스를 나타내는지 확인하십시오.
 
 ### 사용자 정의 가중치
 
@@ -99,7 +99,7 @@ Polkadot의 경우:
 
 5. 파라체인이 활성화된 후에는 런타임을 업그레이드하여 누락된 팔렛을 포함할 수 있습니다. (팔렛 인덱스와 이름이 (1) 단계에서 생성된 제네시스 상태를 생성하는 데 사용된 것과 일치하는지 확인하고 스토리지 마이그레이션을 수행할 필요가 없도록 해야 합니다.) 온체인 런타임 업그레이드에 대한 자세한 내용은 다음 섹션을 참조하십시오.
 
-이러한 점진적인 런타임 업그레이드를 실제로 수행하는 방법에 대한 자세한 내용은 [파라체인 런타임 업그레이드 가이드](/reference/how-to-guides/parachains/runtime-upgrade)를 참조하십시오.
+이러한 점진적인 런타임 업그레이드를 실제로 수행하는 방법에 대한 자세한 내용은 [파라체인 런타임 업그레이드 가이드](/ko/infrablockchain/learn/substrate/learn/frame/runtime-upgrades.md)를 참조하십시오.
 
 ## 론칭 시뮬레이션
 
@@ -107,7 +107,7 @@ Polkadot의 경우:
 제한된 네트워크에서 테스트하는 것은 많은 콜레이터와 검증자, 대역폭 및 지연과 같은 제약 조건을 가진 실제 네트워크에서 발생할 수 있는 잠재적인 실패에 대비하는 데 도움이 됩니다.
 테스트에 실제 네트워크를 가능한 한 가깝게 시뮬레이션할수록 런타임 업그레이드가 성공할 확률이 높아집니다.
 
-이러한 테스트 자동화 도구를 위한 선택적 도구를 확인하려면 [로컬 릴레이 체인 준비](/tutorials/build-a-parachain/prepare-a-local-relay-chain/)를 참조하십시오.
+이러한 테스트 자동화 도구를 위한 선택적 도구를 확인하려면 [로컬 릴레이 체인 준비](/ko/infrablockchain/tutorials/build/build-a-parachain.md)를 참조하십시오.
 
 ## 예시
 
@@ -117,6 +117,6 @@ Polkadot의 경우:
 
 - [런타임 업그레이드에 대한 참조 문서](/build/upgrade)
 - [벤치마크된 가중치 사용 방법에 대한 가이드](/reference/how-to-guides/weights/add-benchmarks)
-- [`try-runtime` 문서에 대한 참조](/reference/command-line-tools/try-runtime)
-  - [`try-runtime` 비디오 워크샵](https://www.crowdcast.io/e/substrate-seminar/41)
+- [`try-runtime` 문서에 대한 참조](/ko/infrablockchain/learn/substrate/learn/command-line-tools/try-runtime.md)
+- [`try-runtime` 비디오 워크샵](https://www.crowdcast.io/e/substrate-seminar/41)
 - [Substrate에서 파생된 Fork Off Substrate 도구](https://github.com/maxsam4/fork-off-substrate)

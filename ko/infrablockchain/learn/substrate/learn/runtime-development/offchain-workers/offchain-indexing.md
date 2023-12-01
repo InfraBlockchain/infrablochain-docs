@@ -119,9 +119,9 @@ keywords:
    ```
 
    이를 통해 오프체인 워커는 노드의 로컬 스토리지에서 해당 데이터를 읽을 수 있습니다.
-   [오프체인 로컬 스토리지](/reference/how-to-guides/offchain-workers/offchain-local-storage/) 가이드에서 이를 수행하는 방법에 대해 설명합니다.
+   [오프체인 로컬 스토리지](./offchain-local-storage.md) 가이드에서 이를 수행하는 방법에 대해 설명합니다.
 
 ## 관련 자료
 
-- [오프체인 작업](/learn/offchain-operations/)
-- [오프체인 로컬 스토리지](/reference/how-to-guides/offchain-workers/offchain-local-storage/)
+- [오프체인 작업](../../../learn/basic/offchain-operations.md)
+- [오프체인 로컬 스토리지](./offchain-local-storage.md)

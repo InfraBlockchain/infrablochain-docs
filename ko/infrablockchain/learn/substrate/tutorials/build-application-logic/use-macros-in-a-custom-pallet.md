@@ -4,7 +4,7 @@ description: FRAME 매크로의 뼈대를 사용하여 Substrate 런타임에 �
 keywords:
 ---
 
-이 튜토리얼은 [FRAME](/reference/frame-macros/) 개발 환경의 일부인 **매크로**를 사용하여 Substrate 런타임에 대한 사용자 정의 팔레트를 생성하는 방법을 설명합니다.
+이 튜토리얼은 [FRAME](../../learn/frame/frame-macros.md) 개발 환경의 일부인 **매크로**를 사용하여 Substrate 런타임에 대한 사용자 정의 팔레트를 생성하는 방법을 설명합니다.
 
 이 튜토리얼에서는 간단한 **존재 증명** 애플리케이션을 구축합니다. 존재 증명은 블록체인에 객체에 대한 정보를 저장함으로써 디지털 객체의 진위성과 소유권을 검증하는 접근 방식입니다.
 블록체인은 객체와 관련된 타임스탬프와 계정을 연결하기 때문에 블록체인 기록은 특정한 객체가 특정한 날짜와 시간에 존재했음을 "증명"할 수 있습니다.
@@ -33,11 +33,11 @@ keywords:
 
 이 튜토리얼에서는 작동하는 코드를 다운로드하고 사용합니다. 시작하기 전에 다음을 확인하세요:
 
-- [Rust와 Rust 툴체인](/install/)을 설치하여 Substrate 개발 환경을 구성했는지 확인하세요.
+- [Rust와 Rust 툴체인](../install/README.md)을 설치하여 Substrate 개발 환경을 구성했는지 확인하세요.
 
-- [로컬 블록체인 생성](/tutorials/build-a-blockchain/build-local-blockchain/)을 완료하고 Substrate 노드 템플릿을 로컬에 설치했는지 확인하세요.
+- [로컬 블록체인 생성](../build-a-blockchain/build-local-blockchain.md)을 완료하고 Substrate 노드 템플릿을 로컬에 설치했는지 확인하세요.
 
-- [네트워크 시뮬레이션](/tutorials/build-a-blockchain/simulate-network/)에서 설명한 대로 미리 정의된 계정을 사용하여 단일 컴퓨터에서 노드를 시작했는지 확인하세요.
+- [네트워크 시뮬레이션](../build-a-blockchain/simulate-network.md)에서 설명한 대로 미리 정의된 계정을 사용하여 단일 컴퓨터에서 노드를 시작했는지 확인하세요.
 
 - 소프트웨어 개발에 대해 일반적으로 알고 있으며 명령 줄 인터페이스를 사용할 수 있는지 확인하세요.
 
@@ -64,7 +64,7 @@ keywords:
 ## 사용자 정의 팔레트 빌드
 
 Substrate 노드 템플릿에는 FRAME 기반 런타임이 있습니다.
-[런타임 개발](/learn/runtime-development)에서 배운 대로, FRAME은 팔레트라고 불리는 모듈을 조합하여 Substrate 런타임을 구축할 수 있는 코드 라이브러리입니다.
+[런타임 개발](../../learn/runtime-development/README.md)에서 배운 대로, FRAME은 팔레트라고 불리는 모듈을 조합하여 Substrate 런타임을 구축할 수 있는 코드 라이브러리입니다.
 팔레트는 블록체인이 수행할 수 있는 작업을 정의하는 특수한 논리적 단위로 생각할 수 있습니다.
 Substrate은 FRAME 기반 런타임에서 사용할 수 있는 사전 구축된 팔레트를 제공합니다.
 
@@ -109,7 +109,7 @@ Substrate은 FRAME 기반 런타임에서 사용할 수 있는 사전 구축된 
 
    런타임에서 사용하는 모든 팔레트는 `no_std` 기능으로 컴파일되도록 설정해야 합니다.
 
-7. 다음 코드를 복사하여 사용자 정의 팔레트에 필요한 스켈레톤 팔레트 종속성 및 [매크로](/reference/frame-macros)를 추가합니다.
+7. 다음 코드를 복사하여 사용자 정의 팔레트에 필요한 스켈레톤 팔레트 종속성 및 [매크로](../../learn/frame/frame-macros.md)를 추가합니다.
 
    ```rust
    // 팔레트 항목을 다른 크레이트 네임스페이스에서 액세스할 수 있도록 다시 내보냅니다.
@@ -432,6 +432,3 @@ Substrate 블록체인이 실행 중이고 Polkadot JS Apps가 연결되어 있�
 - "ALICE" 및/또는 "BOB" 계정으로 다른 파일을 주장합니다.
 - 해당 클레임 소유자 계정으로 클레임을 취소합니다.
 - 스토리지를 읽어 클레임 목록을 확인합니다.
-
-사용자 정의 팔레트를 생성함으로써 가능한 작업에 대해 자세히 알아보려면
-FRAME 문서와 [how-to 가이드](/reference/how-to-guides)를 참조하세요.

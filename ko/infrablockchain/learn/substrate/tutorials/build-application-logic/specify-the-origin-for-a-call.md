@@ -7,7 +7,7 @@ keywords:
   - 출처
 ---
 
-[런타임에 팔렛 추가하기](/tutorials/build-application-logic/add-a-pallet)에서 `pallet_nicks`의 함수를 [Substrate 노드 템플릿](https://github.com/substrate-developer-hub/substrate-node-template) 런타임에 추가했습니다.
+[런타임에 팔렛 추가하기](./add-a-pallet.md)에서 `pallet_nicks`의 함수를 [Substrate 노드 템플릿](https://github.com/substrate-developer-hub/substrate-node-template) 런타임에 추가했습니다.
 
 Nicks 팔렛은 블록체인 사용자가 자신이 소유한 계정에 대한 닉네임을 예약하기 위해 예치금을 지불할 수 있도록 합니다.
 다음과 같은 함수를 구현합니다:
@@ -23,13 +23,13 @@ Nicks 팔렛은 블록체인 사용자가 자신이 소유한 계정에 대한 �
 
 시작하기 전에 다음을 확인하세요:
 
-- [Rust와 Rust 툴체인](/install/)을 설치하여 Substrate 개발 환경을 구성했습니다.
+- [Rust와 Rust 툴체인](../install/README.md)을 설치하여 Substrate 개발 환경을 구성했습니다.
 
 - Substrate 노드 템플릿을 로컬에 설치했습니다.
 
 - Substrate 프론트엔드 템플릿을 로컬에 설치했습니다.
 
-- [런타임에 팔렛 추가하기](/tutorials/build-application-logic/add-a-pallet) 튜토리얼을 완료하고 `nicks` 팔렛이 포함된 런타임을 성공적으로 컴파일했습니다.
+- [런타임에 팔렛 추가하기](./add-a-pallet.md) 튜토리얼을 완료하고 `nicks` 팔렛이 포함된 런타임을 성공적으로 컴파일했습니다.
 
 - 소프트웨어 개발과 명령 줄 인터페이스 사용에 대해 일반적으로 알고 있습니다.
 
@@ -46,7 +46,7 @@ Nicks 팔렛은 블록체인 사용자가 자신이 소유한 계정에 대한 �
 
 ## 관리 계정 식별하기
 
-[런타임에 팔렛 추가하기](/tutorials/build-application-logic/add-a-pallet)에서 `nicks` 팔렛의 `Config` 트레이트는 여러 유형을 선언합니다.
+[런타임에 팔렛 추가하기](./add-a-pallet.md)에서 `nicks` 팔렛의 `Config` 트레이트는 여러 유형을 선언합니다.
 이 튜토리얼에서는 `ForceOrigin` 유형에 초점을 맞춥니다.
 `ForceOrigin` 유형은 특정 작업을 수행할 수 있는 계정을 지정하는 데 사용됩니다.
 이 팔렛의 경우, `ForceOrigin` 유형은 다른 계정의 이름을 설정하거나 제거할 수 있는 계정을 지정합니다.
@@ -195,6 +195,6 @@ Substrate 개발에 대해 더 알아보기 위해 다음 [튜토리얼](/tutori
 
 튜토리얼 외에도 다음 리소스를 탐색하여 더 많은 정보를 얻을 수 있습니다.
 
-- [특권 호출과 출처](/build/origins)는 기본적인 원시(raw) 출처 유형과 사용자 정의 출처를 생성하는 방법에 대해 자세히 설명합니다.
-- [이벤트와 오류](/build/events-and-errors)는 런타임에서 이벤트와 오류를 발생시키는 방법을 설명합니다.
-- [FRAME 팔렛](/reference/frame-pallets/)은 가장 일반적으로 사용되는 미리 정의된 FRAME 팔렛에 대한 개요를 제공합니다.
+- [특권 호출과 출처](../../learn/frame/origins.md)는 기본적인 원시(raw) 출처 유형과 사용자 정의 출처를 생성하는 방법에 대해 자세히 설명합니다.
+- [이벤트와 오류](../../learn/frame/events-and-errors.md)는 런타임에서 이벤트와 오류를 발생시키는 방법을 설명합니다.
+- [FRAME 팔렛](../../learn/frame/frame-pallets.md)은 가장 일반적으로 사용되는 미리 정의된 FRAME 팔렛에 대한 개요를 제공합니다.

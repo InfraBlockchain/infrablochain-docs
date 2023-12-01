@@ -156,5 +156,5 @@ workspace 매니페스트를 구성하려면:
 
 ## 자원
 
-- [팔레트 결합](/build/pallet-coupling)
-- [타이트한 팔레트 결합 사용하기](/reference/how-to-guides/pallet-design/use-tight-coupling/)
+- [팔레트 결합](../../frame/pallet-coupling.md)
+- [타이트한 팔레트 결합 사용하기](./use-tight-coupling.md)

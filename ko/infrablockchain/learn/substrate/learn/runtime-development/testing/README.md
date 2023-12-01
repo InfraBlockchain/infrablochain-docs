@@ -6,5 +6,5 @@ keywords:
 
 _테스트_ 카테고리의 _How-to_ 가이드는 간단한 함수에 대한 테스트 환경을 설정하고 테스트를 실행하는 방법을 보여줍니다.
 
-- [기본 테스트 설정하기](/reference/how-to-guides/testing/set-up-basic-tests/)
-- [전송 함수 테스트하기](/reference/how-to-guides/testing/test-a-transfer-function/)
+- [기본 테스트 설정하기](./set-up-basic-tests.md)
+- [전송 함수 테스트하기](./test-a-transfer-function.md)

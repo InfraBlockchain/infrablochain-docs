@@ -49,8 +49,6 @@ keywords:
 2. **Network**를 클릭하고 **Parachains**를 선택합니다.
 
 3. **Parathreads**를 클릭한 다음 **+ParaID**를 클릭합니다.
-   
-   ![`ParaID` 예약](/media/images/docs/tutorials/parachains/paraid-reserve.png)
 
 4. 연결하려는 릴레이 체인에 대한 **ParaID**를 예약하기 위해 트랜잭션을 제출합니다. 
    
@@ -104,7 +102,7 @@ keywords:
 ## 원시(raw) 체인 스펙 저장 및 배포
 
 다른 사람들이 네트워크에 연결할 수 있도록 하려면 네트워크에 대한 결정론적 런타임 빌드를 빌드하고 배포해야 합니다.
-결정론적 런타임을 빌드하는 방법에 대한 자세한 내용은 [결정론적 런타임 빌드](/build/build-a-deterministic-runtime/)를 참조하십시오.
+결정론적 런타임을 빌드하는 방법에 대한 자세한 내용은 [결정론적 런타임 빌드](/ko/infrablockchain/learn/substrate/build/build-a-deterministic-runtime.md)를 참조하십시오.
 
 일반적으로 체인 스펙은 노드의 코드베이스에 게시되는 `/chain-specs` 폴더에 있습니다.
 예를 들어:
@@ -126,7 +124,7 @@ keywords:
 
 ## 파라체인 제네시스 상태 생성
 
-파라체인을 등록하려면 릴레이 체인이 파라체인에 대한 [제네시스 상태](/build/chain-spec#the-genesis-state)를 알아야 합니다.
+파라체인을 등록하려면 릴레이 체인이 파라체인에 대한 [제네시스 상태](/ko/infrablockchain/learn/substrate/build/chain-spec.md#genesis-구성-커스텀하기)를 알아야 합니다.
 파라체인 콜레이터 노드에서 `export-genesis-state` 명령을 실행하여 파라체인에 대한 16진수로 인코딩된 제네시스 상태를 생성할 수 있습니다.
 예를 들어:
 
@@ -207,9 +205,9 @@ Polkadot 저장소에서 각 릴레이 체인에 대한 이 함수를 찾을 수
      
    - `paraKind`: **예**를 선택합니다.
   
-   ![등록을 위한 매개변수 설정](/media/images/docs/tutorials/parachains/register-with-sudo.png)
+   ![등록을 위한 매개변수 설정](/media/images/docs/infrablockchain/learn/substrate/learn/runtime-development/parachains/parathread-register.png)
 
-1. 트랜잭션이 성공적으로 완료되었는지 확인하기 위해 **Network**를 클릭하고 **Explorer**를 선택하여 최근 이벤트 목록에서 `sudo.Sudid` _및_ `paras.PvfCheckAccepted` 이벤트를 확인합니다.
+6. 트랜잭션이 성공적으로 완료되었는지 확인하기 위해 **Network**를 클릭하고 **Explorer**를 선택하여 최근 이벤트 목록에서 `sudo.Sudid` _및_ `paras.PvfCheckAccepted` 이벤트를 확인합니다.
 
 ### 슬롯 임대를 사용하여 등록
 
@@ -223,7 +221,7 @@ Polkadot 저장소에서 각 릴레이 체인에 대한 이 함수를 찾을 수
 
 3. **slots**를 선택한 다음 **forceLease(para, leaser, amount, period_begin, period_end)**를 선택합니다.
    
-   ![슬롯 임대를 위한 Sudo 트랜잭션](/media/images/docs/tutorials/parachains/forceLease.png)
+   ![슬롯 임대를 위한 Sudo 트랜잭션](/media/images/docs/infrablockchain/learn/substrate/learn/runtime-development/parachains/forceLease.png)
 
    트랜잭션 매개변수에 대해 다음을 수행합니다:
    
@@ -234,7 +232,7 @@ Polkadot 저장소에서 각 릴레이 체인에 대한 이 함수를 찾을 수
     
    파라체인이 온보딩되고 블록 생성이 시작되면 파라체인에 대한 다음과 유사한 정보가 표시됩니다:
    
-   ![파라체인에 대한 정보 보기](/media/images/docs/tutorials/parachains/parachain-active-lease.png)
+   ![파라체인에 대한 정보 보기](/media/images/docs/infrablockchain/learn/substrate/learn/runtime-development/parachains/parachain-active-lease.png)
 
 ## 블록 생성 및 최종화
 
@@ -246,6 +244,5 @@ Polkadot/substrate Portal에서 **Network**를 클릭하고 **Parachains**를 �
 
 ## 예제
 
-- [로컬 릴레이 체인 준비](/tutorials/build-a-parachain/prepare-a-local-relay-chain)
-- [로컬 파라체인 연결](/tutorials/build-a-parachain/connect-a-local-parachain/)
-- [테스트넷 슬롯 획득](/tutorials/build-a-parachain/acquire-a-testnet-slot/)
+- [로컬 릴레이 체인 준비](/ko/infrablockchain/tutorials/build/build-infra-relay-chain.md)
+- [로컬 파라체인 연결](/ko/infrablockchain/tutorials/build/build-a-parachain.md)

@@ -67,7 +67,7 @@ Rust 커뮤니티는 [crates.io](https://crates.io/) 웹사이트를 유지하�
 
 ## 다음 단계로 넘어가기
 
-- [런타임 개발](/learn/runtime-development/)
-- [사용자 정의 팔레트](/build/custom-pallets/)
-- [사용자 정의 팔레트에서 매크로 사용하기](/tutorials/build-application-logic/use-macros-in-a-custom-pallet/)
-- [How-to: 팔레트 가져오기](/reference/how-to-guides/basics/import-a-pallet/).
+- [런타임 개발](../../learn/runtime-development/README.md)
+- [사용자 정의 팔레트](./publish-custom-pallets.md)
+- [사용자 정의 팔레트에서 매크로 사용하기](./use-macros-in-a-custom-pallet.md)
+- [How-to: 팔레트 가져오기](./add-a-pallet.md).
