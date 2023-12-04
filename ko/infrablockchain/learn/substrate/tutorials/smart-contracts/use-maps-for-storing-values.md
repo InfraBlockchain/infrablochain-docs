@@ -4,7 +4,7 @@ description: 맵을 사용하여 데이터를 키-값 쌍으로 저장하세요.
 keywords:
 ---
 
-[스마트 컨트랙트 개발](/tutorials/smart-contracts/develop-a-smart-contract/)에서는 하나의 숫자 값을 저장하고 검색하는 스마트 컨트랙트를 개발했습니다.
+[스마트 컨트랙트 개발](./develop-a-smart-contract.md)에서는 하나의 숫자 값을 저장하고 검색하는 스마트 컨트랙트를 개발했습니다.
 
 이 튜토리얼에서는 스마트 컨트랙트의 기능을 확장하여 각 사용자마다 하나의 숫자를 관리하는 방법을 설명합니다. 이를 위해 [`Mapping`](https://docs.rs/ink/4.0.0-beta.1/ink/storage/struct.Mapping.html) 타입을 사용합니다.
 
@@ -317,5 +317,5 @@ Mapping API는 저장소에 직접 액세스할 수 있으므로 `Mapping::remov
 
 다음 주제에서 스마트 컨트랙트 개발에 대해 더 자세히 알아볼 수 있습니다:
 
-- [ERC20 토큰 계약 빌드](/tutorials/smart-contracts/build-a-token-contract/)
-- [스마트 컨트랙트 문제 해결](/tutorials/smart-contracts/troubleshoot-smart-contracts/)
+- [ERC20 토큰 계약 빌드](./build-a-token-contract.md)
+- [스마트 컨트랙트 문제 해결](./troubleshoot-smart-contracts.md)

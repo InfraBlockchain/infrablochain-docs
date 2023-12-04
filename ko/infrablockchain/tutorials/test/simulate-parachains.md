@@ -222,7 +222,7 @@ Zombienet을 다운로드하고 구성하는 방법:
    - parachain-1000-collator: https://portal.infrablockspace.net/?rpc=ws://127.0.0.1:9901#/explorer
    - parachain-1001-collator: https://portal.infrablockspace.net/?rpc=ws://127.0.0.1:10001#/explorer
 
-   모든 노드가 실행된 후에는 [Infrablocksapce Portal](https://portal.infrablockspace.net)을 열고 노드 엔드포인트에 연결하여 노드와 상호 작용할 수 있습니다.
+   모든 노드가 실행된 후에는 [*인프라 블록체인(InfraBlockchain)* 익스플로러](https://portal.infrablockspace.net)을 열고 노드 엔드포인트에 연결하여 노드와 상호 작용할 수 있습니다.
 
 ## 메시지 전달 채널 열기
 
@@ -258,7 +258,7 @@ Zombienet은 테스트 목적으로 구성 파일에 기본 채널 설정을 포
 
    **max_capacity** 및 **max_message_size**에 설정하는 값은 릴레이 체인의 `hrmpChannelMaxCapacity` 및 `hrmpChannelMaxMessageSize` 매개변수에 정의된 값보다 크지 않아야 합니다.
 
-   [Infrablocksapce Portal](https://portal.infrablockspace.net)에서 현재 릴레이 체인의 구성 설정을 확인하려면 다음 단계를 수행하세요.
+   [인프라 블록체인(InfraBlockchain) 익스플로러](https://portal.infrablockspace.net)에서 현재 릴레이 체인의 구성 설정을 확인하려면 다음 단계를 수행하세요.
 
    - **개발자**를 클릭하고 **Chain State**를 선택합니다.
    - **configuration**을 선택한 다음 **activeConfig()**를 선택합니다.
@@ -279,7 +279,7 @@ Zombienet은 테스트 목적으로 구성 파일에 기본 채널 설정을 포
 
    이제 파라체인 A(1000)와 파라체인 B(1001) 사이에 양방향 HRMP 채널이 열린 테스트 네트워크가 준비되었습니다.
 
-   [Infrablocksapce Portal](https://portal.infrablockspace.net)을 사용하여 파라체인에 연결하고 메시지를 보낼 수 있습니다.
+   [*인프라 블록체인(InfraBlockchain)* 익스플로러](https://portal.infrablockspace.net)을 사용하여 파라체인에 연결하고 메시지를 보낼 수 있습니다.
 
 5. **개발자**를 클릭하고 **Extrinsics**를 선택합니다.
 
@@ -287,7 +287,7 @@ Zombienet은 테스트 목적으로 구성 파일에 기본 채널 설정을 포
 
    XCM 메시지는 다른 트랜잭션과 마찬가지로 메시지를 보내는 사람이 작업을 실행하기 위해 지불해야 합니다.
    필요한 모든 정보는 메시지 자체에 포함되어야 합니다.
-   HRMP 채널을 열었으니 XCM을 사용하여 메시지를 작성하는 방법에 대한 정보는 [Cross-consensus communication](/ko/substrate/learn/xcm-communication.ko.md) 및 [Transfer assets with XCM](../build/transfer-assets-with-xcm.md)을 참조하세요.
+   HRMP 채널을 열었으니 XCM을 사용하여 메시지를 작성하는 방법에 대한 정보는 [Cross-consensus communication](../../learn/xcm/xcm.md) 및 [Transfer assets with XCM](../build/transfer-assets-with-xcm.md)을 참조하세요.
 
 ## 다음 단계로 넘어가기
 

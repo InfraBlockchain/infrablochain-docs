@@ -103,6 +103,6 @@ impl pallet_example::Config for Runtime {
 
 ## 관련 자료
 
-- [벤치마킹](/ko/infrablockchain/tutorials/test/benchmark.md)
+- [벤치마킹](../../../../../tutorials/test/benchmark.md)
 - [수수료 계산](./calculate-fees.md)
 - [벤치마크 추가](./add-benchmarks.md)

@@ -23,7 +23,7 @@ Substrate와 FRAME은 블록체인 애플리케이션을 구축하기 위한 유
 - [Don't repeat yourself (DRY)](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). 소프트웨어 개발의 DRY 원칙을 따르고, 데이터 추상화 또는 데이터 정규화를 사용하여 중복을 피하세요.
 - [테스트](https://en.wikipedia.org/wiki/Unit_testing). 모든 개별 소프트웨어 구성 요소가 의도한 대로 작동하는지 확인하기 위해 단위 테스트를 작성하고 실행하세요. 런타임에서 테스트 모듈에 대한 자세한 정보는 [Test](/test/)를 참조하세요.
 - [오류와 경고](https://rustc-dev-guide.rust-lang.org/diagnostics.html). 컴파일러에서 보고된 모든 오류와 경고를 해결하여 오류 또는 경고의 원인과 해결 방법을 이해하세요.
-- [의존성](https://developerexperience.io/articles/updating-the-dependencies). 정기적으로 의존성을 업데이트하여 코드가 새로운 릴리스와 너무 뒤떨어지지 않고 최신 상태를 유지할 수 있도록 하세요. 주기적으로 Rust 컴파일러와 툴체인을 업데이트하고, InfraBlockspace 의 새로운 릴리스가 있는지 확인하세요.
+- [의존성](https://developerexperience.io/articles/updating-the-dependencies). 정기적으로 의존성을 업데이트하여 코드가 새로운 릴리스와 너무 뒤떨어지지 않고 최신 상태를 유지할 수 있도록 하세요. 주기적으로 Rust 컴파일러와 툴체인을 업데이트하고, ***인프라 블록체인(InfraBlockchain)*** 의 새로운 릴리스가 있는지 확인하세요.
 - [하드 코딩](https://en.wikipedia.org/wiki/Hard_coding). 데이터를 소스 코드에 직접 포함하지 않도록 하세요.
 
 ## 일반적인 Substrate 문제점

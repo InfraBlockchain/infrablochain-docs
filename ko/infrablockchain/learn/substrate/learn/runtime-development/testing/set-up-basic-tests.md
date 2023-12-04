@@ -119,7 +119,7 @@ cargo test
 
 ## 관련 자료
 
-- [단위 테스트](/ko/infrablockchain/tutorials/test/unit-testing.md)
+- [단위 테스트](../../../../../tutorials/test/unit-testing.md)
 - [트랜스퍼 함수 테스트하기](./test-a-transfer-function.md)
 - [`assert_ok!`](https://paritytech.github.io/substrate/master/frame_support/macro.assert_ok.html)
 - [`assert_err!`](https://paritytech.github.io/substrate/master/frame_support/macro.assert_err.html)

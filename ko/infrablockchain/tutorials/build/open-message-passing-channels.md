@@ -6,8 +6,8 @@ keywords:
   - XCM
 ---
 
-**_인프라 블록 스페이스(InfraBlocksapce)_** 생태계에서 체인은 안전한 채널을 통해 서로 통신할 수 있습니다.
-세 가지 주요 통신 채널이 있습니다:
+**_인프라 블록체인(InfraBlockchain)_** 은 안전한 채널을 통해 서로 다른 컨센서를 가진 블록체인 네트워크 간 통신을할 수 있습니다.
+세 가지 주요 통신 채널은 다음과 같습니다:
 
 - UMP: 파라체인이 릴레이 체인으로 메시지를 전달할 수 있도록 합니다.
 - DMP:  릴레이 체인이 파라체인으로 메시지를 전달할 수 있도록 합니다.
@@ -29,7 +29,7 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- Zombienet을 사용하여 [파라체인 테스트 네트워크](../test/simulate-parachains.ko.md)를 구성하는 방법을 확인합니다. 
+- Zombienet을 사용하여 [파라체인 테스트 네트워크](../test/simulate-parachains.md)를 구성하는 방법을 확인합니다. 
 
 - 테스트 목적으로 두 개의 로컬 파라체인을 설정했습니다.
 
@@ -43,7 +43,7 @@ keywords:
 
 릴레이 체인에 Sovereign 계정 주소를 추가하려면 다음을 수행하세요:
 
-1. [인프라 블록스페이스 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 열고 릴레이 체인 엔드포인트에 연결합니다.
+1. [인프라 블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 열고 릴레이 체인 엔드포인트에 연결합니다.
 
 2. 파라체인 [Sovereign 계정 주소](https://substrate.stackexchange.com/questions/1200/how-to-calculate-sovereignaccount-for-parachain)를 계산하여 릴레이 체인에서 사용할 수 있도록 합니다.
 
@@ -69,7 +69,7 @@ keywords:
 
 채널을 열기 위한 인코딩된 호출을 준비하려면 다음을 수행하세요:
 
-1. [인프라 블록스페이스 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 열고 릴레이 체인 엔드포인트에 연결합니다.
+1. [인프라 블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 열고 릴레이 체인 엔드포인트에 연결합니다.
 
 2. 필요한 경우 현재 릴레이 체인의 구성값을 확인합니다.
 
@@ -109,7 +109,7 @@ keywords:
 
 인코딩된 호출을 보유하고 있으므로, 릴레이 체인을 통해 파라체인 A에서 파라체인 B로 채널을 열기 위한 요청을 구성할 수 있습니다.
 
-1. [인프라 블록스페이스 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 열고 파라체인 A (1000)의 엔드포인트에 연결합니다.
+1. [인프라 블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 열고 파라체인 A (1000)의 엔드포인트에 연결합니다.
 
 2. **개발자**를 클릭하고 **외부 트랜잭션**을 선택합니다.
 
@@ -290,7 +290,7 @@ Holding 레지스터에 예치된 자산을 사용하여 실행 비용을 지불
 
 인코딩된 호출을 준비하려면 다음을 수행하세요:
 
-1. [InfraBlockspace Portal](https://portal.infrablockspace.net)을 열고 릴레이 체인에 연결합니다.
+1. [인프라 블록체인(InfraBlockchain) Portal](https://portal.infrablockspace.net)을 열고 릴레이 체인에 연결합니다.
 
 2. **개발자**를 클릭하고 **외부 트랜잭션**을 선택합니다.
 
@@ -307,7 +307,7 @@ Holding 레지스터에 예치된 자산을 사용하여 실행 비용을 지불
 
 인코딩된 트랜잭션을 보유하고 있으므로, 파라체인 A가 요청한 채널을 수락하기 위한 XCM 명령 세트를 구성할 수 있습니다.
 
-1. 파라체인 B(1001)의 엔드포인트에 연결합니다. [인프라 블록스페이스 익스플로러](https://portal.infrablockspace.net/#/explorer/)을 사용합니다.
+1. 파라체인 B(1001)의 엔드포인트에 연결합니다. [인프라 블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)을 사용합니다.
 
 2. **개발자**를 클릭하고 **외부 트랜잭션**을 선택합니다.
 

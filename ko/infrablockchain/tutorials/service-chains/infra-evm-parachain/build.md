@@ -1,6 +1,6 @@
 ---
-title: Infra EVM 체인 구축하기 
-description: 이 튜토리얼은 인프라 블록스페이스의 체인 중 하나인 Infra EVM 체인을 빌드하고 실행 하는 과정을 설명합니다.
+title: *InfraEVM* 체인 구축하기 
+description: 이 튜토리얼은 *InfraEVM* 체인을 빌드하고 실행 하는 과정을 설명합니다.
 keywords:
   - 파라체인
   - 서비스체인
@@ -11,9 +11,9 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [Infra EVM](/ko/infrablockchain/service-chains/infra-evm-parachain.md)
+- [*InfraEVM*](../../../service-chains/infra-evm-parachain.md)
 
-## Infra EVM 체인
+## *InfraEVM* 체인
 
 이전 튜토리얼을 완료한 경우 로컬에 *인프라 릴레이 체인* 레포지토리가 있어야 합니다.
 
@@ -62,9 +62,9 @@ keywords:
 
 ## 로컬 노드 시작하기
 
-노드가 컴파일되면 좀비넷을 사용하여 릴레이 체인과 Infra DID 체인을 로컬 환경에서 구축 할 준비가 되었습니다.
+노드가 컴파일되면 좀비넷을 사용하여 릴레이 체인과 InfraEVM 체인을 로컬 환경에서 구축 할 준비가 되었습니다.
 
-로컬 Infra DID 체인을 시작하려면 다음 단계를 따르세요:
+로컬 InfraEVM 체인을 시작하려면 다음 단계를 따르세요:
 
 1. 좀비넷 설정을 확인합니다
 
@@ -278,4 +278,4 @@ keywords:
    
 ## 다음 단계로 넘어가기
 
-- [EVM으로 자산 이동하기](./../tutorials/service-chains/infra-evm-parachain/deposit-and-withdraw-token.md)
+- [EVM으로 자산 이동하기](./deposit-and-withdraw-token.md)

@@ -35,7 +35,7 @@ Key-Value 데이터베이스를 사용하여 상태를 검색한 후, try-runtim
 
 ## 작동 방식
 
-`try-runtime` 도구는 `remote_externalities` 라는 자체적인 externalities 구현을 가지고 있으며, 이는 `TestExternalities`를 래핑하고 데이터가 [타입 인코딩](/ko/substrate/reference/scale-codec.ko.md)된 [Key-Value 저장소](/ko/substrate/learn/state-transitions-and-storage.ko.md)를 사용합니다.
+`try-runtime` 도구는 `remote_externalities` 라는 자체적인 externalities 구현을 가지고 있으며, 이는 `TestExternalities`를 래핑하고 데이터가 [타입 인코딩](../../learn/substrate/learn/frame/scale-codec.md)된 [Key-Value 저장소](../../learn/substrate/learn/frame/state-transitions-and-storage.md)를 사용합니다.
 
 아래 다이어그램은 externalities가 컴파일된 런타임 외부에 위치하여 해당 런타임의 스토리지를 캡처하는 방식을 보여줍니다.
 
@@ -165,6 +165,6 @@ RUST_LOG=runtime=trace,try-runtime::cli=trace,executor=trace \
 
 ## 다음 단계로 넘어가기
 
-- [스토리지 키](/ko/substrate/build/runtime-storage.ko.md#storage-value-keys)
+- [스토리지 키](../../learn/substrate/learn/frame/runtime-storage.md)
 - [`OnRuntimeUpgrade`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/support/src/traits/hooks.rs#L103)
 - [`try-runtime-upgrade`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/support/src/traits/hooks.rs#L120)

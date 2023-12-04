@@ -36,7 +36,7 @@ keywords:
 
 ## 스마트 컨트랙트와 ink!
 
-[첫 번째 계약 준비](/tutorials/smart-contracts/prepare-your-first-contract/)에서는 ink! 프로그래밍 언어에 대한 명령 줄 액세스를 위해 `cargo-contract` 패키지를 설치했습니다.
+[첫 번째 계약 준비](./prepare-your-first-contract.md)에서는 ink! 프로그래밍 언어에 대한 명령 줄 액세스를 위해 `cargo-contract` 패키지를 설치했습니다.
 
 ink! 언어는 [임베디드 도메인 특화 언어](https://wiki.haskell.org/Embedded_domain_specific_language)입니다.
 
@@ -459,8 +459,8 @@ mod my_contract {
 
 다음 주제에서 스마트 컨트랙트 개발에 대해 자세히 알아볼 수 있습니다:
 
-- [값 저장을 위한 맵 사용](/tutorials/smart-contracts/use-maps-for-storing-values/)
+- [값 저장을 위한 맵 사용](./use-maps-for-storing-values.md)
 
-- [ERC20 토큰 계약 개발](/tutorials/smart-contracts/build-a-token-contract/)
+- [ERC20 토큰 계약 개발](./build-a-token-contract.md)
 
-- [스마트 컨트랙트 문제 해결](/tutorials/smart-contracts/troubleshoot-smart-contracts/)
+- [스마트 컨트랙트 문제 해결](./troubleshoot-smart-contracts.md)

@@ -16,6 +16,6 @@ keywords:
 ## [Substrate](./substrate/README.md)
 인프라 블록체인의 핵심 기술인 Substrate에 대한 전반적인 내용을 다룹니다. 
 
-## [XCM](./xcm.md)
+## [XCM](./xcm/README.md)
 
 XCM 형식에 대한 기본 참고 정보를 제공하며, XCM 명령, 레지스터, 원본 및 오류에 대한 설명을 포함합니다.

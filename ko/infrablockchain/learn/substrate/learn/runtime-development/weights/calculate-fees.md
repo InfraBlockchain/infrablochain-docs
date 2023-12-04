@@ -13,7 +13,7 @@ keywords:
 
 - **바이트 수수료** - 트랜잭션의 길이에 비례하는 수수료입니다.
   비례 상수는 Transaction Payment Pallet의 매개변수입니다.
-- **가중치 수수료** - [트랜잭션 가중치](/ko/infrablockchain/learn/substrate/learn/frame/tx-weights-fees.md)에서 계산된 수수료입니다.
+- **가중치 수수료** - [트랜잭션 가중치](../../frame/tx-weights-fees.md)에서 계산된 수수료입니다.
   변환은 선형일 필요는 없지만, 일반적으로 선형입니다.
   동일한 변환 함수가 런타임의 모든 팔렛의 모든 트랜잭션에 적용됩니다.
 - **수수료 곱셈기** - 계산된 수수료에 대한 곱셈기로, 체인이 진행됨에 따라 변경될 수 있습니다.
@@ -87,9 +87,9 @@ impl pallet_transaction_payment::Config for Runtime {
 
 ## 관련 자료
 
-- [가중치](/ko/infrablockchain/learn/substrate/learn/basic/glossary.md#가중치)
+- [가중치](../../basic/glossary.md#가증치)
 - [벤치마크 추가](./add-benchmarks.md)
 - [사용자 정의 가중치 사용](./use-custom-weights.md)
-- [트랜잭션 가중치와 수수료](/ko/infrablockchain/learn/substrate/learn/frame/tx-weights-fees.md)
+- [트랜잭션 가중치와 수수료](../../frame/tx-weights-fees.md)
 - [`WeightToFeeCoefficients`](https://paritytech.github.io/substrate/master/frame_support/weights/type.WeightToFeeCoefficients.html)
 - [`WeightToFeePolynomial`](https://paritytech.github.io/substrate/master/frame_support/weights/trait.WeightToFeePolynomial.html)

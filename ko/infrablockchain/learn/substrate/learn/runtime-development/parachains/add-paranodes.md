@@ -7,14 +7,14 @@ keywords:
   - 풀 노드
 ---
 
-[로컬 릴레이 체인 준비](/ko/infrablockchain/tutorials/build/build-infra-relay-chain.md)에서 배운 대로, 하나의 콜레이터로 파라체인을 작동시킬 수 있습니다.
+[로컬 릴레이 체인 준비](../../../../../tutorials/build/build-infra-relay-chain.md)에서 배운 대로, 하나의 콜레이터로 파라체인을 작동시킬 수 있습니다.
 
 ## 추가적인 릴레이 체인 노드
 
-네트워크에서 각 콜레이터(파라체인 블록 생성 노드)마다 최소한 두 개의 [**밸리데이터**](/ko/infrablockchain/learn/substrate/learn/basic/glossary.md#밸리데이터)(릴레이 체인 노드)가 실행되고 있어야 합니다.
+네트워크에서 각 콜레이터(파라체인 블록 생성 노드)마다 최소한 두 개의 [**밸리데이터**](../../../../architecture/network-participants.md#밸리데이터)(릴레이 체인 노드)가 실행되고 있어야 합니다.
 
-제공된 **일반적인** [릴레이 체인 스펙 파일](/ko/infrablockchain/tutorials/build/build-infra-relay-chain.md#체인-스펙)을 수정하여 더 많은 검증자를 포함시킬 수 있거나, 더 "정확한" 방법으로 제네시스 상태의 소스를 수정하여 **릴레이 체인**에 테스트넷 검증자를 제네시스에 추가할 수 있습니다.
-[신뢰할 수 있는 노드 추가](/ko/infrablockchain/learn/substrate/tutorials/build-a-blockchain/add-trusted-nodes.md) 튜토리얼에서 체인 스펙을 생성하는 방법을 상기해보세요.
+제공된 **일반적인** [릴레이 체인 스펙 파일](../../../build/chain-spec.md)을 수정하여 더 많은 검증자를 포함시킬 수 있거나, 더 "정확한" 방법으로 제네시스 상태의 소스를 수정하여 **릴레이 체인**에 테스트넷 검증자를 제네시스에 추가할 수 있습니다.
+[신뢰할 수 있는 노드 추가](../../../tutorials/build-a-blockchain/add-trusted-nodes.md) 튜토리얼에서 체인 스펙을 생성하는 방법을 상기해보세요.
 
 ### 콜레이터 시작하기
 
@@ -62,5 +62,5 @@ keywords:
 
 ## 관련 자료
 
-- [Polkadot 위키: 콜레이터](https://wiki.polkadot.network/docs/learn-collator).
-- [로컬 릴레이 체인 준비](/ko/infrablockchain/tutorials/build/build-infra-relay-chain.md) 튜토리얼.
+- [콜레이터](https://wiki.polkadot.network/docs/learn-collator)
+- [릴레이 체인 구축하기](../../../../../tutorials/build/build-infra-relay-chain.md)

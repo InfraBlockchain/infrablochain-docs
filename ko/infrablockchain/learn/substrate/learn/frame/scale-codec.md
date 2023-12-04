@@ -1,5 +1,5 @@
 ---
-title: 유형 인코딩 (SCALE)
+title: SCALE 인코딩
 description:
 keywords:
 ---
@@ -9,7 +9,7 @@ Substrate은 네트워크를 통해 데이터를 보내고 받는 방식을 최�
 
 SCALE 코덱은 런타임과 외부 노드 간의 통신에 있어서 중요한 구성 요소입니다.
 
-이는 Substrate [WebAssembly 런타임](/learn/runtime-development//)과 같은 자원 제한적인 실행 환경에서 데이터의 고성능 및 복사 없는 인코딩 및 디코딩을 위해 설계되었습니다.
+이는 Substrate [WebAssembly 런타임](../runtime-development/README.md)과 같은 자원 제한적인 실행 환경에서 데이터의 고성능 및 복사 없는 인코딩 및 디코딩을 위해 설계되었습니다.
 
 SCALE 코덱은 자체적으로 설명하지 않습니다.
 디코딩 컨텍스트가 인코딩된 데이터에 대한 모든 유형 지식을 가지고 있다고 가정합니다.
