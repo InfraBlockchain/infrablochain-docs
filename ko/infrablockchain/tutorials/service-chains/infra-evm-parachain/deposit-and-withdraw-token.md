@@ -1,6 +1,6 @@
 ---
 title: EVM에 자금 입금 및 인출하기
-description: 이 튜토리얼은 인프라 블록스페이스의 파라체인 중 하나인 Infra EVM 파라체인에서 EVM에 substrate의 자금을 입금 및 인출하는 방법을 설명합니다.
+description: 이 튜토리얼은 *InfraEVM* 체인에서 자금을 입금 및 인출하는 방법을 설명합니다.
 keywords:
   - 파라체인
   - EVM
@@ -10,7 +10,7 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [로컬 Infra EVM 파라체인 구축하기](/ko/infrablockchain/service-chains/infra-evm-parachain.md)
+- [InfraEVM](../../../service-chains/infra-evm-parachain.md)
 
 ## 주소 변환하기
 
@@ -149,7 +149,7 @@ H160 address를 SS58 address로 변환하는 방법은 아래와 같습니다.
     ![transfer-asset](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/metamask-transfer.png)
 
 
-3. [Portal](https://portal.infrablockspace.net) 에 접속하여 아래 과정을 따릅니다.
+3. [*인프라 블록체인(InfraBlockchain)* 익스플로러](https://portal.infrablockspace.net) 에 접속하여 아래 과정을 따릅니다.
 
   - `개발자` - `익스트린식` - `evm` 팔레트의 `withdraw` 익스트린식을 선택합니다.
 

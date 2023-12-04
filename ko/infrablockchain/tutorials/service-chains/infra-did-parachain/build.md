@@ -1,6 +1,6 @@
 ---
-title: Infra DID 체인 구축하기 
-description: 이 튜토리얼은 인프라 블록스페이스의 체인 중 하나인 Infra DID 체인을 빌드하고 실행하는 과정을 설명합니다.
+title: *InfraDID* 체인 구축하기 
+description: 이 튜토리얼은 *InfraDID* 체인을 빌드하고 실행하는 과정을 설명합니다.
 keywords:
   - 파라체인
   - 서비스체인
@@ -11,9 +11,9 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [Infra DID](/ko/infrablockchain/service-chains/infra-did-parachain.md)
+- [*InfraDID*](../../../service-chains/infra-did-parachain.md)
 
-## Infra DID 체인
+## *InfraDID* 체인
 
 이전 튜토리얼을 완료한 경우 로컬에 *인프라 릴레이 체인* 레포지토리가 있어야 합니다.
 

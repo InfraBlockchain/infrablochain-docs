@@ -6,7 +6,7 @@ keywords:
   - 시스템 토큰
 ---
 
-이 튜토리얼은 실제로 릴레이 체인(e.g **_InfraRelayChain_** )과 파라체인(e.g **_InfraBlockchain_**) 구조인 멀티체인 환경에서 [Aggregated TaaV(Transaction-as-a-Vote)](/ko/infrablockchain/learn/proof-of-transaction.md)를 이용하여 [PoT(Proof-of-Transaction)](/ko/infrablockchain/learn/proof-of-transaction.md) 에 기반한 릴레이 체인의 밸리데이터를 선출하는 방법을 알아 보겠습니다. 
+이 튜토리얼은 실제로 멀티체인 환경에서 [Aggregated TaaV(Transaction-as-a-Vote)](../learn/protocol/proof-of-transaction.md#aggregated-proof-of-transactionpot)를 이용하여 [트랜잭션 증명(Proof-of-Transaction)](../learn/protocol/proof-of-transaction.md) 에 기반한 릴레이 체인의 밸리데이터를 선출하는 방법을 알아 보겠습니다. 
 
 ## 튜토리얼 목표
 
@@ -20,11 +20,11 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [인프라 릴레이 체인 빌드하기](/ko/infrablockchain/tutorials/build-infrablockspace/build-infra-relay-chain.md) 와 [파라체인 빌드하기](../tutorials/build-infrablockspace/build-a-parachain.md) 를 통해 테스트에 사용할 바이너리를 생성하는 방법을 알아보기
+- [릴레이 체인 구축하기](../tutorials/build/build-infra-relay-chain.md)와 [파라체인 구축하기](../tutorials/build/build-a-parachain.md) 를 통해 테스트에 사용할 바이너리를 생성하는 방법을 알아보기
 
-- [Proof-of-Transaction](/ko/infrablockchain/learn/proof-of-transaction.md) 에 대해 알아보기
+- [트랜잭션 증명](../learn/protocol/proof-of-transaction.md) 에 대해 알아보기
 
-- [시스템 토큰](/ko/infrablockchain/learn/system-token.md) 으로 트랜잭션 수수료를 내는 방법에 대해 알아보기
+- [시스템 토큰](../learn/protocol/system-token.md) 으로 트랜잭션 수수료를 내는 방법에 대해 알아보기
 
 ## 튜토리얼 단계
 
@@ -41,7 +41,7 @@ keywords:
 
 ## 테스트 환경 구축하기
 
-튜토리얼을 위해 사용할 **_인프라 블록스페이스(InfraBlockspace)_** 테스트 환경을 구축합니다. 먼저, 좀비넷 바이너리를 설치합니다. 
+튜토리얼을 위해 사용할 **_인프라 블록체인(InfraBlockchain)_** 테스트 환경을 구축합니다. 먼저, 좀비넷 바이너리를 설치합니다. 
 
 - 좀비넷 [깃허브](https://github.com/paritytech/zombienet) 에서 최신 릴리즈 버전을 설치합니다.
 
@@ -163,9 +163,9 @@ chmod +x zombienet-macos
 
 ## 트랜잭션에 투표 포함 시키기
 
-- 시스템 토큰을 이용해 트랜잭션 수수료를 지불하고 투표를 하기 위해서 먼저 [시스템 토큰 생성하기](/ko/infrablockchain/tutorials/how-to-interact-with-system-token.md) 를 참고하시기 바랍니다. 해당 튜토리얼에서는 `parachain-template-node` 에서 시스템 토큰을 생성했다고 가정하겠습니다.
+- 시스템 토큰을 이용해 트랜잭션 수수료를 지불하고 투표를 하기 위해서 먼저 [시스템 토큰 생성하기](../tutorials/how-to-interact-with-system-token.md) 를 참고하시기 바랍니다. 해당 튜토리얼에서는 `parachain-template-node` 에서 시스템 토큰을 생성했다고 가정하겠습니다.
 
-- [인프라 블록스페이스 익스플로러](https://portal.infrablockspace.net) 로 이동합니다.
+- [인프라 블록체인 익스플로러](https://portal.infrablockspace.net) 로 이동합니다.
 
 - 해당 익스플로러에서는 어떠한 트랜잭션이든 투표를 포함시켜 전송할 수 있습니다. 이번 튜토리얼에서는 `parachain-template-node` 에서 `balance-transfer` 트랜잭션을 전송하는 상황으로 가정하겠습니다.
 
@@ -195,9 +195,9 @@ chmod +x zombienet-macos
 
 ## 다음 단계로 넘어가기
 
-- [밸리데이터로써 리워드를 받는 방법](/ko/infrablockchain/tutorials/how-to-get-validator-reward.md)
+- [밸리데이터로써 리워드를 받는 방법](../tutorials/how-to-get-validator-reward.md)
 
-- [시스템 토큰의 weight](/ko/infrablockchain/learn/transaction-fee.md#시스템-토큰-가중치)
+- [시스템 토큰 가중치](../learn/protocol/transaction-fee.md#시스템-토큰-가중치)
 
 
 

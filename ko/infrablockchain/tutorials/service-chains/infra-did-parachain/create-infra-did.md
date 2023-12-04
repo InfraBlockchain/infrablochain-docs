@@ -1,6 +1,6 @@
 ---
-title: Infra DID 생성하기 
-description: 이 튜토리얼은 인프라 블록스페이스의 파라체인 중 하나인 Infra DID 파라체인에서 DID를 생성하는 방법에 대해 설명합니다.
+title: *InfraDID* 생성하기 
+description: *InfraDID* 체인에서 DID를 생성하는 방법에 대해 설명합니다.
 keywords:
   - 파라체인
   - DID
@@ -10,9 +10,9 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [로컬 Infra DID 파라체인 구축하기](/ko/infrablockchain/service-chains/infra-did-parachain.md)
+- [*InfraDID* 파라체인](../../../service-chains/infra-did-parachain.md)
 
-## Infra DID 생성하기
+## *InfraDID* 생성하기
 
 Infra DID를 생성하는 것 자체는 블록체인과 통신이 필요하지 않습니다.
 
@@ -24,11 +24,11 @@ Infra DID의 형식은 위 그림에서 `DID method-specific identifier` 부분�
 
 만약 동일한 DID를 사용하여 여러가지 공개키를 등록하거나 그 외 다른 데이터들을 등록하여 사용하고 싶다면 체인에 DID를 등록하는 과정을 거쳐야 합니다.
 
-## Infra DID 체인에 등록하기
+## *InfraDID* 체인에 등록하기
 
-Infra DID를 체인에 등록하기 위해선 아래와 같은 과정을 거칩니다.
+*InfraDID* 를 체인에 등록하기 위해선 아래와 같은 과정을 거칩니다.
 
-1. [Portal](https://portal.infrablockspace.net) 에 접속하여 아래 과정을 따릅니다.
+1. [*인프라 블록체인(InfraBlockchain)* 익스플로러](https://portal.infrablockspace.net) 에 접속하여 아래 과정을 따릅니다.
 
   - `개발자` - `익스트린식` - `didModule` 팔레트의 `newOnchain` 익스트린식을 선택합니다.
 
@@ -46,7 +46,7 @@ Infra DID를 체인에 등록하기 위해선 아래와 같은 과정을 거칩�
 
 ## infra-did-js 라이브러리 사용하여 Infra DID 생성 및 등록하기
 
-[Portal](https://portal.infrablockspace.net)을 사용하여 Infra DID를 생성할 수 있지만, `infra-did-js` Javascript 라이브러리를 사용해서 Infra DID를 생성할 수도 있습니다.
+[*인프라 블록체인(InfraBlockchain)* 익스플로러](https://portal.infrablockspace.net)을 사용하여 Infra DID를 생성할 수 있지만, `infra-did-js` Javascript 라이브러리를 사용해서 Infra DID를 생성할 수도 있습니다.
 
 `infra-did-js` 라이브러리를 사용해서 Infra DID를 생성하기 위해선 아래와 같은 과정을 거칩니다.
 

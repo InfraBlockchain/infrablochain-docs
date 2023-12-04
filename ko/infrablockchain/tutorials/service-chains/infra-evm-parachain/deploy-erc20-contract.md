@@ -1,6 +1,6 @@
 ---
 title: ERC20 토큰 컨트랙트 배포하기
-description: 이 튜토리얼은 인프라 블록스페이스의 파라체인 중 하나인 Infra EVM 파라체인에서 ERC20 토큰 컨트랙트를 배포하는 방법에 대해서 설명합니다.
+description: 이 튜토리얼은 *InfraEVM* 체인에서 ERC20 토큰 컨트랙트를 배포하는 방법에 대해서 설명합니다.
 keywords:
   - 파라체인
   - EVM
@@ -10,7 +10,7 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [로컬 Infra EVM 파라체인 구축하기](/ko/infrablockchain/service-chains/infra-evm-parachain.md)
+- [*InfraEVM* 파라체인](../../../service-chains/infra-evm-parachain.md)
 
 - [EVM으로 자산 이동하기](./deposit-and-withdraw-token.md)
 

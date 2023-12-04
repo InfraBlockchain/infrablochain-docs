@@ -14,11 +14,11 @@ keywords:
   해당 내용이 담긴 문서가 생성되면 그 문서로 링크를 연결 해 주세요
 -->
 
-- [인프라 파라체인 구축하기](/ko/infrablockchain/tutorials/build-infrablockspace/build-a-parachain.md)
+- [파라체인 구축하기](../tutorials/build/build-a-parachain.md)
 
-- [인프라 릴레이 체인 구축하기](/ko/infrablockchain/tutorials/build-infrablockspace/build-infra-relay-chain.md)
+- [릴레이 체인 구축하기](../tutorials/build/build-infra-relay-chain.md)
 
-- [좀비넷 사용하기](./infra-did-parachain.md)
+- [좀비넷 사용하기](../tutorials/test/simulate-parachains.md)
 
 ## DID란
 
@@ -40,7 +40,7 @@ DID의 주요 특징 및 이점은 다음과 같습니다:
 
 ## Infra DID
 
-인프라 블록스페이스의 파라체인 중 하나인 *Infra DID 파라체인* 은 DID 시스템을 제공하고 있으며 *Infra DID 파라체인* 이 제공하는 DID 를 *Infra DID* 라고 합니다.
+인프라 블록체인의 파라체인 중 하나인 *InfraDID 파라체인* 은 DID 시스템을 제공하고 있으며 *InfraDID 파라체인* 이 제공하는 DID 를 *InfraDID* 라고 합니다.
 
 ![infra-did-method](/media/images/docs/infrablockchain/service-chains/infra-did-method.png)
 
@@ -53,6 +53,6 @@ Infra DID 파라체인과 통신할 수 있는 npm 라이브러리인 [infra-did
 
 ## 다음 단계로 넘어가기
 
-- [Infra DID 체인 구축하기](/ko/infrablockchain/tutorials/service-chains/infra-did-parachain/build.md)
+- [Infra DID 체인 구축하기](../tutorials/service-chains/infra-did-parachain/)
 
 - [infra-did-js 레포지토리](https://github.com/InfraBlockchain/infra-did-js/tree/main)

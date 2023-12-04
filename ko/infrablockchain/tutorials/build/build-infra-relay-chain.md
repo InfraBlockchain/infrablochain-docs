@@ -9,9 +9,9 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [Rust 및 Rust 툴체인](/ko/substrate/install/rust-toolchain.ko.md)을 통해 Substrate 개발 환경을 구성 방법에 대해 확인합니다. 
+- [Rust 및 Rust 툴체인](../../learn/substrate/tutorials/install/rust-toolchain.md)을 통해 Substrate 개발 환경을 구성 방법에 대해 확인합니다. 
 
-- [멀티체인 아키텍처 및 용어](../../learn/architecture/infra-relay-chain.md)에 대한 배경 지식을 확인합니다.
+- [멀티체인 아키텍처 및 용어](../../learn/architecture/architecture.md)에 대한 배경 지식을 확인합니다.
 
 ## 튜토리얼 목표
 
@@ -23,13 +23,13 @@ keywords:
 
 ## 릴레이 체인 노드 빌드하기
 
-1. 최신 **_인프라 블록 스페이스(InfraBlockspace)_ SDK** 를 불러옵니다.
+1. 최신 ***인프라 블록체인(InfraBlockchain)*** SDK 를 불러옵니다.
    
    ```bash
    git clone --branch master https://github.com/InfraBlockchain/infrablockspace-sdk.git
    ```
 
-2. 다음 세개의 명령을 실행하여 **_인프라 블록스페이스(InfraBlockspace)_** 런타임을 빌드합니다:
+2. 다음 세개의 명령을 실행하여 **_인프라 블록체인(InfraBlockchain)_** 런타임을 빌드합니다:
    
    ```bash
    1. cargo build --release --bin infrablockspace
@@ -49,7 +49,7 @@ keywords:
 
 ## 체인 스펙
 
-모든 Substrate 기반 체인은 [체인 스펙](../../../substrate/build/chain-spec.ko.md)이 필요합니다. 체인 스펙에는 해당 네트워크의 초기 상태(genesis state) 및 여러 네트워크 설정값들이 명시되어 있습니다. 결정적인(Deterministic) 네트워크 구성을 위해 네트워크에 참여하는 모든 노드는 동일한 체인 스펙을 가지고 있습니다. 
+모든 Substrate 기반 체인은 [체인 스펙](../../learn/substrate/build/chain-spec.md)이 필요합니다. 체인 스펙에는 해당 네트워크의 초기 상태(genesis state) 및 여러 네트워크 설정값들이 명시되어 있습니다. 결정적인(Deterministic) 네트워크 구성을 위해 네트워크에 참여하는 모든 노드는 동일한 체인 스펙을 가지고 있습니다. 
 
 ### 평문(Plain) 체인 스펙 추출하기
 
@@ -58,20 +58,20 @@ keywords:
 ```bash
 ./target/release/infrablockspace build-spec --chain infra-relay-local --disable-default-bootnode > plain-infra-relay-chainspec.json
 ```
-_본 튜토리얼에서는 네 개의 [Seed Trust 밸리데이터](https://docs.infrablockchain.net/infrablockspace-docs/v/ko/infrablockchain/learn/proof-of-transaction#undefined-1)로 구성된 인프라 릴레이 체인 체인 스펙 파일을 사용합니다. 실제 네트워크 구성은 `alice` 와 `bob` 밸리데이터 노드만 띄워 시뮬레이션합니다._
+_본 튜토리얼에서는 네 개의 [Seed Trust 밸리데이터](../../learn/protocol/proof-of-transaction.md#블록-생성자밸리데이터-풀)로 구성된 인프라 릴레이 체인 체인 스펙 파일을 사용합니다. 실제 네트워크 구성은 `alice` 와 `bob` 밸리데이터 노드만 띄워 시뮬레이션합니다._
 
 릴레이 체인은 연결된 파라체인 콜레이터의 총 수보다 적어도 하나 이상의 밸리데이터 노드가 실행되어야 하므로, 하나의 콜레이터를 가진 두 개의 파라체인을 연결하려면 세 개 이상의 릴레이 체인 검증자 노드를 실행해야 합니다.
 
 ### 원시(raw) 체인 스펙 파일 추출하기
 
-[SCALE 인코딩](../../../substrate/reference/scale-codec.ko.md)된 원시(raw) 형식의 JSON 파일을 추출합니다. 해당 명령어를 입력하면 같은 경로에 `raw-infra-relay-chainspec.json` 파일이 생성됩니다. 
+[SCALE 인코딩](../../learn/substrate/learn/frame/scale-codec.md)된 원시(raw) 형식의 JSON 파일을 추출합니다. 해당 명령어를 입력하면 같은 경로에 `raw-infra-relay-chainspec.json` 파일이 생성됩니다. 
 
 ```bash
 ./target/release/infrablockspace build-spec --chain plain-infra-relay-chainspec.json --disable-default-bootnode --raw > raw-infra-relay-chainspec.json
 ```
 
 일반 텍스트 버전의 체인 스펙 파일을 읽고 편집할 수 있습니다. 그러나 체인 스펙 파일을 노드를 시작하는 데 사용하려면 SCALE로 인코딩된 원시(raw) 형식으로 변환해야 합니다. 샘플 체인 스펙은 네 개의 밸리데이터로 구성된 네트워크입니다.
-다른 밸리데이터를 추가하거나 릴레이 체인에 여러 개의 파라체인 추가 및 사전 정의된 계정 대신 커스텀 계정 키를 사용하려면 [커스텀 체인 스펙 파일](../../../substrate/reference/how-to-guides/basics/customize-a-chain-specification.ko.md)을 만들어야 합니다.
+다른 밸리데이터를 추가하거나 릴레이 체인에 여러 개의 파라체인 추가 및 사전 정의된 계정 대신 커스텀 계정 키를 사용하려면 [커스텀 체인 스펙 파일](../../learn/substrate/build/chain-spec.md#커스텀-체인-스펙-생성하기)을 만들어야 합니다.
 
 동일한 로컬 네트워크에서 누군가와 동시에 이 튜토리얼을 완료하는 경우, 해당 노드와 피어링되지 않도록 평문 체인 스펙을 수정해야 합니다. 평문 체인 스펙 JSON 파일에서 `protocolId` 키를 찾고 어떤 고유한 값으로 변경해줍니다.
 
@@ -81,7 +81,7 @@ _본 튜토리얼에서는 네 개의 [Seed Trust 밸리데이터](https://docs.
 
 ## 릴레이 체인 노드 시작하기
 
-멀티체인 아키텍처인 **_인프라 블록 스페이스(InfraBlockspace)_** 를 구축하기 위해서 먼저 파라체인을 연결할 수 있는 **_인프라 릴레이 체인(InfraRelayChain)_** 을 시작해야 합니다.
+***인프라 블록체인(InfraBlockchain)*** 을 구축하기 위해서 먼저 파라체인을 연결할 수 있는 **_인프라 릴레이 체인(InfraRelayChain)_** 을 시작해야 합니다.
 
 원시(raw) 샘플 체인 스펙 파일을 사용하여 밸리데이터 노드를 시작합니다:
 

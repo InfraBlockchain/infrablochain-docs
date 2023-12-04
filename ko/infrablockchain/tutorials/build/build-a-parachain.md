@@ -21,7 +21,7 @@ keywords:
 
 - [로컬 릴레이 체인 준비](./build-infra-relay-chain.md) 튜토리얼을 통해 로컬 릴레이 체인을 구성 방법에 대해 확인합니다.
 
-- [커스텀 체인 스펙](/ko/substrate/reference/how-to-guides/basics/customize-a-chain-specification.ko.md)을 구성하는 방법에 대해 확인합니다. 
+- [커스텀 체인 스펙](../../learn/substrate/build/chain-spec.md)을 구성하는 방법에 대해 확인합니다. 
 
 ## 파라체인 템플릿 빌드하기
 
@@ -30,7 +30,7 @@ keywords:
 
 파라체인 템플릿을 빌드하려면 다음을 수행하세요:
 
-1. 최신 **_인프라 블록 스페이스(InfraBlockspace)_ SDK** 를 불러옵니다.
+1. 최신 **_인프라 블록체인(InfraBlockchain)_** SDK를 불러옵니다.
 
    ```bash
    git clone --branch master https://github.com/InfraBlockchain/infrablockspace-sdk.git
@@ -226,7 +226,7 @@ keywords:
 ### 파라체인 등록 과정:
 
 1. 최소 두개 이상의 밸리데이터 노드로 구성된 로컬 릴레이 체인이 실행 중인지 확인합니다.
-2. 브라우저에서 [인프라 블록스페이스 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 엽니다. 위의 파라체인 식별자를 예약할 때 처럼, RPC 및 웹소켓 포트를 이용해 릴레이 체인에 연결합니다. 
+2. 브라우저에서 [인프라 블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 엽니다. 위의 파라체인 식별자를 예약할 때 처럼, RPC 및 웹소켓 포트를 이용해 릴레이 체인에 연결합니다. 
 3. **개발자**를 클릭하고 **Sudo**를 선택합니다.
 
    ![파라체인 등록을 위해 Sudo 선택](/media/images/docs/tutorials/parachains/developer-sudo.png)
@@ -257,7 +257,7 @@ keywords:
 
    - 릴레이 체인은 각 파라체인의 최신 블록(헤드)을 추적합니다.
    - 릴레이 체인 블록이 확정되면 [검증 과정](https://polkadot.network/the-path-of-a-parachain-block)을 완료한 파라체인 블록도 확정됩니다.
-   - 이것이 멀티체인 아키텍처인 **_인프라 블록 스페이스(Infrablockspace)_** **공유 보안(shared security)** 를 달성하는 방법입니다.
+   - 이것이 멀티체인 아키텍처인 **_인프라 블록체인(InfraBlockchain)_** **공유 보안(shared security)** 를 달성하는 방법입니다.
    - 다음 epoch 에서 파라체인이 릴레이 체인에 연결된 후 콜래이터 노드를 시작할 때 설정한 포트로 이동하면 익스플로러에서 해당 파라체인에 대한 정보를 볼 수 있습니다. 
 
 ## 파라체인 트랜잭션 제출하기
@@ -266,7 +266,7 @@ keywords:
 
 트랜잭션을 제출하려면 다음을 수행하세요:
 
-1. 브라우저에서 [인프라 블록스페이스 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 엽니다.
+1. 브라우저에서 [인프라 블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 엽니다.
 
 2. 응용 프로그램의 왼쪽 상단에 있는 네트워크 선택기를 클릭합니다.
 

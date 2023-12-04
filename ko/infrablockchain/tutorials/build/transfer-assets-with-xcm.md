@@ -12,7 +12,7 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [Zombienet](../test/simulate-parachains.ko.md) 또는 `infra-relay-local` 체인 스펙을 사용하여 [파라체인 테스트 네트워크](./build-a-parachain.md)를 설정하는 방법에 대해 확인합니다.
+- [Zombienet](../test/simulate-parachains.md) 또는 `infra-relay-local` 체인 스펙을 사용하여 [파라체인 테스트 네트워크](./build-a-parachain.md)를 설정하는 방법에 대해 확인합니다.
 
 - 두 개의 로컬 파라체인을 설정했는지 확인하세요.
 
@@ -26,7 +26,7 @@ keywords:
 
 두 체인 간 상호 작용을 설명하기 위해 다음 예제에서는 파라체인 B가 XCM 명령을 사용하여 릴레이 체인의 파라체인 B soverign 계정의 자산을 릴레이 체인의 어떤 특정한 계정으로 전송하는 방법을 보여줍니다.
 
-1. [InfraBlockspace Portal](https://portal.infrablockspace.net)을 사용하여 파라체인 B(1001)의 엔드포인트에 연결합니다.
+1. [*인프라 블록체인(InfraBlockchain)* 익스플로러](https://portal.infrablockspace.net)를 사용하여 파라체인 B(1001)의 엔드포인트에 연결합니다.
 
 2. **개발자**를 클릭하고 **외부 트랜잭션**을 선택합니다.
 
@@ -129,7 +129,7 @@ Holding 레지스터에서 수수료를 제외한 자산을 특정 계정으로 
 
 릴레이 체인에서 결과를 확인하려면:
 
-1. [InfraBlockspace Portal](https://portal.infrablockspace.net)을 열고 릴레이 체인에 연결합니다.
+1. [*인프라 블록체인(InfraBlockchain)* 익스플로러](https://portal.infrablockspace.net)을 열고 릴레이 체인에 연결합니다.
 
 2. **네트워크**를 클릭하고 **탐색기**를 선택하여 XCM 메시지의 이벤트를 확인합니다.
    
@@ -143,7 +143,7 @@ Holding 레지스터에서 수수료를 제외한 자산을 특정 계정으로 
 
 계정에 예금된 자산을 확인하려면:
 
-1. [InfraBlockspace Portal](https://portal.infrablockspace.net)을 열고 릴레이 체인에 연결합니다.
+1. [*인프라 블록체인(InfraBlockchain)* 익스플로러](https://portal.infrablockspace.net)을 열고 릴레이 체인에 연결합니다.
 
 2. **계정**을 클릭하고 트랜잭션 수수료를 제외한 자산이 계정에 예금되었는지 확인합니다.
    

@@ -8,7 +8,7 @@ keywords:
   - Transaction fee
 ---
 
-이 튜토리얼은 실제로 릴레이 체인(e.g **_InfraRelayChain_** )과 파라체인(e.g **_InfraBlockchain_**) 구조인 멀티체인 환경에서 발행한 토큰을 시스템 토큰으로 등록하고 가스비로 사용하는 방법에 대해 배워보겠습니다.
+이 튜토리얼은 멀티체인 환경에서 발행한 토큰을 시스템 토큰으로 등록하고 가스비로 사용하는 방법에 대해 배워보겠습니다.
 
 ## 튜토리얼 목표
 
@@ -22,7 +22,7 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [좀비넷을 이용한 파라체인 네트워크 시뮬레이션 하기](/ko/infrablockchain/tutorials/test/simulate-parachains.ko.md)
+- [좀비넷을 이용한 파라체인 네트워크 시뮬레이션 하기](./test/simulate-parachains.md)
 
 ## 파라체인에 토큰 생성 및 발행하기
 
@@ -30,7 +30,7 @@ keywords:
 
 파라체인에 토큰 생성 및 발행 절차는 다음과 같습니다:
 
-1. [인프라 블록스페이스 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 열고 파라체인 엔드포인트에 연결합니다.
+1. [인프라 블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 열고 파라체인 엔드포인트에 연결합니다.
 
 2. Developer > Extrinsic 에서 [*Assets*](https://github.com/InfraBlockchain/infrablockspace-sdk/tree/master/substrate/frame/assets) 팔렛의 [*create*](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/assets/src/lib.rs#L625) 선택한 후 토큰을 생성합니다.
 
@@ -52,7 +52,7 @@ keywords:
 
 ### 거버넌스에 올릴 register_system_token을 위한 preimage 준비
 
-1. [인프라 블록스페이스 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 열고 릴레이 체인 엔드포인트에 연결합니다.
+1. [인프라 블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 열고 릴레이 체인 엔드포인트에 연결합니다.
 
 2. register_system_token을 거버넌스 투표로 올리기 위해 preimage에 먼저 등록을 해야합니다.
   
@@ -67,7 +67,7 @@ keywords:
 
 ![시스템 토큰 등록하기](/media/images/docs/infrablockchain/tutorials/register_system_token2.png)
 
-- `systemTokenType`: 시스템 토큰의 종류. 시스템 토큰 종류에 대한 자세한 내용은 [다음](/ko/infrablockchain/learn/system-token.md#시스템-토큰-종류)을 참고하세요. 여기서는 `Original` 을 선택합니다. 
+- `systemTokenType`: 시스템 토큰의 종류. 시스템 토큰 종류에 대한 자세한 내용은 [다음](../learn/protocol/system-token.md)을 참고하세요. 여기서는 `Original` 을 선택합니다. 
   ```text
   - `paraId`: 토큰이 생성된 파라체인 식별자
   - `palletId`: 토큰이 생성된 *Assets 팔렛* 의 식별자 
@@ -86,7 +86,7 @@ keywords:
 
 `register_system_token` 에 대한 *preimage* 를 성공적으로 등록했다면 이제 거버넌스에 등록할 수 있습니다.
 
-1. [인프라 블록스페이스 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 열고 릴레이 체인 엔드포인트에 연결합니다.
+1. [인프라 블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 열고 릴레이 체인 엔드포인트에 연결합니다.
 
 2. 익스플로러 탭에서 `Developer > Extrinsic` 을 누른 후,
 [*Council*](https://github.com/InfraBlockchain/infrablockspace-sdk/tree/master/substrate/frame/collective) 팔렛의 [propose](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/collective/src/lib.rs#L519) 를 통해 등록했던 preimage에 대한 안건을 council 거버넌스에 올립니다. 

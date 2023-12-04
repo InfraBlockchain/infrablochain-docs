@@ -10,7 +10,7 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [시스템 토큰 등록 및 수수료로 사용해보기](/ko/infrablockchain/tutorials/how-to-pay-transaction-fee.md)
+- [시스템 토큰 등록 및 수수료로 사용해보기](../tutorials/how-to-pay-transaction-fee.md)
 
 ## 개요
 
