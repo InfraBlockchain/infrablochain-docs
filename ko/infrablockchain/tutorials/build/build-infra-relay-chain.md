@@ -49,7 +49,7 @@ keywords:
 
 ## 체인 스펙
 
-모든 Substrate 기반 체인은 [체인 스펙](../../../substrate/build/chain-spec.ko.md)이 필요합니다. 체인 스펙에는 해당 네트워크의 초기 상태(genesis state) 및 여러 네트워크 설정값들이 명시되어 있습니다. 결정적인(Deterministic) 네트워크 구성을 위해 네트워크에 참여하는 모든 노드는 동일한 체인 스펙을 가지고 있습니다. 
+모든 Substrate 기반 체인은 [체인 스펙](../../learn/substrate/build/chain-spec.md)이 필요합니다. 체인 스펙에는 해당 네트워크의 초기 상태(genesis state) 및 여러 네트워크 설정값들이 명시되어 있습니다. 결정적인(Deterministic) 네트워크 구성을 위해 네트워크에 참여하는 모든 노드는 동일한 체인 스펙을 가지고 있습니다. 
 
 ### 평문(Plain) 체인 스펙 추출하기
 

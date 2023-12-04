@@ -5,7 +5,7 @@ keywords:
 ---
 
 Substrate는 데이터베이스 기반의 단순한 Key-Value 데이터 스토리지를 사용하여 수정된 Merkle 트리로 구현됩니다.
-Substrate의 모든 [상위 수준 스토리지 추상화](./runtime-storage.ko.md)는 이 단순한 Key-Value 스토리지 위에 구축되었습니다.
+Substrate의 모든 [상위 수준 스토리지 추상화](./runtime-storage.md)는 이 단순한 Key-Value 스토리지 위에 구축되었습니다.
 
 ## Key-Value 데이터베이스
 
@@ -53,11 +53,11 @@ Trie의 하위 섹션은 이러한 요구 사항을 자동으로 충족시키는
 ## 스토리지 조회
 
 Substrate로 구축된 블록체인은 런타임 스토리지를 조회하기 위해 사용할 수 있는 원격 프로시저 호출(RPC) 서버를 노출합니다. Substrate RPC를 사용하여 스토리지 항목에 액세스할 때, 해당 항목과 관련된 [키](#Key-Value-데이터베이스)만 제공하면 됩니다.
-Substrate의 [런타임 스토리지 API](./runtime-storage.ko.md)는 여러 가지 스토리지 항목 유형을 노출합니다. 다른 유형의 스토리지 항목에 대한 스토리지 키를 계산하는 방법을 알아보려면 계속 읽어보세요.
+Substrate의 [런타임 스토리지 API](./runtime-storage.md)는 여러 가지 스토리지 항목 유형을 노출합니다. 다른 유형의 스토리지 항목에 대한 스토리지 키를 계산하는 방법을 알아보려면 계속 읽어보세요.
 
 ### StorageValue keys
 
-간단한 [스토리지 값](./runtime-storage.ko.md#스토리지-값)에 대한 키를 계산하려면, 스토리지 값을 포함하는 팔렛의 이름의 [TwoX 128 해시](https://github.com/Cyan4973/xxHash)를 취한 후, 스토리지 값 자체의 이름의 TwoX 128 해시를 이어 붙입니다.
+간단한 [스토리지 값](./runtime-storage.md#스토리지-값)에 대한 키를 계산하려면, 스토리지 값을 포함하는 팔렛의 이름의 [TwoX 128 해시](https://github.com/Cyan4973/xxHash)를 취한 후, 스토리지 값 자체의 이름의 TwoX 128 해시를 이어 붙입니다.
 예를 들어, [Sudo](https://paritytech.github.io/substrate/master/pallet_sudo/index.html) 팔렛은 `Key`라는 스토리지 값 항목을 노출합니다:
 
 ```rust
@@ -74,19 +74,19 @@ state_getStorage("0x5c0d1176a568c1f92944340dbfed9e9c530ebca703c85910e7164cb7d1c9
 
 이 경우, 반환된 값(`"0xd43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27d"`)은 Alice의 [SCALE](/reference/scale-codec)로 인코딩된 계정 ID(`5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY`)입니다.
 
-[암호학적이 아닌](./runtime-storage.ko.md#암호학적-해시-알고리즘) TwoX 128 해시 알고리즘을 사용하여 스토리지 값 키를 생성하는 것을 알 수 있습니다.
+[암호학적이 아닌](./runtime-storage.md#암호학적-해시-알고리즘) TwoX 128 해시 알고리즘을 사용하여 스토리지 값 키를 생성하는 것을 알 수 있습니다.
 이는 해시 함수의 성능 비용을 지불할 필요가 없기 때문에, 해시 함수의 입력(팔렛과 스토리지 항목의 이름)은 런타임 개발자에 의해 결정되며, 잠재적으로 악의적인 블록체인 사용자에 의해 결정되지 않기 때문입니다.
 
 ### StorageMap keys
 
-스토리지 맵([Storage Map](./runtime-storage.ko.md#스토리지-맵))의 키는 스토리지 맵을 포함하는 팔렛의 이름의 TwoX 128 해시와 스토리지 맵 자체의 이름의 TwoX 128 해시와 동일합니다.
+스토리지 맵([Storage Map](./runtime-storage.md#스토리지-맵))의 키는 스토리지 맵을 포함하는 팔렛의 이름의 TwoX 128 해시와 스토리지 맵 자체의 이름의 TwoX 128 해시와 동일합니다.
 맵에서 요소를 검색하려면, 원하는 맵 키의 해시를 스토리지 맵의 스토리지 키에 추가합니다.
 두 개의 키(Storage Double Maps)를 가진 맵의 경우, 첫 번째 맵 키의 해시 다음에 두 번째 맵 키의 해시를 Storage Double Map의 스토리지 키에 추가합니다.
 
-스토리지 값과 마찬가지로, Substrate는 팔렛과 스토리지 맵 이름에 대해 TwoX 128 해시 알고리즘을 사용하지만, 맵의 요소에 대한 해시된 키를 결정할 때 올바른 [해시 알고리즘](./runtime-storage.ko.md#해시-알고리즘)`#[pallet::storage]` 매크로에서 선언된 알고리즘을 사용해야 합니다.
+스토리지 값과 마찬가지로, Substrate는 팔렛과 스토리지 맵 이름에 대해 TwoX 128 해시 알고리즘을 사용하지만, 맵의 요소에 대한 해시된 키를 결정할 때 올바른 [해시 알고리즘](./runtime-storage.md#해시-알고리즘)`#[pallet::storage]` 매크로에서 선언된 알고리즘을 사용해야 합니다.
 
 다음은 `Balances` 팔렛의 `FreeBalance` 맵에서 `Alice` 계정의 잔액을 조회하는 예제입니다.
-이 예제에서 `FreeBalance` 맵은 [투명한 Blake2 128 Concat 해시 알고리즘](./runtime-storage.ko.md#투명한-해싱-알고리즘)을 사용합니다:
+이 예제에서 `FreeBalance` 맵은 [투명한 Blake2 128 Concat 해시 알고리즘](./runtime-storage.md#투명한-해싱-알고리즘)을 사용합니다:
 
 ```rust
 twox_128("Balances")                                             = "0xc2261276cc9d1f8598ea4b6a74b15c2f"
@@ -98,10 +98,10 @@ blake2_128_concat("0xd43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56
 state_getStorage("0xc2261276cc9d1f8598ea4b6a74b15c2f6482b9ade7bc6657aaca787ba1add3b4de1e86a9a8c739864cf3cc5ec2bea59fd43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27d") = "0x0000a0dec5adc9353600000000000000"
 ```
 
-스토리지 조회에서 반환된 값(`"0x0000a0dec5adc9353600000000000000"`)은 Alice의 계정 잔액의 [SCALE](./scale-codec.ko.md)-인코딩된 값(`"1000000000000000000000"`)입니다.
+스토리지 조회에서 반환된 값(`"0x0000a0dec5adc9353600000000000000"`)은 Alice의 계정 잔액의 [SCALE](./scale-codec.md)-인코딩된 값(`"1000000000000000000000"`)입니다.
 Alice의 계정 ID를 해시하기 전에 SCALE로 인코딩해야 한다는 점에 유의하십시오.
 또한 `blake2_128_concat` 함수의 출력은 32개의 16진수 문자로 시작하고 함수의 입력이 이어지는 것에 주목하십시오.
-이는 Blake2 128 Concat이 [투명한 해싱 알고리즘](./runtime-storage.ko.md#투명한-해시-함수)임을 의미합니다.
+이는 Blake2 128 Concat이 [투명한 해싱 알고리즘](./runtime-storage.md#투명한-해시-함수)임을 의미합니다.
 
 위의 예제에서는 이 특성이 사소한 것처럼 보일 수 있지만, 맵의 키를 반복하는 것이 목표인 경우(단일 키와 관련된 값을 검색하는 것이 아닌 경우)에는 유용성이 더욱 명확해집니다.
 맵의 키를 반복하는 기능은 맵을 사람들이 자연스럽게 사용할 수 있도록 하는 데 필요한 일반적인 요구 사항입니다(예: UI에서): 먼저, 사용자에게 맵의 요소 목록이 제시되고, 그 사용자는 해당하는 요소에 대한 자세한 내용을 조회하기 위해 맵에 대한 쿼리를 선택할 수 있습니다.
@@ -123,7 +123,7 @@ Substrate RPC의 `state_getKeys` 엔드포인트에서 반환된 목록의 각 �
 실제로, 위의 예제 목록의 첫 번째 요소는 이전 예제에서 `Alice`의 잔액을 찾기 위해 사용된 `state_getStorage` 쿼리의 입력과 동일합니다.
 이러한 키가 속한 맵은 투명한 해싱 알고리즘을 사용하여 키를 생성하므로, 목록의 두 번째 요소와 연결된 계정을 결정하는 것이 가능합니다.
 목록의 각 요소는 동일한 맵 내의 키를 나타내는 64개의 문자로 시작하는 16진수 값입니다. 이는 각 목록 요소가 동일한 맵 내의 키를 나타내며, 이 맵은 두 개의 128비트 또는 32개의 16진수 문자로 구성된 TwoX 128 해시를 연결하여 식별됩니다.
-목록의 두 번째 요소에서 이 부분을 제거한 후에는 `0x32a5935f6edc617ae178fef9eb1e211fbe5ddb1579b72e84524fc29e78609e3caf42e85aa118ebfe0b0ad404b5bdd25f`라는 16진수 값이 남습니다. 이 값은 [SCALE](./scale-codec.ko.md)-인코딩된 계정 ID입니다.
+목록의 두 번째 요소에서 이 부분을 제거한 후에는 `0x32a5935f6edc617ae178fef9eb1e211fbe5ddb1579b72e84524fc29e78609e3caf42e85aa118ebfe0b0ad404b5bdd25f`라는 16진수 값이 남습니다. 이 값은 [SCALE](./scale-codec.md)-인코딩된 계정 ID입니다.
 이 값을 디코딩하면 `5GNJqTPyNqANBkUVMN1LPPrxXnFouWXoe2wNSmmEoLctxiZY`라는 결과가 나옵니다. 이는 익숙한 `Alice_Stash` 계정의 계정 ID입니다.
 
 ## 런타임 스토리지 API
@@ -133,5 +133,5 @@ Substrate의 [FRAME Support 크레이트](https://paritytech.github.io/substrate
 
 ## 다음으로 어디로 가야 할까요
 
-- [런타임 스토리지](./runtime-storage.ko.md)
-- [타입 인코딩 (SCALE)](./scale-codec.ko.md)
+- [런타임 스토리지](./runtime-storage.md)
+- [타입 인코딩 (SCALE)](./scale-codec.md)

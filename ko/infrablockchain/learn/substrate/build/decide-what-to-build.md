@@ -202,7 +202,7 @@ Substrate과 FRAME을 사용하여 완전한 커스텀 런타임을 개발할 �
 시작할 수 있는 몇 가지 예제를 확인하려면 다음 섹션을 참조하세요:
 
 - [네트워크에 파라체인 연결](../../../tutorials/build/build-a-parachain.md)
-- [테스트 네트워크에서 파라체인 시뮬레이션](../../../tutorials/test/simulate-parachains.ko.md)
+- [테스트 네트워크에서 파라체인 시뮬레이션](../../../tutorials/test/simulate-parachains.md)
 - [파라체인](../../../learn/architecture/parachain/README.md)
 
 무엇을 구축할 수 있는지 자세히 알아보려면 다음 리소스를 참조하세요:
