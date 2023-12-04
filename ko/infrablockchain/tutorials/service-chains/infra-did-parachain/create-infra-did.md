@@ -1,6 +1,6 @@
 ---
-title: *InfraDID* 생성하기 
-description: *InfraDID* 체인에서 DID를 생성하는 방법에 대해 설명합니다.
+title: InfraDID 생성하기 
+description: InfraDID 체인에서 DID를 생성하는 방법에 대해 설명합니다.
 keywords:
   - 파라체인
   - DID
