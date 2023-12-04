@@ -1,6 +1,6 @@
 ---
-title: *InfraDID* 에 서비스 엔드포인트 등록하기 
-description: 이 튜토리얼은 *InfraDID* 에 등록된 DID에 서비스 엔드포인트를 추가하는 방법을 설명합니다.
+title: InfraDID 서비스 엔드포인트 등록하기 
+description: 이 튜토리얼은 InfraDID에 등록된 DID에 서비스 엔드포인트를 추가하는 방법을 설명합니다.
 keywords:
   - 파라체인
   - DID

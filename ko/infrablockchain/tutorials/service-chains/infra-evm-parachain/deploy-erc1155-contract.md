@@ -1,6 +1,6 @@
 ---
 title: ERC1155 토큰 컨트랙트 배포하기
-description: 이 튜토리얼은 *InfraEVM* 체인에서 ERC1155 토큰 컨트랙트를 배포하는 방법에 대해서 설명합니다.
+description: 이 튜토리얼은 InfraEVM 체인에서 ERC1155 토큰 컨트랙트를 배포하는 방법에 대해서 설명합니다.
 keywords:
   - 파라체인
   - EVM

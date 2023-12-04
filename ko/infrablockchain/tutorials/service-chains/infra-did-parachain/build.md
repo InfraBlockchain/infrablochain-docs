@@ -1,6 +1,6 @@
 ---
-title: *InfraDID* 체인 구축하기 
-description: 이 튜토리얼은 *InfraDID* 체인을 빌드하고 실행하는 과정을 설명합니다.
+title: InfraDID 체인 구축하기 
+description: 이 튜토리얼은 InfraDID 체인을 빌드하고 실행하는 과정을 설명합니다.
 keywords:
   - 파라체인
   - 서비스체인

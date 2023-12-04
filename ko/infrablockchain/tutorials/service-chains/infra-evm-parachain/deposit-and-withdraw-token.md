@@ -1,6 +1,6 @@
 ---
 title: EVM에 자금 입금 및 인출하기
-description: 이 튜토리얼은 *InfraEVM* 체인에서 자금을 입금 및 인출하는 방법을 설명합니다.
+description: 이 튜토리얼은 InfraEVM 체인에서 자금을 입금 및 인출하는 방법을 설명합니다.
 keywords:
   - 파라체인
   - EVM
