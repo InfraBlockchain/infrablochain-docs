@@ -1,154 +1,157 @@
 ---
-title: XCM을 이용하여 원격으로 자산 전송하기
-description: 릴레이 체인을 통해 파라체인으로 원격 전송을 실행하는 XCM 사용 방법을 보여줍니다.
+title: Transferring Assets Remotely Using XCM
+description: This guide shows you how to use XCM to execute remote transfers to parachains via the relay chain.
 keywords:
-  - XCM
+    - XCM
 ---
 
-[Open message passing channels](./open-message-passing-channels.md)에서는 메시지를 릴레이 체인으로 보내어 체인 간 양방향 통신 채널을 열어보았습니다. 
-본 튜토리얼에서는 파라체인 B가 파라체인 A의 릴레이 체인에 있는 sovereign 계정으로 자산을 이전합니다. [`balances` 팔렛](https://github.com/InfraBlockchain/infrablockspace-sdk/tree/master/substrate/frame/balances)의 `transfer` 함수를 사용하는 것과 유사하지만, 이 경우 XCM 을 이용하여 자산을 전송하는 예를 보여줍니다.
+In [Open message passing channels](open-message-passing-channels), you saw how to open a two-way communication channel between chains by sending messages to the relay chain.
+You can use a similar strategy to send messages that allow a local chain to manage an account on a remote chain.
+In this tutorial, parachain B transfers assets into the sovereign account on the relay chain for parachain A.
 
-## 시작하기 전에
+The outcome for this tutorial is similar to using the `transfer` function from the balances pallet, except in this case the transfer is initiated by a parachain and demonstrates how the holding register is used when executing the `WithdrawAsset` and `DepositAsset`XCM instructions.
 
-시작하기 전에 다음을 확인하세요:
+## Before you begin
 
-- [Zombienet](../test/simulate-parachains.md) 또는 `infra-relay-local` 체인 스펙을 사용하여 [파라체인 테스트 네트워크](./build-a-parachain.md)를 설정하는 방법에 대해 확인합니다.
+Before you begin, verify the following:
 
-- 두 개의 로컬 파라체인을 설정했는지 확인하세요.
+-   You have set up a [parachain test network](../test/simulate-parachains) using Zombienet or a local relay chain using the `rococo-local` chain specification.
+-   You have set up two local or virtual parachains for testing purposes.
 
-  - 본 튜토리얼에서는 파라체인 A의 고유 식별자가 1000이고 파라체인 B의 고유 식별자가 1001인 것으로 가정합니다.
+    For the purposes of this tutorial, parachain A has the unique identifier 1000 and parachain B has the unique identifier 1001.
 
-  - 로컬 파라체인에서 [`Sudo 팔렛`](https://github.com/InfraBlockchain/infrablockspace-sdk/tree/master/substrate/frame/sudo)을 사용할 수 있는지 확인하세요.
+-   You have the Sudo pallet available for both local parachains to use.
 
-- 파라체인 B와 파라체인 A 간의 통신을 허용하기 위해 메시지 패싱 채널(HRMP)를 열었는지 확인하세요.
+-   You have opened the message passing channel to allow communication between parachain B and parachain A.
 
-## XCM 명령 구성하기
+## Configure XCM instructions
 
-두 체인 간 상호 작용을 설명하기 위해 다음 예제에서는 파라체인 B가 XCM 명령을 사용하여 릴레이 체인의 파라체인 B soverign 계정의 자산을 릴레이 체인의 어떤 특정한 계정으로 전송하는 방법을 보여줍니다.
+To illustrate the interaction between the two chains, in the following example, parachain B sends XCM instructions to deposit assets into an account on parachain A.
 
-1. [*인프라 블록체인(InfraBlockchain)* 익스플로러](https://portal.infrablockspace.net)를 사용하여 파라체인 B(1001)의 엔드포인트에 연결합니다.
+1. Connect to the endpoint for parachain B (1001) using the [InfraBlockchain Portal](https://portal.infrablockspace.net/#/explorer/).
 
-2. **개발자**를 클릭하고 **외부 트랜잭션**을 선택합니다.
+2. Click **Developer** and select **Extrinsics**.
 
-3. **sudo**를 선택한 다음 **sudo(call)** 을 선택하여 Sudo 팔렛을 사용하여 트랜잭션을 실행합니다.
+3. Select **sudo**, then select **sudo(call)** to use the Sudo pallet to execute privileged transactions.
 
-4. **ibsXcm**을 선택한 다음 **send(dest, message)**를 선택합니다.
+4. Select **ibsXcm**, then select **send(dest, message)**.
+5. Specify the destination parameters to indicate the relative location for the message to be delivered.
 
-5. 메시지를 전달할 상대적인 위치를 나타내기 위해 대상 매개변수를 지정합니다.
+    - The XCM version for specifying the location of the destination: V1
+    - The relay chain is the destination for the message, so the parent location: 1
+    - In the context of the parent, the interior setting: Here
 
-   - 대상의 위치(여기서는 릴레이 체인)를 지정하기 위한 XCM 버전: V3
-   - **parents: 1** 및 **interior: Here** 를 설정
+6. Specify the XCM version for the message (V2).
+7. Click **Add item** to construct the message to be executed.
 
-6. 메시지의 XCM 버전을 지정합니다(V3).
+## WithdrawAsset instruction
 
-7. 실행할 메시지를 구성하기 위해 **항목 추가**를 클릭합니다.
+To move assets into the virtual holding register:
 
-## WithdrawAsset 명령
+1. Select _WithdrawAsset_ as the first instruction for this message.
 
-Holding 레지스터로 자산을 이동하기 위해:
+2. Click **Add item** to identify the on-chain assets to withdraw.
 
-1. 이 메시지의 첫 번째 명령으로 *WithdrawAsset* 를 선택합니다.
+3. Select **Concrete** to use the location of the asset to identify the asset to be withdrawn.
 
-2. **항목 추가**를 클릭하여 체인 상의 자산(MultiLocation)을 식별합니다.
+4. Set **parents: 0** and **interior: Here** to withdraw assets from the parachain B sovereign account on the relay chain.
 
-3. 자산을 식별하기 위해 **Concrete**를 선택합니다.
+5. Select **Fungible** to identify the asset as a fungible asset.
 
-4. sovereign 계정인 파라체인 B의 자산을 릴레이 체인에서 인출하기 위해 **parents: 0** 및 **interior: Here**를 설정합니다.
+6. Specify the total fungible assets to withdraw.
 
-5. `StagingXcmV3MultiassetFungibility` 에서 **Fungible**을 선택합니다.
+    For example, this tutorial uses 12000000000000.
 
-6. 인출할 총 자산을 지정합니다.
+    ![WithdrawAsset instruction sent from parachain B](/media/images/docs/infrablockchain/tutorials/build/transfer-withdraw-asset-instruction-ui.png)
 
-   예를 들어, 이 튜토리얼에서는 12000000000000을 사용합니다.
-   
-   ![파라체인 B에서 보낸 WithdrawAsset 명령](/media/images/docs/infrablockchain/tutorials/build/transfer-withdraw-asset-instruction-ui.png)
+## BuyExecution instruction
 
-## BuyExecution 명령
+To pay for execution from assets deposited in the holding register:
 
-Holding 레지스터에 예금된 자산으로 실행 비용을 지불하기 위해:
+1. Click **Add item** to select _BuyExecution_ as the second instruction for this message.
 
-1. **항목 추가**를 클릭하여 이 메시지의 두 번째 명령으로 BuyExecution을 선택합니다.
+2. Select **Concrete** to use the location of the asset to identify the asset to be used to pay for executing XCM instructions.
 
-2. 자산을 식별하기 위해 **Concrete**를 선택합니다.
+3. Set **parents: 0** and **interior: Here** to use the assets withdrawn from the parachain B sovereign account on the relay chain.
 
-3. XCM 명령 실행에 사용할 자산을 식별하기 위해 **parents: 0** 및 **interior: Here**를 설정합니다.
+4. Select **Fungible** to identify the asset as a fungible asset.
 
-4. `StagingXcmV3MultiassetFungibility` 에서 **Fungible**을 선택합니다.
+5. Specify the total fungible assets to use.
 
-5. 사용할 총 자산을 지정합니다.
-   
-   예를 들어, 이 튜토리얼에서는 12000000000000을 사용합니다.
+    For example, this tutorial uses 12000000000000.
 
-6. 이 명령에 대한 가중치(리소스 사용량, weight) 제한을 설정하지 않으려면 **Unlimited**를 선택합니다.
-   
-   ![파라체인 B에서 보낸 BuyExecution 명령](/media/images/docs/infrablockchain/tutorials/build/transfer-buy-execution-instruction-ui.png)
+6. Select **Unlimited** to skip setting a weight limit for this instruction.
 
-## DepositAsset 명령
+    ![BuyExecution instruction sent from parachain B](/media/images/docs/infrablockchain/tutorials/build/transfer-buy-execution-instruction-ui.png)
 
-Holding 레지스터에서 수수료를 제외한 자산을 특정 계정으로 예금하기 위해:
+## DepositAsset instruction
 
-1. **항목 추가**를 클릭하여 이 메시지의 세 번째 명령으로 *DepositAsset*을 선택합니다.
+To deposit assets after fees from the holding register into a specific account:
 
-2. Holding register 에 있는 자산을 예금할 수 있도록 **Wild**를 선택합니다.
+1. Click **Add item** to select _DepositAsset_ as the third instruction for this message.
 
-3. 수수료를 지불한 후 남은 자산을 모두 예금할 수 있도록 **All**을 선택합니다.
+1. Select **Wild** to allow an unspecified number of assets to be deposited.
 
-4. 예금을 위해 보유 레지스터에서 제거할 고유 자산의 최대 수를 **1**로 설정합니다. 본 튜토리얼에서는 제거할 수 있는 자산 인스턴스가 하나뿐입니다.
+1. Select **All** to allow all of the remaining assets after fees are paid to be deposited.
 
-1. 자산을 전송받을 계정(beneficary)를 지정합니다.
+1. Set **1** as the maximum number of unique assets to remove from the holding register for the deposit.
 
-   - 남은 자산을 파라체인 A의 sovereign 계정에 예금하거나 특정 계정에 예금할 수 있습니다. 
-   - 본 튜토리얼에서는 예금할 자산을 이전에 자금이 없던 계정 KRIS-PUBS에 지정된 계정 주소를 사용하여 예금합니다.
-   - 이를 위해 수혜자를 선택하면 DepositAsset 명령은 다음과 같이 보입니다:
+    In this tutorial, there's only one asset instance available to be removed.
 
-   ![계정을 수혜자로 지정](/media/images/docs/tutorials/parachains/transfer-deposit-asset-instruction-ui.png)
-   
-   파라체인 A(1000)의 sovereign 계정에 자산을 예금하려면 다음 설정을 사용하여 계정을 지정할 수 있습니다:
-   
-   - parents: 0, 
-   - interior: X1, 
-   - X1 junction: Parachain
-   - Parachain index: 1000
-  
-   모든 XCM 명령을 구성한 후, 트랜잭션을 제출할 준비가 되었습니다.
+1. Specify the beneficiary to receive the deposited assets.
 
-## 트랜잭션 제출하기
+    You can deposit the assets remaining into the sovereign account for parachain A or into a specific account.
+    For this tutorial, the assets are deposited using a specified account address for the previously unfunded account KRIS-PUBS.
+    To select this beneficiary, the DepositAsset instruction looks like this:
 
-트랜잭션을 제출하려면:
+    ![Specify an account as a beneficiary](/media/images/docs/infrablockchain/tutorials/build/transfer-withdraw-asset-instruction-ui.png)
 
-1. **트랜잭션 제출**을 클릭합니다.
+    If you want to deposit the assets into the sovereign account for parachain A, you could specify the beneficiary using the following settings:
 
-1. **서명 및 제출**을 클릭합니다.
+    - parents: 0,
+    - interior: X1,
+    - X1 junction: Parachain
+    - Parachain index: 1000
 
-1. **네트워크**를 클릭하고 **탐색기**를 선택하여 메시지가 전송되었는지 확인합니다.
-   
-   이벤트를 확장하면 메시지 명령을 검토할 수 있습니다.
-   트랜잭션을 포함한 블록으로 이동하는 링크를 클릭하면 추가 세부 정보를 볼 수 있습니다.
+    After you configure all of the XCM instructions to be executed, you're ready to submit the transaction.
 
-## 릴레이 체인에서 이벤트 확인하기
+## Submit the transaction
 
-릴레이 체인에서 결과를 확인하려면:
+To submit the transaction:
 
-1. [*인프라 블록체인(InfraBlockchain)* 익스플로러](https://portal.infrablockspace.net)을 열고 릴레이 체인에 연결합니다.
+1. Click **Submit Transaction**.
 
-2. **네트워크**를 클릭하고 **탐색기**를 선택하여 XCM 메시지의 이벤트를 확인합니다.
-   
-   ![릴레이 체인 이벤트](/media/images/docs/infrablockchain/tutorials/build/relay-chain-event-summary.png)
+1. Click **Sign and Submit**.
 
-3. 변경 사항이 기록된 블록 번호를 클릭하여 세부 정보를 확인합니다.
-   
-   ![릴레이 체인에 기록된 인출 및 예금 자산](/media/images/docs/infrablockchain/tutorials/build/relay-chain-block.png)
+1. Click **Network** and select **Explorer** to verify the message is sent.
 
-## 예금된 자산 확인하기
+    If you expand the event, you can review the message instructions.
+    If you click the link to the block that includes the transaction, you can see additional details
 
-계정에 예금된 자산을 확인하려면:
+## Check events on the relay chain
 
-1. [*인프라 블록체인(InfraBlockchain)* 익스플로러](https://portal.infrablockspace.net)을 열고 릴레이 체인에 연결합니다.
+To check the result on the relay chain:
 
-2. **계정**을 클릭하고 트랜잭션 수수료를 제외한 자산이 계정에 예금되었는지 확인합니다.
-   
-   예를 들어:
+1. Open the [InfraBlockchain Portal](https://portal.infrablockspace.net/#/explorer/) and connect to the relay chain.
 
-   ![지정된 계정에 자산이 예금되었습니다](/media/images/docs/infrablockchain/tutorials/build/transfer-account-funded.png)
+2. Click **Network** and select **Explorer** to view the events for the XCM message.
 
-   KRIS-PUBS 계정 대신 파라체인 A(1000)의 sovereign 계정으로 원격 이전을 수행했다면 **계정**을 클릭한 다음 **주소록**을 선택하여 파라체인 B의 sovereign 계정에서 인출된 자산이 파라체인 A의 sovereign 계정에 예금되었는지 확인할 수 있습니다.
+    ![Relay chain events](/media/images/docs/infrablockchain/tutorials/build/relay-chain-event-summary.png)
+
+3. Click the block number where the change was recorded to view details.
+
+    ![Assets withdrawn and deposited are recorded on the relay chain](/media/images/docs/infrablockchain/tutorials/build/relay-chain-block.png)
+
+## Check the assets deposited
+
+To verify the assets deposited into the account:
+
+1. Open the [InfraBlockchain Portal](https://portal.infrablockspace.net/#/explorer/) and connect to the relay chain.
+
+2. Click **Accounts** and see the assets minus transaction fees have been deposited into the account.
+
+    For example:
+
+    ![Assets have been deposited in the specified account](/media/images/docs/infrablockchain/tutorials/build/transfer-account-funded.png)
+
+    If you had made the remote transfer to the parachain A (1000) sovereign account instead of the KRIS-PUBS account, you would click **Accounts**, then select **Address book** to see the assets withdrawn from the parachain B sovereign account deposited into the parachain A sovereign account.

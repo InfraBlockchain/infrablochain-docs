@@ -1,136 +1,135 @@
 ---
-title: 시스템 토큰 등록 및 수수료로 사용해보기
-description: 이 튜토리얼은 토큰 생성부터 시스템 토큰 등록을 위한 거버넌스, 시스템 토큰 사용까지의 일련의 과정에 대해 배웁니다.
+title: Registering and Using System Tokens as Transaction Fees
+description: This tutorial covers the entire process from token creation to governance for registering system tokens, and using system tokens for transactions.
 keywords:
-  - Assets
-  - System token manager
-  - Governance
-  - Transaction fee
+    - Assets
+    - System token manager
+    - Governance
+    - Transaction fee
 ---
 
-이 튜토리얼은 멀티체인 환경에서 발행한 토큰을 시스템 토큰으로 등록하고 가스비로 사용하는 방법에 대해 배워보겠습니다.
+This tutorial will teach you how to register tokens issued in a multichain environment as system tokens and use them as gas fees.
 
-## 튜토리얼 목표
+## Tutorial Goals
 
-이 튜토리얼을 완료함으로써 다음 목표를 달성할 수 있습니다:
+By completing this tutorial, you will be able to:
 
-- 좀비넷을 활용하여 릴레이체인/파라체인 테스트 네트워크를 구축할 수 있습니다.
-- 파라체인에서 토큰을 발행하고 릴레이체인에서 해당 토큰을 시스템 토큰으로 등록하기 위한 거버넌스를 발의할 수 있습니다.
-- 거버넌스가 통과된 후, 파라체인에서 발행한 시스템 토큰으로 가스비를 낼 수 있습니다.
+-   Set up a Relaychain/Parachain test network using ZombieNet.
+-   Propose governance on the Relaychain to register a token issued on a Parachain as a system token.
+-   Pay gas fees with the system token issued on the Parachain after governance approval.
 
-## 시작하기전에
+## Before You Start
 
-시작하기 전에 다음을 확인하세요:
+Before starting, ensure you have:
 
-- [좀비넷을 이용한 파라체인 네트워크 시뮬레이션 하기](./test/simulate-parachains.md)
+-   [Simulating a Parachain Network using ZombieNet](./test/simulate-parachains.md)
 
-## 파라체인에 토큰 생성 및 발행하기
+## Creating and Issuing Tokens on a Parachain
 
-시스템 토큰을 릴레이 체인에 등록하기 전에 파라체인에 토큰을 생성해야합니다. *이때, 파라체인 토큰 생성 및 발행에 필요한 가스비를 위해 테스트 시스템 토큰 혹은 시스템 토큰을 보유하고 있어야 합니다.*
+Before registering a system token on the Relay Chain, you need to create a token on the Parachain. _You must have test system tokens or system tokens for the gas fee required for Parachain token creation and issuance._
 
-파라체인에 토큰 생성 및 발행 절차는 다음과 같습니다:
+The procedure for creating and issuing tokens on a Parachain is as follows:
 
-1. [인프라 블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 열고 파라체인 엔드포인트에 연결합니다.
+1. Open the [Infra Blockchain Explorer](https://portal.infrablockspace.net/#/explorer/) and connect to the Parachain endpoint.
 
-2. Developer > Extrinsic 에서 [*Assets*](https://github.com/InfraBlockchain/infrablockspace-sdk/tree/master/substrate/frame/assets) 팔렛의 [*create*](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/assets/src/lib.rs#L625) 선택한 후 토큰을 생성합니다.
+2. In Developer > Extrinsic, select [_create_](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/assets/src/lib.rs#L625) from the [_Assets_](https://github.com/InfraBlockchain/infrablockspace-sdk/tree/master/substrate/frame/assets) pallet to create a token.
 
-   - id: 토큰을 식별할 값. 여기서는 1을 넣어줍니다. 
-   - admin: 토큰 관리 계정. 여기서는 `alice` 를 지정합니다.
-   - minBalance: 토큰 최소 예치 단위. 여기서는 1 을 넣어줍니다. 
+    - id: A value to identify the token. Here, we insert 1.
+    - admin: Token management account. Here, we specify `alice`.
+    - minBalance: The minimum token deposit unit. Here, we insert 1.
 
-    ![토큰 생성하기](/media/images/docs/infrablockchain/tutorials/create_token.png)
+    ![Creating a Token](/media/images/docs/infrablockchain/tutorials/create_token.png)
 
-3. 바로 _Assets 팔렛_ 의 [mint](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/assets/src/lib.rs#L801C7-L801C14)를 선택한 후토큰을 발행합니다. 
+3. Immediately select [mint](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/assets/src/lib.rs#L801C7-L801C14) from the _Assets pallet_ to issue the token.
 
-   - id: 토큰을 식별할 값. 여기서는 전에 생성했던 토큰 식별자를 넣어줍니다.
-   - beneficiary: 발행된 토큰을 받을 계정. 여기서는 `alice` 에게 발행해줍니다.
-   - amount: 발행할 토큰의 양. 여기서는 1000000000000 을 넣어줍니다. 
-  
-    ![토큰 발행하기](/media/images/docs/infrablockchain/tutorials/mint_token.png)
+    - id: A value to identify the token. Here, insert the previously created token identifier.
+    - beneficiary: The account to receive the issued tokens. Here, we issue them to `alice`.
+    - amount: The amount of tokens to issue. Here, insert 1000000000000.
 
-## 릴레이 체인에 `register_system_token` 거버넌스 등록하기
+    ![Issuing Tokens](/media/images/docs/infrablockchain/tutorials/mint_token.png)
 
-### 거버넌스에 올릴 register_system_token을 위한 preimage 준비
+## Registering `register_system_token` Governance on Relay Chain
 
-1. [인프라 블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 열고 릴레이 체인 엔드포인트에 연결합니다.
+### Preparing preimage for submitting register_system_token to governance
 
-2. register_system_token을 거버넌스 투표로 올리기 위해 preimage에 먼저 등록을 해야합니다.
-  
-3. Governance > Preimages > Add preimage를 누릅니다.
-(preimage는 누구나 등록이 가능합니다.)
+1. Open the [Infra Blockchain Explorer](https://portal.infrablockspace.net/#/explorer/) and connect to the Relay Chain endpoint.
 
-![preimage_button](/media/images/docs/infrablockchain/tutorials/preimage_button.png)
+2. To put register_system_token to a governance vote, you must first register it in the preimage.
 
-4. 파라체인에서 생성했던 토큰 정보를 토대로 `register_system_token`에 대한 preimage를 생성합니다.
+3. Press Governance > Preimages > Add preimage.
+   (Anyone can register a preimage.)
 
-![시스템 토큰 등록하기(아래 계속)](/media/images/docs/infrablockchain/tutorials/register_system_token1.png)
+![Preimage Button](/media/images/docs/infrablockchain/tutorials/preimage_button.png)
 
-![시스템 토큰 등록하기](/media/images/docs/infrablockchain/tutorials/register_system_token2.png)
+4. Create a preimage for `register_system_token` based on the token information created in the Parachain.
 
-- `systemTokenType`: 시스템 토큰의 종류. 시스템 토큰 종류에 대한 자세한 내용은 [다음](../learn/protocol/system-token.md)을 참고하세요. 여기서는 `Original` 을 선택합니다. 
-  ```text
-  - `paraId`: 토큰이 생성된 파라체인 식별자
-  - `palletId`: 토큰이 생성된 *Assets 팔렛* 의 식별자 
-  - `assetId`: 토큰 식별자
-  ```   
-- `systemTokenWeight`: 토큰의 가중치. 여기서는 1_000_000(default)로 설정해줍니다.
-- `wrappedForRelayChain`: 릴레이 체인에 사용할 wrapped 시스템 토큰. 
-- `systemTokenMetadata`: 시스템 토큰에 대한 메타 데이터.
-- `assetMetadata`: 토큰에 대한 메타 데이터.
+![Registering System Token (continued below)](/media/images/docs/infrablockchain/tutorials/register_system_token1.png)
 
-5. 다음과 같이 해시값과 함께 정상적으로 등록이 됩니다.
+![Registering System Token](/media/images/docs/infrablockchain/tutorials/register_system_token2.png)
 
-![preimage 결과](/media/images/docs/infrablockchain/tutorials/preimage_result.png)
+-   `systemTokenType`: The type of system token. For more details on system token types, see [here](../learn/protocol/system-token.md). Here, select `Original`.
+    ```text
+    - `paraId`: Identifier of the Parachain where the token was created
+    - `palletId`: Identifier of the *Assets pallet* where the token was created
+    - `assetId`: Token identifier
+    ```
+-   `systemTokenWeight`: The weight of the token. Here, set to 1_000_000(default).
+-   `wrappedForRelayChain`: Wrapped system token for use on the Relay Chain.
+-   `systemTokenMetadata`: Metadata for the system token.
+-   `assetMetadata`: Metadata for the token.
 
-### 등록된 preimage를 거버넌스에 등록하기
+5. It will be registered successfully with a hash value as follows.
 
-`register_system_token` 에 대한 *preimage* 를 성공적으로 등록했다면 이제 거버넌스에 등록할 수 있습니다.
+![Preimage Result](/media/images/docs/infrablockchain/tutorials/preimage_result.png)
 
-1. [인프라 블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 열고 릴레이 체인 엔드포인트에 연결합니다.
+### Registering the submitted preimage to governance
 
-2. 익스플로러 탭에서 `Developer > Extrinsic` 을 누른 후,
-[*Council*](https://github.com/InfraBlockchain/infrablockspace-sdk/tree/master/substrate/frame/collective) 팔렛의 [propose](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/collective/src/lib.rs#L519) 를 통해 등록했던 preimage에 대한 안건을 council 거버넌스에 올립니다. 
-(주의: council propose는 릴레이체인 검증자만 올리고 투표할 수 있습니다.)
+Once the _preimage_ for `register_system_token` is successfully registered, it can now be registered in governance.
 
-  ```text
-  - threshold: 안건을 종료하기 위한 최소 투표수
-  - Legacy-hash: 등록한 preimage에 대한 hash
-  - lengthBound: preimage의 길이(Byte) 제한. 
-  ```
+1. Open the [Infra Blockchain Explorer](https://portal.infrablockspace.net/#/explorer/) and connect to the Relay Chain endpoint.
 
-![거버넌스 제안](/media/images/docs/infrablockchain/tutorials/council_propose.png)
+2. In the Explorer tab, click `Developer > Extrinsic`, then use [propose](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/collective/src/lib.rs#L519) from the [_Council_](https://github.com/InfraBlockchain/infrablockspace-sdk/tree/master/substrate/frame/collective) pallet to submit a motion on the registered preimage to the council governance.
+   (Note: Only Relaychain validators can submit and vote on council propose.)
 
-## 거버넌스 통과시키기
+```text
+- threshold: Minimum number of votes to conclude the motion
+- Legacy-hash: The hash of the registered preimage
+- lengthBound: Byte limit of the preimage's length.
+```
 
-거버넌스에 정상적으로 등록됐다면 `Governance > Council > Motion` 에 해당 안건이 아래와 같이 올라와있습니다. 
+![Governance Proposal](/media/images/docs/infrablockchain/tutorials/council_propose.png)
 
-![거버넌스 투표](/media/images/docs/infrablockchain/tutorials/governance_voting.png)
+## Passing the Governance
 
-위 화면에서 Vote를 누르고, Council을 구성하는 검증자들(alice_stash, bob_stash)로 투표를 해줍니다.
+If successfully registered in governance, the motion will appear in `Governance > Council > Motion` as shown below.
 
-threshold 인원이상 투표를 했다면 투표를 바로 종료시킬 수 있고, 정족수가 동의(60% 이상)했다면 해당 안건은 바로 집행됩니다.
+![Governance Voting](/media/images/docs/infrablockchain/tutorials/governance_voting.png)
 
-![투표 종료](/media/images/docs/infrablockchain/tutorials/vote_close.png)
+In the screen above, click Vote and vote with the validators forming the Council (alice_stash, bob_stash).
 
-안건이 정상적으로 통과됐고, 파라체인에서도 `sufficient`가 `true`로 바뀐 것을 확인할 수 있습니다.
+If the threshold number of people vote, the vote can be immediately concluded, and if the quorum agrees (60% or more), the motion will be enacted immediately.
 
-![거버넌스 실행](/media/images/docs/infrablockchain/tutorials/enact_motion.png)
+![Vote Close](/media/images/docs/infrablockchain/tutorials/vote_close.png)
 
-![파라체인 토큰 상태 변화](/media/images/docs/infrablockchain/tutorials/parachain_sufficient_true.png)
+The motion is successfully passed, and you can see that `sufficient` has changed to `true` in the Parachain.
 
-## 시스템 토큰 가스비로 사용하기
+![Motion Enactment](/media/images/docs/infrablockchain/tutorials/enact_motion.png)
 
-이제 파라체인에서는 처음에 발행한 토큰이 시스템 토큰이 되었고
-해당 토큰으로 트랜잭션 가스비를 지불할 수 있습니다. 
+![Change in Parachain Token Status](/media/images/docs/infrablockchain/tutorials/parachain_sufficient_true.png)
 
-아래처럼 *Assets* 의 `transfer` 트랜잭션을 호출해 보겠습니다:
+## Using System Token as Gas Fee
 
-![parachain_asset_transfer](/media/images/docs/infrablockchain/tutorials/parachain_asset_transfer.png)
+Now, the token initially issued on the Parachain has become a system token,
+and you can pay transaction gas fees with this token.
 
-트랜잭션의 extra 정보에서 `include an optional asset id` 토글을 누르면 등록된 시스템 토큰 정보를 입력해줄 수 있는 칸이 나오게 됩니다. 
+Let's call the `transfer` transaction of the _Assets_ as follows:
 
-![시스템 토큰](/media/images/docs/infrablockchain/tutorials/system_token_id.png)
+![Parachain Asset Transfer](/media/images/docs/infrablockchain/tutorials/parachain_asset_transfer.png)
 
-이 시스템 토큰을 활용해 가스비를 낼 수 있는 걸 확인할 수 있습니다.
+In the extra information of the transaction, if you click the toggle for `include an optional asset id`, a field appears where you can enter the registered system token information.
 
-![시스템 토큰 가스비](/media/images/docs/infrablockchain/tutorials/system_token_paid.png)
+![System Token](/media/images/docs/infrablockchain/tutorials/system_token_id.png)
+
+You can confirm that this system token can be used to pay the gas fee.
+
+![System Token Gas Fee](/media/images/docs/infrablockchain/tutorials/system_token_paid.png)
