@@ -1,54 +1,52 @@
 ---
-title: InfraDID 서비스 엔드포인트 등록하기 
-description: 이 튜토리얼은 InfraDID에 등록된 DID에 서비스 엔드포인트를 추가하는 방법을 설명합니다.
+title: Registering Service Endpoints with Infra DID
+description: This tutorial explains how to add service endpoints to a DID registered with Infra DID.
 keywords:
-  - 파라체인
-  - DID
+  - parachain
+  - did
 ---
 
-## 시작하기 전에
+## Before you begin
 
-시작하기 전에 다음을 확인하세요:
+Before you begin, Make sure you have the following:
 
-- [*InfraDID* 생성하기](./create-infra-did.md)
+- [Creating *Infra DID*](./create-infra-did.md)
 
-## *InfraDID* 에 서비스 엔드포인트 추가하기
+## Adding Service Endpoints to *Infra DID*
 
-특정 DID가 사용할 수 있는 서비스 엔드포인트 목록을 체인에 저장하여 공개함으로써 다른 사용자들이 특정 DID의 Document를 확인하여 알 수 있도록 합니다.
+To make a list of service endpoints available for a specific DID and store it on the chain, making it public for others to inspect the Document of a specific DID, follow these steps:
 
-*InfraDID* 에 서비스 엔드포인트를 추가하기 위해선 아래와 같은 과정을 거칩니다.
+1. Visit the [*InfraBlockchain Explorer*](https://portal.infrablockspace.net) and follow the steps below.
 
-1. [*인프라 블록체인(InfraBlockchain)* 익스플로러](https://portal.infrablockspace.net) 에 접속하여 아래 과정을 따릅니다.
+  - Go to `Developer` - `Extrinsic` and select the `addServices` extrinsic of the `didModule` palette.
 
-  - `개발자` - `익스트린식` - `didModule` 팔레트의 `addServices` 익스트린식을 선택합니다.
-
-    아래와 같이 구성하고 익스트린식을 발생시킵니다. 
+    Configure it as shown below and trigger the extrinsic:
 
     ![add-services](../../../../../media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/add-services.png)
 
-## *InfraDID* 서비스 엔드포인트 제거하기
+## Removing Service Endpoints from *Infra DID*
 
-*InfraDID* 에 서비스 엔드포인트 제거하기 위해선 아래와 같은 과정을 거칩니다.
+To remove service endpoints from *Infra DID*, follow these steps:
 
-1. [*인프라 블록체인(InfraBlockchain)* 익스플로러](https://portal.infrablockspace.net) 에 접속하여 아래 과정을 따릅니다.
+1. Visit the [*InfraBlockchain Explorer*](https://portal.infrablockspace.net) and follow the steps below.
 
-  - `개발자` - `익스트린식` - `didModule` 팔레트의 `removeServices` 익스트린식을 선택합니다.
+  - Go to `Developer` - `Extrinsic` and select the `removeServices` extrinsic of the `didModule` palette.
 
-    아래와 같이 구성하고 익스트린식을 발생시킵니다. 
+    Configure it as shown below and trigger the extrinsic:
 
     ![remove-services](../../../../../media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/remove-services.png)
 
-## infra-did-js 라이브러리 사용하여 Infra DID에 서비스 엔드포인트 추가 및 제거하기
+## Adding and Removing Service Endpoints from Infra DID Using the infra-did-js Library
 
-`infra-did-js` 라이브러리를 사용해서 Infra DID에 서비스 엔드포인트 추가 및 제거하기
+To add and remove service endpoints from Infra DID using the `infra-did-js` library:
 
-1. [`infra-did-js`](https://github.com/InfraBlockchain/infra-did-js) 라이브러리를 설치합니다.
+1. Install the [`infra-did-js`](https://github.com/InfraBlockchain/infra-did-js) library.
 
     ```shell
     yarn add infra-did-js
     ```
 
-2. 아래와 같이 코드를 작성하여 Infra DID 체인에 접근하기 위한 기본 설정 코드를 작성합니다.
+2. Write code to set up the basic configuration code for accessing the Infra DID chain, as shown below:
 
     ```typescript
     import  {InfraSS58, CRYPTO_INFO} from 'infra-did-js';
@@ -74,7 +72,7 @@ keywords:
     const infraApi = await InfraSS58.createAsync(conf);
     ```
 
-3. *InfraDID* 에 서비스 엔드포인트를 추가하기 위한 코드를 작성합니다.
+3. Write code to add service endpoints to Infra DID:
 
     ```typescript
     // Add Service Endpoint
@@ -88,7 +86,7 @@ keywords:
     await infraApi.didModule.addServiceEndpoint(SOME_SERVICE_ENDPOINT_URLS)
     ```
 
-4. 혹은 *InfraDID* 에 서비스 엔드포인트를 제거하기 위한 코드를 작성합니다.
+4. Alternatively, write code to remove service endpoints from Infra DID:
 
     ```typescript
     // Remove Service Endpoint

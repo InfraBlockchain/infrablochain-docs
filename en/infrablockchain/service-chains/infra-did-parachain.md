@@ -1,58 +1,57 @@
 ---
-title: 인프라 DID
-description: DID 에 특화된 블록체인에 대한 전반적인 내용을 다룹니다.
+title: Infra DID
+description: This document explains the overall content related to a blockchain specialized for DID (Decentralized Identifier).
 keywords:
-  - 파라체인
-  - DID
+  - parachain
+  - did
 ---
 
-## 시작하기 전에
+## Before you begin
 
-시작하기 전에 다음을 확인하세요:
+Before you begin, Make sure you have the following:
 
 <!-- 
-  해당 내용이 담긴 문서가 생성되면 그 문서로 링크를 연결 해 주세요
+  When the document containing this content is created, please link to that document.
 -->
 
-- [파라체인 구축하기](../tutorials/build/build-a-parachain.md)
+- [Building a Parachain](../tutorials/build/build-a-parachain.md)
 
-- [릴레이 체인 구축하기](../tutorials/build/build-infra-relay-chain.md)
+- [Building an InfraRelayChain](../tutorials/build/build-infra-relay-chain.md)
 
-- [좀비넷 사용하기](../tutorials/test/simulate-parachains.md)
+- [Using the Zombie Network](../tutorials/test/simulate-parachains.md)
 
-## DID란
+## What is DID?
 
-**DID**는 Decentralized Identifier의 약자로, 디지털 신원의 주체가 생성, 소유하고 제어하는 새로운 유형의 식별자를 나타냅니다.
+**DID** stands for Decentralized Identifier, representing a new type of identifier that is created, owned, and controlled by the subject of digital identity.
 
 ![did-method](/media/images/docs/infrablockchain/service-chains/did-method.png)
 
-DID는 중앙화된 시스템, 권한 또는 중개자와는 독립적으로 완전히 DID 주체의 제어 하에 있습니다. 이 기능은 블록체인 및 분산 원장 기술을 통해 가능하게 됩니다.
+DID is entirely under the control of the DID subject, independent of centralized systems, authorities, or intermediaries. This capability is made possible through blockchain and distributed ledger technologies.
 
-DID의 주요 특징 및 이점은 다음과 같습니다:
+The key features and benefits of DID include:
 
-- 분산화: 중앙화된 시스템이 발행하고 관리하는 기존의 식별자와 달리, DID는 분산 네트워크에서 발행 및 관리됩니다.
+- Decentralization: Unlike traditional identifiers issued and managed by centralized systems, DID is issued and managed within a distributed network.
 
-- 자기 주권: DID 주체는 자신의 식별자에 대한 전체 제어권을 가지고 있습니다. 어떤 권한의 허락 없이 자신의 DID를 생성, 업데이트 또는 삭제할 수 있습니다.
+- Self-Sovereign: DID subjects have complete control over their identifiers. They can create, update, or delete their DID without requiring permission from any authority.
 
-- 보안: DID는 블록체인 또는 분산 원장 기술에 고착되므로 이러한 플랫폼의 암호학적 보안 속성을 상속받습니다. 또한 DID는 인증 및 통신을 안전하게 유지하기 위해 DPKI (Decentralized Public Key Infrastructure)와 함께 작동합니다.
+- Security: DID inherits cryptographic security properties from blockchain or distributed ledger platforms. Additionally, DID works alongside DPKI (Decentralized Public Key Infrastructure) to securely maintain authentication and communication.
 
-- 상호 운용성: DID는 다양한 시스템과 네트워크 간에 상호 운용될 수 있도록 설계되었습니다. 즉, 하나의 네트워크에서 생성된 DID는 다른 네트워크에서 사용되고 인식될 수 있습니다.
+- Interoperability: DID is designed to be interoperable across various systems and networks. This means that a DID generated in one network can be used and recognized in another.
 
 ## Infra DID
 
-인프라 블록체인의 파라체인 중 하나인 *InfraDID 파라체인* 은 DID 시스템을 제공하고 있으며 *InfraDID 파라체인* 이 제공하는 DID 를 *InfraDID* 라고 합니다.
+One of the parachains in the InfraBlockchain, the *Infra DID Parachain*, provides a DID system, and the DIDs offered by the *Infra DID Parachain* are referred to as *Infra DID*.
 
 ![infra-did-method](/media/images/docs/infrablockchain/service-chains/infra-did-method.png)
 
-*Infra DID 파라체인* 은 기능에 따라 여러가지 팔렛을 포함하고 있습니다.
+*Infra DID Parachain* includes various palettes based on its functionality.
 
 ![infra-did-pallet](/media/images/docs/infrablockchain/service-chains/infra-did-pallet.png)
 
+There is an npm library called [infra-did-js](https://github.com/InfraBlockchain/infra-did-js/tree/main) that can communicate with Infra DID parachains. You can use it to work with Infra DID in node.js-based systems.
 
-Infra DID 파라체인과 통신할 수 있는 npm 라이브러리인 [infra-did-js](https://github.com/InfraBlockchain/infra-did-js/tree/main)가 존재합니다. 이를 사용하여 node.js 기반의 시스템에서 Infra DID을 사용할 수 있습니다.
+## Next steps
 
-## 다음 단계로 넘어가기
+- [Building the Infra DID Chain](../tutorials/service-chains/infra-did-parachain/)
 
-- [Infra DID 체인 구축하기](../tutorials/service-chains/infra-did-parachain/)
-
-- [infra-did-js 레포지토리](https://github.com/InfraBlockchain/infra-did-js/tree/main)
+- [infra-did-js Repository](https://github.com/InfraBlockchain/infra-did-js/tree/main)
