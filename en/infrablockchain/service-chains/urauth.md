@@ -81,34 +81,34 @@ pub struct URAuthDoc<Account> {
 }
 ```
 
-#### id
+### id
 Identifier of the document.
 
-#### created_at
+### created_at
 Time the document was created.
 
-#### updated_at
+### updated_at
 Time the document was updated.
 
-#### multi_owner_did
+### multi_owner_did
 List of owner DIDs for the document.
 
-#### identity_info
+### identity_info
 List of identity information of the copyright holder.
 
-#### contents_metadta
+### contents_metadta
 Information related to the content metadata associated with the URI.
 
-#### access_rules
+### access_rules
 List of access rules for the URI.
 
-#### asset
+### asset
 Information about tokenized datasets if the document is for a dataset.
 
-#### data_source
+### data_source
 URI information where the dataset is stored if the document is for a dataset.
 
-#### proofs
+### proofs
 List of electronic signatures for the document.
 
 ## Data Market
