@@ -162,7 +162,7 @@ chmod +x zombienet-macos
 
 ## Including Votes in Transactions
 
-- To pay transaction fees with the system token and vote, refer to [How to Interact with System Token](../tutorials/how-to-interact-with-system-token.md). For this tutorial, assume that the system token is generated from parachain-template-node.
+- To pay transaction fees with the system token and vote, refer to [How to Interact with System Token](./how-to-interact-with-system-token.md). For this tutorial, assume that the system token is generated from parachain-template-node.
 
 - Go to the [InfraBlockchain Explorer](https://portal.infrablockspace.net/#/explorer).
 
@@ -195,7 +195,7 @@ chmod +x zombienet-macos
 
 ## Next Steps
 
-- [How to Get Validator Reward](../tutorials/how-to-get-validator-reward.md)
+- [How to Get Validator Reward](./how-to-get-validator-reward.md)
 
 - [System Token Weight](../learn/protocol/transaction-fee.md)
 

@@ -91,6 +91,6 @@ Example,
 
 ## Next Steps
 
-- [How to Vote with TaaV](../../tutorials/how-to-vote-with-taav.md)
+- [How to Vote with TaaV](../../tutorials/basic/how-to-vote-with-taav.md)
 - [System Token](./system-token.md)
 - [ParasInclusion](https://github.com/***InfraBlockchain***/infrablockspace-sdk/blob/master/infrablockspace/runtime/parachains/src/inclusion/mod.rs)

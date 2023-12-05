@@ -131,5 +131,5 @@ The types and quantities of tokens confirmed as rewards are stored in the `Valid
 
 ## Next steps
 
-- [Receiving Validator Rewards](../../tutorials/how-to-get-validator-reward.md)
+- [Receiving Validator Rewards](../../tutorials/basic/how-to-get-validator-reward.md)
 

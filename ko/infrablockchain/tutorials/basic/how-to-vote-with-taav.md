@@ -163,7 +163,7 @@ chmod +x zombienet-macos
 
 ## 트랜잭션에 투표 포함 시키기
 
-- 시스템 토큰을 이용해 트랜잭션 수수료를 지불하고 투표를 하기 위해서 먼저 [시스템 토큰 생성하기](../tutorials/how-to-interact-with-system-token.md) 를 참고하시기 바랍니다. 해당 튜토리얼에서는 `parachain-template-node` 에서 시스템 토큰을 생성했다고 가정하겠습니다.
+- 시스템 토큰을 이용해 트랜잭션 수수료를 지불하고 투표를 하기 위해서 먼저 [시스템 토큰 생성하기](./how-to-interact-with-system-token.md) 를 참고하시기 바랍니다. 해당 튜토리얼에서는 `parachain-template-node` 에서 시스템 토큰을 생성했다고 가정하겠습니다.
 
 - [인프라 블록체인 익스플로러](https://portal.infrablockspace.net) 로 이동합니다.
 
@@ -195,7 +195,7 @@ chmod +x zombienet-macos
 
 ## 다음 단계로 넘어가기
 
-- [밸리데이터로써 리워드를 받는 방법](../tutorials/how-to-get-validator-reward.md)
+- [밸리데이터로써 리워드를 받는 방법](./how-to-get-validator-reward.md)
 
 - [시스템 토큰 가중치](../learn/protocol/transaction-fee.md#시스템-토큰-가중치)
 

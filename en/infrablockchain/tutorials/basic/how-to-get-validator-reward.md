@@ -10,7 +10,7 @@ keywords:
 
 Before you begin, make sure to do the following:
 
-- [Register and Use System Tokens for Transaction Fees](../tutorials/how-to-pay-transaction-fee.md)
+- [Register and Use System Tokens for Transaction Fees](./how-to-pay-transaction-fee.md)
 
 ## Overview
 

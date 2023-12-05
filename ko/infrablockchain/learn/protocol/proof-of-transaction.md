@@ -95,6 +95,6 @@ pub struct VotingStatus<T: Config> {
 
 ## 다음 단계로 넘어가기
 
-- [PoT 로 밸리데이터 선출하기](../../tutorials/how-to-vote-with-taav.md)
+- [PoT 로 밸리데이터 선출하기](../../tutorials/basic/how-to-vote-with-taav.md)
 - [시스템 토큰 알아보기](./system-token.md)
 - [ParasInclusion](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/infrablockspace/runtime/parachains/src/inclusion/mod.rs)
