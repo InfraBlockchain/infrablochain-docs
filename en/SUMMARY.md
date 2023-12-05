@@ -170,7 +170,7 @@
       * [Build a Parachain](infrablockchain/tutorials/build/build-a-parachain.md)
       * [Open Message Passing Channels](infrablockchain/tutorials/build/open-message-passing-channels.md)
       * [Transfer Assets with XCM](infrablockchain/tutorials/build/transfer-assets-with-xcm.md)
-    * [Teset](infrablockchain/tutorials/test/README.md)
+    * [Test](infrablockchain/tutorials/test/README.md)
       * [Benchmark](infrablockchain/tutorials/test/benchmark.md)
       * [Check Runtime](infrablockchain/tutorials/test/check-runtime.md)
       * [Debug](infrablockchain/tutorials/test/debug.md)

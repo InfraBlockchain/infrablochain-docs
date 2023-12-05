@@ -14,7 +14,7 @@ This tutorial will teach you how to register tokens issued in a multichain envir
 
 By completing this tutorial, you will be able to:
 
--   Set up a Relaychain/Parachain test network using ZombieNet.
+-   Set up a `Relay Chain <> Parachain` test network using ZombieNet.
 -   Propose governance on the Relaychain to register a token issued on a Parachain as a system token.
 -   Pay gas fees with the system token issued on the Parachain after governance approval.
 
