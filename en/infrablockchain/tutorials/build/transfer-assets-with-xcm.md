@@ -1,6 +1,6 @@
 ---
-title: XCM을 이용하여 원격으로 자산 전송하기
-description: 릴레이 체인을 통해 파라체인으로 원격 전송을 실행하는 XCM 사용 방법을 보여줍니다.
+title: Transferring Assets Remotely Using XCM
+description: This guide shows you how to use XCM to execute remote transfers to parachains via the relay chain.
 keywords:
     - XCM
 ---

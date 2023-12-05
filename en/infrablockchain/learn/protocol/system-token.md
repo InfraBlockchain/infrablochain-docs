@@ -1,8 +1,8 @@
 ---
-title: System Tokens
+title: System Token
 description: Covers the general aspects of system tokens.
 keywords:
-    - System Tokens
+    - System Token
 ---
 
 **_InfraBlockchain_** does not have a single unique built-in native cryptocurrency token. Instead, every account created on the InfraBlockchain can issue system tokens, which are natively supported at the core level of the blockchain with standard token functionalities.
