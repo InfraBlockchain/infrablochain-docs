@@ -47,7 +47,7 @@ pub struct CandidateDescriptor<H = Hash> {
 ```
 
 ### Para-Validator Selection
-*Para-Validators *operate as a group and are chosen by the runtime to validate parachain blocks for all parachains connected to the Relay Chain every epoch. The selected Para-Validators participate in validation as one of the randomly chosen ***InfraBlockchain*** [validator](#validator) for each epoch, forming the Para-Validator pool.
+*Para-Validators* operate as a group and are chosen by the runtime to validate parachain blocks for all parachains connected to the Relay Chain every epoch. The selected Para-Validators participate in validation as one of the randomly chosen ***InfraBlockchain*** [validator](#validator) for each epoch, forming the Para-Validator pool.
 
 ### Roles of Para-Validators
 Para-Validators verify the validity of the information included in a series of assigned parachain blocks. They receive parachain block candidates and their proof of validity [Proof-of-Validity(PoV)](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/822bc6c9706774a98122eb432f412b871a98a4bd/cumulus/primitives/core/src/lib.rs#L155) from collators.
