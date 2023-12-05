@@ -1,8 +1,8 @@
 ---
-title: 파라체인 구축하기
-description: 이 튜토리얼은 파라체인을 구축하는 방법을 알아봅니다.
+title: Build a parachain
+description: 
 keywords:
-  - 파라체인
+  - parachain
 ---
 
 This tutorial explains how to connect a parachain to the ***InfraRelayChain***.

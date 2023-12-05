@@ -1,8 +1,7 @@
 ---
-title: 시스템 파라체인
-description: 시스템 파라체인에 대한 내용을 다룹니다.
+title: System Parachains
+description: 
 keywords:
-  - 시스템 파라체인
   - Asset Hub
   - Bridge Hub
 --- 

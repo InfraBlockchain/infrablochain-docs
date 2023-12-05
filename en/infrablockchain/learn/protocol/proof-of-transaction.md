@@ -1,15 +1,15 @@
 ---
-title: 트랜잭션 증명
-description: 인프라 블록체인만의 독자적인 합의 메커니즘인 PoT 에 대한 전반적인 내용을 다룹니다.
+title: Proof of Transaction
+description: This document covers the overall content regarding InfraBlockchain's unique consensus mechanism, PoT Proof of Transaction).
 keywords:
-  - 트랜잭션 증명
-  - 보상
-  - 시스템 토큰
+  - Proof of Transaction
+  - Incentive
+  - System Token
 ---
 
 ## Transaction-as-a-Vote(TaaV)
 
-![트랜잭션 투표](/media/images/docs/InfraBlockchain/learn/protocol/taav.png)
+![TaaV](/media/images/docs/InfraBlockchain/learn/protocol/taav.png)
 
 The core idea behind **Proof-of-Transaction (PoT)**, the proprietary consensus mechanism of ***InfraBlockchain***, is encapsulated in the concept of **Transaction-as-a-Vote(TaaV)**. The metadata of transactions in ***InfraBlockchain*** may optionally include votes for candidates already participating or eligible to participate in the blockchain consensus process. Transaction messages containing votes for block producer candidates are signed with the private key of the blockchain account that initiated the transaction, providing cryptographic proof for each transaction vote. ***InfraBlockchain*** votes possess the following characteristics:
 
