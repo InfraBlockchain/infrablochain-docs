@@ -1,8 +1,8 @@
 ---
-title: 파라체인
-description: 파라체인에 대한 내용을 다룹니다. 
+title: Parachain
+description: This document covers overall content of parachain
 keywords:
-  - 파라체인
+  - Parachain
 --- 
 
 <!-- 
@@ -10,8 +10,8 @@ keywords:
 
 파라체인 프로토콜에 대한 내용을 다룹니다. -->
 
-## [시스템 파라체인](./system-parachains.md)
+## [System Parachain](./system-parachains.md)
 
-시스템 파라체인에 대한 내용을 다룹니다. 
+This will cover _System Parachain_ on ***InfraBlockchain***
 
 

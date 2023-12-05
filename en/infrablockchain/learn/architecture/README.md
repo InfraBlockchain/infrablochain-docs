@@ -1,21 +1,21 @@
 ---
-title: 아키텍처
-description: 인프라 블록체인 아키텍처에 대한 전반적인 내용을 다룹니다.
+title: Architecture
+description: This document covers the overall content of the InfraBlockchain architecture.
 keywords:
-  - 멀티체인
-  - 릴레이 체인
-  - 파라체인
+  - Multi Chain
+  - Relay Chain
+  - parachain
 --- 
 
-## [인프라 블록체인 아키텍처](./architecture.md)
+## [InfraBlockchain Architecture](./architecture.md)
 
-멀티체인 기반 인프라 블록체인 아키텍처에 대한 내용을 다룹니다.
+This will cover the overall content of InfraBlockchain multi chain architecture
 
-## [네트워크 참여자](./network-participants.md)
+## [Network Participants](./network-participants.md)
 
-***인프라 블록체인(InfraBlockchain)*** 의 주요 네트워크 참여자인 *밸리데이터*와 *콜래이터*에 대한 내용을 다룹니다. 
+This will cover the key participants in the ***InfraBlockchain*** network, Validators and Collators. 
 
-## [파라체인](./parachain/)
+## [Parachain](./parachain/)
 
-파라체인에 대한 내용을 다룹니다.
+This will cover overall content of parachain
 
