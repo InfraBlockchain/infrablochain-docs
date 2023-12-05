@@ -50,7 +50,7 @@ keywords:
 파라체인 식별자를 예약하려면 다음을 수행하세요:
 
 1. 최소 두 개이상의 밸리데이터 노드가 구동중인 로컬 릴레이 체인 네트워크를 구성합니다. 
-2. 브라우저에서 [인프라 블록 스페이스 익스플로러](https://portal.infrablockspace.net/#/explorer)를 엽니다. 
+2. 브라우저에서 [인프라 블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer)를 엽니다. 
 3. 익스플로러 탭에서 왼쪽 상단 탭을 클릭하여 `DEVELOPMENT` 섹션을 눌러 노드를 시작할 때 설정한 RPC 포트를 이용해 로컬 릴레이 체인에 연결합니다.
 
    ![로컬 네트워크 연결](/media/images/docs/infrablockchain/tutorials/build/connect-network.png)
@@ -229,8 +229,6 @@ keywords:
 2. 브라우저에서 [인프라 블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 엽니다. 위의 파라체인 식별자를 예약할 때 처럼, RPC 및 웹소켓 포트를 이용해 릴레이 체인에 연결합니다. 
 3. **개발자**를 클릭하고 **Sudo**를 선택합니다.
 
-   ![파라체인 등록을 위해 Sudo 선택](/media/images/docs/tutorials/parachains/developer-sudo.png)
-
 4. _paraSudoWrapper_ 를 선택한 다음 _sudoScheduleParaInitialize(id, genesis)_ 를 선택합니다.
 
 - 트랜잭션 매개변수 설정:
@@ -240,7 +238,7 @@ keywords:
    - `validationCode`: **파일 업로드**를 클릭하고 파라체인을 위해 내보낸 웹어셈블리 런타임을 업로드합니다. 본 튜토리얼에서는 `para-2000-wasm` 파일을 선택합니다.
    - `paraKind`: **예**를 선택합니다.
 
-   ![트랜잭션 구성](/media/images/docs/tutorials/parachains/register-with-sudo.png)
+   ![파라체인 등록을 위해 Sudo 선택](/media/images/docs/infrablockchain/tutorials/build/register-para-with-sudo.png)
 
 5. **Sudo 제출**을 클릭합니다.
 6. 트랜잭션 세부 정보를 검토한 다음 **서명 및 제출**을 클릭하여 트랜잭션을 승인합니다.
@@ -249,7 +247,9 @@ keywords:
 
 7. 최근 이벤트 목록에서 `sudo.Sudid` 및 `paras.PvfCheckAccepted` 이벤트를 확인하고 이벤트를 클릭하여 트랜잭션에 대한 세부 정보를 확인합니다.
 
-   ![Sudo 등록 이벤트 보기](/media/images/docs/tutorials/parachains/sudo-registration-event.png)
+   ![Sudo 등록 이벤트 보기](/media/images/docs/sudo-event.jpg)
+
+   ![PVF Check Accepted](/media/images/docs/infrablockchain/tutorials/build/pvf-check-accepted.png)
 
 8. 파라체인 등록이 완료되면 익스플로러에서 확인할 수 있습니다. **네트워크**를 클릭하고 **파라체인**을 선택하세요.
 
