@@ -2,7 +2,7 @@
 title: Relay Chain Deployment
 description: Learn how to deploy a relay chain.
 keywords:
-  - para chain
+  - parachain
   - relay chain
   - chain spec
   - infra blockchain
@@ -28,7 +28,7 @@ Systemd is a common method for managing services on Linux hosts. It allows you t
 
 You can also use environment variable files to abstract variables into separate files for each server.
 
-To use systemd, you need to first register the service. To do this, create a file named `Infrablockspace.service` in the `/etc/systemd/system` directory. Then, copy and paste the code below, replacing `<binary file>` and `<options>` with the necessary option values. For a relay chain, use `infrablockspace` as the `<binary file>`, and for a para chain, use `infrablockspace-parachain`.
+To use systemd, you need to first register the service. To do this, create a file named `Infrablockspace.service` in the `/etc/systemd/system` directory. Then, copy and paste the code below, replacing `<binary file>` and `<options>` with the necessary option values. For a relay chain, use `infrablockspace` as the `<binary file>`, and for a parachain, use `infrablockspace-parachain`.
 
 ```bash
 #/etc/systemd/system/Infrablockspace.service
@@ -64,7 +64,7 @@ For a relay chain:
 curl -L <chain spec url> -o chain-spec/raw-local-chainspec.json
 ```
 
-For a para chain:
+For a parachain:
 
 ```bash
 curl -L <chain spec url> -o chain-spec//tmp/raw-parachain-chainspec.json
@@ -104,7 +104,7 @@ services:
       - "30333"
 ```
 
-For a para chain:
+For a parachain:
 
 ```bash
 version: "3.1"
@@ -151,7 +151,7 @@ services:
       - "30333"
 ```
 
-For a para chain, the boot node ID of the relay chain is required. Therefore, you need to fill in `<bootnode id>`.
+For a parachain, the boot node ID of the relay chain is required. Therefore, you need to fill in `<bootnode id>`.
 
 Run the following command to execute the Docker Compose:
 
@@ -343,7 +343,7 @@ spec:
       storage: 100Gi
 ```
 
-For a para chain, let's take a look at the writing method.
+For a parachain, let's take a look at the writing method.
 
 The following code is written for Infra DID.
 
@@ -398,7 +398,7 @@ spec:
           command: [
               "curl",
               "-L",
-              <para chain spec url>,
+              <parachain spec url>,
               "-o",
               "/tmp/raw-parachain-chainspec.json",
             ]
