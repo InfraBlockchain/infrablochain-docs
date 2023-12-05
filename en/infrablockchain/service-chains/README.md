@@ -1,21 +1,22 @@
 ---
-title: 서비스 특화 블록체인
-description: 서비스에 특화된 블록체인에 대한 전반적인 내용을 다룹니다.
+title: Service-Specific Blockchains
+description: This document covers the overall content related to service-specific blockchains.
 keywords:
-  - 앱체인 
+  - Service Chain
+  - parachain
 --- 
 
-## 서비스 특화 블록체인
+## Service-Specific Blockchains
 
 ### [URAuth](./urauth.md)
 
-_**URAuth**_ 는 DID 를 기반으로 데이터들에 대한 소유권, 저작권정보, 데이터 접근 및 거래 규칙 등록에 특화된 블록체인으로써 이에 대한 핵심 기능 및 특징에 대한 전반적인 내용을 다룹니다.
+**URAuth** is a blockchain specialized in the registration of ownership, copyright information, and rules for data access and transactions based on DID. This document covers the overall features and functionalities related to URAuth.
 
 ### [InfraDID](./infra-did-parachain.md)
 
-DID 에 특화된 블록체인으로써 DID 관련 핵심 기능 및 특징에 대한 전반적인 내용을 다룹니다.
+As a blockchain specialized in DID, this document covers the fundamental features and characteristics related to DID.
 
 ### [InfraEVM](./infra-evm-parachain.md)
 
-EVM 호환 가능한 블록체인으로써 EVM 계열의 트랜잭션 및 블록 처리에 대한 전반적인 내용을 다룹니다.
+This document provides an overview of InfraEVM, a blockchain compatible with the Ethereum Virtual Machine (EVM). It covers the overall aspects of transaction and block processing within the EVM-compatible blockchain.
 

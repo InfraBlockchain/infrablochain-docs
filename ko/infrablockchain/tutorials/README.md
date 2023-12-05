@@ -1,13 +1,11 @@
 ---
 title: 인프라 블록체인 튜토리얼
-description: 이 튜토리얼은 *트랜잭션 증명(PoT)* 로 Validator를 선출하는 방법과 시스템 토큰 등록 및 사용 방법에 대해 배웁니다.
+description:
 keywords:
   - 트랜잭션 증명
   - 시스템 토큰
   - 테스트넷 구축하기
 ---
-
-***인프라 블록체인(InfraBlockchain)*** 튜토리얼은 *트랜잭션 증명(Proof-of-Transaction)* 으로 Validator를 선출하는 방법과 시스템 토큰 등록 및 사용하는 방법에 대해 중점을 둡니다. 이 튜토리얼에서는 다음과 같은 내용을 배우게 됩니다:
 
 - [시스템 토큰 관리 프로세스](./how-to-interact-with-system-token)에서는 시스템 토큰과 관련된 여러 절차에 대한 전반적인 내용을 배웁니다.
 

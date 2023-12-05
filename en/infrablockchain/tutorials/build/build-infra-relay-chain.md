@@ -1,35 +1,35 @@
 ---
-title: 인프라 릴레이 체인 구축하기
-description: 이 튜토리얼은 인프라 릴레이 체인을 구축하는 방법에 대해 알아봅니다.
+title: Build InfraRelayChain
+description: 
 keywords:
-  - 릴레이 체인
+  - Relay Chain
 ---
 
-## 시작하기 전에
+## Before You Begin
 
-시작하기 전에 다음을 확인하세요:
+Before you start, make sure to:
 
-- [Rust 및 Rust 툴체인](../../learn/substrate/tutorials/install/rust-toolchain.md)을 통해 Substrate 개발 환경을 구성 방법에 대해 확인합니다. 
+- Review the [Rust and Rust Toolchain](../../learn/substrate/tutorials/install/rust-toolchain.md) to set up the Substrate development environment.
 
-- [멀티체인 아키텍처 및 용어](../../learn/architecture/architecture.md)에 대한 배경 지식을 확인합니다.
+- Familiarize yourself with Multi-Chain Architecture and [Terms](../../learn/architecture/architecture.md).
 
-## 튜토리얼 목표
+## Tutorial Objectives
 
-이 튜토리얼을 완료함으로써 다음 목표를 달성할 수 있습니다:
+By completing this tutorial, you will achieve the following objectives:
 
-- **_인프라 릴레이 체인(InfraRelayChain)_** 런타임을 바이너리로 빌드하는 방법 
-- 해당 바이너리로 부터 평문 체인 스펙과 _SCALE로 인코딩된_ 원시(raw) 체인 스펙을 추출하는 방법
-- 체인 스펙으로부터 노드를 시작하는 방법 
+- Learn how to build the ***InfraRelayChain*** runtime as a binary.
+- Extract the plain chain spec and the SCALE-encoded raw chain spec from the binary.
+- Start nodes from the chain spec.
 
-## 릴레이 체인 노드 빌드하기
+## Build the Relay Chain Node
 
-1. 최신 ***인프라 블록체인(InfraBlockchain)*** SDK 를 불러옵니다.
+1. Clone the latest ***InfraBlockchain*** SDK:
    
    ```bash
    git clone --branch master https://github.com/InfraBlockchain/infrablockspace-sdk.git
    ```
 
-2. 다음 세개의 명령을 실행하여 **_인프라 블록체인(InfraBlockchain)_** 런타임을 빌드합니다:
+2. Build the ***InfraBlockchain*** runtime by executing the following three commands:
    
    ```bash
    1. cargo build --release --bin infrablockspace
@@ -39,53 +39,52 @@ keywords:
    3. cargo build --release --bin infrablockspace-prepare-worker
    ```
 
-3. 같은 경로에서 다음 명령을 실행하여 노드가 올바르게 빌드되었는지 확인합니다:
+3. Verify that the node has been built correctly by running the following command in the same directory:
    
    ```bash
    ./target/release/infrablockspace --help
    ```
 
-   명령줄 도움말이 표시되면 노드를 구성할 준비가 된 것입니다.
+   If the command displays the command-line help, the node is ready for configuration.
 
-## 체인 스펙
+## Chain Specs
 
-모든 Substrate 기반 체인은 [체인 스펙](../../learn/substrate/build/chain-spec.md)이 필요합니다. 체인 스펙에는 해당 네트워크의 초기 상태(genesis state) 및 여러 네트워크 설정값들이 명시되어 있습니다. 결정적인(Deterministic) 네트워크 구성을 위해 네트워크에 참여하는 모든 노드는 동일한 체인 스펙을 가지고 있습니다. 
+All Substrate-based chains require a [chain spec](../../learn/substrate/build/chain-spec.md). The chain spec specifies the initial state of the network (genesis state) and various network settings. For deterministic network configuration, all nodes participating in the network have the same chain spec.
 
-### 평문(Plain) 체인 스펙 추출하기
+### Extracting the Plain Chain Spec
 
-같은 경로에서 다음과 같은 명령어로 평문 체인 스펙을 추출할 수 있습니다. 명령어를 입력하고 나면 같은 경로에 `plain-infra-relay-chainspec.json` 파일이 생성됩니다.
+Use the following command in the same directory to extract the plain chain spec. After running the command, the `plain-infra-relay-chainspec.json` file is created in the same path.
 
 ```bash
 ./target/release/infrablockspace build-spec --chain infra-relay-local --disable-default-bootnode > plain-infra-relay-chainspec.json
 ```
-_본 튜토리얼에서는 네 개의 [Seed Trust 밸리데이터](../../learn/protocol/proof-of-transaction.md#블록-생성자밸리데이터-풀)로 구성된 인프라 릴레이 체인 체인 스펙 파일을 사용합니다. 실제 네트워크 구성은 `alice` 와 `bob` 밸리데이터 노드만 띄워 시뮬레이션합니다._
 
-릴레이 체인은 연결된 파라체인 콜레이터의 총 수보다 적어도 하나 이상의 밸리데이터 노드가 실행되어야 하므로, 하나의 콜레이터를 가진 두 개의 파라체인을 연결하려면 세 개 이상의 릴레이 체인 검증자 노드를 실행해야 합니다.
+*In this tutorial, a sample chain spec file for the ***InfraRelayChain*** with four [Seed Trust Validators](../../learn/protocol/proof-of-transaction.md#블록-생성자밸리데이터-풀) is used. For actual network configuration, only `alice` and `bob` validators are started for simulation purposes.*
 
-### 원시(raw) 체인 스펙 파일 추출하기
 
-[SCALE 인코딩](../../learn/substrate/learn/frame/scale-codec.md)된 원시(raw) 형식의 JSON 파일을 추출합니다. 해당 명령어를 입력하면 같은 경로에 `raw-infra-relay-chainspec.json` 파일이 생성됩니다. 
+Relay Chain must have at least one validator node running for each connected parachain collator. Therefore, to connect two parachains with one collator each, you need to run at least three Relay Chain validator nodes.
+
+### Extracting the Raw Chain Spec File
+
+Extract a [SCALE-encoded](../../learn/substrate/learn/frame/scale-codec.md) raw JSON file. After running the command, the `raw-infra-relay-chainspec.json` file is created in the same path. 
 
 ```bash
 ./target/release/infrablockspace build-spec --chain plain-infra-relay-chainspec.json --disable-default-bootnode --raw > raw-infra-relay-chainspec.json
 ```
 
-일반 텍스트 버전의 체인 스펙 파일을 읽고 편집할 수 있습니다. 그러나 체인 스펙 파일을 노드를 시작하는 데 사용하려면 SCALE로 인코딩된 원시(raw) 형식으로 변환해야 합니다. 샘플 체인 스펙은 네 개의 밸리데이터로 구성된 네트워크입니다.
-다른 밸리데이터를 추가하거나 릴레이 체인에 여러 개의 파라체인 추가 및 사전 정의된 계정 대신 커스텀 계정 키를 사용하려면 [커스텀 체인 스펙 파일](../../learn/substrate/build/chain-spec.md#커스텀-체인-스펙-생성하기)을 만들어야 합니다.
+You can read and edit the plain text version of the chain spec file. However, to use the chain spec file to start a node, it needs to be converted to the SCALE-encoded raw format. The sample chain spec represents a network with four validators. If you want to add different validators, multiple relay chains, or use custom account keys instead of predefined accounts, you will need to create a [custom chain spec file](../../learn/substrate/build/chain-spec.md#커스텀-체인-스펙-생성하기).
 
-동일한 로컬 네트워크에서 누군가와 동시에 이 튜토리얼을 완료하는 경우, 해당 노드와 피어링되지 않도록 평문 체인 스펙을 수정해야 합니다. 평문 체인 스펙 JSON 파일에서 `protocolId` 키를 찾고 어떤 고유한 값으로 변경해줍니다.
+If someone else is completing this tutorial concurrently on the same local network, modify the plain chain spec to avoid connecting nodes. In the plain chain spec JSON file, find the `protocolId` key and change it to a unique value:
 
 ```json
    "protocolId": "infrablockchain"
 ```
 
-## 릴레이 체인 노드 시작하기
+## Start the Relay Chain Node
 
-***인프라 블록체인(InfraBlockchain)*** 을 구축하기 위해서 먼저 파라체인을 연결할 수 있는 **_인프라 릴레이 체인(InfraRelayChain)_** 을 시작해야 합니다.
+To build the ***InfraBlockchain***, you need to start the ***InfraRelayChain***, which can connect parachains.
 
-원시(raw) 샘플 체인 스펙 파일을 사용하여 밸리데이터 노드를 시작합니다:
-
-1. 다음 명령을 실행하여 `alice` 계정의 밸리데이터 노드를 시작합니다.
+Start a validator node for `alice` account:
    
    ```bash
    ./target/release/infrablockspace \
@@ -97,14 +96,14 @@ _본 튜토리얼에서는 네 개의 [Seed Trust 밸리데이터](../../learn/p
    --rpc-port 9944
    ```
 
-- `--validator`: 밸리데이터 노드를 시작하기 위한 옵션입니다.
-- `--base_path`: 체인 데이터가 저장될 위치를 지정합니다.
-- `--chain`: 원시(raw) 체인 스펙 파일의 경로를 지정합니다.
-- `--port, --rpc-port`: 체인과 통신할 포트를 지정합니다.
+- `--validator`: Option to start a validator node.
+- `--base_path`: Specifies the location where chain data is stored.
+- `--chain`: Path to the raw chain spec file.
+- `--port, --rpc-port`: Specifies the ports for communication with the chain.
 
-   _노드가 시작된 후에는 동일한 로컬 컴퓨터의 다른 노드가 이러한 포트를 사용할 수 없습니다._
+   _Ensure that the same ports are not used by other nodes on the local computer._
 
-2. 노드를 시작하게 되면 다음과 같은 로그를 확인할 수 있습니다:
+1. After starting the node, you should see logs similar to the following:
 
    ```bash
    2023-11-16 18:05:43 bclabs InfraBlockspace
@@ -121,13 +120,13 @@ _본 튜토리얼에서는 네 개의 [Seed Trust 밸리데이터](../../learn/p
    ...
    ```
 
-2. 다른 노드가 연결할 수 있도록 `alice` 노드 `peerid` 를 기록하세요.
+2. Record the `peerid` for the `alice` node so that other nodes can connect:
    
    ```bash
    🏷 Local node identity is: 12D3KooWBJyq6nyn6JJSmdy5QmemYBCofKvWh6w5Am6p33tYzxu1
    ```
 
-3. 새 터미널을 열고 `bob` 계정의 두 번째 밸리데이터 노드를 시작합니다:
+3. Open a new terminal and start the second validator node for the `bob` account:
 
    ```bash
    ./target/release/infrablockspace \
@@ -139,15 +138,16 @@ _본 튜토리얼에서는 네 개의 [Seed Trust 밸리데이터](../../learn/p
    --rpc-port 9945 
    ```
 
-   _첫 번째 노드를 시작하는 데 사용한 명령과 유사한 명령을 사용하지만 몇 가지 중요한 차이점이 있습니다._
+   _The command used to start the first node is similar to the one used for starting the second node, but there are some important differences.._
    
-- 이 명령은 다른 베이스 경로(`/tmp/relay/bob`), 검증자 키(`--bob`), 포트(`30334` 및 `9945`)를 사용합니다.
+- Use a command similar to the one used for the first node, but with a different base path (`/tmp/relay/bob`), validator key (`--bob`), and ports (30334 and 9945).
    
-- 두 검증자가 동일한 로컬 컴퓨터에서 실행되므로 체인 스펙 파일에 지정된 첫 번째 노드의 IP 주소와 피어 식별자를 지정할 필요가 없습니다. `bootnodes` 옵션은 로컬 네트워크 외부에서 실행되는 노드나 체인 스펙 파일에 식별되지 않은 노드에 연결하려는 경우 필요합니다.
+- Since both validators are running on the same local computer, there is no need to specify the IP address and peer identifier of the first node as specified in the chain spec file. The `bootnodes` option is necessary when connecting to nodes running outside the local network or nodes not identified in the chain spec file.
 
-- 릴레이 체인이 블록을 생성하지 않는 경우 방화벽을 비활성화하거나 `alice` 노드의 주소를 `--bootnodes` 옵션에 추가하여 노드를 시작해 보세요. 
+- If the relay chain is not producing blocks, try disabling the firewall or start the node with the address of the `alice` node in the `--bootnodes` option:
 
-   예시,
+   Example,
+
    ```bash
    ./target/release/infrablockspace \
    --bob \
@@ -159,7 +159,7 @@ _본 튜토리얼에서는 네 개의 [Seed Trust 밸리데이터](../../learn/p
    --bootnodes /ip4/127.0.0.1/tcp/30333/p2p/12D3KooWGjsmVmZCM1jPtVNp6hRbbkGBK3LADYNniJAKJ19NUYiq
    ```
 
-- `bob` 의 노드까지 시작하게 되면 블록이 생성되는 것을 확인할 수 있습니다. 
+- Once the `bob` node is started, you can confirm that blocks are being generated.
 
    ```bash
    2023-11-16 18:08:57 discovered: 12D3KooWP2vgMARpeD9H5innUPaBR7LFQqJSP6dX4TRS9DtkqsBQ /ip4/172.16.72.194/tcp/30334
@@ -170,7 +170,6 @@ _본 튜토리얼에서는 네 개의 [Seed Trust 밸리데이터](../../learn/p
    🎁 Prepared block for proposing at 1 (2 ms) [hash: 0x2a02735687bb7ec53f34e17424a313b8b05ecce8ac855216dfae3c254980efdc; parent_hash: 0xe521…3cca; extrinsics (2): [0x62c3…6593, 0xf265…0515]
    ```
 
+## Next Steps
 
-## 다음 단계로 넘어가기
-
-- [파라체인 구축하기](./build-a-parachain.md)
+- [Build a parachain](./build-a-parachain.md)

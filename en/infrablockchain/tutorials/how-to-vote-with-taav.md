@@ -1,54 +1,55 @@
 ---
-title: 트랜잭션에 투표 포함 시키기
-description: 이 튜토리얼은 PoT 를 이용하여 인프라 릴레이체인의 밸리데이터를 선출하는 방법을 배웁니다.
+title: Including Votes in Transactions
+description: This tutorial describes how to use Proof-of-Transaction(PoT) to elect validators on the InfraRelayChain.
 keywords:
   - Proof-of-Transaction
-  - 시스템 토큰
+  - System TOken
 ---
 
-이 튜토리얼은 실제로 멀티체인 환경에서 [Aggregated TaaV(Transaction-as-a-Vote)](../learn/protocol/proof-of-transaction.md#aggregated-proof-of-transactionpot)를 이용하여 [트랜잭션 증명(Proof-of-Transaction)](../learn/protocol/proof-of-transaction.md) 에 기반한 릴레이 체인의 밸리데이터를 선출하는 방법을 알아 보겠습니다. 
+This tutorial will explore how to select validators for the relay chain in the ***InfraRelayChain*** based on [Proof-of-Transaction](../learn/protocol/proof-of-transaction.md) using [Aggregated TaaV (Transaction-as-a-Vote)](../learn/protocol/proof-of-transaction.md#aggregated-proof-of-transactionpot) in a real multi-chain environment.
 
-## 튜토리얼 목표
+## Tutorial Objectives
 
-이 튜토리얼을 완료함으로써 다음 목표를 달성할 수 있습니다:
+By completing this tutorial, you will achieve the following objectives:
 
-- 좀비넷을 활용하여 릴레이체인/파라체인 테스트 네트워크를 구축할 수 있습니다.
-- 시스템 토큰을 이용하여 트랜잭션 수수료를 지불하고 인프라 릴레이체인의 밸리데이터 후보에 투표할 수 있습니다.
-- 인프라 릴레이체인의 밸리데이터를 _Seed Trust_ 노드와 _PoT_ 노드로 구성된 것을 확인할 수 있습니다.
+- Build a test network for `Relay Chain <> Parachains` using the [ZombieNet](../tutorials/test/simulate-parachains.md).
+- Pay transaction fees with the system token and vote for validators in the ***InfraRelayChain***.
+- Confirm the configuration of validators in the ***InfraRelayChain*** with [Seed Trust](../learn/protocol/proof-of-transaction.md#validator-pool) and PoT nodes.
 
-## 시작하기 전에
+## Before You Begin
 
-시작하기 전에 다음을 확인하세요:
+Before getting started, make sure to:
 
-- [릴레이 체인 구축하기](../tutorials/build/build-infra-relay-chain.md)와 [파라체인 구축하기](../tutorials/build/build-a-parachain.md) 를 통해 테스트에 사용할 바이너리를 생성하는 방법을 알아보기
+- Learn how to generate the binaries for testing by following [Building a Relay Chain](../tutorials/build/build-infra-relay-chain.md) and [Building a Parachain](../tutorials/build/build-a-parachain.md).
 
-- [트랜잭션 증명](../learn/protocol/proof-of-transaction.md) 에 대해 알아보기
+- Familiarize yourself with [Proof of Transaction](../learn/protocol/proof-of-transaction.md).
 
-- [시스템 토큰](../learn/protocol/system-token.md) 으로 트랜잭션 수수료를 내는 방법에 대해 알아보기
+- Understand how to pay transaction fees using [System Tokens](../learn/protocol/system-token.md).
 
-## 튜토리얼 단계
+## Tutorial Steps
 
-해당 튜토리얼은 다음과 같은 순서로 진행될 예정입니다.
+This tutorial will proceed in the following steps:
 
-- 좀비넷으로 테스트할 환경을 구축합니다. 본 튜토리얼에서는 _Infra Asset Hub_ 와 _Parachain Templete Node_ 두 개의 파라체인을 이용하여 진행할 예정입니다.
+1. Set up the test environment using **ZombieNet**. In this tutorial, we will use two parachains, which are **InfraAssetHub**, and P**arachain Template Node**.
 
-- 각 파라체인에서 _시스템 토큰(Sysetm Token)_  을 이용하여 투표할 대상을 포함하여 트랜잭션을 요청합니다.
+2. Request transactions, including the target for the vote, using [System Token](../learn/protocol/system-token.md) in each parachain.
 
-- **_인프라 릴레이 체인(InfraRelayChain)_** 에서 투표가 수집되는 것을 확인합니다.
+3. Verify that the votes are collected in the ***InfraRelayChain***.
 
-- 특정 시점이 지났을 때, Proof-of-Transaction 에 기반한 밸리데이터가 선출되어 블록을 생성하는지 확인합니다.
+4. Check whether validators based on [Proof-of-Transaction](../learn/protocol/proof-of-transaction.md) are elected to generate blocks at a certain point in time.
 
 
-## 테스트 환경 구축하기
+## Build the Test Environment
 
-튜토리얼을 위해 사용할 **_인프라 블록체인(InfraBlockchain)_** 테스트 환경을 구축합니다. 먼저, 좀비넷 바이너리를 설치합니다. 
+Build the test environment for the ***InfraBlockchain*** using **ZombieNet** binaries. First, install the ZombieNet binaries:
 
-- 좀비넷 [깃허브](https://github.com/paritytech/zombienet) 에서 최신 릴리즈 버전을 설치합니다.
+- Install the latest release version from the [ZombieNet GitHub](https://github.com/paritytech/zombienet).
 
-- `infrablockspace-sdk/infra-cumulus/zombienet/examples/`  에서 `toml` 을 파일을 만들어줍니다. 여기서는 `example.toml` 을 생성하고 다음과 같이 작성해줍니다. 해당 코드는 다음과 같은 테스트 환경을 구축해줍니다: 
-  - 5 개의 밸리데이터 릴레이 체인 노드
-  - 2 개의 _infra asset hub_ 콜래이터 노드
-  - 2 개의 _parachain template node_ 콜래이터 노드
+- Create a TOML file in `infrablockspace-sdk/infra-cumulus/zombienet/examples/`. In this example, create `example.toml` with the following content, which sets up the test environment with:
+
+  - 5 validator relay chain nodes
+  - 2 ***InfraAssetHub*** collator nodes
+  - 2 ***Parachain Template Node*** collator nodes
 
 ```toml
 [relaychain]
@@ -151,29 +152,28 @@ max_capacity = 8
 max_message_size = 1048576
 ```
 
-- 터미널에서 좀비넷 명령어를 입력해줍니다.
+- Run the ZombieNet command in the terminal:
 
 ```bash
-# 좀비넷 명령어
 ./zombienet-macos spawn --provider native ./zombienet/examples/example.toml
 
-# zombinet-macos 명령어가 되지 않을시, 댜음 명령어 입력 후 진행하시기 바랍니다.
 chmod +x zombienet-macos
 ```
 
-## 트랜잭션에 투표 포함 시키기
+## Including Votes in Transactions
 
-- 시스템 토큰을 이용해 트랜잭션 수수료를 지불하고 투표를 하기 위해서 먼저 [시스템 토큰 생성하기](../tutorials/how-to-interact-with-system-token.md) 를 참고하시기 바랍니다. 해당 튜토리얼에서는 `parachain-template-node` 에서 시스템 토큰을 생성했다고 가정하겠습니다.
+- To pay transaction fees with the system token and vote, refer to [How to Interact with System Token](../tutorials/how-to-interact-with-system-token.md). For this tutorial, assume that the system token is generated from parachain-template-node.
 
-- [인프라 블록체인 익스플로러](https://portal.infrablockspace.net) 로 이동합니다.
+- Go to the [InfraBlockchain Explorer](https://portal.infrablockspace.net/#/explorer).
 
-- 해당 익스플로러에서는 어떠한 트랜잭션이든 투표를 포함시켜 전송할 수 있습니다. 이번 튜토리얼에서는 `parachain-template-node` 에서 `balance-transfer` 트랜잭션을 전송하는 상황으로 가정하겠습니다.
+- In this explorer, you can include votes in any transaction. For this tutorial, let's assume a scenario where a `balance-transfer` transaction is sent from `parachain-template-node`.
 
-- `Developer` 섹션에서 `Extrinsics` 탭을 들어갑니다. `balances` 의 `transfer` 를 선택합니다. 트랜잭션에 필요한 값들을 채워 넣은 후 `Submit Transaction` 을 클릭 합니다.
+- Navigate to the **Developer** section and enter **Extrinsics** tab. Select `balances` and then `transfer`. Fill in the required values for the transaction and click on **Submit** Transaction.
 
-- 트랜잭션의 서브 옵션들 중에 `include an optional asset id` 와 `include an optional vote` 옵션을 켭니다.
+- Enable the include an optional `asset id` and include an optional vote options among the transaction's sub-options.
 
-  - `asset id` 옵션은 트랜잭션 수수료로 사용할 시스템 토큰을 명시하는 옵션입니다. 
+  - The `asset id` option specifies the system token to be used for transaction fees.
+
 
   ```
   - parachain_id: 파라체인 식별자
@@ -181,23 +181,23 @@ chmod +x zombienet-macos
   - asset_id: 시스템 토큰의 식별자  
   ```
   
-  - `vote` 옵션은 PoT(Proof-of-Transaction)으로 선출할 후보자를 지정하는 옵션입니다.
+  - The `vote` option designates the candidate for **Proof-of-Transaction (PoT)** to be elected.
 
-  ![트랜잭션 세부사항](/media/images/docs/infrablockchain/tutorials/tx-detail.png)
+  ![Transaction Details](/media/images/docs/infrablockchain/tutorials/tx-detail.png)
 
-- 블록이 처리될 때까지 기다린 후 **_인프라 릴레이 체인(InfraRelayChain)_** 에서 다음과 같은 이벤트를 확인합니다.
+- Wait until the block is processed, then check for the following event in ***InfraRelayChain***.
 
-  ![Alt text](/media/images/docs/infrablockchain/tutorials/infra-relay-event.png)
+  ![Relay Chain Event](/media/images/docs/infrablockchain/tutorials/infra-relay-event.png)
 
-- 해당 weight 만큼 투표가 집계가 되었고 **_인프라 릴레이 체인(InfraRelayChain)_** 스토리지에서도 확인할 수 있습니다.
+- The votes have been aggregated according to the specified weight, and you can also verify this in the storage of ***InfraRelayChain***.
 
-  ![Alt text](/media/images/docs/infrablockchain/tutorials/infra-relay-storage.png)
+  ![Storage](/media/images/docs/infrablockchain/tutorials/infra-relay-storage.png)
 
-## 다음 단계로 넘어가기
+## Next Steps
 
-- [밸리데이터로써 리워드를 받는 방법](../tutorials/how-to-get-validator-reward.md)
+- [How to Get Validator Reward](../tutorials/how-to-get-validator-reward.md)
 
-- [시스템 토큰 가중치](../learn/protocol/transaction-fee.md#시스템-토큰-가중치)
+- [System Token Weight](../learn/protocol/transaction-fee.md)
 
 
 

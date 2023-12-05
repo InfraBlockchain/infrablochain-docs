@@ -1,23 +1,29 @@
 ---
-title: 인프라 블록체인 프로토콜
-description: 인프라 블록체인 프로토콜에 대한 전반적인 내용을 다룹니다.
+title: InfraBlockchain Protocol
+description: This docuemnt covers the overall content of the InfraBlockchain protocol.
 keywords:
-  - 트랜잭션 증명
-  - 시스템 토큰
-  - 트랜잭션 수수료 모델
+  - Proof of Transaction
+  - System Token
+  - Transaction Fee Model
 ---
 
-## [시스템 토큰](./system-token.md)
+## [System Token](./system-token.md)
 
-_**인프라 블록체인(InfraBlockchain)**_ 을 사용하는 모든 기업 및 공공 기관은 법정 화폐가 담보된 스테이블 토큰인 **_시스템 토큰(System Token)_** 을 발행할 수 있습니다. 인프라 블록체인의 운영 및 컨센서스에 중요한 역할을 하는 시스템 토큰에 대한 전반적인 내용을 다룹니다. 
+All enterprises and public institutions using ***InfraBlockchain*** have the capability to issue a stable token backed by legal tender known as the *System Token*. This section covers comprehensive information about the System Token, which plays a crucial role in the operation and consensus of ***InfraBlockchain***.
 
-## [트랜잭션 수수료 모델](./transaction-fee.md)
-_**_인프라 블록체인(InfraBlockchain)_**_ 은 법정 화폐 기반의 시스템 토큰을 수수료로 사용하는 블록체인입니다. 인프라 블록체인만의 트랜잭션 수수료 모델에 대한 전반적인 내용을 다룹니다.
+## [Transaction Fee Model](./transaction-fee.md)
 
-## [트랜잭션 증명](./proof-of-transaction.md)
+***InfraBlockchain*** operates as a blockchain using a system token based on legal tender as transaction fees. This section provides an overview of InfraBlockchain's unique transaction fee model.
 
-_**인프라 블록체인(InfraBlockchain)**_ 은 자체 암호화폐 발행없이 퍼블릭으로 운영될 수 있는 블록체인입니다. 이를 위한 독자적인 합의 메커니즘인 _트랜잭션 증명_ 에 대한 전반적인 내용을 다룹니다.
+## [Proof of Transaction](./proof-of-transaction.md)
 
-## [인프라 블록체인 보상 체계](./incentive.md)
+***InfraBlockchain*** operates as a public blockchain without the issuance of its own cryptocurrency. This section covers the overall details of the proprietary consensus mechanism, Transaction Proof, designed for this purpose.
 
-_**인프라 블록체인(InfraBlockchain)**_ 은 법정화폐 기반의 _시스템 토큰_ 을 트랜잭션의 수수료로 사용합니다. 사용된 트랜잭션 수수료가 벨리데이터에게 어떻게 보상으로 지급되는지에 대해 다룹니다. 
+## [Incentive System](./incentive.md)
+
+***InfraBlockchain*** utilizes a System Token based on legal tender for transaction fees. This section explains how the transaction fees are rewarded to validators within the incentive system.
+
+
+
+
+

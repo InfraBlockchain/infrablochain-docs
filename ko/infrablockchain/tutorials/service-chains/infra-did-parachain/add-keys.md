@@ -1,6 +1,6 @@
 ---
-title: Infra DID에 공개키 추가하기 
-description: 이 튜토리얼은 인프라 블록체인 파라체인 중 하나인 Infra DID 파라체인에 등록된 DID에 공개키를 추가하는 방법을 설명합니다.
+title: InfraDID 에 공개키 추가하기 
+description: 이 튜토리얼은 인프라 블록체인 파라체인 중 하나인 InfraDID 체인에 등록된 DID 에 공개키를 추가하는 방법을 설명합니다.
 keywords:
   - 파라체인
   - DID
