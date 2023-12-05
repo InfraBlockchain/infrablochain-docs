@@ -5,7 +5,7 @@ keywords:
   - parachain
   - relay chain
   - chain spec
-  - infra blockchain
+  - infrablockchain
 ---
 
 ## Deployment
@@ -572,5 +572,5 @@ For Helm charts and operators, they will be updated in the future during develop
 
 - [Guide: Customize a Chain Specification](/reference/how-to-guides/basics/customize-a-chain-specification/)
 - [Node Template Chain Spec](https://github.com/substrate-developer-hub/substrate-node-template/blob/master/node/src/chain_spec.rs)
-- [Infra Blockchain Space](/infrablockchain/learn/architecture/infra-blockspace)
+- [InfraBlockchain Space](/infrablockchain/learn/architecture/infra-blockspace)
 - [Parachains](/reference/how-to-guides/parachains/)
