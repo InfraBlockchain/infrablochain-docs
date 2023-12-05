@@ -1,374 +1,387 @@
 ---
-title: 메시지 전달 채널 열기
-description: 파라체인 간 통신을 위해 HRMP를 사용하는 방법을 배웁니다.
+title: Open message passing channels
+description: Demonstrates how to use horizontal relay-routed message passing (HRMP) for communication between parachains.
 keywords:
-  - 크로스 컨센서스 메시징
-  - XCM
+    - InfraBlockchain
+    - cross-consensus messaging
+    - HRMP
+    - XCM
+    - parachain
 ---
 
-**_인프라 블록체인(InfraBlockchain)_** 은 안전한 채널을 통해 서로 다른 컨센서를 가진 블록체인 네트워크 간 통신을할 수 있습니다.
-세 가지 주요 통신 채널은 다음과 같습니다:
+In the **_InfraBlockchain_** ecosystem, chains can communicate with each other by passing messages over secure channels.
+There are three main communication channels:
 
-- UMP: 파라체인이 릴레이 체인으로 메시지를 전달할 수 있도록 합니다.
-- DMP:  릴레이 체인이 파라체인으로 메시지를 전달할 수 있도록 합니다.
-- XCMP: 파라체인이 릴레이체인을 거치지 않고 서로 메시지를 보낼 수 있도록 합니다.
-- HRMP: 파라체인간 메세지를 릴레이 체인을 거처서 메세지를 보낼 수 있도록 합니다.
+-   Upward message passing (UMP) to enable a parachain to pass messages up to its relay chain.
+-   Downward message passing (DMP) to enable the relay chain to pass messages down to a parachain.
+-   Cross-consensus message passing (XCMP) to enable parachains to send messages to each other.
 
-본 튜토리얼에서는 HRMP를 사용하여 파라체인 간 통신을 가능하게 하는 메시지 전달 채널을 열 수 있는 방법을 설명합니다.
+Horizontal relay-routed message passing (HRMP) is an interim version of cross-consensus message passing (XCMP).
+This interim solution—also sometimes referred to as XCMP-Lite—provides the same functionality as XCMP but stores all of the messages passed between chains in the relay chain storage.
 
-## HRMP 채널 열기
+Although HRMP is intended to be phased out when XCMP is fully implemented, this tutorial uses HRMP to illustrate how you can open message passing channels to enable parachains to communicate with each other.
 
-*HRMP 채널은 단방향입니다.* 파라체인 1000이 파라체인 1001과 통신하려면, 먼저 파라체인 1000에서 파라체인 1001로 HRMP 채널을 열기 위한 요청을 보내야 합니다.
-파라체인 1001은 이 요청을 수락해야만 파라체인 1000이 메시지를 전달할 수 있습니다. 그러나 채널이 단방향이기 때문에 파라체인 1000은 채널을 통해 파라체인 1001로부터 메시지를 받을 수 없습니다.
+## Opening HRMP channels
 
-파라체인 1000이 파라체인 1001로부터 메시지를 받으려면, 파라체인 1001에서 파라체인 1000으로 또 다른 채널을 열어야 합니다. 파라체인 1000이 파라체인 1001로부터 메시지를 수락할 것임을 확인한 후, 다음 세션에서 메시지를 교환할 수 있습니다.
+It is important to note that HRMP channels are unidirectional.
+If you want parachain 1000 to communicate with parachain 1001, you must first make a request to open an HRMP channel from parachain 1000 to parachain 1001.
+Parachain 1001 must then accept the request before parachain 1000 can pass messages to it.
+Because the channel is unidirectional, however, parachain 1000 can't receive messages from parachain 1001 over the channel.
 
-## 시작하기 전에
+For parachain 1000 to receive messages from parachain 1001, you must open another channel from parachain 1001 to parachain 1000.
+After parachain 1000 confirms that it will accept messages from parachain 1001, the chains can exchange messages at the next session change.
 
-이 튜토리얼에서는 고유 식별자 1000을 가진 파라체인과 고유 식별자 1001을 가진 파라체인 간에 메시지를 교환할 수 있는 HRMP 채널을 엽니다.
+## Before you begin
 
-시작하기 전에 다음을 확인하세요:
+In this tutorial, you'll open HRMP channels that enable a parachain with the unique identifier 1000 and a parachain with the unique identifier 1001 to exchange messages.
+Before you begin, verify the following:
 
-- Zombienet을 사용하여 [파라체인 테스트 네트워크](../test/simulate-parachains.md)를 구성하는 방법을 확인합니다. 
+-   You have set up a [parachain test network](../test/simulate-parachains.md) using Zombienet or a local relay chain using the `rococo-local` chain specification.
 
-- 테스트 목적으로 두 개의 로컬 파라체인을 설정했습니다.
+-   You have set up two local or virtual parachains for testing purposes.
 
-  - 이 튜토리얼에서는 파라체인 A의 고유 식별자가 1000이고, 파라체인 B의 고유 식별자가 1001인 것으로 가정합니다.
+    For the purposes of this tutorial, parachain A has the unique identifier 1000 and parachain B has the unique identifier 1001.
 
-  - 로컬 파라체인에서 두 파라체인 모두가 Sudo 팔레트를 사용할 수 있도록 설정했습니다. *실제 환경에서는 Sudo 팔레트 대신 거버넌스 제안 및 투표를 사용해야 합니다.*
+-   You have the Sudo pallet available for both local parachains to use. For this tutorial in a test environment, you can add the Sudo pallet to each collator node.
 
-## Sovereign 계정 추가
+## Add the sovereign accounts
 
-파라체인이 다른 파라체인과 메시지를 교환하려면, 실행할 XCM 명령에 대한 비용을 지불하기 위해 릴레이 체인 계정에 ***해당 파라체인이 컨트롤할 수 있는 계정(Soverign 계정)*** 에 자산이 있어야 합니다.
+Before the parachain can exchange messages with another parachain, it must have an account on the relay chain that has assets available to pay for XCM instructions to be executed.
 
-릴레이 체인에 Sovereign 계정 주소를 추가하려면 다음을 수행하세요:
+To add sovereign account addresses to the relay chain:
 
-1. [인프라 블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 열고 릴레이 체인 엔드포인트에 연결합니다.
+1. Open the [InfraBlockchain Portal](https://portal.infrablockspace.net/#/explorer/) and connect to a relay chain endpoint.
 
-2. 파라체인 [Sovereign 계정 주소](https://substrate.stackexchange.com/questions/1200/how-to-calculate-sovereignaccount-for-parachain)를 계산하여 릴레이 체인에서 사용할 수 있도록 합니다.
+2. Calculate the parachain [sovereign account address](https://substrate.stackexchange.com/questions/1200/how-to-calculate-sovereignaccount-for-parachain) to use on the relay chain.
 
-   파라체인 A (1000) 주소: 5Ec4AhPZk8STuex8Wsi9TwDtJQxKqzPJRCH7348Xtcs9vZLJ
+    Parachain A (1000) address: 5Ec4AhPZk8STuex8Wsi9TwDtJQxKqzPJRCH7348Xtcs9vZLJ
 
-   파라체인 B (1001) 주소: 5Ec4AhPZwkVeRmswLWBsf7rxQ3cjzMKRWuVvffJ6Uuu89s1P
+    Parachain B (1001) address: 5Ec4AhPZwkVeRmswLWBsf7rxQ3cjzMKRWuVvffJ6Uuu89s1P
 
-   _파라체인에 등록된 파라체인 식별자가 변경되면 sovereign 계정과 주소도 변경됩니다._ 또한 릴레이 체인에서 파라체인에 사용되는 계정 주소는 다른 파라체인에서 사용되는 주소와 다릅니다.
+    Note that if the parachain identifier registered for a parachain changes, the sovereign account and address will also change.
+    You should also note that the account address used for a parachain on the relay chain is different from the address used for the parachain on another parachain.
 
-3. **계정**을 클릭하고 **주소록**을 선택합니다.
+3. Click **Accounts** and select **Address Book**.
 
-4. **연락처 추가**를 클릭합니다.
+4. Click **Add contact**.
 
-5. sovereign 계정 A (1000)의 주소와 이름을 추가하고 **저장**을 클릭합니다.
+5. Add the address and a name for parachain A (1000), then click **Save**.
 
-6. **계정**을 클릭하고 Alice에서 파라체인 A (1000) 계정으로 일부 자산을 이체합니다. 파라체인 B (1001)에 대해서도 3단계에서 6단계까지 반복합니다.
+6. Click **Accounts** and transfer some assets from Alice to the parachain A (1000) account.
 
-## 채널 열기 및 인코딩된 호출 준비
+    Repeat step 3 through step 6 for parachain B (1001).
 
-파라체인 간 통신을 설정하려면, 메시지 전달 채널을 열기 위한 요청을 보내야 합니다.
-요청은 수신자 파라체인, 채널의 메시지 용량 및 최대 메시지 크기를 지정하는 매개변수로 인코딩된 호출 형식으로 이루어져야 합니다.
-요청을 만들기 위해 준비한 인코딩된 버전의 정보를 생성한 메시지에 포함해야 하지만, 요청을 제출하지 않고도 인코딩된 호출을 생성할 수 있습니다.
+## Prepare the open channel encoded call
 
-채널을 열기 위한 인코딩된 호출을 준비하려면 다음을 수행하세요:
+To set up communication between the parachains, you must first send a request to open a message passing channel.
+The request must take the form of an encoded call with parameters that specify the parachain to receive the request, the message capacity for the channel, and maximum message size.
+You'll need to include the encoded version of this information in the message you create to make the request, but you can generate the encoded call without submitting the transaction to prepare the request.
 
-1. [인프라 블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 열고 릴레이 체인 엔드포인트에 연결합니다.
+To prepare the encoded call to open a channel:
 
-2. 필요한 경우 현재 릴레이 체인의 구성값을 확인합니다.
+1. Open the [InfraBlockchain Portal](https://portal.infrablockspace.net/#/explorer/) and connect to a relay chain endpoint.
 
-   현재 릴레이 체인의 구성값을 확인하려면:
+2. Check the channel configuration limits for the relay chain, if needed.
 
-   - **개발자**를 클릭하고 **체인 상태**를 선택합니다.
-   - **configuration**을 선택한 다음 **activeConfig()** 를 선택하고 **+** 를 클릭합니다.
-   - `hrmpChannelMaxCapacity` 및 `hrmlChannelMaxMessageSize` 매개변수의 매개변수 값을 확인합니다.
+    To check the configuration settings for the current relay chain:
 
-   예를 들면:
+    - Click **Developer** and select **Chain State**.
+    - Select **configuration**, then select **activeConfig()** and click **+**.
+    - Check the parameter values for `hrmpChannelMaxCapacity` and `hrmlChannelMaxMessageSize`.
 
-      ```text
-      hrmpChannelMaxCapacity: 8
-      hrmlChannelMaxMessageSize: 1,048,576
-      ```
+    For example:
 
-3. **개발자** 를 클릭하고 **외부 트랜잭션**을 선택합니다.
+    ```text
+    hrmpChannelMaxCapacity: 8
+    hrmlChannelMaxMessageSize: 1,048,576
+    ```
 
-4. **hrmp** 를 선택한 다음 **hrmpInitOpenChannel(recipient, proposedMaxCapacity, proposedMaxMessageSize)** 를 선택하여 새 채널을 열기 위한 요청을 초기화합니다.
+3. Click **Developer** and select **Extrinsics**.
 
-   트랜잭션 매개변수로 다음을 지정하여 호출 데이터를 준비합니다:
+4. Select **hrmp**, then select **hrmpInitOpenChannel(recipient, proposedMaxCapacity, proposedMaxMessageSize)** to initialize the request to open a new channel.
 
-   - recipient: 채널을 열고자 하는 파라체인의 식별자를 입력합니다 (1001).
-   - proposedMaxCapacity: 한 번에 채널에 있는 메시지의 최대 수를 입력합니다 (8).
-   - proposedMaxMessageSize: 메시지의 최대 크기를 지정합니다 (1048576).
+    For the transaction parameters, specify the following to prepare the call data:
 
-   **proposedMaxCapacity** 및 **proposedMaxMessageSize**에 설정하는 값은 릴레이 체인의 `hrmpChannelMaxCapacity` 및 `hrmpChannelMaxMessageSize` 매개변수에 정의된 값보다 크지 않아야 합니다.
+    - recipient: Type the identifier for the parachain you want to open the channel with (1001).
+    - proposedMaxCapacity: Type the maximum number of messages that can be in the channel at once (8).
+    - proposedMaxMessageSize: Specify the maximum size of the messages (1048576).
 
-5. **인코딩된 트랜잭션 데이터**를 복사합니다.
+    Note that the values you set for **proposedMaxCapacity** and **proposedMaxMessageSize** shouldn't exceeded the values defined for the `hrmpChannelMaxCapacity` and `hrmpChannelMaxMessageSize` parameters for the relay chain.
 
-   ![인코딩된 트랜잭션 데이터 복사](/media/images/docs/tutorials/parachains/hrmp-encoded-call.png)
+5. Copy the **encoded call data**.
 
-   이 정보는 XCM Transact 명령을 구성하는 데 사용됩니다.
-   다음은 `infra-relay` 에서 인코딩된 호출 데이터의 예입니다: `0x3c00e90300000800000000001000`
+    ![Copy the encoded call data](/media/images/docs/hrmp-encoded-call.png)
 
-## 채널 요청 구성
+    You'll need this information to construct the XCM Transact instruction.
+    The following is an example of the encoded call data in Rococo: `0x3c00e90300000800000000001000`
 
-인코딩된 호출을 보유하고 있으므로, 릴레이 체인을 통해 파라체인 A에서 파라체인 B로 채널을 열기 위한 요청을 구성할 수 있습니다.
+## Configure the open channel request
 
-1. [인프라 블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 열고 파라체인 A (1000)의 엔드포인트에 연결합니다.
+Now that you have the encoded call, you can configure the request to open a channel from parachain A to parachain B through the relay chain.
 
-2. **개발자**를 클릭하고 **외부 트랜잭션**을 선택합니다.
+1. Connect to the endpoint for parachain A (1000) using the [InfraBlockchain Portal](https://portal.infrablockspace.net/#/explorer/).
 
-3. **sudo**를 선택한 다음 특권 트랜잭션을 실행하기 위해 **sudo(call)** 을 선택합니다.
+2. Click **Developer** and select **Extrinsics**.
 
-4. **ibsXcm** 을 선택한 다음 파라체인 B (1001)과 채널을 열고자 하는 요청을 전달하기 위해 **send(dest, message)**를 선택합니다.
+3. Select **sudo**, then select **sudo(call)** to use the Sudo pallet to execute privileged transactions.
 
-   ![Sudo 팔레트를 사용하여 메시지 전송](/media/images/docs/infrablockchain/tutorials/build/hrmp-sudo-call.png)
+4. Select **ibs**, then select **send(dest, message)** to notify the relay chain that you want to open a channel with parachain B (1001).
 
-5. 메시지를 전달할 상대 위치를 나타내기 위해 대상(dest) 매개변수를 지정합니다.
+    ![Send message using the Sudo pallet](/media/images/docs/infrablockchain/tutorials/build/hrmp-sudo-call.png)
 
-   대상 매개변수는 XCM이 실행될 위치를 지정합니다. 본 튜토리얼에서는 파라체인 1000의 상위 체인이 릴레이 체인이며, 
-   메세지를 받는 체인의 컨텍스트에서 `MultiLocation::Here` 는 릴레이 체인 안에서 XCM을 실행할 것임을 의미합니다.
+5. Specify the destination parameters to indicate the relative location for the message to be delivered.
 
-   ![대상 매개변수](/media/images/docs/infrablockchain/tutorials/build/hrmp-destination.png)
+    The destination parameters specify where the XCM should be executed.
+    In this example, the parent of parachain 1000 is the relay chain, and in the context of the parent the interior setting of Here means that the relay chain is going to execute the XCM.
+    For more information about specifying relative locations for XCM, see [Universal Consensus Location Identifiers](https://github.com/paritytech/xcm-format#7-universal-consensus-location-identifiers).
 
-6. XCM 버전을 지정한 다음 실행할 메시지를 구성하기 위해 **항목 추가**를 클릭합니다.
+    ![Destination parameters](/media/images/docs/infrablockchain/tutorials/build/hrmp-destination.png)
 
-   이 메시지를 실행하기 위해 다음과 같은 일련의 명령을 추가해야 합니다:
+6. Specify the XCM version, then click **Add item** to construct the message to be executed.
 
-   - *WithdrawAsset*: 지정된 온체인 자산을 가상 *holding 레지스터* 로 이동시킵니다.
+    At a minimum, you need to add the following set of instructions for this message:
 
-   - *BuyExecution*: *WithdrawAsset* 명령을 사용하여 *holding 레지스터* 에 예치된 자산을 사용하여 현재 메시지의 실행 비용을 지불합니다.
+    - _WithdrawAsset_: move the specified on-chain assets into the virtual _holding register_.
 
-   - *Transact*: 준비한 *인코딩된 트랜잭션* 을 지정합니다.
+    - _BuyExecution_: pay for the execution of the current message using the assets that were deposited in the virtual holding register using the WithdrawAsset instruction.
 
-   대부분의 경우 다음 명령도 포함해야 합니다:
+    - _Transact_: specify the encoded call that you prepared on the relay chain.
 
-   - *RefundSurplus*: 실제 지불해야할 양보다 BuyExecution 명령을 사용하여 지불한 수수료가 작을 경우 나머지를 *refunded-weight* 레지스터로 이동시킵니다.
+    In most cases, you also want to include the following instructions:
 
-   - *DepositAsset*: *refunded-weight* 레지스터에서 자산을 빼내고, 지정 계정에 입금시킵니다.
+    - _RefundSurplus_: to move any overestimate of fees previously paid using the BuyExecution instruction into a second virtual register called the refunded weight register.
 
-   각 명령을 수신받는 시스템이 송신한 XCM 명령을 실행할 수 있도록 추가 정보를 지정해야 합니다.
-   각 명령에 대한 정보를 수신받는 시스템의 관점에서 구성해야 합니다.
+    - _DepositAsset_: subtract assets from the refunded weight register and deposit on-chain equivalent assets under the ownership of the beneficiary.
 
-   명령에 대해 자세히 살펴보겠습니다.
+    Note that each instruction requires you to specify additional information to enable the message recipient to execute the intended XCM instructions.
+    Be sure that you construct the information for each instruction from the point of view of the receiving system.
 
-### WithdrawAsset
+    Let's take a closer look at the instructions.
 
-자산을 holding 레지스터로 이동시키려면:
+### WithdrawAsset instruction
 
-1. 이 메시지의 첫 번째 명령으로 *WithdrawAsset* 을 선택합니다.
+To move assets into the virtual holding register:
 
-2. **항목 추가** 를 클릭하여 인출할 온체인 자산을 식별합니다.
+1. Select _WithdrawAsset_ as the first instruction for this message.
 
-3. 자산을 식별하기 위해 자산의 위치를 사용하려면 **concrete**를 선택합니다.
+2. Click **Add item** to identify the on-chain assets to withdraw.
 
-4. **parents: 0** 및 **interior: Here** 를 설정하여 sovereign 계정에서 자산을 인출합니다.
+3. Select **Concrete** to use the location of the asset to identify the asset to be withdrawn.
 
-5. `StagingXCMV3MultiAssetFungibility` 에서 **Fungible** 을 선택합니다.
+4. Set **parents: 0** and **interior: Here** to withdraw assets from the sovereign account on the relay chain.
 
-6. 인출할 총 가치 교환 가능한 자산을 지정합니다.
-   
-   ![WithdrawAsset 및 설정](/media/images/docs/infrablockchain/tutorials/build/withdraw-asset-instruction-settings.png)
+5. Select **Fungible** to identify the asset as a fungible asset.
 
-### BuyExecution 명령
+6. Specify the total fungible assets to withdraw.
 
-Holding 레지스터에 예치된 자산을 사용하여 실행 비용을 지불하려면:
+### BuyExecution instruction
 
-1. 최상위 **항목 추가**를 클릭하여 *BuyExecution* 을 선택합니다.
+To pay for execution from assets deposited in the holding register:
 
-2. 용할 자산을 식별하기 위해 **concrete**를 선택합니다.
+1. Click **Add item** to select _BuyExecution_ as the second instruction for this message.
 
-3. 사용할 자산을 식별하기 위해 **parents: 0** 및 **interior: Here**를 설정합니다.
+2. Select **Concrete** to use the location of the asset to identify the asset to be used to pay for executing XCM instructions.
 
-4. `StagingXCMV2MultiAssetFungibility` 에서 **Fungible** 를 선택합니다.
+3. Set **parents: 0** and **interior: Here** to indicate that you're using the local chain's native asset for execution payment.
 
-5. 사용할 총 자산을 지정합니다.
+4. Select **Fungible** to identify the asset as a fungible asset.
 
-6. 이 명령에 대한 가중치(리소스 사용량, weight) 제한을 설정하지 않으려면 **Unlimited** 를 선택합니다.
+5. Specify the total fungible assets to use.
 
-   ![BuyExecution 및 설정](/media/images/docs/tutorials/parachains/buy-execution-open.png)
+6. Select **Unlimited** to skip setting a weight limit for this instruction.
 
-### Transact 
+    ![BuyExecution and settings](/media/images/docs/infrablockchain/tutorials/build/transfer-buy-execution-instruction-ui.png)
 
-인코딩된 트랜잭션을 실행하려면:
+### Transact instruction
 
-1. 최상위 **항목 추가**를 클릭하여 세 번째 명령으로 *Transact* 를 선택합니다.
+To execute the encoded call that you prepared on the relay chain:
 
-2. 명령을 실행하기 위한 메시지 원본으로 **Native** 를 선택합니다.
+1. Click the top **Add item** to select [Transact](https://github.com/paritytech/xcm-format#transact) as the third instruction for this message.
 
-3. XCM 호출을 디스패치하는 데 사용할 최대 가중치를 지정하기 위해 **requireWeightAtMost** 를 설정합니다.
+2. Select **Native** as the message origin for executing the instruction.
 
-   - XCM 실행하는데 사용한 가중치가 지정한 가중치보다 큰 경우 트랜잭션이 실패합니다.
-   - XCM 실행하는데 사용한 가중치가 지정한 가중치보다 작은 경우 해당 차액은 _refundable-fund_ 레지스터에 추가될 수 있습니다.
+3. Set **requireWeightAtMost** to specify the maximum amount of weight to use in dispatching the XCM call.
 
-4. 실행할 트랜잭션의 인코딩된 트랜잭션을 지정합니다.
+    If the XCM dispatch requires more weight than specified, the transaction fails.
+    If the XCM dispatch requires less weight than specified, the difference can be added to the surplus weight register.
 
-   예를 들어, hrmp 채널을 요청하는 인코딩된 호출을 붙여넣습니다.
+4. Specify the encoded call data for transaction you want to be executed by the Transact instruction.
 
-   ![Transact 및 설정](/media/images/docs/infrablockchain/tutorials/build/transact-open-request.png)
+    For example, paste the encoded call for initiating an open channel request.
 
-### RefundSurplus 및 DepositAsset
+    ![Transact and settings](/media/images/docs/infrablockchain/tutorials/build/transact-open-request.png)
 
-트랜잭션 수수료 관련 메세지를 추가합니다.
+### RefundSurplus and DepositAsset instructions
 
-1. 최상위 **항목 추가**를 클릭하여 네 번째 명령으로 *RefundSurplus* 를 선택합니다.
+To move any overestimate of fees:
 
-2. 최상위 **항목 추가**를 클릭하여 다섯 번째 명령으로 *DepositAsset* 를 선택합니다.
+1. Click the top **Add item** to select _RefundSurplus_ as the four instruction for this message.
 
-3. 지불할 자산의 수를 지정하지 않고, 자산을 _refundable-fund_ 레지스터에서 제거하고 받는 사람(beneficiary)에게 입금하기 위해 **Wild**를 선택합니다.
+2. Click the top **Add item** to select _DepositAsset_ as the fifth instruction for this message.
 
-4. 환불된 자산 중에서 제거할 고유 자산의 최대 수를 1로 설정합니다.
+3. Select **Wild** to allow an unspecified number of assets to be deposited.
 
-   - 본 튜토리얼에서는 제거할 수 있는 자산 인스턴스가 하나뿐입니다.
+4. Select **All** to allow all of the refunded assets to be deposited.
 
-5. 자산을 받을 계정(beneficiary)를 지정합니다.
+5. Set **1** as the maximum number of unique assets to remove from the holding register for the deposit.
 
-   - 일반적으로 DepositAsset 명령의 수혜자는 메시지 발신자의 *sovereign 계정* 입니다.
-   - 이 경우, 파라체인 A (1000)을 **parents: 0**, **interior: X1**, **Parachain: 1000** 으로 지정하여 잉여 자산이 soverign 계정으로 반환되고 다른 XCM 명령을 전달하거나 추가 HRMP 채널을 열기 위해 사용될 수 있습니다.
+    In this tutorial, there's only one asset instance available to be removed.
 
-      ![RefundSurplus 및 DepositAsset 명령 및 설정](/media/images/docs/infrablockchain/tutorials/build/refund-and-deposit.png)
+6. Specify the beneficiary to receive the deposited assets.
 
-   - 또는 자산을 받는 계정을 **parents: 0**, **interior: X1**, **AccountId** 로 지정하고 자산을 수신할 네트워크 및 계정 주소를 식별할 수 있습니다.
+    Typically, the beneficiary for the DepositAsset instruction is the sovereign account of the message sender.
+    In this case, you can specify parachain A (1000) as **parents: 0**, **interior: X1**, **Parachain: 1000** so that any surplus assets are returned to the account and can be used to deliver other XCM instructions or to open additional HRMP channels.
 
+    ![RefundSurplus and DepositAsset instructions and settings](/media/images/docs/infrablockchain/tutorials/build/refund-and-deposit.png)
 
-### 전체 명령 세트 검토
+    Alternatively, you can specify the beneficiary as **parents: 0**, **interior: X1**, **AccountId** and identify a network and account address to receive the assets.
 
-위의 명령 세트는 다음 작업을 수행합니다:
+### Review the full set of instructions
 
-- 파라체인 A의 sovereign 계정에서 holding 레지스터로 자산을 인출합니다.
+This set of XCM instructions:
 
-- Holding 레지스터에 있는 자산을 사용하여 XCM 명령에 대한 수수료를 지불합니다.
+-   Withdraw assets from the parachain A sovereign account to the virtual holding register.
 
-- 릴레이 체인에서 HRMP 채널 요청을 실행합니다.
+-   Uses the assets in the holding register to pay for the execution time the XCM instructions require.
 
-- 남은 자산을 환불하고 환불된 자산을 _soverign 게정_ 에 입금합니다.
+-   Executes the initialization request for an open channel on the relay chain.
 
-추가 구성 및 구체적인 기술적 질문에 대한 답변을 위해 [Stack Exchange](https://substrate.stackexchange.com/)에서 다음 태그를 사용해 보세요:
+-   Refunds any left over assets and deposits the refunded assets into the account owned by the specified beneficiary.
 
-- xcm
-- hrmp
-- weight
-- cumulus
+For an example that illustrates all of the settings for this set of instructions, see the sample [xcm-instructions](/assets/tutorials/relay-chain-specs/xcm-instructions.txt) file.
 
-### 트랜잭션 제출
+-   xcm
+-   hrmp
+-   weight
+-   cumulus
 
-트랜잭션을 제출하려면:
+### Submit the transaction
 
-1. **트랜잭션 제출** 을 클릭합니다.
+To submit the transaction:
 
-1. **서명 및 제출**을 클릭합니다.
+1. Click **Submit Transaction**.
 
-1. **네트워크**를 클릭하고 **탐색기**를 선택하여 메시지가 전송되었는지 확인합니다.
+1. Click **Sign and Submit**.
 
-## 요청 확인
+1. Click **Network** and select **Explorer** to verify the message is sent.
 
-트랜잭션을 제출한 후, 릴레이 체인에서 메시지가 수신되고 실행되었는지 확인해야 합니다.
+## Verify the request
 
-요청을 확인하려면 다음을 수행하세요:
+After you submit the transaction, you should verify that the message was received and executed on the relay chain.
 
-1. 두 개의 별도 [브라우저 탭 또는 창](https://portal.infrablockspace.net/#/explorer/)을 열고, 하나의 인스턴스는 릴레이 체인에 연결하고 다른 인스턴스는 파라체인 엔드포인트에 연결합니다.
+To verify the request:
 
-2. 파라체인에 연결된 브라우저 인스턴스에서 **네트워크**를 클릭한 다음 **탐색기**를 선택합니다.
+1. Open the [InfraBlockchain Portal](https://portal.infrablockspace.net/#/explorer/) in two separate browser tabs or windows with one instance connecting to the relay chain and one instance connecting to the parachain endpoint.
 
-3. 최근 이벤트 목록을 확인하고 **sudo.Sudid** 이벤트와 **ibsXcm.Sent** 이벤트가 있는지 확인합니다.
+2. In the browser instance connecting to the parachain, click **Network** then select **Explorer**.
 
-   ![파라체인에서 XCM 명령을 위한 이벤트](/media/images/docs/tutorials/parachains/hrmp-parachain-events.png)
+3. Check the list of recent events and verify that there is a **sudo.Sudid** event and a **ibsXcm.Sent** event.
 
-   **ibsXcm.Sent** 이벤트를 확장하여 전송된 메시지에 포함된 명령에 대한 자세한 정보를 볼 수 있습니다.
+    You can expand the **ibsXcm.Sent** event to see details about the instructions included in the message that was sent.
 
-4. 릴레이 체인에 연결된 브라우저 인스턴스에서 **네트워크**를 클릭한 다음 **탐색기**를 선택합니다.
+4. In the browser instance connecting to the relay chain, click **Network** then select **Explorer**.
 
-3. 최근 이벤트 목록을 확인하고 **hrmp.OpenChannelRequested** 및 **ump.ExecutedUpward** 이벤트가 표시되는지 확인합니다.
+5. Check the list of recent events and verify that the **ump.UpwardMessagesReceived**, **hrmp.OpenChannelRequested**, and **ump.ExecutedUpward** events are displayed.
 
-   ![릴레이 체인에서 XCM 명령을 위한 이벤트](/media/images/docs/tutorials/parachains/hrmp-relay-chain-request-complete.png)
+    ![Events for XCM instructions on the relay chain](/media/images/docs/infrablockchain/tutorials/build/hrmp-verify-channel.png)
 
-   다음 세션에서 파라체인 A (1000)에서 파라체인 B (1001)로 채널을 열었는지 확인하기 위해 **hrmpChannels**를 쿼리하여 체인 상태를 확인할 수 있습니다.
+    You can expand these events to see details about the instructions that were executed.
 
-   ![Soverign 계정](/media/images/docs/infrablockchain/tutorials/build/soverign-account-balance.png)
+6. Check the sovereign account balance for parachain A (1000).
 
-## 승인 트랜잭션 준비
+    ![Sovereign account for parachain A (1000)](/media/images/docs/infrablockchain/tutorials/build/soverign-account-balance.png)
 
-채널을 요청한 후에는 파라체인 B (1001)가 요청을 수락해야만 요청한 채널을 통해 메시지를 보낼 수 있습니다.
-요청을 수락하기 위해 수행하는 단계는 채널 요청을 초기화하는 단계와 유사하지만, 다른 인코딩된 트랜잭션을 사용하고 파라체인 A 대신 파라체인 B에서 메시지를 보냅니다.
+## Prepare the acceptance encoded call
 
-첫 번째 단계는 릴레이 체인에서 인코딩된 트랜잭션을 준비하는 것입니다.
+After you have successfully created the open channel request, parachain B (1001) must accept the request before you can send any messages using the channel you've requested.
+The steps are similar to the steps for initiating an open channel request, but you'll use a different encoded call and you'll send the message from parachain B instead of parachain A.
 
-인코딩된 호출을 준비하려면 다음을 수행하세요:
+The first step is to prepare the encoded call on the relay chain.
 
-1. [인프라 블록체인(InfraBlockchain) Portal](https://portal.infrablockspace.net)을 열고 릴레이 체인에 연결합니다.
+To prepare the encoded call:
 
-2. **개발자**를 클릭하고 **외부 트랜잭션**을 선택합니다.
+1. Open the [InfraBlockchain Portal](https://portal.infrablockspace.net/#/explorer/) and connect to the relay chain.
 
-3. **hrmp**를 선택한 다음 **hrmpAcceptOpenChannel(sender)** 를 선택하고 **sender**를 지정합니다. 이 경우 파라체인 A (1000)입니다.
+2. Click **Developer** and select **Extrinsics**.
 
-4. **인코딩된 트랜잭션 데이터**를 복사합니다.
+3. Select **hrmp**, then select **hrmpAcceptOpenChannel(sender)** and specify the **sender**, in this case, parachain A (1000).
 
-   ![인코딩된 트랜잭션 데이터 복사](/media/images/docs/infrablockchain/tutorials/build/hrmp-relay-chain-accept-request.png)
+4. Copy the **encoded call data**.
 
-   이 정보는 XCM Transact 명령을 구성하는 데 사용됩니다.
-   다음은 `infra-relay` 에서 인코딩된 호출 데이터의 예입니다: 0x3c01e8030000
+    ![Copy the encoded call data](/media/images/docs/infrablockchain/tutorials/build/hrmp-relay-chain-accept-request.png)
 
-## 채널 승인하기
+    You'll need this information to craft the XCM Transact instruction.
+    The following is an example of encoded call data in Rococo:
+    0x3c01e8030000
 
-인코딩된 트랜잭션을 보유하고 있으므로, 파라체인 A가 요청한 채널을 수락하기 위한 XCM 명령 세트를 구성할 수 있습니다.
+## Accept the open channel request
 
-1. 파라체인 B(1001)의 엔드포인트에 연결합니다. [인프라 블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)을 사용합니다.
+Now that you have the encoded call, you can construct the the set of XCM instructions to accept the open channel requested by parachain A.
 
-2. **개발자**를 클릭하고 **외부 트랜잭션**을 선택합니다.
+1. Connect to the endpoint for parachain B (1001) using the [InfraBlockchain Portal](https://portal.infrablockspace.net/#/explorer/).
 
-3. **sudo**를 선택한 다음 트랜잭션을 실행하기 위해 **sudo(call)** 을 선택합니다.
+2. Click **Developer** and select **Extrinsics**.
 
-4. **ibsXcm**을 선택한 다음 파라체인 B(1001)과 채널을 열기 위해 **send(dest, message)** 를 선택합니다.
+3. Select **sudo**, then select **sudo(call)** to use the Sudo pallet to execute privileged transactions.
 
-5. 메시지를 전달할 상대 위치를 나타내기 위해 대상 매개변수를 지정합니다.
+4. Select **ibsXcm**, then select **send(dest, message)** to notify the relay chain that you want to open a channel with parachain B (1001).
 
-6. XCM 버전을 지정한 다음 실행할 메시지를 구성하기 위해 **항목 추가**를 클릭합니다.
+5. Specify the destination parameters to indicate the relative location for the message to be delivered.
 
-   이전 메시지와 유사한 명령 세트를 사용할 수 있습니다:
+6. Specify the XCM version, then click **Add item** to construct the message to be executed.
 
-   - *WithdrawAsset*: 지정된 온체인 자산을 가상 *holding 레지스터* 로 이동시킵니다.
+    You can use a similar set of instructions for this message:
 
-   - *BuyExecution*: *WithdrawAsset* 명령을 사용하여 *holding 레지스터* 에 예치된 자산을 사용하여 현재 메시지의 실행 비용을 지불합니다.
+    - _WithdrawAsset_: move the specified on-chain assets into the virtual holding register.
 
-   - *Transact*: 준비한 *인코딩된 트랜잭션* 을 지정합니다.
+    - _BuyExecution_: pay for the execution of the current message using the assets that were deposited in the virtual holding register.
 
-   - *RefundSurplus*: 실제 지불해야할 양보다 BuyExecution 명령을 사용하여 지불한 수수료가 작을 경우 나머지를 *refunded-weight* 레지스터로 이동시킵니다.
+    - _Transact_: specify the encoded call—for example, 0x3c01e8030000—that you prepared on the relay chain.
 
-   - *DepositAsset*: *refunded-weight* 레지스터에서 자산을 빼내고, 지정 계정에 입금시킵니다.
+    - _RefundSurplus_: move any overestimate of fee into the refunded weight register.
 
-7. **트랜잭션 제출**을 클릭합니다.
+    - _DepositAsset_: subtract assets from the refunded weight register and deposit on-chain equivalent assets under the ownership of the beneficiary.
 
-   트랜잭션을 제출한 후, 다음 에포크에서 변경 사항이 체인 상태에 반영되기까지 기다려야 합니다.
+7. Click **Submit Transaction**.
 
-## 채널 확인하기
+    After you submit the transaction, you must wait for the next epoch to see the change reflected in the chain state.
 
-트랜잭션을 제출한 후, 릴레이 체인에서 메시지가 수신되고 실행되었는지 확인할 수 있습니다.
+## Verify the open channel
 
-요청을 확인하려면 다음을 수행하세요:
+After you submit the transaction, you can verify that the message was received and executed on the relay chain.
 
-1. 두 개의 별도 [브라우저 탭 또는 창](https://portal.infrablockspace.net/#/explorer/)을 열고, 하나의 인스턴스는 릴레이 체인에 연결하고 다른 인스턴스는 파라체인 엔드포인트에 연결합니다.
-   
-2. 파라체인에 연결된 브라우저 인스턴스에서 **네트워크**를 클릭한 다음 **탐색기**를 선택합니다.
+To verify the request:
 
-3. 최근 이벤트 목록을 확인하고 **sudo.Sudid** 이벤트와 **ibsXcm.Sent** 이벤트가 있는지 확인합니다.
+1. Open the [Browser tab or window](https://portal.infrablockspace.net/#/explorer/) in two separate browser tabs or windows with one instance connecting to the relay chain and one instance connecting to the parachain endpoint.
 
-4. 릴레이 체인에 연결된 브라우저 인스턴스에서 **네트워크**를 클릭한 다음 **탐색기**를 선택합니다.
+2. In the browser instance connecting to the parachain, click **Network** then select **Explorer**.
 
-5. 최근 이벤트 목록을 확인하고 **hrmp.OpenChannelAccepted** 및 **ump.ExecutedUpward** 이벤트가 표시되는지 확인합니다.
+3. Check the list of recent events and verify that there is a **sudo.Sudid** event and a **ibsXcm.Sent** event.
 
-   ![릴레이 체인에서 XCM 명령을 위한 이벤트](/media/images/docs/tutorials/parachains/hrmp-relay-chain-request-accepted.png)
+4. In the browser instance connecting to the relay chain, click **Network** then select **Explorer**.
 
-   다음 에포크 시작 후에는 **hrmpChannels**를 쿼리하여 파라체인 A(1000)에서 파라체인 B(1001)로 채널을 열었는지 확인할 수 있습니다.
-   
-   ![HRMP 채널 쿼리](/media/images/docs/infrablockchain/tutorials/build/hrmp-verify-channel.png)
+5. Check the list of recent events and verify that the **hrmp.OpenChannelAccepted** and **ump.ExecutedUpward** events are displayed.
 
-## 두 번째 채널 열기
+    ![Events for XCM instructions on the relay chain](/media/images/docs/infrablockchain/tutorials/build/hrmp-relay-chain-request-accepted.png)
 
-파라체인 B(1001)로만 XCM 명령을 보내려는 경우 작업이 완료되었습니다. 그러나 두 체인이 서로가 보낸 명령을 수신하고 실행할 수 있는 양방향 통신을 활성화하려면 방금 파라체인 A에 대해 완료한 작업을 파라체인 B에 대해 다시 수행해야 합니다. 파라체인 A가 채널 요청을 수락한 후, 두 체인은 XCM 명령을 보내고 받을 수 있습니다.
+    After the start of the next epoch, you can also query the chain state for **hrmpChannels** to verify that you've opened a channel from parachain A (1000) to parachain B (1001).
 
-인코딩된 트랜잭션을 준비하고, 채널 요청을 보내고, 요청을 수락하기 위해 파라체인 B를 위해 방금 완료한 모든 단계를 반복하여 파라체인 B(1001)에서 파라체인 A(1000)로의 통신을 활성화합니다. 파라체인 B에서 파라체인 A로 채널을 열면 두 파라체인은 서로에게 직접 메시지를 보낼 수 있거나 메시지를 릴레이 체인을 통해 라우팅할 수 있습니다.
+    ![Query HRMP channels](/media/images/docs/infrablockchain/tutorials/build/hrmp-verify-channel.png)
 
-이 시점에서 파라체인 간에 XCM 명령을 보낼 수 있지만, 원격 체인에서 성공적으로 실행될 수 있는 메시지를 구성하려면 자산을 전송할 수 있는 공유된 이해관계를 정의하거나 자산을 이동할 수 있는 상호 신뢰 관계를 정의하기 위해 추가 구성이 필요합니다.
+## Open a second channel
 
-다음 튜토리얼에서는 파라체인 간 통신의 몇 가지 일반적인 시나리오에 대한 예제를 살펴보겠습니다.
+If you only want to send XCM instructions to parachain B (1001), your work is done.
 
-## 다음 단계로 넘어가기
+However, if you want to enable two-way communication-where both chains can receive and execute instructions sent by the other chain, you need to follow the same steps for parachain B that you just completed for parachain A. After parachain A accepts the open channel requests, both chains can send, receive, and execute XCM instructions.
 
-- [XCM Part I: The Cross-Consensus Message Format](https://polkadot.network/blog/xcm-the-cross-consensus-message-format)
-- [XCM Part II: Versioning and Compatibility](https://polkadot.network/blog/xcm-part-two-versioning-and-compatibility)
-- [XCM Part III: Execution and Error Management](https://polkadot.network/blog/xcm-part-three-execution-and-error-management)
+Repeat all of the steps for preparing the encoded calls, sending the open channel request, and accepting the request to enable communication from parachain B (1001) to parachain A (1000).
+After you open the channel from parachain B to parachain A, the two parachains can send messages directly to each other or have messages routed through the relay chain.
+
+Although you can send XCM instructions between the parachains at this point, constructing messages that can be executed successfully on a remote chain requires additional configuration to reach a shared understanding of assets that can be transferred or to define mutual trust relationships that allow assets to be moved from one chain to another.
+In future tutorials, you'll see examples of a few common scenarios for communication between parachains.
+
+## Where to go next
+
+-   [XCM Part I: The Cross-Consensus Message Format](https://polkadot.network/blog/xcm-the-cross-consensus-message-format)
+-   [XCM Part II: Versioning and Compatibility](https://polkadot.network/blog/xcm-part-two-versioning-and-compatibility)
+-   [XCM Part III: Execution and Error Management](https://polkadot.network/blog/xcm-part-three-execution-and-error-management)
