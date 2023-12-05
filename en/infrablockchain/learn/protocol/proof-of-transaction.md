@@ -9,15 +9,15 @@ keywords:
 
 ## Transaction-as-a-Vote(TaaV)
 
-![트랜잭션 투표](/media/images/docs/infrablockchain/learn/protocol/taav.png)
+![트랜잭션 투표](/media/images/docs/InfraBlockchain/learn/protocol/taav.png)
 
-인프라 블록체인의 독자적인 합의 메커니즘인 **_PoT(Proof-of-Transaction)_** 를 이루는 핵심 아이디어는 _Taav(Transaction-as-a-Vote)_ 입니다. 인프라 블록체인의 트랙잭션 메타데이터에는 블록체인 합의 과정에 참여할 수 있거나 이미 참여하고 있는 블록 생성자 후보에 대한 투표(vote)가 선택적으로 포함될 수 있습니다. 블록 생성자 투표가 담긴 트랜잭션 메세지는 트랜잭션을 발생시킨 블록체인 계정의 개인키로 서명이 이루어져 각 트랜잭션 투표마다 자체적인 암호학적 증명을 가집니다. **_인프라 블록체인(InfraBlockchain)_** 의 투표는 다음과 같은 특성을 가지고 있습니다:
+The core idea behind **Proof-of-Transaction (PoT)**, the proprietary consensus mechanism of ***InfraBlockchain***, is encapsulated in the concept of **Transaction-as-a-Vote(TaaV)**. The metadata of transactions in ***InfraBlockchain*** may optionally include votes for candidates already participating or eligible to participate in the blockchain consensus process. Transaction messages containing votes for block producer candidates are signed with the private key of the blockchain account that initiated the transaction, providing cryptographic proof for each transaction vote. ***InfraBlockchain*** votes possess the following characteristics:
 
-- 시스템 토큰 식별자: 투표의 가중치(weight)는 어떠한 [시스템 토큰](./system-token.md) 으로 트랜잭션 수수료로 지불했는지에 따라 다르기 때문에 해당 토큰을 식별할 수 있는 `id` 가 포함됩니다.
+- System Token Identifier: The weight of a vote depends on whether the transaction fee was paid with a specific [System Token](../protocol/system-token.md). Thus, it includes an `id` that identifies this token.
 
-- 투표 대상: 투표할 대상은 블록체인 계정을 갖고 있어야 하며 그 타입은 **_인프라 릴레이 체인(InfraRelaychain)_** 의 [블록체인 계정](../substrate/learn/basic/accounts-addresses-keys.md) 이여야 합니다. 보통은 `AccountId32` 입니다.
+- Vote Target: The entity to be voted for must have a [blockchain account](../substrate/learn/basic/accounts-addresses-keys.md) and be of type Infra Relay Chain's blockchain account, typically an `AccountId32`.
 
-- 트랜잭션 가중치(Weight): 트랙잭션 투표의 가중치는 트랜잭션 수수료에 따라 다르게 책정됩니다. 
+- Transaction Weight: The weight of a transaction vote is determined based on the transaction fee.
 
 ```rust 
 // For example,
@@ -28,14 +28,11 @@ pub struct PoTVote {
 }
 ```
 
-### 트랜잭션 메타데이터
+### Transaction Metadata
 
-Transaction-as-a-Vote(TaaV) 는 트랜잭션의 메타 데이터에 투표가 선택적으로 포함됩니다. Substrate 에서는 `SignedExtension` 트레이트를 이용하여 트랜잭션 메타데이터를 추가할 수 있습니다.
-다음은 해당 트레이트를 이용한 예시입니다:
+Transaction-as-a-Vote (TaaV) includes votes in the metadata of transactions. In Substrate, the `SignedExtension` trait can be used to add transaction metadata. Here's an example using this trait:
 
 ```rust
-// 트랜잭션에 들어갈 메타데이터 타입 지정
-// 투표 대상이 선택적으로 포함될 수 있다.
 pub struct ChargeSystemToken<Account, Balance> {
     #[codec(compact)]
     tip: Balance,
@@ -43,7 +40,6 @@ pub struct ChargeSystemToken<Account, Balance> {
     vote_candidate: Option<Account>
 }
 
-// 트랜잭션을 처리할 때, 수행되어야하는 로직 작성
 impl SignedExtension for ChargeSystemToken {
     ...
     pub fn post_dispatch(..) {
@@ -52,25 +48,23 @@ impl SignedExtension for ChargeSystemToken {
 }
 ```
 
-## 블록 생성자(밸리데이터) 풀
+## Validator Pool
 
-**_인프라 블록체인(InfraBlockchain)_** 은 기관 및 공공기관을 위한 엔터프라이즈 블록체인으로써 어떠한 상황에서도 정직하게 노드가 동작하여 BFT 합의를 이루어 나가야합니다. 또한, 공개형/허가형 하이브리드 블록체인으로써 어떤 주체든 블록 생성자로 선출될 수 있어야 합니다. **_인프라 블록체인(InfraBlockchain)_** 은 이러한 이상적인 속성을 설계하기 위해 다음과 같은 두 개의 블록 생성자(밸리데이터) 풀이 존재합니다:
+***InfraBlockchain*** is designed to operate nodes honestly in any scenario, as it is an enterprise blockchain for institutions and public entities. Moreover, it serves as a public blockchain where any entity can be elected as a block producer. To achieve these ideal properties, ***InfraBlockchain*** has two pools of block producers (validators):
 
-- Proof-of-Transaction Node Pool: PoT 에 의해 선출된 노드를 관리하는 풀입니다.
+- Proof-of-Transaction Node Pool: Manages nodes elected by PoT.
 
-- Seed Trust Node Pool: 금융 기관이나 정부 조직과 같이 어떠한 상황에서도 정직한 노드를 운영하는 노드를 관리하는 풀입니다. 
+- Seed Trust Node Pool: Manages nodes operated by entities like financial institutions or government organizations that operate honest nodes in any situation.
 
-![밸리데이터 풀](/media/images/docs/infrablockchain/learn/protocol/validator-pool.png)
+![Validator Pool](/media/images/docs/InfraBlockchain/learn/protocol/validator-pool.png)
 
-**_인프라 블록체인(InfraBlockchain)_** 의 초기 밸리데이터 구성은 _Seed Trust_ 밸리데이터로 구성된 허가형 블록체인으로 시작하여 네트워크가 안정됨에 따라 _PoT 컨센서스 메커니즘_ 을 이용하여 누구나 블록 생성자로 참여할 수 있는 퍼블릭 블록체인으로 전환될 수 있습니다.
-
-
+The initial configuration of ***InfraBlockchain*** validators consists of Seed Trust validators, forming a permissioned blockchain. As the network stabilizes, it can transition to a public blockchain where anyone can participate as a block producer using the PoT consensus mechanism.
 
 ## Aggregated Proof-of-Transaction(PoT)
 
-**_인프라 블록체인(InfraBlockchain)_** 은 **_인프라 릴레이 체인(InfraRelaychain)_** 을 중심으로 여러 개의 파라체인 블록들이 병렬적으로 실행되는 멀티체인 아키텍처입니다. **_인프라 릴레이 체인(InfraRelayChain)_** 밸리데이터는 각 파라체인 블록을 검증하고 해당 블록에 포함된 투표를 수집하는 역할을 수행하며 이를 _Aggregated Proof-of-Transaction_ 이라 합니다. 
+***InfraBlockchain*** is a multi-chain architecture where multiple parachain blocks are executed in parallel, centered around the ***InfraRelayChain***. InfraRelayChain validators verify each parachain block and collect the votes included in that block. This process is referred to as **Aggregated Proof-of-Transaction**.
 
-각 블록마다 **_인프라 릴레이 체인(InfraRelaychain)_** 의 블록 생성자(밸리데이터) 후보에 대한 투표가 선택적으로 포함되어 있고 검증 과정에서 해당 투표들이 수집되어 **_인프라 릴레이 체인(InfraRelayChain)_** 의 한 상태로 저장됩니다. 특정 시점이 지나면 수집된 투표를 바탕으로 블록 생성자 후보들에 대한 집계가 이루어지고 투표를 많이 받은 후보가 블록 생성자로 선출되게 됩니다. 
+For each block, votes for candidates for the block producer (validator) of the ***InfraRelayChain*** are optionally included, and during the verification process, these votes are collected and stored as a state in the ***InfraRelayChain***. After a certain period, an aggregation of votes is performed based on the collected votes, and the candidate with the most votes is elected as the block producer.
 
 ```rust
 #[pallet::storage]
@@ -84,17 +78,19 @@ pub struct VotingStatus<T: Config> {
 }
 ```
 
-## 시간에 따라 증가하는 PoT 투표 가중치(Block time weight)
+## Time-Weighted PoT Votes
 
-최근 트랜잭션 투표에 더 많은 가중치를 두기 위해서 블록 시간 가중치(Block time weight)가 곱해집니다. 가중치는 1년에 2배의 비율로 증가합니다. 기준이 되는 시간은 인프라 릴레이 체인의 제네시스 블록(0번째 블록)이며, 릴레이 체인 블록 기준으로 가중치가 곱해집니다. 블록 시간이 반영된 트랜잭션 투표 가중치의 정확한 계산은 아래와 같이 이뤄집니다.
+To give more weight to recent transaction votes, a block time weight is multiplied. The weight increases at a rate of 2x per year. The reference time is the genesis block of the ***InfraRelayChain***(block 0), and the weight is multiplied based on the ***InfraRelayChain*** block time. The precise calculation of the transaction vote weight considering block time is as follows:
 
+Example,
 ```
-- 1년에 해당하는 릴레이 체인 블록 수(6초당 한 블럭) = 5_256_000
-- 블록 시간이 반영된 트랜잭션 투표 가중치 = 2^(현재 릴레이 체인 블록 / 1년에 해당하는 릴레이 체인 블록 수)
+- Number of InfraRelayChain blocks equivalent to a year (6 seconds per block) = 5,256,000
+
+- Transaction vote weight considering block time = 2^(current Infra Relay Chain block / Number of Infra Relay Chain blocks equivalent to a year)
 ```
 
-## 다음 단계로 넘어가기
+## Next Steps
 
-- [PoT 로 밸리데이터 선출하기](../../tutorials/how-to-vote-with-taav.md)
-- [시스템 토큰 알아보기](./system-token.md)
-- [ParasInclusion](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/infrablockspace/runtime/parachains/src/inclusion/mod.rs)
+- [How to Vote with TaaV](../../tutorials/how-to-vote-with-taav.md)
+- [System Token](./system-token.md)
+- [ParasInclusion](https://github.com/***InfraBlockchain***/infrablockspace-sdk/blob/master/infrablockspace/runtime/parachains/src/inclusion/mod.rs)
