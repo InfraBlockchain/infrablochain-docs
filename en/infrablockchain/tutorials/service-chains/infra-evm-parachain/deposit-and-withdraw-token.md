@@ -1,169 +1,162 @@
 ---
-title: EVM에 자금 입금 및 인출하기
-description: 이 튜토리얼은 InfraEVM 체인에서 자금을 입금 및 인출하는 방법을 설명합니다.
+title: Depositing and Withdrawing Funds on EVM
+description: This tutorial explains how to deposit and withdraw funds on the InfraBlockchain EVM parachain.
 keywords:
-  - 파라체인
-  - EVM
+  - parachain
+  - evm
 ---
 
-## 시작하기 전에
+## Before you begin
 
-시작하기 전에 다음을 확인하세요:
+Before you begin, make sure to do the following:
 
-- [InfraEVM](../../../service-chains/infra-evm-parachain.md)
+- [InfraBlockchain EVM](../../../service-chains/infra-evm-parachain.md)
 
-## 주소 변환하기
+## Converting Addresses
 
-Infra EVM 파라체인은 두 가지의 주소 체계를 사용하고 있습니다.
+Infra EVM Parachain uses two address systems:
 
 - SS58 address
 - H160 address
 
-SS58 address는 Substrate 레이어에서 사용하고 있으며 H160 address는 EVM 레이어에서 사용하고 있습니다.
+SS58 addresses are used in the Substrate layer, while H160 addresses are used in the EVM layer.
 
-### SS58 Address -> H160 Address
+### SS58 Address to H160 Address
 
 ![ss58-to-h160](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/ss58-to-h160.png)
 
-SS58 address에서 H160 address로의 주소 변환은 위 사진과 같이 이루어 집니다.
+Converting an SS58 address to an H160 address is done as shown in the image above.
 
-SS58 address를 디코딩 하여 획득한 32바이트의 버퍼 중 앞의 20바이트만 사용하여 H160 address로 사용합니다.
+It involves decoding the SS58 address and using the first 20 bytes of the resulting 32-byte buffer as the H160 address.
 
-이를 구현해 놓은 자바스크립트 파일이 [레포지토리](https://github.com/InfraBlockchain/infra-evm-parachain)에 포함되어 있습니다.
+A JavaScript file that implements this conversion is included in the [repository](https://github.com/InfraBlockchain/infra-evm-parachain).
 
-SS58 address를 H160 address로 변환하는 방법은 아래와 같습니다. 
+Here's how to convert SS58 addresses to H160 addresses:
 
-1. 컴퓨터의 터미널 셸을 엽니다.
+1. Open your computer's terminal shell.
 
-2. 다음 명령을 실행하여 Infra EVM 파라체인 저장소를 복제합니다:
+2. Clone the Infra EVM Parachain repository by running the following command:
 
    ```bash
    git clone https://github.com/InfraBlockchain/infra-evm-parachain
    ```
 
-   이 명령은 `master` 브랜치를 클론합니다.
+   This command clones the `master` branch.
 
-3. 다음 명령을 실행하여 노드 템플릿 디렉토리의 루트로 이동합니다:
+3. Navigate to the root of the node template directory with the following command:
 
    ```bash
    cd infra-evm-substrate
    ```
 
-   작업을 포함할 새 브랜치를 만듭니다:
+   Create a new branch for your work:
 
    ```bash
    git switch -c my-learning-branch-yyyy-mm-dd
    ```
 
-   `yyyy-mm-dd`를 원하는 식별 정보로 바꾸세요. 숫자로 된 연도-월-일 형식을 권장합니다. 예를 들어:
+   Replace `yyyy-mm-dd` with your desired identification information. We recommend using a numeric year-month-day format. For example:
 
    ```bash
    git switch -c my-learning-branch-2023-03-01
    ```
 
-4.  다음 명령을 실행하여 주소 변환을 수행합니다:
+4. Execute the following command to perform the address conversion:
 
     ```bash
     node ./utils --evm-address {ss58-address}
     ```
 
-
-### H160 Address -> SS58 Address
+### H160 Address to SS58 Address
 
 ![h160-to-ss58](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/h160-to-ss58.png)
 
-H160 address에서 SS58 address로의 주소 변환은 위 사진과 같이 이루어 집니다.
+Converting an H160 address to an SS58 address is done as shown in the image above.
 
-`"evm:"` 문자열로 구성된 버퍼와 H160 address로 구성된 버퍼를 합쳐 이를 `blake2` 해시함수로 해시값을 획득한 뒤 획득한 해시값을 SS58 형식으로 인코딩하여 SS58 address를 획득할 수 있습니다.
+It involves combining a buffer composed of the string `"evm:"` and a buffer composed of the H160 address, then obtaining the hash value using the `blake2` hash function and encoding the resulting hash value in SS58 format to obtain the SS58 address.
 
-이를 구현해 놓은 자바스크립트 파일이 [레포지토리](https://github.com/InfraBlockchain/infra-evm-parachain)에 포함되어 있습니다.
+A JavaScript file that implements this conversion is included in the [repository](https://github.com/InfraBlockchain/infra-evm-parachain).
 
-H160 address를 SS58 address로 변환하는 방법은 아래와 같습니다. 
+Here's how to convert H160 addresses to SS58 addresses:
 
-1. 컴퓨터의 터미널 셸을 엽니다.
+1. Open your computer's terminal shell.
 
-2. 다음 명령을 실행하여 Infra EVM 파라체인 저장소를 복제합니다:
+2. Clone the Infra EVM Parachain repository by running the following command:
 
    ```bash
    git clone https://github.com/InfraBlockchain/infra-evm-parachain
    ```
 
-   이 명령은 `master` 브랜치를 클론합니다.
+   This command clones the `master` branch.
 
-3. 다음 명령을 실행하여 노드 템플릿 디렉토리의 루트로 이동합니다:
+3. Navigate to the root of the node template directory with the following command:
 
    ```bash
    cd infra-evm-substrate
    ```
 
-   작업을 포함할 새 브랜치를 만듭니다:
+   Create a new branch for your work:
 
    ```bash
    git switch -c my-learning-branch-yyyy-mm-dd
    ```
 
-   `yyyy-mm-dd`를 원하는 식별 정보로 바꾸세요. 숫자로 된 연도-월-일 형식을 권장합니다. 예를 들어:
+   Replace `yyyy-mm-dd` with your desired identification information. We recommend using a numeric year-month-day format. For example:
 
    ```bash
    git switch -c my-learning-branch-2023-03-01
    ```
 
-4.  다음 명령을 실행하여 주소 변환을 수행합니다:
+4. Execute the following command to perform the address conversion:
 
     ```bash
     node ./utils --ss58-address {evm-address}
     ```
 
-## Substrate에서 EVM으로 자산 이동하기
+## Moving Assets from Substrate to EVM
 
-1. 위에서 설명한 H160 address를 SS58 address로 변경하는 방법을 사용하여 EVM에서 사용할 H160 address와 매핑되어 있는 SS58 address를 획득합니다.
-
+1. Use the method explained above to obtain the SS58 address mapped to the H160 address to be used in EVM.
 
     ```bash
     node ./utils --ss58-address {evm-address}
     ```
 
-2. 1번의 결과로 획득한 SS58 address로 자산을 이동시킵니다.
+2. Transfer assets to the obtained SS58 address.
 
     ![transfer-asset](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/transfer-asset.png)
 
-  
-    기본적으로 Infra EVM 파라체인에서는 99번 asset을 EVM의 네이티브 토큰으로 사용하도록 연동되어 있습니다.
+    By default, the Infra EVM Parachain is integrated to use asset 99 as the native token of the EVM.
 
-3. 메타마스크 등의 EVM 월렛에서 반영되었음을 확인합니다.
+3. Verify that it reflects in EVM wallets like MetaMask.
 
     ![metamask-balance](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/metamask-balance.png)
 
+## Moving Assets from EVM to Substrate
 
-## EVM에서 Substrate로 자산 이동하기
-
-1. 위에서 설명한 SS58 address를 H160 address로 변경하는 방법을 사용하여 Substrate에서 사용할 SS58 address와 매핑되어 있는 H160 address를 획득합니다.
-
+1. Use the method explained above to obtain the EVM address mapped to the SS58 address to be used in Substrate.
 
     ```bash
     node ./utils --evm-address {ss58-address}
     ```
 
-2. 1번의 결과로 획득한 EVM address로 자산을 이동시킵니다.
+2. Transfer assets to the obtained EVM address.
 
     ![transfer-asset](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/metamask-transfer.png)
 
+3. Access the [*InfraBlockchain Explorer*](https://portal.infrablockspace.net) and follow the steps below.
 
-3. [*인프라 블록체인(InfraBlockchain)* 익스플로러](https://portal.infrablockspace.net) 에 접속하여 아래 과정을 따릅니다.
+  - Navigate to `Developers` - `Extrinsics` - `evm` palette and select the `withdraw` extrinsic.
 
-  - `개발자` - `익스트린식` - `evm` 팔레트의 `withdraw` 익스트린식을 선택합니다.
-
-    아래와 같이 구성하고 익스트린식을 발생시킵니다. 
+    Configure it as shown below and dispatch the extrinsic:
 
     ![withdraw](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/withdraw.png)
 
-    1번 과정에서 주소 변환할 때 사용하였던 SS58 계정이 익스트린식을 실행시켜야 합니다. 
+    The SS58 account used for address conversion in step 1 should execute the extrinsic.
 
-4. 이벤트를 확인하여 정상적으로 자산이 입금되었는지 확인합니다.
+4. Check the events to confirm that the assets were successfully deposited.
 
     ![withdraw-success](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/withdraw-success.png)
 
+## Next Steps
 
-## 다음 단계로 넘어가기
-
-- [ERC20 토큰 컨트랙트 배포하기](./deploy-erc20-contract.md)
+- [Deploying an ERC20 Token Contract](./deploy-erc20-contract.md)

@@ -1,156 +1,110 @@
 ---
-title: InfraDID 생성하기 
-description: InfraDID 체인에서 DID를 생성하는 방법에 대해 설명합니다.
+title: Creating InfraBlockchain DID
+description: This tutorial explains how to create a DID on the InfraBlockchain DID parachain.
 keywords:
-  - 파라체인
-  - DID
+  - parachain
+  - did
 ---
 
-## 시작하기 전에
+## Before You Begin
 
-시작하기 전에 다음을 확인하세요:
+Before you start, make sure to do the following:
 
-- [*InfraDID* 파라체인](../../../service-chains/infra-did-parachain.md)
+- [*InfraBlockchain DID* parachain](../../../service-chains/infra-did-parachain.md)
 
-## *InfraDID* 생성하기
+## Creating an *InfraBlockchain DID*
 
-Infra DID를 생성하는 것 자체는 블록체인과 통신이 필요하지 않습니다.
+Creating an InfraBlockchain DID doesn't require communication with the blockchain itself.
 
 ![infra-did-method](/media/images/docs/infrablockchain/service-chains/infra-did-method.png)
 
-Infra DID의 형식은 위 그림에서 `DID method-specific identifier` 부분을 SS58 address로 구성하여 사용하고 있습니다.
+The format of an InfraBlockchain DID involves composing the 'DID method-specific identifier' part as an SS58 address. In other words, if you structure it as `did:infra:{networkID}:{SS58 address}`, it becomes your own DID. You can use the public key and its corresponding private key, which can be obtained from the SS58 address, as the key pair you can use by default.
 
-즉 `did:infra:{networkID}:{SS58 address}` 형식으로 구성한다면 본인의 DID가 되는것이며 기본적으로 사용할 수 있는 키 쌍은 SS58 address에서 획득할 수 있는 공개키와 그와 쌍을 이루는 개인키를 사용할 수 있습니다.
+If you want to register multiple public keys or other data using the same DID or want to use other data, you'll need to go through the process of registering the DID on the chain.
 
-만약 동일한 DID를 사용하여 여러가지 공개키를 등록하거나 그 외 다른 데이터들을 등록하여 사용하고 싶다면 체인에 DID를 등록하는 과정을 거쳐야 합니다.
+## Registering on the *InfraBlockchain DID* Chain
 
-## *InfraDID* 체인에 등록하기
+To register InfraBlockchain DID on the chain, follow these steps:
 
-*InfraDID* 를 체인에 등록하기 위해선 아래와 같은 과정을 거칩니다.
+1. Access the [*InfraBlockchain Explorer](https://portal.infrablockspace.net) and follow the steps below:
 
-1. [*인프라 블록체인(InfraBlockchain)* 익스플로러](https://portal.infrablockspace.net) 에 접속하여 아래 과정을 따릅니다.
+   - Go to `Developer` - `Extrinsics` - select `newOnchain` extrinsic of the `didModule` palette.
 
-  - `개발자` - `익스트린식` - `didModule` 팔레트의 `newOnchain` 익스트린식을 선택합니다.
+     Configure as shown below and execute the extrinsic.
 
-    아래와 같이 구성하고 익스트린식을 발생시킵니다. 
+     ![new-onchain](/media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/new-onchain.png)
 
-    ![new-onchain](/media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/new-onchain.png)
+2. Check the events to ensure that the DID was created successfully.
 
-2. 이벤트를 확인하여 정상적으로 DID가 생성되었는지 확인합니다.
+   ![new-onchain-success](/media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/new-onchain-success.png)
 
-    ![new-onchain-success](/media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/new-onchain-success.png)
+3. Query the storage to confirm that the DID was registered correctly on the chain.
 
-3. 스토리지를 조회하여 체인에 정상적으로 DID가 등록되었는지 확인할 수 있습니다.
+   ![new-onchain-storage](/media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/new-onchain-storage.png)
 
-    ![new-onchain-storage](/media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/new-onchain-storage.png)
+## Creating and Registering InfraBlockchain DID using the infra-did-js Library
 
-## infra-did-js 라이브러리 사용하여 Infra DID 생성 및 등록하기
+You can create InfraBlockchain DID using the [*InfraBlockchain Explorer](https://portal.infrablockspace.net), but you can also create InfraBlockchain DID using the `infra-did-js` JavaScript library.
 
-[*인프라 블록체인(InfraBlockchain)* 익스플로러](https://portal.infrablockspace.net)을 사용하여 Infra DID를 생성할 수 있지만, `infra-did-js` Javascript 라이브러리를 사용해서 Infra DID를 생성할 수도 있습니다.
+To create InfraBlockchain DID using the `infra-did-js` library, follow these steps:
 
-`infra-did-js` 라이브러리를 사용해서 Infra DID를 생성하기 위해선 아래와 같은 과정을 거칩니다.
+1. Install the [`infra-did-js`](https://github.com/InfraBlockchain/infra-did-js) library.
 
-1. [`infra-did-js`](https://github.com/InfraBlockchain/infra-did-js) 라이브러리를 설치합니다.
+   ```shell
+   yarn add infra-did-js
+   ```
 
-    ```shell
-    yarn add infra-did-js
-    ```
+2. Write the code as shown below to set up the basic configuration to access the InfraBlockchain DID chain using the `infra-did-js` library.
 
-2. 아래와 같이 코드를 작성하여 Infra DID 체인에 접근하기 위한 기본 설정 코드를 작성합니다.
+   ```typescript
+   import { InfraSS58, CRYPTO_INFO } from 'infra-did-js';
 
-    ```typescript
-    import  {InfraSS58, CRYPTO_INFO} from 'infra-did-js';
+   const txfeePaterAccountKeyPair = await InfraSS58.getKeyPairFromUri('//Alice', 'sr25519');
+   const confBlockchainNetwork = {
+     networkId: 'space',
+     address: 'ws://localhost:9944',
+     // seed or keyPair required
+     txfeePayerAccountKeyPair,
+     // or txfeePayerAccountSeed: 'TX_FEE_PAYER_ACCOUNT_SEED'
+   };
+   const conf = {
+     ...confBlockchainNetwork,
+     did: 'did:infra:space:5CRV5zBdAhBALnXiBSWZWjca3rSREBg87GJ6UY9i2A7y1rCs',
+     // seed or keyPair required
+     seed: 'DID_SEED',
+     // keyPair: keyPair,
+     controllerDID: 'did:infra:space:5HdJprb8NhaJsGASLBKGQ1bkKkvaZDaK1FxTbJRXNShFuqgY',
+     controllerSeed: 'DID_CONTROLLER_SEED',
+     // or controllerKeyPair: controllerKeyPair
+   };
+   const infraApi = await InfraSS58.createAsync(conf);
+   ```
 
-    const txfeePaterAccountKeyPair = await InfraSS58.getKeyPairFromUri('//Alice', 'sr25519');
-    const confBlockchainNetwork = {
-      networkId: 'space',
-      address: 'ws://localhost:9944',
-      // seed or keyPair required
-      txfeePayerAccountKeyPair,
-      // or txfeePayerAccountSeed: 'TX_FEE_PAYER_ACCOUNT_SEED'
-    };
-    const conf = {
-      ...confBlockchainNetwork,
-      did: 'did:infra:space:5CRV5zBdAhBALnXiBSWZWjca3rSREBg87GJ6UY9i2A7y1rCs',
-      // seed or keyPair required
-      seed: 'DID_SEED',
-      // keyPair: keyPair,
-      controllerDID: 'did:infra:space:5HdJprb8NhaJsGASLBKGQ1bkKkvaZDaK1FxTbJRXNShFuqgY'
-      controllerSeed: 'DID_CONTROLLER_SEED',
-      // or controllerKeyPair: controllerKeyPair
-    };
-    const infraApi = await InfraSS58.createAsync(conf);
-    ```
+3. Write the code to create an InfraBlockchain DID.
 
-3. Infra DID를 생성하는 코드를 작성합니다.
+   ```typescript
+   DIDSet = await InfraSS58.createNewSS58DIDSet(networkId)
+   console.log({ DIDSet })
+   ```
 
-    ```typescript
-    DIDSet = await InfraSS58.createNewSS58DIDSet(networkId)
-    console.log({ DIDSet })
-    ```
+   The `console.log` output will be as follows:
 
-    `console.log` 출력 결과는 아래와 같습니다.
+   ```json
+   {
+     DIDSet: {
+       did: 'did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF',
+       // ... other information ...
+     }
+   }
+   ```
 
-    ```json
-        {
-      DIDSet: {
-        did: 'did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF',
-        didKey: DidKey_SS58 {
-          publicKey: PublicKey_SS58 {
-          value: '0x21cdc3dc94f8cccd889759fbc282f4272f89c8d974aea4d3051e8efa85e738b7',
-          sigType: 'Ed25519'
-        },
-        verRels: VerificationRelationship { _value: 0 }
-        },
-        keyPair: {
-          address: [Getter],
-          addressRaw: [Getter],
-          isLocked: [Getter],
-          meta: [Getter],
-          publicKey: [Getter],
-          type: [Getter],
-          // -- snip --
-        },
-          publicKey: PublicKey_SS58 {
-          value: '0x21cdc3dc94f8cccd889759fbc282f4272f89c8d974aea4d3051e8efa85e738b7',
-          sigType: 'Ed25519'
-        },
-        verRels: VerificationRelationship { _value: 0 },
-        cryptoInfo: {
-          CRYPTO_TYPE: 'ed25519',
-          KEY_NAME: 'Ed25519VerificationKey2018',
-          SIG_TYPE: 'Ed25519',
-          SIG_NAME: 'Ed25519Signature2018',
-          SIG_CLS: [class Ed25519Signature2018 extends CustomLinkedDataSignature],
-          LDKeyClass: [class Ed25519VerificationKey2018]
-        },
-        seed: '0x8c9971953c5c82a51e3ab0ec9a16ced7054585081483e2489241b5b059f5f3cf',
-        keyPairJWK: {
-          publicJwk: {
-            alg: 'EdDSA',
-            kty: 'OKP',
-            crv: 'Ed25519',
-            x: 'Ic3D3JT4zM2Il1n7woL0Jy-JyNl0rqTTBR6O-oXnOLc'
-          },
-          privateJwk: {
-            alg: 'EdDSA',
-            kty: 'OKP',
-            crv: 'Ed25519',
-            x: 'Ic3D3JT4zM2Il1n7woL0Jy-JyNl0rqTTBR6O-oXnOLc',
-            d: 'jJlxlTxcgqUeOrDsmhbO1wVFhQgUg-JIkkG1sFn1888'
-          }
-        }
-      }
-    }
-    ```
+4. Write the code to register the created InfraBlockchain DID on the chain.
 
-4. 생성한 Infra DID를 체인에 등록하기 위한 코드를 작성합니다.
+   ```typescript
+   // Register DID
+   await infraApi.didModule.registerOnchain()
+   ```
 
-    ```typescript
-    // Register DID
-    await infraApi.didModule.registerOnchain()
-    ```
+## Next Steps
 
-## 다음 단계로 넘어가기
-
-- [Infra DID에 키 추가로 등록하기](./add-keys.md)
+- [Registering Additional Keys to InfraBlockchain DID](./add-keys.md)

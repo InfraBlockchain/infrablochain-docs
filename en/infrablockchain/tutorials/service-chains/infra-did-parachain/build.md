@@ -1,72 +1,69 @@
 ---
-title: InfraDID 체인 구축하기 
-description: 이 튜토리얼은 InfraDID 체인을 빌드하고 실행하는 과정을 설명합니다.
-keywords:
-  - 파라체인
-  - 서비스체인
-  - DID
+Title: Building the InfraBlockchain DID Chain
+Description: This tutorial explains the process of building and running the InfraBlockchain DID parachain.
+Keywords:
+  - parachain
+  - service chain
+  - did
 ---
 
-## 시작하기 전에
+## Before you begin
 
-시작하기 전에 다음을 확인하세요:
+Before you begin, make sure to do the following:
 
-- [*InfraDID*](../../../service-chains/infra-did-parachain.md)
+- [*InfraBlockchain DID*](../../../service-chains/infra-did-parachain.md)
 
-## *InfraDID* 체인
+## The *InfraBlockchain DID* Chain
 
-이전 튜토리얼을 완료한 경우 로컬에 *인프라 릴레이 체인* 레포지토리가 있어야 합니다.
+If you have completed the previous tutorial, you should have the *Infra Relay Chain* repository on your local machine.
 
-1. 컴퓨터의 터미널 셸을 엽니다.
+1. Open your computer's terminal shell.
 
-2. 다음 명령을 실행하여 Infra DID 체인 저장소를 복제합니다:
+2. Execute the following command to clone the InfraBlockchain DID chain repository:
 
    ```bash
    git clone https://github.com/InfraBlockchain/infra-did-substrate
    ```
 
-   이 명령은 `develop` 브랜치를 클론합니다.
+   This command clones the `develop` branch.
 
-3. 다음 명령을 실행하여 노드 템플릿 디렉토리의 루트로 이동합니다:
+3. Execute the following command to navigate to the root of the node template directory:
 
    ```bash
    cd infra-did-substrate
    ```
 
-   작업을 포함할 새 브랜치를 만듭니다:
+   Create a new branch for your work:
 
    ```bash
    git switch -c my-learning-branch-yyyy-mm-dd
    ```
 
-   `yyyy-mm-dd`를 원하는 식별 정보로 바꾸세요. 숫자로 된 연도-월-일 형식을 권장합니다. 예를 들어:
+   Replace `yyyy-mm-dd` with your desired identifier. We recommend using a numeric year-month-day format. For example:
 
    ```bash
    git switch -c my-learning-branch-2023-03-01
    ```
 
-4.  다음 명령을 실행하여 노드 템플릿을 컴파일합니다:
+4. Compile the node template with the following command:
 
    ```bash
    cargo build --release
    ```
 
-   최적화된 빌드를 위해 항상 `--release` 플래그를 사용해야 합니다.
-   처음으로 이를 컴파일하는 경우 완료까지 시간이 다소 소요됩니다.
-
-   다음과 유사한 줄이 표시되면 완료됩니다:
+   Always use the `--release` flag for optimized builds. The first compilation may take some time to complete. When it's finished, you'll see a line similar to this:
 
    ```bash
    Finished release [optimized] target(s) in 11m 23s
    ```
 
-## 로컬 노드 시작하기
+## Starting a Local Node
 
-노드가 컴파일되면 좀비넷을 사용하여 릴레이 체인과 Infra DID 체인을 로컬 환경에서 구축 할 준비가 되었습니다.
+Once the node is compiled, you're ready to set up the relay chain and InfraBlockchain DID chain in a local environment using the ZombieNet.
 
-로컬 Infra DID 체인을 시작하려면 다음 단계를 따르세요:
+To start the local InfraBlockchain DID chain, follow these steps:
 
-1. 좀비넷 설정을 확인합니다
+1. Check the ZombieNet configuration:
 
    ```bash
    cat ./zombienet/local-dev.toml
@@ -126,22 +123,21 @@ keywords:
     command = "./target/release/infradid"
     args = ["-lparachain=debug", "--alice"]
    ```
+   
+   Ensure that the `default_command` paths for `relaychain` and `parachains` match existing paths in your local environment. If they don't match, adjust them to fit your local setup.
 
-   `relaychain`과 `parachains`의 `default_command` 경로가 실제 로컬에 존재하는 경로와 일치하는지 확인합니다. 
+2. Execute the following command to run ZombieNet and set up the relay chain and chain:
 
-   만약 일치하지 않는다면 로컬 환경에 맞게 변경 해 줍니다.
+   ```shell
+   zombienet spawn --provider native zombienet/local-dev.toml
+   ```
 
-2. 좀비넷을 실행하여 릴레이 체인과 체인을 실행합니다.
+3. If everything is running successfully, you will see a terminal shell similar to the one below:
 
-    ```shell
-    zombienet spawn --provider native zombienet/local-dev.toml
-    ```
-
-3. 정상적으로 실행 되었다면 다음과 유사한 터미널 쉘을 확인할 수 있습니다.
-  
    ![zombienet](/media/images/docs/infrablockchain/service-chains/infra-did-parachain-zombienet.png)
 
-4. (선택) Infra DID 체인의 노드를 확인하면 아래와 유사한 로그를 확인할 수 있습니다.
+4. (Optional) If you want to check the nodes of the InfraBlockchain DID chain, you can find logs similar to this:
+
 
    ```shell
    2023-10-30 14:32:09.155  INFO main sc_cli::runner: Infra DID Node
@@ -219,6 +215,6 @@ keywords:
    2023-10-30 14:32:54.021 DEBUG tokio-runtime-worker parachain::infrablockspace-collator-protocol: [Relaychain] Removing relay parent because our view changed. relay_parent=0xae7cb455ebc830dac034bad64097b9b21f58f8d82b10c8c5bf29e306c86ba310
    ```
 
-## 다음 단계로 넘어가기
+## Next stepss
 
-- [Infra DID에 서비스 엔드포인트 등록하기](./add-services.md)
+- [Registering Service Endpoints with InfraBlockchain DID](./add-services.md)
