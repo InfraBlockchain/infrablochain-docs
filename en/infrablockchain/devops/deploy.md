@@ -1,35 +1,34 @@
 ---
-title: 릴레이 체인 배포
-description: 릴레인 체인을 배포하는 방법을 알아봅니다.
+title: Relay Chain Deployment
+description: Learn how to deploy a relay chain.
 keywords:
-  - 파라 체인
-  - 릴레이체인
-  - 체인 스펙
-  - 인프라 블록체인
+  - parachain
+  - relay chain
+  - chain spec
+  - infrablockchain
 ---
 
-## 배포
+## Deployment
 
-서버에 체인을 배포 하는 방법에 대해 작성되어 있는 페이지입니다.
+This page provides instructions on how to deploy a chain to a server.
 
-설명에 앞서, 이 문서에서는 네트워크를 통해 체인 스펙 파일을 다운로드받아 사용하는 방법만을 설명합니다. 만약 이렇게 진행을 원치않을 경우, 파일을 업로드하시거나 서버에서 직접 체인 스펙 파일을 만드시는 등 다양한 방법을 사용하셔서 체인 스펙 파일을 등록하시기를 바랍니다.
+Before we begin, please note that this document only covers the method of downloading and using the chain spec file via the network. If you prefer not to proceed this way, you can upload the file or directly create the chain spec file on the server using various methods.
 
-서버 배포 방법은 3가지 방법이 있습니다.
+There are three methods for server deployment:
 
 - systemd
 - docker
 - kubernetes
 
-3가지 방법을 사용하여 배포하는 방법을 알아보겠습니다. 
+Let's explore how to deploy using these three methods.
 
 ### Systemd
 
-Systemd는 Linux 호스트에서 서비스를 관리하는 일반적인 방법입니다. 프로세스가 활성화되어 실행 중인지 확인하고, 재시작에 대한 정책을 설정할 수 있으며, 호스트를 실행하는 사용자를 설정하고, 메모리 사용량을 제한하는 등의 작업을 수행할 수 있습니다.
+Systemd is a common method for managing services on Linux hosts. It allows you to check if a process is active and running, set policies for restarts, configure the user running the host, and limit memory usage, among other tasks.
 
-또한 환경 변수 파일을 사용하여 변수를 서버별 자체 파일로 추상화할 수 있습니다.
+You can also use environment variable files to abstract variables into separate files for each server.
 
-Systemd를 사용하기 위해서 먼저 service로 등록을 해주어야 합니다. 그러기 위해서 /etc/systemd/system 경로에 Infrablockspace.service를 만들어줍니다. 만든 다음 아래 코드를 복사 붙여넣기 해준 다음 `<binary file>` 과 `<options>`에 필요한 옵션 값들을 넣어줍니다.
-`<binary file>`은 릴레이 체인일때 `infrablockspace`를 입력해주면 되며, 파라체인은 `infrablockspace-parachain`을 입력해줍니다.
+To use systemd, you need to first register the service. To do this, create a file named `Infrablockspace.service` in the `/etc/systemd/system` directory. Then, copy and paste the code below, replacing `<binary file>` and `<options>` with the necessary option values. For a relay chain, use `infrablockspace` as the `<binary file>`, and for a parachain, use `infrablockspace-parachain`.
 
 ```bash
 #/etc/systemd/system/Infrablockspace.service
@@ -46,7 +45,7 @@ RestartSec=90
 WantedBy=multi-user.target
 ```
 
-작성 후, 다음 명령어를 통해 service를 등록해줍니다.
+After writing the file, register the service using the following commands:
 
 ```bash
 systemctl enable Infrablockspace
@@ -55,28 +54,27 @@ systemctl start Infrablockspace
 
 ### Docker
 
-도커를 활용할 때에는 docker-compose.yml 파일을 사용해서 실행하는 것을 추천합니다. 
+When using Docker, it is recommended to use a `docker-compose.yml` file for execution.
 
-도커 컴포즈 실행 전, 먼저 체인 스펙 파일을 다운로드 받아야 합니다. 아래 명령어를 통해 다운로드 받아줍니다.
+Before running Docker Compose, you need to download the chain spec file. Use the following command to download the file:
 
-릴레이 체인의 경우,
+For a relay chain:
 
 ```bash
 curl -L <chain spec url> -o chain-spec/raw-local-chainspec.json
 ```
 
-
-파라체인의 경우,
+For a parachain:
 
 ```bash
 curl -L <chain spec url> -o chain-spec//tmp/raw-parachain-chainspec.json
 ```
 
-다운로드 받은 파일은  chain-spec이라는 폴더에 넣어줍니다. 없을 경우, 생성해줍니다.
+Place the downloaded file in the `chain-spec` folder. If the folder does not exist, create it.
 
-그런 다음 도커 컴포즈 관련 파일을 아래와 같이 작성해줍니다.
+Next, create the Docker Compose-related files as shown below:
 
-릴레이 체인의 경우,
+For a relay chain:
 
 ```bash
 version: "3.1"
@@ -86,7 +84,7 @@ services:
     command:
       [
         "--alice",
-        "--validator",드
+        "--validator",
         "--base-path",
         "/data/infrablockspace",
         "--chain",
@@ -106,7 +104,7 @@ services:
       - "30333"
 ```
 
-파라체인의 경우,
+For a parachain:
 
 ```bash
 version: "3.1"
@@ -152,10 +150,10 @@ services:
     ports:
       - "30333"
 ```
-파라체인은 릴레이 체인의 부트노드의 id가 필수적으로 필요합니다. 따라서 <bootnode id>를 채워줘야 합니다.
 
+For a parachain, the boot node ID of the relay chain is required. Therefore, you need to fill in `<bootnode id>`.
 
-다음 명령어를 통해 실행해줍니다.
+Run the following command to execute the Docker Compose:
 
 ```bash
 docker compose up -d 
@@ -163,11 +161,11 @@ docker compose up -d
 
 ### Kubernetes
 
-쿠버네티스에서 체인을 배포하기 위해서는 다음과 같은 파일들을 작성해줘야 합니다.
+To deploy a chain in Kubernetes, you need to create the following files:
 
-이때 동적 퍼시스턴트 볼륨 클레임이 가능하다는 전제입니다. 만약 동적 퍼시스턴트 볼륨 클레임이 안될경우 퍼시스턴트 볼륨을 생성 해주시기를 바랍니다.
+Please note that dynamic persistent volume claims are assumed to be possible. If dynamic persistent volume claims are not possible, please create persistent volumes.
 
-릴레이 체인의 경우,
+For a relay chain:
 
 statefuleset.yaml
 
@@ -345,10 +343,12 @@ spec:
       storage: 100Gi
 ```
 
-파라체인에 경우 작성법에 대해 알아보겠습니다.
-아래 작성 코드는 infra did에 관련하여 작성했습니다.
+For a parachain, let's take a look at the writing method.
+
+The following code is written for Infra DID.
 
 statefuleset.yaml
+
 ```yml
 apiVersion: apps/v1
 kind: StatefulSet
@@ -398,7 +398,7 @@ spec:
           command: [
               "curl",
               "-L",
-              <para chain spec url>,
+              <parachain spec url>,
               "-o",
               "/tmp/raw-parachain-chainspec.json",
             ]
@@ -473,6 +473,8 @@ spec:
             secretName: infra-did-aura
             defaultMode: 0400
 ```
+
+
 
 service.yaml
 ```yml
@@ -558,17 +560,17 @@ spec:
       storage: 200Gi
 ```
 
-쿠버네티스에 아래 명령어를 통해 생성해주면 정상적으로 코드가 생성되는 것을 확인할 수 있습니다.
+By running the following command in Kubernetes, you can confirm that the code is generated correctly.
 
 ```bash
 kubectl apply -f pvc.yaml -f service.yaml -f statefuleset.yaml
 ```
 
-헬름 차트와 오퍼레이터에 경우 개발중에 있어 추후에 업데이트 될 예정입니다.
+For Helm charts and operators, they will be updated in the future during development.
 
-## 더 알아보기
+## Learn More
 
-- [가이드: 체인 스펙 커스텀](/reference/how-to-guides/basics/customize-a-chain-specification/)
-- [노드 템플릿 체인 스펙](https://github.com/substrate-developer-hub/substrate-node-template/blob/master/node/src/chain_spec.rs)
-- [인프라 블록 스페이스](/infrablockchain/learn/architecture/infra-blockspace)
-- [파라체인](/reference/how-to-guides/parachains/)
+- [Guide: Customize a Chain Specification](/reference/how-to-guides/basics/customize-a-chain-specification/)
+- [Node Template Chain Spec](https://github.com/substrate-developer-hub/substrate-node-template/blob/master/node/src/chain_spec.rs)
+- [InfraBlockchain Space](/infrablockchain/learn/architecture/infra-blockspace)
+- [Parachains](/reference/how-to-guides/parachains/)
