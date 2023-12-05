@@ -1,15 +1,15 @@
 ---
 title: Substrate
-description: 블록체인 프레임워크 Substrate에 대한 전반적인 내용을 다룹니다.
+description: This document will cover general information about Substate, the blockchain framework SDK
 keywords:
   - Substrate
 ---
 
-## [배우기](./learn/README.md)
-Substrate 에 대한 기초적인 개념부터 FRAME 그리고 런타임 개발에 대한 전반적인 내용을 다룹니다.
+## [Learn](./learn/README.md)
+Covers fundamental concepts of Substrate, from basic principles to FRAME and overall runtime development.
 
-## [빌드하기](./build/README.md)
-Substrate 기반 블록체인을 빌드하는 방법에 대한 전반적인 내용을 다룹니다.
+## [Build](./build/README.md)
+Covers the process of building a Substrate-based blockchain.
 
-## [튜토리얼](./tutorials/README.md)
-Substrate 를 이용한 다양한 튜토리얼에 대한 내용을 다룹니다. 
+## [Tutorials](./tutorials/README.md)
+Covers various tutorials using Substrate.
