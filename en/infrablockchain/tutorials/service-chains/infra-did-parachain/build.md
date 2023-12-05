@@ -1,7 +1,7 @@
 ---
-Title: Building the InfraBlockchain DID Chain
-Description: This tutorial explains the process of building and running the InfraBlockchain DID parachain.
-Keywords:
+title: Building the Infra DID Chain
+description: This tutorial explains the process of building and running the Infra DID parachain.
+keywords:
   - parachain
   - service chain
   - did
@@ -11,15 +11,15 @@ Keywords:
 
 Before you begin, make sure to do the following:
 
-- [*InfraBlockchain DID*](../../../service-chains/infra-did-parachain.md)
+- [*Infra DID*](../../../service-chains/infra-did-parachain.md)
 
-## The *InfraBlockchain DID* Chain
+## The *Infra DID* Chain
 
-If you have completed the previous tutorial, you should have the *Infra Relay Chain* repository on your local machine.
+If you have completed the previous tutorial, you should have the *InfraRelayChain* repository on your local machine.
 
 1. Open your computer's terminal shell.
 
-2. Execute the following command to clone the InfraBlockchain DID chain repository:
+2. Execute the following command to clone the Infra DID chain repository:
 
    ```bash
    git clone https://github.com/InfraBlockchain/infra-did-substrate
@@ -59,9 +59,9 @@ If you have completed the previous tutorial, you should have the *Infra Relay Ch
 
 ## Starting a Local Node
 
-Once the node is compiled, you're ready to set up the relay chain and InfraBlockchain DID chain in a local environment using the ZombieNet.
+Once the node is compiled, you're ready to set up the relay chain and Infra DID chain in a local environment using the ZombieNet.
 
-To start the local InfraBlockchain DID chain, follow these steps:
+To start the local Infra DID chain, follow these steps:
 
 1. Check the ZombieNet configuration:
 
@@ -136,7 +136,7 @@ To start the local InfraBlockchain DID chain, follow these steps:
 
    ![zombienet](/media/images/docs/infrablockchain/service-chains/infra-did-parachain-zombienet.png)
 
-4. (Optional) If you want to check the nodes of the InfraBlockchain DID chain, you can find logs similar to this:
+4. (Optional) If you want to check the nodes of the Infra DID chain, you can find logs similar to this:
 
 
    ```shell
@@ -215,6 +215,6 @@ To start the local InfraBlockchain DID chain, follow these steps:
    2023-10-30 14:32:54.021 DEBUG tokio-runtime-worker parachain::infrablockspace-collator-protocol: [Relaychain] Removing relay parent because our view changed. relay_parent=0xae7cb455ebc830dac034bad64097b9b21f58f8d82b10c8c5bf29e306c86ba310
    ```
 
-## Next stepss
+## Next steps
 
-- [Registering Service Endpoints with InfraBlockchain DID](./add-services.md)
+- [Registering Service Endpoints with Infra DID](./add-services.md)

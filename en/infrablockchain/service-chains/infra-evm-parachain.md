@@ -1,7 +1,7 @@
 ---
-Title: InfraBlockchain EVM
-Description: This document explains the overall content related to a blockchain compatible with EVM (Ethereum Virtual Machine).
-Keywords:
+title: InfraBlockchain EVM
+description: This document explains the overall content related to a blockchain compatible with EVM (Ethereum Virtual Machine).
+keywords:
   - parachain
   - evm
 ---
@@ -16,7 +16,7 @@ Before you begin, Make sure you have the following:
 
 - [Building a Parachain](../tutorials/build/build-a-parachain.md)
 
-- [Building an Infra Relay Chain](../tutorials/build/build-infra-relay-chain.md)
+- [Building an InfraRelayChain](../tutorials/build/build-infra-relay-chain.md)
 
 - [Using the Zombie Network](../tutorials/test/simulate-parachains.md)
 
@@ -38,6 +38,6 @@ EVM stands for Ethereum Virtual Machine. EVM is a runtime environment for execut
 
 EVM plays a crucial role in the Ethereum ecosystem, providing the infrastructure necessary to run decentralized applications (dApps) and manage cryptographic assets like Ether (ETH).
 
-## Next stepss
+## Next steps
 
 - [Building the Infra EVM Chain](../tutorials/service-chains/infra-evm-parachain/README.md)

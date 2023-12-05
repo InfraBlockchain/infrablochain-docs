@@ -1,6 +1,6 @@
 ---
-title: Creating InfraBlockchain DID
-description: This tutorial explains how to create a DID on the InfraBlockchain DID parachain.
+title: Creating Infra DID
+description: This tutorial explains how to create a DID on the Infra DID parachain.
 keywords:
   - parachain
   - did
@@ -10,21 +10,21 @@ keywords:
 
 Before you start, make sure to do the following:
 
-- [*InfraBlockchain DID* parachain](../../../service-chains/infra-did-parachain.md)
+- [*Infra DID* parachain](../../../service-chains/infra-did-parachain.md)
 
-## Creating an *InfraBlockchain DID*
+## Creating an *Infra DID*
 
-Creating an InfraBlockchain DID doesn't require communication with the blockchain itself.
+Creating an Infra DID doesn't require communication with the blockchain itself.
 
 ![infra-did-method](/media/images/docs/infrablockchain/service-chains/infra-did-method.png)
 
-The format of an InfraBlockchain DID involves composing the 'DID method-specific identifier' part as an SS58 address. In other words, if you structure it as `did:infra:{networkID}:{SS58 address}`, it becomes your own DID. You can use the public key and its corresponding private key, which can be obtained from the SS58 address, as the key pair you can use by default.
+The format of an Infra DID involves composing the 'DID method-specific identifier' part as an SS58 address. In other words, if you structure it as `did:infra:{networkID}:{SS58 address}`, it becomes your own DID. You can use the public key and its corresponding private key, which can be obtained from the SS58 address, as the key pair you can use by default.
 
 If you want to register multiple public keys or other data using the same DID or want to use other data, you'll need to go through the process of registering the DID on the chain.
 
-## Registering on the *InfraBlockchain DID* Chain
+## Registering on the *Infra DID* Chain
 
-To register InfraBlockchain DID on the chain, follow these steps:
+To register Infra DID on the chain, follow these steps:
 
 1. Access the [*InfraBlockchain Explorer](https://portal.infrablockspace.net) and follow the steps below:
 
@@ -42,11 +42,11 @@ To register InfraBlockchain DID on the chain, follow these steps:
 
    ![new-onchain-storage](/media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/new-onchain-storage.png)
 
-## Creating and Registering InfraBlockchain DID using the infra-did-js Library
+## Creating and Registering Infra DID using the infra-did-js Library
 
-You can create InfraBlockchain DID using the [*InfraBlockchain Explorer](https://portal.infrablockspace.net), but you can also create InfraBlockchain DID using the `infra-did-js` JavaScript library.
+You can create Infra DID using the [*InfraBlockchain Explorer](https://portal.infrablockspace.net), but you can also create Infra DID using the `infra-did-js` JavaScript library.
 
-To create InfraBlockchain DID using the `infra-did-js` library, follow these steps:
+To create Infra DID using the `infra-did-js` library, follow these steps:
 
 1. Install the [`infra-did-js`](https://github.com/InfraBlockchain/infra-did-js) library.
 
@@ -54,7 +54,7 @@ To create InfraBlockchain DID using the `infra-did-js` library, follow these ste
    yarn add infra-did-js
    ```
 
-2. Write the code as shown below to set up the basic configuration to access the InfraBlockchain DID chain using the `infra-did-js` library.
+2. Write the code as shown below to set up the basic configuration to access the Infra DID chain using the `infra-did-js` library.
 
    ```typescript
    import { InfraSS58, CRYPTO_INFO } from 'infra-did-js';
@@ -80,7 +80,7 @@ To create InfraBlockchain DID using the `infra-did-js` library, follow these ste
    const infraApi = await InfraSS58.createAsync(conf);
    ```
 
-3. Write the code to create an InfraBlockchain DID.
+3. Write the code to create an Infra DID.
 
    ```typescript
    DIDSet = await InfraSS58.createNewSS58DIDSet(networkId)
@@ -98,7 +98,7 @@ To create InfraBlockchain DID using the `infra-did-js` library, follow these ste
    }
    ```
 
-4. Write the code to register the created InfraBlockchain DID on the chain.
+4. Write the code to register the created Infra DID on the chain.
 
    ```typescript
    // Register DID
@@ -107,4 +107,4 @@ To create InfraBlockchain DID using the `infra-did-js` library, follow these ste
 
 ## Next Steps
 
-- [Registering Additional Keys to InfraBlockchain DID](./add-keys.md)
+- [Registering Additional Keys to Infra DID](./add-keys.md)

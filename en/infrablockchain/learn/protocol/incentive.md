@@ -1,7 +1,7 @@
 ---
-Title: InfraBlockchain Reward System
-Description: This document covers the overall content related to validator rewards.
-Keywords:
+title: InfraBlockchain Reward System
+description: This document covers the overall content related to validator rewards.
+keywords:
   - system token
   - validator incentive
 ---

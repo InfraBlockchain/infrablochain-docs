@@ -1,7 +1,7 @@
 ---
-Title: Registering Service Endpoints with InfraBlockchain DID
-Description: This tutorial explains how to add service endpoints to a DID registered with InfraBlockchain DID.
-Keywords:
+title: Registering Service Endpoints with Infra DID
+description: This tutorial explains how to add service endpoints to a DID registered with Infra DID.
+keywords:
   - parachain
   - did
 ---
@@ -10,9 +10,9 @@ Keywords:
 
 Before you begin, Make sure you have the following:
 
-- [Creating *InfraBlockchain DID*](./create-infra-did.md)
+- [Creating *Infra DID*](./create-infra-did.md)
 
-## Adding Service Endpoints to *InfraBlockchain DID*
+## Adding Service Endpoints to *Infra DID*
 
 To make a list of service endpoints available for a specific DID and store it on the chain, making it public for others to inspect the Document of a specific DID, follow these steps:
 
@@ -24,9 +24,9 @@ To make a list of service endpoints available for a specific DID and store it on
 
     ![add-services](../../../../../media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/add-services.png)
 
-## Removing Service Endpoints from *InfraBlockchain DID*
+## Removing Service Endpoints from *Infra DID*
 
-To remove service endpoints from *InfraBlockchain DID*, follow these steps:
+To remove service endpoints from *Infra DID*, follow these steps:
 
 1. Visit the [*InfraBlockchain Explorer*](https://portal.infrablockspace.net) and follow the steps below.
 
@@ -36,9 +36,9 @@ To remove service endpoints from *InfraBlockchain DID*, follow these steps:
 
     ![remove-services](../../../../../media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/remove-services.png)
 
-## Adding and Removing Service Endpoints from InfraBlockchain DID Using the infra-did-js Library
+## Adding and Removing Service Endpoints from Infra DID Using the infra-did-js Library
 
-To add and remove service endpoints from InfraBlockchain DID using the `infra-did-js` library:
+To add and remove service endpoints from Infra DID using the `infra-did-js` library:
 
 1. Install the [`infra-did-js`](https://github.com/InfraBlockchain/infra-did-js) library.
 
@@ -46,7 +46,7 @@ To add and remove service endpoints from InfraBlockchain DID using the `infra-di
     yarn add infra-did-js
     ```
 
-2. Write code to set up the basic configuration code for accessing the InfraBlockchain DID chain, as shown below:
+2. Write code to set up the basic configuration code for accessing the Infra DID chain, as shown below:
 
     ```typescript
     import  {InfraSS58, CRYPTO_INFO} from 'infra-did-js';
@@ -72,7 +72,7 @@ To add and remove service endpoints from InfraBlockchain DID using the `infra-di
     const infraApi = await InfraSS58.createAsync(conf);
     ```
 
-3. Write code to add service endpoints to InfraBlockchain DID:
+3. Write code to add service endpoints to Infra DID:
 
     ```typescript
     // Add Service Endpoint
@@ -86,7 +86,7 @@ To add and remove service endpoints from InfraBlockchain DID using the `infra-di
     await infraApi.didModule.addServiceEndpoint(SOME_SERVICE_ENDPOINT_URLS)
     ```
 
-4. Alternatively, write code to remove service endpoints from InfraBlockchain DID:
+4. Alternatively, write code to remove service endpoints from Infra DID:
 
     ```typescript
     // Remove Service Endpoint

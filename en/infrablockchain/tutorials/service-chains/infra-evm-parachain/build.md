@@ -15,7 +15,7 @@ Before getting started, make sure to do the following:
 
 ## *InfraBlockchain EVM* Chain
 
-If you have completed the previous tutorial, you should have the *Infra Relay Chain* repository on your local machine.
+If you have completed the previous tutorial, you should have the *InfraRelayChain* repository on your local machine.
 
 1. Open your computer's terminal shell.
 
@@ -61,9 +61,9 @@ If you have completed the previous tutorial, you should have the *Infra Relay Ch
 
 ## Starting the Local Node
 
-Once the node is compiled, you are ready to set up the relay chain and InfraBlockchain DID chain in a local environment.
+Once the node is compiled, you are ready to set up the relay chain and Infra DID chain in a local environment.
 
-To start the local InfraBlockchain DID chain, follow these steps:
+To start the local Infra DID chain, follow these steps:
 
 1. Check the ZombieNet configuration by running:
 

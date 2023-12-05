@@ -1,7 +1,7 @@
 ---
-Title: Adding Public Keys to InfraBlockchain DID
-Description: This tutorial explains how to add public keys to a DID registered on the InfraBlockchain DID parachain.
-Keywords:
+title: Adding Public Keys to Infra DID
+description: This tutorial explains how to add public keys to a DID registered on the Infra DID parachain.
+keywords:
   - parachain
   - DID
 ---
@@ -10,13 +10,13 @@ Keywords:
 
 Before you begin, Make sure you have the following:
 
-- [Creating *InfraBlockchain DID*](./create-infra-did.md)
+- [Creating *Infra DID*](./create-infra-did.md)
 
-## Adding Public Keys to *InfraBlockchain DID*
+## Adding Public Keys to *Infra DID*
 
-*InfraBlockchain DID* registered on the chain allows management of various items, one of which is the list of public keys. By storing a list of public keys that a specific DID can use on the chain, it makes it public for other users to inspect the Document of a specific DID.
+*Infra DID* registered on the chain allows management of various items, one of which is the list of public keys. By storing a list of public keys that a specific DID can use on the chain, it makes it public for other users to inspect the Document of a specific DID.
 
-To add public keys to *InfraBlockchain DID*, follow these steps:
+To add public keys to *Infra DID*, follow these steps:
 
 1. Visit the [*InfraBlockchain Explorer*](https://portal.infrablockspace.net) and follow the steps below.
 
@@ -31,9 +31,9 @@ To add public keys to *InfraBlockchain DID*, follow these steps:
     0x3404d43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27d04012e7222343997d83b3571b176837092986630c3de8fcdc91ba74d31bbb11c1181000000000000d43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27d0100000001f62b5a39b0fceeb51d16b2a189da0e73f15f384497dcdd63a1f9a7c626f7649941b4a8cb66fed18c65574117a2f1ed607591dda6f6ec3bdfff40a09a71e202803
     ```
 
-## Removing Public Keys from *InfraBlockchain DID*
+## Removing Public Keys from *Infra DID*
 
-To remove public keys from *InfraBlockchain DID*, follow these steps:
+To remove public keys from *Infra DID*, follow these steps:
 
 1. Visit the [*InfraBlockchain Explorer*](https://portal.infrablockspace.net) and follow the steps below.
 
@@ -43,9 +43,9 @@ To remove public keys from *InfraBlockchain DID*, follow these steps:
 
     ![remove-keys](/media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/remove-keys.png)
 
-## Adding and Removing Public Keys from InfraBlockchain DID Using the infra-did-js Library
+## Adding and Removing Public Keys from Infra DID Using the infra-did-js Library
 
-To add and remove public keys from InfraBlockchain DID using the `infra-did-js` library:
+To add and remove public keys from Infra DID using the `infra-did-js` library:
 
 1. Install the [`infra-did-js`](https://github.com/InfraBlockchain/infra-did-js) library.
 
@@ -53,7 +53,7 @@ To add and remove public keys from InfraBlockchain DID using the `infra-did-js` 
     yarn add infra-did-js
     ```
 
-2. Write code to set up the basic configuration code for accessing the InfraBlockchain DID chain, as shown below:
+2. Write code to set up the basic configuration code for accessing the Infra DID chain, as shown below:
 
     ```typescript
     import  {InfraSS58, CRYPTO_INFO} from 'infra-did-js';
@@ -79,20 +79,20 @@ To add and remove public keys from InfraBlockchain DID using the `infra-did-js` 
     const infraApi = await InfraSS58.createAsync(conf);
     ```
 
-3. Write code to add public keys to InfraBlockchain DID:
+3. Write code to add public keys to Infra DID:
 
     ```typescript
     // Add keys
     await infraApi.didModule.addKeys(SOME_DID_KEY)
     ```
 
-4. Alternatively, write code to remove public keys from InfraBlockchain DID:
+4. Alternatively, write code to remove public keys from Infra DID:
 
     ```typescript
     // Remove Keys
     await infraApi.didModule.removeKeys(DID_KEY_IDS)
     ```
 
-## Next stepss
+## Next steps
 
-- [Registering Service Endpoints with *InfraBlockchain DID*](./add-services.md)
+- [Registering Service Endpoints with *Infra DID*](./add-services.md)

@@ -1,7 +1,7 @@
 ---
-Title: InfraBlockchain DID
-Description: This document explains the overall content related to a blockchain specialized for DID (Decentralized Identifier).
-Keywords:
+title: Infra DID
+description: This document explains the overall content related to a blockchain specialized for DID (Decentralized Identifier).
+keywords:
   - parachain
   - did
 ---
@@ -16,7 +16,7 @@ Before you begin, Make sure you have the following:
 
 - [Building a Parachain](../tutorials/build/build-a-parachain.md)
 
-- [Building an Infra Relay Chain](../tutorials/build/build-infra-relay-chain.md)
+- [Building an InfraRelayChain](../tutorials/build/build-infra-relay-chain.md)
 
 - [Using the Zombie Network](../tutorials/test/simulate-parachains.md)
 
@@ -38,20 +38,20 @@ The key features and benefits of DID include:
 
 - Interoperability: DID is designed to be interoperable across various systems and networks. This means that a DID generated in one network can be used and recognized in another.
 
-## InfraBlockchain DID
+## Infra DID
 
-One of the parachains in the InfraBlockchain, the *InfraBlockchain DID Parachain*, provides a DID system, and the DIDs offered by the *InfraBlockchain DID Parachain* are referred to as *InfraBlockchain DID*.
+One of the parachains in the InfraBlockchain, the *Infra DID Parachain*, provides a DID system, and the DIDs offered by the *Infra DID Parachain* are referred to as *Infra DID*.
 
 ![infra-did-method](/media/images/docs/infrablockchain/service-chains/infra-did-method.png)
 
-*InfraBlockchain DID Parachain* includes various palettes based on its functionality.
+*Infra DID Parachain* includes various palettes based on its functionality.
 
 ![infra-did-pallet](/media/images/docs/infrablockchain/service-chains/infra-did-pallet.png)
 
-There is an npm library called [infra-did-js](https://github.com/InfraBlockchain/infra-did-js/tree/main) that can communicate with InfraBlockchain DID parachains. You can use it to work with InfraBlockchain DID in node.js-based systems.
+There is an npm library called [infra-did-js](https://github.com/InfraBlockchain/infra-did-js/tree/main) that can communicate with Infra DID parachains. You can use it to work with Infra DID in node.js-based systems.
 
-## Next stepss
+## Next steps
 
-- [Building the InfraBlockchain DID Chain](../tutorials/service-chains/infra-did-parachain/)
+- [Building the Infra DID Chain](../tutorials/service-chains/infra-did-parachain/)
 
 - [infra-did-js Repository](https://github.com/InfraBlockchain/infra-did-js/tree/main)
