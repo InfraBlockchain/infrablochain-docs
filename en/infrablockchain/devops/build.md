@@ -1,21 +1,19 @@
 ---
-title: 체인 컨테이너화
-description: 체인 컨테이너화하는 방법에 대해 설명합니다.
+title: Containerization of Chains
+description: This article explains how to containerize chains.
 keywords:
-  - 체인
-  - 컨테이너화
+  - chain
+  - containerization
 ---
 
-## 컨테이너화
-컨테이너화는 애플리케이션의 코드를 모든 인프라에서 실행하는 데 필요한 모든 파일 및 라이브러리와 함께 번들로 제공하는 소프트웨어 배포 프로세스입니다. **_인프라 블록체인(InfraBlockchain)_** 에 속해있는 모든 체인들 또한, 컨테이너화가 가능하며 관련 방법은 아래에 나와있습니다.
+## Containerization
+Containerization is a software distribution process that bundles an application's code with all the necessary files and libraries required to run it on any infrastructure. **_InfraBlockchain_** also supports containerization for all chains within it, and the relevant methods are described below.
 
-## 컨테이너 이미지 만들기
+## Creating a Container Image
 
-도커 컨테이너 이미지를 만드는 방법에 대해 알아보겠습니다.
+Let's explore how to create a Docker container image.
 
-컨테이너 이미지를 만들기 위해서는 Dockerfile이 필요합니다.
-여기서는 릴레이체인의 컨테이너 이미지를 만드는 것에 대해 설명합니다.
-다른 체인의 컨테이너 이미지를 만드시길 원하실 경우 아래 링크에 접속한 다음 원하시는 체인 레포지토리에서 확인하시길 바랍니다.
+To create a container image, you need a Dockerfile. Here, we'll explain how to create a container image for the relay chain. If you want to create a container image for a different chain, please visit the link below and check the desired chain repository.
 
 https://github.com/InfraBlockchain/infrablockspace-sdk
 
@@ -79,11 +77,10 @@ ENTRYPOINT ["./infrablockspace"]
 CMD []
 ```
 
-관련 파일 작성이 완료가 되었다면, 아래 명령어를 통해 container image를 생성해줍니다.
+Once you have completed writing the relevant files, use the following command to generate the container image:
 
 ```bash
 docker build -t <tag name>:<version> .
 ```
 
-생성된 이미지를 활용할 방법은 deploy 부분에 나와있습니다.
-
+The ways to utilize the generated image are mentioned in the deployment section.
