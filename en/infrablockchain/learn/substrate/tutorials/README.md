@@ -8,13 +8,13 @@ If you are someone who likes to learn by doing, the Substrate tutorials are a gr
 Tutorials don't provide much background about _why_ you are performing certain steps or explain the coding details.
 Instead, the tutorials give you hands-on experience performing the tasks essential to building your own blockchain and focus on ensuring a successful result.
 
-If you prefer to experiment on your own with less guidance, you might want to explore the [Substrate Playground](/playground/).
+If you prefer to experiment on your own with less guidance, you might want to explore the Substrate Playground.
 If you prefer to dig into the details of the code directly, you might want to start with the [Rust API](https://paritytech.github.io/substrate/master/sc_service/index.html) documentation.
 But if you want to start your journey with a guided tour, try out the following tutorials.
 
 ## Build a blockchain
 
-The [Build a blockchain](/tutorials/build-a-blockchain/) tutorials illustrate the basics for working with blockchains nodes and networks, including how to make nodes communicate with each other in a network of peers and how to collect metrics about node operations.
+The [Build a blockchain](./build-a-blockchain/README.md) tutorials illustrate the basics for working with blockchains nodes and networks, including how to make nodes communicate with each other in a network of peers and how to collect metrics about node operations.
 You'll learn how to:
 
 - Build a local node in your development environment.
@@ -25,7 +25,7 @@ You'll learn how to:
 
 ## Build application logic
 
-The [Build application logic](/tutorials/build-application-logic/) tutorials focus on how you can customize the runtime using pallets, including how to add simple and complex pallets to the runtime and how to use pallets in combination with smart contracts.
+The [Build application logic](./build-application-logic/README.md) tutorials focus on how you can customize the runtime using pallets, including how to add simple and complex pallets to the runtime and how to use pallets in combination with smart contracts.
 You'll learn how to:
 
 - Add a simple predefined pallet to the runtime.
@@ -34,12 +34,9 @@ You'll learn how to:
 - Add an offchain worker and submit transactions using an offchain worker.
 - Publish a custom pallet for others to use.
 
-For a deeper dive into how to create a custom pallet from start to finish, you might want to explore the first part of the [Collectibles workshop](/tutorials/collectibles-workshop/).
-Future iterations are intended to include an introduction to front-end development and how to convert an application from a solo chain to a parachain project.
-
 ## Build a parachain
 
-The [Build a parachain](/tutorials/build-a-parachain/) tutorials delve into more advanced topics for moving beyond solo chain development, including how to connect your chain to other chains.
+The [Build a parachain](./build-a-blockchain/README.md) tutorials delve into more advanced topics for moving beyond solo chain development, including how to connect your chain to other chains.
 You'll learn how to:
 
 - Turn a solo chain into a parachain.
