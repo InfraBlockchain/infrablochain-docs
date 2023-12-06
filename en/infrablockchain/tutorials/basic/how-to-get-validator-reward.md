@@ -10,7 +10,7 @@ keywords:
 
 Before you begin, make sure to do the following:
 
-- [Register and Use System Tokens for Transaction Fees](./how-to-pay-transaction-fee.md)
+- [Register and Use System Token for Transaction Fees](./how-to-pay-transaction-fee.md)
 
 ## Overview
 
@@ -48,7 +48,7 @@ Once you have confirmed that a validator is eligible for rewards through the abo
 
 ![claim](/media/images/docs/infrablockchain/tutorials/reward-claim.png)
 
-The `claim` extrinsic under the `validatorRewardManager` palette accepts the validator's account and a system token ID as input. 
+The `claim` extrinsic under the `validatorRewardManager` palette accepts the validator's account and a system token ID as input.
 
 The `claim` extrinsic can only be executed by the validator themselves.
 

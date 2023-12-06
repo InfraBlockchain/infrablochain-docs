@@ -1,5 +1,5 @@
 ---
-title: 인프라 EVM 
+title: 인프라 EVM
 description: EVM 호환 블록체인에 대한 전반적인 내용을 다룹니다.
 keywords:
   - 파라체인
@@ -10,7 +10,7 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-<!-- 
+<!--
   해당 내용이 담긴 문서가 생성되면 그 문서로 링크를 연결 해 주세요
 -->
 
@@ -40,4 +40,4 @@ EVM은 이더리움 생태계에서 중요한 역할을 하며, 분산 애플리
 
 ## 다음 단계로 넘어가기
 
-- [Infra EVM 체인 구축하기](../tutorials/service-chains/infra-evm-parachain/README.md)
+- [InfraEVM 체인 구축하기](../tutorials/service-chains/infra-evm-parachain/README.md)

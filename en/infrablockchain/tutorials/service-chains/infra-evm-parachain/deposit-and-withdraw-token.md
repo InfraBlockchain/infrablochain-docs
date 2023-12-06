@@ -14,7 +14,7 @@ Before you begin, make sure to do the following:
 
 ## Converting Addresses
 
-Infra EVM Parachain uses two address systems:
+InfraEVM Parachain uses two address systems:
 
 - SS58 address
 - H160 address
@@ -35,7 +35,7 @@ Here's how to convert SS58 addresses to H160 addresses:
 
 1. Open your computer's terminal shell.
 
-2. Clone the Infra EVM Parachain repository by running the following command:
+2. Clone InfraEVM Parachain repository by running the following command:
 
    ```bash
    git clone https://github.com/InfraBlockchain/infra-evm-parachain
@@ -63,9 +63,9 @@ Here's how to convert SS58 addresses to H160 addresses:
 
 4. Execute the following command to perform the address conversion:
 
-    ```bash
-    node ./utils --evm-address {ss58-address}
-    ```
+   ```bash
+   node ./utils --evm-address {ss58-address}
+   ```
 
 ### H160 Address to SS58 Address
 
@@ -81,7 +81,7 @@ Here's how to convert H160 addresses to SS58 addresses:
 
 1. Open your computer's terminal shell.
 
-2. Clone the Infra EVM Parachain repository by running the following command:
+2. Clone InfraEVM Parachain repository by running the following command:
 
    ```bash
    git clone https://github.com/InfraBlockchain/infra-evm-parachain
@@ -109,53 +109,53 @@ Here's how to convert H160 addresses to SS58 addresses:
 
 4. Execute the following command to perform the address conversion:
 
-    ```bash
-    node ./utils --ss58-address {evm-address}
-    ```
+   ```bash
+   node ./utils --ss58-address {evm-address}
+   ```
 
 ## Moving Assets from Substrate to EVM
 
 1. Use the method explained above to obtain the SS58 address mapped to the H160 address to be used in EVM.
 
-    ```bash
-    node ./utils --ss58-address {evm-address}
-    ```
+   ```bash
+   node ./utils --ss58-address {evm-address}
+   ```
 
 2. Transfer assets to the obtained SS58 address.
 
-    ![transfer-asset](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/transfer-asset.png)
+   ![transfer-asset](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/transfer-asset.png)
 
-    By default, the Infra EVM Parachain is integrated to use asset 99 as the native token of the EVM.
+   By default, InfraEVM Parachain is integrated to use asset 99 as the native token of the EVM.
 
 3. Verify that it reflects in EVM wallets like MetaMask.
 
-    ![metamask-balance](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/metamask-balance.png)
+   ![metamask-balance](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/metamask-balance.png)
 
 ## Moving Assets from EVM to Substrate
 
 1. Use the method explained above to obtain the EVM address mapped to the SS58 address to be used in Substrate.
 
-    ```bash
-    node ./utils --evm-address {ss58-address}
-    ```
+   ```bash
+   node ./utils --evm-address {ss58-address}
+   ```
 
 2. Transfer assets to the obtained EVM address.
 
-    ![transfer-asset](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/metamask-transfer.png)
+   ![transfer-asset](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/metamask-transfer.png)
 
-3. Access the [*InfraBlockchain Explorer*](https://portal.infrablockspace.net) and follow the steps below.
+3. Access the [_InfraBlockchain Explorer_](https://portal.infrablockspace.net) and follow the steps below.
 
-  - Navigate to `Developers` - `Extrinsics` - `evm` palette and select the `withdraw` extrinsic.
+- Navigate to `Developers` - `Extrinsics` - `evm` palette and select the `withdraw` extrinsic.
 
-    Configure it as shown below and dispatch the extrinsic:
+  Configure it as shown below and dispatch the extrinsic:
 
-    ![withdraw](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/withdraw.png)
+  ![withdraw](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/withdraw.png)
 
-    The SS58 account used for address conversion in step 1 should execute the extrinsic.
+  The SS58 account used for address conversion in step 1 should execute the extrinsic.
 
 4. Check the events to confirm that the assets were successfully deposited.
 
-    ![withdraw-success](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/withdraw-success.png)
+   ![withdraw-success](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/withdraw-success.png)
 
 ## Next Steps
 

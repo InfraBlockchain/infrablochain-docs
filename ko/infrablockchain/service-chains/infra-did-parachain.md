@@ -10,7 +10,7 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-<!-- 
+<!--
   해당 내용이 담긴 문서가 생성되면 그 문서로 링크를 연결 해 주세요
 -->
 
@@ -38,21 +38,20 @@ DID의 주요 특징 및 이점은 다음과 같습니다:
 
 - 상호 운용성: DID는 다양한 시스템과 네트워크 간에 상호 운용될 수 있도록 설계되었습니다. 즉, 하나의 네트워크에서 생성된 DID는 다른 네트워크에서 사용되고 인식될 수 있습니다.
 
-## Infra DID
+## InfraDID
 
-인프라 블록체인의 파라체인 중 하나인 *InfraDID 파라체인* 은 DID 시스템을 제공하고 있으며 *InfraDID 파라체인* 이 제공하는 DID 를 *InfraDID* 라고 합니다.
+인프라 블록체인의 파라체인 중 하나인 _InfraDID 파라체인_ 은 DID 시스템을 제공하고 있으며 _InfraDID 파라체인_ 이 제공하는 DID 를 _InfraDID_ 라고 합니다.
 
 ![infra-did-method](/media/images/docs/infrablockchain/service-chains/infra-did-method.png)
 
-*Infra DID 파라체인* 은 기능에 따라 여러가지 팔렛을 포함하고 있습니다.
+_InfraDID 파라체인_ 은 기능에 따라 여러가지 팔렛을 포함하고 있습니다.
 
 ![infra-did-pallet](/media/images/docs/infrablockchain/service-chains/infra-did-pallet.png)
 
-
-Infra DID 파라체인과 통신할 수 있는 npm 라이브러리인 [infra-did-js](https://github.com/InfraBlockchain/infra-did-js/tree/main)가 존재합니다. 이를 사용하여 node.js 기반의 시스템에서 Infra DID을 사용할 수 있습니다.
+InfraDID 파라체인과 통신할 수 있는 npm 라이브러리인 [infra-did-js](https://github.com/InfraBlockchain/infra-did-js/tree/main)가 존재합니다. 이를 사용하여 node.js 기반의 시스템에서 Infra DID을 사용할 수 있습니다.
 
 ## 다음 단계로 넘어가기
 
-- [Infra DID 체인 구축하기](../tutorials/service-chains/infra-did-parachain/)
+- [InfraDID 체인 구축하기](../tutorials/service-chains/infra-did-parachain/)
 
 - [infra-did-js 레포지토리](https://github.com/InfraBlockchain/infra-did-js/tree/main)

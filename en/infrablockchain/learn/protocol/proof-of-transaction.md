@@ -9,9 +9,9 @@ keywords:
 
 ## Transaction-as-a-Vote(TaaV)
 
-![TaaV](/media/images/docs/InfraBlockchain/learn/protocol/taav.png)
+![Transaction as a Vote](/media/images/docs/infrablockchain/learn/protocol/taav.png)
 
-The core idea behind **Proof-of-Transaction (PoT)**, the proprietary consensus mechanism of ***InfraBlockchain***, is encapsulated in the concept of **Transaction-as-a-Vote(TaaV)**. The metadata of transactions in ***InfraBlockchain*** may optionally include votes for candidates already participating or eligible to participate in the blockchain consensus process. Transaction messages containing votes for block producer candidates are signed with the private key of the blockchain account that initiated the transaction, providing cryptographic proof for each transaction vote. ***InfraBlockchain*** votes possess the following characteristics:
+The core idea behind **Proof-of-Transaction (PoT)**, the proprietary consensus mechanism of **_InfraBlockchain_**, is encapsulated in the concept of **Transaction-as-a-Vote(TaaV)**. The metadata of transactions in **_InfraBlockchain_** may optionally include votes for candidates already participating or eligible to participate in the blockchain consensus process. Transaction messages containing votes for block producer candidates are signed with the private key of the blockchain account that initiated the transaction, providing cryptographic proof for each transaction vote. **_InfraBlockchain_** votes possess the following characteristics:
 
 - System Token Identifier: The weight of a vote depends on whether the transaction fee was paid with a specific [System Token](../protocol/system-token.md). Thus, it includes an `id` that identifies this token.
 
@@ -19,7 +19,7 @@ The core idea behind **Proof-of-Transaction (PoT)**, the proprietary consensus m
 
 - Transaction Weight: The weight of a transaction vote is determined based on the transaction fee.
 
-```rust 
+```rust
 // For example,
 pub struct PoTVote {
     system_token_id: u32,
@@ -50,21 +50,21 @@ impl SignedExtension for ChargeSystemToken {
 
 ## Validator Pool
 
-***InfraBlockchain*** is designed to operate nodes honestly in any scenario, as it is an enterprise blockchain for institutions and public entities. Moreover, it serves as a public blockchain where any entity can be elected as a block producer. To achieve these ideal properties, ***InfraBlockchain*** has two pools of block producers (validators):
+**_InfraBlockchain_** is designed to operate nodes honestly in any scenario, as it is an enterprise blockchain for institutions and public entities. Moreover, it serves as a public blockchain where any entity can be elected as a block producer. To achieve these ideal properties, **_InfraBlockchain_** has two pools of block producers (validators):
 
 - Proof-of-Transaction Node Pool: Manages nodes elected by PoT.
 
 - Seed Trust Node Pool: Manages nodes operated by entities like financial institutions or government organizations that operate honest nodes in any situation.
 
-![Validator Pool](/media/images/docs/InfraBlockchain/learn/protocol/validator-pool.png)
+![Validator Pool](/media/images/docs/infrablockchain/learn//protocol/validator-pool.png)
 
-The initial configuration of ***InfraBlockchain*** validators consists of Seed Trust validators, forming a permissioned blockchain. As the network stabilizes, it can transition to a public blockchain where anyone can participate as a block producer using the PoT consensus mechanism.
+The initial configuration of **_InfraBlockchain_** validators consists of Seed Trust validators, forming a permissioned blockchain. As the network stabilizes, it can transition to a public blockchain where anyone can participate as a block producer using the PoT consensus mechanism.
 
 ## Aggregated Proof-of-Transaction(PoT)
 
-***InfraBlockchain*** is a multi-chain architecture where multiple parachain blocks are executed in parallel, centered around the ***InfraRelayChain***. InfraRelayChain validators verify each parachain block and collect the votes included in that block. This process is referred to as **Aggregated Proof-of-Transaction**.
+**_InfraBlockchain_** is a multi-chain architecture where multiple parachain blocks are executed in parallel, centered around the **_InfraRelayChain_**. InfraRelayChain validators verify each parachain block and collect the votes included in that block. This process is referred to as **Aggregated Proof-of-Transaction**.
 
-For each block, votes for candidates for the block producer (validator) of the ***InfraRelayChain*** are optionally included, and during the verification process, these votes are collected and stored as a state in the ***InfraRelayChain***. After a certain period, an aggregation of votes is performed based on the collected votes, and the candidate with the most votes is elected as the block producer.
+For each block, votes for candidates for the block producer (validator) of the **_InfraRelayChain_** are optionally included, and during the verification process, these votes are collected and stored as a state in the **_InfraRelayChain_**. After a certain period, an aggregation of votes is performed based on the collected votes, and the candidate with the most votes is elected as the block producer.
 
 ```rust
 #[pallet::storage]
@@ -80,9 +80,10 @@ pub struct VotingStatus<T: Config> {
 
 ## Time-Weighted PoT Votes
 
-To give more weight to recent transaction votes, a block time weight is multiplied. The weight increases at a rate of 2x per year. The reference time is the genesis block of the ***InfraRelayChain***(block 0), and the weight is multiplied based on the ***InfraRelayChain*** block time. The precise calculation of the transaction vote weight considering block time is as follows:
+To give more weight to recent transaction votes, a block time weight is multiplied. The weight increases at a rate of 2x per year. The reference time is the genesis block of the **_InfraRelayChain_**(block 0), and the weight is multiplied based on the **_InfraRelayChain_** block time. The precise calculation of the transaction vote weight considering block time is as follows:
 
 Example,
+
 ```
 - Number of InfraRelayChain blocks equivalent to a year (6 seconds per block) = 5,256,000
 

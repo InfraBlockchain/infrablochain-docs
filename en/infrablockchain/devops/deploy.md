@@ -156,7 +156,7 @@ For a parachain, the boot node ID of the relay chain is required. Therefore, you
 Run the following command to execute the Docker Compose:
 
 ```bash
-docker compose up -d 
+docker compose up -d
 ```
 
 ### Kubernetes
@@ -345,7 +345,7 @@ spec:
 
 For a parachain, let's take a look at the writing method.
 
-The following code is written for Infra DID.
+The following code is written for InfraDID.
 
 statefuleset.yaml
 
@@ -383,7 +383,8 @@ spec:
       initContainers:
         - name: download-relay-spec
           image: curlimages/curl:8.1.2
-          command: [
+          command:
+            [
               "curl",
               "-L",
               <relay chain spec url>,
@@ -395,7 +396,8 @@ spec:
               mountPath: /tmp
         - name: download-did-spec
           image: curlimages/curl:8.1.2
-          command: [
+          command:
+            [
               "curl",
               "-L",
               <parachain spec url>,
@@ -438,7 +440,7 @@ spec:
               "--unsafe-rpc-external",
               "--unsafe-ws-external",
               "--bootnodes",
-                <relay boot node id>
+              <relay boot node id>,
             ]
           ports:
             - containerPort: 9933
@@ -474,9 +476,8 @@ spec:
             defaultMode: 0400
 ```
 
-
-
 service.yaml
+
 ```yml
 apiVersion: v1
 kind: Service
@@ -530,6 +531,7 @@ spec:
 ```
 
 pvc.yaml
+
 ```yml
 apiVersion: v1
 kind: PersistentVolumeClaim

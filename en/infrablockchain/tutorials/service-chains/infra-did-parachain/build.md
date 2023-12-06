@@ -1,6 +1,6 @@
 ---
-title: Building the Infra DID Chain
-description: This tutorial explains the process of building and running the Infra DID parachain.
+title: Building InfraDID Chain
+description: This tutorial explains the process of building and running InfraDID parachain.
 keywords:
   - parachain
   - service chain
@@ -11,15 +11,15 @@ keywords:
 
 Before you begin, make sure to do the following:
 
-- [*Infra DID*](../../../service-chains/infra-did-parachain.md)
+- [_InfraDID_](../../../service-chains/infra-did-parachain.md)
 
-## The *Infra DID* Chain
+## The _InfraDID_ Chain
 
-If you have completed the previous tutorial, you should have the *InfraRelayChain* repository on your local machine.
+If you have completed the previous tutorial, you should have the _InfraRelayChain_ repository on your local machine.
 
 1. Open your computer's terminal shell.
 
-2. Execute the following command to clone the Infra DID chain repository:
+2. Execute the following command to clone InfraDID chain repository:
 
    ```bash
    git clone https://github.com/InfraBlockchain/infra-did-substrate
@@ -59,9 +59,9 @@ If you have completed the previous tutorial, you should have the *InfraRelayChai
 
 ## Starting a Local Node
 
-Once the node is compiled, you're ready to set up the relay chain and Infra DID chain in a local environment using the ZombieNet.
+Once the node is compiled, you're ready to set up the relay chain and InfraDID chain in a local environment using the ZombieNet.
 
-To start the local Infra DID chain, follow these steps:
+To start the local InfraDID chain, follow these steps:
 
 1. Check the ZombieNet configuration:
 
@@ -123,7 +123,7 @@ To start the local Infra DID chain, follow these steps:
     command = "./target/release/infradid"
     args = ["-lparachain=debug", "--alice"]
    ```
-   
+
    Ensure that the `default_command` paths for `relaychain` and `parachains` match existing paths in your local environment. If they don't match, adjust them to fit your local setup.
 
 2. Execute the following command to run ZombieNet and set up the relay chain and chain:
@@ -136,14 +136,13 @@ To start the local Infra DID chain, follow these steps:
 
    ![zombienet](/media/images/docs/infrablockchain/service-chains/infra-did-parachain-zombienet.png)
 
-4. (Optional) If you want to check the nodes of the Infra DID chain, you can find logs similar to this:
-
+4. (Optional) If you want to check the nodes of InfraDID chain, you can find logs similar to this:
 
    ```shell
-   2023-10-30 14:32:09.155  INFO main sc_cli::runner: Infra DID Node
+   2023-10-30 14:32:09.155  INFO main sc_cli::runner: InfraDID Node
    2023-10-30 14:32:09.156  INFO main sc_cli::runner: ✌️  version 0.0.1-55dcfcb07e0
    2023-10-30 14:32:09.156  INFO main sc_cli::runner: ❤️  by Cute_Wisp, 2023-2023
-   2023-10-30 14:32:09.156  INFO main sc_cli::runner: 📋 Chain specification: Infra DID Local Testnet
+   2023-10-30 14:32:09.156  INFO main sc_cli::runner: 📋 Chain specification: InfraDID Local Testnet
    2023-10-30 14:32:09.156  INFO main sc_cli::runner: 🏷  Node name: alice-1
    2023-10-30 14:32:09.156  INFO main sc_cli::runner: 👤 Role: AUTHORITY
    2023-10-30 14:32:09.157  INFO main sc_cli::runner: 💾 Database: RocksDb at /var/folders/5s/7k4bxw5d257br6f0r_2s2szr0000gn/T/zombie-2a90bd66ae7b68ddde1ac8d677296477_-22060-19mFvC1jG2Lx/alice-1/data/chains/local_testnet/db/full
@@ -217,4 +216,4 @@ To start the local Infra DID chain, follow these steps:
 
 ## Next steps
 
-- [Registering Service Endpoints with Infra DID](./add-services.md)
+- [Registering Service Endpoints with InfraDID](./add-services.md)

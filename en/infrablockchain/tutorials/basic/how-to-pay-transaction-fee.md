@@ -1,32 +1,32 @@
 ---
-title: Registering and Using System Tokens as Transaction Fees
-description: This tutorial covers the entire process from token creation to governance for registering system tokens, and using system tokens for transactions.
+title: Registering and Using System Token as Transaction Fees
+description: This tutorial covers the entire process from token creation to governance for registering System Token, and using System Token for transactions.
 keywords:
-    - Assets
-    - System token manager
-    - Governance
-    - Transaction fee
+  - Assets
+  - System token manager
+  - Governance
+  - Transaction fee
 ---
 
-This tutorial will teach you how to register tokens issued in a multichain environment as system tokens and use them as gas fees.
+This tutorial will teach you how to register tokens issued in a multichain environment as System Token and use them as gas fees.
 
 ## Tutorial Goals
 
 By completing this tutorial, you will be able to:
 
--   Set up a `Relay Chain <> Parachain` test network using ZombieNet.
--   Propose governance on the Relaychain to register a token issued on a Parachain as a system token.
--   Pay gas fees with the system token issued on the Parachain after governance approval.
+- Set up a `Relay Chain <> Parachain` test network using ZombieNet.
+- Propose governance on the Relaychain to register a token issued on a Parachain as a system token.
+- Pay gas fees with System Token issued on the Parachain after governance approval.
 
 ## Before You Start
 
 Before starting, ensure you have:
 
--   [Simulating a Parachain Network using ZombieNet](./test/simulate-parachains.md)
+- [Simulating a Parachain Network using ZombieNet](./test/simulate-parachains.md)
 
 ## Creating and Issuing Tokens on a Parachain
 
-Before registering a system token on the Relay Chain, you need to create a token on the Parachain. _You must have test system tokens or system tokens for the gas fee required for Parachain token creation and issuance._
+Before registering a system token on the Relay Chain, you need to create a token on the Parachain. _You must have test System Token or System Token for the gas fee required for Parachain token creation and issuance._
 
 The procedure for creating and issuing tokens on a Parachain is as follows:
 
@@ -34,19 +34,19 @@ The procedure for creating and issuing tokens on a Parachain is as follows:
 
 2. In Developer > Extrinsic, select [_create_](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/assets/src/lib.rs#L625) from the [_Assets_](https://github.com/InfraBlockchain/infrablockspace-sdk/tree/master/substrate/frame/assets) pallet to create a token.
 
-    - id: A value to identify the token. Here, we insert 1.
-    - admin: Token management account. Here, we specify `alice`.
-    - minBalance: The minimum token deposit unit. Here, we insert 1.
+   - id: A value to identify the token. Here, we insert 1.
+   - admin: Token management account. Here, we specify `alice`.
+   - minBalance: The minimum token deposit unit. Here, we insert 1.
 
-    ![Creating a Token](/media/images/docs/infrablockchain/tutorials/create_token.png)
+   ![Creating a Token](/media/images/docs/infrablockchain/tutorials/create_token.png)
 
 3. Immediately select [mint](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/assets/src/lib.rs#L801C7-L801C14) from the _Assets pallet_ to issue the token.
 
-    - id: A value to identify the token. Here, insert the previously created token identifier.
-    - beneficiary: The account to receive the issued tokens. Here, we issue them to `alice`.
-    - amount: The amount of tokens to issue. Here, insert 1000000000000.
+   - id: A value to identify the token. Here, insert the previously created token identifier.
+   - beneficiary: The account to receive the issued tokens. Here, we issue them to `alice`.
+   - amount: The amount of tokens to issue. Here, insert 1000000000000.
 
-    ![Issuing Tokens](/media/images/docs/infrablockchain/tutorials/mint_token.png)
+   ![Issuing Tokens](/media/images/docs/infrablockchain/tutorials/mint_token.png)
 
 ## Registering `register_system_token` Governance on Relay Chain
 
@@ -67,16 +67,16 @@ The procedure for creating and issuing tokens on a Parachain is as follows:
 
 ![Registering System Token](/media/images/docs/infrablockchain/tutorials/register_system_token2.png)
 
--   `systemTokenType`: The type of system token. For more details on system token types, see [here](../learn/protocol/system-token.md). Here, select `Original`.
-    ```text
-    - `paraId`: Identifier of the Parachain where the token was created
-    - `palletId`: Identifier of the *Assets pallet* where the token was created
-    - `assetId`: Token identifier
-    ```
--   `systemTokenWeight`: The weight of the token. Here, set to 1_000_000(default).
--   `wrappedForRelayChain`: Wrapped system token for use on the Relay Chain.
--   `systemTokenMetadata`: Metadata for the system token.
--   `assetMetadata`: Metadata for the token.
+- `systemTokenType`: The type of system token. For more details on system token types, see [here](../learn/protocol/system-token.md). Here, select `Original`.
+  ```text
+  - `paraId`: Identifier of the Parachain where the token was created
+  - `palletId`: Identifier of the *Assets pallet* where the token was created
+  - `assetId`: Token identifier
+  ```
+- `systemTokenWeight`: The weight of the token. Here, set to 1_000_000(default).
+- `wrappedForRelayChain`: Wrapped system token for use on the Relay Chain.
+- `systemTokenMetadata`: Metadata for System Token.
+- `assetMetadata`: Metadata for the token.
 
 5. It will be registered successfully with a hash value as follows.
 

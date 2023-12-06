@@ -1,5 +1,5 @@
 ---
-title: Infra DID
+title: InfraDID
 description: This document explains the overall content related to a blockchain specialized for DID (Decentralized Identifier).
 keywords:
   - parachain
@@ -10,7 +10,7 @@ keywords:
 
 Before you begin, Make sure you have the following:
 
-<!-- 
+<!--
   When the document containing this content is created, please link to that document.
 -->
 
@@ -38,20 +38,20 @@ The key features and benefits of DID include:
 
 - Interoperability: DID is designed to be interoperable across various systems and networks. This means that a DID generated in one network can be used and recognized in another.
 
-## Infra DID
+## InfraDID
 
-One of the parachains in the InfraBlockchain, the *Infra DID Parachain*, provides a DID system, and the DIDs offered by the *Infra DID Parachain* are referred to as *Infra DID*.
+One of the parachains in the InfraBlockchain, the _InfraDID Parachain_, provides a DID system, and the DIDs offered by the _InfraDID Parachain_ are referred to as _InfraDID_.
 
 ![infra-did-method](/media/images/docs/infrablockchain/service-chains/infra-did-method.png)
 
-*Infra DID Parachain* includes various palettes based on its functionality.
+_InfraDID Parachain_ includes various palettes based on its functionality.
 
 ![infra-did-pallet](/media/images/docs/infrablockchain/service-chains/infra-did-pallet.png)
 
-There is an npm library called [infra-did-js](https://github.com/InfraBlockchain/infra-did-js/tree/main) that can communicate with Infra DID parachains. You can use it to work with Infra DID in node.js-based systems.
+There is an npm library called [infra-did-js](https://github.com/InfraBlockchain/infra-did-js/tree/main) that can communicate with InfraDID parachains. You can use it to work with InfraDID in node.js-based systems.
 
 ## Next steps
 
-- [Building the Infra DID Chain](../tutorials/service-chains/infra-did-parachain/)
+- [Building InfraDID Chain](../tutorials/service-chains/infra-did-parachain/)
 
 - [infra-did-js Repository](https://github.com/InfraBlockchain/infra-did-js/tree/main)

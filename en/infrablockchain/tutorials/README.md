@@ -1,16 +1,16 @@
 ---
 title: InfradBlockchain Tutorials
-description: 
+description:
 keywords:
 ---
 
-## [Basic](./basics/README.md)
+## [Basic](./basic/README.md)
 
-This will cover basic step to interact with ***InfraBlockchain***
+This will cover basic step to interact with **_InfraBlockchain_**
 
 ## [Build](./build/README.md)
 
-This will cover how to build ***InfraBlockchain*** such as Relay Chain or parachains
+This will cover how to build **_InfraBlockchain_** such as Relay Chain or parachains
 
 ## [Test](./test/README.md)
 

@@ -1,5 +1,5 @@
 ---
-title: InfraDID 체인 구축하기 
+title: InfraDID 체인 구축하기
 description: 이 튜토리얼은 InfraDID 체인을 빌드하고 실행하는 과정을 설명합니다.
 keywords:
   - 파라체인
@@ -11,15 +11,15 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [*InfraDID*](../../../service-chains/infra-did-parachain.md)
+- [_InfraDID_](../../../service-chains/infra-did-parachain.md)
 
-## *InfraDID* 체인
+## _InfraDID_ 체인
 
-이전 튜토리얼을 완료한 경우 로컬에 *인프라 릴레이 체인* 레포지토리가 있어야 합니다.
+이전 튜토리얼을 완료한 경우 로컬에 _인프라 릴레이 체인_ 레포지토리가 있어야 합니다.
 
 1. 컴퓨터의 터미널 셸을 엽니다.
 
-2. 다음 명령을 실행하여 Infra DID 체인 저장소를 복제합니다:
+2. 다음 명령을 실행하여 InfraDID 체인 저장소를 복제합니다:
 
    ```bash
    git clone https://github.com/InfraBlockchain/infra-did-substrate
@@ -45,26 +45,26 @@ keywords:
    git switch -c my-learning-branch-2023-03-01
    ```
 
-4.  다음 명령을 실행하여 노드 템플릿을 컴파일합니다:
+4. 다음 명령을 실행하여 노드 템플릿을 컴파일합니다:
 
-   ```bash
-   cargo build --release
-   ```
+```bash
+cargo build --release
+```
 
-   최적화된 빌드를 위해 항상 `--release` 플래그를 사용해야 합니다.
-   처음으로 이를 컴파일하는 경우 완료까지 시간이 다소 소요됩니다.
+최적화된 빌드를 위해 항상 `--release` 플래그를 사용해야 합니다.
+처음으로 이를 컴파일하는 경우 완료까지 시간이 다소 소요됩니다.
 
-   다음과 유사한 줄이 표시되면 완료됩니다:
+다음과 유사한 줄이 표시되면 완료됩니다:
 
-   ```bash
-   Finished release [optimized] target(s) in 11m 23s
-   ```
+```bash
+Finished release [optimized] target(s) in 11m 23s
+```
 
 ## 로컬 노드 시작하기
 
-노드가 컴파일되면 좀비넷을 사용하여 릴레이 체인과 Infra DID 체인을 로컬 환경에서 구축 할 준비가 되었습니다.
+노드가 컴파일되면 좀비넷을 사용하여 릴레이 체인과 InfraDID 체인을 로컬 환경에서 구축 할 준비가 되었습니다.
 
-로컬 Infra DID 체인을 시작하려면 다음 단계를 따르세요:
+로컬 InfraDID 체인을 시작하려면 다음 단계를 따르세요:
 
 1. 좀비넷 설정을 확인합니다
 
@@ -127,27 +127,27 @@ keywords:
     args = ["-lparachain=debug", "--alice"]
    ```
 
-   `relaychain`과 `parachains`의 `default_command` 경로가 실제 로컬에 존재하는 경로와 일치하는지 확인합니다. 
+   `relaychain`과 `parachains`의 `default_command` 경로가 실제 로컬에 존재하는 경로와 일치하는지 확인합니다.
 
    만약 일치하지 않는다면 로컬 환경에 맞게 변경 해 줍니다.
 
 2. 좀비넷을 실행하여 릴레이 체인과 체인을 실행합니다.
 
-    ```shell
-    zombienet spawn --provider native zombienet/local-dev.toml
-    ```
+   ```shell
+   zombienet spawn --provider native zombienet/local-dev.toml
+   ```
 
 3. 정상적으로 실행 되었다면 다음과 유사한 터미널 쉘을 확인할 수 있습니다.
-  
+
    ![zombienet](/media/images/docs/infrablockchain/service-chains/infra-did-parachain-zombienet.png)
 
-4. (선택) Infra DID 체인의 노드를 확인하면 아래와 유사한 로그를 확인할 수 있습니다.
+4. (선택) InfraDID 체인의 노드를 확인하면 아래와 유사한 로그를 확인할 수 있습니다.
 
    ```shell
-   2023-10-30 14:32:09.155  INFO main sc_cli::runner: Infra DID Node
+   2023-10-30 14:32:09.155  INFO main sc_cli::runner: InfraDID Node
    2023-10-30 14:32:09.156  INFO main sc_cli::runner: ✌️  version 0.0.1-55dcfcb07e0
    2023-10-30 14:32:09.156  INFO main sc_cli::runner: ❤️  by Cute_Wisp, 2023-2023
-   2023-10-30 14:32:09.156  INFO main sc_cli::runner: 📋 Chain specification: Infra DID Local Testnet
+   2023-10-30 14:32:09.156  INFO main sc_cli::runner: 📋 Chain specification: InfraDID Local Testnet
    2023-10-30 14:32:09.156  INFO main sc_cli::runner: 🏷  Node name: alice-1
    2023-10-30 14:32:09.156  INFO main sc_cli::runner: 👤 Role: AUTHORITY
    2023-10-30 14:32:09.157  INFO main sc_cli::runner: 💾 Database: RocksDb at /var/folders/5s/7k4bxw5d257br6f0r_2s2szr0000gn/T/zombie-2a90bd66ae7b68ddde1ac8d677296477_-22060-19mFvC1jG2Lx/alice-1/data/chains/local_testnet/db/full

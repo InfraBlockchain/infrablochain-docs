@@ -6,15 +6,15 @@ keywords:
   - System TOken
 ---
 
-This tutorial will explore how to select validators for the relay chain in the ***InfraRelayChain*** based on [Proof-of-Transaction](../learn/protocol/proof-of-transaction.md) using [Aggregated TaaV (Transaction-as-a-Vote)](../learn/protocol/proof-of-transaction.md#aggregated-proof-of-transactionpot) in a real multi-chain environment.
+This tutorial will explore how to select validators for the relay chain in the **_InfraRelayChain_** based on [Proof-of-Transaction](../learn/protocol/proof-of-transaction.md) using [Aggregated TaaV (Transaction-as-a-Vote)](../learn/protocol/proof-of-transaction.md#aggregated-proof-of-transactionpot) in a real multi-chain environment.
 
 ## Tutorial Objectives
 
 By completing this tutorial, you will achieve the following objectives:
 
 - Build a test network for `Relay Chain <> Parachains` using the [ZombieNet](../tutorials/test/simulate-parachains.md).
-- Pay transaction fees with the system token and vote for validators in the ***InfraRelayChain***.
-- Confirm the configuration of validators in the ***InfraRelayChain*** with [Seed Trust](../learn/protocol/proof-of-transaction.md#validator-pool) and PoT nodes.
+- Pay transaction fees with System Token and vote for validators in the **_InfraRelayChain_**.
+- Confirm the configuration of validators in the **_InfraRelayChain_** with [Seed Trust](../learn/protocol/proof-of-transaction.md#validator-pool) and PoT nodes.
 
 ## Before You Begin
 
@@ -24,7 +24,7 @@ Before getting started, make sure to:
 
 - Familiarize yourself with [Proof of Transaction](../learn/protocol/proof-of-transaction.md).
 
-- Understand how to pay transaction fees using [System Tokens](../learn/protocol/system-token.md).
+- Understand how to pay transaction fees using [System Token](../learn/protocol/system-token.md).
 
 ## Tutorial Steps
 
@@ -34,22 +34,21 @@ This tutorial will proceed in the following steps:
 
 2. Request transactions, including the target for the vote, using [System Token](../learn/protocol/system-token.md) in each parachain.
 
-3. Verify that the votes are collected in the ***InfraRelayChain***.
+3. Verify that the votes are collected in the **_InfraRelayChain_**.
 
 4. Check whether validators based on [Proof-of-Transaction](../learn/protocol/proof-of-transaction.md) are elected to generate blocks at a certain point in time.
 
-
 ## Build the Test Environment
 
-Build the test environment for the ***InfraBlockchain*** using **ZombieNet** binaries. First, install the ZombieNet binaries:
+Build the test environment for the **_InfraBlockchain_** using **ZombieNet** binaries. First, install the ZombieNet binaries:
 
 - Install the latest release version from the [ZombieNet GitHub](https://github.com/paritytech/zombienet).
 
 - Create a TOML file in `infrablockspace-sdk/infra-cumulus/zombienet/examples/`. In this example, create `example.toml` with the following content, which sets up the test environment with:
 
   - 5 validator relay chain nodes
-  - 2 ***InfraAssetHub*** collator nodes
-  - 2 ***Parachain Template Node*** collator nodes
+  - 2 **_InfraAssetHub_** collator nodes
+  - 2 **_Parachain Template Node_** collator nodes
 
 ```toml
 [relaychain]
@@ -162,7 +161,7 @@ chmod +x zombienet-macos
 
 ## Including Votes in Transactions
 
-- To pay transaction fees with the system token and vote, refer to [How to Interact with System Token](./how-to-interact-with-system-token.md). For this tutorial, assume that the system token is generated from parachain-template-node.
+- To pay transaction fees with System Token and vote, refer to [How to Interact with System Token](./how-to-interact-with-system-token.md). For this tutorial, assume that System Token is generated from parachain-template-node.
 
 - Go to the [InfraBlockchain Explorer](https://portal.infrablockspace.net/#/explorer).
 
@@ -172,24 +171,23 @@ chmod +x zombienet-macos
 
 - Enable the include an optional `asset id` and include an optional vote options among the transaction's sub-options.
 
-  - The `asset id` option specifies the system token to be used for transaction fees.
-
+  - The `asset id` option specifies System Token to be used for transaction fees.
 
   ```
   - parachain_id: 파라체인 식별자
   - pallet_index: Assets 팔렛 식별자
-  - asset_id: 시스템 토큰의 식별자  
+  - asset_id: 시스템 토큰의 식별자
   ```
-  
+
   - The `vote` option designates the candidate for **Proof-of-Transaction (PoT)** to be elected.
 
   ![Transaction Details](/media/images/docs/infrablockchain/tutorials/tx-detail.png)
 
-- Wait until the block is processed, then check for the following event in ***InfraRelayChain***.
+- Wait until the block is processed, then check for the following event in **_InfraRelayChain_**.
 
   ![Relay Chain Event](/media/images/docs/infrablockchain/tutorials/infra-relay-event.png)
 
-- The votes have been aggregated according to the specified weight, and you can also verify this in the storage of ***InfraRelayChain***.
+- The votes have been aggregated according to the specified weight, and you can also verify this in the storage of **_InfraRelayChain_**.
 
   ![Storage](/media/images/docs/infrablockchain/tutorials/infra-relay-storage.png)
 
@@ -198,15 +196,3 @@ chmod +x zombienet-macos
 - [How to Get Validator Reward](./how-to-get-validator-reward.md)
 
 - [System Token Weight](../learn/protocol/transaction-fee.md)
-
-
-
-
-
-
-
-
-
-
-
-

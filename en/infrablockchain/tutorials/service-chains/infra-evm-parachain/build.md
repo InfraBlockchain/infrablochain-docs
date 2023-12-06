@@ -11,11 +11,11 @@ keywords:
 
 Before getting started, make sure to do the following:
 
-- [*InfraBlockchain EVM*](../../../service-chains/infra-evm-parachain.md)
+- [_InfraBlockchain EVM_](../../../service-chains/infra-evm-parachain.md)
 
-## *InfraBlockchain EVM* Chain
+## _InfraBlockchain EVM_ Chain
 
-If you have completed the previous tutorial, you should have the *InfraRelayChain* repository on your local machine.
+If you have completed the previous tutorial, you should have the _InfraRelayChain_ repository on your local machine.
 
 1. Open your computer's terminal shell.
 
@@ -61,9 +61,9 @@ If you have completed the previous tutorial, you should have the *InfraRelayChai
 
 ## Starting the Local Node
 
-Once the node is compiled, you are ready to set up the relay chain and Infra DID chain in a local environment.
+Once the node is compiled, you are ready to set up the relay chain and InfraDID chain in a local environment.
 
-To start the local Infra DID chain, follow these steps:
+To start the local InfraDID chain, follow these steps:
 
 1. Check the ZombieNet configuration by running:
 
@@ -71,63 +71,63 @@ To start the local Infra DID chain, follow these steps:
    cat zombienet-config.toml
    ```
 
-   ```toml	   
-    [relaychain]	
-    default_command = "../infra-relay-chain/target/release/infrablockspace"	
-    default_args = ["-lparachain=debug", "-l=xcm=trace"]	
-    chain = "infrablockspace-local"	
+   ```toml
+    [relaychain]
+    default_command = "../infra-relay-chain/target/release/infrablockspace"
+    default_args = ["-lparachain=debug", "-l=xcm=trace"]
+    chain = "infrablockspace-local"
 
-    [[relaychain.nodes]]	
-    name = "alice"	
-    validator = true	
-    rpc_port = 7100	
-    ws_port = 7101	
+    [[relaychain.nodes]]
+    name = "alice"
+    validator = true
+    rpc_port = 7100
+    ws_port = 7101
 
-    [[relaychain.nodes]]	
-    name = "bob"	
-    validator = true	
-    rpc_port = 7200	
-    ws_port = 7201	
+    [[relaychain.nodes]]
+    name = "bob"
+    validator = true
+    rpc_port = 7200
+    ws_port = 7201
 
-    [[relaychain.nodes]]	
-    name = "charlie"	
-    validator = true	
-    rpc_port = 7300	
-    ws_port = 7301	
+    [[relaychain.nodes]]
+    name = "charlie"
+    validator = true
+    rpc_port = 7300
+    ws_port = 7301
 
-    [[relaychain.nodes]]	
-    name = "dave"	
-    validator = true	
-    rpc_port = 7400	
-    ws_port = 7401	
+    [[relaychain.nodes]]
+    name = "dave"
+    validator = true
+    rpc_port = 7400
+    ws_port = 7401
 
-    [[relaychain.nodes]]	
-    name = "eve"	
-    validator = true	
-    rpc_port = 7500	
-    ws_port = 7501	
+    [[relaychain.nodes]]
+    name = "eve"
+    validator = true
+    rpc_port = 7500
+    ws_port = 7501
 
-    [[relaychain.nodes]]	
-    name = "ferdie"	
-    validator = true	
-    rpc_port = 7600	
-    ws_port = 7601	
+    [[relaychain.nodes]]
+    name = "ferdie"
+    validator = true
+    rpc_port = 7600
+    ws_port = 7601
 
-    [[parachains]]	
-    id = 1338	
-    chain = "local"	
-    cumulus_based = true	
+    [[parachains]]
+    id = 1338
+    chain = "local"
+    cumulus_based = true
 
-    # run alice & bob as parachain collator	
-    [[parachains.collators]]	
-    name = "alice"	
-    validator = true	
-    command = "./target/release/infra-evm"	
-    args = ["-lparachain=debug", "-l=xcm=trace"]	
-    rpc_port = 9800	
-    ws_port = 9801	
-   ```	
-   
+    # run alice & bob as parachain collator
+    [[parachains.collators]]
+    name = "alice"
+    validator = true
+    command = "./target/release/infra-evm"
+    args = ["-lparachain=debug", "-l=xcm=trace"]
+    rpc_port = 9800
+    ws_port = 9801
+   ```
+
    Ensure that the `default_command` path under `[relaychain]` and `[parachains]` matches the actual local paths.
 
    If they do not match, modify them to fit your local environment.
@@ -142,13 +142,13 @@ To start the local Infra DID chain, follow these steps:
 
    ![zombienet](/media/images/docs/infrablockchain/service-chains/infra-evm-parachain-zombienet.png)
 
-4. (Optional) If you check the nodes of the Infra EVM chain, you should see logs similar to the following:
+4. (Optional) If you check the nodes of InfraEVM chain, you should see logs similar to the following:
 
    ```shell
     2023-10-30 14:49:31.601  INFO main sc_cli::runner: Infrablockspace EVM Parachain
     2023-10-30 14:49:31.601  INFO main sc_cli::runner: ✌️  version 0.9.400-de99471b695
     2023-10-30 14:49:31.601  INFO main sc_cli::runner: ❤️  by Anonymous, 2023-2023
-    2023-10-30 14:49:31.601  INFO main sc_cli::runner: 📋 Chain specification: Infra EVM Local Testnet
+    2023-10-30 14:49:31.601  INFO main sc_cli::runner: 📋 Chain specification: InfraEVM Local Testnet
     2023-10-30 14:49:31.601  INFO main sc_cli::runner: 🏷  Node name: alice-1
     2023-10-30 14:49:31.602  INFO main sc_cli::runner: 👤 Role: AUTHORITY
     2023-10-30 14:49:31.602  INFO main sc_cli::runner: 💾 Database: RocksDb at /var/folders/5s/7k4bxw5d257br6f0r_2s2szr0000gn/T/zombie-4d95fad6e5ea443c24d8ac966b51f680_-24823-ActivcN5BF4l/alice-1/data/chains/infra_evm_local_testnet/db/full
@@ -275,4 +275,4 @@ To start the local Infra DID chain, follow these steps:
     2023-10-30 14:50:42.040  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #7 (0x7f32…3263)
    ```
 
-   This confirms that the Infra EVM chain is operational.
+   This confirms that InfraEVM chain is operational.

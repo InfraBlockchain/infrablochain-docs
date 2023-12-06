@@ -14,13 +14,13 @@ Before you begin, Make sure you have the following:
 
 ## Overview
 
-***InfraBlockchain*** uses a legal currency-based _system token_ as transaction fees. The transaction fees paid are rewarded to validators.
+**_InfraBlockchain_** uses a legal currency-based _system token_ as transaction fees. The transaction fees paid are rewarded to validators.
 
 In this document, we will explore how transaction fees are collected and distributed to validators.
 
 ## Using Transaction Fees
 
-***InfraBlockchain*** requires transaction fees to be paid in order to generate transactions. These fees can be paid using the legal currency-based system token.
+**_InfraBlockchain_** requires transaction fees to be paid in order to generate transactions. These fees can be paid using the legal currency-based system token.
 
 The fees can be paid directly by the user generating the transaction or by another user on their behalf. However, in the latter case, the electronic signature of the user paying the fee must also be included in the transaction.
 
@@ -48,7 +48,7 @@ impl pallet_system_token_payment::Config for Runtime {
 }
 ```
 
-The system tokens collected in the _bucket account_ are teleported to the Sovereign account of the chain where the system token was originally issued at regular intervals (typically every 10 blocks).
+System Token collected in the _bucket account_ are teleported to the Sovereign account of the chain where System Token was originally issued at regular intervals (typically every 10 blocks).
 
 ```rust
 #[pallet::hooks]
@@ -127,9 +127,8 @@ fn aggregate_reward(
 }
 ```
 
-The types and quantities of tokens confirmed as rewards are stored in the `ValidatorReward` storage, and validators can receive rewards based on the types and quantities of system tokens stored in the `ValidatorReward` storage.
+The types and quantities of tokens confirmed as rewards are stored in the `ValidatorReward` storage, and validators can receive rewards based on the types and quantities of System Token stored in the `ValidatorReward` storage.
 
 ## Next steps
 
 - [Receiving Validator Rewards](../../tutorials/basic/how-to-get-validator-reward.md)
-

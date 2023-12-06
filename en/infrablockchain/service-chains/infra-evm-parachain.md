@@ -10,7 +10,7 @@ keywords:
 
 Before you begin, Make sure you have the following:
 
-<!-- 
+<!--
   When the document containing this content is created, please link to that document.
 -->
 
@@ -40,4 +40,4 @@ EVM plays a crucial role in the Ethereum ecosystem, providing the infrastructure
 
 ## Next steps
 
-- [Building the Infra EVM Chain](../tutorials/service-chains/infra-evm-parachain/README.md)
+- [Building InfraEVM Chain](../tutorials/service-chains/infra-evm-parachain/README.md)
