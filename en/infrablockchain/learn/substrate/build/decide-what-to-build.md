@@ -81,8 +81,8 @@ Substrate provides tools to support two types of smart contracts:
 
 If your project seems well-suited to be a smart contracts, you can see some simple examples to get you started in the following tutorials:
 
-- [Develop smart contracts](/tutorials/smart-contracts/)
-- [Access EVM accounts](/tutorials/integrate-with-tools/access-evm-accounts/)
+- [Develop smart contracts](../tutorials/smart-contracts/README.md)
+- [Access EVM accounts](../tutorials/integrate-with-tools/access-evm-accounts.md)
 
 ## Individual pallets
 
@@ -115,9 +115,7 @@ In addition, changes to FRAME or Substrate can create maintenance issues for you
 
 If your project seems well-suited to be an individual pallet, you can see some simple examples to get you started in the following sections:
 
-- [Custom pallets](/build/custom-pallets/)
-- [Work with pallets](/tutorials/build-application-logic/)
-- [Collectibles workshop](/tutorials/collectibles-workshop/)
+- [Work with pallets](../tutorials/build-application-logic/README.md)
 
 ## Custom runtime
 
@@ -141,15 +139,15 @@ With a custom runtime, you can also deliver more complex functionality and user 
 
 ### Explore building a custom runtime
 
-If you want to build a more complete custom runtime rather than an individual pallet, you can start with some simple examples like the tutorials in [Work with pallets](/tutorials/build-application-logic/) and the [Collectibles workshop](/tutorials/collectibles-workshop/).
+If you want to build a more complete custom runtime rather than an individual pallet, you can start with some simple examples like the tutorials in [Work with pallets](../tutorials/build-application-logic/README.md).
 However, if you want to build a custom runtime as a proof-of-concept for a solo chain or a parachain, you'll want a broader and deeper understanding of runtime components and FRAME pallets.
-The most relevant topics are under [Build](/build/) and [Test](/test/) and in the following sections:
+The most relevant topics are under [Build](./README.md) and [Test](../../../tutorials/test/README.md) and in the following sections:
 
-- [Runtime storage structures](/build/runtime-storage/)
-- [Transactions, weights, and fees](/build/tx-weights-fees/)
-- [Application development](/build/application-development/)
-- [FRAME pallets](/reference/frame-pallets/)
-- [FRAME macros](/reference/frame-macros/)
+- [Runtime storage structures](../learn/frame/runtime-storage.md)
+- [Transactions, weights, and fees](../learn/frame/tx-weights-fees.md)
+- [Application development](../tutorials/build-application-logic/README.md)
+- [FRAME pallets](../learn/frame/frame-pallets.md)
+- [FRAME macros](../learn/frame/frame-macros.md)
 
 ## Parachain
 
@@ -204,9 +202,9 @@ If you have a custom runtime that you want to deploy as a parachain to take adva
 
 For some examples to get you started, see the following sections:
 
-- [Connect parachains to a network](/tutorials/build-a-parachain/)
-- [Simulate parachains in a test network](/test/simulate-parachains/)
-- [Parachains](/reference/how-to-guides/parachains/)
+- [Connect parachains to a network](../../../tutorials/build/build-a-parachain.md)
+- [Simulate parachains in a test network](../tutorials/build-a-blockchain/simulate-network.md)
+- [Parachains](../learn/runtime-development/parachains/README.md)
 
 To learn more about what you can build, explore the following resources:
 

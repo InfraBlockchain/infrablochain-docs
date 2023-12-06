@@ -4,16 +4,16 @@ description: Introduces the core programming interfaces, primitives, and modules
 keywords:
 ---
 
-As discussed in [Architecture](/learn/architecture/), the **runtime** for a Substrate node contains all of the business logic for executing transactions, saving state transitions, and interacting with the outer node.
+As discussed in [Architecture](../../learn/basic/architecture.md), the **runtime** for a Substrate node contains all of the business logic for executing transactions, saving state transitions, and interacting with the outer node.
 Substrate provides all of the tools required to build common blockchain components so you can focus on developing the runtime logic that defines the blockchain behavior.
 
 ## State transitions and the runtime
 
 At the most basic level, every blockchain is essentially a ledger or record of each change that takes place on-chain.
 In Substrate-based chains, these changes to state are recorded in the runtime.
-Because the runtime handles this operation, the runtime is sometimes described as providing the [state transition function](/reference/glossary#state-transition-function-stf).
+Because the runtime handles this operation, the runtime is sometimes described as providing the [state transition function](../basic/glossary.md#state-transition-function-stf).
 
-Because state transitions occur in the runtime, the runtime is where you define the **storage items** that represent the blockchain [state](/reference/glossary#state) and the [transactions](/learn/transaction-types) that allow blockchain users to make changes to this state.
+Because state transitions occur in the runtime, the runtime is where you define the **storage items** that represent the blockchain [state](../basic/glossary.md#state) and the [transactions](../basic/transaction-types.md) that allow blockchain users to make changes to this state.
 
 ![State and functions in the runtime](/media/images/docs/state-transition-function.png)
 
@@ -21,7 +21,7 @@ The Substrate runtime determines which transactions are valid and invalid and ho
 
 ## Runtime interfaces
 
-As you learned in [Architecture](/learn/architecture/), the outer node is responsible for handling peer discovery, transaction pooling, block and transaction gossiping, consensus, and answering RPC calls from the outside world.
+As you learned in [Architecture](../basic/architecture.md), the outer node is responsible for handling peer discovery, transaction pooling, block and transaction gossiping, consensus, and answering RPC calls from the outside world.
 These tasks frequently require the outer node to query the runtime for
 information or to provide information to the runtime.
 The runtime API facilitates this kind of communication between the outer node and the runtime.
@@ -77,12 +77,12 @@ These core primitives are:
 
 ## FRAME
 
-[FRAME](/reference/glossary/#frame) is one of the most powerful tools available to you as a runtime developer.
+[FRAME](../basic/glossary.md#frame) is one of the most powerful tools available to you as a runtime developer.
 As mentioned in [Substrate empowers developers](/), FRAME is an acronym for **Framework for Runtime Aggregation of Modularized Entities** and it encompasses a significant number of modules and support libraries that simplify runtime development.
 In Substrate, these modules—called **pallets**—offer customizable business logic for different use cases and features that you might want to include in your runtime.
 For example, there are pallets that provide a framework of business logic for staking, consensus, governance, and other common activities.
 
-For a summary of the pallets available, see [FRAME pallets](/reference/frame-pallets/).
+For a summary of the pallets available, see [FRAME pallets](./frame-pallets.md).
 
 In addition to pallets, FRAME provides services to interact with the runtime through the following libraries and modules
 
@@ -175,8 +175,8 @@ As you start to design and build your custom runtime, you'll learn more about FR
 
 Now that you are familiar with the basics of Substrate runtime development and working with pallets, explore the following topics and tutorials to learn more.
 
-- [Frame pallets](/reference/frame-pallets/)
-- [Add a module to the runtime](/tutorials/build-application-logic/add-a-pallet)
-- [Rust for Substrate](/learn/rust-basics/)
-- [Macro reference](/reference/frame-macros/)
-- [Use macros in a custom pallet](/tutorials/build-application-logic/use-macros-in-a-custom-pallet/)
+- [Frame pallets](./frame-pallets.md)
+- [Add a module to the runtime](../../tutorials/build-application-logic/add-a-pallet.md)
+- [Rust for Substrate](../basic/rust-basics.md)
+- [Macro reference](../frame/frame-macros.md)
+- [Use macros in a custom pallet](../../tutorials/build-application-logic/use-macros-in-a-custom-pallet.md)

@@ -10,9 +10,9 @@ The hash associated with this block is the top-level parent of all blocks produc
 The Substrate node template provides the genesis configuration—the initial state—for a subset of pallets by default.
 As you add custom logic to the runtime—for example, by adding predefined or custom pallets—you might find that you want to modify the genesis configuration to include other storage items or set different initial values.
 
-As you learned in [Chain specification](/build/chain-spec/), the chain specification you use to start a node determines the genesis configuration for that node.
+As you learned in [Chain specification](./chain-spec.md), the chain specification you use to start a node determines the genesis configuration for that node.
 However, the chain specification doesn't create the storage items that get initialized when you start a node.
-Instead, the storage items are defined in the pallets included in the runtime as described in [Runtime storage](/build/runtime-storage/).
+Instead, the storage items are defined in the pallets included in the runtime as described in [Runtime storage](../learn/frame/runtime-storage.md).
 
 After you create storage items for the runtime, you can choose whether they should be set to some initial value as part of the genesis configuration and included in the genesis block.  
 To specify the storage items that you want to set an initial state for, Substrate provides two specialized FRAME attribute macros.
@@ -115,12 +115,17 @@ All of the `GenesisConfig` types for the pallets that included in the constructi
 The aggregated `RuntimeGenesisConfig` implements the [`BuildStorage`](https://paritytech.github.io/substrate/master/sp_runtime/trait.BuildStorage.html) trait to build all of the initial storage items for the runtime.
 For example, the node template runtime builds storage items for the following pallets that have a `RuntimeGenesisConfig` specified by default:
 
-- [System pallet](#system-pallet)
-- [Aura pallet](#aura-pallet)
-- [Grandpa pallet](#grandpa-pallet)
-- [Balances pallet](#balances-pallet)
-- [TransactionPayment pallet](#transactionpayment-pallet)
-- [Sudo pallet](#sudo-pallet)
+- [Configure a simple storage value](#configure-a-simple-storage-value)
+  - [Configure macros in the pallet](#configure-macros-in-the-pallet)
+  - [Configure the chain specification](#configure-the-chain-specification)
+- [Adding genesis configuration to the runtime](#adding-genesis-configuration-to-the-runtime)
+  - [System pallet](#system-pallet)
+  - [Aura pallet](#aura-pallet)
+  - [Grandpa pallet](#grandpa-pallet)
+  - [Balances pallet](#balances-pallet)
+  - [TransactionPayment pallet](#transactionpayment-pallet)
+  - [Sudo pallet](#sudo-pallet)
+- [Initialize storage items within a pallet](#initialize-storage-items-within-a-pallet)
 
 ### System pallet
 

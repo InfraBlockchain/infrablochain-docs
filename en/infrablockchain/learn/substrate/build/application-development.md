@@ -39,7 +39,7 @@ Because it provides a complete inventory of the runtime, the metadata is the key
 
 ## Generating metadata
 
-To minimize the bandwidth required to transmit data over the network, the metadata schema is encoded using the [SCALE codec library](/reference/scale-codec/).
+To minimize the bandwidth required to transmit data over the network, the metadata schema is encoded using the [SCALE codec library](../learn/frame/scale-codec.md).
 This encoding is done automatically for you when you compile a node by using the [`scale-info`](https://docs.rs/scale-info/latest/scale_info/) crate.
 
 At a high level, generating the metadata involves the following steps:
@@ -55,7 +55,7 @@ At a high level, generating the metadata involves the following steps:
 
 The following diagram provides a simplified overview of how the metadata is generated when the runtime logic is compiled and then accessed by connecting to the node with an RPC request.
 
-![Compiling the runtime generates the metadata](/media/images/docs/metadata.png)
+![Compiling the runtime generates the metadata](/media/images/docs/infrablockchain/learn/substrate/build/metadata.png)
 
 ## Getting metadata for a runtime
 
@@ -73,7 +73,7 @@ The metadata also allows libraries to generate almost all of the code needed to 
 ## Client applications and metadata
 
 Client applications use the metadata to interact with the node, parse responses, and format message payloads sent to the node.
-To use the metadata, client applications must use the [SCALE codec library](/reference/scale-codec/) to encode and decode RPC payloads.
+To use the metadata, client applications must use the [SCALE codec library](../learn/frame/scale-codec.md) to encode and decode RPC payloads.
 Because the metadata exposes how every type is expected to be decoded, applications can send, retrieve, and process application information without manual encoding and decoding.
 
 ## Metadata format
@@ -127,7 +127,7 @@ The rest of the metadata has divided into the `types`, `pallets` and `extrinsic`
 The `types` section contains an index of the types and for each type information about its type signature.
 The `pallets` section contains information about each of the pallets in the runtime.
 The `extrinsic` section describes the type identifier and transaction format version that the runtime is using.
-Different extrinsic versions can have different formats, especially when considering [signed transactions](/learn/transaction-types).
+Different extrinsic versions can have different formats, especially when considering [signed transactions](../learn/basic/transaction-types.md).
 
 ### Pallets
 
@@ -358,7 +358,7 @@ Applications typically connect to Substrate nodes by using JSON-RPC methods thro
 Most applications use a WebSocket port because a single connection can be used for multiple messages to and from a node.
 With an HTTP connection, applications can only send and receive responses one message at a time.
 The most common reason you would use HTTP to connect to a node is if you want to fetch data using offchain workers.
-For more information about using offchain workers, see [Offchain operations](/learn/offchain-operations).
+For more information about using offchain workers, see [Offchain operations](../learn/basic/offchain-operations.md).
 
 As an alternative to connecting using RPC, you can use the [Substrate Connect](https://substrate.io/developers/substrate-connect/) and a light client node to connect to Substrate-based blockchains.
 Substrate Connect runs in a browser and allows applications to create their own light client node and connect directly to the exposed JSON-RPC endpoint.

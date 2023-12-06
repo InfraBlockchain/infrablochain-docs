@@ -14,7 +14,7 @@ You can follow similar steps for more complex data migration, but you'll need to
 
 ## Add the Nicks pallet locally
 
-We are going to make a change in the [FRAME's Nick's pallet](https://github.com/paritytech/polkadot-sdk/tree/master/substrate/frame/nicks), in the tutorial [Add a pallet to the runtime](/tutorials/build-application-logic/add-a-pallet/) we show how to add the Nicks pallet to the runtime for the node template.
+We are going to make a change in the [FRAME's Nick's pallet](https://github.com/paritytech/polkadot-sdk/tree/master/substrate/frame/nicks), in the tutorial [Add a pallet to the runtime](../../../tutorials/build-application-logic/add-a-pallet.md) we show how to add the Nicks pallet to the runtime for the node template.
 
 For this guide, because we are going to make changes in the code of the pallet we are going to take the code of the pallet and add it locally in our node template. You can check an example of how to add it locally [here](https://github.com/substrate-developer-hub/substrate-node-template/commit/022b6da0d1d55f54de3568e97aa5fe45a7975fa5).
 
@@ -31,6 +31,7 @@ For example, the default storage definition looks like this:
 	pub(super) type NameOf<T: Config> =
 		StorageMap<_, Twox64Concat, T::AccountId, (BoundedVec<u8, T::MaxLength>, BalanceOf<T>)>;
 ```
+
 We want to update the storage to add an optional field that includes a last name too.
 For that we create a new struct `Nickname` to manage the previous and new storage items, first name and last name:
 
@@ -43,6 +44,7 @@ For that we create a new struct `Nickname` to manage the previous and new storag
 		pub last: Option<BoundedVec<u8, T::MaxLength>>,
 	}
 ```
+
 To change now the data stored in the storage we will update the StorageMap `NameOf` to store the Nickname struct instead of only a `BoundedVec`
 
 ```rust
@@ -67,6 +69,7 @@ pub fn set_name(origin,
 ```
 
 In addition, update all storage writes with the `Nickname` struct:
+
 ```rust
 //--snip
 pub fn set_name(origin,
@@ -89,11 +92,13 @@ pub fn set_name(origin,
     <NameOf<T>>::insert(&sender, (Nickname{first: bounded_first, last: bounded_last}, deposit));
     }
 ```
+
 Check an example of how to update the extrinsics [here](https://github.com/substrate-developer-hub/substrate-node-template/commit/a9ee9b2b9096c2b85ecb4448366df2b8502e7aa7).
 
 ## Add the storage version
 
 The `pallet::pallet` macro implements `traits::GetStorageVersion` but the current storage version needs to be communicated to the macro. This can be done by using the `pallet::storage_version` macro.
+
 ```rust
     /// The current storage version, we set to 2 our new version.
 	const STORAGE_VERSION: StorageVersion = StorageVersion::new(2);
@@ -197,7 +202,9 @@ T::DbWeight::get().reads_writes(count as Weight + 1, count as Weight + 1)
 ```
 
 ### 7. Use `migrate_to_v2` in `on_runtime_upgrade`
+
 In your pallet lib.rs, declare the mod migration.
+
 ```rust
 mod migration;
 ```
@@ -227,6 +234,7 @@ For the Nicks pallet we have following tests:
 - `fn error_catching_should_work()`
 
 We have to update them to work with the new code we have added, for example:
+
 ```rust
     #[test]
 	fn normal_operation_should_work() {
@@ -247,6 +255,7 @@ We have to update them to work with the new code we have added, for example:
 		});
 	}
 ```
+
 Check an example of the full test fixes [here](https://github.com/substrate-developer-hub/substrate-node-template/commit/fa021b11878e8621bb455d4638e1821b681c085e).
 
 ## Examples

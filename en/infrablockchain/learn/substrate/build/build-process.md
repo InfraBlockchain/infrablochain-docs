@@ -4,7 +4,7 @@ description: Describes how a Substrate node is compiled into platform-native and
 keywords:
 ---
 
-In [Architecture](/learn/architecture), you learned that a Substrate node consists of an outer node host and a runtime execution environment.
+In [Architecture](../learn/basic/architecture.md), you learned that a Substrate node consists of an outer node host and a runtime execution environment.
 These node components communicate with each other through runtime API calls and host function calls.
 In this section, you'll learn more about how the Substrate runtime is compiled into a platform-native executable and into a WebAssembly (Wasm) binary that is stored on the blockchain.
 After you see the inner-working of how the binaries are compiled, you'll learn more about why there are two binaries, when they are used, and how you can change the execution strategies, if you need to.
@@ -18,7 +18,7 @@ Producing the optimized executable artifact includes some post-compilation proce
 As part of the optimization process, the WebAssembly runtime binary is compiled and compressed through a series of internal steps before it's included in the genesis state for a chain.
 To give you a better understanding of the process, the following diagram summarizes the steps.
 
-![WebAssembly compiled and compressed before included on-chain](/media/images/docs/node-executable.png)
+![WebAssembly compiled and compressed before included on-chain](/media/images/docs/infrablockchain/learn/substrate/build/node-executable.png)
 
 The following sections describe the build process in more detail.
 
@@ -76,7 +76,7 @@ In most cases, there's no need to use the initial WebAssembly binary or interim 
 ## Execution strategies
 
 After you have compiled the node with the native and WebAssembly runtime, you use command-line options to specify how the node should operate.
-For details about the command-line options you can use to start the node, see the [node-template](/reference/command-line-tools/node-template) command-line reference.
+For details about the command-line options you can use to start the node, see the [node-template](../learn/command-line-tools/node-template.md) command-line reference.
 
 When you start the node, the node executable uses the command-line options you specify to initialize the chain and generate the genesis block.
 As part of this process, the node adds the WebAssembly runtime as a storage item value and a corresponding `:code` key.

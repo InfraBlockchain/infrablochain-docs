@@ -135,9 +135,9 @@ After the conversion to the raw format, the `sudo key` snippet looks like this:
 
 ## Where to go next
 
-- [Add trusted nodes](/tutorials/build-a-blockchain/add-trusted-nodes/)
-- [How-to: Configure genesis state](/reference/how-to-guides/basics/configure-genesis-state/)
-- [How-to: Customize a chain specification](/reference/how-to-guides/basics/customize-a-chain-specification/)
+- [Add trusted nodes](../tutorials/build-a-blockchain/add-trusted-nodes.md)
+- [How-to: Configure genesis state](../learn/runtime-development/basics/configure-genesis-state.md)
+- [How-to: Customize a chain specification](../learn/runtime-development/basics/customize-a-chain-specification.md)
 - [Node template chain specification](https://github.com/substrate-developer-hub/substrate-node-template/blob/master/node/src/chain_spec.rs)
 - [ChainSpec struct](https://paritytech.github.io/substrate/master/sc_service/struct.GenericChainSpec.html)
 - [ProtocolId struct](https://paritytech.github.io/substrate/master/sc_network/config/struct.ProtocolId.html)

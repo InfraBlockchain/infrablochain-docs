@@ -30,7 +30,7 @@ This guide does _not_ inform on how to migrate a _running solo chain_, only the 
 
 The Substrate parachain template is similar to the Substrate node template.
 Both templates include the `node`, `runtime`, and `pallets` directories and many of the same predefined pallets and traits.
-You can follow most of the [tutorials](/tutorials/) using either template.
+You can follow most of the [tutorials](../../../tutorials/README.md) using either template.
 However, there are a few important differences between the node and parachain templates that you should take note of at the outset.
 
 ### Parachain info pallet

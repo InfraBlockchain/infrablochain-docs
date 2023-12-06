@@ -5,7 +5,7 @@ keywords:
 ---
 
 Substrate uses customized [Rust macros](https://doc.rust-lang.org/book/ch19-06-macros.html) to generate code and aggregate the logic from the pallets you implement for a runtime.
-These runtime macros allow you to focus on your runtime logic rather than spending time on encoding and decoding on-chain variables or duplicating the code required for [basic blockchain development](/learn/runtime-development#core-primitives).
+These runtime macros allow you to focus on your runtime logic rather than spending time on encoding and decoding on-chain variables or duplicating the code required for [basic blockchain development](../runtime-development/README.md).
 
 This section provides an overview of the types of macros available in Rust and highlights how the specific FRAME macros are used in runtime development.
 
@@ -104,7 +104,7 @@ You'll see these many of these crates listed as dependencies in the runtime and 
 
 ## Macros for composing pallets
 
-As discussed in [Building custom pallets](/learn/runtime-development#building-custom-pallets), most FRAME pallets are composed using a common set of sections.
+As discussed in [Building custom pallets](./custom-pallets.md), most FRAME pallets are composed using a common set of sections.
 
 Macros make building each of those sections more modular and extensible.
 This section describes the macros available and how to use them to build your custom runtime.
@@ -557,7 +557,7 @@ For more information, see the Rust documentation for [parameter_types](https://p
 
 The `impl_runtime_apis!` macro generates the runtime API for all of the traits that are implemented by the macro.
 The traits implemented in this macro must first be declared in the `decl_runtime_apis` macro.
-The macro generates the `RuntimeApi` and `RuntimeApiImpl` structs to expose these traits as [runtime APIs](/reference/runtime-apis/).
+The macro generates the `RuntimeApi` and `RuntimeApiImpl` structs to expose these traits as [runtime APIs](./runtime-apis.md).
 The traits exposed by the macro enable outer node components to communicate with the runtime through the `RuntimeApi` type.
 
 The macro declares the `RuntimeApi` and `RuntimeApiImpl` structs and implements various helper traits for the `RuntimeApiImpl` struct.

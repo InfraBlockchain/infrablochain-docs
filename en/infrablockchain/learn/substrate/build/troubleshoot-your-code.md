@@ -47,8 +47,7 @@ If there are no transaction fees associated with the execution of a function, a 
 In general, you should ensure that all functions that can be executed in the runtime have a weight defined and subtract a corresponding fee from a calling account.
 Transaction fees are typically an important economic incentive to prevent denial of service (DoS) attacks and create a sustainable economic model for the chain.
 
-For more information about the benchmarking system, see [Benchmark](/test/benchmark/).
-For a simple example of how to write and run benchmarks, see [Add benchmarks](/reference/how-to-guides/weights/add-benchmarks/).
+For more information about the benchmarking system, see [Benchmark](../../../tutorials/test/benchmark.md).
 
 ### Pallet coupling
 
@@ -78,12 +77,12 @@ If you plan to use offchain workers, you should consider the following:
 - By default, offchain workers are triggered for every block import even if the block isn't finalized.
 - Because offchain worker have full access to state, you can create conditions that trigger them to run only in some specific cases.
 
-For more information about offchain operations, see [Offchain operations](/learn/offchain-operations/).
-For examples of how to use offchain components, see [Offchain workers](/reference/how-to-guides/offchain-workers/).
+For more information about offchain operations, see [Offchain operations](../tutorials/build-application-logic/add-offchain-workers.md).
+For examples of how to use offchain components, see [Offchain workers](../learn/runtime-development/offchain-workers/README.md).
 
 ### Storage
 
-As discussed in [Runtime storage](/build/runtime-storage/), the fundamental principle for blockchain storage is to minimize both the number and size of the data items you store.
+As discussed in [Runtime storage](../learn/frame/runtime-storage.md), the fundamental principle for blockchain storage is to minimize both the number and size of the data items you store.
 Storing data unnecessarily can lead to slow network performance and resources running out.
 
 In planning and reviewing your code for potential issues, keep the following guidelines in mind:
@@ -107,8 +106,8 @@ In general, you should avoid having unbounded data in storage maps and avoid ite
 You should use benchmarks to test the performance of all functions in the runtime under different conditions, including iterating over a large number of items in a list or storage map.
 By testing for specific conditions—for example, triggering a function to execute over a large data set with many iteractions—benchmarks can help you identify when it's best to enforce boundaries by limiting the number of elements in a list or the number of iterations in a loop.
 
-For more guidelines about storage and storage structures, see [State transitions and storage](/learn/state-transitions-and-storage) and [Runtime storage](/build/runtime-storage/).
-For more information about iterating over storage, see [Iterating over storage maps](/build/runtime-storage/#iterating-over-storage-maps).
+For more guidelines about storage and storage structures, see [State transitions and storage](/learn/state-transitions-and-storage) and [Runtime storage](../learn/frame/runtime-storage.md).
+For more information about iterating over storage, see [Iterating over storage maps](../learn/frame/runtime-storage.md#iterating-over-storage-maps).
 
 ### Events
 
@@ -125,7 +124,7 @@ Events aren't intended to describe differences in state or to contain detailed i
 You should use caution in adding more information to an event than is needed because additional information increases storage and computational overhead involved in producing events.
 If additional information about a change is needed, users can query the chain state.
 
-For information about adding events to a custom pallet, see [Declaring an event](/build/events-and-errors/#declaring-an-event).
+For information about adding events to a custom pallet, see [Declaring an event](../learn/frame/events-and-errors.md#declaring-an-event).
 
 ## Unsafe or insecure patterns
 
@@ -195,7 +194,7 @@ There are two ways you can handle data overflows: use of saturating methods or h
 
 ### Unbounded Vec data types
 
-As noted in [Runtime storage](/build/runtime-storage/) and [Storage](#storage), it's important to minimize the number and size of the data items you store to ensure the chain is performant and secure.
+As noted in [Runtime storage](../learn/frame/runtime-storage.md) and [Storage](#storage), it's important to minimize the number and size of the data items you store to ensure the chain is performant and secure.
 Using Vec data types without setting bounds for size makes your chain vulnerable to both intentional and unintentional misuse of the limited resources available.
 For example, a malicious actor or an end-user acting without restrictions could add unlmited data and overwhelm your storage capacity, leading to undefined behavior in the runtime.
 In general, any storage item with its size determined by user action should have a bound on it.
@@ -240,7 +239,7 @@ Substrate provides the following hashing algorithms by default:
 - `Blake2` is a relatively fast cryptographic hashing function.
   In most cases, you can use the Blake2 hashing algorithm in any situations where security matters. However, Substrate can support any hash algorithm that implements the `Hasher` trait.
 
-For more information about hashing algorithms, see [Hashing algorithms](/learn/cryptography//#hashing-algorithms).
+For more information about hashing algorithms, see [Hashing algorithms](../learn/basic/cryptography.md#hash-functions).
 
 ### Inaccurate weight
 
@@ -255,7 +254,7 @@ Modeling the expected weight of each runtime function enables the blockchain to 
 If you set the weight for a transaction too low, an attacker or an unsuspecting user can create blocks that are overweight and cause block production timeouts.
 You should run appropriate benchmark tests for all functions under different conditions to ensure that that all transaction have appropriate weights that take into account the factors that affect the resources consumed.
 
-For more information about using benchmarks and calculating weight, see [Benchmarking and weight](/test/benchmark/#benchmarking-and-weight) and [Weights](/reference/how-to-guides/weights/).
+For more information about using benchmarks and calculating weight, see [Benchmarking and weight](/test/benchmark/#benchmarking-and-weight) and [Weights](../learn/runtime-development/weights/README.md).
 
 ### Insecure randomness
 
@@ -274,7 +273,7 @@ Substrate provides two default implementations of randomness.
 
 As alternative to these pallets, you can use an oracle as a secure source of randomness.
 
-For more information about using randomness, see [Randomness](/build/randomness/) and [Incorporate randomness](/reference/how-to-guides/pallet-design/incorporate-randomness/).
+For more information about using randomness, see [Randomness](../learn/basic/randomness.md) and [Incorporate randomness](../learn/runtime-development/pallet-design/incorporate-randomness.md).
 
 ## Anti-patterns
 

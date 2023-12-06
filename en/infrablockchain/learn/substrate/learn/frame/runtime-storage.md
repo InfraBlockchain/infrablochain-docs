@@ -5,7 +5,7 @@ keywords:
 ---
 
 As you develop runtime logic, you'll need to make important decisions about the information you store and how to make storing information as efficient as possible.
-As discussed in [State transitions and storage](/learn/state-transitions-and-storage/), reading and writing data to storage is expensive.
+As discussed in [State transitions and storage](./state-transitions-and-storage.md), reading and writing data to storage is expensive.
 In addition, storing unnecessarily large data sets can slow your network and strain system resources.
 
 Substrate is designed to provide a flexible framework that allows you to build the blockchain that suits your needs.
@@ -50,7 +50,7 @@ Because this signatory list is [necessary to come to consensus](#what-to-store) 
 
 ## Transactional storage
 
-As explained in [State transitions and storage](/learn/state-transitions-and-storage/), runtime storage involves an underlying key-value database and in-memory storage overlay abstractions that keep track of keys and state changes until the values are committed to the underlying database.
+As explained in [State transitions and storage](./state-transitions-and-storage.md), runtime storage involves an underlying key-value database and in-memory storage overlay abstractions that keep track of keys and state changes until the values are committed to the underlying database.
 By default, functions in the runtime write changes to a single in-memory **transactional storage layer** before committing them to the main storage overlay.
 If an error prevents the transaction from being completed, the changes in the transactional storage layer are discarded instead of being passed on to the main storage overlay and state in the underlying database remains unchanged.
 
@@ -92,9 +92,9 @@ If an error occurs after you have modified storage, those changes will persist, 
 
 ## Accessing runtime storage
 
-In [State transitions and storage](/learn/state-transitions-and-storage/), you learned how Substrate uses storage abstractions to provide read and write access to the underlying key-value database.
+In [State transitions and storage](./state-transitions-and-storage.md), you learned how Substrate uses storage abstractions to provide read and write access to the underlying key-value database.
 The FRAME [`Storage`](https://paritytech.github.io/substrate/master/frame_support/storage) module simplifies access to these layered storage abstractions.
-You can use the FRAME storage data structures to read or write any value that can be encoded by the [SCALE codec](/reference/scale-codec/).
+You can use the FRAME storage data structures to read or write any value that can be encoded by the [SCALE codec](./scale-codec.md).
 The storage module provides the following types of storage structures:
 
 - [StorageValue](https://paritytech.github.io/substrate/master/frame_support/storage/trait.StorageValue.html) to store any single value, such as a `u64`.
@@ -116,7 +116,7 @@ For example, you should use this type of storage for the following common use ca
 
 If you use this type of storage for lists of items, you should be conscious about the size of the lists you store.
 Large lists and `structs` incur storage costs and iterating over a large list or `struct` in the runtime can affect network performance or stop block production entirely.
-If iterating over storage exceeds the block production time and your project is a [parachain](/reference/glossary/#parachain), the blockchain will stop producing blocks and functioning.
+If iterating over storage exceeds the block production time and your project is a [parachain](../basic/glossary.md#parachain), the blockchain will stop producing blocks and functioning.
 
 Refer to the [StorageValue](https://paritytech.github.io/substrate/master/frame_support/storage/trait.StorageValue.html#required-methods) documentation for a comprehensive list of methods that StorageValue exposes.
 
@@ -254,7 +254,7 @@ The `#[pallet::getter(..)]` macro provides an optional `get` extension that can 
 The extension takes the desired name of the getter function as an argument.
 If you omit this optional extension, you can access the storage item value, but you will not be able to do so by way of a getter method implemented on the module; instead, you will need to use [the storage item's `get` method](#methods).
 
-The optional `getter` extension only impacts the way that a storage item can be accessed from _within_ Substrate code&mdash;you will always be able to [query the storage of your runtime](/build/runtime-storage#Querying-Storage) to get the value of a storage item.
+The optional `getter` extension only impacts the way that a storage item can be accessed from _within_ Substrate code&mdash;you will always be able to [query the storage of your runtime](./runtime-storage.md#handling-query-return-values) to get the value of a storage item.
 
 Here is an example that implements a getter method named `some_value` for a Storage Value named `SomeValue`.
 This pallet would now have access to a `Self::some_value()` method in addition to the `SomeValue::get()` method:
@@ -337,7 +337,7 @@ This type of hasher should only be used when the starting key is already a crypt
 
 Check out some guides covering various topics on storage:
 
-- [How-to: Create a storage structure](/reference/how-to-guides/pallet-design/create-a-storage-structure)
+- [How-to: Create a storage structure](../../learn/runtime-development/pallet-design/create-a-storage-structure.md)
 - [StorageValue](https://paritytech.github.io/substrate/master/frame_support/storage/types/struct.StorageValue.html)
 - [StorageMap](https://paritytech.github.io/substrate/master/frame_support/storage/types/struct.StorageMap.html)
 - [StorageDoubleMap](https://paritytech.github.io/substrate/master/frame_support/storage/types/struct.StorageDoubleMap.html)

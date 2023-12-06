@@ -9,7 +9,7 @@ The program used to serialize and deserialize data is called the SCALE codec, wi
 
 The SCALE codec is a critical component for communication between the runtime and the outer node.
 
-It is designed for high-performance, copy-free encoding and decoding of data in resource-constrained execution environments like the Substrate [WebAssembly runtime](/learn/runtime-development//).
+It is designed for high-performance, copy-free encoding and decoding of data in resource-constrained execution environments like the Substrate [WebAssembly runtime](./runtime-development.md).
 
 The SCALE codec is not self-describing in any way.
 It assumes the decoding context has all type knowledge about the encoded data.
@@ -50,7 +50,8 @@ The following table shows how the Rust implementation of the Parity SCALE codec 
 | Structs                       | For structures, the values are named, but that is irrelevant for the encoding (names are ignored - only order matters). All containers store elements consecutively. The order of the elements is not fixed, depends on the container, and cannot be relied on at decoding. This implicitly means that decoding some byte-array into a specified structure that enforces an order and then re-encoding it could result in a different byte array than the original that was decoded. | A `SortedVecAsc<u8>` structure that always has byte-elements in ascending order: `SortedVecAsc::from([3, 5, 2, 8])` | `[3, 2, 5, 8]`                       |
 | Enumerations (tagged-unions)  | A fixed number of variants, each mutually exclusive and potentially implying a further value or series of values. Encoded as the first byte identifying the index of the variant that the value is. Any further bytes are used to encode any data that the variant implies. Thus, no more than 256 variants are supported.                                                                                                                                                           | `Int(42)` and `Bool(true)` where `enum IntOrBool { Int(u8), Bool(bool),}`                                           | `0x002a` and `0x0101`                |
 
-[^1]: Compact/general integers are encoded with the two least significant bits denoting the mode:
+[^1]:
+    Compact/general integers are encoded with the two least significant bits denoting the mode:
 
     - `0b00`: single-byte mode; upper six bits are the LE encoding of the value (valid only for values
       of 0-63).

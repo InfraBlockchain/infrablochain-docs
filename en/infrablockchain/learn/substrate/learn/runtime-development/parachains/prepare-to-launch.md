@@ -30,7 +30,7 @@ In order to set a unique protocol ID, change make sure you use some nonce or sal
 (for the [parachain node template](https://github.com/substrate-developer-hub/substrate-parachain-template/))
 as a CLI item in `/client/network/src/command.rs`, and passed to extend the `/client/network/src/chain_spec.rs`
 
-All [chain specification](/build/chain-spec/) files include this item as a field.
+All [chain specification](../../../build/chain-spec.md) files include this item as a field.
 For example, the primary [relay chain runtime](https://github.com/paritytech/polkadot-sdk/tree/master/polkadot/node/service/chain-specs) chain specs have unique protocol IDs.
 For Polkadot:
 
@@ -47,7 +47,7 @@ Monitor [this issue](https://github.com/paritytech/substrate/issues/7746) for up
 
 ## Memory profiling
 
-Collator [memory profiling](/reference/command-line-tools/memory-profiler) should be done to analyze memory leaks, identify where memory consumption is happening, define temporary allocations, and investigate excessive memory fragmentation within applications.
+Collator [memory profiling](../../../learn/command-line-tools/memory-profiler.md) should be done to analyze memory leaks, identify where memory consumption is happening, define temporary allocations, and investigate excessive memory fragmentation within applications.
 
 ## Minimize your runtime size
 
@@ -80,7 +80,7 @@ constants: _Developers_ -> _ParachainsConfiguration_ -> _ActiveConfiguration_
 
 ## Use proper weights
 
-Use [runtime benchmarking](/test/benchmark) to ensure that your runtime weights are
+Use [runtime benchmarking](../../../../../tutorials/test/benchmark.md) to ensure that your runtime weights are
 actually indicative of the resources used by your runtime.
 
 ### Custom weights
@@ -121,7 +121,7 @@ In these cases, you can:
    without having to do storage migrations. For more information on on-chain runtime upgrades refer to
    the next section.
 
-**See the [parachain runtime upgrade guide](/reference/how-to-guides/parachains/runtime-upgrade)** for how
+**See the [parachain runtime upgrade guide](../parachains/upgrade-a-parachain.md)** for how
 to go about actually performing these incremental runtime upgrades.
 
 ## Launch simulation
@@ -130,7 +130,7 @@ Before you try anything on a production testnet or mainnet, you should launch yo
 Testing in a confined network will help you prepare for potential failures in a real network with many collators and validators and constraints like bandwidth and latency.
 The more closely you can simulate a real network for testing, the more sure you can be that your runtime upgrades will succeeds.
 
-See the [Prepare a local relay chain](/tutorials/build-a-parachain/prepare-a-local-relay-chain/) to for a selection of tools for automation of such testing.
+See the [Prepare a local relay chain](../../../../../tutorials/build/build-infra-relay-chain.md) to for a selection of tools for automation of such testing.
 
 ## Examples
 
@@ -138,8 +138,8 @@ See the [Prepare a local relay chain](/tutorials/build-a-parachain/prepare-a-loc
 
 ## Resources
 
-- [Reference documentation for runtime upgrades](/build/upgrade)
-- [A how-to guide to use benchmarked weights](/reference/how-to-guides/weights/add-benchmarks)
-- [Reference for `try-runtime` documentation](/reference/command-line-tools/try-runtime)
+- [Reference documentation for runtime upgrades](../../../tutorials/build-a-blockchain/upgrade-a-running-network.md)
+- [A how-to guide to use benchmarked weights](../weights/add-benchmarks.md)
+- [Reference for `try-runtime` documentation](../../../learn/command-line-tools/try-runtime.md)
   - [`try-runtime` video workshop](https://www.crowdcast.io/e/substrate-seminar/41)
 - [Fork Off Substrate tool](https://github.com/maxsam4/fork-off-substrate)

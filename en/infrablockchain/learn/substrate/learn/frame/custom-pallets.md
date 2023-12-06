@@ -4,10 +4,10 @@ description:
 keywords:
 ---
 
-The most common approach to building a custom runtime is to start with [existing pallets](/reference/frame-pallets/).
+The most common approach to building a custom runtime is to start with [existing pallets](./frame-pallets.md).
 For example, you might start building an application-specific staking pallet that uses the types exposed in existing Collective and Balances pallets, but includes custom runtime logic required by your application and its staking rules.
 
-Although [FRAME pallets](/reference/frame-pallets) provides an overview of the most common pallets, the best place to find current information about existing pallets is the [Rust API](/reference/rust-api/) documentation for crates that use the naming convention `pallet_*`.
+Although [FRAME pallets](./frame-pallets.md) provides an overview of the most common pallets, the best place to find current information about existing pallets is the [Rust API](./runtime-apis.md) documentation for crates that use the naming convention `pallet_*`.
 
 If you don't find a pallet that meets your needs, you can use FRAME macros to build the scaffolding for a custom pallet.
 
@@ -40,7 +40,7 @@ For example, you need to consider:
 Macros simplify the code you need to write to implement custom runtime logic.
 However, some macros enforce particular requirements on function declarations.
 For example, the `Config` trait must be bound by `frame_system::Config` and the `#[pallet::pallet]` struct must be declared as `pub struct Pallet<T>(_);`.
-For an overview of the macros used in FRAME pallets, see [FRAME macros](/reference/frame-macros/).
+For an overview of the macros used in FRAME pallets, see [FRAME macros](./frame-macros.md).
 
 <!-- ## Useful FRAME traits
 

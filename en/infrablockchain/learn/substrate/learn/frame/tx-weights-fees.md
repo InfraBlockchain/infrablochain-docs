@@ -20,7 +20,7 @@ The resources to be aware of include:
 Substrate provides block authors with several ways to manage access to resources and to prevent individual components of the chain from consuming too much of any single resource.
 Two of the most important mechanisms available to block authors are **weights** and **transaction fees**.
 
-[Weights](/reference/glossary/#weight) are used to manage the time it takes to validate a block.
+[Weights](../basic/glossary.md#weight) are used to manage the time it takes to validate a block.
 In general, weights are used to characterize the time it takes to execute the calls in the body of a block.
 By controlling the execution time that a block can consume, weights set limits on storage input and output and computation.
 
@@ -395,7 +395,7 @@ You now know what the weight system is, how it affects transaction fee computati
 The next step is determining the correct weight to account for the operations your dispatchable performs.
 You can use Substrate **benchmarking functions** and `frame-benchmarking` calls to test your functions with different parameters and empirically determine the correct weight in their worst case scenarios.
 
-- [Benchmark](/test/benchmark/)
+- [Benchmark](../../../../tutorials/test/benchmark.md)
 - [SignedExtension](https://paritytech.github.io/substrate/master/sp_runtime/traits/trait.SignedExtension.html)
 - [Custom weights for the Example pallet](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/examples/basic/src/weights.rs)
 - [Web3 Foundation Research](https://research.web3.foundation/Polkadot/overview/token-economics#relay-chain-transaction-fees-and-per-block-transaction-limits)

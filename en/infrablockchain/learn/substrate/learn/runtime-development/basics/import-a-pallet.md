@@ -8,7 +8,7 @@ keywords:
 ---
 
 This guide demonstrates how to quickly integrate both local and external pallets in a runtime.
-For more detailed step-by-step instructions, see [Add a pallet to the runtime](/tutorials/build-application-logic/add-a-pallet).
+For more detailed step-by-step instructions, see [Add a pallet to the runtime](../../../tutorials/build-application-logic/add-a-pallet.md).
 
 This guide illustrates:
 
@@ -37,7 +37,7 @@ This guide illustrates:
    }
    ```
 
-1. Declare your pallet for the [`construct_runtime` macro](/reference/frame-macros/#construct_runtime):
+1. Declare your pallet for the [`construct_runtime` macro](../../frame/frame-macros.md#construct_runtime):
 
    ```rust
    construct_runtime!(
@@ -107,4 +107,4 @@ std = [
 
 - [Timestamp Pallet associated types](https://paritytech.github.io/substrate/master/pallet_timestamp/index.html)
 - [FRAME `pallet-timestamp`](https://crates.io/crates/pallet-timestamp)<!-- markdown-link-check-disable-line -->
-- [Unit test](/test/unit-testing)
+- [Unit test](../../../../../tutorials/test/unit-testing.md)

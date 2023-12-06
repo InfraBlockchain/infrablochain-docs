@@ -7,14 +7,14 @@ keywords:
   - full node
 ---
 
-As you learned in [Prepare a local relay chain](/tutorials/build-a-parachain/prepare-a-local-relay-chain/), a parachain can work with a single collator.
+As you learned in [Prepare a local relay chain](../../../../../tutorials/build/build-infra-relay-chain.md), a parachain can work with a single collator.
 
 ## Additional relay chain nodes
 
-You should have _at least_ two [**validators**](/reference/glossary/#validators) (relay chain nodes) running for every [**collator**](/reference/glossary/#collator) (parachain block authoring nodes) on your network.
+You should have _at least_ two [**validators**](../../basic/glossary.md#validator) (relay chain nodes) running for every [**collator**](../../basic/glossary.md#collator) (parachain block authoring nodes) on your network.
 
-You can **modify** the provided **plain** [relay chain spec file](/tutorials/build-a-parachain/prepare-a-local-relay-chain/#pre-configured-chain-spec-files) to include more validators, or go the more "correct" route used for production of modifying the **source** for genesis state in `chain_spec.rs` for your **relay chain** to add more testnet validators at genesis.
-Recall how to generate chain specifications in the [add trusted nodes](/tutorials/build-a-blockchain/add-trusted-nodes/) tutorial.
+You can **modify** the provided **plain** [relay chain spec file](../../../../../tutorials/build/build-infra-relay-chain.md#extracting-the-plain-chain-spec) to include more validators, or go the more "correct" route used for production of modifying the **source** for genesis state in `chain_spec.rs` for your **relay chain** to add more testnet validators at genesis.
+Recall how to generate chain specifications in the [add trusted nodes](../../../tutorials/build-a-blockchain/add-trusted-nodes.md) tutorial.
 
 ### Start a collator
 
@@ -65,4 +65,4 @@ This command is nearly identical to the one we used to start the first collator,
 ## Related material
 
 - [Polkadot Wiki: Collator](https://wiki.polkadot.network/docs/learn-collator).
-- [Prepare a local relay chain](/tutorials/build-a-parachain/prepare-a-local-relay-chain/) tutorial.
+- [Prepare a local relay chain](../../../../../tutorials/build/build-infra-relay-chain.md) tutorial.

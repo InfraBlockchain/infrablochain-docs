@@ -109,7 +109,7 @@ However, you can implement your own `deposit_event` function if you want to hand
 
 ## Supported types
 
-Events can emit any type which supports type encoding using [SCALE codec](/reference/scale-codec).
+Events can emit any type which supports type encoding using [SCALE codec](./scale-codec.md).
 
 In the case where you want to use Runtime generic types like `AccountId` or `Balances`, you need to
 include a [`where` clause](https://doc.rust-lang.org/rust-by-example/generics/where.html) to define
@@ -150,7 +150,7 @@ frame_support::ensure!(param < T::MaxVal::get(), Error::<T>::InvalidParameter);
 
 ## Where to go next
 
-- [Frame macros](/reference/frame-macros)
+- [Frame macros](./frame-macros.md)
 - [Polkadot-JS API](https://github.com/polkadot-js/api).
 - [`construct_runtime!` macro](https://paritytech.github.io/substrate/master/frame_support/macro.construct_runtime.html)
 - [`#[frame_support::pallet]` macro](https://paritytech.github.io/substrate/master/frame_support/attr.pallet.html)

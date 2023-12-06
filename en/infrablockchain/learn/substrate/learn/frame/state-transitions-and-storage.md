@@ -5,7 +5,7 @@ keywords:
 ---
 
 Substrate uses a simple key-value data store implemented as a database-backed, modified Merkle tree.
-All of Substrate's [higher-level storage abstractions](/build/runtime-storage) are built on top of this simple key-value store.
+All of Substrate's [higher-level storage abstractions](./runtime-storage.md) are built on top of this simple key-value store.
 
 ## Key-Value database
 
@@ -53,11 +53,11 @@ Subsections of a trie do not have a root-hash-like representation that satisfy t
 ## Querying storage
 
 Blockchains that are built with Substrate expose a remote procedure call (RPC) server that can be used to query runtime storage. When you use the Substrate RPC to access a storage item, you only need to provide [the key](#key-value-database) associated with that item.
-Substrate's [runtime storage APIs](/build/runtime-storage) expose a number of storage item types; keep reading to learn how to calculate storage keys for the different types of storage items.
+Substrate's [runtime storage APIs](./runtime-storage.md) expose a number of storage item types; keep reading to learn how to calculate storage keys for the different types of storage items.
 
 ### Storage value keys
 
-To calculate the key for a simple [Storage Value](/build/runtime-storage#storage-value), take the [TwoX 128 hash](https://github.com/Cyan4973/xxHash) of the name of the pallet that contains the Storage Value and append to it the TwoX 128 hash of the name of the Storage Value itself.
+To calculate the key for a simple [Storage Value](./runtime-storage.md#simple-storage-values), take the [TwoX 128 hash](https://github.com/Cyan4973/xxHash) of the name of the pallet that contains the Storage Value and append to it the TwoX 128 hash of the name of the Storage Value itself.
 For example, the [Sudo](https://paritytech.github.io/substrate/master/pallet_sudo/index.html) pallet exposes a Storage Value item named `Key`:
 
 ```rust
@@ -74,19 +74,19 @@ state_getStorage("0x5c0d1176a568c1f92944340dbfed9e9c530ebca703c85910e7164cb7d1c9
 
 In this case, the value that is returned (`"0xd43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27d"`) is Alice's [SCALE](/reference/scale-codec)-encoded account ID (`5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY`).
 
-You may have noticed that the [non-cryptographic](/build/runtime-storage#cryptographic-hashing-algorithms) TwoX 128 hash algorithm is used to generate Storage Value keys.
+You may have noticed that the [non-cryptographic](./runtime-storage#cryptographic-hashing-algorithms) TwoX 128 hash algorithm is used to generate Storage Value keys.
 This is because it is not necessary to pay the performance costs associated with a cryptographic hash function since the input to the hash function (the names of the pallet and storage item) are determined by the runtime developer and not by potentially malicious users of your blockchain.
 
 ### Storage map keys
 
-Like Storage Values, the keys for [Storage Maps](/build/runtime-storage#storage-map) are equal to the TwoX 128 hash of the name of the pallet that contains the map prepended to the TwoX 128 hash of the name of the Storage Map itself.
+Like Storage Values, the keys for [Storage Maps](./runtime-storage.md#multi-key-storage-map) are equal to the TwoX 128 hash of the name of the pallet that contains the map prepended to the TwoX 128 hash of the name of the Storage Map itself.
 To retrieve an element from a map, append the hash of the desired map key to the storage key of the Storage Map.
 For maps with two keys (Storage Double Maps), append the hash of the first map key followed by the hash of the second map key to the Storage Double Map's storage key.
 
-Like Storage Values, Substrate uses the TwoX 128 hashing algorithm for the pallet and Storage Map names, but you will need to make sure to use the correct [hashing algorithm](/build/runtime-storage#hashing-algorithms) (the one that was declared in [the `#[pallet::storage]` macro](/build/runtime-storage#declaring-storage-items)) when determining the hashed keys for the elements in a map.
+Like Storage Values, Substrate uses the TwoX 128 hashing algorithm for the pallet and Storage Map names, but you will need to make sure to use the correct [hashing algorithm](./runtime-storage.md#hashing-algorithms) (the one that was declared in [the `#[pallet::storage]` macro](./runtime-storage#declaring-storage-items)) when determining the hashed keys for the elements in a map.
 
 Here is an example that illustrates querying a Storage Map named `FreeBalance` from a pallet named `Balances` for the balance of the `Alice` account.
-In this example, the `FreeBalance` map is using [the transparent Blake2 128 Concat hashing algorithm](/build/runtime-storage#transparent-hashing-algorithms):
+In this example, the `FreeBalance` map is using [the transparent Blake2 128 Concat hashing algorithm](./runtime-storage.md#transparent-hashing-algorithms):
 
 ```rust
 twox_128("Balances")                                             = "0xc2261276cc9d1f8598ea4b6a74b15c2f"
@@ -98,10 +98,10 @@ blake2_128_concat("0xd43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56
 state_getStorage("0xc2261276cc9d1f8598ea4b6a74b15c2f6482b9ade7bc6657aaca787ba1add3b4de1e86a9a8c739864cf3cc5ec2bea59fd43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27d") = "0x0000a0dec5adc9353600000000000000"
 ```
 
-The value that is returned from the storage query (`"0x0000a0dec5adc9353600000000000000"` in the example above) is the [SCALE](/reference/scale-codec/)-encoded value of Alice's account balance (`"1000000000000000000000"` in this example).
+The value that is returned from the storage query (`"0x0000a0dec5adc9353600000000000000"` in the example above) is the [SCALE](./scale-codec.md)-encoded value of Alice's account balance (`"1000000000000000000000"` in this example).
 Notice that before hashing Alice's account ID it has to be SCALE-encoded.
 Also notice that the output of the `blake2_128_concat` function consists of 32 hexadecimal characters followed by the function's input.
-This is because the Blake2 128 Concat is [a transparent hashing algorithm](/build/runtime-storage#transparent-hashing-algorithms).
+This is because the Blake2 128 Concat is [a transparent hashing algorithm](./runtime-storage#transparent-hashing-algorithms).
 
 Although the above example may make this characteristic seem superfluous, its utility becomes more apparent when the goal is to iterate over the keys in a map (as opposed to retrieving the value associated with a single key).
 The ability to iterate over the keys in a map is a common requirement in order to allow _people_ to use the map in a way that seems natural (such as UIs): first, a user is presented with a list of elements in the map, then, that user can select the element that they are interested in and query the map for more details about that particular element.
@@ -126,10 +126,10 @@ Because the map that these keys belong to uses a transparent hashing algorithm t
 Notice that each element in the list is a hexadecimal value that begins with the same 64 characters; this is because each list element represents a key in the same map, and that map is identified by concatenating two TwoX 128 hashes, each of which are 128-bits or 32 hexadecimal characters.
 After discarding this portion of the second element in the list, you are left with `0x32a5935f6edc617ae178fef9eb1e211fbe5ddb1579b72e84524fc29e78609e3caf42e85aa118ebfe0b0ad404b5bdd25f`.
 
-You saw in the previous example that this represents the Blake2 128 Concat hash of some [SCALE](/reference/scale-codec)-encoded account ID.
+You saw in the previous example that this represents the Blake2 128 Concat hash of some [SCALE](./scale-codec.md)-encoded account ID.
 The Blake 128 Concat hashing algorithm consists of appending (concatenating) the hashing algorithm's input to its Blake 128 hash.
 This means that the first 128 bits (or 32 hexadecimal characters) of a Blake2 128 Concat hash represents a Blake2 128 hash, and the remainder represents the value that was passed to the Blake 2 128 hashing algorithm.
-In this example, after you remove the first 32 hexadecimal characters that represent the Blake2 128 hash (i.e. `0x32a5935f6edc617ae178fef9eb1e211f`) what is left is the hexadecimal value `0xbe5ddb1579b72e84524fc29e78609e3caf42e85aa118ebfe0b0ad404b5bdd25f`, which is a [SCALE](/reference/scale-codec)-encoded account ID.
+In this example, after you remove the first 32 hexadecimal characters that represent the Blake2 128 hash (i.e. `0x32a5935f6edc617ae178fef9eb1e211f`) what is left is the hexadecimal value `0xbe5ddb1579b72e84524fc29e78609e3caf42e85aa118ebfe0b0ad404b5bdd25f`, which is a [SCALE](./scale-codec.md)-encoded account ID.
 Decoding this value yields the result `5GNJqTPyNqANBkUVMN1LPPrxXnFouWXoe2wNSmmEoLctxiZY`, which is the account ID for the familiar `Alice_Stash` account.
 
 ## Runtime storage API
@@ -139,5 +139,5 @@ These storage items are placed in the [state trie](#trie-abstraction) and are ac
 
 ## Where to go next
 
-- [Runtime storage](/build/runtime-storage)
-- [Type encoding (SCALE)](/reference/scale-codec/)
+- [Runtime storage](./runtime-storage.md)
+- [Type encoding (SCALE)](./scale-codec.md)
