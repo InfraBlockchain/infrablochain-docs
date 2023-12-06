@@ -1,24 +1,18 @@
 ---
-title: Rust API
-description: Highlights entry points into the Rust API documentation that is generated directly from the Substrate source code.
+title: FRAME File Architecture
+description:
 keywords:
-  - Rust docs
-  - crates
-  - programming
 ---
 
-The Rust documentation is the single source of truth for the Substrate code base.
-However, if you aren't sure what you are looking for—for example, a specific crate, trait, or data structure—it can be tricky to navigate or to know the best place to start.
+As explained in [Architecture and Rust Libraries](./architecture.md), Substrate libraries use naming conventions to indicate whether they belong to the Substrate core client (`sc*\*`), FRAME and runtime (`frame*\_` and `pallet\_\_`), or Substrate raw (`sp*\*`) categories.
 
-As discussed in [Architecture and Rust libraries](/learn/architecture/), Substrate libraries use a naming convention to indicate whether a library is part of the Substrate core client (`sc_*`), FRAME and the runtime (`frame_*` and `pallet_*`), or a Substrate primitive (`sp_*`).
+![Client and Runtime](/media/images/docs/infrablockchain/learn/substrate/learn/libraries.png)
 
-![Core node libraries for the outer node and runtime](/media/images/docs/libraries.png)
+If a specific crate is not explicitly mentioned, use the following link as an entry point to explore the core Rust libraries.
 
-If you don't have a specific crate in mind, use the following links as entry points to explore the core Rust libraries.
+## Substrate Core Client Libraries
 
-## Substrate core client libraries
-
-Use the following links to explore Substrate libraries that are part of the Substrate core client (`sc_*`).
+Explore Substrate libraries belonging to the Substrate core client (`sc_*`) using the following link.
 
 - [`sc_authority_discovery`](https://paritytech.github.io/substrate/master/sc_authority_discovery/index.html)
 - [`sc_block_builder`](https://paritytech.github.io/substrate/master/sc_block_builder/index.html)
@@ -33,9 +27,9 @@ Use the following links to explore Substrate libraries that are part of the Subs
 - [`sc_state_db`](https://paritytech.github.io/substrate/master/sc_state_db/index.html)
 - [`sc_transaction_pool`](https://paritytech.github.io/substrate/master/sc_transaction_pool/index.html)
 
-## FRAME libraries
+## FRAME Library
 
-Use the following links to explore the core FRAME libraries that are used in the Substrate runtime (`frame_*` and `pallet_*`.
+Use the following link to explore the core FRAME libraries that are used in the Substrate runtime (`frame_* ` and `pallet_*`).
 
 - [`frame_benchmarking`](https://paritytech.github.io/substrate/master/frame_benchmarking/index.html)
 - [`frame_executive`](https://paritytech.github.io/substrate/master/frame_executive/index.html)
@@ -49,9 +43,9 @@ Use the following links to explore the core FRAME libraries that are used in the
 - [`pallet_membership`](https://paritytech.github.io/substrate/master/pallet_membership/index.html)
 - [`pallet_proxy`](https://paritytech.github.io/substrate/master/pallet_proxy/index.html)
 
-## Substrate primitive libraries
+## Substrate Primitive Library
 
-Use the following links to explore Substrate primitive libraries (`sp_*`).
+다음 링크를 사용하여 Substrate 원시(raw) 라이브러리(`sp_*`)를 탐색하세요.
 
 - [`sp_api`](https://paritytech.github.io/substrate/master/sp_api/index.html)
 - [`sp_blockchain`](https://paritytech.github.io/substrate/master/sp_blockchain/index.html)
@@ -61,9 +55,9 @@ Use the following links to explore Substrate primitive libraries (`sp_*`).
 - [`sp_state_machine`](https://paritytech.github.io/substrate/master/sp_state_machine/index.html)
 - [`sp_storage`](https://paritytech.github.io/substrate/master/sp_storage/index.html)
 
-## Other libraries
+## Other
 
-Use the following links to explore other libraries.
+Use the following link to explore other libraries.
 
 - [`kitchensink_runtime`](https://paritytech.github.io/substrate/master/kitchensink_runtime)
 - [`node_primitives`](https://paritytech.github.io/substrate/master/node_primitives/index.html)

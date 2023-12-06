@@ -19,7 +19,7 @@ By using API collections that are created with Postman, you have access to featu
 
 Before you begin, verify the following:
 
-- You've completed the [Quick Start](/quick-start/) and have the Substrate node template installed and running locally.
+- You've completed the [Quick Start](../quick-start/README.md) and have the Substrate node template installed and running locally.
 - You have Node.js, version 14 or later, available on your local computer to download and install the `sidecar` package.
 - You have, or can create, a [Postman](https://www.postman.com/) account.
 - You have access to, or can install, the **Postman for Web** or **Postman for Mac** client.
@@ -53,13 +53,13 @@ To download and install `sidecar`:
    npm install -g @substrate/api-sidecar
    ```
 
-1. Verify you have a Substrate node running for the service to connect to.
+3. Verify you have a Substrate node running for the service to connect to.
 
    By default, the service attempts to connect to the local host using ws://127.0.0.1:9944.
    You can configure the service to use a different URL by modifying the SAS_SUBSTRATE_URL environment setting.
    If you want to connect to the node template running locally using the default port, not configuration is necessary.
 
-2. Start the service by running the following command:
+4. Start the service by running the following command:
 
    ```bash
    substrate-api-sidecar
@@ -103,7 +103,7 @@ To use the predefined API collection for `sidecar`:
 
    ![Run the API collection in Postman](/media/images/docs/tutorials/postman-sidecar/run-in-postman.png)
 
-1. Select a workspace in Postman, then click **Import** to add the predefined collection to your Postman workspace.
+4. Select a workspace in Postman, then click **Import** to add the predefined collection to your Postman workspace.
 
    After you open the Substrate API `sidecar` collection in Postman, you are ready to start defining your environment variables.
 
@@ -123,7 +123,7 @@ The variables defined in the `Dev` environment include the following:
 - `paraId` to specify the unique numeric identifier for a specific parachain.
 
 All requests require the `url` variable.
-The `Dev` environment provides  `http://127.0.0.1:8080` as the default value for the url because that URL is the default REST API address created when you start a new instance of the `sidecar` service.
+The `Dev` environment provides `http://127.0.0.1:8080` as the default value for the url because that URL is the default REST API address created when you start a new instance of the `sidecar` service.
 If you have set the `sidecar` service to use an external hosting location or changed the default local URL using an environment setting, you must change the default value for the `url` variable accordingly.
 In addition to the `url` variable, different types of requests require you to define different variables.
 
@@ -166,15 +166,15 @@ To get a list of endpoints:
      "version": "14.2.2",
      "listen": "127.0.0.1:8080",
      "routes": [
-        {
-            "path": "/accounts/:address/asset-balances",
-            "method": "get"
-        },
-        {
-            "path": "/accounts/:address/asset-approvals",
-            "method": "get"
-        },
-      ]
+       {
+         "path": "/accounts/:address/asset-balances",
+         "method": "get"
+       },
+       {
+         "path": "/accounts/:address/asset-approvals",
+         "method": "get"
+       }
+     ]
    }
    ```
 
@@ -220,30 +220,29 @@ To get account information for the Alice address:
 
    The `current value` is only saved locally and never sent to Postman or shared with other team members using the same Postman API collection.
 
-1. Paste the account address for `Alice` into the `current value` field.
+4. Paste the account address for `Alice` into the `current value` field.
 
    ![Account variable in Postman environment](/media/images/docs/tutorials/postman-sidecar/dev-variables.png)
 
-1. Click **Collections** and open the **Substrate API Sidecar** collection.
+5. Click **Collections** and open the **Substrate API Sidecar** collection.
 
-1. Select the **Accounts** folder, then select **GET Account Balance Info**.
+6. Select the **Accounts** folder, then select **GET Account Balance Info**.
 
    ![Select the Account Balance Info request](/media/images/docs/tutorials/postman-sidecar/account-balance.png)
 
-2. Configure the request using the `url` variable that you used previously and the `account` variable you set in Step 4:
+7. Configure the request using the `url` variable that you used previously and the `account` variable you set in Step 4:
 
    ![Specify the endpoint for the request](/media/images/docs/tutorials/postman-sidecar/account-request.png)
 
-
-3. Click **Send**.
+8. Click **Send**.
 
    You should receive a response that looks similar to the following in JSON format:
 
    ```json
    {
      "at": {
-        "hash": "0xfc354903a665c7847ba4f83dd9e5fb0389e31bc2015086aca56a68bb345493a5",
-        "height": "1189"
+       "hash": "0xfc354903a665c7847ba4f83dd9e5fb0389e31bc2015086aca56a68bb345493a5",
+       "height": "1189"
      },
      "nonce": "0",
      "tokenSymbol": "UNIT",
@@ -255,7 +254,7 @@ To get account information for the Alice address:
    }
    ```
 
-  You can save this response as a file or as an example within Postman to assist you in creating tests or building your own applications.
+You can save this response as a file or as an example within Postman to assist you in creating tests or building your own applications.
 
 ## What's next?
 

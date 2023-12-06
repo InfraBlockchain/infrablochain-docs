@@ -4,7 +4,7 @@ description: Get a closer look at the contents of the node template.
 keywords:
 ---
 
-In [Start a node](/quick-start/start-a-node/), you compiled and started a local Substrate node in development mode.
+In [Start a node](./start-a-node.md), you compiled and started a local Substrate node in development mode.
 This particular node—the `substrate-node-template`—provides a simplified environment with only a few common modules to get you started.
 Without going too deeply into the details, there's a lot you can learn from exploring the basic building blocks of the node template code.
 
@@ -49,7 +49,7 @@ From this manifest, you see that the node template workspace includes three pack
 
 Each member package also has its own manifest—its own `Cargo.toml` file—that contains package-specific information, including dependencies and configuration settings, that are required to compile that member package.
 For example, the `Cargo.toml` file for the `node` member of the workspace specifies the name of the package is `node-template` and lists the core libraries and primitives that enable the node template to provide essential blockchain services.
-You'll learn more about libraries and primitives in [Architecture and Rust libraries](/learn/architecture).
+You'll learn more about libraries and primitives in [Architecture and Rust libraries](../../learn/basic/architecture.md).
 For now, it's enough to understand the importance of the manifest in describing dependencies and other critical information for each package.
 
 If you open the `runtime/Cargo.toml` file and the `pallets/template/Cargo.toml`, you’ll see different libraries and primitives as dependencies, but you’ll get a general sense of what’s required to compile these packages.

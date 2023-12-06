@@ -6,6 +6,6 @@ keywords:
 
 The _How-to_ guides in the _Storage migration_ category illustrate an example about how to perform a runtime storage migration.
 
-- [Basic storage migration](/reference/how-to-guides/storage-migrations/basic-storage-migration/)
+- [Basic storage migration](./basic-storage-migration.md)
 
-- [Trigger migration](/reference/how-to-guides/storage-migrations/trigger-migration/)
+- [Trigger migration](./trigger-migration.md)

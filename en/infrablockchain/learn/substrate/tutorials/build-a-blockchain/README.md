@@ -18,5 +18,4 @@ Later tutorials reinforce or expand on the basic topics you learn in the Get sta
 - [Simulate a network](./simulate-network.md) helps you simulate a two-node network using predefined accounts.
 - [Add trusted nodes](./add-trusted-nodes.md) demonstrates how to generate keys and distribute a chain specification to create a small network of trusted validator nodes.
 - [Authorize specific nodes](./authorize-specific-nodes.md/) illustrates how you can configure a network that has both authorized nodes and nodes with restricted access.
-- [Monitor node metrics](./monitor-node-metrics.md) highlights how you can take advantage of the node metrics Substrate exposes.
 - [Upgrade a running network](./upgrade-a-running-network.md) illustrates forkless upgrades by modifying the runtime for a running Substrate node.

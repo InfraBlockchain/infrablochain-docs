@@ -5,7 +5,7 @@ keywords:
 ---
 
 In general, UNIX-based operating systems—like macOS or Linux—provide a better development environment for building Substrate-based blockchains.
-All of the code examples and command-line instructions in Substrate [Tutorials](/tutorials/) and [How-to guides](/reference/how-to-guides/) illustrate how to interact with Substrate using UNIX-compatible commands in a terminal.
+All of the code examples and command-line instructions in Substrate [Tutorials](../../tutorials/README.md)
 
 However, if your local computer uses Microsoft Windows instead of a UNIX-based operating system, you can configure it with additional software to make it a suitable development environment for building Substrate-based blockchains.
 To prepare a development environment on a computer running Microsoft Windows, you can use Windows Subsystem for Linux (WSL) to emulate a UNIX operating environment.
@@ -198,12 +198,12 @@ Here are a few additional suggestions for where you can learn more.
 
 #### Tell me
 
-- [Architecture](/learn/architecture/)
-- [Networks and blockchains](/learn/node-and-network-types/)
-- [Build process](/build/build-process)
+- [Architecture](../../learn/basic/architecture.md)
+- [Networks and blockchains](../../learn/basic/networks-and-nodes.md)
+- [Build process](../../build/build-process.md)
 
 #### Guide me
 
-- [Build a local blockchain](/tutorials/build-a-blockchain/build-local-blockchain/)
-- [Simulate a network](/tutorials/build-a-blockchain/simulate-network/)
-- [Add trusted nodes](/tutorials/build-a-blockchain/add-trusted-nodes/)
+- [Build a local blockchain](../build-a-blockchain/build-local-blockchain.md)
+- [Simulate a network](../build-a-blockchain/simulate-network.md)
+- [Add trusted nodes](../build-a-blockchain/add-trusted-nodes.md)

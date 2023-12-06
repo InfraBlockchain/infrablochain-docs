@@ -194,12 +194,12 @@ Here are a few additional suggestions for where you can learn more.
 
 #### Tell me
 
-- [Architecture](/learn/architecture/)
-- [Networks and blockchains](/learn/node-and-network-types/)
-- [Build process](/build/build-process)
+- [Architecture](../../learn/basic/architecture.md)
+- [Networks and blockchains](../../learn/basic/networks-and-nodes.md)
+- [Build process](../../build/build-process.md)
 
 #### Guide me
 
-- [Build a local blockchain](/tutorials/build-a-blockchain/build-local-blockchain/)
-- [Simulate a network](/tutorials/build-a-blockchain/simulate-network/)
-- [Add trusted nodes](/tutorials/build-a-blockchain/add-trusted-nodes/)
+- [Build a local blockchain](../build-a-blockchain/build-local-blockchain.md)
+- [Simulate a network](../build-a-blockchain/simulate-network.md)
+- [Add trusted nodes](../build-a-blockchain/add-trusted-nodes.md)

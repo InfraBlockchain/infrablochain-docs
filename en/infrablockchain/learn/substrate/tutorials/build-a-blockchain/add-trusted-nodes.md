@@ -9,7 +9,7 @@ keywords:
 
 This tutorial illustrates how you can start a small, standalone blockchain network with an **authority set** of private **validators**.
 
-As you learned in [Blockchain basics](/learn/blockchain-basics/), all blockchains require the nodes in the network to agree on the state of data at any specific point in time and this agreement about the state is called **consensus**.
+As you learned in [Blockchain basics](../../learn/basic/blockchain-basics.md), all blockchains require the nodes in the network to agree on the state of data at any specific point in time and this agreement about the state is called **consensus**.
 
 The Substrate node template uses a proof of authority consensus model also referred to as **authority round** or **Aura** consensus.
 The Aura consensus protocol limits block production to a rotating list of authorized accounts.
@@ -22,11 +22,11 @@ In this tutorial, you'll see how to generate the keys required to authorize a no
 
 Before you begin, verify the following:
 
-- You have configured your environment for Substrate development by installing [Rust and the Rust toolchain](/install/).
+- You have configured your environment for Substrate development by installing [Rust and the Rust toolchain](../install/README.md).
 
-- You have completed [Build a local blockchain](/tutorials/build-a-blockchain/build-local-blockchain/) and have the Substrate node template installed locally.
+- You have completed [Build a local blockchain](../build-a-blockchain/build-local-blockchain.md) and have the Substrate node template installed locally.
 
-- You have used predefined accounts as described in [Simulate a network](/tutorials/build-a-blockchain/simulate-network/) to start nodes on a single computer.
+- You have used predefined accounts as described in [Simulate a network](../build-a-blockchain/simulate-network.md) to start nodes on a single computer.
 
 - You are generally familiar with software development and using command-line interfaces.
 
@@ -44,14 +44,14 @@ By completing this tutorial, you will accomplish the following objectives:
 
 ## Generate your account and keys
 
-In [Simulate a network](/tutorials/build-a-blockchain/simulate-network/), you started peer nodes using predefined accounts and keys.
+In [Simulate a network](../build-a-blockchain/simulate-network.md), you started peer nodes using predefined accounts and keys.
 For this tutorial, you generate your own secret keys for the validator nodes in the network.
 It's important to remember that each participant in the blockchain network is responsible for generating unique keys.
 
 ### Key generation options
 
 There are several ways you can generate keys.
-For example, you can generate key pairs using a `node-template` subcommand, the standalone [subkey](/reference/command-line-tools/subkey/) command-line program, the Polkadot-JS application, or third-party key generation utilities.
+For example, you can generate key pairs using a `node-template` subcommand, the standalone [subkey](../../learn/command-line-tools/subkey.md) command-line program, the Polkadot-JS application, or third-party key generation utilities.
 
 Although you could use predefined key pairs to complete this tutorial, you would never use those keys in a production environment.
 Instead of using predefined keys or the more secure `subkey` program, this tutorial illustrates how to generate keys using the Substrate node template and the `key` subcommand.
@@ -206,7 +206,7 @@ To create a new chain specification based on the local specification:
 
    ```json
    "aura": { "authorities": [
-       "5CfBuoHDvZ4fd8jkLQicNL8tgjnK8pVG9AiuJrsNrRAx6CNW", 
+       "5CfBuoHDvZ4fd8jkLQicNL8tgjnK8pVG9AiuJrsNrRAx6CNW",
        "5CXGP4oPXC1Je3zf5wEDkYeAqGcGXyKWSRX2Jm14GdME5Xc5"
      ]
    },
@@ -310,7 +310,8 @@ To start the first node:
       --name MyNode01 \
       --password-interactive
    ```
-You will be asked for a keystore password, type the password you used to generate the node01 keys.
+
+   You will be asked for a keystore password, type the password you used to generate the node01 keys.
 
 Note the following command-line options you are using to start the node:
 
@@ -580,10 +581,10 @@ In this tutorial you learned:
 
 To learn more about the topics introduced in this tutorial, see the following sections:
 
-- [Accounts, addresses, and keys](/learn/accounts-addresses-keys)
-- [Chain specification](/build/chain-spec/)
-- [subkey](/reference/command-line-tools/subkey/)
-- [Cryptography](/learn/cryptography//)
+- [Accounts, addresses, and keys](../../learn/basic/account-data-structures.md)
+- [Chain specification](../../build/chain-spec.md)
+- [subkey](../../learn/command-line-tools/subkey.md)
+- [Cryptography](../../learn/basic/cryptography.md)
 
 <!-- TODO link to the followup tutorial about starting a 3 node network using the demo substrate node
 Details in https://github.com/substrate-developer-hub/tutorials/issues/16 -->

@@ -5,7 +5,7 @@ keywords:
 ---
 
 This tutorial illustrates how to create a custom pallet for a Substrate
-runtime using **macros** that are part of the [FRAME](/reference/frame-macros/) development environment.
+runtime using **macros** that are part of the [FRAME](../../learn/frame/frame-pallets.md) development environment.
 
 For this tutorial, you'll build a simple **proof-of-existence** application. Proof-of-existence is an approach to validating the authenticity and ownership of a digital object by storing information about the object on the blockchain.
 Because the blockchain associates a timestamp and account with the object, the blockchain record can be used to "prove" that a particular object existed at a specific date and time.
@@ -34,11 +34,11 @@ This tutorial requires compiling Rust code and takes approximately one to two ho
 
 For this tutorial, you download and use working code. Before you begin, verify the following:
 
-- You have configured your environment for Substrate development by installing [Rust and the Rust toolchain](/install/).
+- You have configured your environment for Substrate development by installing [Rust and the Rust toolchain](../install/README.md).
 
-- You have completed [Build a local blockchain](/tutorials/build-a-blockchain/build-local-blockchain/) and have the Substrate node template installed locally.
+- You have completed [Build a local blockchain](../build-a-blockchain/build-local-blockchain.md) and have the Substrate node template installed locally.
 
-- You have used predefined accounts as described in [Simulate a network](/tutorials/build-a-blockchain/simulate-network/) to start nodes on a single computer.
+- You have used predefined accounts as described in [Simulate a network](../build-a-blockchain/simulate-network.md) to start nodes on a single computer.
 
 - You are generally familiar with software development and use command-line interfaces.
 
@@ -65,7 +65,7 @@ The proof-of-existence application exposes the following callable functions:
 ## Build a custom pallet
 
 The Substrate node template has a FRAME-based runtime.
-As you learned in [Runtime development](/learn/runtime-development), FRAME is a library of code that allows you to build a Substrate runtime by composing modules called pallets.
+As you learned in [Runtime development](../../learn/runtime-development/README.md), FRAME is a library of code that allows you to build a Substrate runtime by composing modules called pallets.
 You can think of the pallets as specialized logical units that define what your blockchain can do.
 Substrate provides you with a number of pre-built pallets for use in FRAME-based runtimes.
 
@@ -110,7 +110,7 @@ Therefore, the first step is to remove some files and content from the files in 
 
    All of the pallets used in a runtime must be set to compile with the `no_std` features.
 
-1. Add a skeleton set of pallet dependencies and [macros](/reference/frame-macros) that the custom pallet requires by copying the following code:
+1. Add a skeleton set of pallet dependencies and [macros](../../learn/frame/frame-macros.md) that the custom pallet requires by copying the following code:
 
    ```rust
    // Re-export pallet items so that they can be accessed from the crate namespace.
@@ -435,6 +435,3 @@ To complete your understanding of the proof-of-existence chain try:
 - Claiming other files with the "ALICE" and/or "BOB" accounts.
 - Revoking the claims with the appropriate claim owner account.
 - Looking at the final list of claims from reading storage.
-
-To learn more about what's possible by creating custom pallets, explore the
-FRAME documentation and the [how-to guides](/reference/how-to-guides).

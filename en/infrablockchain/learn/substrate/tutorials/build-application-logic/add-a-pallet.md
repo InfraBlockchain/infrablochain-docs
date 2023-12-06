@@ -10,7 +10,7 @@ keywords:
   - configuration
 ---
 
-As you saw in [Build a local blockchain](/tutorials/build-a-blockchain/build-local-blockchain/), the [Substrate node template](https://github.com/substrate-developer-hub/substrate-node-template) provides a working **runtime** that includes some default FRAME development modules—**pallets**—to get you started building a custom blockchain.
+As you saw in [Build a local blockchain](../build-a-blockchain/build-local-blockchain.md), the [Substrate node template](https://github.com/substrate-developer-hub/substrate-node-template) provides a working **runtime** that includes some default FRAME development modules—**pallets**—to get you started building a custom blockchain.
 
 This tutorial introduces the basic steps for adding a new pallet to the runtime for the node template.
 The steps are similar any time you want to add a new FRAME pallet to the runtime.
@@ -28,9 +28,9 @@ Note that this tutorial is a stepping stone to more advanced tutorials that illu
 
 Before you begin, verify the following:
 
-- You have configured your environment for Substrate development by installing [Rust and the Rust toolchain](/install/).
+- You have configured your environment for Substrate development by installing [Rust and the Rust toolchain](../install/README.md).
 
-- You have completed the [Build a local blockchain](/tutorials/build-a-blockchain/build-local-blockchain/) tutorial and have the Substrate node template from the Developer Hub installed locally.
+- You have completed the [Build a local blockchain](../build-a-blockchain/build-local-blockchain.md) tutorial and have the Substrate node template from the Developer Hub installed locally.
 
 - You are generally familiar with software development and using command-line interfaces.
 
@@ -100,11 +100,11 @@ To add the dependencies for the Nicks pallet to the runtime:
 
    This section specifies the default feature set to compile for this runtime is the `std` features set.
    When the runtime is compiled using the `std` feature set, the `std` features from all of the pallets listed as dependencies are enabled.
-   For more detailed information about how the runtime is compiled as a platform-native binary with the standard Rust library and as a WebAssembly binary using the `no_std` attribute, see [Build process](/build/build-process/).
+   For more detailed information about how the runtime is compiled as a platform-native binary with the standard Rust library and as a WebAssembly binary using the `no_std` attribute, see [Build process](../../build/build-process.md).
 
    If you forget to update the `features` section in the `Cargo.toml` file, you might see `cannot find function` errors when you compile the runtime binary.
 
-2. Check that the new dependencies resolve correctly by running the following command:
+1. Check that the new dependencies resolve correctly by running the following command:
 
    ```bash
    cargo check -p node-template-runtime --release
@@ -210,6 +210,8 @@ To implement the `nicks` pallet in your runtime:
     type RuntimeEvent = RuntimeEvent;
    }
 
+   ```
+
 1. Add Nicks to the `construct_runtime!` macro.
 
    For example:
@@ -232,7 +234,7 @@ To implement the `nicks` pallet in your runtime:
 
 1. Save your changes and close the file.
 
-2. Check that the new dependencies resolve correctly by running the following command:
+1. Check that the new dependencies resolve correctly by running the following command:
 
    ```bash
    cargo check -p node-template-runtime --release
@@ -240,7 +242,7 @@ To implement the `nicks` pallet in your runtime:
 
    If there are no errors, you are ready to compile.
 
-3. Compile the node in release mode by running the following command:
+1. Compile the node in release mode by running the following command:
 
    ```bash
    cargo build --release
@@ -274,21 +276,21 @@ To start the local Substrate node:
 
 ## Start the front-end template
 
-Now that you have added a new pallet to your runtime, you can use the [Substrate front-end template](/tutorials/build-a-blockchain/build-local-blockchain/#install-the-front-end-template) to interact with the node template and access the Nicks pallet.
+Now that you have added a new pallet to your runtime, you can use the _Substrate front-end template_ to interact with the node template and access the Nicks pallet.
 
 To start the front-end template:
 
 1. Open a new terminal shell on your computer.
 
-1. In the new terminal, change to the root directory where you installed the front-end template.
+2. In the new terminal, change to the root directory where you installed the front-end template.
 
-1. Start the web server for the front-end template by running the following command:
+3. Start the web server for the front-end template by running the following command:
 
    ```bash
    yarn start
    ```
 
-1. Open `http://localhost:8000/` in a browser to view the front-end template.
+4. Open `http://localhost:8000/` in a browser to view the front-end template.
 
 ## Set a nickname using the Nicks pallet
 
@@ -300,17 +302,17 @@ To set a nickname for an account:
 
 1. In the Pallet Interactor component, verify that **Extrinsic** is selected.
 
-2. Select **nicks** from the list of pallets available to call.
+1. Select **nicks** from the list of pallets available to call.
 
-3. Select [**setName**](https://paritytech.github.io/substrate/master/pallet_nicks/pallet/enum.Call.html#variant.set_name) as the function to call from the nicks pallet.
+1. Select [**setName**](https://paritytech.github.io/substrate/master/pallet_nicks/pallet/enum.Call.html#variant.set_name) as the function to call from the nicks pallet.
 
-4. Type a **name** that is longer than the `MinNickLength` (8 characters) and no longer than the `MaxNickLength` (32 characters).
+1. Type a **name** that is longer than the `MinNickLength` (8 characters) and no longer than the `MaxNickLength` (32 characters).
 
    ![Select the pallet and the function to call](/media/images/docs/tutorials/add-a-pallet/set-name-function.png)
 
-5. Click **Signed** to execute the function.
+1. Click **Signed** to execute the function.
 
-6. Observe the status of the call change from Ready to InBlock to Finalized and the note the [events](https://paritytech.github.io/substrate/master/pallet_nicks/pallet/enum.Event.html) emitted by the Nicks pallet.
+1. Observe the status of the call change from Ready to InBlock to Finalized and the note the [events](https://paritytech.github.io/substrate/master/pallet_nicks/pallet/enum.Event.html) emitted by the Nicks pallet.
 
    ![Successful update to the nickname for Alice](/media/images/docs/tutorials/add-a-pallet/set-name-result.png)
 
@@ -333,7 +335,7 @@ To return the information stored for Alice:
    The return type is a tuple that contains two values:
 
    - The hex-encoded nickname for the Alice account `53756273747261746520737570657273746172202d20416c696365`.
-    If you convert the hex-encoded value to a string, you'll see the name you specified for the `setName` function.
+     If you convert the hex-encoded value to a string, you'll see the name you specified for the `setName` function.
    - The amount that was reserved from Alice's account to secure the nickname (`100`).
 
    If you were to query the Nicks pallet for the `nameOf` for Bob's account, you would see the value `None` returned because Bob has not invoked the `setName` function to reserve a nickname.
@@ -349,8 +351,8 @@ If you want to explore additional features exposed through the Nicks and Sudo pa
 
 ## Next steps
 
-There are several [tutorials](/tutorials/) that can serve as next steps for learning more about Substrate development.
+There are several [tutorials](../../tutorials/README.md) that can serve as next steps for learning more about Substrate development.
 
-- [Specify the origin for a call](/tutorials/build-application-logic/specify-the-origin-for-a-call) explores calling functions using different originating accounts.
-- [Develop smart contracts](/tutorials/smart-contracts/) guide you through using ink! to build smart contracts.
-- [Use macros in a custom pallet](/tutorials/build-application-logic/use-macros-in-a-custom-pallet) illustrates how you can use macros to create your own pallets.
+- [Specify the origin for a call](../build-application-logic/specify-the-origin-for-a-call.md) explores calling functions using different originating accounts.
+- [Develop smart contracts](../smart-contracts/README.md) guide you through using ink! to build smart contracts.
+- [Use macros in a custom pallet](../build-application-logic/use-macros-in-a-custom-pallet.md) illustrates how you can use macros to create your own pallets.

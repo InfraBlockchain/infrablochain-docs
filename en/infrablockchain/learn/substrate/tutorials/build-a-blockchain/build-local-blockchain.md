@@ -4,7 +4,7 @@ description: Compile, launch, and interact with a single local blockchain node i
 keywords:
 ---
 
-As you learned in [Blockchain basics](/learn/blockchain-basics/), a blockchain consists of decentralized computers—called nodes—to form a network.
+As you learned in [Blockchain basics](../build-a-blockchain/README.md), a blockchain consists of decentralized computers—called nodes—to form a network.
 
 Substrate provides a flexible, open, and extensible development environment that allows you to design and build fully-customized blockchain nodes to suit your application or business model needs.
 
@@ -41,7 +41,7 @@ For this tutorial, you download and use working code. Before you begin, verify t
 
 - You are generally familiar with blockchains and smart contract platforms.
 
-- You have installed Rust and set up your development environment as described in [Install](/install/).
+- You have installed Rust and set up your development environment as described in [Install](../install/README.md).
 
 ## Tutorial objectives
 
@@ -69,12 +69,12 @@ To compile the Substrate node template:
    git clone https://github.com/substrate-developer-hub/substrate-node-template
    ```
 
-   This command clones the `main` branch. 
+   This command clones the `main` branch.
    If you are familiar with Polkadot, and want to work with a specific Polkadot version, you can use the `--branch` command-line option to select the specific branch that you want to work with.
 
    Click [Releases](https://github.com/paritytech/polkadot/releases) or [Tags](https://github.com/paritytech/polkadot/tags) to see the latest and earlier Polkadot branches that you can use with the node template.
 
-2. Change to the root of the node template directory by running the following command:
+1. Change to the root of the node template directory by running the following command:
 
    ```bash
    cd substrate-node-template
@@ -92,13 +92,13 @@ To compile the Substrate node template:
    git switch -c my-learning-branch-2023-03-01
    ```
 
-3. Compile the node template by running the following command:
+1. Compile the node template by running the following command:
 
    ```bash
    cargo build --release
    ```
 
-   You should always use the `--release` flag to build optimized artifacts. 
+   You should always use the `--release` flag to build optimized artifacts.
    The first time you compile this, it takes some time to complete.
 
    It should complete with a line something like this:
@@ -129,13 +129,13 @@ To start the local Substrate node:
    The terminal should display output similar to this:
 
    ```text
-   2022-08-16 13:43:58 Substrate Node    
-   2022-08-16 13:43:58 ✌️  version 4.0.0-dev-de262935ede    
-   2022-08-16 13:43:58 ❤️  by Substrate DevHub <https://github.com/substrate-developer-hub>, 2017-2022    
+   2022-08-16 13:43:58 Substrate Node
+   2022-08-16 13:43:58 ✌️  version 4.0.0-dev-de262935ede
+   2022-08-16 13:43:58 ❤️  by Substrate DevHub <https://github.com/substrate-developer-hub>, 2017-2022
    2022-08-16 13:43:58 📋 Chain specification: Development
-   2022-08-16 13:43:58 🏷  Node name: limping-oatmeal-7460    
-   2022-08-16 13:43:58 👤 Role: AUTHORITY    
-   2022-08-16 13:43:58 💾 Database: RocksDb at /var/folders/2_/g86ns85j5l7fdnl621ptzn500000gn/T/substrate95LPvM/chains/dev/db/full    
+   2022-08-16 13:43:58 🏷  Node name: limping-oatmeal-7460
+   2022-08-16 13:43:58 👤 Role: AUTHORITY
+   2022-08-16 13:43:58 💾 Database: RocksDb at /var/folders/2_/g86ns85j5l7fdnl621ptzn500000gn/T/substrate95LPvM/chains/dev/db/full
    2022-08-16 13:43:58 ⛓  Native runtime: node-template-100 (node-template-1.tx1.au1)
    2022-08-16 13:43:58 🔨 Initializing Genesis block/state (state: 0xf6f5…423f, header-hash: 0xc665…cf6a)
    2022-08-16 13:43:58 👴 Loading GRANDPA authority set from genesis on what appears to be first startup.
@@ -165,7 +165,6 @@ The front-end template requires [Yarn](https://yarnpkg.com/) and [Node.js](https
 To install the front-end template:
 
 1. Open a new terminal window on your computer.
-   
 2. Check whether `node` is installed on your local computer by running the following command:
 
    ```bash
@@ -298,8 +297,8 @@ In this tutorial, you learned:
 The front-end template includes several additional components for you to experiment with while you're connected to a local development node.
 You can explore these components on your own or learn more in the following topics:
 
-- [Architecture](/learn/architecture/)
-- [Networks and blockchains](/learn/node-and-network-types/)
-- [Simulate a network](/tutorials/build-a-blockchain/simulate-network/)
+- [Architecture](../../learn/basic/architecture.md)
+- [Networks and blockchains](../../learn/basic/networks-and-nodes.md)
+- [Simulate a network](../build-a-blockchain/simulate-network.md)
 - [Submit an issue](https://github.com/substrate-developer-hub/substrate-docs/issues/new/choose)
 - [Substrate Stack Exchange](https://substrate.stackexchange.com/)

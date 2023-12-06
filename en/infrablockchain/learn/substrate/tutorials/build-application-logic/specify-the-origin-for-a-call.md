@@ -7,7 +7,7 @@ keywords:
   - origins
 ---
 
-In [Add a pallet to the runtime](/tutorials/build-application-logic/add-a-pallet), you added functions from `pallet_nicks` to the [Substrate node template](https://github.com/substrate-developer-hub/substrate-node-template) runtime.
+In [Add a pallet to the runtime](./add-a-pallet.md), you added functions from `pallet_nicks` to the [Substrate node template](https://github.com/substrate-developer-hub/substrate-node-template) runtime.
 
 The Nicks pallet allows blockchain users to pay a deposit to reserve a nickname for an account they control.
 It implements the following functions:
@@ -23,13 +23,13 @@ This tutorial illustrates how you can call these functions using different origi
 
 Before you begin, verify the following:
 
-- You have configured your environment for Substrate development by installing [Rust and the Rust toolchain](/install/).
+- You have configured your environment for Substrate development by installing [Rust and the Rust toolchain](../install/README.md).
 
 - You have the Substrate node template installed locally.
 
 - You have the Substrate front-end template installed locally.
 
-- You have completed the [Add a pallet to the runtime](/tutorials/build-application-logic/add-a-pallet) tutorial and successfully compiled the runtime that includes the `nicks` pallet.
+- You have completed the [Add a pallet to the runtime](./add-a-pallet.md) tutorial and successfully compiled the runtime that includes the `nicks` pallet.
 
 - You are generally familiar with software development and using command-line interfaces.
 
@@ -91,8 +91,8 @@ For this demonstration, be sure you have:
    - Select the `clearName` function.
    - Click **Signed** to submit this transaction signed by Bob.
 
-      Because Bob is the owner of this account, the transaction is successful.
-      For Bob to set or remove the nickname for another account, he must call the `forceName` or `killName` function using the `ForceOrigin` that was configured for the pallet.
+     Because Bob is the owner of this account, the transaction is successful.
+     For Bob to set or remove the nickname for another account, he must call the `forceName` or `killName` function using the `ForceOrigin` that was configured for the pallet.
 
 1. With **Extrinsic** selected:
 
@@ -108,14 +108,14 @@ For this demonstration, be sure you have:
 
    ![BadOrigin error](/media/images/docs/tutorials/add-a-pallet/badOrigin.png)
 
-   As you can see in the Events, the transaction resulted in a withdrawal from Bob's account as a [fee](/build/tx-weights-fees/) for submitting the transaction, but there were no state changes because the `Root` origin didn't submit the transaction.
-   The failure to change state also illustrates the [verify-first-write-last](/build/runtime-storage#verify-first-write-last) principle for database reads and writes to ensure only successful operations are committed to disk.
+   As you can see in the Events, the transaction resulted in a withdrawal from Bob's account as a [fee](../../learn/frame/tx-weights-fees.md) for submitting the transaction, but there were no state changes because the `Root` origin didn't submit the transaction.
+   The failure to change state also illustrates the [verify-first-write-last](../../learn/frame/runtime-storage.md) principle for database reads and writes to ensure only successful operations are committed to disk.
 
 ## Use the Root origin to dispatch a call
 
-   The Sudo pallet enables you to dispatch a call using the `Root` origin.
-   In the Nick pallet, the forceName and killName functions must be called using the `Root` origin as specified by the `ForceOrigin` configuration.
-   In the front-end template, you can access the Sudo pallet to dispatch a call using the `Root` origin by clicking **SUDO**.
+The Sudo pallet enables you to dispatch a call using the `Root` origin.
+In the Nick pallet, the forceName and killName functions must be called using the `Root` origin as specified by the `ForceOrigin` configuration.
+In the front-end template, you can access the Sudo pallet to dispatch a call using the `Root` origin by clicking **SUDO**.
 
 For this demonstration, be sure you have:
 
@@ -191,10 +191,10 @@ For this demonstration, be sure you have:
 ## Where to go next
 
 This tutorial introduced the use of `Root` and `Signed` origins to specify the account used to submit a transaction and demonstrated the results of using different originating accounts to call functions.
-There are several [tutorials](/tutorials/) that can serve as next steps for learning more about Substrate development.
+There are several [tutorials](../../tutorials/README.md) that can serve as next steps for learning more about Substrate development.
 
 In addition to tutorials, you might want to explore the following resources to learn more.
 
-- [Privileged calls and origins](/build/origins) provides a closer look at the default raw origin types and how to create custom origins.
-- [Events and errors](/build/events-and-errors) explains how to emit events and errors from the runtime.
-- [FRAME pallets](/reference/frame-pallets/) offers an overview of the most commonly-used predefined FRAME pallets.
+- [Privileged calls and origins](../../learn/frame/origins.md) provides a closer look at the default raw origin types and how to create custom origins.
+- [Events and errors](../../learn/frame/events-and-errors.md) explains how to emit events and errors from the runtime.
+- [FRAME pallets](../../learn/frame/frame-pallets.md) offers an overview of the most commonly-used predefined FRAME pallets.

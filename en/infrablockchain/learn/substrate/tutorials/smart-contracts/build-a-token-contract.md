@@ -27,9 +27,9 @@ Before you begin, verify the following:
 
 - You have installed Rust and set up your development environment as described in [Install](/install/).
 
-- You have completed [Prepare your first contract](/tutorials/smart-contracts/prepare-your-first-contract/) and have the Substrate contracts node installed locally.
+- You have completed [Prepare your first contract](./prepare-your-first-contract.md) and have the Substrate contracts node installed locally.
 
-- You have completed [Develop a smart contract](/tutorials/smart-contracts/develop-a-smart-contract/) and are familiar
+- You have completed [Develop a smart contract](./develop-a-smart-contract.md) and are familiar
   with how ink! uses Rust attribute macros to build smart contracts.
 
 ## Tutorial objectives
@@ -92,7 +92,7 @@ In Rust, these functions would typically return a `Result`.
 ## Create the token supply
 
 A smart contract for handling ERC-20 tokens is similar to the Incrementer contract that used maps to store values in
-[Use maps for storing values](/tutorials/smart-contracts/use-maps-for-storing-values/).
+[Use maps for storing values](./use-maps-for-storing-values.md).
 
 For this tutorial, the ERC-20 contract consists of a fixed supply of tokens that are all deposited into the account
 associated with the contract owner when the contract is deployed.
@@ -166,36 +166,35 @@ If you want to test what you have so far, you can upload the contract using the 
 
 To test the ERC-20 contract before adding new functions:
 
-1. Start the local contract node. You can refer back to the [Prepare your first contract](/tutorials/smart-contracts/prepare-your-first-contract/) tutorial for instructions if needed.
+1. Start the local contract node. You can refer back to the [Prepare your first contract](./prepare-your-first-contract.md) tutorial for instructions if needed.
 
 2. Instantiate the contract using the `new()` constructor.
 
-  ```bash
-  cargo contract instantiate --constructor new --args 1_000_000 --suri //Alice --salt $(date +%s)
-  ```
+```bash
+cargo contract instantiate --constructor new --args 1_000_000 --suri //Alice --salt $(date +%s)
+```
 
 3. Verify the `total_supply` by calling the `total_supply()` message. Don't forget to add the `--dry-run` flag since we
    only want to read from the chain state.
 
-  ```bash
-  cargo contract call --contract $INSTANTIATED_CONTRACT_ADDRESS \
-      --message total_supply --suri //Alice --dry-run
-  ```
-
+```bash
+cargo contract call --contract $INSTANTIATED_CONTRACT_ADDRESS \
+    --message total_supply --suri //Alice --dry-run
+```
 
 4. Verify the amount of tokens Alice, the initial holder of all the tokens, has using `balance_of()`.
 
-  ```bash
-  cargo contract call --contract $INSTANTIATED_CONTRACT_ADDRESS \
-      --message balance_of --args 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY \
-      --suri //Alice --dry-run
-  ```
+```bash
+cargo contract call --contract $INSTANTIATED_CONTRACT_ADDRESS \
+    --message balance_of --args 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY \
+    --suri //Alice --dry-run
+```
 
-  Notice that we have to put the full address of Alice (`5Grw...utQY`) as an argument since `cargo-contract` doesn't
-  (yet) support well-known keys in that position.
+Notice that we have to put the full address of Alice (`5Grw...utQY`) as an argument since `cargo-contract` doesn't
+(yet) support well-known keys in that position.
 
-  If you supply any other `AccountId` the balance should be zero because all of the tokens are owned by the contract
-  owner.
+If you supply any other `AccountId` the balance should be zero because all of the tokens are owned by the contract
+owner.
 
 ## Transfer tokens
 
@@ -385,7 +384,7 @@ There are two places in the code where this occurs:
 - Every time that `transfer_from_to` is called.
 
 The values for the `from` and `to` fields are `Option<AccountId>` data types.
-However, during the initial transfer of tokens, the value set for the *initial supply* doesn't come from any other
+However, during the initial transfer of tokens, the value set for the _initial supply_ doesn't come from any other
 account.
 In this case, the Transfer event has a `from` value of `None`.
 
@@ -432,7 +431,6 @@ To emit the Transfer event:
    ```
 
    Notice that `value` does not need a `Some()` because the value is not stored in an `Option`.
-
 
 1. Verify that the program compiles and passes all tests by running the following command:
 
@@ -732,8 +730,8 @@ You can find an example of the code for this tutorial in the assets for
 
 You can learn more about smart contract development in the following topics:
 
-- [Use maps for storing values](/tutorials/smart-contracts/use-maps-for-storing-values/)
+- [Use maps for storing values](./use-maps-for-storing-values.md)
 
-- [Troubleshoot smart contracts](/tutorials/smart-contracts/troubleshoot-smart-contracts/)
+- [Troubleshoot smart contracts](./troubleshoot-smart-contracts.md)
 
 - [ink! documentation](https://paritytech.github.io/ink-docs/)

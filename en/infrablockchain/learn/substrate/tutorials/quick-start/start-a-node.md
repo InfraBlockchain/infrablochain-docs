@@ -23,7 +23,7 @@ Before you begin, verify the following:
   You can check whether you have Rust installed by running the `rustup show` command.
   If Rust is installed, this command displays version information for the toolchain and compiler.
   If Rust is not installed, the command doesn't return any output.
-  For information about installing Rust, see [Install](/install).
+  For information about installing Rust, see [Install](../install/README.md).
 
 ## Build the node template
 
@@ -103,7 +103,7 @@ Before you begin, verify the following:
    ```
 
    Predefined development accounts like `Alice` and `Bob` are configured in a **chain specification** file.
-   You'll learn more about node template files in [Explore the code](/quick-start/explore-the-code/) and more specifically about the chain specification file in [Chain specification](/build/chain-spec/).
+   You'll learn more about node template files in [Explore the code](../quick-start/README.md) and more specifically about the chain specification file in [Chain specification](../../build/chain-spec.md).
    For now, it's enough to be aware that development accounts exist to enable testing of simple transactions like balance transfers.
 
 ## Start the blockchain

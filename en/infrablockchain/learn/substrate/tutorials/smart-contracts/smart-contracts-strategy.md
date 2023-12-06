@@ -9,7 +9,7 @@ keywords:
   - Wasm
 ---
 
-As discussed in [Decide what to build](/design/decide-what-to-build/), smart contracts are one approach to building an application to run on a Substrate-based blockchain.
+As discussed in [Decide what to build](../../build/decide-what-to-build.md), smart contracts are one approach to building an application to run on a Substrate-based blockchain.
 Although there are certain limitations, there are also advantages to smart contracts.
 For example, one reason you might want to start building your project with smart contracts is because contracts typically can be developed and tested quickly, allowing you to iterate on your design decisions and release your applications to the market faster.
 

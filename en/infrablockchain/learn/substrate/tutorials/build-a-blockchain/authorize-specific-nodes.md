@@ -8,7 +8,7 @@ keywords:
   - restricted access
 ---
 
-In [Add trusted nodes](/tutorials/build-a-blockchain/add-trusted-nodes/), you saw how to build a simple network with a known set of validator nodes.
+In [Add trusted nodes](../build-a-blockchain/add-trusted-nodes.md), you saw how to build a simple network with a known set of validator nodes.
 That tutorial illustrated a simplified version of a **permissioned network**.
 In a permissioned network, only **authorized nodes** are allowed to perform specific network activities.
 For example, you might grant some nodes the permission to validate blocks and other nodes the permission to propagate transactions.
@@ -52,18 +52,18 @@ For example, you can manipulate the connection between a predefined node and you
 You can't change the connections for predefined nodes.
 They are always allowed to connect with each other.
 
-The `node-authorization` pallet uses an [offchain worker](/learn/offchain-operations) to configure its node connections.
+The `node-authorization` pallet uses an [offchain worker](../../learn/runtime-development/offchain-workers/README.md) to configure its node connections.
 Make sure to enable the offchain worker when you start the node because it is disabled by default for non-authority nodes.
 
 ## Before you begin
 
 Before you begin, verify the following:
 
-- You have configured your environment for Substrate development by installing [Rust and the Rust toolchain](/install/).
+- You have configured your environment for Substrate development by installing [Rust and the Rust toolchain](../install/README.md).
 
-- You have completed [Build a local blockchain](/tutorials/build-a-blockchain/build-local-blockchain/) and have the Substrate node template installed locally.
+- You have completed [Build a local blockchain](../build-a-blockchain/build-local-blockchain.md) and have the Substrate node template installed locally.
 
-* You have completed the [Add trusted nodes](/tutorials/build-a-blockchain/add-trusted-nodes/) tutorial.
+* You have completed the [Add trusted nodes](../build-a-blockchain/add-trusted-nodes.md) tutorial.
 
 - You are generally familiar with [peer-to-peer networking](https://wiki.polkadot.network/docs/faq#networking) in Substrate.
 
@@ -89,20 +89,20 @@ If you have completed previous tutorials, you should have the Substrate node tem
    cd substrate-node-template
    ```
 
-2. Switch to a working branch for the repository if you want to save your changes by running a command similar to the following:
+1. Switch to a working branch for the repository if you want to save your changes by running a command similar to the following:
 
    ```bash
    git switch -c my-wip-branch
    ```
 
-3. Compile the node template by running the following command:
+1. Compile the node template by running the following command:
 
    ```bash
    cargo build --release
    ```
 
    The node template should compile without any errors.
-   If you encounter issues when you compile, you can try the troubleshooting tips in [Troubleshoot Rust issues](/install/troubleshoot-rust-issues/).
+   If you encounter issues when you compile, you can try the troubleshooting tips in [Troubleshoot Rust issues](../install/troubleshoot-rust-issues.md).
 
 ## Add the node authorization pallet
 
@@ -113,7 +113,7 @@ Because the Substrate runtime compiles to both a native Rust binary that include
 
 - The pallets to be imported as dependencies for the runtime, including the location and version of the pallets to import.
 
-- The features in each pallet that should be enabled when compiling the native Rust binary. 
+- The features in each pallet that should be enabled when compiling the native Rust binary.
   By enabling the standard (`std`) feature set from each pallet, you can compile the runtime to include functions, types, and primitives that would otherwise be missing when you build the WebAssembly binary.
 
 For general information about adding dependencies in `Cargo.toml` files, see [Dependencies](https://doc.rust-lang.org/cargo/guide/dependencies.html) in the Cargo documentation.
@@ -140,12 +140,12 @@ To add the `node-authorization` pallet to the Substrate runtime:
    - The version identifier for the crate.
    - The repository location for retrieving the `pallet-node-authorization` crate.
    - The branch for retrieving the crate.
-   
+
    Note that you should use the same branch and version information for all pallets to ensure that they are compatible with each other.
    Using pallets from different branches can result in compiler errors.
    This example illustrates adding pallets to the `Cargo.toml` file if the other pallets use `branch = "polkadot-v1.0.0"`.
 
-2. Add the `pallet-node-authorization/std` features to the list of `features` to enable when compiling the runtime.
+1. Add the `pallet-node-authorization/std` features to the list of `features` to enable when compiling the runtime.
 
    ```toml
    [features]
@@ -159,11 +159,11 @@ To add the `node-authorization` pallet to the Substrate runtime:
 
    This section specifies the default feature set to compile for this runtime is the `std` features set.
    When the runtime is compiled using the `std` feature set, the `std` features from all of the pallets listed as dependencies are enabled.
-   For more detailed information about how the runtime is compiled as a native Rust binary with the standard library and as a WebAssembly binary using the `no_std` attribute, see [Build process](/build/build-process/).
+   For more detailed information about how the runtime is compiled as a native Rust binary with the standard library and as a WebAssembly binary using the `no_std` attribute, see [Build process](../../build/build-process.md).
 
    If you forget to update the `features` section in the `Cargo.toml` file, you might see `cannot find function` errors when you compile the runtime binary.
 
-3. Check that the new dependencies resolve correctly by running the following command:
+1. Check that the new dependencies resolve correctly by running the following command:
 
    ```bash
    cargo check -p node-template-runtime --release
@@ -334,44 +334,44 @@ To compile the node:
 ## Identify account keys to use
 
 You have already configured the nodes associated with the Alice and Bob accounts in genesis storage.
-You can use the [`subkey`](/reference/command-line-tools/subkey/) program to inspect the keys associated with predefined accounts and to generate and inspect your own keys.
+You can use the [`subkey`](../../learn/command-line-tools/subkey.md) program to inspect the keys associated with predefined accounts and to generate and inspect your own keys.
 However, if you run the `subkey generate-node-key` command, your node key and peer identifier are randomly generated and won't match the keys used in the tutorial.
 Because this tutorial uses predefined accounts and well-known node keys, you can use the following keys for each account.
 
 ### Alice
 
-| Key type | Key value |
-| :------- | :-------------------------------------------------------------|
-| Node key | c12b6d18942f5ee8528c8e2baf4e147b5c5c18710926ea492d09cbd9f6c9f82a |
-| Peer&nbspidentifier&nbspgenerated from the node key | 12D3KooWBmAwcd4PJNJvfV89HwE48nwkRmAgo8Vy3uQEyNNHBox2 |
-| Peer&nbspidentifier&nbspdecoded to hex | 0x0024080112201ce5f00ef6e89374afb625f1ae4c1546d31234e87e3c3f51a62b91dd6bfa57df |
+| Key type                                            | Key value                                                                      |
+| :-------------------------------------------------- | :----------------------------------------------------------------------------- |
+| Node key                                            | c12b6d18942f5ee8528c8e2baf4e147b5c5c18710926ea492d09cbd9f6c9f82a               |
+| Peer&nbspidentifier&nbspgenerated from the node key | 12D3KooWBmAwcd4PJNJvfV89HwE48nwkRmAgo8Vy3uQEyNNHBox2                           |
+| Peer&nbspidentifier&nbspdecoded to hex              | 0x0024080112201ce5f00ef6e89374afb625f1ae4c1546d31234e87e3c3f51a62b91dd6bfa57df |
 
 ### Bob
 
-| Key type | Key value |
-| :------- | :-------------------------------------------------------------|
-| Node key | 6ce3be907dbcabf20a9a5a60a712b4256a54196000a8ed4050d352bc113f8c58 |
-| Peer&nbspidentifier&nbspgenerated from the node key | 12D3KooWQYV9dGMFoRzNStwpXztXaBUjtPqi6aU76ZgUriHhKust |
-| Peer&nbspidentifier&nbspdecoded to hex | 0x002408011220dacde7714d8551f674b8bb4b54239383c76a2b286fa436e93b2b7eb226bf4de7 |
+| Key type                                            | Key value                                                                      |
+| :-------------------------------------------------- | :----------------------------------------------------------------------------- |
+| Node key                                            | 6ce3be907dbcabf20a9a5a60a712b4256a54196000a8ed4050d352bc113f8c58               |
+| Peer&nbspidentifier&nbspgenerated from the node key | 12D3KooWQYV9dGMFoRzNStwpXztXaBUjtPqi6aU76ZgUriHhKust                           |
+| Peer&nbspidentifier&nbspdecoded to hex              | 0x002408011220dacde7714d8551f674b8bb4b54239383c76a2b286fa436e93b2b7eb226bf4de7 |
 
 The two other development accounts—Charlie and Dave—don't have well-known node keys or peer identifiers defined in the genesis configuration.
 For demonstration purposes, you can use the following keys for these accounts.
 
 ### Charlie
 
-| Key type | Key value |
-| :------- | :-------------------------------------------------------------|
-| Node key | 3a9d5b35b9fb4c42aafadeca046f6bf56107bd2579687f069b42646684b94d9e |
-| Peer&nbspidentifier&nbspgenerated from the node key | 12D3KooWJvyP3VJYymTqG7eH4PM5rN4T2agk5cdNCfNymAqwqcvZ |
-| Peer&nbspidentifier&nbspdecoded to hex | 0x002408011220876a7b4984f98006dc8d666e28b60de307309835d775e7755cc770328cdacf2e |
+| Key type                                            | Key value                                                                      |
+| :-------------------------------------------------- | :----------------------------------------------------------------------------- |
+| Node key                                            | 3a9d5b35b9fb4c42aafadeca046f6bf56107bd2579687f069b42646684b94d9e               |
+| Peer&nbspidentifier&nbspgenerated from the node key | 12D3KooWJvyP3VJYymTqG7eH4PM5rN4T2agk5cdNCfNymAqwqcvZ                           |
+| Peer&nbspidentifier&nbspdecoded to hex              | 0x002408011220876a7b4984f98006dc8d666e28b60de307309835d775e7755cc770328cdacf2e |
 
 ### Dave
 
-| Key type | Key value |
-| :------- | :-------------------------------------------------------------|
-| Node key | a99331ff4f0e0a0434a6263da0a5823ea3afcfffe590c9f3014e6cf620f2b19a |
-| Peer&nbspidentifier&nbspgenerated from the node key | 12D3KooWPHWFrfaJzxPnqnAYAoRUyAHHKqACmEycGTVmeVhQYuZN |
-| Peer&nbspidentifier&nbspdecoded to hex | 0x002408011220c81bc1d7057a1511eb9496f056f6f53cdfe0e14c8bd5ffca47c70a8d76c1326d |
+| Key type                                            | Key value                                                                      |
+| :-------------------------------------------------- | :----------------------------------------------------------------------------- |
+| Node key                                            | a99331ff4f0e0a0434a6263da0a5823ea3afcfffe590c9f3014e6cf620f2b19a               |
+| Peer&nbspidentifier&nbspgenerated from the node key | 12D3KooWPHWFrfaJzxPnqnAYAoRUyAHHKqACmEycGTVmeVhQYuZN                           |
+| Peer&nbspidentifier&nbspdecoded to hex              | 0x002408011220c81bc1d7057a1511eb9496f056f6f53cdfe0e14c8bd5ffca47c70a8d76c1326d |
 
 For this tutorial, you can copy the node key to a file, then use the `subkey inspect-node-key` to verify the peer identifiers for Charlie and Dave.
 For example, save the node key for Charlie to a file named `charlie-node-key` by using a command like the following:
@@ -462,16 +462,16 @@ To start the second node:
 ### Add a third node to the list of well-known nodes
 
 You can start the third node with the `--name charlie` command.
-The `node-authorization` pallet uses an [offchain worker](/learn/offchain-operations) to configure node connections.
+The `node-authorization` pallet uses an [offchain worker](../../learn/runtime-development/offchain-workers/README.md) to configure node connections.
 Because the third node is not a well-known node and it will have the fourth node in the network configured as a read-only sub-node, you must include the command-line option to enable the offchain worker.
 
 To start the third node:
 
 1. Open a **new** terminal shell on your computer.
 
-1. Change to the root directory where you compiled the Substrate node template.
+2. Change to the root directory where you compiled the Substrate node template.
 
-1. Start the third node by running the following command:
+3. Start the third node by running the following command:
 
    ```bash
    ./target/release/node-template \
@@ -501,25 +501,24 @@ To keep things simple, you can use the Polkadot/Substrate Portal application to 
 
 1. Select **nodeAuthorization** and select **addWellKnownNode(node, owner)**.
 
-1. Copy and paste the hex-encoded peer identifier for the node owned by Charlie after the required 0x prefix. 
+1. Copy and paste the hex-encoded peer identifier for the node owned by Charlie after the required 0x prefix.
 
-2. Select **Charlie** as the node owner.
-   
-3. Click **Submit Sudo**.
-   
-   ![Submit a Sudo transaction to add the third node](/media/images/docs/tutorials/permissioned-network/sudo-add-well-known-node.png)
+1. Select **Charlie** as the node owner.
+1. Click **Submit Sudo**.
 
-4. In Authorize transaction, note that the Alice development account is the default root administrative account and used as the `sudo` origin for this call, then click **Sign and Submit**.
-   
-   ![Verify and authorize the transaction](/media/images/docs/tutorials/permissioned-network/sudo-to-add-node.png)
-   
-5. Click **Network** and select **Explorer** to view the recent transactions.
-   
-   ![Verify the Sudo event](/media/images/docs/tutorials/permissioned-network/sudo-events-add-node.png)
+   ![Submit a Sudo transaction to add the third node](/media/images/docs/infrablockchain/learn/substrate/tutorials/sudo-add-well-known-node.png)
+
+1. In Authorize transaction, note that the Alice development account is the default root administrative account and used as the `sudo` origin for this call, then click **Sign and Submit**.
+
+   ![Verify and authorize the transaction](/media/images/docs/infrablockchain/learn/substrate/tutorials/sudo-to-add-node.png)
+
+1. Click **Network** and select **Explorer** to view the recent transactions.
+
+   ![Verify the Sudo event](/media/images/docs/infrablockchain/learn/substrate/tutorials/sudo-add-well-known-node.png)
 
    After the transaction is included in the block, you should see the `charlie` node is connected to the `alice` and `bob` nodes, and starts to sync blocks.
    The three nodes can find each other using the [mDNS](https://paritytech.github.io/substrate/master/sc_network/index.html) discovery mechanism that is enabled by default in a local network. Also ensure any local firewall is configured to allow mDNS.
-   
+
    If your nodes are not on the same local network, you should use the command-line option `--no-mdns` to disable it.
 
 ### Allow connections from a sub-node
@@ -541,13 +540,12 @@ To allow the sub-node to access the network:
 
 3. Select **nodeAuthorization** and select **addConnections(node, connections)**.
 
-4. Copy and paste the hex-encoded peer identifier for the node owned by Charlie after the required 0x prefix. 
+4. Copy and paste the hex-encoded peer identifier for the node owned by Charlie after the required 0x prefix.
 
 5. For the connections parameter, copy and paste the hex-encoded peer identifier for the node owned by Dave after the required 0x prefix, then click **Submit Transaction**.
-   
 6. Review the transaction details, then click **Sign and Submit**.
-   
-   ![charlie_add_connections](/media/images/docs/tutorials/permissioned-network/charlie_add_connections.png)
+
+   ![charlie_add_connections](/media/images/docs/infrablockchain/learn/substrate/tutorials/charlie_add_connections.png)
 
 ### Claim the sub-node
 
@@ -558,13 +556,12 @@ You can use the Polkadot/Substrate Portal application to submit a transaction to
 
 1. Click **Developer** and select **Extrinsics**.
 
-2. Select **nodeAuthorization** and select **claimNode(node)**.
+1. Select **nodeAuthorization** and select **claimNode(node)**.
 
-3. Copy and paste the hex-encoded peer identifier for the node owned by Dave after the required 0x prefix, then click **Submit Transaction**.
-   
-4. Review the transaction details, then click **Sign and Submit**.
+1. Copy and paste the hex-encoded peer identifier for the node owned by Dave after the required 0x prefix, then click **Submit Transaction**.
+1. Review the transaction details, then click **Sign and Submit**.
 
-   ![dave_claim_node](/media/images/docs/tutorials/permissioned-network/dave_claim_node.png)
+   ![dave_claim_node](/media/images/docs/infrablockchain/learn/substrate/tutorials/dave_add_connections.png)
 
 ### Start the sub-node
 
@@ -577,7 +574,7 @@ To start the sub-node:
 1. Change to the root directory where you compiled the Substrate node template.
 
 1. Start the sub-node by running the following command:
-   
+
    ```bash
    ./target/release/node-template \
    --chain=local \
@@ -601,15 +598,14 @@ The steps are similar to the ones you previously performed to allow connections 
 
 3. Select **nodeAuthorization** and select **addConnections(node, connections)**.
 
-4. Copy and paste the hex-encoded peer identifier for the node owned by Dave after the required 0x prefix. 
+4. Copy and paste the hex-encoded peer identifier for the node owned by Dave after the required 0x prefix.
 
 5. For the connections parameter, copy and paste the hex-encoded peer identifier for the node owned by Charlie after the required 0x prefix, then click **Submit Transaction**.
-   
 6. Review the transaction details, then click **Sign and Submit**.
-   
-   ![dave_add_connections](/media/images/docs/tutorials/permissioned-network/dave_add_connections.png)
-   
-   You should now see the sub-node has only one peer—the node that belongs to Charlie—and is synchronizing blocks from the chain. 
+
+   ![dave_add_connections](/media/images/docs/infrablockchain/learn/substrate/tutorials/dave_add_connections.png)
+
+   You should now see the sub-node has only one peer—the node that belongs to Charlie—and is synchronizing blocks from the chain.
    If the sub-node doesn't connect to its peer node right away, try stopping and restarting the sub-node.
 
 ## Keys required to submit transactions
@@ -629,7 +625,7 @@ If you were building a permissioned network for a real world application, node o
 In this tutorial, you learned the basics of how to build a network where some nodes have limited permissions and restricted access to network resources.
 To learn more about the topics introduced in this tutorial, see the following resources:
 
-- [Accounts, addresses, and keys](/learn/accounts-addresses-keys)
+- [Accounts, addresses, and keys](../../learn/basic/accounts-addresses-keys.md)
 - [Node authorization pallet](https://paritytech.github.io/substrate/master/pallet_node_authorization/index.html#)
 - [Node authorization source code](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/node-authorization/src/lib.rs)
-- [Monitor node metrics](/tutorials/build-a-blockchain/monitor-node-metrics/)
+- [Monitor node metrics](../../../../devops/monitor-node-metrics.md)

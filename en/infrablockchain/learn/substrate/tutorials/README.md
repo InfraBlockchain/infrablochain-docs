@@ -34,16 +34,6 @@ You'll learn how to:
 - Add an offchain worker and submit transactions using an offchain worker.
 - Publish a custom pallet for others to use.
 
-## Build a parachain
-
-The [Build a parachain](./build-a-blockchain/README.md) tutorials delve into more advanced topics for moving beyond solo chain development, including how to connect your chain to other chains.
-You'll learn how to:
-
-- Turn a solo chain into a parachain.
-- Deploy a local test network and interact with multiple connected parachains.
-- Connect your parachain to a public test network.
-- Work with the cross-consensus messaging format.
-
 <!--
 ## Integrate with tools
 

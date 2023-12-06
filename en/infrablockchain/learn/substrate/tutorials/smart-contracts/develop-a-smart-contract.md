@@ -4,7 +4,7 @@ description: Develop a smart contract that increments a value.
 keywords:
 ---
 
-In [Prepare your first contract](/tutorials/smart-contracts/prepare-your-first-contract/), you learned the basic steps
+In [Prepare your first contract](./prepare-your-first-contract.md), you learned the basic steps
 for building and deploying a smart contract on a Substrate-based blockchain using a default first project.
 
 For this tutorial, you'll develop a new smart contract that increments a counter value each time you execute a function
@@ -20,9 +20,9 @@ Before you begin, verify the following:
 
 - You are generally familiar with blockchains and smart contract platforms.
 
-- You have installed Rust and set up your development environment as described in [Install](/install/).
+- You have installed Rust and set up your development environment as described in [Install](../install/README.md).
 
-- You have completed [Prepare your first contract](/tutorials/smart-contracts/prepare-your-first-contract/) and have the
+- You have completed [Prepare your first contract](./prepare-your-first-contract.md) and have the
   Substrate contracts node installed locally.
 
 ## Tutorial objectives
@@ -39,7 +39,7 @@ By completing this tutorial, you will accomplish the following objectives:
 
 ## Smart contracts and ink!
 
-In [Prepare your first contract](/tutorials/smart-contracts/prepare-your-first-contract/), you installed the
+In [Prepare your first contract](./prepare-your-first-contract.md), you installed the
 `cargo-contract` package for command-line access to the ink! programming language.
 
 The ink! language is an [embedded domain specific language](https://wiki.haskell.org/Embedded_domain_specific_language).
@@ -426,28 +426,28 @@ To deploy on the local node:
    cargo contract call --contract $INSTANTIATED_CONTRACT_ADDRESS --message inc --args 42 --suri //Alice
    ```
 
-  ```text
-   Dry-running inc (skip with --skip-dry-run)
-    Success! Gas required estimated at Weight(ref_time: 8013742080, proof_size: 262144)
-   Confirm transaction details: (skip with --skip-confirm)
-        Message inc
-           Args 42
-      Gas limit Weight(ref_time: 8013742080, proof_size: 262144)
-   Submit? (Y/n):
-      Events
-       Event Balances ➜ Withdraw
-         who: 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY
-         amount: 98.97416μUNIT
-       Event Contracts ➜ Called
-         caller: 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY
-         contract: 5Cf6wFEyZnqvNJaKVxnWswefo7uT4jVsgzWKh8b78GLDV6kN
-       Event TransactionPayment ➜ TransactionFeePaid
-         who: 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY
-         actual_fee: 98.97416μUNIT
-         tip: 0UNIT
-       Event System ➜ ExtrinsicSuccess
-         dispatch_info: DispatchInfo { weight: Weight { ref_time: 1383927346, proof_size: 13255 }, class: Normal, pays_fee: Yes }
-  ```
+```text
+ Dry-running inc (skip with --skip-dry-run)
+  Success! Gas required estimated at Weight(ref_time: 8013742080, proof_size: 262144)
+ Confirm transaction details: (skip with --skip-confirm)
+      Message inc
+         Args 42
+    Gas limit Weight(ref_time: 8013742080, proof_size: 262144)
+ Submit? (Y/n):
+    Events
+     Event Balances ➜ Withdraw
+       who: 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY
+       amount: 98.97416μUNIT
+     Event Contracts ➜ Called
+       caller: 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY
+       contract: 5Cf6wFEyZnqvNJaKVxnWswefo7uT4jVsgzWKh8b78GLDV6kN
+     Event TransactionPayment ➜ TransactionFeePaid
+       who: 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY
+       actual_fee: 98.97416μUNIT
+       tip: 0UNIT
+     Event System ➜ ExtrinsicSuccess
+       dispatch_info: DispatchInfo { weight: Weight { ref_time: 1383927346, proof_size: 13255 }, class: Normal, pays_fee: Yes }
+```
 
 5. Get the current value
 
@@ -483,6 +483,6 @@ You can find an example of the final code for this tutorial in the assets for th
 
 You can learn more about smart contract development in the following topics:
 
-- [Use maps for storing values](/tutorials/smart-contracts/use-maps-for-storing-values/)
-- [Build an ERC20 token contract](/tutorials/smart-contracts/build-a-token-contract/)
-- [Troubleshoot smart contracts](/tutorials/smart-contracts/troubleshoot-smart-contracts/)
+- [Use maps for storing values](./use-maps-for-storing-values.md)
+- [Build an ERC20 token contract](./build-a-token-contract.md)
+- [Troubleshoot smart contracts](./troubleshoot-smart-contracts.md)

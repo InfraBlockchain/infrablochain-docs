@@ -29,9 +29,9 @@ If you build your own node using from the [frontier](https://github.com/parityte
 
 You should have completed the following Substrate tutorials before attempting this tutorial:
 
-- [Build a local blockchain](/tutorials/build-a-blockchain/build-local-blockchain/)
-- [Add a pallet to the runtime](/tutorials/build-application-logic/add-a-pallet/)
-- [Use macros in a custom pallet](/tutorials/build-application-logic/use-macros-in-a-custom-pallet/)
+- [Build a local blockchain](../build-a-blockchain/build-local-blockchain.md)
+- [Add a pallet to the runtime](../build-application-logic/add-a-pallet.md)
+- [Use macros in a custom pallet](../build-application-logic/use-macros-in-a-custom-pallet.md)
 
 From the tutorials, you should be familiar with how to perform the following tasks:
 
@@ -114,7 +114,7 @@ To start the local Substrate node:
 1. Connect to the local node using the [Polkadot-JS application](https://polkadot.js.org/apps/#?rpc=ws://127.0.0.1:9944).
 
 1. Click **Settings**, then click **Developer**.
-  
+
    ![Developer settings](/media/images/docs/tutorials/evm-ethereum/settings-developer.png)
 
 1. Define the following account information to create an EVM `Account` type and enable the account to send transactions and to inspect blocks.
@@ -125,26 +125,26 @@ To start the local Substrate node:
 
    ```json
    {
-      "Address": "MultiAddress",
-      "LookupSource": "MultiAddress",
-      "Account": {
-         "nonce": "U256",
-         "balance": "U256"
-      },
-      "Transaction": {
-         "nonce": "U256",
-         "action": "String",
-         "gas_price": "u64",
-         "gas_limit": "u64",
-         "value": "U256",
-         "input": "Vec<u8>",
-         "signature": "Signature"
-      },
-      "Signature": {
-         "v": "u64",
-         "r": "H256",
-         "s": "H256"
-      }
+     "Address": "MultiAddress",
+     "LookupSource": "MultiAddress",
+     "Account": {
+       "nonce": "U256",
+       "balance": "U256"
+     },
+     "Transaction": {
+       "nonce": "U256",
+       "action": "String",
+       "gas_price": "u64",
+       "gas_limit": "u64",
+       "value": "U256",
+       "input": "Vec<u8>",
+       "signature": "Signature"
+     },
+     "Signature": {
+       "v": "u64",
+       "r": "H256",
+       "s": "H256"
+     }
    }
    ```
 
@@ -163,14 +163,14 @@ After you have configured settings for the EVM account, you can use the Polkadot
 1. Select **getBalance(address, number)** from the list of functions to call.
 
 1. Specify the EVM account identifier for the `alice` account for the address.
-  
+
    The predefined account address is `0xd43593c715fdd31c61141abd04a99fd6822c8558`.
    The address for the account was calculated from the public key for the `alice` account using [Substrate EVM utilities](https://github.com/substrate-developer-hub/frontier-node-template/tree/main/utils/README.md#--evm-address-address).
 
 1. Click **Submit RPC call**.
-  
+
    The call should return output similar to the following:
-  
+
    ```text
    2: eth.getBalance: U256
    340,282,366,920,938,463,463,374,607,431,768,210,955
@@ -183,7 +183,7 @@ This tutorial uses a [Truffle](https://www.trufflesuite.com/truffle) sample cont
 You can also create an ERC-20 token contract using Polkadot JS SDK and [Typescript](https://github.com/substrate-developer-hub/frontier-node-template/tree/main/examples/contract-erc20).
 
 1. Create the ERC-20 contract.
-  
+
    For convenience, you can use the compiled `bytecode` from the token contract in [MyToken.json](https://github.com/substrate-developer-hub/frontier-node-template/blob/main/examples/contract-erc20/truffle/contracts/MyToken.json) to deploy the contract on the Substrate blockchain.
 
 1. Verify that your node is still running and the [Polkadot-JS application](https://polkadot.js.org/apps/#?rpc=ws://127.0.0.1:9944) is connected to the node.
@@ -198,13 +198,13 @@ You can also create an ERC-20 token contract using Polkadot JS SDK and [Typescri
 
 1. Configure the parameters for the function.
 
-   | For this | Specify this
-   | -------- | ------------
-   | `source` | 0xd43593c715fdd31c61141abd04a99fd6822c8558
-   | `init` | raw `bytecode` hex value from `MyToken.json`
-   | `value` | 0
-   | `gasLimit` | 4294967295
-   | `maxFeePerGas` | 100000000
+   | For this       | Specify this                                 |
+   | -------------- | -------------------------------------------- |
+   | `source`       | 0xd43593c715fdd31c61141abd04a99fd6822c8558   |
+   | `init`         | raw `bytecode` hex value from `MyToken.json` |
+   | `value`        | 0                                            |
+   | `gasLimit`     | 4294967295                                   |
+   | `maxFeePerGas` | 100000000                                    |
 
    You can leave optional parameters empty.
    The value for the `nonce` will increment the known nonce for the source account, starting from `0x0`.
@@ -232,7 +232,7 @@ After you submit the transaction, the contract is deployed on the network and yo
 
 1. Click **Developer**, then select **Chain State**.
 
-1. Select **evm**  as the state to query and **accountCodes**.
+1. Select **evm** as the state to query and **accountCodes**.
 
 1. Specify the account identifier `0xd43593c715fdd31c61141abd04a99fd6822c8558` for the `alice` account and notice that the account code is empty (`0x`)
 
@@ -278,14 +278,14 @@ The next step is to use the deployed contract to transfer tokens to another acco
 
 1. Configure the parameters for the function.
 
-   | For this | Specify this
-   | -------- | ------------
-   | `source` | 0xd43593c715fdd31c61141abd04a99fd6822c8558
-   | `target` | 0x8a50db1e0f9452cfd91be8dc004ceb11cb08832f
-   | `input` | 0xa9059cbb0000000000000000000000008eaf04151687736326c9fea17e25fc528761369300000000000000000000000000000000000000000000000000000000000000dd
-   | `value` | 0
-   | `gasLimit` | 4294967295
-   | `maxFeePerGas` | 100000000
+   | For this       | Specify this                                                                                                                               |
+   | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+   | `source`       | 0xd43593c715fdd31c61141abd04a99fd6822c8558                                                                                                 |
+   | `target`       | 0x8a50db1e0f9452cfd91be8dc004ceb11cb08832f                                                                                                 |
+   | `input`        | 0xa9059cbb0000000000000000000000008eaf04151687736326c9fea17e25fc528761369300000000000000000000000000000000000000000000000000000000000000dd |
+   | `value`        | 0                                                                                                                                          |
+   | `gasLimit`     | 4294967295                                                                                                                                 |
+   | `maxFeePerGas` | 100000000                                                                                                                                  |
 
    The `source` represents the account holding the tokens.
    In this case, the `source` is the EVM account for `alice`, the contract creator.
@@ -314,16 +314,16 @@ After you submit the transaction, you can verify the token transfer using the [P
 
 1. Click **Developer**, then select **Chain State**.
 
-1. Select **evm**  as the state to query and **accountStorages**.
+1. Select **evm** as the state to query and **accountStorages**.
 
 1. Check the storage for the contract address `0x8a50db1e0f9452cfd91be8dc004ceb11cb08832f` and storage slot `0x045c0350b9cf0df39c4b40400c965118df2dca5ce0fbcf0de4aafc099aea4a14`.
 
    ```text
    0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff22
    ```
-  
+
    If you check the balance for the `alice` account after deploying the contract, you see that a fee was withdrawn from the account and the `getBalance(address, number)` call returns a value similar to the following:
-  
+
    ```text
    340,282,366,920,938,463,463,374,603,530,233,366,411
    ```
@@ -331,6 +331,6 @@ After you submit the transaction, you can verify the token transfer using the [P
 ## Where to go next
 
 - [Moonbeam: Ethereum compatibility](https://docs.moonbeam.network/learn/features/eth-compatibility/)
-- [Ethereum integration](/tutorials/integrate-with-tools/evm-integration/)
+- [Ethereum integration](./evm-integration.md)
 - [EVM ABI specification](https://solidity.readthedocs.io/en/latest/abi-spec.html)
 - [ERC-20 token standard](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/)

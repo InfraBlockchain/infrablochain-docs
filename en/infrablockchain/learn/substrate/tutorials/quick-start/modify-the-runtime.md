@@ -4,7 +4,7 @@ description: Make simple changes to the default node template to create a custom
 keywords:
 ---
 
-In [Explore the code](/quick-start/explore-the-code/), you learned about the manifest files and Rust modules that make up the default node template.
+In [Explore the code](./explore-the-code.md), you learned about the manifest files and Rust modules that make up the default node template.
 Now that you have a general idea of what the runtime source code looks like, let's look at how easy it is for you to make a few simple changes to customize the runtime.
 
 For this simple demonstration, you are going to do the following:
@@ -90,7 +90,7 @@ To add the Utility pallet:
    ]
    ```
 
-   You'll learn more about building features for the standard and WebAssembly binaries in [Rust and WebAssembly](/build/build-process).
+   You'll learn more about building features for the standard and WebAssembly binaries in [Rust and WebAssembly](../../build/build-process.md).
 
 5. Save your changes and close the `Cargo.toml` file.
 
@@ -135,7 +135,7 @@ To add the Utility pallet:
      }
    ```
 
-   You can learn more about how the `construct_runtime` macro works in [FRAME macros](/reference/frame-macros/) and [Runtime construction macros](/reference/frame-macros/#runtime-construction-macros).
+   You can learn more about how the `construct_runtime` macro works in [FRAME macros](../../learn/frame/frame-macros.md) and [Runtime construction macros](../../learn/frame/frame-macros.md#runtime-construction-macros).
 
 ## Change constant values
 
@@ -286,4 +286,4 @@ To verify your changes:
 After verifying the changes, you know that you have a customized version of the node template running and have successfully upgraded your local node to use your modified runtime.
 
 That's quite an achievement, but there's a lot more you can do.
-To dig deeper into concepts and core components, review topics in the [Learn](/learn/) section or start building on what you've learned so far by exploring topics in the [Build](/build/) section.
+To dig deeper into concepts and core components, review topics in the [Learn](../../learn/README.md) section or start building on what you've learned so far by exploring topics in the [Build](../../build/README.md) section.

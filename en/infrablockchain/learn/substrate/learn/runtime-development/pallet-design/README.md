@@ -6,12 +6,12 @@ keywords:
 
 The _How-to_ guides in the _Pallet design_ category illustrate how you can incorporate specific pallet features when building a custom runtime.
 
-- [Implement lockable currency](/reference/how-to-guides/pallet-design/implement-lockable-currency/)
-- [Incorporate randomness](/reference/how-to-guides/pallet-design/incorporate-randomness/)
-- [Configure crowdfunding](/reference/how-to-guides/pallet-design/configure-crowdfunding/)
-- [Create a storage structure (struct)](/reference/how-to-guides/pallet-design/create-a-storage-structure/)
-- [Use tight pallet coupling](/reference/how-to-guides/pallet-design/use-tight-coupling/)
-- [Use loose pallet coupling](/reference/how-to-guides/pallet-design/use-loose-coupling/)
+- [Implement lockable currency](./implement-lockable-currency.md)
+- [Incorporate randomness](./incorporate-randomness.md)
+- [Configure crowdfunding](./configure-crowdfunding.md)
+- [Create a storage structure (struct)](./create-a-storage-structure.md/)
+- [Use tight pallet coupling](./use-tight-coupling.md)
+- [Use loose pallet coupling](./use-loose-coupling.md)
 
 <!--
 - [Add the contracts pallet](/reference/how-to-guides/pallet-design/add-contracts-pallet/)

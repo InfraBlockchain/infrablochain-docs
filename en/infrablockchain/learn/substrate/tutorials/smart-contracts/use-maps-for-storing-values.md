@@ -4,7 +4,7 @@ description: Use mapping to store data as key-value pairs.
 keywords:
 ---
 
-In [Develop a smart contract](/tutorials/smart-contracts/develop-a-smart-contract/), you developed a smart contract for
+In [Develop a smart contract](./develop-a-smart-contract.md/), you developed a smart contract for
 storing and retrieving a single numeric value.
 
 This tutorial illustrates how you can extend the functionality of your smart contract to manage one number per user. To
@@ -167,15 +167,15 @@ To add a storage map to the `incrementer` contract:
 
 1. In the `default` constructor add a new default `Mapping` along with the already defined default `value`.
 
-    ```rust
-    #[ink(constructor)]
-    pub fn default() -> Self {
-    Self {
-            value: 0,
-            my_map: Mapping::default(),
-        }
-    }
-    ```
+   ```rust
+   #[ink(constructor)]
+   pub fn default() -> Self {
+   Self {
+           value: 0,
+           my_map: Mapping::default(),
+       }
+   }
+   ```
 
 1. Add a `get_mine()` function to read `my_map` using the Mapping API's `get()` method and return `my_map` for the
    contract caller.
@@ -330,5 +330,5 @@ You can find an example of the final code for this tutorial in the assets for th
 
 You can learn more about smart contract development in the following topics:
 
-- [Build an ERC20 token contract](/tutorials/smart-contracts/build-a-token-contract/)
-- [Troubleshoot smart contracts](/tutorials/smart-contracts/troubleshoot-smart-contracts/)
+- [Build an ERC20 token contract](./build-a-token-contract.md)
+- [Troubleshoot smart contracts](./troubleshoot-smart-contracts.md)

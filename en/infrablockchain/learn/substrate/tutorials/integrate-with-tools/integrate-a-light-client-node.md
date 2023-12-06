@@ -4,7 +4,7 @@ description: Demonstrates how you can connect to Substrate-based blockchains usi
 keywords:
 ---
 
-As you learned in [Light clients in Substrate Connect](/learn/light-clients-in-substrate-connect/), light client nodes provide secure and decentralized access to blockchain data with minimal hardware and software requirements.
+As you learned in [Light clients in Substrate Connect](../../learn/basic/light-clients-in-substrate-connect.md), light client nodes provide secure and decentralized access to blockchain data with minimal hardware and software requirements.
 
 This tutorial demonstrates how you can connect to any Substrate-based blockchain using a light client.
 To illustrate this, you'll learn how to connect your application to the [Statemint parachain](https://wiki.polkadot.network/docs/learn-statemint).
@@ -28,7 +28,7 @@ By completing this tutorial, you will accomplish the following objectives:
 ## Connect to a well-known chain
 
 Before the light client can connect to a network, you must have a web application that specifies the network the light client should connect to, the nodes for it to communicate with, and the consensus-critical state it must have at genesis.
-This information is available in the [chain specification](/build/chain-spec/) file for the network.
+This information is available in the [chain specification](../../build/chain-spec.md) file for the network.
 
 Substrate Connect is preconfigured to recognize several chains that are defined in the [WellKnownChain](https://paritytech.github.io/substrate-connect/api/enums/connect_src.WellKnownChain.html) enumeration list.
 These well-known chains are:
@@ -89,9 +89,13 @@ To connect to one of these chains:
 
          await provider.connect();
          const api = await ApiPromise.create({ provider });
-         await api.rpc.chain.subscribeNewHeads((lastHeader: { number: unknown; hash: unknown }) => {
-           console.log(`💡 New block #${lastHeader.number} has hash ⚡️ ${lastHeader.hash}`);
-         });
+         await api.rpc.chain.subscribeNewHeads(
+           (lastHeader: { number: unknown; hash: unknown }) => {
+             console.log(
+               `💡 New block #${lastHeader.number} has hash ⚡️ ${lastHeader.hash}`
+             );
+           }
+         );
        } catch (error) {
          console.error(<Error>error);
        }
@@ -187,9 +191,13 @@ To connect to Statemint:
 
          await provider.connect();
          const api = await ApiPromise.create({ provider });
-         await api.rpc.chain.subscribeNewHeads((lastHeader: { number: unknown; hash: unknown }) => {
-           console.log(`💡 New block #${lastHeader.number} has hash ⚡️ ${lastHeader.hash}`);
-         });
+         await api.rpc.chain.subscribeNewHeads(
+           (lastHeader: { number: unknown; hash: unknown }) => {
+             console.log(
+               `💡 New block #${lastHeader.number} has hash ⚡️ ${lastHeader.hash}`
+             );
+           }
+         );
        } catch (error) {
          console.error(<Error>error);
        }

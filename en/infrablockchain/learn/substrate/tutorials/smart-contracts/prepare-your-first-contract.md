@@ -4,7 +4,7 @@ description: Build and test a simple smart contract using the ink! smart contrac
 keywords:
 ---
 
-As you learned in [Blockchain basics](/main-docs/learn/blockchain-basics/) decentralized applications are most often written as **smart contracts**.
+As you learned in [Blockchain basics](../../learn/basic/blockchain-basics.md) decentralized applications are most often written as **smart contracts**.
 
 Although Substrate is primarily a framework and toolkit for building custom blockchains, it can also provide a platform
 for smart contracts.
@@ -23,7 +23,7 @@ Before you begin, verify the following:
 
 - You are generally familiar with blockchains and smart contract platforms.
 
-- You have installed Rust and set up your development environment as described in [Install](/main-docs/install/).
+- You have installed Rust and set up your development environment as described in [Install](../install/README.md).
 
 ## Tutorial objectives
 
@@ -261,7 +261,7 @@ To build the WebAssembly for this smart contract:
 
 ## Start the Substrate Contracts Node
 
-If you have [successfully installed the  `substrate-contracts-node`](/tutorials/smart-contracts/prepare-your-first-contract/#install-the-substrate-contracts-node),
+If you have [successfully installed the `substrate-contracts-node`](./prepare-your-first-contract.md#install-the-substrate-contracts-node),
 it's time to start a local node.
 
 1. Start the contracts node in local development mode by running the following command:
@@ -349,6 +349,7 @@ Substrate chain.
    ```
 
    Some notes about the command:
+
    - The `instantiate` command will do both the `upload` and `instantiate` steps for you.
 
    - We need to specify the contract constructor to use, which in this case is `new()`
@@ -366,11 +367,11 @@ Substrate chain.
    ```text
    Dry-running new (skip with --skip-dry-run)
       Success! Gas required estimated at Weight(ref_time: 328660939, proof_size: 0)
-  Confirm transaction details: (skip with --skip-confirm)
+   Confirm transaction details: (skip with --skip-confirm)
    Constructor new
           Args false
      Gas limit Weight(ref_time: 328660939, proof_size: 0)
-  Submit? (Y/n):
+   Submit? (Y/n):
         Events
          Event Balances ➜ Withdraw
            who: 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY
@@ -390,7 +391,6 @@ Substrate chain.
 
 We will need the `Contract` address to `call` the contract, so make sure you don't lose it.
 
-
 ## Calling the Deployed ink! Contract
 
 We can not only `upload` and `instantiate` contracts using `cargo-contract`, we can also `call` them!
@@ -408,16 +408,17 @@ cargo contract call --contract $INSTANTIATED_CONTRACT_ADDRESS --message get --su
 ```
 
 Some notes about the command:
-  - The address of the contract we want to call had to be specified using the `--contract` flag
 
-  - This can be found in the output logs of the `cargo contract instantiate` command
+- The address of the contract we want to call had to be specified using the `--contract` flag
 
-  - We need to specify the contract message to use, which in this case is `get()`
+- This can be found in the output logs of the `cargo contract instantiate` command
 
-  - We need to specify the account callling the contract, which in this case is the default development account of
-     `//Alice`
+- We need to specify the contract message to use, which in this case is `get()`
 
-  - We specify `--dry-run` to avoid submitting an extrinsic on-chain
+- We need to specify the account callling the contract, which in this case is the default development account of
+  `//Alice`
+
+- We specify `--dry-run` to avoid submitting an extrinsic on-chain
 
 After running the command should see something like this:
 
@@ -498,6 +499,6 @@ of contract development.
 
 You can learn more about smart contract development in the following topics:
 
-- [Develop a smart contract](/tutorials/smart-contracts/develop-a-smart-contract/)
-- [Build an ERC20 token contract](/tutorials/smart-contracts/build-a-token-contract/)
-- [Troubleshoot smart contracts](/tutorials/smart-contracts/troubleshoot-smart-contracts/)
+- [Develop a smart contract](./develop-a-smart-contract.md)
+- [Build an ERC20 token contract](./build-a-token-contract.md)
+- [Troubleshoot smart contracts](./troubleshoot-smart-contracts.md)

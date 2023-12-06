@@ -6,15 +6,15 @@ keywords:
 
 The _How-to_ guides in the _Basics_ category illustrate many of the common patterns that you'll use most frequently as a runtime developer.
 
-- [Import a pallet](/reference/how-to-guides/basics/import-a-pallet/)
+- [Import a pallet](./import-a-pallet.md)
 
-- [Configure runtime constants](/reference/how-to-guides/basics/configure-runtime-constants/)
+- [Configure runtime constants](./configure-runtime-constants.md)
 
-- [Configure genesis](/reference/how-to-guides/basics/configure-genesis-state)
+- [Configure genesis](./configure-genesis-state.md)
 
-- [Customize a chain specification](/reference/how-to-guides/basics/customize-a-chain-specification)
+- [Customize a chain specification](./customize-a-chain-specification.md)
 
-- [Use helper functions](/reference/how-to-guides/basics/use-helper-functions)
+- [Use helper functions](./use-helper-functions.md)
 
 <!--
 - [Mint basic tokens](/reference/how-to-guides/basics/mint-basic-tokens/)

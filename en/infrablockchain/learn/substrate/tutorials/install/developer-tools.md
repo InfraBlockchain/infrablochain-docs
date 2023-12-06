@@ -26,22 +26,22 @@ A few of the tools you might find useful as you start developing a Substrate-bas
   The template is built using the Create React App starter project and the Polkadot-JS API.
 - [Submit transactions command-line interface](https://github.com/paritytech/subxt)
 
-  The `subxt-cli` is a command-line program you can use to download complete configuration information—the [metadata](/reference/glossary/#metadata)—for a Substrate-based chain by connecting to a running node.
+  The `subxt-cli` is a command-line program you can use to download complete configuration information—the [metadata](../../learn/basic/glossary.md#metadata)—for a Substrate-based chain by connecting to a running node.
   Similar to the Polkadot-JS API, the metadata you can download with the `subxt-cli` program exposes information about a Substrate chain that enables you to interact with that chain.
   You can also use the `subxt-cli` program to expose information about the chain in a human-readable format.
 
 - [sidecar](https://github.com/paritytech/substrate-api-sidecar)
 
-  The @substrate/api-sidecar package is a RESTful service that you can use to connect to and interact with Substrate nodes that are built using the [FRAME](/reference/glossary/#frame/) developer framework.
+  The @substrate/api-sidecar package is a RESTful service that you can use to connect to and interact with Substrate nodes that are built using the [FRAME](../../learn/basic/glossary.md#frame) developer framework.
   For information about the endpoints that the service supports, see [Substrate API Sidecar](https://paritytech.github.io/substrate-api-sidecar/dist/).
 
 You might also want to explore resources and community projects listed in [Awesome Substrate](https://github.com/substrate-developer-hub/awesome-substrate).
 
-For an overview of some of the most commonly-used tools, see [command-line tools](/reference/command-line-tools/).
+For an overview of some of the most commonly-used tools, see [command-line tools](../../learn/command-line-tools/README.md).
 
 ## Where to go next
 
-- [Command-line tools](/reference/command-line-tools/)
-- [node-template](/reference/command-line-tools/node-template/)
-- [subkey](/reference/command-line-tools/subkey/)
-- [try-runtime](/reference/command-line-tools/try-runtime/)
+- [Command-line tools](../../learn/command-line-tools/README.md)
+- [node-template](../../learn/command-line-tools/node-template.md)
+- [subkey](../../learn/command-line-tools/subkey.md)
+- [try-runtime](../../learn/command-line-tools/subkey.md)

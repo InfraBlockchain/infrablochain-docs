@@ -6,7 +6,7 @@ keywords:
 
 The _How-to_ guides in the _Tools_ category illustrate use cases for tools that help you manage and test operations in a Substrate environment.
 
-- [Use try-runtime](/reference/how-to-guides/tools/use-try-runtime/)
-- [Create a txwrapper for a chain](/reference/how-to-guides/tools/create-a-txwrapper/)
-- [Use REST endpoints to get chain data](/reference/how-to-guides/tools/use-sidecar/)
-- [Verify a Wasm binary](/reference/how-to-guides/tools/verify-wasm/)
+- [Use try-runtime](./use-try-runtime.md)
+- [Create a txwrapper for a chain](./create-a-txwrapper.md)
+- [Use REST endpoints to get chain data](./use-sidecar.md)
+- [Verify a Wasm binary](./verify-wasm.md)
