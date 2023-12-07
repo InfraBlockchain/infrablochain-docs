@@ -1,16 +1,16 @@
 ---
 title: Build InfraBlockchain
-description: 
+description:
 keywords:
   - Relay Chain
   - Parachain
 ---
 
-In this tutorial, we will explore how to build the ***InfraRelayChain*** and Parachain and understand the process of constructing the multi-chain architecture, InfraBlockchain.
+In this tutorial, we will explore how to build the **_InfraRelayChain_** and Parachain and understand the process of constructing the multi-chain architecture, InfraBlockchain.
 
-- [Building Relay Chain](./build-infra-relay-chain.md): Learn how to construct the central part of ***InfraBlockchain***, the ***InfraRelayChain***.
+- [Build InfraRelayChain](./build-infra-relay-chain.md): Learn how to construct the central part of **_InfraBlockchain_**, the **_InfraRelayChain_**.
 
-- [Building a Parachain](./build-a-parachain.md): Explore how to connect a blockchain based on the Cumulus framework to the InfraRelayChain.
+- [Build Parachain](./build-parachain.md): Explore how to connect a blockchain based on the Cumulus framework to the InfraRelayChain.
 
 - [Opening Message Passing Channels](./open-message-passing-channels.md): Understand the process of opening channels to enable Cross-Consensus Messages (XCM) between parachains.
 
