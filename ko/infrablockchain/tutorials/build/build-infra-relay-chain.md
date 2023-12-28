@@ -34,15 +34,15 @@ keywords:
    ```bash
    1. cargo build --release --bin infrablockspace
 
-   2. cargo build --release --bin infrablockspace-execute-worker
+   2. cargo build --release --bin infra-relaychain-execute-worker
 
-   3. cargo build --release --bin infrablockspace-prepare-worker
+   3. cargo build --release --bin infra-relaychain-prepare-worker
    ```
 
 3. 같은 경로에서 다음 명령을 실행하여 노드가 올바르게 빌드되었는지 확인합니다:
    
    ```bash
-   ./target/release/infrablockspace --help
+   ./target/release/infra-relaychain --help
    ```
 
    명령줄 도움말이 표시되면 노드를 구성할 준비가 된 것입니다.
@@ -56,7 +56,7 @@ keywords:
 같은 경로에서 다음과 같은 명령어로 평문 체인 스펙을 추출할 수 있습니다. 명령어를 입력하고 나면 같은 경로에 `plain-infra-relay-chainspec.json` 파일이 생성됩니다.
 
 ```bash
-./target/release/infrablockspace build-spec --chain infra-relay-local --disable-default-bootnode > plain-infra-relay-chainspec.json
+./target/release/infra-relaychain build-spec --chain infra-relay-local --disable-default-bootnode > plain-infra-relay-chainspec.json
 ```
 _본 튜토리얼에서는 네 개의 [Seed Trust 밸리데이터](../../learn/protocol/proof-of-transaction.md#블록-생성자밸리데이터-풀)로 구성된 인프라 릴레이 체인 체인 스펙 파일을 사용합니다. 실제 네트워크 구성은 `alice` 와 `bob` 밸리데이터 노드만 띄워 시뮬레이션합니다._
 
@@ -67,7 +67,7 @@ _본 튜토리얼에서는 네 개의 [Seed Trust 밸리데이터](../../learn/p
 [SCALE 인코딩](../../learn/substrate/learn/frame/scale-codec.md)된 원시(raw) 형식의 JSON 파일을 추출합니다. 해당 명령어를 입력하면 같은 경로에 `raw-infra-relay-chainspec.json` 파일이 생성됩니다. 
 
 ```bash
-./target/release/infrablockspace build-spec --chain plain-infra-relay-chainspec.json --disable-default-bootnode --raw > raw-infra-relay-chainspec.json
+./target/release/infra-relaychain build-spec --chain plain-infra-relay-chainspec.json --disable-default-bootnode --raw > raw-infra-relay-chainspec.json
 ```
 
 일반 텍스트 버전의 체인 스펙 파일을 읽고 편집할 수 있습니다. 그러나 체인 스펙 파일을 노드를 시작하는 데 사용하려면 SCALE로 인코딩된 원시(raw) 형식으로 변환해야 합니다. 샘플 체인 스펙은 네 개의 밸리데이터로 구성된 네트워크입니다.
@@ -88,7 +88,7 @@ _본 튜토리얼에서는 네 개의 [Seed Trust 밸리데이터](../../learn/p
 1. 다음 명령을 실행하여 `alice` 계정의 밸리데이터 노드를 시작합니다.
    
    ```bash
-   ./target/release/infrablockspace \
+   ./target/release/infra-relaychain \
    --alice \
    --validator \
    --base-path /tmp/relay/alice \
@@ -107,7 +107,7 @@ _본 튜토리얼에서는 네 개의 [Seed Trust 밸리데이터](../../learn/p
 2. 노드를 시작하게 되면 다음과 같은 로그를 확인할 수 있습니다:
 
    ```bash
-   2023-11-16 18:05:43 bclabs InfraBlockspace
+   2023-11-16 18:05:43 bclabs InfraBlockchain
    2023-11-16 18:05:43 ✌️  version 1.1.0-e146a06602e
    2023-11-16 18:05:43 ❤️  by blockchain labs, 2017-2023
    2023-11-16 18:05:43 📋 Chain specification: Infra Relay Devnet
@@ -130,7 +130,7 @@ _본 튜토리얼에서는 네 개의 [Seed Trust 밸리데이터](../../learn/p
 3. 새 터미널을 열고 `bob` 계정의 두 번째 밸리데이터 노드를 시작합니다:
 
    ```bash
-   ./target/release/infrablockspace \
+   ./target/release/infra-relaychain \
    --bob \
    --validator \
    --base-path /tmp/relay/bob \
@@ -149,7 +149,7 @@ _본 튜토리얼에서는 네 개의 [Seed Trust 밸리데이터](../../learn/p
 
    예시,
    ```bash
-   ./target/release/infrablockspace \
+   ./target/release/infra-relaychain \
    --bob \
    --validator \
    --base-path /tmp/relay/bob \

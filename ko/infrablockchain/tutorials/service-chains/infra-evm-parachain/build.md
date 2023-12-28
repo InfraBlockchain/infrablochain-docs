@@ -74,9 +74,9 @@ Finished release [optimized] target(s) in 11m 23s
 
    ```toml
     [relaychain]
-    default_command = "../infra-relay-chain/target/release/infrablockspace"
+    default_command = "../infrablockchain-substrate/target/release/infra-relaychain"
     default_args = ["-lparachain=debug", "-l=xcm=trace"]
-    chain = "infrablockspace-local"
+    chain = "infra-relay-local"
 
     [[relaychain.nodes]]
     name = "alice"

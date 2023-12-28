@@ -73,7 +73,7 @@ keywords:
 7. 다음 명령을 실행하여 infrablockspace 바이너리 파일을 작업 `binaries` 폴더로 복사합니다.
 
    ```bash
-   cp ./target/release/infrablockspace ../binaries/infrablockspace-v1.0.0
+   cp ./target/release/infra-relaychain ../binaries/infrablockspace-v1.0.0
    ```
 
    이 예시에서는 일반적으로 `binaries` 폴더의 파일을 정리하기 위해 바이너리 파일 이름에 `infrablockspace` 버전을 추가하는 것이 좋은 관행입니다.

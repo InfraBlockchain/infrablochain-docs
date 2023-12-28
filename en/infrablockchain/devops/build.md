@@ -53,7 +53,7 @@ COPY . .
 
 RUN echo 'Building in release mode.' ; \
     cargo build --release ; \
-    mv /infra-relay-chain/target/release/infrablockspace /infra-relay-chain/target/; 
+    mv /infra-relay-chain/target/release/infra-relaychain /infra-relay-chain/target/; 
 
 # Final stage. Copy the node executable and the script
 FROM ubuntu:jammy

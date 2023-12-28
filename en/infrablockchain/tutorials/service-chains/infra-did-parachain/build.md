@@ -71,9 +71,9 @@ To start the local InfraDID chain, follow these steps:
 
    ```toml
     [relaychain]
-    default_command = "../infra-relay-chain/target/release/infrablockspace"
+    default_command = "../infrablockchain-substrate/target/release/infra-relaychain"
     default_args = ["-lparachain=debug", "-l=xcm=trace"]
-    chain = "infrablockspace-local"
+    chain = "infra-relay-local"
 
     [[relaychain.nodes]]
     name = "alice"
