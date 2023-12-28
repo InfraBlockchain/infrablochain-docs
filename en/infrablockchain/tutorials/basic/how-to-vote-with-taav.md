@@ -44,7 +44,7 @@ Build the test environment for the **_InfraBlockchain_** using **ZombieNet** bin
 
 - Install the latest release version from the [ZombieNet GitHub](https://github.com/paritytech/zombienet).
 
-- Create a TOML file in `infrablockspace-sdk/infra-cumulus/zombienet/examples/`. In this example, create `example.toml` with the following content, which sets up the test environment with:
+- Create a TOML file in `infrablockchain-substrate/infra-cumulus/zombienet/examples/`. In this example, create `example.toml` with the following content, which sets up the test environment with:
 
   - 5 validator relay chain nodes
   - 2 **_InfraAssetHub_** collator nodes

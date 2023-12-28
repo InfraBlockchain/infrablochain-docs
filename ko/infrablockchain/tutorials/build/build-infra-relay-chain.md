@@ -26,7 +26,7 @@ keywords:
 1. 최신 ***인프라 블록체인(InfraBlockchain)*** SDK 를 불러옵니다.
    
    ```bash
-   git clone --branch master https://github.com/InfraBlockchain/infrablockspace-sdk.git
+   git clone --branch master https://github.com/InfraBlockchain/infrablockchain-substrate.git
    ```
 
 2. 다음 세개의 명령을 실행하여 **_인프라 블록체인(InfraBlockchain)_** 런타임을 빌드합니다:

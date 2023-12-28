@@ -24,7 +24,7 @@ Validators in the **_InfraBlockchain_** ensure the overall network's security th
 
 ### Overview
 
-Para-Validators participate in the **Availability and Validity** protocol's parachain phase, submitting a [candidate receipt](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/822bc6c9706774a98122eb432f412b871a98a4bd/infrablockspace/primitives/src/v6/mod.rs#L521) to the Relay Chain. This process enables block producers to include information about parachain blocks in the Relay Chain through the availability and validity verification process.
+Para-Validators participate in the **Availability and Validity** protocol's parachain phase, submitting a [candidate receipt](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/822bc6c9706774a98122eb432f412b871a98a4bd/infrablockspace/primitives/src/v6/mod.rs#L521) to the Relay Chain. This process enables block producers to include information about parachain blocks in the Relay Chain through the availability and validity verification process.
 
 ### Candidate Receipt
 
@@ -53,7 +53,7 @@ _Para-Validators_ operate as a group and are chosen by the runtime to validate p
 
 ### Roles of Para-Validators
 
-Para-Validators verify the validity of the information included in a series of assigned parachain blocks. They receive parachain block candidates and their proof of validity [Proof-of-Validity(PoV)](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/822bc6c9706774a98122eb432f412b871a98a4bd/cumulus/primitives/core/src/lib.rs#L155) from collators.
+Para-Validators verify the validity of the information included in a series of assigned parachain blocks. They receive parachain block candidates and their proof of validity [Proof-of-Validity(PoV)](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/822bc6c9706774a98122eb432f412b871a98a4bd/cumulus/primitives/core/src/lib.rs#L155) from collators.
 
 Para-Validators perform the initial validity check on the block candidate. A candidate that passes the validation with sufficient signatures is considered backable.
 

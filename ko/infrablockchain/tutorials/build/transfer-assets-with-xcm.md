@@ -6,7 +6,7 @@ keywords:
 ---
 
 [Open message passing channels](./open-message-passing-channels.md)에서는 메시지를 릴레이 체인으로 보내어 체인 간 양방향 통신 채널을 열어보았습니다. 
-본 튜토리얼에서는 파라체인 B가 파라체인 A의 릴레이 체인에 있는 sovereign 계정으로 자산을 이전합니다. [`balances` 팔렛](https://github.com/InfraBlockchain/infrablockspace-sdk/tree/master/substrate/frame/balances)의 `transfer` 함수를 사용하는 것과 유사하지만, 이 경우 XCM 을 이용하여 자산을 전송하는 예를 보여줍니다.
+본 튜토리얼에서는 파라체인 B가 파라체인 A의 릴레이 체인에 있는 sovereign 계정으로 자산을 이전합니다. [`balances` 팔렛](https://github.com/InfraBlockchain/infrablockchain-substrate/tree/master/substrate/frame/balances)의 `transfer` 함수를 사용하는 것과 유사하지만, 이 경우 XCM 을 이용하여 자산을 전송하는 예를 보여줍니다.
 
 ## 시작하기 전에
 
@@ -18,7 +18,7 @@ keywords:
 
   - 본 튜토리얼에서는 파라체인 A의 고유 식별자가 1000이고 파라체인 B의 고유 식별자가 1001인 것으로 가정합니다.
 
-  - 로컬 파라체인에서 [`Sudo 팔렛`](https://github.com/InfraBlockchain/infrablockspace-sdk/tree/master/substrate/frame/sudo)을 사용할 수 있는지 확인하세요.
+  - 로컬 파라체인에서 [`Sudo 팔렛`](https://github.com/InfraBlockchain/infrablockchain-substrate/tree/master/substrate/frame/sudo)을 사용할 수 있는지 확인하세요.
 
 - 파라체인 B와 파라체인 A 간의 통신을 허용하기 위해 메시지 패싱 채널(HRMP)를 열었는지 확인하세요.
 

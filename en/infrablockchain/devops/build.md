@@ -15,7 +15,7 @@ Let's explore how to create a Docker container image.
 
 To create a container image, you need a Dockerfile. Here, we'll explain how to create a container image for the relay chain. If you want to create a container image for a different chain, please visit the link below and check the desired chain repository.
 
-https://github.com/InfraBlockchain/infrablockspace-sdk
+https://github.com/InfraBlockchain/infrablockchain-substrate
 
 ```docker
 FROM ubuntu:jammy AS builder

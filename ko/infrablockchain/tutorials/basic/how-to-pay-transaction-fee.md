@@ -32,7 +32,7 @@ keywords:
 
 1. [인프라 블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 열고 파라체인 엔드포인트에 연결합니다.
 
-2. Developer > Extrinsic 에서 [*Assets*](https://github.com/InfraBlockchain/infrablockspace-sdk/tree/master/substrate/frame/assets) 팔렛의 [*create*](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/assets/src/lib.rs#L625) 선택한 후 토큰을 생성합니다.
+2. Developer > Extrinsic 에서 [*Assets*](https://github.com/InfraBlockchain/infrablockchain-substrate/tree/master/substrate/frame/assets) 팔렛의 [*create*](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/assets/src/lib.rs#L625) 선택한 후 토큰을 생성합니다.
 
    - id: 토큰을 식별할 값. 여기서는 1을 넣어줍니다. 
    - admin: 토큰 관리 계정. 여기서는 `alice` 를 지정합니다.
@@ -40,7 +40,7 @@ keywords:
 
     ![토큰 생성하기](/media/images/docs/infrablockchain/tutorials/create_token.png)
 
-3. 바로 _Assets 팔렛_ 의 [mint](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/assets/src/lib.rs#L801C7-L801C14)를 선택한 후토큰을 발행합니다. 
+3. 바로 _Assets 팔렛_ 의 [mint](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/assets/src/lib.rs#L801C7-L801C14)를 선택한 후토큰을 발행합니다. 
 
    - id: 토큰을 식별할 값. 여기서는 전에 생성했던 토큰 식별자를 넣어줍니다.
    - beneficiary: 발행된 토큰을 받을 계정. 여기서는 `alice` 에게 발행해줍니다.
@@ -89,7 +89,7 @@ keywords:
 1. [인프라 블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 열고 릴레이 체인 엔드포인트에 연결합니다.
 
 2. 익스플로러 탭에서 `Developer > Extrinsic` 을 누른 후,
-[*Council*](https://github.com/InfraBlockchain/infrablockspace-sdk/tree/master/substrate/frame/collective) 팔렛의 [propose](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/collective/src/lib.rs#L519) 를 통해 등록했던 preimage에 대한 안건을 council 거버넌스에 올립니다. 
+[*Council*](https://github.com/InfraBlockchain/infrablockchain-substrate/tree/master/substrate/frame/collective) 팔렛의 [propose](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/collective/src/lib.rs#L519) 를 통해 등록했던 preimage에 대한 안건을 council 거버넌스에 올립니다. 
 (주의: council propose는 릴레이체인 검증자만 올리고 투표할 수 있습니다.)
 
   ```text

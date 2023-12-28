@@ -26,7 +26,7 @@ By completing this tutorial, you will achieve the following objectives:
 1. Clone the latest ***InfraBlockchain*** SDK:
    
    ```bash
-   git clone --branch master https://github.com/InfraBlockchain/infrablockspace-sdk.git
+   git clone --branch master https://github.com/InfraBlockchain/infrablockchain-substrate.git
    ```
 
 2. Build the ***InfraBlockchain*** runtime by executing the following three commands:

@@ -165,4 +165,4 @@ From the perspective of a blockchain service provider, having users pay transact
 
 ## Moving Forward
 
-- [System-Token-Tx-Payment](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/frame/transaction-payment/system-token-tx-payment/src/lib.rs)
+- [System-Token-Tx-Payment](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/frame/transaction-payment/system-token-tx-payment/src/lib.rs)

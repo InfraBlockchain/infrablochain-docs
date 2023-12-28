@@ -43,16 +43,16 @@ keywords:
 3. 다음 명령을 실행하여 Infrablockspace 저장소를 복제합니다.
 
    ```bash
-   git clone https://github.com/InfraBlockchain/infrablockspace-sdk
+   git clone https://github.com/InfraBlockchain/infrablockchain-substrate
    ```
 
-4. 다음 명령을 실행하여 `infrablockspace-sdk` 디렉토리의 루트로 이동합니다.
+4. 다음 명령을 실행하여 `infrablockchain-substrate` 디렉토리의 루트로 이동합니다.
 
    ```bash
-   cd infrablockspace-sdk
+   cd infrablockchain-substrate
    ```
 
-5. 최신 infrablockspace-sdk 릴리스를 확인합니다.
+5. 최신 infrablockchain-substrate 릴리스를 확인합니다.
 
    릴리스 브랜치는 `release-v<n.n.n>` 형식을 따릅니다.
    예를 들어, 이 튜토리얼에서 사용하는 릴리스 브랜치는 `release-v1.0.0`입니다.
@@ -88,7 +88,7 @@ keywords:
 
 작업 폴더에 파라체인 콜레이터 바이너리 파일을 추가하려면 다음 단계를 수행하세요.
 
-1. `infrablockspace-sdk` 의 루트 디렉토리로 이동한 후 다음과 같은 명령어를 입력합니다.
+1. `infrablockchain-substrate` 의 루트 디렉토리로 이동한 후 다음과 같은 명령어를 입력합니다.
 
    ```bash
    cargo build --release --bin parachain-template-node

@@ -56,8 +56,8 @@ impl pallet_balances::Config for Test {
 
 ## 모의 런타임에서 스토리지 테스트
 
-[`sp-io`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/primitives/io/src/lib.rs) 크레이트는 모의 환경에서 스토리지를 테스트하기 위해 사용할 수 있는 [`TestExternalities`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/primitives/state-machine/src/testing.rs#L42C11-L42C11) 구현을 노출합니다.
-이는 [`substrate_state_machine`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/primitives/state-machine/src/lib.rs)에서 인메모리 해시맵 기반의 외부성을 위한 타입 별칭으로 `TestExternalities` 로 참조됩니다.
+[`sp-io`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/primitives/io/src/lib.rs) 크레이트는 모의 환경에서 스토리지를 테스트하기 위해 사용할 수 있는 [`TestExternalities`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/primitives/state-machine/src/testing.rs#L42C11-L42C11) 구현을 노출합니다.
+이는 [`substrate_state_machine`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/primitives/state-machine/src/lib.rs)에서 인메모리 해시맵 기반의 외부성을 위한 타입 별칭으로 `TestExternalities` 로 참조됩니다.
 
 다음 예제는 `ExtBuilder`라는 구조체를 정의하여 `TestExternalities`의 인스턴스를 빌드하고 블록 번호를 1로 설정하는 방법을 보여줍니다.
 
@@ -85,16 +85,16 @@ fn fake_test_example() {
 }
 ```
 
-[Externalities](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/primitives/externalities/src/lib.rs)의 사용자 정의 구현을 통해 외부 노드의 기능에 액세스할 수 있는 런타임 환경을 구축할 수 있습니다.
-이와 관련된 또 다른 예는 [`offchain`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/primitives/core/src/offchain/mod.rs) 모듈에서 찾을 수 있습니다.
+[Externalities](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/primitives/externalities/src/lib.rs)의 사용자 정의 구현을 통해 외부 노드의 기능에 액세스할 수 있는 런타임 환경을 구축할 수 있습니다.
+이와 관련된 또 다른 예는 [`offchain`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/primitives/core/src/offchain/mod.rs) 모듈에서 찾을 수 있습니다.
 `offchain` 모듈은 자체 `Externalities` 구현을 유지합니다.
 
 ## 모의 런타임에서 이벤트 테스트
 
 스토리지 외에도 체인에서 발생하는 이벤트를 테스트하는 것도 중요할 수 있습니다.
-`deposit_event`를 `generate_deposit` 매크로와 함께 사용하는 경우, 모든 팔레트 이벤트는 `system` / `events` 키 아래에 [`EventRecord`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L725C12-L725C23)로 저장됩니다.
+`deposit_event`를 `generate_deposit` 매크로와 함께 사용하는 경우, 모든 팔레트 이벤트는 `system` / `events` 키 아래에 [`EventRecord`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L725C12-L725C23)로 저장됩니다.
 
-이벤트 레코드는 `System::events()`를 통해 직접 액세스하고 반복할 수 있지만, 테스트에 사용할 수 있는 몇 가지 도우미 메서드도 시스템 팔레트에 정의되어 있습니다. [`assert_last_event`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L1577)와 [`assert_has_event`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L1565)입니다.
+이벤트 레코드는 `System::events()`를 통해 직접 액세스하고 반복할 수 있지만, 테스트에 사용할 수 있는 몇 가지 도우미 메서드도 시스템 팔레트에 정의되어 있습니다. [`assert_last_event`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L1577)와 [`assert_has_event`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L1565)입니다.
 
 ```rust
 fn fake_test_example() {

@@ -33,7 +33,7 @@ keywords:
 1. 최신 **_인프라 블록체인(InfraBlockchain)_** SDK를 불러옵니다.
 
    ```bash
-   git clone --branch master https://github.com/InfraBlockchain/infrablockspace-sdk.git
+   git clone --branch master https://github.com/InfraBlockchain/infrablockchain-substrate.git
    ```
 
 2. 다음 명령을 실행하여 파라체인 템플릿 런타임을 빌드합니다. 

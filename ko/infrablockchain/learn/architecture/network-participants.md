@@ -23,7 +23,7 @@ keywords:
 
 ### 개요
 
-**_파라-밸리데이터_** 는 ***가용 및 검증(Availability and Validity)*** 프로토콜의 파라체인 단계에 참여하며, [candidate receipt](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/822bc6c9706774a98122eb432f412b871a98a4bd/infrablockspace/primitives/src/v6/mod.rs#L521) 을 릴레이 체인에 제출하여 블록 작성자가 파라체인 블록에 대한 정보를 가용 및 검증 과정을 거처 릴레이 체인 블록에 포함시킬 수 있도록 합니다.
+**_파라-밸리데이터_** 는 ***가용 및 검증(Availability and Validity)*** 프로토콜의 파라체인 단계에 참여하며, [candidate receipt](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/822bc6c9706774a98122eb432f412b871a98a4bd/infrablockspace/primitives/src/v6/mod.rs#L521) 을 릴레이 체인에 제출하여 블록 작성자가 파라체인 블록에 대한 정보를 가용 및 검증 과정을 거처 릴레이 체인 블록에 포함시킬 수 있도록 합니다.
 
 ### Candidate Receipt 예시
 ```rust
@@ -50,7 +50,7 @@ pub struct CandidateDescriptor<H = Hash> {
 
 ### 파라-밸리데이터 역할
 
-파라-밸리데이터는 할당된 일련의 파라체인 블록에 포함된 정보가 유효한지를 검증합니다. 그들은 콜래이터로부터 파라체인 블록 후보(candidate)와 그 유효성을 증명하는 [Proof-of-Validity(PoV)](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/822bc6c9706774a98122eb432f412b871a98a4bd/cumulus/primitives/core/src/lib.rs#L155)를 함께 받습니다.
+파라-밸리데이터는 할당된 일련의 파라체인 블록에 포함된 정보가 유효한지를 검증합니다. 그들은 콜래이터로부터 파라체인 블록 후보(candidate)와 그 유효성을 증명하는 [Proof-of-Validity(PoV)](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/822bc6c9706774a98122eb432f412b871a98a4bd/cumulus/primitives/core/src/lib.rs#L155)를 함께 받습니다.
 
 파라-밸리데이터는 블록 후보에 대한 첫 번째 유효성 검증을 수행합니다. 충분한 서명이 포함된 유효성 검증을 받은 후보는 백킹 가능(backable)한 것으로 간주됩니다.
 

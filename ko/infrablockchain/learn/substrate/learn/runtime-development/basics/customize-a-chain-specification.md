@@ -56,7 +56,7 @@ Rust로 빌드된 WebAssembly 대상은 최적화되어 있기 때문에 바이�
 각 네트워크 참가자가 일반 및/또는 원시 체인 스펙을 생성한다면, 결과적인 Wasm 블롭의 차이로 인해 합의가 깨질 수 있습니다.
 
 일반적으로는 노드의 소스 코드 자체에 체인 스펙 파일을 포함하여 노드를 동일한 방식으로 빌드할 수 있도록하는 것이 좋습니다. 이렇게 하면 다른 genesis 블롭(blob)과 비교하기 쉬워집니다.
-***인프라 블록체인(InfraBlockchain)*** 같은 네트워크 체인 스펙 파일은 [여기에서](https://github.com/InfraBlockchain/infrablockspace-sdk/tree/master/polkadot/node/service/chain-specs) 찾을 수 있으며, `.gitignore` 파일도 함께 제공되어 이러한 `!/*.json` 파일을 실수로 변경하지 않도록 합니다. 이렇게 하면 노드 소프트웨어를 더 발전시키고 [런타임 업그레이드](../../../tutorials/build-a-blockchain/upgrade-a-running-network.md)를 수행하는 동안 안정성을 유지할 수 있습니다.
+***인프라 블록체인(InfraBlockchain)*** 같은 네트워크 체인 스펙 파일은 [여기에서](https://github.com/InfraBlockchain/infrablockchain-substrate/tree/master/polkadot/node/service/chain-specs) 찾을 수 있으며, `.gitignore` 파일도 함께 제공되어 이러한 `!/*.json` 파일을 실수로 변경하지 않도록 합니다. 이렇게 하면 노드 소프트웨어를 더 발전시키고 [런타임 업그레이드](../../../tutorials/build-a-blockchain/upgrade-a-running-network.md)를 수행하는 동안 안정성을 유지할 수 있습니다.
 
 ## 새 노드 시작하기
 
