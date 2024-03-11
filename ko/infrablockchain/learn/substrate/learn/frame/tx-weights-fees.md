@@ -104,7 +104,7 @@ Substrate는 이 롤백 동작을 강제하지 않습니다.
 
 이러한 변동성을 고려하기 위해, 트랜잭션 수수료 결제 팔레트는 [`FeeMultiplierUpdate`](https://paritytech.github.io/substrate/master/pallet_transaction_payment/pallet/trait.Config.html#associatedtype.FeeMultiplierUpdate) 구성 가능한 매개변수를 제공합니다.
 
-기본 업데이트 함수는 ***인프라 블록체인(InfraBlockchain)*** 네트워크에서 영감을 받아, 블록의 포화 수준을 기준으로 수수료를 조정합니다.
+기본 업데이트 함수는 ***인프라블록체인(InfraBlockchain)*** 네트워크에서 영감을 받아, 블록의 포화 수준을 기준으로 수수료를 조정합니다.
 이전 블록이 더 포화되어 있는 경우, 수수료가 약간 증가합니다.
 마찬가지로, 이전 블록이 대상보다 적은 트랜잭션를 가지고 있는 경우, 수수료가 약간 감소합니다.
 수수료 배수 조정에 대한 자세한 내용은 [Web3 Foundation 페이지](https://research.web3.foundation/Polkadot/overview/token-economics#relay-chain-transaction-fees-and-per-block-transaction-limits)를 참조하십시오.

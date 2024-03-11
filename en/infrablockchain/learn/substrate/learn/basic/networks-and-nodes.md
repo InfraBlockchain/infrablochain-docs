@@ -20,7 +20,7 @@ For example, Substrate blockchains are used to build the following network types
 - **Private networks** that limit access to a restricted set of nodes.
 - **Solo chains** that implement their own security protocol and don't connect or communicate with any other chains.
   Bitcoin and Ethereum are examples of non-Substrate based solo chains.
-- **Relay chains** that provide decentralized security and communication for other chains that connect to them.
+- **Relay Chains** that provide decentralized security and communication for other chains that connect to them.
   Kusama and Polkadot are examples of relay chains.
 - **Parachains** that are built to connect to a relay chain and have the ability to communicate with other chains that use the same relay chain.
   Because parachains depend on the relay chain to finalize the blocks produced, parachains must implement the same consensus protocol as the relay chain they target.

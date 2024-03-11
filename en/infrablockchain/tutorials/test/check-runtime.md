@@ -1,5 +1,5 @@
 ---
-title: Check runtime
+title: Check Runtime
 description: Describes the try-runtime command-line tool for testing a specified runtime state against a production snapshot of chain state.
 keywords:
   - testing
@@ -11,7 +11,7 @@ keywords:
 ---
 
 The `try-runtime` command-line tool enables you to query a snapshot of runtime storage using an [in-memory-externalities](https://paritytech.github.io/substrate/master/sp_state_machine/struct.TestExternalities.html) data structure to store state.
-By using the in-memory storage, you can write tests for a specified runtime state so that you can test against real chain state _before_ going to production.
+By using the in-memory storage, you can write tests for a specified runtime state so that you can test against real chain state **before** going to production.
 
 In its simplest form, you can use `try-runtime` to test the runtime state by doing the following:
 
@@ -30,7 +30,7 @@ The `try-runtime` tool extends `TestExternalities` and `BasicExternalities` by r
 - `rpc_get_storage`
 - `rpc_get_keys_paged`
 
-(see [`remote externalities lib`](https://paritytech.github.io/substrate/master/src/frame_remote_externalities/lib.rs.html) for more details;)
+(see [`remote externalities lib`](https://paritytech.github.io/substrate/master/src/frame_remote_externalities/lib.rs.html) for more details.)
 
 After using the key-value database to retrieve state, try-runtime inserts the data into `TestExternalities`.
 
@@ -93,7 +93,8 @@ You can the pass the Vec<u8> as input parameter to the `post_upgrade` hook.
 
 ## Command-line examples
 
-To use `try-runtime` from the command line, run your node with the `--features=try-runtime` flag.
+To use `try-runtime` from the command-line, run your node with the `--features=try-runtime` flag.
+
 For example:
 
 ```bash

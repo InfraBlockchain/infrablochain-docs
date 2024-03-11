@@ -37,7 +37,7 @@ By completing this tutorial, you will accomplish the following objectives:
 
 - Add public and private functions to a smart contract.
 
-## Smart contracts and ink!
+## Smart Contracts and ink!
 
 In [Prepare your first contract](./prepare-your-first-contract.md), you installed the
 `cargo-contract` package for command-line access to the ink! programming language.
@@ -53,7 +53,7 @@ Substrate-compatible WebAssembly bytecode.
 
 ## Create a new smart contract project
 
-Smart contracts that run on Substrate start as projects.
+Smart Contracts that run on Substrate start as projects.
 You create projects using `cargo contract` commands.
 
 For this tutorial, you'll create a new project for the `incrementer` smart contract.

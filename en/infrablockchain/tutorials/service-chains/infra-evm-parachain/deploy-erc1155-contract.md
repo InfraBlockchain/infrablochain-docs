@@ -1,6 +1,6 @@
 ---
 title: Deploying an ERC1155 Token Contract
-description: This tutorial explains how to deploy an ERC1155 token contract on the InfraBlockchain EVM parachain.
+description: This tutorial explains how to deploy an ERC1155 token contract on the InfraEVM parachain.
 keywords:
   - parachain
   - evm
@@ -10,9 +10,9 @@ keywords:
 
 Before you begin, make sure to do the following:
 
-- [*InfraBlockchain EVM* Parachain](../../../service-chains/infra-evm-parachain.md)
+- [**InfraEVM Parachain**](../../../service-chains/infra-evm-parachain.md)
 
-- [Moving Assets with EVM](./deposit-and-withdraw-token.md)
+- [**Moving Assets with EVM**](./deposit-and-withdraw-token.md)
 
 ## Deploying an ERC1155 Token Contract Using Remix
 

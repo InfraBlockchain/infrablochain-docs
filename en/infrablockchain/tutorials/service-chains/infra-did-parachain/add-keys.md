@@ -10,15 +10,15 @@ keywords:
 
 Before you begin, Make sure you have the following:
 
-- [Creating _InfraDID_](./create-infra-did.md)
+- [**Creating InfraDID**](./create-infra-did.md)
 
-## Adding Public Keys to _InfraDID_
+## Adding Public Keys to InfraDID
 
-_InfraDID_ registered on the chain allows management of various items, one of which is the list of public keys. By storing a list of public keys that a specific DID can use on the chain, it makes it public for other users to inspect the Document of a specific DID.
+InfraDID registered on the chain allows management of various items, one of which is the list of public keys. By storing a list of public keys that a specific DID can use on the chain, it makes it public for other users to inspect the Document of a specific DID.
 
-To add public keys to _InfraDID_, follow these steps:
+To add public keys to InfraDID, follow these steps:
 
-1. Visit the [_InfraBlockchain Explorer_](https://portal.infrablockspace.net) and follow the steps below.
+1. Visit the [InfraBlockchain Explorer](https://portal.infrablockspace.net) and follow the steps below.
 
 - Go to `Developer` - `Extrinsic` and select the `addKeys` extrinsic of the `didModule` palette.
 
@@ -32,9 +32,9 @@ To add public keys to _InfraDID_, follow these steps:
   0x3404d43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27d04012e7222343997d83b3571b176837092986630c3de8fcdc91ba74d31bbb11c1181000000000000d43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27d0100000001f62b5a39b0fceeb51d16b2a189da0e73f15f384497dcdd63a1f9a7c626f7649941b4a8cb66fed18c65574117a2f1ed607591dda6f6ec3bdfff40a09a71e202803
   ```
 
-## Removing Public Keys from _InfraDID_
+## Removing Public Keys from InfraDID
 
-To remove public keys from _InfraDID_, follow these steps:
+To remove public keys from InfraDID, follow these steps:
 
 1. Visit the [_InfraBlockchain Explorer_](https://portal.infrablockspace.net) and follow the steps below.
 
@@ -44,7 +44,7 @@ To remove public keys from _InfraDID_, follow these steps:
 
   ![remove-keys](/media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/remove-keys.png)
 
-## Adding and Removing Public Keys from InfraDID Using the infra-did-js Library
+## Adding and Removing Public Keys from InfraDID Using the `infra-did-js` Library
 
 To add and remove public keys from InfraDID using the `infra-did-js` library:
 
@@ -96,4 +96,4 @@ To add and remove public keys from InfraDID using the `infra-did-js` library:
 
 ## Next steps
 
-- [Registering Service Endpoints with _InfraDID_](./add-services.md)
+- [Registering Service Endpoints with InfraDID](./add-services.md)

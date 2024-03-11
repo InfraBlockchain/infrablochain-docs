@@ -11,7 +11,7 @@ Substrate와 FRAME은 블록체인에 대한 사용자 정의 로직을 개발�
 이 유연성은 복잡하고 상호작용하는 팔렛을 설계하고 정교한 런타임 로직을 구현할 수 있도록 합니다.
 그러나 팔렛의 함수에 할당할 적절한 [가중치](../../learn/substrate/learn/basic/glossary.md#가중치)를 결정하는 것은 어려운 작업일 수 있습니다.
 벤치마킹을 사용하면 런타임에서 다른 조건에서 다른 함수를 실행하는 데 걸리는 시간을 측정할 수 있습니다.
-벤치마킹을 사용하여 함수 호출에 정확한 가중치를 할당하면, 악의적인 사용자에 의한 블록체인의 과부하로 인해 블록을 생성하지 못하거나 서비스 거부 (DoS) 공격에 취약해지는 것을 방지할 수 있습니다.
+벤치마킹을 사용하여 함수 호출에 정확한 가중치를 할당하면, 악의적인 사용자에 의한 블록체인의 과부하로 인해 블록을 생성하지 못하거나 서비스 거부(DoS) 공격에 취약해지는 것을 방지할 수 있습니다.
 
 ## 팔렛에 대한 벤치마크의 필요성
 
@@ -28,7 +28,7 @@ Substrate와 FRAME은 블록체인에 대한 사용자 정의 로직을 개발�
 
 ## 선형 모델 개발
 
-벤치마킹은 다음 단계를 수행해야 합니다.
+벤치마킹은 다음 단계를 수행해야 합니다:
 
 - 특정 함수에 대한 특정 코드 경로를 실행하는 사용자 정의 벤치마킹 로직을 작성합니다.
 - 특정 하드웨어 및 특정 런타임 구성을 사용하여 WebAssembly 실행 환경에서 벤치마킹 로직을 실행합니다.
@@ -44,10 +44,10 @@ Substrate와 FRAME은 블록체인에 대한 사용자 정의 로직을 개발�
 [트랜잭션, 가중치 및 수수료](../../learn/substrate/learn/frame/tx-weights-fees.md)에서 설명한 대로, Substrate 기반 체인은 블록의 트랜잭션을 실행하는 데 걸리는 시간을 나타내는 **가중치** 개념을 사용합니다.
 특정 호출을 실행하는 데 필요한 시간은 다음과 같은 여러 요소에 따라 달라집니다.
 
-- 계산 복잡성.
-- 저장소 복잡성.
-- 필요한 데이터베이스 읽기 및 쓰기 작업.
-- 사용된 하드웨어.
+- 계산 복잡성
+- 저장소 복잡성
+- 필요한 데이터베이스 읽기 및 쓰기 작업
+- 사용된 하드웨어
 
 트랜잭션에 적절한 가중치를 계산하려면, 벤치마크 매개변수를 사용하여 다른 하드웨어에서 다른 변수 값 및 여러 번 반복하여 함수 호출을 실행하는 데 걸리는 시간을 측정할 수 있습니다.
 그런 다음 벤치마킹 테스트의 결과를 사용하여 각 함수 호출 및 각 코드 경로를 실행하는 데 필요한 리소스를 나타내는 근사적인 최악의 경우 가중치를 설정할 수 있습니다.
@@ -62,12 +62,12 @@ FRAME 내에서 디스패치할 수 있는 각 함수 호출은 해당 함수의
 
 ## 벤치마킹 도구
 
-[벤치마킹 프레임워크](https://github.com/InfraBlockchain/infrablockchain-substrate/tree/master/substrate/frame/benchmarking)는 런타임의 함수에 대한 벤치마크를 추가, 테스트, 실행 및 분석하는 데 도움이 되는 도구를 제공합니다.
+[벤치마킹 프레임워크](https://github.com/InfraBlockchain/infrablockspace-sdk/tree/master/substrate/frame/benchmarking)는 런타임의 함수에 대한 벤치마크를 추가, 테스트, 실행 및 분석하는 데 도움이 되는 도구를 제공합니다.
 함수 호출을 실행하는 데 걸리는 시간을 결정하는 데 도움이 되는 벤치마킹 도구는 다음과 같습니다.
 
-- [벤치마크 매크로](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/frame/benchmarking/src/lib.rs)는 런타임 벤치마크를 작성, 테스트 및 추가하는 데 도움이 됩니다.
-- [선형 회귀 분석 함수](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/frame/benchmarking/src/analysis.rs)는 벤치마크 데이터를 처리하는 데 사용됩니다.
-- [Command-line interface (CLI)](https://github.com/InfraBlockchain/infrablockchain-substrate/tree/master/substrate/utils/frame/benchmarking-cli)를 사용하여 노드에서 벤치마크를 실행할 수 있습니다.
+- [벤치마크 매크로](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/frame/benchmarking/src/lib.rs)는 런타임 벤치마크를 작성, 테스트 및 추가하는 데 도움이 됩니다.
+- [선형 회귀 분석 함수](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/frame/benchmarking/src/analysis.rs)는 벤치마크 데이터를 처리하는 데 사용됩니다.
+- [Command-line interface (CLI)](https://github.com/InfraBlockchain/infrablockspace-sdk/tree/master/substrate/utils/frame/benchmarking-cli)를 사용하여 노드에서 벤치마크를 실행할 수 있습니다.
 
 노드를 컴파일할 때 벤치마킹 파이프라인은 기본적으로 비활성화됩니다.
 벤치마크를 실행하려면 `runtime-benchmarks` Rust 기능 플래그를 사용하여 노드를 컴파일해야 합니다.
@@ -86,7 +86,7 @@ FRAME 내에서 디스패치할 수 있는 각 함수 호출은 해당 함수의
 코드의 복잡성이 관리하기 어려워질 수 있는 위치를 파악하기 위해 각 가능한 실행 경로에 대한 벤치마크를 생성해야 합니다.
 벤치마크를 사용하여 사용자가 팔렛과 상호작용하는 방식을 제어하기 위해 벡터의 요소 수를 제한하거나 `for` 루프의 반복 횟수를 제한하는 등의 경계를 강제하는 코드의 위치를 식별할 수 있습니다.
 
-모든 미리 구축된 [FRAME 팔렛](https://github.com/InfraBlockchain/infrablockchain-substrate/tree/master/substrate/frame)에서 종단간 벤치마크 예제를 찾을 수 있습니다.
+모든 미리 구축된 [FRAME 팔렛](https://github.com/InfraBlockchain/infrablockspace-sdk/tree/master/substrate/frame)에서 종단간 벤치마크 예제를 찾을 수 있습니다.
 
 ## 벤치마크 테스트
 
@@ -119,7 +119,7 @@ cargo test --package pallet-balances --features runtime-benchmarks
 
 각 팔렛에 포함된 벤치마크는 자동으로 노드에 추가되지 않습니다.
 이러한 벤치마크를 실행하려면 `frame_benchmarking::Benchmark` 트레이트를 구현해야 합니다.
-이를 수행하는 방법에 대한 예제는 [Substrate 노드](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/bin/node/runtime/src/lib.rs)에서 확인할 수 있습니다.
+이를 수행하는 방법에 대한 예제는 [Substrate 노드](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/bin/node/runtime/src/lib.rs)에서 확인할 수 있습니다.
 
 이미 노드에 일부 벤치마크가 설정되어 있는 경우, 팔렛을 `define_benchmarks!` 매크로에 추가하기만 하면 됩니다.
 
@@ -219,7 +219,7 @@ cargo build --profile=production --features runtime-benchmarks
 
 ## 다음 단계로 넘어가기
 
-- [frame-benchmarking README](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/frame/benchmarking/README.md)
+- [프레임 벤치마킹(Frame-benchmarking)](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/frame/benchmarking/README.md)
 - [Substrate 세미나: Substrate 팔렛의 벤치마킹](https://www.youtube.com/watch?v=Qa6sTyUqgek)
-- [How-to: 벤치마크 추가](../../learn/substrate/learn/runtime-development/weights/add-benchmarks.md)
-- [Command reference: node-template benchmark](../../learn/substrate/learn/command-line-tools/node-template.md#benchmark)
+- [벤치마크 추가하는 법](../../learn/substrate/learn/runtime-development/weights/add-benchmarks.md)
+- [Command reference: 노드 템플릿 벤치마크](../../learn/substrate/learn/command-line-tools/node-template.md#benchmark)

@@ -86,7 +86,7 @@ Applications that run on a blockchain—often referred to as decentralized appli
 A smart contract is a program that runs on a blockchain and executes transactions on behalf of users under specific conditions.
 Developers can write smart contracts to ensure that the outcome of programmatically-executed transactions is recorded and can't be tampered with.
 Yet, with smart contracts alone, developers don't have access to some underlying blockchain functionality—such as the consensus, storage, or transaction layers—and instead, abide by a chain's fixed rules and restrictions.
-Smart contract developers often accept these limitations as a tradeoff that enables faster development time with fewer core design decisions to make.
+Smart Contract developers often accept these limitations as a tradeoff that enables faster development time with fewer core design decisions to make.
 
 ## Where to go next
 

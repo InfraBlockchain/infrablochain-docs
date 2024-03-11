@@ -14,14 +14,14 @@ For example, you need to decide whether your project is best suited to be delive
 The decision about what to build will affect almost all of other decisions you'll need to make.
 To help you make that initial determination about what to build, this section highlights the options available, the differences between them, and the reasons you might select one approach over another.
 
-## Smart contracts
+## Smart Contracts
 
 Many developers are familiar with smart contracts and are naturally inclined to think that their project is well-suited to the smart contract model.
 However, there are both benefits and drawbacks to consider in determining whether the smart contract approach is right for your project.
 
-### Smart contracts must adhere to blockchain rules
+### Smart Contracts must adhere to blockchain rules
 
-Smart contracts are instructions that are deployed on a specific chain and run on a specific chain address.
+Smart Contracts are instructions that are deployed on a specific chain and run on a specific chain address.
 Because smart contracts run on an underlying blockchain that they don't control, they must comply with any rules or limitations that the underlying chain imposes.
 For example, the underlying blockchain might restrict access to storage or prevent certain types of transactions.
 
@@ -30,7 +30,7 @@ To prevent untrusted code from disrupting blockchain operations, the underlying 
 For example, the underlying chain might charge fees or enforce metering to ensure that contract developers or users are charged for the computation and storage the contract consumes.
 The fees and rules for contract execution are at the discretion of the underlying chain.
 
-### Smart contracts and state
+### Smart Contracts and state
 
 You can think of smart contracts as executing in a sandboxed environment.
 They don't modify the underlying blockchain storage or the storage of other contracts directly.
@@ -210,4 +210,4 @@ To learn more about what you can build, explore the following resources:
 
 - [Build with Polkadot](https://wiki.polkadot.network/docs/build-build-with-polkadot)
 - [Parachain development](https://wiki.polkadot.network/docs/build-pdk)
-- [Smart contracts](https://wiki.polkadot.network/docs/build-smart-contracts)
+- [Smart Contracts](https://wiki.polkadot.network/docs/build-smart-contracts)

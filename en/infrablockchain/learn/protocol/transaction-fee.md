@@ -20,7 +20,7 @@ keywords:
 
 ## Dynamic Transaction Fee Model
 
-_Dynamic transaction fees_ are charged based on the actual amount of blockchain resources used (e.g., CPU, network bandwidth, storage space).
+**Dynamic transaction fees** are charged based on the actual amount of blockchain resources used (e.g. CPU, network bandwidth, storage space).
 
 ### Transaction Fee Calculation Formula
 
@@ -33,7 +33,7 @@ The final fee for a transaction is calculated as follows:
 
 ## Transaction Fee Model Based on Fee Table
 
-Block producers (validators) can set a fixed transaction fee per operation.
+Block producers(validators) can set a fixed transaction fee per operation.
 
 > Example of Transaction Fee Table
 
@@ -56,7 +56,7 @@ In the multi-chain architecture of **_InfraBlockchain_**, transaction fees impos
   }
   ```
 
-- When determining transaction fees, the _transaction fee table_ is first referenced and, if a value is present, it overrides the _dynamic transaction fee_.
+- When determining transaction fees, the **transaction fee table** is first referenced and, if a value is present, it overrides the **dynamic transaction fee**.
 
   ```rust
   let actual_fee: BalanceOf<T> =
@@ -73,9 +73,9 @@ In the multi-chain architecture of **_InfraBlockchain_**, transaction fees impos
 
 ## Imposing Transaction Fees Using System Token
 
-InfraBlockchain is a blockchain that imposes transaction fees based on _[System Token](./system-token.md)_ linked to fiat currency, without its own cryptocurrency. It follows the fee imposition method of _[Substrate](https://substrate.io)_ based blockchains but also applies its unique transaction fee model.
+InfraBlockchain is a blockchain that imposes transaction fees based on [System Token](./system-token.md) linked to fiat currency, without its own cryptocurrency. It follows the fee imposition method of [Substrate](https://substrate.io) based blockchains but also applies its unique transaction fee model.
 
-The BalanceToAssetBalance of the Asset pallet determines how much system token is required for fees. The transaction fee in System Token is proportionate to the _Parachain Fee Rate (PARA_FEE_RATE)_ and the _System Token Weight (SYSTEM_TOKEN_WEIGHT)_.
+The [BalanceToAssetBalance](https://paritytech.github.io/polkadot-sdk/master/pallet_assets/struct.BalanceToAssetBalance.html) of the [Asset pallet](https://paritytech.github.io/substrate/master/pallet_assets/index.html) determines how much system token is required for fees. The transaction fee in System Token is proportionate to the Parachain Fee Rate (PARA_FEE_RATE) and the System Token Weight (SYSTEM_TOKEN_WEIGHT).
 
     ```
     * SYSTEM_TOKEN_FEE = ACTUAL_FEE * PARA_FEE_RATE / (SYTEM_TOKEN_WEIGHT * DEFAULT_PARA_FEE_RATE)
@@ -88,17 +88,19 @@ The BalanceToAssetBalance of the Asset pallet determines how much system token i
 
 ### Parachain Fee Rate
 
-_Parachain Fee Rate_ is a value uniformly multiplied to differently impose transaction fees for each parachain in the multi-chain **_InfraBlockchain_**.
+**Parachain Fee Rate** is a value uniformly multiplied to differently impose transaction fees for each parachain in the multi-chain **_InfraBlockchain_**.
 
-- _Parachain Fee Rate_ can be changed by the governance of **_InfraRelayChain_**.
-- Normally, the _Parachain Fee Rate_ value is 1, and considering decimals, it is set to 1,000,000 (10^6). To produce a value of 1, it is divided by `DEFAULT_PARA_FEE_RATE (10^6)` as in the formula.
-- Depending on the _Parachain Fee Rate_, transaction fees can be measured differently for each parachain. Thus, the same transaction could incur more/less fees on certain parachains compared to others.
+- **Parachain Fee Rate** can be changed by the governance of **_InfraRelayChain_**.
+- Normally, the **Parachain Fee Rate** value is 1, and considering decimals, it is set to 1,000,000 (10^6). To produce a value of 1, it is divided by `DEFAULT_PARA_FEE_RATE (10^6)` as in the formula.
+- Depending on the **Parachain Fee Rate**, transaction fees can be measured differently for each parachain. Thus, the same transaction could incur more/less fees on certain parachains compared to others.
 
 ### System Token Weight
 
-Generally, the fee for the same transaction should have the same converted value regardless of System Token used, and the _System Token Weight_ is designed to consider this. _For example, if a transaction fee is valued at `1,000`, paying in `USD` or `KRW` would differ in amount (e.g., 1 USD token might equate to 1.3 KRW tokens) but will equate to the same value of `1,000`._
+Generally, the fee for the same transaction should have the same converted value regardless of System Token used, and the **System Token Weight** is designed to consider this. 
 
-- _System Token Weight_ is calculated considering the decimal places and exchange rate information relative to the _Base System Token (BASE_SYSTEM_TOKEN)_.
+_For example, if a transaction fee is valued at `1,000`, paying in `USD` or `KRW` would differ in amount (e.g., 1 USD token might equate to 1.3 KRW tokens) but will equate to the same value of `1,000`._
+
+- **System Token Weight** is calculated considering the decimal places and exchange rate information relative to the Base System Token (BASE_SYSTEM_TOKEN).
 
   ```
   SYSTEM_TOKEN_WEIGHT = BASE_WEIGHT * DECIMAL_RELATIVE_TO_BASE / EXCHANGE_RATE_RELATIVE_TO_BASE
@@ -108,7 +110,7 @@ Generally, the fee for the same transaction should have the same converted value
   `DECIMAL_RELATIVE_TO_BASE`: Decimal places relative to the base system token
   `EXCHANGE_RATE_RELATIVE_TO_BASE`: Exchange rate relative to the base system token
 
-- Let's look at an example. In the current scenario, the _Base System Token_ is `USD`.
+- Let's look at an example. In the current scenario, the Base System Token is `USD`.
 
   ```toml
   iUSD = {
@@ -143,9 +145,9 @@ Generally, the fee for the same transaction should have the same converted value
 
 ## Delegatable Transaction Fee Payment
 
-From the perspective of a blockchain service provider, having users pay transaction fees can negatively impact the user experience. Therefore, **_InfraBlockchain_** allows for an optional _fee payer_ who can pay transaction fees on behalf of users.
+From the perspective of a blockchain service provider, having users pay transaction fees can negatively impact the user experience. Therefore, **_InfraBlockchain_** allows for an optional **fee payer** who can pay transaction fees on behalf of users.
 
-- It operates by adding the signature of the _fee payer_ to the existing Substrate-based transaction structure.
+- It operates by adding the signature of the **fee payer** to the existing Substrate-based transaction structure.
 
   ```rust
   pub struct UncheckedExtrinsic<Address, Call, Signature, Extra>
@@ -163,6 +165,6 @@ From the perspective of a blockchain service provider, having users pay transact
   }
   ```
 
-## Moving Forward
+## Next Steps
 
-- [System-Token-Tx-Payment](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/frame/transaction-payment/system-token-tx-payment/src/lib.rs)
+- [System-Token-Tx-Payment](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/frame/transaction-payment/system-token-tx-payment/src/lib.rs)

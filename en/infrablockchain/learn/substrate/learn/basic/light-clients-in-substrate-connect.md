@@ -236,7 +236,7 @@ You can download the Chrome and Firefox extensions from [Substrate Connect](http
 
 - [Multi-demo](https://paritytech.github.io/substrate-connect/demo/)
 
-  Simple demo that covers multichain and parachain examples.
+  Simple demo that covers multi-chain and parachain examples.
   [Github](https://github.com/paritytech/substrate-connect/tree/main/projects/demo)
 
 ## Brave browser WebSocket issue

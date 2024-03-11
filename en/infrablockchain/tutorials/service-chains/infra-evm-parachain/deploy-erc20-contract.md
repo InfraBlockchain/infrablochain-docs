@@ -1,18 +1,18 @@
 ---
 title: Deploying an ERC20 Token Contract
-description: This tutorial explains how to deploy an ERC20 token contract on the InfraBlockchain EVM parachain.
+description: This tutorial explains how to deploy an ERC20 token contract on the InfraEVM parachain.
 keywords:
   - parachain
-  - evm
+  - InfraEVM
 ---
 
 ## Before you begin
 
 Before you begin, make sure to do the following:
 
-- [*InfraBlockchain EVM* Parachain](../../../service-chains/infra-evm-parachain.md)
+- [**InfraEVM Parachain**](../../../service-chains/infra-evm-parachain.md)
 
-- [Moving Assets with EVM](./deposit-and-withdraw-token.md)
+- [**Moving Assets with EVM**](./deposit-and-withdraw-token.md)
 
 ## Deploying an ERC20 Token Contract Using Remix
 

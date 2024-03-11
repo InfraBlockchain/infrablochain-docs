@@ -1,9 +1,9 @@
 ---
 title: Relay Chain Deployment
-description: Learn how to deploy a relay chain.
+description: Learn how to deploy a Relay Chain.
 keywords:
   - parachain
-  - relay chain
+  - Relay Chain
   - chain spec
   - infrablockchain
 ---
@@ -16,9 +16,9 @@ Before we begin, please note that this document only covers the method of downlo
 
 There are three methods for server deployment:
 
-- systemd
-- docker
-- kubernetes
+- Systemd
+- Docker
+- Kubernetes
 
 Let's explore how to deploy using these three methods.
 
@@ -28,7 +28,7 @@ Systemd is a common method for managing services on Linux hosts. It allows you t
 
 You can also use environment variable files to abstract variables into separate files for each server.
 
-To use systemd, you need to first register the service. To do this, create a file named `Infrablockspace.service` in the `/etc/systemd/system` directory. Then, copy and paste the code below, replacing `<binary file>` and `<options>` with the necessary option values. For a relay chain, use `infrablockspace` as the `<binary file>`, and for a parachain, use `infrablockspace-parachain`.
+To use systemd, you need to first register the service. To do this, create a file named `Infrablockspace.service` in the `/etc/systemd/system` directory. Then, copy and paste the code below, replacing `<binary file>` and `<options>` with the necessary option values. For a Relay Chain, use `infrablockspace` as the `<binary file>`, and for a parachain, use `infrablockspace-parachain`.
 
 ```bash
 #/etc/systemd/system/Infrablockspace.service
@@ -58,7 +58,7 @@ When using Docker, it is recommended to use a `docker-compose.yml` file for exec
 
 Before running Docker Compose, you need to download the chain spec file. Use the following command to download the file:
 
-For a relay chain:
+For a Relay Chain:
 
 ```bash
 curl -L <chain spec url> -o chain-spec/raw-local-chainspec.json
@@ -74,7 +74,7 @@ Place the downloaded file in the `chain-spec` folder. If the folder does not exi
 
 Next, create the Docker Compose-related files as shown below:
 
-For a relay chain:
+For a Relay Chain:
 
 ```bash
 version: "3.1"
@@ -151,7 +151,7 @@ services:
       - "30333"
 ```
 
-For a parachain, the boot node ID of the relay chain is required. Therefore, you need to fill in `<bootnode id>`.
+For a parachain, the boot node ID of the Relay Chain is required. Therefore, you need to fill in `<bootnode id>`.
 
 Run the following command to execute the Docker Compose:
 
@@ -165,7 +165,7 @@ To deploy a chain in Kubernetes, you need to create the following files:
 
 Please note that dynamic persistent volume claims are assumed to be possible. If dynamic persistent volume claims are not possible, please create persistent volumes.
 
-For a relay chain:
+For a Relay Chain:
 
 statefuleset.yaml
 
@@ -574,5 +574,5 @@ For Helm charts and operators, they will be updated in the future during develop
 
 - [Guide: Customize a Chain Specification](/reference/how-to-guides/basics/customize-a-chain-specification/)
 - [Node Template Chain Spec](https://github.com/substrate-developer-hub/substrate-node-template/blob/master/node/src/chain_spec.rs)
-- [InfraBlockchain Space](/infrablockchain/learn/architecture/infra-blockspace)
-- [Parachains](/reference/how-to-guides/parachains/)
+- [InfraBlockSpace](/infrablockchain/learn/architecture/infra-blockspace)
+- [Parachain](/reference/how-to-guides/parachains/)

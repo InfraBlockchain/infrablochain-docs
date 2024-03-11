@@ -10,11 +10,12 @@ keywords:
 Substrate는 네트워크 작업에 대한 메트릭을 노출합니다.
 예를 들어, 노드가 연결된 피어 수, 노드가 사용하는 메모리 양, 생성되는 블록 수 등에 대한 정보를 수집할 수 있습니다.
 Substrate 노드가 노출하는 메트릭을 캡처하고 시각화하기 위해 [Prometheus](https://prometheus.io/)와 [Grafana](https://grafana.com/)와 같은 도구를 구성하고 사용할 수 있습니다.
+
 이 튜토리얼에서는 Prometheus를 사용하여 데이터 샘플을 수집하고, Grafana를 사용하여 데이터 샘플을 사용하여 노드 메트릭을 시각화하는 그래프와 대시보드를 생성하는 방법을 보여줍니다.
 
-Substrate, Prometheus 및 Grafana 간의 상호 작용을 구성하여 노드 작업에 대한 정보를 표시하는 방법에 대한 단순화된 개요를 다음 다이어그램에서 제공합니다.
+다음 다이어그램은 '노드 메트릭을 시각화할 때 Substrate, Prometeus 및 Grafana 간의 상호 작용'에 대한 간략한 개요를 제공합니다:
 
-![Prometheus와 Grafana를 사용하여 노드 메트릭 시각화하기](/media/images/docs/tutorials/monitor-node-metrics/node-metrics.png)
+![Prometheus와 Grafana를 사용하여 노드 메트릭 시각화하기](/media/images/docs/infrablockchain/tutorials/node-metrics.png)
 
 ## 시작하기 전에
 
@@ -42,7 +43,7 @@ Substrate, Prometheus 및 Grafana 간의 상호 작용을 구성하여 노드 �
 
 1. 컴퓨터에서 브라우저를 엽니다.
 
-2. [Prometheus 다운로드](https://prometheus.io/download/)에서 적절한 사전 컴파일된 바이너리를 다운로드합니다.
+2. [Prometheus 다운로드 페이지](https://prometheus.io/download/)에서 적절한 사전 컴파일된 바이너리를 다운로드합니다.
 
 3. 컴퓨터의 터미널 쉘을 열고 다운로드한 파일에서 내용을 추출하기 위해 다음과 유사한 명령을 실행합니다.
 
@@ -52,7 +53,7 @@ Substrate, Prometheus 및 Grafana 간의 상호 작용을 구성하여 노드 �
    gunzip prometheus-2.38.0.darwin-amd64.tar.gz && tar -xvf prometheus-2.38.0.darwin-amd64.tar
    ```
 
-4. [Grafana OSS 다운로드](https://grafana.com/grafana/download?edition=oss)로 이동합니다.
+4. [Grafana OSS 다운로드 페이지](https://grafana.com/grafana/download?edition=oss)로 이동합니다.
 
 5. 아키텍처에 맞는 사전 컴파일된 바이너리를 선택합니다.
 
@@ -88,10 +89,9 @@ Substrate은 포트 `9615`에서 [Prometheus 노출 형식](https://prometheus.i
 ## Prometheus 엔드포인트 구성하기
 
 Prometheus 다운로드를 추출할 때 생성된 디렉토리에는 `prometheus.yml` 구성 파일이 포함되어 있습니다.
-이 파일을 수정하거나 커스텀 구성 파일을 생성하여 Prometheus를 구성하여 기본 Prometheus 포트 엔드포인트(포트 `9615`)에서 데이터를 가져올 수 있습니다.
-`--prometheus-port <포트 번호>` 명령줄 옵션을 사용하여 지정한 포트로 변경할 수도 있습니다.
+이 파일을 수정하거나 커스텀 구성 파일을 생성하여 Substrate 노드가 메트릭을 노출하는 기본 Prometheus 포트 엔드포인트(포트 `9615`)에서 데이터를 가져올 수 있도록 Prometheus를 구성할 수 있습니다. `--prometheus-port <포트 번호>` 명령줄 옵션을 사용하여 지정한 포트로 변경할 수도 있습니다.
 
-Substrate 노출된 엔드포인트를 Prometheus 대상 목록에 추가하려면 다음 단계를 수행하세요:
+Substrate 노출 엔드포인트를 Prometheus 대상 목록에 추가하려면 다음 단계를 수행하세요:
 
 1. 컴퓨터에서 새로운 터미널 쉘을 엽니다.
 
@@ -176,12 +176,12 @@ Substrate 노출된 엔드포인트를 Prometheus 대상 목록에 추가하려�
    ...
    ```
 
-   또는 동일한 엔드포인트를 브라우저에서 열어 사용 가능한 모든 메트릭 데이터를 확인할 수 있습니다.
-   예를 들어, 기본 Prometheus 포트를 사용하는 경우 브라우저에서 [`http://localhost:9615/metrics`](http://localhost:9615/metrics)를 엽니다. <!-- markdown-link-check-disable-line -->
+   또는 브라우저에서 동일한 엔드포인트를 열어 사용 가능한 모든 메트릭 데이터를 확인할 수 있습니다.
+   예를 들어, 기본 Prometheus 포트를 사용하는 경우 브라우저에서 [`http://localhost:9615/metrics`](http://localhost:9615/metrics)를 엽니다. 
 
 ## Grafana 데이터 소스 구성하기
 
-아키텍처에 맞는 명령을 실행하여 Grafana를 설치한 후, 로컬 컴퓨터에서 서비스를 시작하여 사용할 수 있습니다.
+운영 체제에 적합한 명령을 실행하여 Grafana를 설치한 후, 로컬 컴퓨터에서 서비스를 시작하여 브라우저에서 액세스할 수 있습니다.
 서비스를 시작하는 데 사용되는 명령은 로컬 시스템 아키텍처 및 패키지 관리자에 따라 다릅니다.
 예를 들어, macOS와 Homebrew를 사용하는 경우 다음 명령을 실행하여 Grafana를 시작할 수 있습니다:
 
@@ -195,13 +195,13 @@ Grafana를 시작한 후, 브라우저에서 Grafana로 이동할 수 있습니�
 
 1. 브라우저를 열고 Grafana가 사용하는 포트로 이동합니다.
 
-   기본적으로 Grafana는 http://localhost:3000을 사용하지만, 호스트 또는 포트를 다른 값으로 구성한 경우 해당 값을 사용합니다.<!-- markdown-link-check-disable-line -->
+   기본적으로 Grafana는 http://localhost:3000을 사용하지만, 호스트 또는 포트를 다른 값으로 구성한 경우 해당 값을 사용합니다.
 
 2. 기본 `admin` 사용자 이름과 비밀번호 `admin`을 사용하여 로그인한 다음 **Log in**을 클릭합니다.
 
 3. 환영 페이지에서 **Configuration** 메뉴 아래에 있는 **Data Sources**를 클릭합니다.
 
-1. **Prometheus**를 클릭하여 Prometheus 엔드포인트를 Substrate 노드 메트릭의 데이터 소스로 구성합니다.
+4. **Prometheus**를 클릭하여 Prometheus 엔드포인트를 Substrate 노드 메트릭의 데이터 소스로 구성합니다.
 
    Substrate 노드와 Prometheus 인스턴스가 모두 실행 중인 경우, Grafana를 기본 포트 `http://localhost:9090` 또는 커스텀한 포트 정보를 구성한 경우 해당 포트에 Prometheus를 찾도록 구성합니다.
 
@@ -239,7 +239,8 @@ Grafana를 시작한 후, 브라우저에서 Grafana로 이동할 수 있습니�
    커스텀 대시보드를 만들고 싶다면 [Prometheus 문서의 Grafana 섹션](https://prometheus.io/docs/visualization/grafana/)을 참조하세요.
 
    커스텀 대시보드를 만든 경우, [Grafana 대시보드](https://grafana.com/grafana/dashboards)에 업로드하는 것을 고려하세요.
-   [Awesome Substrate](https://github.com/substrate-developer-hub/awesome-substrate) 리포지토리에 대시보드가 있는지 나열하여 Substrate 빌더 커뮤니티에 알릴 수 있습니다.
+
+   [Awesome Substrate](https://github.com/substrate-developer-hub/awesome-substrate) 리포지토리에 대시보드를 등록하여 Substrate 빌더 커뮤니티에 알릴 수 있습니다.
 
 ## 다음 단계로 넘어가기
 

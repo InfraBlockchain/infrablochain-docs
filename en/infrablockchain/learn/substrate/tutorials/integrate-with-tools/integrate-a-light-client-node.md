@@ -228,7 +228,7 @@ Substrate Connect requires this information to determine the relay chain that th
    For example, the console should display log entries similar to the following:
 
    ```console
-   [substrate-connect-extension] [smoldot] Parachain initialization complete for statemint. Name: "Statemint". Genesis hash: 0x68d5…de2f. State root hash: 0xc1ef26b567de07159e4ecd415fbbb0340c56a09c4d72c82516d0f3bc2b782c80. Network identity: 12D3KooWNicu1ZCX6ZNUC96B4TQSiet2NkoQc7SfitxWWE4fQgpK. Relay chain: polkadot (id: 1000)
+   [substrate-connect-extension] [smoldot] Parachain initialization complete for statemint. Name: "Statemint". Genesis hash: 0x68d5…de2f. State root hash: 0xc1ef26b567de07159e4ecd415fbbb0340c56a09c4d72c82516d0f3bc2b782c80. Network identity: 12D3KooWNicu1ZCX6ZNUC96B4TQSiet2NkoQc7SfitxWWE4fQgpK. Relay Chain: polkadot (id: 1000)
    ...
    💡 New block #3393027 has hash ⚡️ 0x2401313496be4b1792d704f83b684be6bd2188a618581d30b3addb3648c4ad3a
    [substrate-connect-extension] [smoldot] Smoldot v0.7.7. Current memory usage: 222 MiB. Average download: 63.1 kiB/s. Average upload: 735 B/s.

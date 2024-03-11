@@ -26,23 +26,23 @@ By completing this tutorial, you will achieve the following objectives:
 1. Clone the latest ***InfraBlockchain*** SDK:
    
    ```bash
-   git clone --branch master https://github.com/InfraBlockchain/infrablockchain-substrate.git
+   git clone --branch master https://github.com/InfraBlockchain/infrablockspace-sdk.git
    ```
 
 2. Build the ***InfraBlockchain*** runtime by executing the following three commands:
    
    ```bash
-   1. cargo build --release --bin infra-relaychain
+   1. cargo build --release --bin infrablockspace
 
-   2. cargo build --release --bin infra-relaychain-execute-worker
+   2. cargo build --release --bin infrablockspace-execute-worker
 
-   3. cargo build --release --bin infra-relaychain-prepare-worker
+   3. cargo build --release --bin infrablockspace-prepare-worker
    ```
 
 3. Verify that the node has been built correctly by running the following command in the same directory:
    
    ```bash
-   ./target/release/infra-relaychain --help
+   ./target/release/infrablockspace --help
    ```
 
    If the command displays the command-line help, the node is ready for configuration.
@@ -56,7 +56,7 @@ All Substrate-based chains require a [chain spec](../../learn/substrate/build/ch
 Use the following command in the same directory to extract the plain chain spec. After running the command, the `plain-infra-relay-chainspec.json` file is created in the same path.
 
 ```bash
-./target/release/infra-relaychain build-spec --chain infra-relay-local --disable-default-bootnode > plain-infra-relay-chainspec.json
+./target/release/infrablockspace build-spec --chain infra-relay-local --disable-default-bootnode > plain-infra-relay-chainspec.json
 ```
 
 *In this tutorial, a sample chain spec file for the ***InfraRelayChain*** with four [Seed Trust Validators](../../learn/protocol/proof-of-transaction.md#블록-생성자밸리데이터-풀) is used. For actual network configuration, only `alice` and `bob` validators are started for simulation purposes.*
@@ -69,7 +69,7 @@ Relay Chain must have at least one validator node running for each connected par
 Extract a [SCALE-encoded](../../learn/substrate/learn/frame/scale-codec.md) raw JSON file. After running the command, the `raw-infra-relay-chainspec.json` file is created in the same path. 
 
 ```bash
-./target/release/infra-relaychain build-spec --chain plain-infra-relay-chainspec.json --disable-default-bootnode --raw > raw-infra-relay-chainspec.json
+./target/release/infrablockspace build-spec --chain plain-infra-relay-chainspec.json --disable-default-bootnode --raw > raw-infra-relay-chainspec.json
 ```
 
 You can read and edit the plain text version of the chain spec file. However, to use the chain spec file to start a node, it needs to be converted to the SCALE-encoded raw format. The sample chain spec represents a network with four validators. If you want to add different validators, multiple relay chains, or use custom account keys instead of predefined accounts, you will need to create a [custom chain spec file](../../learn/substrate/build/chain-spec.md#커스텀-체인-스펙-생성하기).
@@ -87,7 +87,7 @@ To build the ***InfraBlockchain***, you need to start the ***InfraRelayChain***,
 Start a validator node for `alice` account:
    
    ```bash
-   ./target/release/infra-relaychain \
+   ./target/release/infrablockspace \
    --alice \
    --validator \
    --base-path /tmp/relay/alice \
@@ -106,7 +106,7 @@ Start a validator node for `alice` account:
 1. After starting the node, you should see logs similar to the following:
 
    ```bash
-   2023-11-16 18:05:43 bclabs InfraBlockchain
+   2023-11-16 18:05:43 bclabs InfraBlockspace
    2023-11-16 18:05:43 ✌️  version 1.1.0-e146a06602e
    2023-11-16 18:05:43 ❤️  by blockchain labs, 2017-2023
    2023-11-16 18:05:43 📋 Chain specification: Infra Relay Devnet
@@ -129,7 +129,7 @@ Start a validator node for `alice` account:
 3. Open a new terminal and start the second validator node for the `bob` account:
 
    ```bash
-   ./target/release/infra-relaychain \
+   ./target/release/infrablockspace \
    --bob \
    --validator \
    --base-path /tmp/relay/bob \
@@ -149,7 +149,7 @@ Start a validator node for `alice` account:
    Example,
 
    ```bash
-   ./target/release/infra-relaychain \
+   ./target/release/infrablockspace \
    --bob \
    --validator \
    --base-path /tmp/relay/bob \

@@ -1,33 +1,33 @@
 ---
-title: InfraEVM 체인 구축하기
-description: 이 튜토리얼은 InfraEVM 체인을 빌드하고 실행 하는 과정을 설명합니다.
+title: 인프라EVM 체인 구축하기
+description: 이 튜토리얼은 인프라EVM 체인을 빌드하고 실행 하는 과정을 설명합니다.
 keywords:
   - 파라체인
   - 서비스체인
-  - EVM
+  - 인프라EVM
 ---
 
 ## 시작하기 전에
 
 시작하기 전에 다음을 확인하세요:
 
-- [_InfraEVM_](../../../service-chains/infra-evm-parachain.md)
+- [**인프라EVM (InfraEVM)**](../../../service-chains/infra-evm-parachain.md)
 
-## _InfraEVM_ 체인
+## 인프라EVM 체인
 
-이전 튜토리얼을 완료한 경우 로컬에 _인프라 릴레이 체인_ 레포지토리가 있어야 합니다.
+이전 튜토리얼을 완료한 경우 로컬에 인프라릴레이체인 레포지토리가 있어야 합니다.
 
 1. 컴퓨터의 터미널 셸을 엽니다.
 
-2. 다음 명령을 실행하여 InfraEVM 체인 저장소를 복제합니다:
+2. 다음 명령을 실행하여 인프라EVM 체인 저장소를 복제합니다:
 
    ```bash
    git clone https://github.com/InfraBlockchain/infra-evm-parachain
    ```
 
-   이 명령은 `master` 브랜치를 클론합니다.
+   이 명령은 `master` 브랜치를 복제합니다.
 
-3. 다음 명령을 실행하여 노드 템플릿 디렉토리의 루트로 이동합니다:
+3. 다음 명령을 실행하여 노드 템플릿 디렉토리의 루트로 이동합니다.
 
    ```bash
    cd infra-evm-substrate
@@ -51,10 +51,10 @@ keywords:
 cargo build --release
 ```
 
-최적화된 빌드를 위해 항상 `--release` 플래그를 사용해야 합니다.
-처음으로 이를 컴파일하는 경우 완료까지 시간이 다소 소요됩니다.
+최적화된 구축을 위해 항상 `--release` 플래그를 사용해야 합니다.
+처음 컴파일하는 경우, 완료까지 시간이 다소 소요됩니다.
 
-다음과 유사한 줄이 표시되면 완료됩니다:
+다음과 유사한 줄이 표시되면 완료입니다:
 
 ```bash
 Finished release [optimized] target(s) in 11m 23s
@@ -62,9 +62,9 @@ Finished release [optimized] target(s) in 11m 23s
 
 ## 로컬 노드 시작하기
 
-노드가 컴파일되면 좀비넷을 사용하여 릴레이 체인과 InfraDID 체인을 로컬 환경에서 구축 할 준비가 되었습니다.
+노드가 컴파일되면 좀비넷을 사용하여 릴레이체인과 인프라DID 체인을 로컬 환경에서 구축할 준비가 되었습니다.
 
-로컬 InfraDID 체인을 시작하려면 다음 단계를 따르세요:
+로컬 인프라DID 체인을 시작하려면 다음 단계를 따르세요:
 
 1. 좀비넷 설정을 확인합니다
 
@@ -74,9 +74,9 @@ Finished release [optimized] target(s) in 11m 23s
 
    ```toml
     [relaychain]
-    default_command = "../infrablockchain-substrate/target/release/infra-relaychain"
+    default_command = "../infra-relay-chain/target/release/infrablockspace"
     default_args = ["-lparachain=debug", "-l=xcm=trace"]
-    chain = "infra-relay-local"
+    chain = "infrablockspace-local"
 
     [[relaychain.nodes]]
     name = "alice"
@@ -129,27 +129,27 @@ Finished release [optimized] target(s) in 11m 23s
     ws_port = 9801
    ```
 
-   `relaychain`과 `parachains`의 `default_command` 경로가 실제 로컬에 존재하는 경로와 일치하는지 확인합니다.
+   `[relaychain]`과 `[parachains]`의 `default_command` 경로가 실제 로컬에 존재하는 경로와 일치하는지 확인합니다.
 
-   만약 일치하지 않는다면 로컬 환경에 맞게 변경 해 줍니다.
+   만약 일치하지 않는다면 로컬 환경에 맞게 변경해 줍니다.
 
-2. 좀비넷을 실행하여 릴레이 체인과 체인을 실행합니다.
+2. 좀비넷을 실행하여 릴레이체인과 체인을 실행합니다.
 
    ```shell
    zombienet spawn --provider native zombienet-config.toml
    ```
 
-3. 정상적으로 실행 되었다면 다음과 유사한 터미널 쉘을 확인할 수 있습니다.
+3. 정상적으로 실행되었다면, 다음과 유사한 터미널 쉘을 확인할 수 있습니다.
 
    ![zombienet](/media/images/docs/infrablockchain/service-chains/infra-evm-parachain-zombienet.png)
 
-4. (선택) InfraEVM 체인의 노드를 확인하면 아래와 유사한 로그를 확인할 수 있습니다.
+4. (선택) 인프라EVM 체인의 노드를 확인하면 아래와 유사한 로그를 확인할 수 있습니다.
 
    ```shell
     2023-10-30 14:49:31.601  INFO main sc_cli::runner: Infrablockspace EVM Parachain
     2023-10-30 14:49:31.601  INFO main sc_cli::runner: ✌️  version 0.9.400-de99471b695
     2023-10-30 14:49:31.601  INFO main sc_cli::runner: ❤️  by Anonymous, 2023-2023
-    2023-10-30 14:49:31.601  INFO main sc_cli::runner: 📋 Chain specification: InfraEVM Local Testnet
+    2023-10-30 14:49:31.601  INFO main sc_cli::runner: 📋 Chain specification: 인프라EVM Local Testnet
     2023-10-30 14:49:31.601  INFO main sc_cli::runner: 🏷  Node name: alice-1
     2023-10-30 14:49:31.602  INFO main sc_cli::runner: 👤 Role: AUTHORITY
     2023-10-30 14:49:31.602  INFO main sc_cli::runner: 💾 Database: RocksDb at /var/folders/5s/7k4bxw5d257br6f0r_2s2szr0000gn/T/zombie-4d95fad6e5ea443c24d8ac966b51f680_-24823-ActivcN5BF4l/alice-1/data/chains/infra_evm_local_testnet/db/full
@@ -275,6 +275,9 @@ Finished release [optimized] target(s) in 11m 23s
     2023-10-30 14:50:41.066  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #0 (0x3289…8cf0), finalized #0 (0x3289…8cf0), ⬇ 79 B/s ⬆ 81 B/s
     2023-10-30 14:50:42.040  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #7 (0x7f32…3263)
    ```
+
+   이를 통해 인프라EVM 체인이 작동 중임을 확인할 수 있습니다.
+
 
 ## 다음 단계로 넘어가기
 

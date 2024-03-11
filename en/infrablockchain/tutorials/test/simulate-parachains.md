@@ -1,9 +1,8 @@
 ---
-title: Simulate parachains in a test network
+title: Simulate Parachains
 description: Explains how you can set up a local test network to simulate a relay chain with validators and parachain collator nodes.
 keywords:
   - parachain
-  - Polkadot
   - testnet
   - collator nodes
   - validator nodes
@@ -34,7 +33,7 @@ To prepare a working folder with the binaries for the test network:
 
 1. Open a new terminal shell on your computer, if needed.
 
-1. Change to your home directory and create a new folder to hold the binaries required to generate a test network.
+2. Change to your home directory and create a new folder to hold the binaries required to generate a test network.
 
    For example:
 
@@ -42,27 +41,24 @@ To prepare a working folder with the binaries for the test network:
    mkdir binaries
    ```
 
-   If you’re setting up the test network on Linux, you can download the Polkadot binary from [Releases](https://github.com/paritytech/polkadot/releases) into your working folder.
-   If you’re setting up the test network on macOS or want to compile the binary yourself, continue to the next step.
-
-1. Clone the Polkadot repository by running a command similar to the following:
+3. Clone the _InfraBlockSpace_ repository by running a command similar to the following:
 
    ```bash
-   git clone https://github.com/paritytech/polkadot-sdk
+   git clone https://github.com/paritytech/infrablockspace-sdk
    ```
 
-1. Change to the root of the `polkadot` directory by running the following command:
+4. Change to the root of the `infrablockspace-sdk` directory by running the following command:
 
    ```bash
-   cd polkadot
+   cd infrablockspace-sdk
    ```
 
-1. Checkout the latest release of Polkadot.
+5. Checkout the latest release of infrablockspace-sdk.
 
    Release branches use the naming convention `release-v<n.n.n>`.
    For example, the release branch used in this tutorial is `release-v1.0.0`.
    You can check out a more recent release branch instead of using `release-v1.0.0`.
-   You can find information about recent releases and what's included in each release on the [Releases](https://github.com/paritytech/polkadot/releases) tab.
+   You can find information about recent releases and what's included in each release on the Releases tab.
 
    For example:
 
@@ -70,23 +66,23 @@ To prepare a working folder with the binaries for the test network:
    git checkout release-v1.0.0
    ```
 
-1. Compile the relay chain node by running the following command:
+6. Compile the relay chain node by running the following command:
 
    ```bash
    cargo build --release
    ```
 
-1. Copy the Polkadot binary into your working `binaries` folder by running a command similar to the following:
+7. Copy the _InfraBlockSpace_ binary into your working `binaries` folder by running a command similar to the following:
 
    ```bash
-   cp ./target/release/polkadot ../binaries/polkadot-v1.0.0
+   cp ./target/release/infrablockspace ../binaries/infrablockspace-v1.0.0
    ```
 
-   As this example illustrates, it's generally a good practice to append the version of `polkadot` to the binary name to keep the files in the `binaries` folder organized.
+   As this example illustrates, it's generally a good practice to append the version of `infrablockspace` to the binary name to keep the files in the `binaries` folder organized.
 
 1. Change to your home directory.
 
-### Add the parachain binary
+### Add the Parachain binary
 
 Your working folder now has the binary for the relay chain, but you also need the binary for the parachain collator nodes.
 You can add the parachain collator binary to your working folder by cloning the `substrate-parachain-template` repository.
@@ -95,42 +91,21 @@ You can use this `paraId` for the first parachain in the test network.
 
 To add the parachain collator binary to the working folder:
 
-1. Clone the `substrate-parachain-template` repository by running the following command:
+1. Navigate to the root directory of `infrablockspace-sdk` and enter the following command:
 
    ```bash
-   git clone https://github.com/substrate-developer-hub/substrate-parachain-template
-   ```
-
-2. Change to the root of the parachain template directory by running the following command:
-
-   ```bash
-   cd substrate-parachain-template
-   ```
-
-3. Check out the release branch that matches the release branch you used to configure the relay chain.
-
-   For example:
-
-   ```bash
-   git checkout polkadot-v1.0.0
-   ```
-
-4. Compile the parachain template collator by running the following command:
-
-   ```bash
-   cargo build --release
+   cargo build --release -bin parachain-template-node-
    ```
 
    You now have a parachain collator binary for paraId 1000.
 
-5. Copy the parachain binary into your working `binaries` folder by running a command similar to the following:
+5. Copy the parachain binary into your working `bin` folder by running a command similar to the following:
 
    ```bash
-   cp ./target/release/parachain-template-node ../binaries/parachain-template-node-v1.0.0
+   cp ./target/release/parachain-template-node ../bin/parachain-template-node-v1.0.0-1000
    ```
 
-   In this example, your working directory is` $HOME/binaries` or `~/binaries` so you must navigate up a directory level from your current `substrate-parachain-template` root directory.
-   As this example illustrates, it's generally a good practice to append the version to the binary name to keep the files in the `binaries` folder organized.
+   In this example, it's generally a good practice to append the version and `paraId` to the binary name to keep the files in the `bin` folder organized.
 
 ## Configure the test network settings
 
@@ -166,7 +141,7 @@ To download and configure Zombienet:
    You are going to use the configuration file to specify the following information:
 
    - Location of the binaries for the test network.
-   - The relay chain specification—`rococo-local`—to use.
+   - The relay chain specification—`infra-relay-local`—to use.
    - Information about the four relay chain validators.
    - Identifiers for parachains included in the test network.
    - Information about the collators for each parachains.
@@ -177,22 +152,39 @@ To download and configure Zombienet:
    ```toml
    [relaychain]
 
-   default_command = "../binaries/polkadot-v1.0.0"
-   default_args = [ "-lparachain=debug" ]
+   default_command = "../binaries/infrablockspace-v.1.0.0"
+   default_args = ["-lparachain=debug", "-l=xcm=trace"]
+   
+   chain = "infra-relay-local"
 
-   chain = "rococo-local"
+   [[relaychain.nodes]]
+   name = "alice"
+   validator = true
+   args = ["-lparachain=debug", "-l=xcm=trace"]
 
-      [[relaychain.nodes]]
-      name = "alice"
+   rpc_port = 7100
+   ws_port = 7101
 
-      [[relaychain.nodes]]
-      name = "bob"
+   [[relaychain.nodes]]
+   name = "bob"
+   validator = true
+   args = ["-lparachain=debug", "-l=xcm=trace"]
+   rpc_port = 7200
+   ws_port = 7201
 
-      [[relaychain.nodes]]
-      name = "charlie"
+   [[relaychain.nodes]]
+   name = "charlie"
+   validator = true
+   args = ["-lparachain=debug", "-l=xcm=trace"]
+   rpc_port = 7300
+   ws_port = 7301
 
-      [[relaychain.nodes]]
-      name = "dave"
+   [[relaychain.nodes]]
+   name = "dave"
+   validator = true
+   args = ["-lparachain=debug", "-l=xcm=trace"]
+   rpc_port = 7400
+   ws_port = 7401
 
    [[parachains]]
    id = 1000
@@ -201,6 +193,8 @@ To download and configure Zombienet:
       [parachains.collator]
       name = "parachain-A-1000-collator01"
       command = "../binaries/parachain-template-node-v1.0.0"
+      rpc_port = 9900
+      ws_port = 9901
 
    [[parachains]]
    id = 1001
@@ -209,9 +203,12 @@ To download and configure Zombienet:
       [parachains.collator]
       name = "parachain-B-1001-collator01"
       command = "../binaries/parachain-template-node-v1.0.0"
+      rpc_port = 10000
+      ws_port = 10001
    ```
 
 4. Save your changes and close the file.
+
 5. Start the test network using this configuration file by running a command similar to the following:
 
    ```bash
@@ -223,17 +220,17 @@ To download and configure Zombienet:
    Take note of the relay chain and parachain node endpoints.
    For example, the direct link to the relay chain endpoints should look similar to the following:
 
-   - alice: https://polkadot.js.org/apps/?rpc=ws://127.0.0.1:52190#/explorer
-   - bob: https://polkadot.js.org/apps/?rpc=ws://127.0.0.1:52194#/explorer
-   - charlie: https://polkadot.js.org/apps/?rpc=ws://127.0.0.1:52198#/explorer
-   - dave: https://polkadot.js.org/apps/?rpc=ws://127.0.0.1:52202#/explorer
+   - alice: https://portal.infrablockspace.net/?rpc=ws://127.0.0.1:7101#/explorer
+   - bob: https://portal.infrablockspace.net/?rpc=ws://127.0.0.1:7201#/explorer
+   - charlie: https://portal.infrablockspace.net/?rpc=ws://127.0.0.1:7301#/explorer
+   - dave: https://portal.infrablockspace.net/?rpc=ws://127.0.0.1:7401#/explorer
 
    The direct link to the parachain collator endpoints should look similar to the following:
 
-   - parachain-1000-collator: https://polkadot.js.org/apps/?rpc=ws://127.0.0.1:52206#/explorer
-   - parachain-1001-collator: https://polkadot.js.org/apps/?rpc=ws://127.0.0.1:52210#/explorer
+   - parachain-1000-collator: https://portal.infrablockspace.net/?rpc=ws://127.0.0.1:9901#/explorer
+   - parachain-1001-collator: https://portal.infrablockspace.net/?rpc=ws://127.0.0.1:10001#/explorer
 
-   After all of the nodes are running, you can interact with your nodes by opening the [Polkadot/Substrate Portal](https://polkadot.js.org/apps) and connecting to any of the node endpoints.
+   After all of the nodes are running, you can interact with your nodes by opening the [_InfraBlockchain_ Explorer](https://portal.infrablockspace.net)and connecting to any of the node endpoints.
 
 ## Open a message passing channel
 
@@ -269,7 +266,7 @@ To set up communication between the parachains in the test network:
 
    Note that the values you set for **max_capacity** and **max_message_size** shouldn't exceed the values defined for the `hrmpChannelMaxCapacity` and `hrmpChannelMaxMessageSize` parameters for the relay chain.
 
-   To check the configuration settings for the current relay chain using the [Polkadot/Substrate Portal](https://polkadot.js.org/apps/):
+   To check the configuration settings for the current relay chain using the [_InfraBlockchain_ Explorer](https://portal.infrablockspace.net):
 
    - Click **Developer** and select **Chain State**.
    - Select **configuration**, then select **activeConfig()**.
@@ -282,6 +279,7 @@ To set up communication between the parachains in the test network:
      ```
 
 3. Save your changes and close the file.
+
 4. Restart Zombienet by running the following command:
 
    ```bash
@@ -290,11 +288,11 @@ To set up communication between the parachains in the test network:
 
    You now have a test network with a bidirectional HRMP channel open between the parachains A (1000) and parachain B (1001).
 
-   You can use the [Polkadot/Substrate Portal](https://polkadot.js.org/apps) to connect to the parachains and send messages.
+   You can use the [_InfraBlockchain_ Explorer](https://portal.infrablockspace.net) to connect to the parachains and send messages.
 
 5. Click **Developer** and select **Extrinsics**.
 
-6. Select **polkadotXcm** or **xcmPallet**, then select **sent(dest, message)** to craft the XCM messages you want to send.
+6. Select **ibsXcm** or **xcmPallet**, then select **sent(dest, message)** to craft the XCM messages you want to send.
 
    You should note that XCM messages are like other transactions and require the sender to pay for the execution of the operation.
    All of the information required must be included in the message itself.

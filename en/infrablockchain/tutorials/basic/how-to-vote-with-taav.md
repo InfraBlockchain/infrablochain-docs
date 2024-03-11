@@ -2,8 +2,8 @@
 title: Including Votes in Transactions
 description: This tutorial describes how to use Proof-of-Transaction(PoT) to elect validators on the InfraRelayChain.
 keywords:
-  - Proof-of-Transaction
-  - System TOken
+  - Proof-of-Transaction(PoT)
+  - System Token
 ---
 
 This tutorial will explore how to select validators for the relay chain in the **_InfraRelayChain_** based on [Proof-of-Transaction](../learn/protocol/proof-of-transaction.md) using [Aggregated TaaV (Transaction-as-a-Vote)](../learn/protocol/proof-of-transaction.md#aggregated-proof-of-transactionpot) in a real multi-chain environment.
@@ -22,7 +22,7 @@ Before getting started, make sure to:
 
 - Learn how to generate the binaries for testing by following [Building a Relay Chain](../tutorials/build/build-infra-relay-chain.md) and [Building a Parachain](../tutorials/build/build-a-parachain.md).
 
-- Familiarize yourself with [Proof of Transaction](../learn/protocol/proof-of-transaction.md).
+- Familiarize yourself with [Proof-of-Transaction](../learn/protocol/proof-of-transaction.md).
 
 - Understand how to pay transaction fees using [System Token](../learn/protocol/system-token.md).
 
@@ -30,13 +30,13 @@ Before getting started, make sure to:
 
 This tutorial will proceed in the following steps:
 
-1. Set up the test environment using **ZombieNet**. In this tutorial, we will use two parachains, which are **InfraAssetHub**, and P**arachain Template Node**.
+1. Set up the test environment using **ZombieNet**. In this tutorial, we will use two parachains, which are **InfraAssetHub**, and **Parachain Template Node**.
 
 2. Request transactions, including the target for the vote, using [System Token](../learn/protocol/system-token.md) in each parachain.
 
 3. Verify that the votes are collected in the **_InfraRelayChain_**.
 
-4. Check whether validators based on [Proof-of-Transaction](../learn/protocol/proof-of-transaction.md) are elected to generate blocks at a certain point in time.
+4. Check whether validators based on [Proof-of-Transaction(PoT)](../learn/protocol/proof-of-transaction.md) are elected to generate blocks at a certain point in time.
 
 ## Build the Test Environment
 
@@ -44,11 +44,11 @@ Build the test environment for the **_InfraBlockchain_** using **ZombieNet** bin
 
 - Install the latest release version from the [ZombieNet GitHub](https://github.com/paritytech/zombienet).
 
-- Create a TOML file in `infrablockchain-substrate/infra-cumulus/zombienet/examples/`. In this example, create `example.toml` with the following content, which sets up the test environment with:
+- Create a TOML file in `infrablockspace-sdk/infra-cumulus/zombienet/examples/`. In this example, create `example.toml` with the following content, which sets up the test environment with:
 
   - 5 validator relay chain nodes
-  - 2 **_InfraAssetHub_** collator nodes
-  - 2 **_Parachain Template Node_** collator nodes
+  - 2 **InfraAssetHub** collator nodes
+  - 2 **Parachain Template Node** collator nodes
 
 ```toml
 [relaychain]
@@ -161,11 +161,11 @@ chmod +x zombienet-macos
 
 ## Including Votes in Transactions
 
-- To pay transaction fees with System Token and vote, refer to [How to Interact with System Token](./how-to-interact-with-system-token.md). For this tutorial, assume that System Token is generated from parachain-template-node.
+- To pay transaction fees with System Token and vote, refer to [How to Interact with System Token](./how-to-interact-with-system-token.md). For this tutorial, assume that System Token is generated from **Parachain Template Node**.
 
 - Go to the [InfraBlockchain Explorer](https://portal.infrablockspace.net/#/explorer).
 
-- In this explorer, you can include votes in any transaction. For this tutorial, let's assume a scenario where a `balance-transfer` transaction is sent from `parachain-template-node`.
+- In this explorer, you can include votes in any transaction. For this tutorial, let's assume a scenario where a `balance-transfer` transaction is sent from **Parachain Template Node**.
 
 - Navigate to the **Developer** section and enter **Extrinsics** tab. Select `balances` and then `transfer`. Fill in the required values for the transaction and click on **Submit** Transaction.
 
@@ -179,7 +179,7 @@ chmod +x zombienet-macos
   - asset_id: 시스템 토큰의 식별자
   ```
 
-  - The `vote` option designates the candidate for **Proof-of-Transaction (PoT)** to be elected.
+  - The `vote` option designates the candidate for **Proof-of-Transaction(PoT)** to be elected.
 
   ![Transaction Details](/media/images/docs/infrablockchain/tutorials/tx-detail.png)
 

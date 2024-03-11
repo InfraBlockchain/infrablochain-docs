@@ -56,7 +56,7 @@ GRANDPA는 투표 메커니즘에서 Longest chain rule을 사용합니다.
 
 ![Longest chain rule](/media/images/docs/infrablockchain/learn/substrate/learn/consensus-longest.png)
 
-Longest chain rule의 단점은 공격자가 네트워크를 앞지르는 블록 체인을 생성하여 사실상 메인 체인을 탈취할 수 있다는 것입니다.
+Longest chain rule의 단점은 공격자가 네트워크를 앞지르는 블록체인을 생성하여 사실상 메인 체인을 탈취할 수 있다는 것입니다.
 Greedy Heaviest Observed SubTree (GHOST) 규칙은 제네시스 블록에서 시작하여, 각 포크를 해결할 때 가장 많은 블록이 쌓인 가장 무거운 브랜치를 선택합니다.
 
 ![GHOST rule](/media/images/docs/infrablockchain/learn/substrate/learn/consensus-ghost.png)

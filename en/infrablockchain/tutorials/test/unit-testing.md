@@ -1,5 +1,5 @@
 ---
-title: Unit test
+title: Unit Testing
 description: Illustrates basic unit testing for runtime logic.
 keywords:
 ---
@@ -56,8 +56,8 @@ By assigning `pallet_balances::Balance` and `frame_system::AccountId` to `u64`, 
 
 ## Test storage in a mock runtime
 
-The [`sp-io`](https://paritytech.github.io/substrate/master/sp_io/index.html) crate exposes a [`TestExternalities`](https://paritytech.github.io/substrate/master/sp_io/type.TestExternalities.html) implementation that you can use to test storage in a mock environment.
-It is the type alias for an in-memory, hashmap-based externalities implementation in [`substrate_state_machine`](https://paritytech.github.io/substrate/master/sp_state_machine/index.html) referred to as [`TestExternalities`](https://paritytech.github.io/substrate/master/sp_state_machine/struct.TestExternalities.html).
+The [`sp-io`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/primitives/io/src/lib.rs) crate exposes a [`TestExternalities`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/primitives/state-machine/src/testing.rs#L42C11-L42C11) implementation that you can use to test storage in a mock environment.
+It is the type alias for an in-memory, hashmap-based externalities implementation in [`substrate_state_machine`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/primitives/state-machine/src/lib.rs) referred to as `TestExternalities`.
 
 The following example demonstrates defining a struct called `ExtBuilder` to build an instance of `TestExternalities`, and setting the block number to 1.
 
@@ -85,16 +85,16 @@ fn fake_test_example() {
 }
 ```
 
-Custom implementations of [Externalities](https://paritytech.github.io/substrate/master/sp_externalities/index.html) allow you to construct runtime environments that provide access to features of the outer node.
-Another example of this can be found in the [`offchain`](https://paritytech.github.io/substrate/master/sp_core/offchain/index.html) module.
-The `offchain` module maintains its own [Externalities](https://paritytech.github.io/substrate/master/sp_core/offchain/trait.Externalities.html) implementation.
+Custom implementations of [Externalities](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/primitives/externalities/src/lib.rs) allow you to construct runtime environments that provide access to features of the outer node.
+Another example of this can be found in the [`offchain`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/primitives/core/src/offchain/mod.rs) module.
+The `offchain` module maintains its own `Externalities` implementation.
 
 ## Test events in a mock runtime
 
 It can also be important to test the events that are emitted from your chain, in addition to the storage.
-Assuming you use the default generation of `deposit_event` with the `generate_deposit` macro, all pallet events are stored under the `system` / `events` key with some extra information as an [`EventRecord`](https://paritytech.github.io/substrate/master/frame_system/struct.EventRecord.html).
+Assuming you use the default generation of `deposit_event` with the `generate_deposit` macro, all pallet events are stored under the `system` / `events` key with some extra information as an [`EventRecord`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L725C12-L725C23).
 
-These event records can be directly accessed and iterated over with `System::events()`, but there are also some helper methods defined in the system pallet to be used in tests, [`assert_last_event`](https://paritytech.github.io/substrate/master/frame_system/pallet/struct.Pallet.html#method.assert_last_event) and [`assert_has_event`](https://paritytech.github.io/substrate/master/frame_system/pallet/struct.Pallet.html#method.assert_has_event).
+These event records can be directly accessed and iterated over with `System::events()`, but there are also some helper methods defined in the system pallet to be used in tests, [`assert_last_event`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L1577) and [`assert_has_event`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L1565).
 
 ```rust
 fn fake_test_example() {
@@ -108,7 +108,7 @@ fn fake_test_example() {
 }
 ```
 
-Some things to note are:
+Somethings to note are:
 
 - Events are not emitted on the genesis block, and so the block number should be set in order for this test to pass.
 - You need to have a `.into()` after instantiating your pallet event, which turns it into a generic event.
@@ -130,6 +130,7 @@ fn only_example_events() -> Vec<super::Event<Runtime>> {
 ```
 
 Additionally, if your test performs operations that emit events in a sequence, you might want to only see the events that have happened since the last check.
+
 The following example leverages the preceding helper function.
 
 ```rust
@@ -145,7 +146,8 @@ fn example_events_since_last_call() -> Vec<super::Event<Runtime>> {
 }
 ```
 
-You can find examples of this type of event testing in the tests for the [nomination pool](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/nomination-pools/src/mock.rs) or [staking](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/staking/src/mock.rs).
+This will only return events that have occurred since the last check.
+
 If you rewrite the previous event test with this new function, the resulting code looks like this:
 
 ```rust
@@ -215,7 +217,7 @@ pub struct GenesisConfig<T: Config<I>, I: 'static = ()> {
 
 It is useful to simulate block production to verify that expected behavior holds across block production.
 
-A simple way of doing this is by incrementing the System module's block number between `on_initialize` and `on_finalize` calls from all modules with `System::block_number()` as the sole input.
+A simple way of doing this is by incrementing the `System` module's block number between `on_initialize` and `on_finalize` calls from all modules with `System::block_number()` as the sole input.
 Although it is important for runtime code to cache calls to storage or the system module, the test environment scaffolding should prioritize readability to facilitate future maintenance.
 
 ```rust
@@ -247,9 +249,3 @@ fn my_runtime_test() {
  });
 }
 ```
-
-## Where to go next
-
-<!-- TODO NAV.YAML -->
-<!-- add these back -->
-<!-- - [Set up tests for your pallet](/reference/how-to-guides/testing/) -->

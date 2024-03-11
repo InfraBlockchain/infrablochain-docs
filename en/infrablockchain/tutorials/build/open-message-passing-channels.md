@@ -1,23 +1,23 @@
 ---
 title: Open message passing channels
-description: Demonstrates how to use horizontal relay-routed message passing (HRMP) for communication between parachains.
+description: Demonstrates how to use horizontal relay-routed message passing(HRMP) for communication between parachains.
 keywords:
     - InfraBlockchain
-    - cross-consensus messaging
+    - cross-consensus message
     - HRMP
-    - XCM
-    - parachain
+    - Cross-consensus message passing (XCMP)
+    - Parachain
 ---
 
 In the **_InfraBlockchain_** ecosystem, chains can communicate with each other by passing messages over secure channels.
-There are three main communication channels:
+There are four main communication channels:
 
 -   Upward message passing (UMP) to enable a parachain to pass messages up to its relay chain.
 -   Downward message passing (DMP) to enable the relay chain to pass messages down to a parachain.
 -   Cross-consensus message passing (XCMP) to enable parachains to send messages to each other.
+- Horizontal relay-routed message passing (HRMP) is an interim version of cross-consensus message passing (XCMP).
 
-Horizontal relay-routed message passing (HRMP) is an interim version of cross-consensus message passing (XCMP).
-This interim solution—also sometimes referred to as XCMP-Lite—provides the same functionality as XCMP but stores all of the messages passed between chains in the relay chain storage.
+This interim solution —also sometimes referred to as XCMP-Lite— provides the same functionality as XCMP but stores all of the messages passed between chains in the relay chain storage.
 
 Although HRMP is intended to be phased out when XCMP is fully implemented, this tutorial uses HRMP to illustrate how you can open message passing channels to enable parachains to communicate with each other.
 

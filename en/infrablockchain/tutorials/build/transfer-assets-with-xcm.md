@@ -136,7 +136,7 @@ To check the result on the relay chain:
 
 2. Click **Network** and select **Explorer** to view the events for the XCM message.
 
-    ![Relay chain events](/media/images/docs/infrablockchain/tutorials/build/relay-chain-event-summary.png)
+    ![Relay Chain events](/media/images/docs/infrablockchain/tutorials/build/relay-chain-event-summary.png)
 
 3. Click the block number where the change was recorded to view details.
 

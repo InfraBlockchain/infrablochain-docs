@@ -10,7 +10,7 @@ Debugging is a necessity in all walks of software development, and blockchain is
 
 You can use Rust's logging API to debug your runtimes. This comes with a number of macros, including [`debug`](https://docs.rs/log/0.4.14/log/macro.debug.html) and [`info`](https://docs.rs/log/0.4.14/log/macro.info.html).
 
-For example, after updating your pallet's `Cargo.toml` file with the [`log` crate](https://crates.io/crates/log) just use `log::info!` to log to your console:<!-- markdown-link-check-disable-line -->
+For example, after updating your pallet's `Cargo.toml` file with the [`log` crate](https://crates.io/crates/log) just use `log::info!` to log to your console:
 
 ```rust
 pub fn do_something(origin) -> DispatchResult {
@@ -29,7 +29,7 @@ pub fn do_something(origin) -> DispatchResult {
 
 ## Printable trait
 
-The Printable trait is meant to be a way to print from the runtime in `no_std` and in `std`. The `print` function works with any type that implements the [`Printable` trait](https://paritytech.github.io/substrate/master/sp_runtime/traits/trait.Printable.html).
+The Printable trait is meant to be a way to print from the runtime in `no_std` and in `std`. The `print` function works with any type that implements the [`Printable trait`](https://paritytech.github.io/substrate/master/sp_runtime/traits/trait.Printable.html).
 Substrate implements this trait for some types (`u8`, `u32`, `u64`, `usize`, `&[u8]`, `&str`) by default.
 You can also implement it for your own custom types. Here is an example of implementing it for a pallet's `Error` type using the node-template as the example codebase.
 
@@ -107,7 +107,7 @@ The values are printed in the terminal or the standard output every time that th
 
 Keep in mind that adding print functions to the runtime increases the size of the Rust and Wasm binaries with debug code not needed in production.
 
-## Substrate's own print function
+## Substrate's own Print function
 
 For legacy use cases, Substrate provides extra tools for `Print` debugging (or tracing). You can use the [`print` function](https://paritytech.github.io/substrate/master/sp_runtime/fn.print.html) to log the status of the runtime execution.
 

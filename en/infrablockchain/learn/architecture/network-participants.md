@@ -8,9 +8,9 @@ keywords:
 
 Introduction to key participants in the Multi-Chain Infrastructure Blockchain Ecosystem:
 
-- Validators: Validators play a crucial role in the multi-chain infrastructure blockchain ecosystem by generating blocks and establishing shared security. They protect both the Relay Chain and parachains. Validators are responsible for creating blocks, forming shared security to safeguard the Relay Chain, and ensuring the protection of parachains.
+- **Validators**: Validators play a crucial role in the multi-chain infrastructure blockchain ecosystem by generating blocks and establishing shared security. They protect both the Relay Chain and parachains. Validators are responsible for creating blocks, forming shared security to safeguard the Relay Chain, and ensuring the protection of parachains.
 
-- Collators: Collators perform the essential function of generating parachain blocks and delivering them to validators. They play a crucial role in the creation and submission of parachain blocks to validators, contributing to the overall functionality of the multi-chain infrastructure blockchain ecosystem.
+- **Collators**: Collators perform the essential function of generating parachain blocks and delivering them to validators. They play a crucial role in the creation and submission of parachain blocks to validators, contributing to the overall functionality of the multi-chain infrastructure blockchain ecosystem.
 
 ![Network Participants](/media/images/docs/infrablockchain/learn/architecture/network-participants.png)
 
@@ -18,13 +18,13 @@ Introduction to key participants in the Multi-Chain Infrastructure Blockchain Ec
 
 Validators verify proofs from collators (para-validators) and protect Relay Chain and parachains through consensus with other validators. Validators play a crucial role in adding new blocks to Relay Chain(block producers), ensuring the inclusion of all parachain blocks.
 
-Validators in the **_InfraBlockchain_** ensure the overall network's security through shared security, enabling the exchange of cross-chain messages using XCM (e.g., token transfers, transaction calls for specific pallets). Validators guarantee that each parachain follows its unique rules and can exchange messages securely among parachains in a trusted environment.
+Validators in the **_InfraBlockchain_** ensure the overall network's security through shared security, enabling the exchange of cross-chain messages using XCM (e.g. token transfers, transaction calls for specific pallets). Validators guarantee that each parachain follows its unique rules and can exchange messages securely among parachains in a trusted environment.
 
 ## Para-Validators
 
 ### Overview
 
-Para-Validators participate in the **Availability and Validity** protocol's parachain phase, submitting a [candidate receipt](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/822bc6c9706774a98122eb432f412b871a98a4bd/infrablockspace/primitives/src/v6/mod.rs#L521) to the Relay Chain. This process enables block producers to include information about parachain blocks in the Relay Chain through the availability and validity verification process.
+Para-Validators participate in the **Availability and Validity** protocol's parachain phase, submitting a [candidate receipt](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/822bc6c9706774a98122eb432f412b871a98a4bd/infrablockspace/primitives/src/v6/mod.rs#L521) to the Relay Chain. This process enables block producers to include information about parachain blocks in the Relay Chain through the availability and validity verification process.
 
 ### Candidate Receipt
 
@@ -53,13 +53,13 @@ _Para-Validators_ operate as a group and are chosen by the runtime to validate p
 
 ### Roles of Para-Validators
 
-Para-Validators verify the validity of the information included in a series of assigned parachain blocks. They receive parachain block candidates and their proof of validity [Proof-of-Validity(PoV)](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/822bc6c9706774a98122eb432f412b871a98a4bd/cumulus/primitives/core/src/lib.rs#L155) from collators.
+Para-Validators verify the validity of the information included in a series of assigned parachain blocks. They receive parachain block candidates and their proof of validity [Proof-of-Validity(PoV)](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/822bc6c9706774a98122eb432f412b871a98a4bd/cumulus/primitives/core/src/lib.rs#L155) from collators.
 
 Para-Validators perform the initial validity check on the block candidate. A candidate that passes the validation with sufficient signatures is considered backable.
 
 ## Block Producer
 
-There are validators who participate in the consensus mechanism to produce Relay Chain blocks based on the validity of other validators. These validators, known as block producers, are selected by the consensus engine (e.g., BABE, Aura) and can record at most one backable candidate for each parachain to be included in the Relay Chain. A backable candidate included in the Relay Chain is considered backed in the fork of that Relay Chain.
+There are validators who participate in the consensus mechanism to produce Relay Chain blocks based on the validity of other validators. These validators, known as block producers, are selected by the consensus engine (e.g. BABE, Aura) and can record at most one backable candidate for each parachain to be included in the Relay Chain. A backable candidate included in the Relay Chain is considered backed in the fork of that Relay Chain.
 
 In Relay Chain blocks, the block producer only includes candidate parachain blocks with parent candidate data ([Candidate Receipt](./network-participants.md#candidate-receipt-예시)) from the previous Relay Chain block. **This ensures that parachains follow a valid chain.** Additionally, the block author includes candidate parachain blocks with [erasure-coding](https://wiki.polkadot.network/docs/learn-parachains-protocol#erasure-codes) chunks (for availability) to facilitate the system's availability and validity checks in the next round.
 
@@ -84,7 +84,7 @@ Finally, validators participate in the chain selection process within GRANDPA, e
 Role of Collator
 Collators collect all transactions occurring in parachains from users and generate state transition proofs (PoV) for Relay Chain validators. Under normal circumstances, collators collect and execute transactions to create block candidates, proposing them to one or more validators along with PoV for inclusion in the parachain block.
 
-Collators are similar to validators in other blockchains, but since **_InfraBlockchain_** Validators ensure security, collators can build [service-specific](../../service-chains/README.md) blockchains without worrying about security separately. If a parachain block is not valid, it is rejected by the validators. Para-validators assigned to each parachain verify the validity of submitted candidates and then collect and aggregate the validity from other para-validators. This process is called candidate backing. Para-validators receive PoV associated with an arbitrary number of parachain block candidates from untrusted collators. A candidate is considered backable when at least 2/3 of the assigned validators have verified its validity.
+Collators are similar to validators in other blockchains, but since **_InfraBlockchain_** Validators ensure security, collators can build [service-specific](../../service-chains/README.md) blockchains without worrying about security separately. If a parachain block is not valid, it is rejected by the validators. Para-Validators assigned to each parachain verify the validity of submitted candidates and then collect and aggregate the validity from other para-validators. This process is called candidate backing. Para-Validators receive PoV associated with an arbitrary number of parachain block candidates from untrusted collators. A candidate is considered backable when at least 2/3 of the assigned validators have verified its validity.
 
 Validators must successfully verify the following conditions in the following order:
 
@@ -92,4 +92,4 @@ Validators must successfully verify the following conditions in the following or
 2. The collator's signature must be valid.
 3. Verify the parachain candidate block by executing the parachain runtime.
 
-If the candidate block meets the specified criteria to be included in the Relay Chain block, the selected Relay Chain [block producer](#block-producer) selects one backable candidate for each parachain to be included in the Relay Chain block (inclusion). The candidate block is considered backed. Furthermore, having more collators does not necessarily mean better or safer assumptions. Instead, having too many collators can slow down the network. The only malicious behavior a collator can exhibit is transaction censorship. To prevent censorship, a parachain only needs to ensure the presence of a neutral collator, and a majority is not strictly required. **Theoretically, the censorship problem can be solved with just one honest collator**.
+If the candidate block meets the specified criteria to be included in the Relay Chain block, the selected Relay Chain [Block producer](#block-producer) selects one backable candidate for each parachain to be included in the Relay Chain block (inclusion). The candidate block is considered backed. Furthermore, having more collators does not necessarily mean better or safer assumptions. Instead, having too many collators can slow down the network. The only malicious behavior a collator can exhibit is transaction censorship. To prevent censorship, a parachain only needs to ensure the presence of a neutral collator, and a majority is not strictly required. **Theoretically, the censorship problem can be solved with just one honest collator**.

@@ -1,6 +1,6 @@
 ---
 title: Depositing and Withdrawing Funds on EVM
-description: This tutorial explains how to deposit and withdraw funds on the InfraBlockchain EVM parachain.
+description: This tutorial explains how to deposit and withdraw funds on the InfraEVM parachain.
 keywords:
   - parachain
   - evm
@@ -10,7 +10,7 @@ keywords:
 
 Before you begin, make sure to do the following:
 
-- [InfraBlockchain EVM](../../../service-chains/infra-evm-parachain.md)
+- [**InfraEVM**](../../../service-chains/infra-evm-parachain.md)
 
 ## Converting Addresses
 
@@ -143,7 +143,7 @@ Here's how to convert H160 addresses to SS58 addresses:
 
    ![transfer-asset](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/metamask-transfer.png)
 
-3. Access the [_InfraBlockchain Explorer_](https://portal.infrablockspace.net) and follow the steps below.
+3. Access the [InfraBlockchain Explorer](https://portal.infrablockspace.net) and follow the steps below.
 
 - Navigate to `Developers` - `Extrinsics` - `evm` palette and select the `withdraw` extrinsic.
 
