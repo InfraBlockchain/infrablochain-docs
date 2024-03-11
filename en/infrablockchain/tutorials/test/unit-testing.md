@@ -56,8 +56,8 @@ By assigning `pallet_balances::Balance` and `frame_system::AccountId` to `u64`, 
 
 ## Test storage in a mock runtime
 
-The [`sp-io`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/primitives/io/src/lib.rs) crate exposes a [`TestExternalities`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/primitives/state-machine/src/testing.rs#L42C11-L42C11) implementation that you can use to test storage in a mock environment.
-It is the type alias for an in-memory, hashmap-based externalities implementation in [`substrate_state_machine`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/primitives/state-machine/src/lib.rs) referred to as `TestExternalities`.
+The [`sp-io`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/primitives/io/src/lib.rs) crate exposes a [`TestExternalities`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/primitives/state-machine/src/testing.rs#L42C11-L42C11) implementation that you can use to test storage in a mock environment.
+It is the type alias for an in-memory, hashmap-based externalities implementation in [`substrate_state_machine`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/primitives/state-machine/src/lib.rs) referred to as `TestExternalities`.
 
 The following example demonstrates defining a struct called `ExtBuilder` to build an instance of `TestExternalities`, and setting the block number to 1.
 
@@ -85,16 +85,16 @@ fn fake_test_example() {
 }
 ```
 
-Custom implementations of [Externalities](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/primitives/externalities/src/lib.rs) allow you to construct runtime environments that provide access to features of the outer node.
-Another example of this can be found in the [`offchain`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/primitives/core/src/offchain/mod.rs) module.
+Custom implementations of [Externalities](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/primitives/externalities/src/lib.rs) allow you to construct runtime environments that provide access to features of the outer node.
+Another example of this can be found in the [`offchain`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/primitives/core/src/offchain/mod.rs) module.
 The `offchain` module maintains its own `Externalities` implementation.
 
 ## Test events in a mock runtime
 
 It can also be important to test the events that are emitted from your chain, in addition to the storage.
-Assuming you use the default generation of `deposit_event` with the `generate_deposit` macro, all pallet events are stored under the `system` / `events` key with some extra information as an [`EventRecord`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L725C12-L725C23).
+Assuming you use the default generation of `deposit_event` with the `generate_deposit` macro, all pallet events are stored under the `system` / `events` key with some extra information as an [`EventRecord`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L725C12-L725C23).
 
-These event records can be directly accessed and iterated over with `System::events()`, but there are also some helper methods defined in the system pallet to be used in tests, [`assert_last_event`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L1577) and [`assert_has_event`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L1565).
+These event records can be directly accessed and iterated over with `System::events()`, but there are also some helper methods defined in the system pallet to be used in tests, [`assert_last_event`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L1577) and [`assert_has_event`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L1565).
 
 ```rust
 fn fake_test_example() {

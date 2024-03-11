@@ -10,7 +10,7 @@ keywords:
   - 스토리지 마이그레이션
 ---
 
-`try-runtime` 명령줄 도구를 사용하면 [in-memory-externalities](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/primitives/state-machine/src/testing.rs#L42C11-L42C11) 데이터 구조를 사용하여 런타임 스토리지의 스냅샷을 쿼리하여 상태를 저장할 수 있습니다.
+`try-runtime` 명령줄 도구를 사용하면 [in-memory-externalities](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/primitives/state-machine/src/testing.rs#L42C11-L42C11) 데이터 구조를 사용하여 런타임 스토리지의 스냅샷을 쿼리하여 상태를 저장할 수 있습니다.
 인메모리 스토리지를 사용하여 지정된 런타임 상태에 대한 테스트를 작성하여 프로덕션으로 **이동하기 전에** 실제 체인 상태에 대해 테스트할 수 있습니다.
 
 가장 간단한 형태로 `try-runtime`을 사용하여 다음과 같이 런타임 상태를 테스트할 수 있습니다:
@@ -23,19 +23,19 @@ keywords:
 ## 모티베이션
 
 `try-runtime`의 초기 모티베이션은 실제 체인의 상태에 대해 런타임 변경 사항을 테스트해야 하는 필요성에서 비롯되었습니다.
-이전에는 단위 및 통합 테스트를 위해 `TestExternalities` 와 [`BasicExternalities`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/primitives/state-machine/src/basic.rs#L41)가 있었지만, 실제 체인의 상태에 대해 테스트할 수 있는 기능이 부족했습니다.
+이전에는 단위 및 통합 테스트를 위해 `TestExternalities` 와 [`BasicExternalities`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/primitives/state-machine/src/basic.rs#L41)가 있었지만, 실제 체인의 상태에 대해 테스트할 수 있는 기능이 부족했습니다.
 `try-runtime` 도구는 다음과 같은 노드의 RPC 엔드포인트를 사용하여 상태를 검색함으로써 `TestExternalities`와 `BasicExternalities`를 확장합니다:
 
 - `rpc_get_storage`
 - `rpc_get_keys_paged`
 
-(자세한 내용은 [`remote externalities lib`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/utils/frame/remote-externalities/src/lib.rs#L108C12-L108C23)를 참조하세요.)
+(자세한 내용은 [`remote externalities lib`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/utils/frame/remote-externalities/src/lib.rs#L108C12-L108C23)를 참조하세요.)
 
 Key-Value 데이터베이스를 사용하여 상태를 검색한 후, try-runtime은 해당 데이터를 `TestExternalities`에 삽입합니다.
 
 ## 작동 방식
 
-`try-runtime` 도구는 [`remote_externalities`](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/utils/frame/remote-externalities/src/lib.rs)  라는 자체적인 externalities 구현을 가지고 있으며, 이는 `TestExternalities`를 래핑하고 데이터가 [타입 인코딩](../../learn/substrate/learn/frame/scale-codec.md)된 [Key-Value 저장소](../../learn/substrate/learn/frame/state-transitions-and-storage.md)를 사용합니다.
+`try-runtime` 도구는 [`remote_externalities`](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/utils/frame/remote-externalities/src/lib.rs) 라는 자체적인 externalities 구현을 가지고 있으며, 이는 `TestExternalities`를 래핑하고 데이터가 [타입 인코딩](../../learn/substrate/learn/frame/scale-codec.md)된 [Key-Value 저장소](../../learn/substrate/learn/frame/state-transitions-and-storage.md)를 사용합니다.
 
 아래 다이어그램은 externalities가 컴파일된 런타임 외부에 위치하여 해당 런타임의 스토리지를 캡처하는 방식을 보여줍니다.
 
@@ -45,14 +45,14 @@ Key-Value 데이터베이스를 사용하여 상태를 검색한 후, try-runtim
 
 ![externalities로 테스트하기](/media/images/docs/reference/try-runtime-ext-2.png)
 
-상태를 쿼리하기 위해 `try-runtime`은 [`StateApiClient`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/client/rpc-api/src/state/mod.rs#L35)에서 제공하는 RPC 메서드를 사용합니다.
+상태를 쿼리하기 위해 `try-runtime`은 [`StateApiClient`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/client/rpc-api/src/state/mod.rs#L35)에서 제공하는 RPC 메서드를 사용합니다.
 
 특히:
 
-- [`storage`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/client/rpc-api/src/state/mod.rs#L67)
+- [`storage`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/client/rpc-api/src/state/mod.rs#L67)
   : 이 방법은 지정한 블록을 나타내는 키에 대한 스토리지 값을 반환합니다.
 
-- [`storage_key_paged`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/client/rpc-api/src/state/mod.rs#L57)
+- [`storage_key_paged`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/client/rpc-api/src/state/mod.rs#L57)
   : 이 방법은 지정한 접두사와 페이지네이션 지원과 일치하는 키를 반환합니다.
 
 ## 사용법
@@ -168,5 +168,5 @@ RUST_LOG=runtime=trace,try-runtime::cli=trace,executor=trace \
 ## 다음 단계로 넘어가기
 
 - [스토리지 키](../../learn/substrate/learn/frame/runtime-storage.md)
-- [`OnRuntimeUpgrade`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/support/src/traits/hooks.rs#L103)
-- [`try-runtime-upgrade`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/support/src/traits/hooks.rs#L120)
+- [`OnRuntimeUpgrade`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/support/src/traits/hooks.rs#L103)
+- [`try-runtime-upgrade`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/support/src/traits/hooks.rs#L120)

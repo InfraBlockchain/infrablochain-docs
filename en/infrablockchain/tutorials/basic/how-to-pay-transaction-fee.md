@@ -32,7 +32,7 @@ The procedure for creating and issuing tokens on a Parachain is as follows:
 
 1. Open the [InfraBlockchain Explorer](https://portal.infrablockspace.net/#/explorer/) and connect to the Parachain endpoint.
 
-2. In [Developer > Extrinsic], select [create](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/assets/src/lib.rs#L625) from the [Assets](https://github.com/InfraBlockchain/infrablockspace-sdk/tree/master/substrate/frame/assets) pallet to create a token.
+2. In [Developer > Extrinsic], select [create](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/assets/src/lib.rs#L625) from the [Assets](https://github.com/InfraBlockchain/infrablockchain-substrate/tree/master/substrate/frame/assets) pallet to create a token.
 
    - id: A value to identify the token. Here, we insert 1.
    - admin: Token management account. Here, we specify `alice`.
@@ -40,7 +40,7 @@ The procedure for creating and issuing tokens on a Parachain is as follows:
 
    ![Creating a Token](/media/images/docs/infrablockchain/tutorials/create_token.png)
 
-3. Immediately select [mint](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/assets/src/lib.rs#L801C7-L801C14) from the Assets pallet to issue the token.
+3. Immediately select [mint](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/assets/src/lib.rs#L801C7-L801C14) from the Assets pallet to issue the token.
 
    - id: A value to identify the token. Here, insert the previously created token identifier.
    - beneficiary: The account to receive the issued tokens. Here, we issue them to `alice`.
@@ -88,7 +88,7 @@ Once the _preimage_ for `register_system_token` is successfully registered, it c
 
 1. Open the [InfraBlockchain Explorer](https://portal.infrablockspace.net/#/explorer/) and connect to the Relay Chain endpoint.
 
-2. In the Explorer tab, click [Developer > Extrinsic], then use [propose](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/collective/src/lib.rs#L519) from the [Council](https://github.com/InfraBlockchain/infrablockspace-sdk/tree/master/substrate/frame/collective) pallet to submit a motion on the registered preimage to the council governance.
+2. In the Explorer tab, click [Developer > Extrinsic], then use [propose](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/collective/src/lib.rs#L519) from the [Council](https://github.com/InfraBlockchain/infrablockchain-substrate/tree/master/substrate/frame/collective) pallet to submit a motion on the registered preimage to the council governance.
    (Note: Only Relaychain validators can submit and vote on council propose.)
 
 ```text

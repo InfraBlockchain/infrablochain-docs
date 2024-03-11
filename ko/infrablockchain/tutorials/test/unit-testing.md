@@ -56,8 +56,8 @@ impl pallet_balances::Config for Test {
 
 ## 모의 런타임에서 스토리지 테스트
 
-[`sp-io`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/primitives/io/src/lib.rs) 크레이트는 모의 환경에서 스토리지를 테스트하기 위해 사용할 수 있는 [`TestExternalities`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/primitives/state-machine/src/testing.rs#L42C11-L42C11) 구현을 노출합니다.
-이는 [`substrate_state_machine`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/primitives/state-machine/src/lib.rs)에서 인메모리 해시맵 기반의 외부성을 위한 타입 별칭으로 `TestExternalities` 로 참조됩니다.
+[`sp-io`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/primitives/io/src/lib.rs) 크레이트는 모의 환경에서 스토리지를 테스트하기 위해 사용할 수 있는 [`TestExternalities`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/primitives/state-machine/src/testing.rs#L42C11-L42C11) 구현을 노출합니다.
+이는 [`substrate_state_machine`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/primitives/state-machine/src/lib.rs)에서 인메모리 해시맵 기반의 외부성을 위한 타입 별칭으로 `TestExternalities` 로 참조됩니다.
 
 다음 예제는 `ExtBuilder`라는 구조체를 정의하여 `TestExternalities`의 인스턴스를 빌드하고 블록 번호를 1로 설정하는 방법을 보여줍니다.
 
@@ -85,16 +85,16 @@ fn fake_test_example() {
 }
 ```
 
-[Externalities](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/primitives/externalities/src/lib.rs)의 사용자 정의 구현을 통해 외부 노드의 기능에 액세스할 수 있는 런타임 환경을 구축할 수 있습니다.
-이와 관련된 또 다른 예는 [`offchain`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/primitives/core/src/offchain/mod.rs) 모듈에서 찾을 수 있습니다.
+[Externalities](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/primitives/externalities/src/lib.rs)의 사용자 정의 구현을 통해 외부 노드의 기능에 액세스할 수 있는 런타임 환경을 구축할 수 있습니다.
+이와 관련된 또 다른 예는 [`offchain`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/primitives/core/src/offchain/mod.rs) 모듈에서 찾을 수 있습니다.
 `offchain` 모듈은 자체 `Externalities` 구현을 유지합니다.
 
 ## 모의 런타임에서 이벤트 테스트
 
 스토리지 외에도 체인에서 발생하는 이벤트를 테스트하는 것도 중요할 수 있습니다.
-`deposit_event`를 `generate_deposit` 매크로와 함께 사용하는 경우, 모든 팔레트 이벤트는 `system` / `events` 키 아래에 [`EventRecord`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L725C12-L725C23)로 저장됩니다.
+`deposit_event`를 `generate_deposit` 매크로와 함께 사용하는 경우, 모든 팔레트 이벤트는 `system` / `events` 키 아래에 [`EventRecord`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L725C12-L725C23)로 저장됩니다.
 
-이벤트 레코드는 `System::events()`를 통해 직접 액세스하고 반복할 수 있지만, 테스트에 사용할 수 있는 몇 가지 도우미 메서드도 시스템 팔레트에 정의되어 있습니다. [`assert_last_event`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L1577)와 [`assert_has_event`](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L1565)입니다.
+이벤트 레코드는 `System::events()`를 통해 직접 액세스하고 반복할 수 있지만, 테스트에 사용할 수 있는 몇 가지 도우미 메서드도 시스템 팔레트에 정의되어 있습니다. [`assert_last_event`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L1577)와 [`assert_has_event`](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/2e28ab448c5e5e27198ba80b726701479cc982fd/substrate/frame/system/src/lib.rs#L1565)입니다.
 
 ```rust
 fn fake_test_example() {
@@ -175,7 +175,7 @@ fn fake_test_example() {
 예를 들어, 테스트 전에 계정 잔액을 미리 설정하고 싶을 수 있습니다.
 
 `frame_system::Config`의 구현에서 `AccountId`와 `Balance` 모두 `u64`로 설정되어 있습니다.
-계정 잔액으로 `(AccountId, Balance)` 쌍을 시드로 사용하려면 `balances` 벡터에 `(1, 10)`, `(2, 20)`, `(3, 30)`, `(4, 40)`, `(5, 50)`, `(6, 60)`과 같은 형태로 넣을 수 있습니다.예를 들어, 
+계정 잔액으로 `(AccountId, Balance)` 쌍을 시드로 사용하려면 `balances` 벡터에 `(1, 10)`, `(2, 20)`, `(3, 30)`, `(4, 40)`, `(5, 50)`, `(6, 60)`과 같은 형태로 넣을 수 있습니다.예를 들어,
 
 ```rust
 impl ExtBuilder {
@@ -234,7 +234,7 @@ fn run_to_block(n: u64) {
 }
 ```
 
-`on_finalize` 및 `on_initialize` 메서드는 팔레트 특성이 각 블록 전후에 런타임 메서드에 인코딩된 로직을 실행하기 위해 `frame_support::traits::{OnInitialize, OnFinalize}` 특성을 구현하는 경우에만 `ExamplePallet`에서 호출됩니다. 
+`on_finalize` 및 `on_initialize` 메서드는 팔레트 특성이 각 블록 전후에 런타임 메서드에 인코딩된 로직을 실행하기 위해 `frame_support::traits::{OnInitialize, OnFinalize}` 특성을 구현하는 경우에만 `ExamplePallet`에서 호출됩니다.
 
 그런 다음 이 함수를 다음과 같은 방식으로 호출합니다.
 

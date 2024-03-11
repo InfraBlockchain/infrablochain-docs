@@ -96,7 +96,7 @@ The [BalanceToAssetBalance](https://paritytech.github.io/polkadot-sdk/master/pal
 
 ### System Token Weight
 
-Generally, the fee for the same transaction should have the same converted value regardless of System Token used, and the **System Token Weight** is designed to consider this. 
+Generally, the fee for the same transaction should have the same converted value regardless of System Token used, and the **System Token Weight** is designed to consider this.
 
 _For example, if a transaction fee is valued at `1,000`, paying in `USD` or `KRW` would differ in amount (e.g., 1 USD token might equate to 1.3 KRW tokens) but will equate to the same value of `1,000`._
 
@@ -167,4 +167,4 @@ From the perspective of a blockchain service provider, having users pay transact
 
 ## Next Steps
 
-- [System-Token-Tx-Payment](https://github.com/InfraBlockchain/infrablockspace-sdk/blob/master/substrate/frame/transaction-payment/system-token-tx-payment/src/lib.rs)
+- [System-Token-Tx-Payment](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/frame/transaction-payment/system-token-tx-payment/src/lib.rs)

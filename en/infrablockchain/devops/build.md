@@ -7,6 +7,7 @@ keywords:
 ---
 
 ## Containerization
+
 **Containerization** is a software distribution process that bundles an application's code with all the necessary files and libraries required to run it on any infrastructure. **_InfraBlockchain_** also supports containerization for all chains within it, and the relevant methods are described below.
 
 ## Creating a Container Image
@@ -15,7 +16,7 @@ Let's explore how to create a Docker container image.
 
 To create a container image, you need a 'Dockerfile'. Here, we'll explain how to create a container image for the Relay Chain. If you want to create a container image for a different chain, please visit the link below and check the desired chain repository.
 
-https://github.com/InfraBlockchain/infrablockspace-sdk
+https://github.com/InfraBlockchain/infrablockchain-substrate
 
 ```docker
 FROM ubuntu:jammy AS builder
@@ -53,7 +54,7 @@ COPY . .
 
 RUN echo 'Building in release mode.' ; \
     cargo build --release ; \
-    mv /infra-relay-chain/target/release/infrablockspace /infra-relay-chain/target/; 
+    mv /infra-relay-chain/target/release/infrablockspace /infra-relay-chain/target/;
 
 # Final stage. Copy the node executable and the script
 FROM ubuntu:jammy

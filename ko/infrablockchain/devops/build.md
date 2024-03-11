@@ -18,7 +18,7 @@ keywords:
 여기서는 릴레이체인의 컨테이너 이미지를 만드는 것에 대해 설명합니다.
 다른 체인의 컨테이너 이미지를 만드시길 원하실 경우, 아래 링크에 접속한 다음 원하시는 체인 레포지토리에서 확인하시길 바랍니다.
 
-https://github.com/InfraBlockchain/infrablockspace-sdk
+https://github.com/InfraBlockchain/infrablockchain-substrate
 
 ```docker
 FROM ubuntu:jammy AS builder
@@ -56,7 +56,7 @@ COPY . .
 
 RUN echo 'Building in release mode.' ; \
     cargo build --release ; \
-    mv /infra-relay-chain/target/release/infrablockspace /infra-relay-chain/target/; 
+    mv /infra-relay-chain/target/release/infrablockspace /infra-relay-chain/target/;
 
 # Final stage. Copy the node executable and the script
 FROM ubuntu:jammy
@@ -87,4 +87,3 @@ docker build -t <tag name>:<version> .
 ```
 
 생성된 이미지를 활용하는 방법은 다음 배포(Deployment) 문서에 나와있습니다.
-

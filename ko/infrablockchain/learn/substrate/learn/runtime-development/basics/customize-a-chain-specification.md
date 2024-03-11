@@ -27,10 +27,10 @@ Substrate 노드를 만든 후에는 많은 피어와 함께 네트워크를 시
 
 1. 일반 체인 스펙 수정하기 (선택 사항):
 
-   이 선택 사항은 노드의 소스를 수정하여 _새 네트워크_에서 실행해야 하는 네트워크의 _기존_ 일반 체인 스펙을 활용할 수 있습니다.
-   예를 들어, 이는 [로컬 릴레이 체인 준비](../../../../../tutorials/build/build-infra-relay-chain.md)에서 Polkadot의 소스를 커스텀하지 않고 커스텀 _릴레이 체인_을 생성하려는 경우에 매우 유용합니다.
+   이 선택 사항은 노드의 소스를 수정하여 *새 네트워크*에서 실행해야 하는 네트워크의 _기존_ 일반 체인 스펙을 활용할 수 있습니다.
+   예를 들어, 이는 [로컬 릴레이 체인 준비](../../../../../tutorials/build/build-infra-relay-chain.md)에서 Polkadot의 소스를 커스텀하지 않고 커스텀 *릴레이 체인*을 생성하려는 경우에 매우 유용합니다.
 
-   여기서는 _동일한_ 체인 스펙을 사용하지만 부트노드를 비활성화하기 위해 플래그를 전달합니다. 이렇게 하면 이러한 노드가 다른 새 네트워크를 위해 다른 노드가 될 수 있는 _새 네트워크_가 필요합니다.
+   여기서는 _동일한_ 체인 스펙을 사용하지만 부트노드를 비활성화하기 위해 플래그를 전달합니다. 이렇게 하면 이러한 노드가 다른 새 네트워크를 위해 다른 노드가 될 수 있는 *새 네트워크*가 필요합니다.
 
    ```bash
    ./target/release/node-template build-spec --chain chain-spec-plain.json --raw --disable-default-bootnode > no-bootnodes-chain-spec-plain.json
@@ -56,7 +56,7 @@ Rust로 빌드된 WebAssembly 대상은 최적화되어 있기 때문에 바이�
 각 네트워크 참가자가 일반 및/또는 원시 체인 스펙을 생성한다면, 결과적인 Wasm 블롭의 차이로 인해 합의가 깨질 수 있습니다.
 
 일반적으로는 노드의 소스 코드 자체에 체인 스펙 파일을 포함하여 노드를 동일한 방식으로 빌드할 수 있도록하는 것이 좋습니다. 이렇게 하면 다른 genesis 블롭(blob)과 비교하기 쉬워집니다.
-***인프라블록체인(InfraBlockchain)*** 같은 네트워크 체인 스펙 파일은 [여기에서](https://github.com/InfraBlockchain/infrablockspace-sdk/tree/master/polkadot/node/service/chain-specs) 찾을 수 있으며, `.gitignore` 파일도 함께 제공되어 이러한 `!/*.json` 파일을 실수로 변경하지 않도록 합니다. 이렇게 하면 노드 소프트웨어를 더 발전시키고 [런타임 업그레이드](../../../tutorials/build-a-blockchain/upgrade-a-running-network.md)를 수행하는 동안 안정성을 유지할 수 있습니다.
+**_인프라블록체인(InfraBlockchain)_** 같은 네트워크 체인 스펙 파일은 [여기에서](https://github.com/InfraBlockchain/infrablockchain-substrate/tree/master/polkadot/node/service/chain-specs) 찾을 수 있으며, `.gitignore` 파일도 함께 제공되어 이러한 `!/*.json` 파일을 실수로 변경하지 않도록 합니다. 이렇게 하면 노드 소프트웨어를 더 발전시키고 [런타임 업그레이드](../../../tutorials/build-a-blockchain/upgrade-a-running-network.md)를 수행하는 동안 안정성을 유지할 수 있습니다.
 
 ## 새 노드 시작하기
 
