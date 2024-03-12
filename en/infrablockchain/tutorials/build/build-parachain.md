@@ -1,22 +1,20 @@
 ---
 title: Build a Parachain
-description:
+description: 
 keywords:
   - Parachain
   - InfraRelayChain
 ---
 
-This tutorial explains how to connect a parachain to the **_InfraRelayChain_**.
+This tutorial explains how to connect a parachain to the ***InfraRelayChain***.
 
 ## Tutorial Objectives
-
 By completing this tutorial, you will achieve the following goals:
 
 - Understand the features of the Relay Chain and parachain.
 - Connect different chains (Relay Chain and parachain) to build a multi-chain architecture.
 
 ## Before Getting Started
-
 Before you begin, make sure to:
 
 - Review the[ Local Relay Chain Setup tutorial](./build-infra-relay-chain.md) for configuring the local Relay Chain.
@@ -24,13 +22,13 @@ Before you begin, make sure to:
 
 ## Building Parachain Template
 
-In this tutorial, we will use _Parachain Template_ to connect it to the **_InfraRelayChain_**. The parachain template can also serve as a starting point for parachain development.
+In this tutorial, we will use *Parachain Template* to connect it to the ***InfraRelayChain***. The parachain template can also serve as a starting point for parachain development.
 
 To build the parachain template, follow these steps:
 
 To build the parachain template, follow these steps:
 
-1. Clone the latest **_InfraBlockchain_** SDK:
+1. Clone the latest ***InfraBlockchain*** SDK:
 
    ```bash
    git clone --branch master https://github.com/InfraBlockchain/infrablockchain-substrate.git
@@ -44,7 +42,7 @@ To build the parachain template, follow these steps:
 
 ## Reserve Parachain Identifier (ParaId)
 
-Parachains connected to Relay Chain need to reserve a unique identifier known as `ParaId`. This identifier is used by Relay Chain to identify and connect parachains. The ParaId is also used to identify the slot occupied by the parachain or parathread, as explained in [_Parachain_](https://wiki.polkadot.network/docs/learn-parachains) or [_Parathread_](https://wiki.polkadot.network/docs/learn-parathreads) documentation.
+Parachains connected to Relay Chain need to reserve a unique identifier known as `ParaId`. This identifier is used by Relay Chain to identify and connect parachains. The ParaId is also used to identify the slot occupied by the parachain or parathread, as explained in [*Parachain*](https://wiki.polkadot.network/docs/learn-parachains) or [*Parathread*](https://wiki.polkadot.network/docs/learn-parathreads) documentation.
 
 To reserve a parachain identifier, follow these steps:
 
@@ -61,7 +59,7 @@ To reserve a parachain identifier, follow these steps:
    ![Move to Parachain](/media/images/docs/infrablockchain/tutorials/build/network-parachains.png)
 
 5. Click on Parathreads and then click on ParaId.
-
+   
    ![Reserve a Parachain Identifier](/media/images/docs/infrablockchain/tutorials/build/paraid-reserve.png)
 
 6. Confirm the transaction configuration for reserving the parachain identifier and click `Submit`.
@@ -84,58 +82,58 @@ To register the parachain on the local Relay Chain, you need to modify the plain
 
 To generate the plain chain spec of the parachain template node, execute the following command:
 
-```bash
-./target/release/parachain-template-node build-spec --disable-default-bootnode > plain-para-template-chainspec.json
-```
+   ```bash
+   ./target/release/parachain-template-node build-spec --disable-default-bootnode > plain-para-template-chainspec.json
+   ```
 
 - Open the generated plain chain spec in a text editor.
 
 - Set the `para_id` field to the reserved identifier.
 
-  ```json
-  ...
-  "relay_chain": "infra-relay-local",
-  "para_id": 2000,
-  "codeSubstitutes": {},
-  "genesis": {
-     ...
-  }
-  ```
+   ```json
+   ...
+   "relay_chain": "infra-relay-local",
+   "para_id": 2000,
+   "codeSubstitutes": {},
+   "genesis": {
+      ...
+   }
+   ```
 
 - Set `parachainId` to the reserved parachain identifier.
 
 - For example, if the reserved identifier is 2000, set the `para_id` field to 2000:
 
-  ```json
-  ...
-     "parachainSystem": null,
-     "parachainInfo": {
-       "parachainId": 2000
-     },
-  ...
-  ```
+   ```json
+   ...
+      "parachainSystem": null,
+      "parachainInfo": {
+        "parachainId": 2000
+      },
+   ...
+   ```
 
 - If you are completing this tutorial concurrently with someone else on the same local network, make sure to modify the plain chain spec to avoid peering with each other. Find the `protocolId` key in the plain chain spec JSON file and change it to a unique value.
 
-  ```json
-     "protocolId": "infrablockchain"
-  ```
+   ```json
+      "protocolId": "infrablockchain"
+   ```
 
 - Save the changes and close the plain chain spec file.
 
 To generate the raw chain spec file from the modified plain chain spec, execute the following command:
 
-```bash
-./target/release/parachain-template-node build-spec --chain plain-para-template-chainspec.json --disable-default-bootnode --raw > raw-para-template-chainspec.json
-```
+   ```bash
+   ./target/release/parachain-template-node build-spec --chain plain-para-template-chainspec.json --disable-default-bootnode --raw > raw-para-template-chainspec.json
+   ```
 
 This command generates a new raw chain spec file with two new collators for a new session at block #0.
 
-```text
-2023-12-01 13:00:50 Building chain spec
-2023-12-01 13:00:50 assembling new collators for new session 0 at #0
-2023-12-01 13:00:50 assembling new collators for new session 1 at #0
-```
+   ```text
+   2023-12-01 13:00:50 Building chain spec
+   2023-12-01 13:00:50 assembling new collators for new session 0 at #0
+   2023-12-01 13:00:50 assembling new collators for new session 1 at #0
+   ```
 
 ### Export Parachain WebAssembly Runtime and Genesis State
 
@@ -151,7 +149,7 @@ To prepare the parachain collators for registration, follow these steps:
 
 2. Generate the parachain genesis state.
 
-   To register parachain, you should know the genesis state. To export the entire genesis state to a file encoded in _hexadecimal_, execute a command similar to the following:
+   To register parachain, you should know the genesis state. To export the entire genesis state to a file encoded in *hexadecimal*, execute a command similar to the following:
 
    ```bash
    ./target/release/parachain-template-node export-genesis-state --chain raw-para-template-chainspec.json para-2000-genesis-state
@@ -165,7 +163,7 @@ Collator nodes are specialized nodes for parachains with the following roles:
 
 - Retrieve the latest state from the relay chain.
 - Generate parachain blocks and submit them to the relay chain.
-
+  
 For more details, refer to [Collators Document](https://wiki.polkadot.network/docs/learn-parachains-protocol#collators).
 
 1. Start the collator node with a command similar to the following:
@@ -202,25 +200,25 @@ For more details, refer to [Collators Document](https://wiki.polkadot.network/do
 
 - In the terminal where the collator node is started, you should see output similar to the following:
 
-  ```text
-  Parachain Collator Template
-  ✌️  version 0.1.0-336530d3bdd
-  ❤️  by Anonymous, 2020-2023
-  📋 Chain specification: Local Testnet
-  🏷  Node name: Alice
-  👤 Role: AUTHORITY
-  💾 Database: RocksDb at /tmp/parachain/alice/chains/local_testnet/db/full
-  no effect anymore and will be removed in the future!
-  Parachain Account: 5Ec4AhPUwPeyTFyuhGuBbD224mY85LKLMSqSSo33JYWCazU4
-  Is collating: yes
-  [Relaychain] 🏷  Local node identity is: 12D3KooWR8wJbGWrjzKTpuXQvbuM1rE2GAE9JVEFEwAyNX6LV9nN
-  [Relaychain] 💻 Operating system: ...
-  ......
-  [Relaychain] 📦 Highest known block at #95
-  ...
-  [Parachain] 🏷  Local node identity is: 12D3KooWF464pkLaHbsfc4DzDkYuhdVE4zSqBHR1gPapLvwsfZtg
-  ...
-  ```
+   ```text
+   Parachain Collator Template
+   ✌️  version 0.1.0-336530d3bdd
+   ❤️  by Anonymous, 2020-2023
+   📋 Chain specification: Local Testnet
+   🏷  Node name: Alice
+   👤 Role: AUTHORITY
+   💾 Database: RocksDb at /tmp/parachain/alice/chains/local_testnet/db/full
+   no effect anymore and will be removed in the future!
+   Parachain Account: 5Ec4AhPUwPeyTFyuhGuBbD224mY85LKLMSqSSo33JYWCazU4
+   Is collating: yes
+   [Relaychain] 🏷  Local node identity is: 12D3KooWR8wJbGWrjzKTpuXQvbuM1rE2GAE9JVEFEwAyNX6LV9nN
+   [Relaychain] 💻 Operating system: ...
+   ......
+   [Relaychain] 📦 Highest known block at #95
+   ...
+   [Parachain] 🏷  Local node identity is: 12D3KooWF464pkLaHbsfc4DzDkYuhdVE4zSqBHR1gPapLvwsfZtg
+   ...
+   ```
 
 - The template collator node runs as an independent node, and the embedded Relay Chain node connects as a peer to the local Relay Chain verifier node. (If the embedded Relay Chain is not peered with the local Relay Chain node, try disabling the firewall or adding the address of the Relay Chain node to the `bootnodes` parameter.)
 
@@ -236,7 +234,7 @@ With the local Relay Chain and collator node running, you are ready to register 
 
 3. Click on **Developer** and select **Sudo**.
 
-4. Choose _paraSudoWrapper_ and then select `sudoScheduleParaInitialize(id, genesis)`.
+4. Choose *paraSudoWrapper* and then select `sudoScheduleParaInitialize(id, genesis)`.
 
 - Transaction parameters:
 
@@ -245,7 +243,7 @@ With the local Relay Chain and collator node running, you are ready to register 
   - `validationCode`: Click on **File Upload** and upload the exported WebAssembly runtime for the parachain. In this tutorial, select the para-2000-wasm file.
   - `paraKind`: Choose **Yes**.
 
-  ![Selecting Sudo for Parachain Registration](/media/images/docs/infrablockchain/tutorials/build/register-para-with-sudo.png)
+   ![Selecting Sudo for Parachain Registration](/media/images/docs/infrablockchain/tutorials/build/register-para-with-sudo.png)
 
 5. Click on **Submit Sudo**.
 
@@ -253,7 +251,7 @@ With the local Relay Chain and collator node running, you are ready to register 
 
    After submitting the transaction, click on **Network** and choose **Explorer**.
 
-7. In the recent events list, verify the events `sudo.Sudid` and `paras.PvfCheckAccepted`. Click on the events to see details about the transaction.
+7. In the recent events list, verify the events `sudo.Sudid` and `paras.PvfCheckAccepted`. Click on the events to see details about the transaction.  
 
    ![Sudo Event](/media/images/docs/sudo-event.jpg)
 
@@ -265,8 +263,8 @@ With the local Relay Chain and collator node running, you are ready to register 
 
 - Relay Chain tracks the latest block (head) of each parachain.
 - Once the Relay Chain block is finalized, the parachain block, which has completed the [verification process](../../learn/architecture/architecture.md#parachain-protocol), is also finalized.
-- This is how the **_shared security_** in the multi-chain architecture of **_InfraBlockchain_** is achieved.
-- When the parachain is connected to the Relay Chain in the next epoch, you should be able to see information about that parachain in the Explorer by moving to the port you specified when starting the collator node.
+- This is how the ***shared security*** in the multi-chain architecture of ***InfraBlockchain*** is achieved.
+- When the parachain is connected to the Relay Chain in the next epoch, you should be able to see information about that parachain in the Explorer by moving to the port you specified when starting the collator node. 
 
 ## Submitting Parachain Transactions
 
@@ -283,7 +281,7 @@ To submit a transaction, follow these steps:
 4. Click on **Accounts** and select **Transfer** to send funds from Alice to another account.
 
 - Choose the account from which to send funds.
-  Enter the amount.
+Enter the amount.
 - Enter the amount.
 - Click on **Generate Transfer**.
 - Review the transaction and click on **Sign and Submit** to approve the transfer.

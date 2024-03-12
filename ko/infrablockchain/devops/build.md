@@ -56,7 +56,7 @@ COPY . .
 
 RUN echo 'Building in release mode.' ; \
     cargo build --release ; \
-    mv /infra-relay-chain/target/release/infrablockspace /infra-relay-chain/target/;
+    mv /infra-relay-chain/target/release/infra-relaychain /infra-relay-chain/target/; 
 
 # Final stage. Copy the node executable and the script
 FROM ubuntu:jammy
@@ -87,3 +87,4 @@ docker build -t <tag name>:<version> .
 ```
 
 생성된 이미지를 활용하는 방법은 다음 배포(Deployment) 문서에 나와있습니다.
+

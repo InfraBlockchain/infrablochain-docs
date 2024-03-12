@@ -96,9 +96,9 @@ The [BalanceToAssetBalance](https://paritytech.github.io/polkadot-sdk/master/pal
 
 ### System Token Weight
 
-Generally, the fee for the same transaction should have the same converted value regardless of System Token used, and the **System Token Weight** is designed to consider this.
+Generally, the fee for the same transaction should have the same converted value regardless of System Token used, and the **System Token Weight** is designed to consider this. 
 
-_For example, if a transaction fee is valued at `1,000`, paying in `USD` or `KRW` would differ in amount (e.g., 1 USD token might equate to 1.3 KRW tokens) but will equate to the same value of `1,000`._
+_For example, if a transaction fee is valued at `1,000`, paying in `USD` or `KRW` would differ in amount (e.g. 1 USD token might equate to 1.3 KRW tokens) but will equate to the same value of `1,000`._
 
 - **System Token Weight** is calculated considering the decimal places and exchange rate information relative to the Base System Token (BASE_SYSTEM_TOKEN).
 

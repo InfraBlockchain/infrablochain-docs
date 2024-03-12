@@ -10,7 +10,7 @@ keywords:
 
 ## 튜토리얼 목표
 
-이 튜토리얼을 완료함으로써 다음 목표를 달성할 수 있습니다:
+이 튜토리얼을 완료함으로써 다음 목표를 달성할 수 있습니다: 
 
 - 릴레이체인과 파라체인의 특징을 알 수 있습니다.
 
@@ -22,7 +22,7 @@ keywords:
 
 - [로컬 릴레이체인 준비](./build-infra-relay-chain.md) 튜토리얼을 통해 로컬 릴레이체인을 구성 방법에 대해 확인합니다.
 
-- [커스텀 체인 스펙](../../learn/substrate/build/chain-spec.md)을 구성하는 방법에 대해 확인합니다.
+- [커스텀 체인 스펙](../../learn/substrate/build/chain-spec.md)을 구성하는 방법에 대해 확인합니다. 
 
 ## 파라체인 템플릿 빌드하기
 
@@ -37,7 +37,7 @@ keywords:
    git clone --branch master https://github.com/InfraBlockchain/infrablockchain-substrate.git
    ```
 
-2. 다음 명령을 실행하여 파라체인 템플릿 런타임을 빌드합니다.
+2. 다음 명령을 실행하여 파라체인 템플릿 런타임을 빌드합니다. 
 
    ```bash
    cargo build --release --bin parachain-template-node
@@ -50,9 +50,9 @@ keywords:
 
 파라체인 식별자를 예약하려면 다음을 수행하세요:
 
-1. 최소 두 개이상의 밸리데이터 노드가 구동 중인 로컬 릴레이체인 네트워크를 구성합니다.
+1. 최소 두 개이상의 밸리데이터 노드가 구동 중인 로컬 릴레이체인 네트워크를 구성합니다. 
 
-2. 브라우저에서 [인프라블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer)를 엽니다.
+2. 브라우저에서 [인프라블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer)를 엽니다. 
 3. 익스플로러 탭에서 왼쪽 상단 탭을 클릭하여 `DEVELOPMENT` 섹션을 눌러 노드를 시작할 때 설정한 RPC 포트를 이용해 로컬 릴레이체인에 연결합니다.
 
    ![로컬 네트워크 연결](/media/images/docs/infrablockchain/tutorials/build/connect-network.png)
@@ -67,7 +67,7 @@ keywords:
 
 6. 파라체인 식별자를 예약하는 트랜잭션 구성을 확인한 후 **제출**을 클릭합니다.
 
-   - 파라체인 식별자를 예약하는 데 사용한 계정은 트랜잭션에 대한 요금이 청구되는 계정이며, 해당 식별자와 연관된 계정이 됩니다.
+   - 파라체인 식별자를 예약하는 데 사용한 계정은 트랜잭션에 대한 요금이 청구되는 계정이며, 해당 식별자와 연관된 계정이 됩니다.  
 
 7. 트랜잭션을 승인하기 위해 **서명 및 제출**을 클릭합니다.
 
@@ -85,9 +85,9 @@ keywords:
 
 파라체인 템플릿 노드의 평문 체인 스펙을 생성하려면 다음 명령을 실행하세요:
 
-```bash
-./target/release/parachain-template-node build-spec --disable-default-bootnode > plain-para-template-chainspec.json
-```
+   ```bash
+   ./target/release/parachain-template-node build-spec --disable-default-bootnode > plain-para-template-chainspec.json
+   ```
 
 - 생성된 평문 체인 스펙을 텍스트 편집기에서 엽니다.
 
@@ -95,50 +95,50 @@ keywords:
 
 - 예를 들어, 예약한 식별자가 `2000`인 경우 `para_id` 필드를 `2000`으로 설정합니다:
 
-  ```json
-  ...
-  "relay_chain": "infra-relay-local",
-  "para_id": 2000,
-  "codeSubstitutes": {},
-  "genesis": {
-     ...
-  }
-  ```
+   ```json
+   ...
+   "relay_chain": "infra-relay-local",
+   "para_id": 2000,
+   "codeSubstitutes": {},
+   "genesis": {
+      ...
+   }
+   ```
 
 - `parachainId` 를 예약한 파라체인 식별자로 설정합니다.
 
 - 예를 들어, 예약한 식별자가 `2000`인 경우 `para_id` 필드를 `2000`으로 설정합니다:
 
-  ```json
-  ...
-     "parachainSystem": null,
-     "parachainInfo": {
-       "parachainId": 2000
-     },
-  ...
-  ```
+   ```json
+   ...
+      "parachainSystem": null,
+      "parachainInfo": {
+        "parachainId": 2000
+      },
+   ...
+   ```
 
 - 동일한 로컬 네트워크에서 누군가와 동시에 이 튜토리얼을 완료하는 경우, 해당 노드와 피어링되지 않도록 평문 체인 스펙을 수정해야 합니다. 평문 체인 스펙 JSON 파일에서 `protocolId` 키를 찾고 어떤 고유한 값으로 변경해줍니다.
 
-  ```json
-     "protocolId": "infrablockchain"
-  ```
+   ```json
+      "protocolId": "infrablockchain"
+   ```
 
 - 변경 사항을 저장하고 평문 체인 스펙 파일을 닫습니다.
 
 수정된 체인 스펙 파일에서 원시(raw) 체인 스펙 파일을 생성하려면 다음 명령을 실행하세요:
 
-```bash
-./target/release/parachain-template-node build-spec --chain plain-para-template-chainspec.json --disable-default-bootnode --raw > raw-para-template-chainspec.json
-```
+   ```bash
+   ./target/release/parachain-template-node build-spec --chain plain-para-template-chainspec.json --disable-default-bootnode --raw > raw-para-template-chainspec.json
+   ```
 
 이 명령은 두 개의 콜레이터가 있는 새로운 원시(raw) 체인 스펙 파일을 생성합니다.
 
-```text
-2023-12-01 13:00:50 Building chain spec
-2023-12-01 13:00:50 assembling new collators for new session 0 at #0
-2023-12-01 13:00:50 assembling new collators for new session 1 at #0
-```
+   ```text
+   2023-12-01 13:00:50 Building chain spec
+   2023-12-01 13:00:50 assembling new collators for new session 0 at #0
+   2023-12-01 13:00:50 assembling new collators for new session 1 at #0
+   ```
 
 ### 파라체인 웹어셈블리 런타임 및 제네시스 상태 추출하기
 
@@ -161,7 +161,7 @@ keywords:
    ./target/release/parachain-template-node export-genesis-state --chain raw-para-template-chainspec.json para-2000-genesis-state
    ```
 
-   내보낸 런타임 및 상태는 _제네시스_ 블록을 위한 것이어야 합니다. 이전 상태를 가진 파라체인을 릴레이체인에 연결할 수 없습니다. **모든 파라체인은 블록 높이 0 부터 시작해야 합니다.**
+   내보낸 런타임 및 상태는 _제네시스_ 블록을 위한 것이어야 합니다. 이전 상태를 가진 파라체인을 릴레이체인에 연결할 수 없습니다. **모든 파라체인은 블록 높이 0 부터 시작해야 합니다.** 
 
 ## 콜레이터 노드 시작하기
 
@@ -199,48 +199,48 @@ keywords:
 - 다른 파라체인 노드를 시작하는 경우 동일한 릴레이체인 스펙 파일을 사용하지만 다른 기본 경로와 포트 번호를 사용해야 합니다.
 - 콜레이터 노드를 시작한 터미널에서 다음과 유사한 출력을 볼 수 있어야 합니다:
 
-  ```text
-  Parachain Collator Template
-  ✌️  version 0.1.0-336530d3bdd
-  ❤️  by Anonymous, 2020-2023
-  📋 Chain specification: Local Testnet
-  🏷  Node name: Alice
-  👤 Role: AUTHORITY
-  💾 Database: RocksDb at /tmp/parachain/alice/chains/local_testnet/db/full
-  no effect anymore and will be removed in the future!
-  Parachain Account: 5Ec4AhPUwPeyTFyuhGuBbD224mY85LKLMSqSSo33JYWCazU4
-  Is collating: yes
-  [Relaychain] 🏷  Local node identity is: 12D3KooWR8wJbGWrjzKTpuXQvbuM1rE2GAE9JVEFEwAyNX6LV9nN
-  [Relaychain] 💻 Operating system: ...
-  ......
-  [Relaychain] 📦 Highest known block at #95
-  ...
-  [Parachain] 🏷  Local node identity is: 12D3KooWF464pkLaHbsfc4DzDkYuhdVE4zSqBHR1gPapLvwsfZtg
-  ...
-  ```
+   ```text
+   Parachain Collator Template
+   ✌️  version 0.1.0-336530d3bdd
+   ❤️  by Anonymous, 2020-2023
+   📋 Chain specification: Local Testnet
+   🏷  Node name: Alice
+   👤 Role: AUTHORITY
+   💾 Database: RocksDb at /tmp/parachain/alice/chains/local_testnet/db/full
+   no effect anymore and will be removed in the future!
+   Parachain Account: 5Ec4AhPUwPeyTFyuhGuBbD224mY85LKLMSqSSo33JYWCazU4
+   Is collating: yes
+   [Relaychain] 🏷  Local node identity is: 12D3KooWR8wJbGWrjzKTpuXQvbuM1rE2GAE9JVEFEwAyNX6LV9nN
+   [Relaychain] 💻 Operating system: ...
+   ......
+   [Relaychain] 📦 Highest known block at #95
+   ...
+   [Parachain] 🏷  Local node identity is: 12D3KooWF464pkLaHbsfc4DzDkYuhdVE4zSqBHR1gPapLvwsfZtg
+   ...
+   ```
 
 - 템플릿 콜레이터 노드가 독립적인 노드로 실행되고 콜레이터 노드에 내장된 릴레이체인 노드가 로컬 릴레이체인 검증자 노드와 피어로 연결되는 것을 볼 수 있어야 합니다.(내장된 릴레이체인이 로컬 릴레이체인 노드와 피어링되지 않는 경우 방화벽을 비활성화하거나 릴레이 노드의 주소를 `bootnodes` 매개변수에 추가해 보세요.)
 
 ## 로컬 릴레이체인에 등록하기
 
-로컬 릴레이체인과 콜레이터 노드가 실행 중인 상태에서 로컬 릴레이체인에 파라체인을 등록할 준비가 되었습니다. 실제 퍼블릭 메인 네트워크에서 파라체인 등록은 일반적으로 거버넌스 과정을 통해 이루어지지만 본 튜토리얼에서는 Sudo 트랜잭션을 이용해 진행해 나갈 예정입니다.
+로컬 릴레이체인과 콜레이터 노드가 실행 중인 상태에서 로컬 릴레이체인에 파라체인을 등록할 준비가 되었습니다. 실제 퍼블릭 메인 네트워크에서 파라체인 등록은 일반적으로 거버넌스 과정을 통해 이루어지지만 본 튜토리얼에서는 Sudo 트랜잭션을 이용해 진행해 나갈 예정입니다. 
 
 ### 파라체인 등록 과정:
 
 1. 최소 두개 이상의 밸리데이터 노드로 구성된 로컬 릴레이체인이 실행 중인지 확인합니다.
-2. 브라우저에서 [인프라블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 엽니다. 위의 파라체인 식별자를 예약할 때 처럼, RPC 및 웹소켓 포트를 이용해 릴레이체인에 연결합니다.
+2. 브라우저에서 [인프라블록체인 익스플로러](https://portal.infrablockspace.net/#/explorer/)를 엽니다. 위의 파라체인 식별자를 예약할 때 처럼, RPC 및 웹소켓 포트를 이용해 릴레이체인에 연결합니다. 
 3. **개발자**를 클릭하고 **Sudo**를 선택합니다.
 
 4. _paraSudoWrapper_ 를 선택한 다음 _sudoScheduleParaInitialize(id, genesis)_ 를 선택합니다.
 
 - 트랜잭션 매개변수 설정:
 
-  - `id`: 예약한 `ParaId`를 입력합니다.본 튜토리얼에서는 예약한 식별자가 2000인 경우입니다.
-  - `genesisHead`: **파일 업로드**를 클릭하고 파라체인을 위해 내보낸 제네시스 상태를 업로드합니다. 본 튜토리얼에서는 `para-2000-genesis` 파일을 선택합니다.
-  - `validationCode`: **파일 업로드**를 클릭하고 파라체인을 위해 내보낸 웹어셈블리 런타임을 업로드합니다. 본 튜토리얼에서는 `para-2000-wasm` 파일을 선택합니다.
-  - `paraKind`: **예**를 선택합니다.
+   - `id`: 예약한 `ParaId`를 입력합니다.본 튜토리얼에서는 예약한 식별자가 2000인 경우입니다.
+   - `genesisHead`: **파일 업로드**를 클릭하고 파라체인을 위해 내보낸 제네시스 상태를 업로드합니다. 본 튜토리얼에서는 `para-2000-genesis` 파일을 선택합니다.
+   - `validationCode`: **파일 업로드**를 클릭하고 파라체인을 위해 내보낸 웹어셈블리 런타임을 업로드합니다. 본 튜토리얼에서는 `para-2000-wasm` 파일을 선택합니다.
+   - `paraKind`: **예**를 선택합니다.
 
-  ![파라체인 등록을 위해 Sudo 선택](/media/images/docs/infrablockchain/tutorials/build/register-para-with-sudo.png)
+   ![파라체인 등록을 위해 Sudo 선택](/media/images/docs/infrablockchain/tutorials/build/register-para-with-sudo.png)
 
 5. **Sudo 제출**을 클릭합니다.
 6. 트랜잭션 세부 정보를 검토한 다음 **서명 및 제출**을 클릭하여 트랜잭션을 승인합니다.
@@ -260,7 +260,7 @@ keywords:
    - 릴레이체인은 각 파라체인의 최신 블록(헤드)을 추적합니다.
    - 릴레이체인 블록이 확정되면 [검증 과정](https://polkadot.network/the-path-of-a-parachain-block)을 완료한 파라체인 블록도 확정됩니다.
    - 이것이 멀티체인 아키텍처인 **_인프라블록체인(InfraBlockchain)_** **공유된 보안(shared security)** 를 달성하는 방법입니다.
-   - 다음 epoch 에서 파라체인이 릴레이체인에 연결된 후 콜레이터 노드를 시작할 때 설정한 포트로 이동하면 익스플로러에서 해당 파라체인에 대한 정보를 볼 수 있습니다.
+   - 다음 epoch 에서 파라체인이 릴레이체인에 연결된 후 콜레이터 노드를 시작할 때 설정한 포트로 이동하면 익스플로러에서 해당 파라체인에 대한 정보를 볼 수 있습니다. 
 
 ## 파라체인 트랜잭션 제출하기
 
@@ -281,7 +281,7 @@ keywords:
    - **전송 생성**을 클릭합니다.
    - 트랜잭션을 검토한 다음 **서명 및 제출**을 클릭하여 전송을 승인합니다.
 
-5. **계정**을 클릭하여 전송이 완료되고 파라체인 트랜잭션이 성공적으로 수행되었는지 확인합니다.
+5. **계정**을 클릭하여 전송이 완료되고 파라체인 트랜잭션이 성공적으로 수행되었는지 확인합니다. 
 
 ## 블록체인 상태 재설정하기
 

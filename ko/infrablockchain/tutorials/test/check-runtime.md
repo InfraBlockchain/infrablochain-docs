@@ -35,7 +35,7 @@ Key-Value 데이터베이스를 사용하여 상태를 검색한 후, try-runtim
 
 ## 작동 방식
 
-`try-runtime` 도구는 [`remote_externalities`](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/utils/frame/remote-externalities/src/lib.rs) 라는 자체적인 externalities 구현을 가지고 있으며, 이는 `TestExternalities`를 래핑하고 데이터가 [타입 인코딩](../../learn/substrate/learn/frame/scale-codec.md)된 [Key-Value 저장소](../../learn/substrate/learn/frame/state-transitions-and-storage.md)를 사용합니다.
+`try-runtime` 도구는 [`remote_externalities`](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/utils/frame/remote-externalities/src/lib.rs)  라는 자체적인 externalities 구현을 가지고 있으며, 이는 `TestExternalities`를 래핑하고 데이터가 [타입 인코딩](../../learn/substrate/learn/frame/scale-codec.md)된 [Key-Value 저장소](../../learn/substrate/learn/frame/state-transitions-and-storage.md)를 사용합니다.
 
 아래 다이어그램은 externalities가 컴파일된 런타임 외부에 위치하여 해당 런타임의 스토리지를 캡처하는 방식을 보여줍니다.
 

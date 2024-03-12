@@ -16,7 +16,7 @@ These topics are intended to help you learn what's possible when you build a Sub
 
 ## [Basic](./basic/README.md)
 
-This section will covers fundamental concepts of blockchain (e.g., network, accounts, cryptography) and basic knowledge about Substrate.
+This section will covers fundamental concepts of blockchain (e.g. network, accounts, cryptography) and basic knowledge about Substrate.
 
 ## [FRAME](./frame/README.md)
 

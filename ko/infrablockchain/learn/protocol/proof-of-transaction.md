@@ -17,9 +17,9 @@ keywords:
 
 - **투표 대상**: 투표할 대상은 블록체인 계정을 갖고 있어야 하며 그 타입은 **_인프라릴레이체인(InfraRelaychain)_** 의 [블록체인 계정](../substrate/learn/basic/accounts-addresses-keys.md) 이여야 합니다. 보통은 `AccountId32` 입니다.
 
-- **트랜잭션 가중치(Weight)**: 트랜잭션 투표의 가중치는 트랜잭션 수수료에 따라 다르게 책정됩니다.
+- **트랜잭션 가중치(Weight)**: 트랜잭션 투표의 가중치는 트랜잭션 수수료에 따라 다르게 책정됩니다. 
 
-```rust
+```rust 
 // For example,
 pub struct PoTVote {
     system_token_id: u32,
@@ -58,17 +58,19 @@ impl SignedExtension for ChargeSystemToken {
 
 - **Proof-of-Transaction Node Pool**: PoT에 의해 선출된 노드를 관리하는 풀입니다.
 
-- **Seed Trust Node Pool**: 금융 기관이나 정부 조직과 같이 어떠한 상황에서도 정직한 노드를 운영하는 노드를 관리하는 풀입니다.
+- **Seed Trust Node Pool**: 금융 기관이나 정부 조직과 같이 어떠한 상황에서도 정직한 노드를 운영하는 노드를 관리하는 풀입니다. 
 
 ![밸리데이터 풀](/media/images/docs/infrablockchain/learn/protocol/validator-pool.png)
 
 **_인프라블록체인(InfraBlockchain)_** 의 초기 밸리데이터는 Seed Trust 밸리데이터로 구성되어 허가형 블록체인을 형성합니다. 네트워크가 안정됨에 따라 PoT 컨센서스 메커니즘 을 이용하여 누구나 블록 생성자로 참여할 수 있는 퍼블릭 블록체인으로 전환될 수 있습니다.
 
+
+
 ## Aggregated Proof-of-Transaction(PoT)
 
-**_인프라블록체인(InfraBlockchain)_** 은 **_인프라릴레이체인(InfraRelaychain)_** 을 중심으로 여러 개의 파라체인 블록들이 병렬적으로 실행되는 멀티체인 아키텍처입니다. **_인프라릴레이체인(InfraRelayChain)_** 밸리데이터는 각 파라체인 블록을 검증하고 해당 블록에 포함된 투표를 수집하는 역할을 수행하며 이를 **Aggregated Proof-of-Transaction** 이라 합니다.
+**_인프라블록체인(InfraBlockchain)_** 은 **_인프라릴레이체인(InfraRelaychain)_** 을 중심으로 여러 개의 파라체인 블록들이 병렬적으로 실행되는 멀티체인 아키텍처입니다. **_인프라릴레이체인(InfraRelayChain)_** 밸리데이터는 각 파라체인 블록을 검증하고 해당 블록에 포함된 투표를 수집하는 역할을 수행하며 이를 **Aggregated Proof-of-Transaction** 이라 합니다. 
 
-각 블록마다 **_인프라릴레이체인(InfraRelaychain)_** 의 블록 생성자(밸리데이터) 후보에 대한 투표가 선택적으로 포함되어 있고 검증 과정에서 해당 투표들이 수집되어 **_인프라릴레이체인(InfraRelayChain)_** 의 한 상태로 저장됩니다. 특정 시점이 지나면 수집된 투표를 바탕으로 블록 생성자 후보들에 대한 집계가 이루어지고 투표를 많이 받은 후보가 블록 생성자로 선출되게 됩니다.
+각 블록마다 **_인프라릴레이체인(InfraRelaychain)_** 의 블록 생성자(밸리데이터) 후보에 대한 투표가 선택적으로 포함되어 있고 검증 과정에서 해당 투표들이 수집되어 **_인프라릴레이체인(InfraRelayChain)_** 의 한 상태로 저장됩니다. 특정 시점이 지나면 수집된 투표를 바탕으로 블록 생성자 후보들에 대한 집계가 이루어지고 투표를 많이 받은 후보가 블록 생성자로 선출되게 됩니다. 
 
 ```rust
 #[pallet::storage]

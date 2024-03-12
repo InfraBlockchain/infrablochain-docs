@@ -47,13 +47,13 @@ keywords:
    git clone https://github.com/InfraBlockchain/infrablockchain-substrate
    ```
 
-4. 다음 명령을 실행하여 `infrablockspace-sdk` 디렉토리의 루트로 이동합니다.
+4. 다음 명령을 실행하여 `infrablockchain-substrate` 디렉토리의 루트로 이동합니다.
 
    ```bash
-   cd infrablockspace-sdk
+   cd infrablockchain-substrate
    ```
 
-5. 최신 infrablockspace-sdk 릴리스를 확인합니다.
+5. 최신 infrablockchain-substrate 릴리스를 확인합니다.
 
    릴리스 브랜치는 `release-v<n.n.n>` 형식을 따릅니다.
    예를 들어, 이 튜토리얼에서 사용하는 릴리스 브랜치는 `release-v1.0.0`입니다.
@@ -85,18 +85,17 @@ keywords:
 
 작업 폴더에는 릴레이체인의 바이너리 파일이 있지만, 파라체인 콜레이터 노드의 바이너리 파일도 필요합니다.
 
-본 테스트에서는 `parachain-template-node` 바이너리 파일을 빌드할 예정입니다.
+본 테스트에서는 `parachain-template-node` 바이너리 파일을 빌드할 예정입니다. 
 
 작업 폴더에 파라체인 콜레이터 바이너리 파일을 추가하려면 다음 단계를 수행하세요.
 
-1. `infrablockspace-sdk` 의 루트 디렉토리로 이동한 후 다음과 같은 명령어를 입력합니다.
+1. `infrablockchain-substrate` 의 루트 디렉토리로 이동한 후 다음과 같은 명령어를 입력합니다.
 
    ```bash
    cargo build --release -bin parachain-template-node-
    ```
-
    이제 paraId 1000에 대한 파라체인 콜레이터 바이너리 파일이 준비되었습니다.
-
+   
 2. 다음 명령을 실행하여 파라체인 바이너리 파일을 작업 `bin` 폴더로 복사합니다:
 
    ```bash
@@ -227,7 +226,7 @@ keywords:
    - parachain-1000-collator: https://portal.infrablockspace.net/?rpc=ws://127.0.0.1:9901#/explorer
    - parachain-1001-collator: https://portal.infrablockspace.net/?rpc=ws://127.0.0.1:10001#/explorer
 
-   모든 노드가 실행된 후에는 [_인프라블록체인(InfraBlockchain)_ 익스플로러](https://portal.infrablockspace.net)을 열고 노드 엔드포인트에 연결하여 노드와 상호 작용할 수 있습니다.
+   모든 노드가 실행된 후에는 [*인프라블록체인(InfraBlockchain)* 익스플로러](https://portal.infrablockspace.net)을 열고 노드 엔드포인트에 연결하여 노드와 상호 작용할 수 있습니다.
 
 ## 메시지 전달 채널 열기
 
@@ -285,7 +284,7 @@ keywords:
 
    이제 파라체인 A(1000)와 파라체인 B(1001) 사이에 양방향 HRMP 채널이 열린 테스트 네트워크가 준비되었습니다.
 
-   [_인프라블록체인(InfraBlockchain)_ 익스플로러](https://portal.infrablockspace.net)을 사용하여 파라체인에 연결하고 메시지를 보낼 수 있습니다.
+   [*인프라블록체인(InfraBlockchain)* 익스플로러](https://portal.infrablockspace.net)을 사용하여 파라체인에 연결하고 메시지를 보낼 수 있습니다.
 
 5. **개발자**를 클릭하고 **Extrinsics**를 선택합니다.
 

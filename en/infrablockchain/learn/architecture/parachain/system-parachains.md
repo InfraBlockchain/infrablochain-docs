@@ -24,5 +24,5 @@ Since the token-related logic is executed directly in the runtime rather than th
 
 ## Bridge Hub
 
-**Bridge Hub** is a system chain responsible for functionalities related to bridging in the context of building a
+**Bridge Hub** is a system chain responsible for functionalities related to bridging in the context of building a 
 **_Federated Multi-BlockChain_**, where multiple **_InfraBlockchain_** ecosystems are interconnected.

@@ -7,7 +7,6 @@ keywords:
 ---
 
 ## Containerization
-
 **Containerization** is a software distribution process that bundles an application's code with all the necessary files and libraries required to run it on any infrastructure. **_InfraBlockchain_** also supports containerization for all chains within it, and the relevant methods are described below.
 
 ## Creating a Container Image
@@ -54,7 +53,7 @@ COPY . .
 
 RUN echo 'Building in release mode.' ; \
     cargo build --release ; \
-    mv /infra-relay-chain/target/release/infrablockspace /infra-relay-chain/target/;
+    mv /infra-relay-chain/target/release/infra-relaychain /infra-relay-chain/target/; 
 
 # Final stage. Copy the node executable and the script
 FROM ubuntu:jammy

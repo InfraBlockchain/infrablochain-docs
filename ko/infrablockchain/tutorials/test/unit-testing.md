@@ -175,7 +175,7 @@ fn fake_test_example() {
 예를 들어, 테스트 전에 계정 잔액을 미리 설정하고 싶을 수 있습니다.
 
 `frame_system::Config`의 구현에서 `AccountId`와 `Balance` 모두 `u64`로 설정되어 있습니다.
-계정 잔액으로 `(AccountId, Balance)` 쌍을 시드로 사용하려면 `balances` 벡터에 `(1, 10)`, `(2, 20)`, `(3, 30)`, `(4, 40)`, `(5, 50)`, `(6, 60)`과 같은 형태로 넣을 수 있습니다.예를 들어,
+계정 잔액으로 `(AccountId, Balance)` 쌍을 시드로 사용하려면 `balances` 벡터에 `(1, 10)`, `(2, 20)`, `(3, 30)`, `(4, 40)`, `(5, 50)`, `(6, 60)`과 같은 형태로 넣을 수 있습니다.예를 들어, 
 
 ```rust
 impl ExtBuilder {
@@ -234,7 +234,7 @@ fn run_to_block(n: u64) {
 }
 ```
 
-`on_finalize` 및 `on_initialize` 메서드는 팔레트 특성이 각 블록 전후에 런타임 메서드에 인코딩된 로직을 실행하기 위해 `frame_support::traits::{OnInitialize, OnFinalize}` 특성을 구현하는 경우에만 `ExamplePallet`에서 호출됩니다.
+`on_finalize` 및 `on_initialize` 메서드는 팔레트 특성이 각 블록 전후에 런타임 메서드에 인코딩된 로직을 실행하기 위해 `frame_support::traits::{OnInitialize, OnFinalize}` 특성을 구현하는 경우에만 `ExamplePallet`에서 호출됩니다. 
 
 그런 다음 이 함수를 다음과 같은 방식으로 호출합니다.
 

@@ -56,6 +56,6 @@ As briefly mentioned earlier, in **_InfraBlockchain_**, **System Token** can be 
 
 - All state management of System Token(e.g. registration and deletion of System Token, list of parachains using System Token) takes place in the Relay Chain.
 
-## Moving Forward
+## Next Steps
 
 - [Proof-of-Transaction](./proof-of-transaction.md)

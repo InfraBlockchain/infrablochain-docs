@@ -16,7 +16,7 @@ The types of ownership registered on the **UR-Auth** blockchain can be broadly c
 
 - **Domain**: Represents general domains like `https://www.bc-labs.net`.
 - **Web Service Accounts**: Represents accounts for a particular service like `https://instagram.com/user`.
-- **Copyright of Data Files**: Represents ownership of local data. This could include the address value (e.g., CID) of distributed storage like IPFS.
+- **Copyright of Data Files**: Represents ownership of local data. This could include the address value (e.g. CID) of distributed storage like IPFS.
 - **Dataset**: Represents ownership of datasets created using URIs registered or not registered in the [UR-Auth Tree](#ur-auth-tree). The location value of the storage where the dataset is stored can be included.
 
 The registration process for ownership in each area is as follows:

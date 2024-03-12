@@ -44,16 +44,16 @@ To prepare a working folder with the binaries for the test network:
 3. Clone the _InfraBlockSpace_ repository by running a command similar to the following:
 
    ```bash
-   git clone https://github.com/paritytech/infrablockspace-sdk
+   git clone https://github.com/InfraBlockchain/infrablockchain-substrate
    ```
 
-4. Change to the root of the `infrablockspace-sdk` directory by running the following command:
+4. Change to the root of the `infrablockchain-substrate` directory by running the following command:
 
    ```bash
-   cd infrablockspace-sdk
+   cd infrablockchain-substrate
    ```
 
-5. Checkout the latest release of infrablockspace-sdk.
+5. Checkout the latest release of infrablockchain-substrate.
 
    Release branches use the naming convention `release-v<n.n.n>`.
    For example, the release branch used in this tutorial is `release-v1.0.0`.
@@ -91,7 +91,7 @@ You can use this `paraId` for the first parachain in the test network.
 
 To add the parachain collator binary to the working folder:
 
-1. Navigate to the root directory of `infrablockspace-sdk` and enter the following command:
+1. Navigate to the root directory of `infrablockchain-substrate` and enter the following command:
 
    ```bash
    cargo build --release -bin parachain-template-node-

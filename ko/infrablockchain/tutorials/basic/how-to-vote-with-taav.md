@@ -45,7 +45,7 @@ keywords:
 
 - 좀비넷 [깃허브](https://github.com/paritytech/zombienet)에서 최신 릴리즈 버전을 설치합니다.
 
-- `infrablockspace-sdk/infra-cumulus/zombienet/examples/`  에서 `toml` 을 파일을 만들어줍니다. 여기서는 `example.toml` 을 생성하고 다음과 같이 작성해줍니다. 해당 코드는 다음과 같은 테스트 환경을 구축해줍니다: 
+- `infrablockchain-substrate/infra-cumulus/zombienet/examples/`  에서 `toml` 을 파일을 만들어줍니다. 여기서는 `example.toml` 을 생성하고 다음과 같이 작성해줍니다. 해당 코드는 다음과 같은 테스트 환경을 구축해줍니다: 
   - 5 개의 밸리데이터 릴레이체인 노드
   - 2 개의 **InfraAssetHub** 콜레이터 노드
   - 2 개의 **Parachain Template Node** 콜레이터 노드
