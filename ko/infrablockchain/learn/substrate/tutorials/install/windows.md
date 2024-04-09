@@ -139,7 +139,7 @@ WSL에서 Rust 툴체인을 설치하려면 다음 단계를 따르세요:
    active toolchain
    ----------------
 
-   nightly-x86_64-unknown-linux-gnu (overridden by +toolchain on the command line)
+   nightly-x86_64-unknown-linux-gnu (overridden by +toolchain on the command-line)
    rustc 1.63.0-nightly (e71440575 2022-06-02)
    ```
 

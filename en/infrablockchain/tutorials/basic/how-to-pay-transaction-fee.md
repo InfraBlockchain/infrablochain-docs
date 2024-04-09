@@ -8,7 +8,7 @@ keywords:
   - Transaction fee
 ---
 
-This tutorial will teach you how to register tokens issued in a multichain environment as System Token and use them as gas fees.
+This tutorial will teach you how to register tokens issued in a multi-chain environment as System Token and use them as gas fees.
 
 ## Tutorial Goals
 
@@ -30,9 +30,9 @@ Before registering a system token on the Relay Chain, you need to create a token
 
 The procedure for creating and issuing tokens on a Parachain is as follows:
 
-1. Open the [Infra Blockchain Explorer](https://portal.infrablockspace.net/#/explorer/) and connect to the Parachain endpoint.
+1. Open the [InfraBlockchain Explorer](https://portal.infrablockspace.net/#/explorer/) and connect to the Parachain endpoint.
 
-2. In Developer > Extrinsic, select [_create_](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/assets/src/lib.rs#L625) from the [_Assets_](https://github.com/InfraBlockchain/infrablockchain-substrate/tree/master/substrate/frame/assets) pallet to create a token.
+2. In [Developer > Extrinsic], select [create](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/assets/src/lib.rs#L625) from the [Assets](https://github.com/InfraBlockchain/infrablockchain-substrate/tree/master/substrate/frame/assets) pallet to create a token.
 
    - id: A value to identify the token. Here, we insert 1.
    - admin: Token management account. Here, we specify `alice`.
@@ -40,7 +40,7 @@ The procedure for creating and issuing tokens on a Parachain is as follows:
 
    ![Creating a Token](/media/images/docs/infrablockchain/tutorials/create_token.png)
 
-3. Immediately select [mint](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/assets/src/lib.rs#L801C7-L801C14) from the _Assets pallet_ to issue the token.
+3. Immediately select [mint](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/assets/src/lib.rs#L801C7-L801C14) from the Assets pallet to issue the token.
 
    - id: A value to identify the token. Here, insert the previously created token identifier.
    - beneficiary: The account to receive the issued tokens. Here, we issue them to `alice`.
@@ -50,13 +50,13 @@ The procedure for creating and issuing tokens on a Parachain is as follows:
 
 ## Registering `register_system_token` Governance on Relay Chain
 
-### Preparing preimage for submitting register_system_token to governance
+### Preparing preimage for submitting `register_system_token` to governance
 
-1. Open the [Infra Blockchain Explorer](https://portal.infrablockspace.net/#/explorer/) and connect to the Relay Chain endpoint.
+1. Open the [InfraBlockchain Explorer](https://portal.infrablockspace.net/#/explorer/) and connect to the Relay Chain endpoint.
 
-2. To put register_system_token to a governance vote, you must first register it in the preimage.
+2. To put `register_system_token` to a governance vote, you must first register it in the preimage.
 
-3. Press Governance > Preimages > Add preimage.
+3. Press [Governance > Preimages > Add preimage].
    (Anyone can register a preimage.)
 
 ![Preimage Button](/media/images/docs/infrablockchain/tutorials/preimage_button.png)
@@ -69,9 +69,9 @@ The procedure for creating and issuing tokens on a Parachain is as follows:
 
 - `systemTokenType`: The type of system token. For more details on system token types, see [here](../learn/protocol/system-token.md). Here, select `Original`.
   ```text
-  - `paraId`: Identifier of the Parachain where the token was created
-  - `palletId`: Identifier of the *Assets pallet* where the token was created
-  - `assetId`: Token identifier
+  - paraId: Identifier of the Parachain where the token was created
+  - palletId: Identifier of the *Assets pallet* where the token was created
+  - assetId: Token identifier
   ```
 - `systemTokenWeight`: The weight of the token. Here, set to 1_000_000(default).
 - `wrappedForRelayChain`: Wrapped system token for use on the Relay Chain.
@@ -86,9 +86,9 @@ The procedure for creating and issuing tokens on a Parachain is as follows:
 
 Once the _preimage_ for `register_system_token` is successfully registered, it can now be registered in governance.
 
-1. Open the [Infra Blockchain Explorer](https://portal.infrablockspace.net/#/explorer/) and connect to the Relay Chain endpoint.
+1. Open the [InfraBlockchain Explorer](https://portal.infrablockspace.net/#/explorer/) and connect to the Relay Chain endpoint.
 
-2. In the Explorer tab, click `Developer > Extrinsic`, then use [propose](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/collective/src/lib.rs#L519) from the [_Council_](https://github.com/InfraBlockchain/infrablockchain-substrate/tree/master/substrate/frame/collective) pallet to submit a motion on the registered preimage to the council governance.
+2. In the Explorer tab, click [Developer > Extrinsic], then use [propose](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/599828207489db1d2b4633473c15c9be9dd97253/substrate/frame/collective/src/lib.rs#L519) from the [Council](https://github.com/InfraBlockchain/infrablockchain-substrate/tree/master/substrate/frame/collective) pallet to submit a motion on the registered preimage to the council governance.
    (Note: Only Relaychain validators can submit and vote on council propose.)
 
 ```text
@@ -101,7 +101,7 @@ Once the _preimage_ for `register_system_token` is successfully registered, it c
 
 ## Passing the Governance
 
-If successfully registered in governance, the motion will appear in `Governance > Council > Motion` as shown below.
+If successfully registered in governance, the motion will appear in [Governance > Council > Motion] as shown below.
 
 ![Governance Voting](/media/images/docs/infrablockchain/tutorials/governance_voting.png)
 

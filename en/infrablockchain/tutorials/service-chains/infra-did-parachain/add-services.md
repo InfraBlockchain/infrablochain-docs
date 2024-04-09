@@ -2,21 +2,21 @@
 title: Registering Service Endpoints with InfraDID
 description: This tutorial explains how to add service endpoints to a DID registered with InfraDID.
 keywords:
-  - parachain
-  - did
+  - Parachain
+  - DID
 ---
 
 ## Before you begin
 
 Before you begin, Make sure you have the following:
 
-- [Creating _InfraDID_](./create-infra-did.md)
+- [Creating InfraDID](./create-infra-did.md)
 
-## Adding Service Endpoints to _InfraDID_
+## Adding Service Endpoints to InfraDID
 
 To make a list of service endpoints available for a specific DID and store it on the chain, making it public for others to inspect the Document of a specific DID, follow these steps:
 
-1. Visit the [_InfraBlockchain Explorer_](https://portal.infrablockspace.net) and follow the steps below.
+1. Visit the [InfraBlockchain Explorer](https://portal.infrablockspace.net) and follow the steps below.
 
 - Go to `Developer` - `Extrinsic` and select the `addServices` extrinsic of the `didModule` palette.
 
@@ -24,11 +24,11 @@ To make a list of service endpoints available for a specific DID and store it on
 
   ![add-services](../../../../../media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/add-services.png)
 
-## Removing Service Endpoints from _InfraDID_
+## Removing Service Endpoints from InfraDID
 
-To remove service endpoints from _InfraDID_, follow these steps:
+To remove service endpoints from InfraDID, follow these steps:
 
-1. Visit the [_InfraBlockchain Explorer_](https://portal.infrablockspace.net) and follow the steps below.
+1. Visit the [InfraBlockchain Explorer](https://portal.infrablockspace.net) and follow the steps below.
 
 - Go to `Developer` - `Extrinsic` and select the `removeServices` extrinsic of the `didModule` palette.
 
@@ -36,7 +36,7 @@ To remove service endpoints from _InfraDID_, follow these steps:
 
   ![remove-services](../../../../../media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/remove-services.png)
 
-## Adding and Removing Service Endpoints from InfraDID Using the infra-did-js Library
+## Adding and Removing Service Endpoints from InfraDID Using the `infra-did-js` Library
 
 To add and remove service endpoints from InfraDID using the `infra-did-js` library:
 

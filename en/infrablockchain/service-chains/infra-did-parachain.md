@@ -2,8 +2,8 @@
 title: InfraDID
 description: This document explains the overall content related to a blockchain specialized for DID (Decentralized Identifier).
 keywords:
-  - parachain
-  - did
+  - Parachain
+  - DID
 ---
 
 ## Before you begin
@@ -30,21 +30,21 @@ DID is entirely under the control of the DID subject, independent of centralized
 
 The key features and benefits of DID include:
 
-- Decentralization: Unlike traditional identifiers issued and managed by centralized systems, DID is issued and managed within a distributed network.
+- **Decentralization**: Unlike traditional identifiers issued and managed by centralized systems, DID is issued and managed within a distributed network.
 
-- Self-Sovereign: DID subjects have complete control over their identifiers. They can create, update, or delete their DID without requiring permission from any authority.
+- **Self-Sovereign**: DID subjects have complete control over their identifiers. They can create, update, or delete their DID without requiring permission from any authority.
 
-- Security: DID inherits cryptographic security properties from blockchain or distributed ledger platforms. Additionally, DID works alongside DPKI (Decentralized Public Key Infrastructure) to securely maintain authentication and communication.
+- **Security**: DID inherits cryptographic security properties from blockchain or distributed ledger platforms. Additionally, DID works alongside DPKI(Decentralized Public Key Infrastructure) to securely maintain authentication and communication.
 
-- Interoperability: DID is designed to be interoperable across various systems and networks. This means that a DID generated in one network can be used and recognized in another.
+- **Interoperability**: DID is designed to be interoperable across various systems and networks. This means that a DID generated in one network can be used and recognized in another.
 
 ## InfraDID
 
-One of the parachains in the InfraBlockchain, the _InfraDID Parachain_, provides a DID system, and the DIDs offered by the _InfraDID Parachain_ are referred to as _InfraDID_.
+One of the parachains in the InfraBlockchain, the **InfraDID Parachain**, provides a DID system, and the DIDs offered by the InfraDID Parachain are referred to as **InfraDID**.
 
 ![infra-did-method](/media/images/docs/infrablockchain/service-chains/infra-did-method.png)
 
-_InfraDID Parachain_ includes various palettes based on its functionality.
+**InfraDID Parachain** includes various palettes based on its functionality.
 
 ![infra-did-pallet](/media/images/docs/infrablockchain/service-chains/infra-did-pallet.png)
 

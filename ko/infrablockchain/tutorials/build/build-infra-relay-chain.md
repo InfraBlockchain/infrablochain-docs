@@ -1,8 +1,8 @@
 ---
-title: 인프라 릴레이 체인 구축하기
-description: 이 튜토리얼은 인프라 릴레이 체인을 구축하는 방법에 대해 알아봅니다.
+title: 인프라릴레이체인 구축하기
+description: 이 튜토리얼은 인프라릴레이체인을 구축하는 방법에 대해 알아봅니다.
 keywords:
-  - 릴레이 체인
+  - 릴레이체인
 ---
 
 ## 시작하기 전에
@@ -17,22 +17,22 @@ keywords:
 
 이 튜토리얼을 완료함으로써 다음 목표를 달성할 수 있습니다:
 
-- **_인프라 릴레이 체인(InfraRelayChain)_** 런타임을 바이너리로 빌드하는 방법 
+- **_인프라릴레이체인(InfraRelayChain)_** 런타임을 바이너리로 빌드하는 방법 
 - 해당 바이너리로 부터 평문 체인 스펙과 _SCALE로 인코딩된_ 원시(raw) 체인 스펙을 추출하는 방법
 - 체인 스펙으로부터 노드를 시작하는 방법 
 
-## 릴레이 체인 노드 빌드하기
+## 릴레이체인 노드 빌드하기
 
-1. 최신 ***인프라 블록체인(InfraBlockchain)*** SDK 를 불러옵니다.
+1. 최신 ***인프라블록체인(InfraBlockchain)*** SDK 를 불러옵니다.
    
    ```bash
    git clone --branch master https://github.com/InfraBlockchain/infrablockchain-substrate.git
    ```
 
-2. 다음 세개의 명령을 실행하여 **_인프라 블록체인(InfraBlockchain)_** 런타임을 빌드합니다:
+2. 다음 세개의 명령을 실행하여 **_인프라블록체인(InfraBlockchain)_** 런타임을 빌드합니다:
    
    ```bash
-   1. cargo build --release --bin infrablockspace
+   1. cargo build --release --bin infra-relaychain
 
    2. cargo build --release --bin infra-relaychain-execute-worker
 
@@ -58,9 +58,9 @@ keywords:
 ```bash
 ./target/release/infra-relaychain build-spec --chain infra-relay-local --disable-default-bootnode > plain-infra-relay-chainspec.json
 ```
-_본 튜토리얼에서는 네 개의 [Seed Trust 밸리데이터](../../learn/protocol/proof-of-transaction.md#블록-생성자밸리데이터-풀)로 구성된 인프라 릴레이 체인 체인 스펙 파일을 사용합니다. 실제 네트워크 구성은 `alice` 와 `bob` 밸리데이터 노드만 띄워 시뮬레이션합니다._
+_본 튜토리얼에서는 네 개의 [Seed Trust 밸리데이터](../../learn/protocol/proof-of-transaction.md#블록-생성자밸리데이터-풀)로 구성된 인프라릴레이체인 체인 스펙 파일을 사용합니다. 실제 네트워크 구성은 `alice` 와 `bob` 밸리데이터 노드만 띄워 시뮬레이션합니다._
 
-릴레이 체인은 연결된 파라체인 콜레이터의 총 수보다 적어도 하나 이상의 밸리데이터 노드가 실행되어야 하므로, 하나의 콜레이터를 가진 두 개의 파라체인을 연결하려면 세 개 이상의 릴레이 체인 검증자 노드를 실행해야 합니다.
+릴레이체인은 연결된 파라체인 콜레이터의 총 수보다 적어도 하나 이상의 밸리데이터 노드가 실행되어야 하므로, 하나의 콜레이터를 가진 두 개의 파라체인을 연결하려면 세 개 이상의 릴레이체인 검증자 노드를 실행해야 합니다.
 
 ### 원시(raw) 체인 스펙 파일 추출하기
 
@@ -71,7 +71,7 @@ _본 튜토리얼에서는 네 개의 [Seed Trust 밸리데이터](../../learn/p
 ```
 
 일반 텍스트 버전의 체인 스펙 파일을 읽고 편집할 수 있습니다. 그러나 체인 스펙 파일을 노드를 시작하는 데 사용하려면 SCALE로 인코딩된 원시(raw) 형식으로 변환해야 합니다. 샘플 체인 스펙은 네 개의 밸리데이터로 구성된 네트워크입니다.
-다른 밸리데이터를 추가하거나 릴레이 체인에 여러 개의 파라체인 추가 및 사전 정의된 계정 대신 커스텀 계정 키를 사용하려면 [커스텀 체인 스펙 파일](../../learn/substrate/build/chain-spec.md#커스텀-체인-스펙-생성하기)을 만들어야 합니다.
+다른 밸리데이터를 추가하거나 릴레이체인에 여러 개의 파라체인 추가 및 사전 정의된 계정 대신 커스텀 계정 키를 사용하려면 [커스텀 체인 스펙 파일](../../learn/substrate/build/chain-spec.md#커스텀-체인-스펙-생성하기)을 만들어야 합니다.
 
 동일한 로컬 네트워크에서 누군가와 동시에 이 튜토리얼을 완료하는 경우, 해당 노드와 피어링되지 않도록 평문 체인 스펙을 수정해야 합니다. 평문 체인 스펙 JSON 파일에서 `protocolId` 키를 찾고 어떤 고유한 값으로 변경해줍니다.
 
@@ -79,9 +79,9 @@ _본 튜토리얼에서는 네 개의 [Seed Trust 밸리데이터](../../learn/p
    "protocolId": "infrablockchain"
 ```
 
-## 릴레이 체인 노드 시작하기
+## 릴레이체인 노드 시작하기
 
-***인프라 블록체인(InfraBlockchain)*** 을 구축하기 위해서 먼저 파라체인을 연결할 수 있는 **_인프라 릴레이 체인(InfraRelayChain)_** 을 시작해야 합니다.
+***인프라블록체인(InfraBlockchain)*** 을 구축하기 위해서 먼저 파라체인을 연결할 수 있는 **_인프라릴레이체인(InfraRelayChain)_** 을 시작해야 합니다.
 
 원시(raw) 샘플 체인 스펙 파일을 사용하여 밸리데이터 노드를 시작합니다:
 
@@ -145,7 +145,7 @@ _본 튜토리얼에서는 네 개의 [Seed Trust 밸리데이터](../../learn/p
    
 - 두 검증자가 동일한 로컬 컴퓨터에서 실행되므로 체인 스펙 파일에 지정된 첫 번째 노드의 IP 주소와 피어 식별자를 지정할 필요가 없습니다. `bootnodes` 옵션은 로컬 네트워크 외부에서 실행되는 노드나 체인 스펙 파일에 식별되지 않은 노드에 연결하려는 경우 필요합니다.
 
-- 릴레이 체인이 블록을 생성하지 않는 경우 방화벽을 비활성화하거나 `alice` 노드의 주소를 `--bootnodes` 옵션에 추가하여 노드를 시작해 보세요. 
+- 릴레이체인이 블록을 생성하지 않는 경우 방화벽을 비활성화하거나 `alice` 노드의 주소를 `--bootnodes` 옵션에 추가하여 노드를 시작해 보세요. 
 
    예시,
    ```bash

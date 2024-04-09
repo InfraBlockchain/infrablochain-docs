@@ -1,6 +1,6 @@
 ---
-title: InfraDID 서비스 엔드포인트 등록하기
-description: 이 튜토리얼은 InfraDID에 등록된 DID에 서비스 엔드포인트를 추가하는 방법을 설명합니다.
+title: 인프라DID 서비스 엔드포인트 등록하기
+description: 이 튜토리얼은 인프라DID에 등록된 DID에 서비스 엔드포인트를 추가하는 방법을 설명합니다.
 keywords:
   - 파라체인
   - DID
@@ -10,15 +10,15 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [_InfraDID_ 생성하기](./create-infra-did.md)
+- [인프라DID 생성하기](./create-infra-did.md)
 
-## _InfraDID_ 에 서비스 엔드포인트 추가하기
+## 인프라DID 에 서비스 엔드포인트 추가하기
 
 특정 DID가 사용할 수 있는 서비스 엔드포인트 목록을 체인에 저장하여 공개함으로써 다른 사용자들이 특정 DID의 Document를 확인하여 알 수 있도록 합니다.
 
-_InfraDID_ 에 서비스 엔드포인트를 추가하기 위해선 아래와 같은 과정을 거칩니다.
+인프라DID 에 서비스 엔드포인트를 추가하기 위해선 아래와 같은 과정을 거칩니다.
 
-1. [_인프라 블록체인(InfraBlockchain)_ 익스플로러](https://portal.infrablockspace.net) 에 접속하여 아래 과정을 따릅니다.
+1. [인프라블록체인 익스플로러](https://portal.infrablockspace.net) 에 접속하여 아래 과정을 따릅니다.
 
 - `개발자` - `익스트린식` - `didModule` 팔레트의 `addServices` 익스트린식을 선택합니다.
 
@@ -26,11 +26,11 @@ _InfraDID_ 에 서비스 엔드포인트를 추가하기 위해선 아래와 같
 
   ![add-services](../../../../../media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/add-services.png)
 
-## _InfraDID_ 서비스 엔드포인트 제거하기
+## 인프라DID 서비스 엔드포인트 제거하기
 
-_InfraDID_ 에 서비스 엔드포인트 제거하기 위해선 아래와 같은 과정을 거칩니다.
+인프라DID의 서비스 엔드포인트를 제거하기 위해선 아래와 같은 과정을 거칩니다.
 
-1. [_인프라 블록체인(InfraBlockchain)_ 익스플로러](https://portal.infrablockspace.net) 에 접속하여 아래 과정을 따릅니다.
+1. [인프라블록체인 익스플로러](https://portal.infrablockspace.net) 에 접속하여 아래 과정을 따릅니다.
 
 - `개발자` - `익스트린식` - `didModule` 팔레트의 `removeServices` 익스트린식을 선택합니다.
 
@@ -38,7 +38,7 @@ _InfraDID_ 에 서비스 엔드포인트 제거하기 위해선 아래와 같은
 
   ![remove-services](../../../../../media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/remove-services.png)
 
-## infra-did-js 라이브러리 사용하여 Infra DID에 서비스 엔드포인트 추가 및 제거하기
+## `infra-did-js` 라이브러리를 사용하여 InfraDID에 서비스 엔드포인트 추가 및 제거하기
 
 `infra-did-js` 라이브러리를 사용해서 Infra DID에 서비스 엔드포인트 추가 및 제거하기
 
@@ -48,7 +48,7 @@ _InfraDID_ 에 서비스 엔드포인트 제거하기 위해선 아래와 같은
    yarn add infra-did-js
    ```
 
-2. 아래와 같이 코드를 작성하여 InfraDID 체인에 접근하기 위한 기본 설정 코드를 작성합니다.
+2. 아래와 같이 코드를 작성하여 인프라DID 체인에 접근하기 위한 기본 설정 코드를 작성합니다.
 
    ```typescript
    import  {InfraSS58, CRYPTO_INFO} from 'infra-did-js';
@@ -74,7 +74,7 @@ _InfraDID_ 에 서비스 엔드포인트 제거하기 위해선 아래와 같은
    const infraApi = await InfraSS58.createAsync(conf);
    ```
 
-3. _InfraDID_ 에 서비스 엔드포인트를 추가하기 위한 코드를 작성합니다.
+3. 인프라DID 에 서비스 엔드포인트를 추가하기 위한 코드를 작성합니다.
 
    ```typescript
    // Add Service Endpoint
@@ -88,7 +88,7 @@ _InfraDID_ 에 서비스 엔드포인트 제거하기 위해선 아래와 같은
    await infraApi.didModule.addServiceEndpoint(SOME_SERVICE_ENDPOINT_URLS);
    ```
 
-4. 혹은 _InfraDID_ 에 서비스 엔드포인트를 제거하기 위한 코드를 작성합니다.
+4. 혹은 인프라DID의 서비스 엔드포인트를 제거하기 위한 코드를 작성합니다.
 
    ```typescript
    // Remove Service Endpoint

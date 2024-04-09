@@ -11,7 +11,7 @@ Substrate와 FRAME은 블록체인에 대한 사용자 정의 로직을 개발�
 이 유연성은 복잡하고 상호작용하는 팔렛을 설계하고 정교한 런타임 로직을 구현할 수 있도록 합니다.
 그러나 팔렛의 함수에 할당할 적절한 [가중치](../../learn/substrate/learn/basic/glossary.md#가중치)를 결정하는 것은 어려운 작업일 수 있습니다.
 벤치마킹을 사용하면 런타임에서 다른 조건에서 다른 함수를 실행하는 데 걸리는 시간을 측정할 수 있습니다.
-벤치마킹을 사용하여 함수 호출에 정확한 가중치를 할당하면, 악의적인 사용자에 의한 블록체인의 과부하로 인해 블록을 생성하지 못하거나 서비스 거부 (DoS) 공격에 취약해지는 것을 방지할 수 있습니다.
+벤치마킹을 사용하여 함수 호출에 정확한 가중치를 할당하면, 악의적인 사용자에 의한 블록체인의 과부하로 인해 블록을 생성하지 못하거나 서비스 거부(DoS) 공격에 취약해지는 것을 방지할 수 있습니다.
 
 ## 팔렛에 대한 벤치마크의 필요성
 
@@ -28,7 +28,7 @@ Substrate와 FRAME은 블록체인에 대한 사용자 정의 로직을 개발�
 
 ## 선형 모델 개발
 
-벤치마킹은 다음 단계를 수행해야 합니다.
+벤치마킹은 다음 단계를 수행해야 합니다:
 
 - 특정 함수에 대한 특정 코드 경로를 실행하는 사용자 정의 벤치마킹 로직을 작성합니다.
 - 특정 하드웨어 및 특정 런타임 구성을 사용하여 WebAssembly 실행 환경에서 벤치마킹 로직을 실행합니다.
@@ -44,10 +44,10 @@ Substrate와 FRAME은 블록체인에 대한 사용자 정의 로직을 개발�
 [트랜잭션, 가중치 및 수수료](../../learn/substrate/learn/frame/tx-weights-fees.md)에서 설명한 대로, Substrate 기반 체인은 블록의 트랜잭션을 실행하는 데 걸리는 시간을 나타내는 **가중치** 개념을 사용합니다.
 특정 호출을 실행하는 데 필요한 시간은 다음과 같은 여러 요소에 따라 달라집니다.
 
-- 계산 복잡성.
-- 저장소 복잡성.
-- 필요한 데이터베이스 읽기 및 쓰기 작업.
-- 사용된 하드웨어.
+- 계산 복잡성
+- 저장소 복잡성
+- 필요한 데이터베이스 읽기 및 쓰기 작업
+- 사용된 하드웨어
 
 트랜잭션에 적절한 가중치를 계산하려면, 벤치마크 매개변수를 사용하여 다른 하드웨어에서 다른 변수 값 및 여러 번 반복하여 함수 호출을 실행하는 데 걸리는 시간을 측정할 수 있습니다.
 그런 다음 벤치마킹 테스트의 결과를 사용하여 각 함수 호출 및 각 코드 경로를 실행하는 데 필요한 리소스를 나타내는 근사적인 최악의 경우 가중치를 설정할 수 있습니다.
@@ -219,7 +219,7 @@ cargo build --profile=production --features runtime-benchmarks
 
 ## 다음 단계로 넘어가기
 
-- [frame-benchmarking README](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/frame/benchmarking/README.md)
+- [프레임 벤치마킹(Frame-benchmarking)](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/substrate/frame/benchmarking/README.md)
 - [Substrate 세미나: Substrate 팔렛의 벤치마킹](https://www.youtube.com/watch?v=Qa6sTyUqgek)
-- [How-to: 벤치마크 추가](../../learn/substrate/learn/runtime-development/weights/add-benchmarks.md)
-- [Command reference: node-template benchmark](../../learn/substrate/learn/command-line-tools/node-template.md#benchmark)
+- [벤치마크 추가하는 법](../../learn/substrate/learn/runtime-development/weights/add-benchmarks.md)
+- [Command reference: 노드 템플릿 벤치마크](../../learn/substrate/learn/command-line-tools/node-template.md#benchmark)

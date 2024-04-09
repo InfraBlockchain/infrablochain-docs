@@ -1,6 +1,6 @@
 ---
 title: Deploying an ERC721 Token Contract
-description: This tutorial explains how to deploy an ERC721 token contract on the InfraBlockchain EVM parachain.
+description: This tutorial explains how to deploy an ERC721 token contract on the InfraEVM parachain.
 keywords:
   - parachain
   - evm
@@ -10,7 +10,7 @@ keywords:
 
 Before you begin, make sure to do the following:
 
-- [*InfraBlockchain EVM* Parachain](../../../service-chains/infra-evm-parachain.md)
+- [*****InfraEVM* Parachain](../../../service-chains/infra-evm-parachain.md)
 
 - [Moving Assets with EVM](./deposit-and-withdraw-token.md)
 
@@ -52,7 +52,7 @@ Before you begin, make sure to do the following:
 
 This continues from the previous tutorial.
 
-1. As shown below in "Deployed Contracts," you can see the `safeMint` function. You can use this function to mint NFTs by filling in appropriate values for "to" and "tokenId."
+1. As shown below in "Deployed Contracts," you can see the `safeMint` function. You can use this function to mint NFTs by filling in appropriate values for 'to' and 'tokenId'.
 
     ![erc721-mint](/media/images/docs/infrablockchain/tutorials/service-chains/infra-evm-parachain/erc721-mint.png)
 

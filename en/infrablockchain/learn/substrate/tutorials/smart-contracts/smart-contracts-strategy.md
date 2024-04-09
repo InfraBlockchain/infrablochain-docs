@@ -1,5 +1,5 @@
 ---
-title: Smart contracts
+title: Smart Contracts
 description:
 keywords:
   - smart contract options
@@ -36,7 +36,7 @@ If you are building your own runtime to host smart contracts, there are two main
 - You want to build an application-specific blockchain with the **flexibility** to use smart contracts to interact with the chain.
 
   For example, if you are building a chain with most of the logic defined using other Substrate pallets, you can expose some parts of the chain logic to users through smart contracts.
-  Smart contracts are ideal for this type of use case because they treat all user input as untrusted and potentially adversarial.
+  Smart Contracts are ideal for this type of use case because they treat all user input as untrusted and potentially adversarial.
 
   As an example, assume you are building a decentralized exchange.
   Most of the logic is defined in pallets, but you want to allow users to upload their own trading algorithms through a smart contract.
@@ -44,7 +44,7 @@ If you are building your own runtime to host smart contracts, there are two main
 
   The Contracts pallet provides the [Chain extension](https://ink.substrate.io/macros-attributes/chain-extension/) primitive for exactly that functionality and programming languages—like [ink!](https://paritytech.github.io/ink/)—can make use of the business logic primitives your chain exposes.
 
-## Smart contract accounts
+## Smart Contract accounts
 
 The Contracts pallet extends accounts based on the `Currency` trait to have smart contract functionality.
 You can use these **smart contract accounts** to instantiate smart contracts and to make calls to other contract and non-contract accounts.

@@ -52,7 +52,7 @@ The sample output also indicates that the `nightly-x86_64-unknown-linux-gnu` too
 - `wasm32-unknown-unknown` the WebAssembly target.
 
 This environment also has the `nightly-2020-10-06-x86_64-unknown-linux-gnu` toolchain installed, but this toolchain is only used if explicitly specified as a command-line option.
-For an example of specifying a specific toolchain as a command line option, see [Specify a nightly version](#specifying-nightly-version).
+For an example of specifying a specific toolchain as a command-line option, see [Specify a nightly version](#specifying-nightly-version).
 
 ## Use the nightly release channel for WebAssembly
 

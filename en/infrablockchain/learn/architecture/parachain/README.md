@@ -12,6 +12,6 @@ keywords:
 
 ## [System Parachain](./system-parachains.md)
 
-This will cover _System Parachain_ on ***InfraBlockchain***
+This will cover **System Parachain** on ***InfraBlockchain***
 
 

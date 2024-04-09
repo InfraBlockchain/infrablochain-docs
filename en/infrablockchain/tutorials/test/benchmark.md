@@ -11,7 +11,7 @@ Substrate and FRAME provide a flexible framework for developing custom logic for
 This flexibility enables you to design complex and interactive pallets and implement sophisticated runtime logic.
 However, determining the appropriate [weight](/reference/glossary/#weight) to assign to the functions in your pallets can be a difficult task.
 Benchmarking enables you to measure the time it takes to execute different functions in the runtime and under different conditions.
-If you use benchmarking to assign accurate weights to function calls, you can prevent your blockchain from being overloaded and unable to produce blocks or vulnerable to denial of service (DoS) attacks by malicious actors.
+If you use benchmarking to assign accurate weights to function calls, you can prevent your blockchain from being overloaded and unable to produce blocks or vulnerable to Denial of service(DoS) attacks by malicious actors.
 
 ## Why benchmark a pallet
 
@@ -44,10 +44,10 @@ Benchmarking assumes all transactions have linear complexity because higher comp
 As discussed in [Transactions, weights, and fees](/build/tx-weights-fees/), Substrate-based chains use the concept of **weight** to represent the time it takes to execute the transactions in a block.
 The time required to execute any particular call in a transaction depends on a several factors, including the following:
 
-- Computational complexity.
-- Storage complexity.
-- Database read and write operations required.
-- Hardware used.
+- Computational complexity
+- Storage complexity
+- Database read and write operations required
+- Hardware used
 
 To calculate an appropriate weight for a transaction, you can use benchmark parameters to measure the time it takes to execute the function calls on different hardware, using different variable values, and repeated multiple times.
 You can then use the results of the benchmarking tests to establish an approximate worst case weight to represent the resources required to execute each function call and each code path.
@@ -220,7 +220,7 @@ To get a full list of available options for the `benchmark pallet` subcommand, r
 
 ## Where to go next
 
-- [frame-benchmarking README](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/benchmarking/README.md)
+- [Frame-benchmarking](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/benchmarking/README.md)
 - [Substrate Seminar: Benchmarking Your Substrate Pallet](https://www.youtube.com/watch?v=Qa6sTyUqgek)
 - [How-to: Add benchmarks](/reference/how-to-guides/weights/add-benchmarks)
 - [Command reference: node-template benchmark](/reference/command-line-tools/node-template/#benchmark)

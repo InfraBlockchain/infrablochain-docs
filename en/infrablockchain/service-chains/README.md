@@ -8,9 +8,9 @@ keywords:
 
 ## Service-Specific Blockchains
 
-### [URAuth](./urauth.md)
+### [UR-Auth](./urauth.md)
 
-**URAuth** is a blockchain specialized in the registration of ownership, copyright information, and rules for data access and transactions based on DID. This document covers the overall features and functionalities related to URAuth.
+**UR-Auth(Universal Resource Auth)** is a blockchain specialized in the registration of ownership, copyright information, and rules for data access and transactions based on DID. This document covers the overall features and functionalities related to URAuth.
 
 ### [InfraDID](./infra-did-parachain.md)
 
@@ -18,5 +18,5 @@ As a blockchain specialized in DID, this document covers the fundamental feature
 
 ### [InfraEVM](./infra-evm-parachain.md)
 
-This document provides an overview of InfraEVM, a blockchain compatible with the Ethereum Virtual Machine (EVM). It covers the overall aspects of transaction and block processing within the EVM-compatible blockchain.
+This document provides an overview of InfraEVM, a blockchain compatible with the Ethereum Virtual Machine(EVM). It covers the overall aspects of transaction and block processing within the EVM-compatible blockchain.
 

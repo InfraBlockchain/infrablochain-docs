@@ -408,7 +408,7 @@ For example, some proof-of-work systems require participants to use the [Ethash]
 ## relay chain
 
 The central hub in a heterogenous network of multiple blockchains.
-Relay chains are [blockchains](#blockchain) that provide shared infrastructure and security to the other blockchains—the [parachains](#parachain)—in the network.
+Relay Chains are [blockchains](#blockchain) that provide shared infrastructure and security to the other blockchains—the [parachains](#parachain)—in the network.
 In addition to providing [consensus](#consensus) capabilities, relay chains also allow parachains to communicate and exchange digital assets without needing to trust one another.
 
 ## remote procedure call (RPC)

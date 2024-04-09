@@ -125,7 +125,7 @@ clang curl git make
    active toolchain
    ----------------
 
-   nightly-x86_64-unknown-linux-gnu (overridden by +toolchain on the command line)
+   nightly-x86_64-unknown-linux-gnu (overridden by +toolchain on the command-line)
    rustc 1.65.0-nightly (34a6cae28 2022-08-09)
    ```
 

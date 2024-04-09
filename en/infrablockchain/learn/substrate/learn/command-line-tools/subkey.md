@@ -229,7 +229,7 @@ For example:
 subkey generate --password "pencil laptop kitchen cutter"
 ```
 
-After you generate a key that requires a password, you can retrieve it by including the `--password` option and password string in the command line or by adding three slashes (`///`) at the end of the secret phrase.
+After you generate a key that requires a password, you can retrieve it by including the `--password` option and password string in the command-line or by adding three slashes (`///`) at the end of the secret phrase.
 Remember that it is important to keep passwords, secret phrases, and secret seeds secure and to back them up in a secure location.
 
 ## subkey generate-node-key
@@ -335,7 +335,7 @@ You must specify the following required argument with the `subkey inspect` comma
 
 | Argument | Description |
 | -------- | ----------- |
-| `uri` | Specifies the key URI you want to inspect. You can specify the key using its secret phrase, secret seed (with derivation paths and password), SS58 address, public key, or hex-encoded public key. If you specify the `uri` using a hex-encoded public key, you must also include the `--public` flag on the command line. If you specify a file name for the `uri`, the file content is used as the URI. |
+| `uri` | Specifies the key URI you want to inspect. You can specify the key using its secret phrase, secret seed (with derivation paths and password), SS58 address, public key, or hex-encoded public key. If you specify the `uri` using a hex-encoded public key, you must also include the `--public` flag on the command-line. If you specify a file name for the `uri`, the file content is used as the URI. |
 
 #### Examples
 
@@ -418,7 +418,7 @@ To inspect password-protected keys by specifying the `--password` option and pas
 subkey inspect "caution juice atom organ advance problem want pledge someone senior holiday very" --password "pencil laptop kitchen cutter"
 ```
 
-If you specify the `--password` option and password in the command line, the command output _does not_ display the password used.
+If you specify the `--password` option and password in the command-line, the command output _does not_ display the password used.
 
 ```text
 Secret phrase `caution juice atom organ advance problem want pledge someone senior holiday very` is account:

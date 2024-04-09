@@ -4,18 +4,18 @@ description: This tutorial explains the process of building and running InfraDID
 keywords:
   - parachain
   - service chain
-  - did
+  - DID
 ---
 
 ## Before you begin
 
 Before you begin, make sure to do the following:
 
-- [_InfraDID_](../../../service-chains/infra-did-parachain.md)
+- [InfraDID](../../../service-chains/infra-did-parachain.md)
 
-## The _InfraDID_ Chain
+## The InfraDID Chain
 
-If you have completed the previous tutorial, you should have the _InfraRelayChain_ repository on your local machine.
+If you have completed the previous tutorial, you should have the **_InfraRelayChain_** repository on your local machine.
 
 1. Open your computer's terminal shell.
 
@@ -71,9 +71,9 @@ To start the local InfraDID chain, follow these steps:
 
    ```toml
     [relaychain]
-    default_command = "../infrablockchain-substrate/target/release/infra-relaychain"
+    default_command = "../infra-relay-chain/target/release/infrablockspace"
     default_args = ["-lparachain=debug", "-l=xcm=trace"]
-    chain = "infra-relay-local"
+    chain = "infrablockspace-local"
 
     [[relaychain.nodes]]
     name = "alice"

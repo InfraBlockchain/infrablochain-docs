@@ -139,7 +139,7 @@ To install the Rust toolchain on WSL:
    active toolchain
    ----------------
 
-   nightly-x86_64-unknown-linux-gnu (overridden by +toolchain on the command line)
+   nightly-x86_64-unknown-linux-gnu (overridden by +toolchain on the command-line)
    rustc 1.63.0-nightly (e71440575 2022-06-02)
    ```
 

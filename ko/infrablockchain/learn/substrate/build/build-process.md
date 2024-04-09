@@ -62,7 +62,7 @@ include!(concat!(env!("OUT_DIR"), "/wasm_binary.rs"));
 이 코드는 압축된 WebAssembly 바이너리(`WASM_BINARY`)와 컴파일러에 의해 생성된 압축되지 않은 WebAssembly 바이너리(`WASM_BINARY_BLOATY`)를 컴파일 결과에 포함시키고, 프로젝트의 최종 실행 파일이 생성됩니다.
 
 빌드 프로세스의 각 단계에서 WebAssembly 바이너리는 이전보다 작은 크기로 압축됩니다.
-예를 들어, ***인프라 블록체인(InfraBlockchain)*** 의 각 WebAssembly 바이너리 아티팩트의 크기를 비교할 수 있습니다:
+예를 들어, ***인프라블록체인(InfraBlockchain)*** 의 각 WebAssembly 바이너리 아티팩트의 크기를 비교할 수 있습니다:
 
 ```bash
 .rw-r--r-- 1.2M pep  1 Dec 16:13 │  ├── infrablockspace_runtime.compact.compressed.wasm

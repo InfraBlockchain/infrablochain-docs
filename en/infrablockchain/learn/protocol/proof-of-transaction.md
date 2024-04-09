@@ -1,8 +1,8 @@
 ---
-title: Proof of Transaction
-description: This document covers the overall content regarding InfraBlockchain's unique consensus mechanism, PoT Proof of Transaction).
+title: Proof-of-Transaction
+description: This document covers the overall content regarding InfraBlockchain's unique consensus mechanism, PoT Proof-of-Transaction).
 keywords:
-  - Proof of Transaction
+  - Proof-of-Transaction
   - Incentive
   - System Token
 ---
@@ -13,11 +13,11 @@ keywords:
 
 The core idea behind **Proof-of-Transaction (PoT)**, the proprietary consensus mechanism of **_InfraBlockchain_**, is encapsulated in the concept of **Transaction-as-a-Vote(TaaV)**. The metadata of transactions in **_InfraBlockchain_** may optionally include votes for candidates already participating or eligible to participate in the blockchain consensus process. Transaction messages containing votes for block producer candidates are signed with the private key of the blockchain account that initiated the transaction, providing cryptographic proof for each transaction vote. **_InfraBlockchain_** votes possess the following characteristics:
 
-- System Token Identifier: The weight of a vote depends on whether the transaction fee was paid with a specific [System Token](../protocol/system-token.md). Thus, it includes an `id` that identifies this token.
+- **System Token Identifier**: The weight of a vote depends on whether the transaction fee was paid with a specific [System Token](../protocol/system-token.md). Thus, it includes an `id` that identifies this token.
 
-- Vote Target: The entity to be voted for must have a [blockchain account](../substrate/learn/basic/accounts-addresses-keys.md) and be of type Infra Relay Chain's blockchain account, typically an `AccountId32`.
+- **Vote Target**: The entity to be voted for must have a [blockchain account](../substrate/learn/basic/accounts-addresses-keys.md) and be of type InfraRelayChain's blockchain account, typically an `AccountId32`.
 
-- Transaction Weight: The weight of a transaction vote is determined based on the transaction fee.
+- **Transaction Weight**: The weight of a transaction vote is determined based on the transaction fee.
 
 ```rust
 // For example,
@@ -52,9 +52,9 @@ impl SignedExtension for ChargeSystemToken {
 
 **_InfraBlockchain_** is designed to operate nodes honestly in any scenario, as it is an enterprise blockchain for institutions and public entities. Moreover, it serves as a public blockchain where any entity can be elected as a block producer. To achieve these ideal properties, **_InfraBlockchain_** has two pools of block producers (validators):
 
-- Proof-of-Transaction Node Pool: Manages nodes elected by PoT.
+- **Proof-of-Transaction Node Pool**: Manages nodes elected by PoT.
 
-- Seed Trust Node Pool: Manages nodes operated by entities like financial institutions or government organizations that operate honest nodes in any situation.
+- **Seed Trust Node Pool**: Manages nodes operated by entities like financial institutions or government organizations that operate honest nodes in any situation.
 
 ![Validator Pool](/media/images/docs/infrablockchain/learn//protocol/validator-pool.png)
 
@@ -87,11 +87,11 @@ Example,
 ```
 - Number of InfraRelayChain blocks equivalent to a year (6 seconds per block) = 5,256,000
 
-- Transaction vote weight considering block time = 2^(current Infra Relay Chain block / Number of Infra Relay Chain blocks equivalent to a year)
+- Transaction vote weight considering block time = 2^(current InfraRelayChain block / Number of InfraRelay Chain blocks equivalent to a year)
 ```
 
 ## Next Steps
 
 - [How to Vote with TaaV](../../tutorials/basic/how-to-vote-with-taav.md)
 - [System Token](./system-token.md)
-- [ParasInclusion](https://github.com/***InfraBlockchain***/infrablockchain-substrate/blob/master/infrablockspace/runtime/parachains/src/inclusion/mod.rs)
+- [ParasInclusion](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/infrablockchain/runtime/parachains/src/inclusion/mod.rs)

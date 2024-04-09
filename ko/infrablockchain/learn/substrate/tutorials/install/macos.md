@@ -129,7 +129,7 @@ macOS에서 `openssl`과 Rust 툴체인을 설치하려면 다음 단계를 따�
    active toolchain
    ----------------
 
-   nightly-x86_64-apple-darwin (overridden by +toolchain on the command line)
+   nightly-x86_64-apple-darwin (overridden by +toolchain on the command-line)
    rustc 1.63.0-nightly (e71440575 2022-06-02)
    ```
 

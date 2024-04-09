@@ -2,19 +2,19 @@
 title: Architecture
 description: This document covers the overall content of the InfraBlockchain architecture.
 keywords:
-  - Multi Chain
+  - Multi-chain
   - Relay Chain
-  - parachain
+  - Parachain
 ---
 
-## [Multi Chain Architecture](./architecture.md)
+## [InfraBlockchain Architecture](./architecture.md)
 
-This section will cover the overall content of **_InfraBlockchain_** multi-chain architecture
+This section will cover the overall content of **_InfraBlockchain_** **Multi-chain architecture.**
 
 ## [Network Participants](./network-participants.md)
 
-This section will cover the key participants in the **_InfraBlockchain_** network, Validators and Collators.
+This section will cover the key participants in the **_InfraBlockchain_** network, **Validators** and **Collators**.
 
 ## [Parachain](./parachain/)
 
-This section will cover overall content of parachain
+This section will cover overall content of **parachain**.

@@ -24,7 +24,7 @@ In this document, we will explore how transaction fees are collected and distrib
 
 The fees can be paid directly by the user generating the transaction or by another user on their behalf. However, in the latter case, the electronic signature of the user paying the fee must also be included in the transaction.
 
-The fees for transactions on the chain are collected in an account called the _bucket account_.
+The fees for transactions on the chain are collected in an account called the **bucket account**.
 
 ```rust
 pub struct CreditToBucket;
@@ -48,7 +48,7 @@ impl pallet_system_token_payment::Config for Runtime {
 }
 ```
 
-System Token collected in the _bucket account_ are teleported to the Sovereign account of the chain where System Token was originally issued at regular intervals (typically every 10 blocks).
+System Token collected in the bucket account are teleported to the Sovereign account of the chain where System Token was originally issued at regular intervals (typically every 10 blocks).
 
 ```rust
 #[pallet::hooks]

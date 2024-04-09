@@ -10,7 +10,7 @@ keywords:
 
 Rust의 로깅 API를 사용하여 런타임을 디버깅할 수 있습니다. 이를 위해 [`debug`](https://docs.rs/log/0.4.14/log/macro.debug.html)와 [`info`](https://docs.rs/log/0.4.14/log/macro.info.html)를 포함한 여러 매크로를 사용할 수 있습니다.
 
-예를 들어, 팔렛의 `Cargo.toml` 파일을 [`log` 크레이트](https://crates.io/crates/log)로 업데이트한 후에는 `log::info!`를 사용하여 콘솔에 로그를 남길 수 있습니다:<!-- markdown-link-check-disable-line -->
+예를 들어, 팔렛의 `Cargo.toml` 파일을 [`log` 크레이트](https://crates.io/crates/log)로 업데이트한 후에는 `log::info!`를 사용하여 콘솔에 로그를 남길 수 있습니다:
 
 ```rust
 pub fn do_something(origin) -> DispatchResult {
@@ -105,7 +105,7 @@ RUST_LOG=runtime=debug ./target/release/node-template --dev
 
 런타임에 출력 함수를 추가하면 디버그 코드가 포함된 Rust 및 Wasm 바이너리의 크기가 증가하므로 프로덕션에서는 필요하지 않습니다.
 
-## Substrate의 자체 print 함수
+## Substrate의 자체 Print 함수
 
 레거시 사용 사례에 대해 Substrate는 `Print` 디버깅(또는 추적)을 위한 추가 도구를 제공합니다. [`print` 함수](https://paritytech.github.io/substrate/master/sp_runtime/fn.print.html)를 사용하여 런타임 실행 상태를 로깅할 수 있습니다.
 

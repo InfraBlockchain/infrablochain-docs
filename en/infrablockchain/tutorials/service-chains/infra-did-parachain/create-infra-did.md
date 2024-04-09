@@ -2,27 +2,27 @@
 title: Creating InfraDID
 description: This tutorial explains how to create a DID on InfraDID parachain.
 keywords:
-  - parachain
-  - did
+  - Parachain
+  - DID
 ---
 
 ## Before You Begin
 
 Before you start, make sure to do the following:
 
-- [_InfraDID_ parachain](../../../service-chains/infra-did-parachain.md)
+- [InfraDID parachain](../../../service-chains/infra-did-parachain.md)
 
-## Creating an _InfraDID_
+## Creating an InfraDID
 
 Creating an InfraDID doesn't require communication with the blockchain itself.
 
 ![infra-did-method](/media/images/docs/infrablockchain/service-chains/infra-did-method.png)
 
-The format of an InfraDID involves composing the 'DID method-specific identifier' part as an SS58 address. In other words, if you structure it as `did:infra:{networkID}:{SS58 address}`, it becomes your own DID. You can use the public key and its corresponding private key, which can be obtained from the SS58 address, as the key pair you can use by default.
+The format of an InfraDID involves composing the `DID method-specific identifier` part as an SS58 address. In other words, if you structure it as `did:infra:{networkID}:{SS58 address}`, it becomes your own DID. You can use the public key and its corresponding private key, which can be obtained from the SS58 address, as the key pair you can use by default.
 
 If you want to register multiple public keys or other data using the same DID or want to use other data, you'll need to go through the process of registering the DID on the chain.
 
-## Registering on the _InfraDID_ Chain
+## Registering on the InfraDID Chain
 
 To register InfraDID on the chain, follow these steps:
 

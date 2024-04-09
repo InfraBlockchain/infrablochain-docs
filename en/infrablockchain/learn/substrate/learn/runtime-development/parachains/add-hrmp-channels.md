@@ -21,7 +21,7 @@ A channel can be opened only after the recipient confirms it and only on a sessi
 
 For the purpose of this guide, we'll assume we have:
 
-- A Relay chain
+- A Relay Chain
 - A Parachain A with ParaId 2000
 - A Parachain B with ParaId 3000
 

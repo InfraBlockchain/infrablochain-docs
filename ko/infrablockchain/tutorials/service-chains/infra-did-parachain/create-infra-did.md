@@ -10,25 +10,23 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [_InfraDID_ 파라체인](../../../service-chains/infra-did-parachain.md)
+- [인프라DID 파라체인](../../../service-chains/infra-did-parachain.md)
 
-## _InfraDID_ 생성하기
+## 인프라DID 생성하기
 
-Infra DID를 생성하는 것 자체는 블록체인과 통신이 필요하지 않습니다.
+인프라DID를 생성하기 위해 블록체인 자체와 통신할 필요는 없습니다.
 
 ![infra-did-method](/media/images/docs/infrablockchain/service-chains/infra-did-method.png)
 
-Infra DID의 형식은 위 그림에서 `DID method-specific identifier` 부분을 SS58 address로 구성하여 사용하고 있습니다.
+인프라DID는 위 그림 속 `DID method-specific identifier` 부분을 SS58 address로 구성한 형식을 따릅니다. 즉 `did:infra:{networkID}:{SS58 address}` 형식으로 구성하면 개인의 DID가 됩니다. SS58 address에서 얻을 수 있는 개인키와 공개키는 기본적으로 쌍으로 사용할 수 있습니다.
 
-즉 `did:infra:{networkID}:{SS58 address}` 형식으로 구성한다면 본인의 DID가 되는것이며 기본적으로 사용할 수 있는 키 쌍은 SS58 address에서 획득할 수 있는 공개키와 그와 쌍을 이루는 개인키를 사용할 수 있습니다.
+만약 동일한 DID를 사용하여 여러가지 공개키를 등록하거나 그 외 다른 데이터들을 등록하여 사용하고 싶다면, 체인에 DID를 등록하는 과정을 거쳐야 합니다.
 
-만약 동일한 DID를 사용하여 여러가지 공개키를 등록하거나 그 외 다른 데이터들을 등록하여 사용하고 싶다면 체인에 DID를 등록하는 과정을 거쳐야 합니다.
+## 인프라DID 체인에 등록하기
 
-## _InfraDID_ 체인에 등록하기
+인프라DID를 체인에 등록하기 위해선 아래와 같은 과정을 거칩니다.
 
-_InfraDID_ 를 체인에 등록하기 위해선 아래와 같은 과정을 거칩니다.
-
-1. [_인프라 블록체인(InfraBlockchain)_ 익스플로러](https://portal.infrablockspace.net) 에 접속하여 아래 과정을 따릅니다.
+1. [인프라블록체인 익스플로러](https://portal.infrablockspace.net)에 접속하여 아래 과정을 따릅니다.
 
 - `개발자` - `익스트린식` - `didModule` 팔레트의 `newOnchain` 익스트린식을 선택합니다.
 
@@ -44,11 +42,11 @@ _InfraDID_ 를 체인에 등록하기 위해선 아래와 같은 과정을 거�
 
    ![new-onchain-storage](/media/images/docs/infrablockchain/tutorials/service-chains/infra-did-parachain/new-onchain-storage.png)
 
-## infra-did-js 라이브러리 사용하여 InfraDID 생성 및 등록하기
+## `infra-did-js` 라이브러리를 사용하여 InfraDID 생성 및 등록하기
 
-[_인프라 블록체인(InfraBlockchain)_ 익스플로러](https://portal.infrablockspace.net)을 사용하여 Infra DID를 생성할 수 있지만, `infra-did-js` Javascript 라이브러리를 사용해서 Infra DID를 생성할 수도 있습니다.
+[인프라블록체인 익스플로러](https://portal.infrablockspace.net)을 사용하여 인프라DID를 생성할 수 있지만, `infra-did-js` Javascript 라이브러리를 사용해서 인프라DID를 생성할 수도 있습니다.
 
-`infra-did-js` 라이브러리를 사용해서 Infra DID를 생성하기 위해선 아래와 같은 과정을 거칩니다.
+`infra-did-js` 라이브러리를 사용해서 인프라DID를 생성하기 위해선 아래와 같은 과정을 거칩니다.
 
 1. [`infra-did-js`](https://github.com/InfraBlockchain/infra-did-js) 라이브러리를 설치합니다.
 
@@ -82,7 +80,7 @@ _InfraDID_ 를 체인에 등록하기 위해선 아래와 같은 과정을 거�
    const infraApi = await InfraSS58.createAsync(conf);
    ```
 
-3. Infra DID를 생성하는 코드를 작성합니다.
+3. 인프라DID를 생성하는 코드를 작성합니다.
 
    ```typescript
    DIDSet = await InfraSS58.createNewSS58DIDSet(networkId);
@@ -144,7 +142,7 @@ _InfraDID_ 를 체인에 등록하기 위해선 아래와 같은 과정을 거�
    }
    ```
 
-4. 생성한 Infra DID를 체인에 등록하기 위한 코드를 작성합니다.
+4. 생성한 인프라DID를 체인에 등록하기 위한 코드를 작성합니다.
 
    ```typescript
    // Register DID
@@ -153,4 +151,4 @@ _InfraDID_ 를 체인에 등록하기 위해선 아래와 같은 과정을 거�
 
 ## 다음 단계로 넘어가기
 
-- [Infra DID에 키 추가로 등록하기](./add-keys.md)
+- [인프라DID에 공개키 추가하기](./add-keys.md)

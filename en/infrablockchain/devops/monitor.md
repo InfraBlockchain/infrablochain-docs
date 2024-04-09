@@ -1,5 +1,5 @@
 ---
-title: Monitor
+title: Monitoring
 description: Provides an overview of the default telemetry for Substrate nodes and the Polkadot ecosystem.
 keywords:
 ---
@@ -13,7 +13,7 @@ At a high level, the information collected from each public node is sent to a de
 
 The following diagram provides a simplified overview of the workflow.
 
-![Default telemetry for Substrate nodes](/media/images/docs/telemetry-overview.png)
+![Default telemetry for Substrate nodes](/media/images/docs/infrablockchain/devops/telemetry-overview.png)
 
 ## View telemetry data
 
@@ -22,7 +22,7 @@ You can choose the information you want to display by turning visible columns on
 
 To see the list of columns and modify which columns are displayed, click **Settings**.
 
-![Click Settings to modify the visible columns](/media/images/docs/list-view-control.png)
+![Click Settings to modify the visible columns](/media/images/docs/infrablockchain/devops/list-view-control.png)
 
 The columns you can toggle on and off include:
 
@@ -49,7 +49,7 @@ The columns you can toggle on and off include:
 You can keep the information for one or more nodes in view in the dashboard by clicking the line displayed for the node in the dashboard list.
 For example, if you want to keep the information for two nodes visible while the information for other nodes scrolls by, you can select the nodes in the list and pin the information in place.
 
-![Keep information for selected nodes displayed](/media/images/docs/pin-nodes.png)
+![Keep information for selected nodes displayed](/media/images/docs/infrablockchain/devops/pin-nodes.png)
 
 ### Display nodes on a map
 
@@ -59,7 +59,7 @@ Note that only nodes that have a known location are displayed in the map.
 
 To see represented on a map, click **Map**.
 
-![Display nodes on a global map](/media/images/docs/node-map-view.png)
+![Display nodes on a global map](/media/images/docs/infrablockchain/devops/node-map-view.png)
 
 In this view, you can hover over any node location on the map to display a subset of the information available for the node, including the node name, location, best block number, best block hash, and block time statistics.
 
@@ -71,7 +71,7 @@ You can also view statistics about the CPU and memory configuration across nodes
 
 To see the full set of statistics available, click **Statistics**.
 
-![View statistics across nodes](/media/images/docs/node-statistics.png)
+![View statistics across nodes](/media/images/docs/infrablockchain/devops/node-statistics.png)
 
 The statistics available include details about the hardware and software running on the nodes in the network, including:
 
@@ -90,7 +90,7 @@ The statistics available include details about the hardware and software running
 By default, the telemetry dashboard displays information about Polkadot and provides quick links to a subset of other chains.
 To display information for other chains, click **More** and select a different chain.
 
-![Select other chains](/media/images/docs/more-chains.png)
+![Select other chains](/media/images/docs/infrablockchain/devops/more-chains.png)
 
 ## Customize the monitoring stack
 
@@ -111,8 +111,9 @@ Some examples of applications that query on-chain information are [polkabot](htt
 
 You should monitor each node that you run on the network for basic information about its operation such as the current block height, the number of peer-to-peer connections, CPU usage, and the available free memory.
 By default, Substrate exposes many useful metrics on the `host:9615/metrics` endpoint.
-For example, if Substrate is running locally, you can see the metrics on the http://localhost:9615/metrics endpoint.<!-- markdown-link-check-disable-line -->
+For example, if Substrate is running locally, you can see the metrics on the http://localhost:9615/metrics endpoint.
 This endpoint outputs metrics using a simple key-value format.
+
 For example:
 
 ```text
@@ -127,7 +128,8 @@ susbtrate_block_height{status="best"} 136
 susbtrate_block_height{status="finalized"} 133
 ```
 
-By default, the [metrics](http://localhost:9615/metrics) endpoint is only be exposed on the local network interface.<!-- markdown-link-check-disable-line -->
+By default, the [metrics](http://localhost:9615/metrics) endpoint is only be exposed on the local network interface.
+
 However, you can expose it on all interfaces by using the `--prometheus-external` command-line option to start a node.
 
 ### Configure monitoring tools
@@ -136,16 +138,16 @@ To set up monitoring and alerting policies, you typically configure a set of too
 For example, the default `metrics` endpoint doesn't include host metrics—such as CPU, memory, bandwidth usage—so you can complement it by installing the Prometheus [node_exporter](https://github.com/prometheus/node_exporter) on each host.
 The following diagram illustrates an open source set of tools that are often used as a monitoring stack.
 
-![Monitoring stack layers](/media/images/docs/monitoring-stack.png)
+![Monitoring stack layers](/media/images/docs/infrablockchain/devops/monitoring-stack.png)
 
 As this diagram illustrates, there are different tools available for each layer of the stack.
 In this example, the following tools are configured for monitoring on-chain activity and node operations:
 
-- Prometheus is a monitoring engine that collects metrics from specified targets at specified intervals and evaluates the data collected using rules you define. Its time series database can hold large amounts of data that can be accessed very quickly.
-- Grafana is an observability platform that allows you to query, visualize, and analyze the data you collect through dashboards and graphs.
-- Node exporter is process that listens on a port and reports application-specific metrics to Prometheus.
-- Alertmanager is a tool that enables you to create and route alerts based on the rules you specify. Alertmanager allows you to configure how and where to send alert if something goes wrong. For example, you can send instant messages for warning alerts, but page an on-call technician for critical alerts
-- Loki is a scalable log aggregation system that allows you to view and search logs from all components in your infrastructure in one place.
+- **Prometheus** is a monitoring engine that collects metrics from specified targets at specified intervals and evaluates the data collected using rules you define. Its time series database can hold large amounts of data that can be accessed very quickly.
+- **Grafana** is an observability platform that allows you to query, visualize, and analyze the data you collect through dashboards and graphs.
+- **Node exporter** is process that listens on a port and reports application-specific metrics to Prometheus.
+- **Alertmanager** is a tool that enables you to create and route alerts based on the rules you specify. Alertmanager allows you to configure how and where to send alert if something goes wrong. For example, you can send instant messages for warning alerts, but page an on-call technician for critical alerts
+- **Loki** is a scalable log aggregation system that allows you to view and search logs from all components in your infrastructure in one place.
 
 For a simple example of setting up node monitoring using Prometheus, Grafana, and node exporter, see [Monitor node metrics](/tutorials/build-a-blockchain/monitor-node-metrics/).
 For a simplified example of using Loki, see [Remote logging](/deploy/deployment-options/#remote-logging).

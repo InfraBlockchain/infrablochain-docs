@@ -1,6 +1,6 @@
 ---
-title: InfraDID 체인 구축하기
-description: 이 튜토리얼은 InfraDID 체인을 빌드하고 실행하는 과정을 설명합니다.
+title: 인프라DID 체인 구축하기
+description: 이 튜토리얼은 인프라DID 파라체인을 빌드하고 실행하는 과정을 설명합니다.
 keywords:
   - 파라체인
   - 서비스체인
@@ -11,15 +11,15 @@ keywords:
 
 시작하기 전에 다음을 확인하세요:
 
-- [_InfraDID_](../../../service-chains/infra-did-parachain.md)
+- [인프라DID](../../../service-chains/infra-did-parachain.md)
 
-## _InfraDID_ 체인
+## 인프라DID 체인
 
-이전 튜토리얼을 완료한 경우 로컬에 _인프라 릴레이 체인_ 레포지토리가 있어야 합니다.
+이전 튜토리얼을 완료한 경우, 로컬에 **_인프라릴레이체인(InfraRelayChain)_** 레포지토리가 있어야 합니다.
 
 1. 컴퓨터의 터미널 셸을 엽니다.
 
-2. 다음 명령을 실행하여 InfraDID 체인 저장소를 복제합니다:
+2. 다음 명령을 실행하여 인프라DID 체인 저장소를 복제합니다:
 
    ```bash
    git clone https://github.com/InfraBlockchain/infra-did-substrate
@@ -62,9 +62,9 @@ Finished release [optimized] target(s) in 11m 23s
 
 ## 로컬 노드 시작하기
 
-노드가 컴파일되면 좀비넷을 사용하여 릴레이 체인과 InfraDID 체인을 로컬 환경에서 구축 할 준비가 되었습니다.
+노드가 컴파일되면 좀비넷을 사용하여 릴레이체인과 인프라DID 체인을 로컬 환경에서 구축 할 준비가 되었습니다.
 
-로컬 InfraDID 체인을 시작하려면 다음 단계를 따르세요:
+로컬 인프라DID 체인을 시작하려면 다음 단계를 따르세요:
 
 1. 좀비넷 설정을 확인합니다
 
@@ -74,9 +74,9 @@ Finished release [optimized] target(s) in 11m 23s
 
    ```toml
     [relaychain]
-    default_command = "../infrablockchain-substrate/target/release/infra-relaychain"
+    default_command = "../infra-relay-chain/target/release/infrablockspace"
     default_args = ["-lparachain=debug", "-l=xcm=trace"]
-    chain = "infra-relay-local"
+    chain = "infrablockspace-local"
 
     [[relaychain.nodes]]
     name = "alice"
@@ -131,7 +131,7 @@ Finished release [optimized] target(s) in 11m 23s
 
    만약 일치하지 않는다면 로컬 환경에 맞게 변경 해 줍니다.
 
-2. 좀비넷을 실행하여 릴레이 체인과 체인을 실행합니다.
+2. 좀비넷을 실행하여 릴레이체인과 체인을 실행합니다.
 
    ```shell
    zombienet spawn --provider native zombienet/local-dev.toml
@@ -141,7 +141,7 @@ Finished release [optimized] target(s) in 11m 23s
 
    ![zombienet](/media/images/docs/infrablockchain/service-chains/infra-did-parachain-zombienet.png)
 
-4. (선택) InfraDID 체인의 노드를 확인하면 아래와 유사한 로그를 확인할 수 있습니다.
+4. (선택) 인프라DID 체인의 노드를 확인하면 아래와 유사한 로그를 확인할 수 있습니다.
 
    ```shell
    2023-10-30 14:32:09.155  INFO main sc_cli::runner: InfraDID Node
@@ -221,4 +221,4 @@ Finished release [optimized] target(s) in 11m 23s
 
 ## 다음 단계로 넘어가기
 
-- [Infra DID에 서비스 엔드포인트 등록하기](./add-services.md)
+- [InfraDID에 서비스 엔드포인트 등록하기](./add-services.md)

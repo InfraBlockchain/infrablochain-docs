@@ -1,21 +1,21 @@
 ---
-title: Setting Up InfraBlockchain EVM Chain
-description: This tutorial explains the process of building and running an InfraBlockchain EVM parachain.
+title: Setting Up InfraEVM Chain
+description: This tutorial explains the process of building and running an InfraEVM parachain.
 keywords:
-  - parachain
-  - service chain
-  - evm
+  - Parachain
+  - Service Chain
+  - InfraEVM
 ---
 
 ## Before you begin
 
 Before getting started, make sure to do the following:
 
-- [_InfraBlockchain EVM_](../../../service-chains/infra-evm-parachain.md)
+- [**InfraEVM**](../../../service-chains/infra-evm-parachain.md)
 
-## _InfraBlockchain EVM_ Chain
+## InfraEVM Chain
 
-If you have completed the previous tutorial, you should have the _InfraRelayChain_ repository on your local machine.
+If you have completed the previous tutorial, you should have the InfraRelayChain repository on your local machine.
 
 1. Open your computer's terminal shell.
 
@@ -73,9 +73,9 @@ To start the local InfraDID chain, follow these steps:
 
    ```toml
     [relaychain]
-    default_command = "../infrablockchain-substrate/target/release/infra-relaychain"
+    default_command = "../infra-relay-chain/target/release/infrablockspace"
     default_args = ["-lparachain=debug", "-l=xcm=trace"]
-    chain = "infra-relay-local"
+    chain = "infrablockspace-local"
 
     [[relaychain.nodes]]
     name = "alice"
@@ -276,3 +276,7 @@ To start the local InfraDID chain, follow these steps:
    ```
 
    This confirms that InfraEVM chain is operational.
+
+## Next steps
+
+- [Moving Assets with EVM](./deposit-and-withdraw-token.md)

@@ -1,8 +1,9 @@
 ---
-title: Build a parachain
+title: Build a Parachain
 description: 
 keywords:
-  - parachain
+  - Parachain
+  - InfraRelayChain
 ---
 
 This tutorial explains how to connect a parachain to the ***InfraRelayChain***.
@@ -51,15 +52,15 @@ To reserve a parachain identifier, follow these steps:
 
 3. Connect to the local Relay Chain by clicking on the left-top tab in the explorer and selecting the `DEVELOPMENT` section using the RPC port you configured when starting the local Relay Chain.
 
-   ![로컬 네트워크 연결](/media/images/docs/infrablockchain/tutorials/build/connect-network.png)
+   ![Connect Local Network](/media/images/docs/infrablockchain/tutorials/build/connect-network.png)
 
 4. Click on **Network** and select **Parachains**.
 
-   ![파라체인으로 이동](/media/images/docs/infrablockchain/tutorials/build/network-parachains.png)
+   ![Move to Parachain](/media/images/docs/infrablockchain/tutorials/build/network-parachains.png)
 
 5. Click on Parathreads and then click on ParaId.
    
-   ![파라체인 식별자 예약](/media/images/docs/infrablockchain/tutorials/build/paraid-reserve.png)
+   ![Reserve a Parachain Identifier](/media/images/docs/infrablockchain/tutorials/build/paraid-reserve.png)
 
 6. Confirm the transaction configuration for reserving the parachain identifier and click `Submit`.
 
@@ -219,7 +220,7 @@ For more details, refer to [Collators Document](https://wiki.polkadot.network/do
    ...
    ```
 
-- The template collator node runs as an independent node, and the embedded Relay Chain node connects as a peer to the local Relay chain verifier node. (If the embedded Relay chain is not peered with the local Relay Chain node, try disabling the firewall or adding the address of the Relay Chain node to the `bootnodes` parameter.)
+- The template collator node runs as an independent node, and the embedded Relay Chain node connects as a peer to the local Relay Chain verifier node. (If the embedded Relay Chain is not peered with the local Relay Chain node, try disabling the firewall or adding the address of the Relay Chain node to the `bootnodes` parameter.)
 
 ## Registering with the Local Relay Chain
 

@@ -7,11 +7,13 @@ keywords:
   - node operations
 ---
 
-Substrate exposes metrics for network operations. For example, you can collect information about the number of peers connected to a node, the amount of memory used by the node, and the number of blocks generated. To capture and visualize the metrics exposed by a Substrate node, you can configure and use tools like Prometheus and Grafana. This tutorial demonstrates how to use Prometheus to collect data samples and Grafana to create graphs and dashboards visualizing node metrics using the collected data samples.
+Substrate exposes metrics for network operations. For example, you can collect information about the number of peers connected to a node, the amount of memory used by the node, and the number of blocks generated. To capture and visualize the metrics exposed by a Substrate node, you can configure and use tools like [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/). 
+
+This tutorial demonstrates how to use Prometheus to collect data samples and Grafana to create graphs and dashboards visualizing node metrics using the collected data samples.
 
 The following diagram provides a simplified overview of the interaction between Substrate, Prometheus, and Grafana in visualizing node metrics:
 
-![Visualizing Node Metrics with Prometheus and Grafana](/media/images/docs/tutorials/monitor-node-metrics/node-metrics.png)
+![Visualizing Node Metrics with Prometheus and Grafana](/media/images/docs/infrablockchain/tutorials/node-metrics.png)
 
 ## Prerequisites
 
@@ -62,7 +64,7 @@ To install the tools for this tutorial, follow these steps:
 
 ## Starting the Substrate Node
 
-Substrate exposes metrics in the Prometheus exposition format on port `9615`. You can change the port using the `--prometheus-port` command-line option and configure it to be accessible on interfaces other than localhost using the `--prometheus-external` command-line option. For simplicity, this tutorial assumes that both the Substrate node, Prometheus instance, and Grafana service are running locally using the default ports.
+Substrate exposes metrics in the [Prometheus exposition format](https://prometheus.io/docs/concepts/data_model/) on port `9615`. You can change the port using the `--prometheus-port` command-line option and configure it to be accessible on interfaces other than localhost using the `--prometheus-external` command-line option. For simplicity, this tutorial assumes that both the Substrate node, Prometheus instance, and Grafana service are running locally using the default ports.
 
 1. Open a terminal shell on your computer.
 
@@ -170,6 +172,16 @@ To add the Substrate exposed endpoint to the Prometheus target list, follow thes
 ## Configuring the Grafana Data Source
 
 After installing Grafana using the appropriate command for your operating system and starting the service on your local machine, you can access it in your browser.
+The command used to start the service depends on your local system architecture and package manager.
+For example, if you are using macOS and Homebrew, you can start Grafana by running the following command:
+
+```bash
+brew services start grafana
+```
+
+For information on how to start Grafana on other operating systems, see the corresponding [Grafana](https://grafana.com/docs/grafana/v9.0/) documentation.
+
+After starting Grafana, you can navigate to Grafana from your browser.
 
 1. Open a browser and go to the Grafana URL, which uses the port Grafana is configured to use.
 
@@ -179,9 +191,11 @@ After installing Grafana using the appropriate command for your operating system
 
 3. On the welcome page, click **Configuration**, then click **Data Sources** under the **Configuration** menu.
 
-1. Click **Prometheus** to configure Prometheus as the data source for Substrate node metrics.
+4. Click **Prometheus** to configure Prometheus as the data source for Substrate node metrics.
 
-   If both the Substrate node and Prometheus instance are running, configure Grafana to find Prometheus at the default port `http://localhost:9090` or the custom port information you configured. Do not specify the Prometheus port you set in the `prometheus.yml` file. That port is where the node publishes data.
+   If both the Substrate node and Prometheus instance are running, configure Grafana to find Prometheus at the default port `http://localhost:9090` or the custom port information you configured. 
+   
+   Do not specify the Prometheus port you set in the `prometheus.yml` file. That port is where the node publishes data.
 
 2. Click **Save & Test** to verify that the data source is configured correctly.
 
@@ -215,7 +229,9 @@ To import the dashboard template, follow these steps:
 
    If you want to create a custom dashboard, refer to the [Grafana section of the Prometheus documentation](https://prometheus.io/docs/visualization/grafana/).
 
-   If you have created a custom dashboard, consider uploading it to the [Grafana Dashboards](https://grafana.com/grafana/dashboards). You can also list it in the [Awesome Substrate](https://github.com/substrate-developer-hub/awesome-substrate) repository to notify the Substrate builder community.
+   If you have created a custom dashboard, consider uploading it to the [Grafana Dashboards](https://grafana.com/grafana/dashboards).
+   
+    You can also list it in the [Awesome Substrate](https://github.com/substrate-developer-hub/awesome-substrate) repository to notify the Substrate builder community.
 
 ## Moving on to the next steps
 
