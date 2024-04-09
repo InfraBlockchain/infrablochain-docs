@@ -5,57 +5,63 @@ keywords:
   - 시스템 토큰
 ---
 
-**_인프라블록체인(InfraBlockchain)_** 에는 고유한 내장 네이티브 가상화폐 토큰이 하나도 없습니다. 대신 인프라블록체인에 생성된 모든 계정은**시스템 토큰(System Token)** 을 발행할 수 있으며,이는 블록체인의 코어 레벨에서 기본적으로 지원되는 표준 토큰 기능을 수행합니다.
-
-## 시스템 토큰의 특징
-
-- 시스템 토큰은 법정화폐에 연동된(Fiat-pegged) 토큰입니다. 실제 화폐가 담보된 양 만큼만 체인 상에 발행될 수 있습니다.
-
-- 따라서, 시스템 토큰은 별도의 토크노믹스를 가지고 있지 않습니다.
-
-- 사용자는 시스템 토큰을 사용하여 트랜잭션 수수료를 지불할 수 있으며, 이 수수료는 [밸리데이터에 대한 투표 형태](./proof-of-transaction.md)로 변환됩니다. 
+**_인프라블록체인(InfraBlockchain)_** 에는 자체적으로 발행되는 네이티브 가상화폐 토큰(e.g 비트코인의 BITCOIN, 이더리움의 ETHER)이 없고 법정화폐와 연동된 **시스템 토큰(System Token)** 을 발행하여 트랜잭션 수수료로 사용됩니다. 또한 멀티체인기반으로 이루어져있어 다른 네트워크에서 발행된 시스템 토큰을 가져와 트랜잭션 수수료로 사용될 수 있습니다. 이를 위해 시스템 토큰의 식별 체계는 멀티체인에 맞게 설계되어 있습니다:
 
 ## 시스템 토큰 식별자
 
-**_인프라블록체인(InfraBlokchain)_** 은 멀티체인 아키텍처로써, 각 체인에는 그 안에서 유통되고 있는 시스템 토큰에 대한 식별자가 존재합니다.
+멀티체인상에 존재하는 모든 주체(e.g 토큰, 계정 등)은 상대적인 위치를 갖고 있습니다. 예를 들면, 파라체인 A 에서 바라본 (릴레이 체인에 존재하는)토큰 X 의 위치와 릴레이 체인에서 바라본 토큰 X의 위치는 서로 다르게 표현됩니다. 이를 반영하여 각 체인에서 발행된 시스템 토큰 위치도 이러한 개념을 반영하여 표현됩니다.
 
 ```rust
-pub struct SystemTokenId {
-	#[codec(compact)]
-	pub para_id: ParaId,
-	#[codec(compact)]
-	pub pallet_id: PalletId,
-	#[codec(compact)]
-	pub asset_id: AssetId,
+pub struct MultiLocation {
+	parents: u8,
+	interior: Junctions,
 }
 ```
 
-`para_id`: 시스템 토큰이 유통되고 있는 파라체인 식별자
+`parents`: 상위 폴더와 같은 개념으로 서로 다른 컨센서스를 갖는 네트워크의 뎁스(depth)를 의미합니다. 예를 들면, 위의 토큰 X 의 위치는 파라체인내에서는 `parents = 1` 이지만 릴레이 체인 입장에서는 `parents = 0` 이 됩니다. 인프라 블록체인에서 릴레이 체인은 파라체인보다 항상 상위 개념으로 존재합니다.
 
-`pallet_id`: 해당 파라체인에 정의된 `Asset` 팔레트 식별자
+`interior`: 하위 폴더와 같은 개념으로 같은 네트워크 상에서의 뎁스를 의미합니다. 예를 들면, 토큰 X 의 위치는 `interior = PalletInstance(0) -> GeneralIndex(0)` 식으로 표현될 수 있습니다.
 
-`asset_id`: 해당 파라체인에서 시스템 토큰에 매핑된 로컬 애셋 식별자
+![SystemTokenId](/media/images/docs/infrablockchain/learn/protocol/system_token_id.png)
 
-## 시스템 토큰의 종류
+토큰 X의 상대적 위치를 종합해보면,
 
-### 오리지널 시스템 토큰
+- 릴레이 체인:
+  ```rust
+  MultiLocation {
+  	parents: 0,
+  	interior: Junctions::X2(PalletInstance(0), GeneralIndex(0))
+  };
+  ```
+- 파라체인:
+  ```rust
+  MultiLocation {
+  	parents: 1,
+  	interior: Junctions::X2(PalletInstance(1), GeneralIndex(0))
+  };
+  ```
 
-오리지널 원장에서 생성된 시스템 토큰을 나타냅니다. 
+## 시스템 토큰의 특징
 
-### 랩드 시스템 토큰
+- 시스템 토큰은 법정화폐에 연동된(Fiat-pegged) 토큰이며 실제 화폐가 담보된 양 만큼만 체인 상에 발행될 수 있습니다.
 
-다른 원장에서 유통되고 있는 시스템 토큰을 의미합니다.
+- 시스템 토큰은 오라클에 의한 실시간 환율정보에 기반하여 법정 화폐별로 다른 가치를 반영하고 있습니다.
 
-예를 들면, 파라체인(1000) 에서 `USD` 토큰을 생성했다고 가정해봅시다. 릴레이 체인 거버넌스에 의해 해당 토큰이 트랜잭션 수수료로 사용될 수 있는 시스템 토큰 으로 승인이 되었다면, 파라체인(2000) 에서 `Wrapped USD` 형태로 해당 토큰을 사용할 수 있습니다.  
+- 사용자는 시스템 토큰을 사용하여 트랜잭션 수수료를 지불할 수 있으며, 이 수수료는 [밸리데이터에 대한 투표 형태](./proof-of-transaction.md)로 변환됩니다.
 
-## 블록 생성자로부터 선택된 트랜잭션 수수료 토큰
+## 랩드(Wrapped) 시스템 토큰
 
-![시스템 토큰 관리](/media/images/docs/infrablockchain/learn/protocol/system-token.png)
+![Wrapped System Token](/media/images/docs/infrablockchain/learn/protocol/wrapped.png)
 
-위에서 잠깐 언급했듯이 인프라블록체인에서 **시스템 토큰** 은 트랜잭션 수수료로 사용될 수 있습니다. 다른 체인에서 생성된 임의의 토큰이 시스템 토큰으로 사용되려면 **_인프라릴레이체인(InfraRelayChain)_** 내 밸리데이터들의 거버넌스가 필요합니다. 정족수 이상의 거버넌스가 이루어지면 해당 토큰은 시스템 토큰 으로써 트랜잭션 수수료로 사용될 수 있게 되며, 다른 체인에서도 해당 토큰을 이용하여 블록체인 트랜잭션이 이루어질 수 있습니다. 
+릴레이 체인 밸리데이터에 의해 채택된 시스템 토큰에 대한 wrapped 를 의미합니다. Wrapped 를 사용하기 위해서는 릴레이 체인 거버넌스의 승인을 받아야 하며 승인이 되면 토큰을 사용하려고 하는 네트워크에 해당 시스템 토큰의 메타데이터(e.g 소수점자리, 토큰 심볼, 토큰 이름 등)를 포함한 wrapped 토큰이 생성됩니다.
 
-- 시스템 토큰에 대한 모든 상태 관리(e.g 시스템 토큰 등록 및 삭제, 시스템 토큰을 사용하고 있는 파라체인 목록 등)는 릴레이 체인에서 이루어집니다.
+## 오라클
+
+![오라클 노드](/media/images/docs/infrablockchain/learn/protocol/oracle.png)
+
+시스템 토큰은 법정 화폐기반 토큰으로 환율에 기반하여 서로 다른 가치를 가지고 있습니다. 환율 정보는 오프체인 데이터이며 릴레이 체인 거버넌스에 의해 선택된 오라클이 정보를 제공합니다. 특정 주기마다 현재 유통되어 있는 시스템 토큰 법정 화폐에 한해 환율 정보를 제공하며 이때마다 각 시스템 토큰의 가치를 다시 계산해주어 반영됩니다.
 
 ## 다음으로 넘어가기
 
 - [트랜잭션 증명(Proof-of-Transaction, PoT)](./proof-of-transaction.md)
+- [SystemTokenManager 모듈](https://github.com/InfraBlockchain/infrablockchain-substrate/blob/master/infrablockchain/runtime/parachains/src/system_token_manager.rs)
