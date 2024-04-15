@@ -184,11 +184,11 @@ chmod +x zombienet-macos
 
 - 블록이 처리될 때까지 기다린 후 **_인프라릴레이체인_** 에서 다음과 같은 이벤트를 확인합니다.
 
-  ![Alt text](/media/images/docs/infrablockchain/tutorials/infra-relay-event.png)
+  ![Event](/media/images/docs/infrablockchain/tutorials/infra-relay-event.png)
 
 - 해당 weight 만큼 투표가 집계가 되었고 **_인프라릴레이체인_** 스토리지에서도 확인할 수 있습니다.
 
-  ![Alt text](/media/images/docs/infrablockchain/tutorials/infra-relay-storage.png)
+  ![Storage](/media/images/docs/infrablockchain/tutorials/infra-relay-storage.png)
 
 ## 다음 단계로 넘어가기
 

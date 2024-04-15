@@ -99,18 +99,6 @@ pub struct PoT<Account, DestId, AssetId, Amount, Weight> {
 
 각 블록마다 **_인프라릴레이체인(InfraRelaychain)_** 의 블록 생성자(밸리데이터) 후보에 대한 투표가 선택적으로 포함되어 있고 검증 과정에서 해당 투표들이 수집되어 **_인프라릴레이체인(InfraRelayChain)_** 의 한 상태로 저장됩니다. 특정 시점이 지나면 수집된 투표를 바탕으로 블록 생성자 후보들에 대한 집계가 이루어지고 투표를 많이 받은 후보가 블록 생성자로 선출되게 됩니다.
 
-```rust
-#[pallet::storage]
-#[pallet::unbounded]
-pub type PotValidatorPool<T: Config> = StorageValue<_, VotingStatus<T>, ValueQuery>;
-
-#[derive(Encode, Decode, Clone, PartialEq, RuntimeDebug, TypeInfo)]
-#[scale_info(skip_type_params(T))]
-pub struct VotingStatus<T: Config> {
-	pub status: Vec<(T::InfraVoteAccountId, T::InfraVotePoints)>,
-}
-```
-
 ## 시간에 따라 증가하는 PoT 투표 가중치(Block time weight)
 
 최근 트랜잭션 투표에 더 많은 가중치를 두기 위해 **블록 시간 가중치(Block time weight)** 가 곱해집니다. 가중치는 1년에 2배의 비율로 증가합니다. 기준 시간은 _인프라릴레이체인_ 의 제네시스 블록(0번째 블록)이며, 릴레이체인 블록 기준으로 가중치가 곱해집니다. 블록 시간이 반영된 트랜잭션 투표 가중치의 정확한 계산은 아래와 같이 이뤄집니다:
