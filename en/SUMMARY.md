@@ -10,9 +10,8 @@
         <!-- * [파라체인 프로토콜](infrablockchain/learn/architecture/parachain/parachain-protocol.md) -->
     - [Protocol](infrablockchain/learn/protocol/README.md)
       - [System Token](infrablockchain/learn/protocol/system-token.md)
-      - [Transaction Fee Model](infrablockchain/learn/protocol/transaction-fee.md)
-      - [Proof-of-Transaction](infrablockchain/learn/protocol/proof-of-transaction.md)
-      - [Incentive](infrablockchain/learn/protocol/incentive.md)
+      - [Transaction Fee](infrablockchain/learn/protocol/transaction-fee.md)
+      - [Proof of Transaction](infrablockchain/learn/protocol/proof-of-transaction.md)
     - [Substrate](infrablockchain/learn/substrate/README.md)
       - [Learn](infrablockchain/learn/substrate/learn/README.md)
         - [Basic](infrablockchain/learn/substrate/learn/basic/README.md)

@@ -83,15 +83,15 @@ keywords:
     * TRANSACTION_FEE = FEE_ADJUSTMENT * ACUTAL_FEE * PARA_FEE_RATE / (SYTEM_TOKEN_WEIGHT * DEFAULT_PARA_FEE_RATE)
     ```
 
-    `FEE_ADJUSTMENT`: 기존 Substrate 기반 체인에 적용되어있는 벤치마킹 기준을 조정하기 위한 값
+`FEE_ADJUSTMENT`: 기존 Substrate 기반 체인에 적용되어있는 벤치마킹 기준을 조정하기 위한 값
 
-    `ACTUAL_FEE`: 벤치마킹 대비 실제 컴퓨팅 리소스가 사용되었을 때 부과되는 수수료
+`ACTUAL_FEE`: 벤치마킹 대비 실제 컴퓨팅 리소스가 사용되었을 때 부과되는 수수료
 
-    `PARA_FEE_RATE`: 각 파라체인별로 부과되는 수수료 비율
+`PARA_FEE_RATE`: 각 파라체인별로 부과되는 수수료 비율
 
-    `SYSTEM_TOKEN_WEIGHT`: 시스템 토큰별로 보유하고 있는 가중치
+`SYSTEM_TOKEN_WEIGHT`: 시스템 토큰별로 보유하고 있는 가중치
 
-    `DEFAULT_PARA_FEE_RATE`: 파라체인별 수수료 비율을 조정해주기 위한 값
+`DEFAULT_PARA_FEE_RATE`: 파라체인별 수수료 비율을 조정해주기 위한 값
 
 ### 파라체인별 수수료 비율
 

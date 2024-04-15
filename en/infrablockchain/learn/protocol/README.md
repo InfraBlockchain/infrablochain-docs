@@ -9,16 +9,12 @@ keywords:
 
 ## [System Token](./system-token.md)
 
-All enterprises and public institutions using **_InfraBlockchain_** have the capability to issue a stable token backed by legal tender known as the **System Token**. This section covers comprehensive information about System Token, which plays a crucial role in the operation and consensus of **_InfraBlockchain_**.
+All enterprises and public institutions using **_InfraBlockchain_** can issue a stable token backed by legal currency, known as the **system token**. This document covers the overall content regarding the system token, which plays an important role in the operation and consensus of InfraBlockchain.
 
 ## [Transaction Fee Model](./transaction-fee.md)
 
-**_InfraBlockchain_** operates as a blockchain using a system token based on legal tender as transaction fees. This section provides an overview of InfraBlockchain's unique **transaction fee model**.
+InfraBlockchain uses a token based on legal currency as a transaction fee. This document covers the overall content regarding InfraBlockchain's unique **transaction fee model**.
 
-## [Proof-of-Transaction](./proof-of-transaction.md)
+## [Proof of Transaction (PoT)](./proof-of-transaction.md)
 
-**_InfraBlockchain_** operates as a public blockchain without the issuance of its own cryptocurrency. This section covers the overall details of the proprietary consensus mechanism, **Proof-of-Transaction**, designed for this purpose.
-
-## [Incentive](./incentive.md)
-
-**_InfraBlockchain_** utilizes a System Token based on legal tender for transaction fees. This section explains how the transaction fees are rewarded to validators within the incentive system.
+This document covers the overall content regarding **Proof of Transaction (PoT)**, InfraBlockchain's unique consensus mechanism.

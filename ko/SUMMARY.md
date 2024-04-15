@@ -10,9 +10,8 @@
         <!-- * [파라체인 프로토콜](infrablockchain/learn/architecture/parachain/parachain-protocol.md) -->
     - [프로토콜](infrablockchain/learn/protocol/README.md)
       - [시스템 토큰](infrablockchain/learn/protocol/system-token.md)
-      - [트랜잭션 수수료 모델](infrablockchain/learn/protocol/transaction-fee.md)
-      - [트랜잭션 증명](infrablockchain/learn/protocol/proof-of-transaction.md)
-      - [인프라블록체인 보상 체계](infrablockchain/learn/protocol/incentive.md)
+      - [트랜잭션 수수료](infrablockchain/learn/protocol/transaction-fee.md)
+      - [Proof of Transaction](infrablockchain/learn/protocol/proof-of-transaction.md)
     - [Substrate](infrablockchain/learn/substrate/README.md)
       - [배우기](infrablockchain/learn/substrate/learn/README.md)
         - [기초 지식](infrablockchain/learn/substrate/learn/basic/README.md)
