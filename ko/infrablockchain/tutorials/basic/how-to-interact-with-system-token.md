@@ -1,12 +1,10 @@
 ---
-title: 시스템 토큰 등록 및 사용
+title: 시스템 토큰 프로세스
 description: 시스템 토큰 등록 절차 및 등록 후 사용 방법에 대한 내용을 다룹니다.
 keywords:
 ---
 
-**_인프라블록체인(InfraBlockchain)_** 은 시스템 토큰을 가스비로 사용하는 차별화된 블록체인 시스템을 제공합니다.
-아래는 시스템 토큰의 등록, 사용 및 폐기과정에 대해 개발자들이 쉽게 이해하고 개발할 수 있도록 정리한 내용입니다.
-해당 내용에 대한 실습은 [how-to-pay-transaction-fee](./how-to-pay-transaction-fee.md) 에서 진행할 수 있습니다.
+**_인프라 블록체인(InfraBlockchain)_** 은 자체 발행 암호화폐(e.g 이더리움의 Ether, 비트코인의 Bitcoin) 없이 법정 화폐 기반의 [시스템 토큰](../../learn/protocol/system-token.md)을 트랜잭션 수수료로 사용합니다. 따라서 _인프라 블록체인_ 의 자원을 활용하기 위해서는 먼저 시스템 토큰을 발행, 등록 및 승인 과정을 거쳐야 합니다. 본 문서는 시스템 토큰의 전반적인 프로세스에 대해 개발자들이 쉽게 이해하고 개발할 수 있도록 정리한 내용입니다.
 
 ## Bootstrap 단계
 
@@ -17,9 +15,14 @@ keywords:
 - `Assets::create` : 토큰을 생성하는 트랜잭션
 - `Assets::set_metadata`: 생성된 토큰에 대한 메타데이터를 설정하는 트랜잭션
 - `Assets::mint` : 토큰을 발행하는 트랜잭션(최소한으로 트랜잭션을 수행할 수 있는 토큰이 있어야 등록이 가능합니다)
-- `InfraParaCore::request_register_system_token` : 시스템 토큰에 대한 등록을 요청하는 트랜잭션
+- `InfraParaCore::request_register_system_token` : 시스템 토큰에 대한 등록을 요청하는 트랜잭션. 해당 트랜잭션은 파라체인에만 해당합니다.
 
 _표기 `_::_`: `::` 앞은 팔렛 이름이며 뒤는 팔렛 내 트랜잭션 이름입니다._
+
+운영자는 Bootstrap 단계에서 크게 두가지 액션을 취할 수 있습니다:
+
+- [시스템 토큰으로 등록할 토큰을 생성하기](#등록-요청-절차)
+- [다른 체인의 시스템 토큰의 wrapped 를 XCM 을 통해 받아오기](#wrapped-시스템-토큰-사용)
 
 ## 시스템 토큰 등록
 
@@ -105,11 +108,12 @@ _dest 는 부트 스트랩을 종료시킬 체인을 의미합니다._
 
 ![register_wrapped](/media/images/docs/infrablockchain/tutorials/register_wrapped.png)
 
-_밑에 para_id 옵션은 wrapped 시스템 토큰을 사용할 체인 id 를 의미합니다_
+- `Original` 파라미터에는 사용할 시스템 토큰의 `SystemTokenId` 를 의미합니다. 만약 parachain 1000 의 asset-pallet 50 번의 asset-id 1 번 토큰을 사용하고 싶다면 `parents = 0` 과 `interior = X3(Para(1000), PalletInstance(50), GeneralIndex(1))` 을 기입합니다. `parents = 0` 인 이유는 해당 토큰의 SystemTokenId 가 릴레이 체인 관점에서 작성되어야 하기 때문입니다.
+- `para_id` 옵션은 wrapped 시스템 토큰을 사용할 체인 id 를 의미합니다\_. 만약 자신의 `para_id` 가 `2000` 이라면 `2000` 을 입력합니다.
+- 정상적으로 승인되면 wrapped 를 사용할 체인의 `ForeignAssets` 에 정상적으로 해당 토큰이 생성되어 있는 것을 확인할 수 있습니다.
+- 정상적으로 생성이 완료되었다면 해당 토큰이 발행된 체인에 가서 XCM 을 통해 토큰을 받아옵니다.
 
-정상적으로 승인되면 wrapped 를 사용할 체인의 `ForeignAssets` 에 정상적으로 등록되어 있는 것을 확인할 수 있습니다.
-
-_등록이 완료된 후더라도 해당 토큰이 발행된 체인에서 XCM 을 통해 전달받은 후 트랜잭션 수수료로 사용될 수 있습니다._
+_XCM 을 수행하기 위해서는 릴레이 체인에서 HRMP 채널을 생성이 선행되어야 합니다. 해당 오퍼레이션은 릴레이 체인 거버넌스를 거쳐야 합니다._
 
 ## 시스템 토큰 사용 중지
 
