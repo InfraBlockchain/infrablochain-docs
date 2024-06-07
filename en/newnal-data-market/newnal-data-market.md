@@ -135,8 +135,6 @@ A blockchain (parachain) containing the service logic related to DID. Consists o
 
 The Verifier is the entity that verifies the data-package received from the Owner and executes the trade settlement (execute_trade) transaction upon successful verification. The Buyer can designate a trusted Verifier for the purchase, or the Buyer can operate the Verifier Server directly.
 
-![verifier_flow](../../media/images/docs/newnal-data-market/2_verifier_flow.png)
-
 When the Owner calls the submit-data API, the Verifier performs three main tasks.
 
 **`submit_data` API**: API for the Owner to submit the data-package to the Verifier.
