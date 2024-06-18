@@ -171,6 +171,7 @@
             -   [파라체인 구축하기](infrablockchain/tutorials/build/build-parachain.md)
             -   [메시지 전달 채널 열기](infrablockchain/tutorials/build/open-message-passing-channels.md)
             -   [XCM을 이용하여 토큰 전송하기](infrablockchain/tutorials/build/transfer-assets-with-xcm.md)
+            - [ Asynchrnous Backing 적용하기 ](infrablockchain/tutorials/build/upgrade-a-node.md)
         -   [테스트](infrablockchain/tutorials/test/README.md)
             -   [벤치마크](infrablockchain/tutorials/test/benchmark.md)
             -   [런타임 확인](infrablockchain/tutorials/test/check-runtime.md)
